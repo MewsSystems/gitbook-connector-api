@@ -28,7 +28,7 @@ Returns configuration of the enterprise and the client.
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `Enterprise` | [Enterprise](#enterprise) | required | The enterprise (e.g. hotel, hostel) associated with the access token. |
+| `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise (e.g. hotel, hostel) associated with the access token. |
 
 #### Enterprise
 
@@ -40,15 +40,15 @@ Returns configuration of the enterprise and the client.
 | `Name` | string | required | Name of the enterprise. |
 | `TimeZoneIdentifier` | string | required | IANA timezone identifier of the enterprise. |
 | `LegalEnvironmentCode` | string | required | Unique identifier of the legal environment where the enterprise resides. |
-| `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](#langauge). |
+| `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](configuration.md#language). |
 | `EditableHistoryInterval` | string | required | Editable history interval in ISO 8601 duration format. |
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |
 | `LogoImageId` | string | required | Unique identifier of the enterprise logo image. |
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
-| `Address` | [Address](#address) | required | Address of the enterprise. |
-| `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise. |
+| `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
+| `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 
 #### Address
 
@@ -58,13 +58,13 @@ Returns configuration of the enterprise and the client.
 | `Line2` | string | optional | Second line of the address. |
 | `City` | string | optional | The city. |
 | `PostalCode` | string | optional | Postal code. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](#country). |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 
 #### Accepted currency
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `Currency` | string | required | ISO-4217 code of the [Currency](#currency). |
+| `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `IsDefault` | bool | required | Whether the currency is a default accounting currency. |
 | `IsEnabled` | bool | required | Whether the currency is enabled for usage. |
 
@@ -137,7 +137,7 @@ Returns all countries supported by the API.
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `Countries` | array of [Country](#country) | required | The supported countries. |
+| `Countries` | array of [Country](configuration.md#country) | required | The supported countries. |
 
 #### Country
 
@@ -191,7 +191,7 @@ Returns all currencies supported by the API.
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `Currencies` | array of [Currency](#currency) | required | The supported currencies. |
+| `Currencies` | array of [Currency](configuration.md#currency) | required | The supported currencies. |
 
 #### Currency
 
@@ -245,7 +245,7 @@ Returns all languages supported by the API.
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `Languages` | array of [Language](#language) | required | The supported languages. |
+| `Languages` | array of [Language](configuration.md#language) | required | The supported languages. |
 
 #### Language
 
@@ -290,7 +290,7 @@ Returns translations of texts in the specified languages.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `LangaugeCodes` | array of string | required | Language-culture codes of the [Language](#langauge)s whose texts to return. |
+| `LangaugeCodes` | array of string | required | Language-culture codes of the [Language](configuration.md#language)s whose texts to return. |
 | `Scope` | string | required | Scope of texts to return. |
 
 {% common %}
@@ -312,13 +312,13 @@ Returns translations of texts in the specified languages.
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `LanguageTexts` | array of [Language texts](#language-texts) | required | Texts in the specified languages. |
+| `LanguageTexts` | array of [Language texts](configuration.md#language-texts) | required | Texts in the specified languages. |
 
 #### Language texts
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `LanguageCode` | string | required | Language-culture code of the [Language](#langauge). |
+| `LanguageCode` | string | required | Language-culture code of the [Language](configuration.md#language). |
 | `Texts` | number | required | Texts in the specified language by their keys. |
 
 {% common %}
@@ -354,7 +354,7 @@ Returns URLs of the specified images.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Images` | array of [Image parameters](#image-parameters) | required | Parameters of images whose URLs should be returned. |
+| `Images` | array of [Image parameters](configuration.md#image-parameters) | required | Parameters of images whose URLs should be returned. |
 
 #### Image parameters
 
@@ -363,7 +363,7 @@ Returns URLs of the specified images.
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Width` | number | required | Desired width of the image. |
 | `Height` | number | required | Desired height of the image. |
-| `ResizeMode` | string [Image resize mode](#image-resize-mode) | required | Mode how the image should be resized to the desired width and height. |
+| `ResizeMode` | string [Image resize mode](configuration.md#image-resize-mode) | required | Mode how the image should be resized to the desired width and height. |
 
 #### Image resize mode
 
@@ -394,7 +394,7 @@ Returns URLs of the specified images.
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `ImageUrls` | array of [Image URL](#image-url) | required | URLs of the images. |
+| `ImageUrls` | array of [Image URL](configuration.md#image-url) | required | URLs of the images. |
 
 #### Image URL
 
