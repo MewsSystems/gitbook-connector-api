@@ -105,7 +105,7 @@ Note: The customer classification, `Cashlist` is what customers are classified a
 
 ### Charging checked in customers
 
-Once the customer to be charged is identified, the items can be posted onto their bill using the [Add Order](operations/services.md#add-order) operation.
+Once the customer to be charged is identified, the items can be posted onto their bill using the [Add order](operations/services.md#add-order) operation.
 
 ## Reputation management systems
 
@@ -113,11 +113,11 @@ Reputation management systems provide valuable insight to obtain an understandin
 
 ### Retrieving Reservations
 
-After a customer has checked out from a reservation, reputation management systems often send through a survey through to a customers email. The integration should use the [Get Reservation by Ids](operations/reservations.md#get-reservation-by-ids) operation with a reservation state set to `Processed`.
+After a customer has checked out from a reservation, reputation management systems often send through a survey through to a customers email. The integration should use the [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) operation with a reservation state set to `Processed`.
 
 ### Updating Customer Profile
 
-Upon a Reputation management system associating feedback with a customer the [Update Customer](operations/customers.md#update-customer) operation should be added to the customer profile in Mews. The customer classification type `Previous complaint` is one which should be used when negative feedback has been received. Further to this, keywords from the complaint and a url to the survey or Tripadvisor post can be added to the customer `notes`.
+Upon a Reputation management system associating feedback with a customer the [Update customer](operations/customers.md#update-customer) operation should be added to the customer profile in Mews. The customer classification type `Previous complaint` is one which should be used when negative feedback has been received. Further to this, keywords from the complaint and a url to the survey or Tripadvisor post can be added to the customer `notes`.
 
 ## Mobile Key Systems
 
