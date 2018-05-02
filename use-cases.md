@@ -23,11 +23,11 @@ Sometimes the data obtained through the previous two steps are not sufficient en
 
 ### Periodic future update
 
-Performed periodically after the connection is set up so that RMS has future reservations and revenue up to date. Length of the period is not specified, but it is recommended to update the future data once or twice a day. If you need to get the reservation changeset more frequently, you should use the [Get all reservations](operations/reservations.md#get-all-reservations) with the [Reservation time filter](operations/#reservation-time-filter) set to `Updated`. That gives you just reservations that were created or updated within the specified interval.
+Performed periodically after the connection is set up so that RMS has future reservations and revenue up to date. Length of the period is not specified, but it is recommended to update the future data once or twice a day. If you need to get the reservation changeset more frequently, you should use the [Get all reservations](operations/reservations.md#get-all-reservations) with the [Reservation time filter](operations/reservations.md#reservation-time-filter) set to `Updated`. That gives you just reservations that were created or updated within the specified interval.
 
 ### Rate pricing
 
-To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](operations/services.md#update-price) operation be used. Individual rate, room category and time span can be chosen.
+To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](operations/services.md#update-rate-price) operation be used. Individual rate, room category and time span can be chosen.
 
 ### Occupancy
 
