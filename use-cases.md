@@ -39,9 +39,9 @@ In order to communicate with devices on the local hotel network, such as printer
 
 ### Processing commands
 
-First of all, you should subscribe your application for receiving device command events by connecting to the [Websockets](websockets.md) endpoint. Since then, your application will receive all the newly created device commands in real time. You might also need to obtain all of the commands that are already pending in the queue while your application was offline. To do so, you should use the [Get all active commands](operations/integrations.md#get-all-active-commands) operation. You want to pull the pending commands every time your application reconnects using websockets, no matter how long it was offline. Otherwise, there might be some unprocessed commands in your queue.
+First of all, you should subscribe your application for receiving device command events by connecting to the [Websockets](websockets.md) endpoint. Since then, your application will receive all the newly created device commands in real time. You might also need to obtain all of the commands that are already pending in the queue while your application was offline. To do so, you should use the [Get all commands](operations/integrations.md#get-all-commands) operation. You want to pull the pending commands every time your application reconnects using websockets, no matter how long it was offline. Otherwise, there might be some unprocessed commands in your queue.
 
-Once you are notified via a websocket about the fact that a device command was created or updated, you need to pull the command into your application using [Get all active commands](operations/integrations.md#get-all-active-commands). Once done, you should mark the command as processed using the [Update command](operations/integrations.md#update-command) operation.
+Once you are notified via a websocket about the fact that a device command was created or updated, you need to pull the command into your application using [Get all commands](operations/integrations.md#get-all-commands). Once done, you should mark the command as processed using the [Update command](operations/integrations.md#update-command) operation.
 
 #### Fiscal machine commands
 
