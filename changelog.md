@@ -23,10 +23,10 @@
 * Extended [Enterprise](operations/configuration.md#enterprise) with `ChainId`, `DefaultLanguageCode`, `LegalEnvironmentCode`, `LogoImageId` and `CoverImageId`.
 * Extended [Language](operations/configuration.md#language) with `FallbackLanguageCode`.
 * Extended [Customer](operations/customers.md#customer) with `TaxIdentificationCode`.
-* Extended [Accounting item](operations/#accounting-item) with `ClosedUtc`.
+* Extended [Accounting item](operations/finance.md#accounting-item) with `ClosedUtc`.
 * Extended [Product](operations/services.md#product) with `Description`.
 * Extended [Space](operations/enterprises.md#space) and [Space category](operations/enterprises.md#space-category) with `IsActive`.
-* Extended [Space extent](operations/#space-extent) with `Inactive`.
+* Extended [Space extent](operations/enterprises.md#space-extent) with `Inactive`.
 * Extended [Update rate price](operations/services.md#update-rate-price) with possibility to remove adjustments \(using unspecified `Value`\).
 * Extended [Get rate pricing](operations/services.md#get-rate-pricing) response with `CategoryAdjustments`.
 * Extended websocket events with [Space event](websockets.md#space-event).
