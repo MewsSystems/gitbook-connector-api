@@ -150,12 +150,6 @@ Raturns all products offered together with the specified services.
 
 `[PlatformAddress]/api/connector/v1/products/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -166,31 +160,13 @@ Raturns all products offered together with the specified services.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Products` | array of [Product](services.md#product) | required | Products offered with the service. |
-
-#### Product
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the product. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
-| `IsActive` | boolean | required | Whether the product is still active. |
-| `Name` | string | required | Name of the product. |
-| `ShortName` | string | required | Short name of the product. |
-| `Description` | string | optional | Description of the product. |
-| `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
-| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
-| `Price` | [Currency value](finance.md#currency-value) | required | Price of the product. |
-
-#### Product charging
-
-* `Once`
-* `PerTimeUnit`
-* `PerPersonPerTimeUnit`
 
 ```javascript
 {
@@ -222,6 +198,30 @@ Raturns all products offered together with the specified services.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Products` | array of [Product](services.md#product) | required | Products offered with the service. |
+
+#### Product
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the product. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
+| `IsActive` | boolean | required | Whether the product is still active. |
+| `Name` | string | required | Name of the product. |
+| `ShortName` | string | required | Short name of the product. |
+| `Description` | string | optional | Description of the product. |
+| `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
+| `Price` | [Currency value](finance.md#currency-value) | required | Price of the product. |
+
+#### Product charging
+
+* `Once`
+* `PerTimeUnit`
+* `PerPersonPerTimeUnit`
+
 ## Get all business segments
 
 Returns all business segments of the default service provided by the enterprise.
@@ -230,11 +230,6 @@ Returns all business segments of the default service provided by the enterprise.
 
 `[PlatformAddress]/api/connector/v1/businessSegments/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -242,19 +237,12 @@ Returns all business segments of the default service provided by the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `BusinessSegments` | array of [Business segment](services.md#business-segment) | required | Business segments of the default service. |
-
-#### Business segment
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the segment. |
-| `IsActive` | boolean | required | Whether the business segment is still active. |
-| `Name` | string | required | Name of the segment. |
 
 ```javascript
 {
@@ -273,6 +261,18 @@ Returns all business segments of the default service provided by the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BusinessSegments` | array of [Business segment](services.md#business-segment) | required | Business segments of the default service. |
+
+#### Business segment
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the segment. |
+| `IsActive` | boolean | required | Whether the business segment is still active. |
+| `Name` | string | required | Name of the segment. |
+
 ## Get all rates
 
 Returns all rates \(pricing setups\) and rate groups \(condition settings\) of the default service provided by the enterprise.
@@ -280,6 +280,18 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Extent": {
+        "Rates": true,
+        "RateGroups": true,
+        "RateRestrictions": false
+    }
+}
+```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -295,19 +307,67 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
 | `RateRestrictions` | bool | optional | Whether the response should contain rate restrictions. |
 
+### Response
+
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Extent": {
-        "Rates": true,
-        "RateGroups": true,
-        "RateRestrictions": false
+    "Rates": [
+        {
+            "BaseRateId": null,
+            "GroupId": "c8b866b3-be2e-4a47-9486-034318e9f393",
+            "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "IsActive": true,
+            "IsPublic": true,
+            "Name": "Fully Flexible",
+            "ShortName": "FF"
+        }
+    ],
+    "RateGroups": [
+        {
+            "Id": "c8b866b3-be2e-4a47-9486-034318e9f393",
+            "IsActive": true,
+            "Name": "Default"
+        }
+    ],
+    "RateRestrictions": {
+        "DateRestrictions": [
+            {
+                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
+                "Id": "cd12a0db-1eeb-4eda-965c-229efff4bd5d",
+                "IsInherited": true,
+                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
+                "EndUtc": "2019-12-31T23:00:00Z",
+                "IsInverted": false,
+                "StartUtc": "2016-12-31T23:00:00Z"
+            }
+        ],
+        "EarlinessRestrictions": [
+            {
+                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
+                "Id": "0b9f74e7-3b7b-4472-a476-8ac1f01696ea",
+                "IsInherited": true,
+                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
+                "EndUtc": null,
+                "MaxAdvance": null,
+                "MinAdvance": "P7D",
+                "StartUtc": null
+            }
+        ],
+        "LengthRestrictions": [
+            {
+                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
+                "Id": "c91dcd27-fd53-4bc6-bb2a-a783e39c61f1",
+                "IsInherited": true,
+                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
+                "EndUtc": null,
+                "MaxLength": null,
+                "MinLength": "P4D",
+                "StartUtc": null
+            }
+        ]
     }
 }
 ```
-
-### Response
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -390,66 +450,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 * `Saturday`
 * `Sunday`
 
-```javascript
-{
-    "Rates": [
-        {
-            "BaseRateId": null,
-            "GroupId": "c8b866b3-be2e-4a47-9486-034318e9f393",
-            "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "IsActive": true,
-            "IsPublic": true,
-            "Name": "Fully Flexible",
-            "ShortName": "FF"
-        }
-    ],
-    "RateGroups": [
-        {
-            "Id": "c8b866b3-be2e-4a47-9486-034318e9f393",
-            "IsActive": true,
-            "Name": "Default"
-        }
-    ],
-    "RateRestrictions": {
-        "DateRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "cd12a0db-1eeb-4eda-965c-229efff4bd5d",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": "2019-12-31T23:00:00Z",
-                "IsInverted": false,
-                "StartUtc": "2016-12-31T23:00:00Z"
-            }
-        ],
-        "EarlinessRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "0b9f74e7-3b7b-4472-a476-8ac1f01696ea",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": null,
-                "MaxAdvance": null,
-                "MinAdvance": "P7D",
-                "StartUtc": null
-            }
-        ],
-        "LengthRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "c91dcd27-fd53-4bc6-bb2a-a783e39c61f1",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": null,
-                "MaxLength": null,
-                "MinLength": "P4D",
-                "StartUtc": null
-            }
-        ]
-    }
-}
-```
-
 ## Get rate pricing
 
 Returns prices of a rate in the specified interval. Note that response contains prices for all dates that the specified interval intersects. So e.g. interval `1st Jan 13:00 - 1st Jan 14:00` will result in one price for `1st Jan`. Interval `1st Jan 23:00 - 2nd Jan 01:00` will result in two prices for `1st Jan` and `2nd Jan`.
@@ -457,14 +457,6 @@ Returns prices of a rate in the specified interval. Note that response contains 
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/getPricing`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ```javascript
 {
@@ -476,31 +468,15 @@ Returns prices of a rate in the specified interval. Note that response contains 
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
-| `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
-| `CategoryPrices` | array of [Space category pricing](services.md#space-category-pricing) | required | Space category prices. |
-| `CategoryAdjustments` | array of [Space category adjustment](services.md#space-category-adjustment) | required | Space category adjustments. |
-
-#### Space category pricing
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
-| `Prices` | array of number | required | Prices of the rate for the space category in the covered dates. |
-
-#### Space category adjustment
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the adjustment [Space category](enterprises.md#space-category). |
-| `ParentCategoryId` | string | optional | Unique identifier of the parent [Space category](enterprises.md#space-category) that serves as a base price for the current category. |
-| `RelativeValue` | number | required | Relative value of the adjustment \(e.g. `0.5` represents 50% increase\). |
-| `AbsoluteValue` | number | required | Absolute value of the adjustment \(e.g. `50` represents 50 EUR in case the rate currency is `EUR`\). |
 
 ```javascript
 {
@@ -534,6 +510,30 @@ Returns prices of a rate in the specified interval. Note that response contains 
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
+| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
+| `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
+| `CategoryPrices` | array of [Space category pricing](services.md#space-category-pricing) | required | Space category prices. |
+| `CategoryAdjustments` | array of [Space category adjustment](services.md#space-category-adjustment) | required | Space category adjustments. |
+
+#### Space category pricing
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
+| `Prices` | array of number | required | Prices of the rate for the space category in the covered dates. |
+
+#### Space category adjustment
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryId` | string | required | Unique identifier of the adjustment [Space category](enterprises.md#space-category). |
+| `ParentCategoryId` | string | optional | Unique identifier of the parent [Space category](enterprises.md#space-category) that serves as a base price for the current category. |
+| `RelativeValue` | number | required | Relative value of the adjustment \(e.g. `0.5` represents 50% increase\). |
+| `AbsoluteValue` | number | required | Absolute value of the adjustment \(e.g. `50` represents 50 EUR in case the rate currency is `EUR`\). |
+
 ## Update rate price
 
 Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects.
@@ -541,22 +541,6 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/updatePrice`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) to update. |
-| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
-
-#### Price update
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryId` | string | optional | Unique identifier of the [Space category](enterprises.md#space-category) whose prices to update. If not specified, base price is updated. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ```javascript
 {
@@ -579,9 +563,23 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) to update. |
+| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
 
-Empty object.
+#### Price update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryId` | string | optional | Unique identifier of the [Space category](enterprises.md#space-category) whose prices to update. If not specified, base price is updated. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
+
+### Response
 
 ```javascript
 {}
@@ -594,6 +592,36 @@ Creates a new order with the specified products and items. Only positive charges
 ### Request
 
 `[PlatformAddress]/api/connector/v1/orders/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerId": "794dbb77-0a9a-4170-9fa9-62ea4bf2a56e",
+    "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
+    "ConsumptionUtc": "2018-01-01T00:00:00Z",
+    "ProductOrders": [
+        {
+            "ProductId": "80191f0c-89f7-49ac-a150-1f342b29c4cf",
+            "Count": 2
+        }
+    ],
+    "Items": [
+        {
+            "Name": "Beer",
+            "UnitCount": 10,
+            "UnitCost": {
+                "Amount": 2.50,
+                "Currency": "GBP",
+                "Tax": 0.20
+            },
+            "Category": {
+                "Code": "ABVG"
+            }
+        }
+    ]
+}
+```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -638,45 +666,15 @@ Creates a new order with the specified products and items. Only positive charges
 | `Code` | string | required | Code of the accounting category in Mews. |
 | `Name` | string | optional | Name of the category, used if no category is matched using the code. |
 
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "CustomerId": "794dbb77-0a9a-4170-9fa9-62ea4bf2a56e",
-    "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
-    "ConsumptionUtc": "2018-01-01T00:00:00Z",
-    "ProductOrders": [
-        {
-            "ProductId": "80191f0c-89f7-49ac-a150-1f342b29c4cf",
-            "Count": 2
-        }
-    ],
-    "Items": [
-        {
-            "Name": "Beer",
-            "UnitCount": 10,
-            "UnitCost": {
-                "Amount": 2.50,
-                "Currency": "GBP",
-                "Tax": 0.20
-            },
-            "Category": {
-                "Code": "ABVG"
-            }
-        }
-    ]
-}
-```
-
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `OrderId` | string | required | Unique identifier of the created order. |
 
 ```javascript
 {
     "OrderId": "cdfd5caa-2868-411b-ba95-322e70035f1a"
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `OrderId` | string | required | Unique identifier of the created order. |
 
