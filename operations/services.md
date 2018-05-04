@@ -8,11 +8,6 @@ Raturns all services offered by the enterprise.
 
 `[PlatformAddress]/api/connector/v1/services/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -20,32 +15,12 @@ Raturns all services offered by the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Services` | array of [Service](services.md#service) | required | Services offered by the enterprise. |
-
-#### Service
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the service. |
-| `IsActive` | boolean | required | Whether the service is still active. |
-| `Name` | string | required | Name of the service. |
-| `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
-| `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
-| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
-
-#### Promotions
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
-| `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
-| `DuringStay` | boolean | required | Whether it can be promoted during stay. |
-| `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
-| `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 
 ```javascript
 {
@@ -82,6 +57,31 @@ Raturns all services offered by the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Services` | array of [Service](services.md#service) | required | Services offered by the enterprise. |
+
+#### Service
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the service. |
+| `IsActive` | boolean | required | Whether the service is still active. |
+| `Name` | string | required | Name of the service. |
+| `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
+| `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
+
+#### Promotions
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
+| `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
+| `DuringStay` | boolean | required | Whether it can be promoted during stay. |
+| `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
+| `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
+
 ## Get service availability
 
 Returns availability of a service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
@@ -89,14 +89,6 @@ Returns availability of a service in the specified interval. Note that response 
 ### Request
 
 `[PlatformAddress]/api/connector/v1/services/getAvailability`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ```javascript
 {
@@ -107,6 +99,14 @@ Returns availability of a service in the specified interval. Note that response 
     "EndUtc":"2017-01-03T00:00:00.000Z"
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 

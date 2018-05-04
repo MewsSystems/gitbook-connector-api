@@ -8,11 +8,6 @@ Returns all devices in the enterprise.
 
 `[PlatformAddress]/api/connector/v1/devices/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -20,19 +15,12 @@ Returns all devices in the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Devices` | array of [Device](integrations.md#device) | required | The devices. |
-
-#### Device
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the device. |
-| `Name` | string | required | Name of the device. |
-| `Type` | string | required | Type of the device \(see [Command data](integrations.md#command-data)\). |
 
 ```javascript
 {
@@ -46,6 +34,18 @@ Returns all devices in the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Devices` | array of [Device](integrations.md#device) | required | The devices. |
+
+#### Device
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the device. |
+| `Name` | string | required | Name of the device. |
+| `Type` | string | required | Type of the device \(see [Command data](integrations.md#command-data)\). |
+
 ## Get all commands
 
 Returns all commands the are still active from the client application point of view. That means commands that are in either `Pending` or `Received` state.
@@ -54,11 +54,6 @@ Returns all commands the are still active from the client application point of v
 
 `[PlatformAddress]/api/connector/v1/commands/getAllActive`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -66,7 +61,42 @@ Returns all commands the are still active from the client application point of v
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
+
+```javascript
+{
+    "Commands": [
+        {
+            "Id": "aa20961f-6d9e-4b35-ad25-071213530aec",
+            "State": "Pending",
+            "CreatedUtc": "2015-09-02T19:25:44Z",
+            "Creator": {
+                "FirstName": "Sample",
+                "LastName": "User",
+                "ImageUrl": "..."
+            },
+            "Device": {
+                "Id": "63efb573-fc58-4065-b687-9bdd51568529",
+                "Name": "Test Printer",
+                "Type": "Printer"
+            },
+            "Data": {
+                "CopyCount": 1,
+                "FileType": "application/pdf",
+                "FileData": "...",
+                "PrinterName": "Printer",
+                "PrinterDriverName": "",
+                "PrinterPortName": ""
+            }
+        }
+    ]
+}
+```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -152,36 +182,6 @@ Structure of command data varies depending on type of the [Device](integrations.
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
 | `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation). |
 
-```javascript
-{
-    "Commands": [
-        {
-            "Id": "aa20961f-6d9e-4b35-ad25-071213530aec",
-            "State": "Pending",
-            "CreatedUtc": "2015-09-02T19:25:44Z",
-            "Creator": {
-                "FirstName": "Sample",
-                "LastName": "User",
-                "ImageUrl": "..."
-            },
-            "Device": {
-                "Id": "63efb573-fc58-4065-b687-9bdd51568529",
-                "Name": "Test Printer",
-                "Type": "Printer"
-            },
-            "Data": {
-                "CopyCount": 1,
-                "FileType": "application/pdf",
-                "FileData": "...",
-                "PrinterName": "Printer",
-                "PrinterDriverName": "",
-                "PrinterPortName": ""
-            }
-        }
-    ]
-}
-```
-
 ## Get all commands by ids
 
 Returns all commands by their identifiers.
@@ -189,12 +189,6 @@ Returns all commands by their identifiers.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/commands/getAllByIds`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `CommandIds` | array of string | required | Unique identifiers of [Command](integrations.md#command)s to be returned. |
 
 ```javascript
 {
@@ -205,6 +199,12 @@ Returns all commands by their identifiers.
     ]
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CommandIds` | array of string | required | Unique identifiers of [Command](integrations.md#command)s to be returned. |
 
 ### Response
 
@@ -218,14 +218,6 @@ Adds a new printer command representing printing of the specified document on a 
 
 `[PlatformAddress]/api/connector/v1/commands/addPrinter`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `PrinterId` | string | required | Uniqque identifier of the `Printer` [Device](integrations.md#device) where to print the document. |
-| `CopyCount` | int | required | Count of copies to be printed. |
-| `Data` | string | required | Base64 encoded data of PDF document to print. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -236,17 +228,25 @@ Adds a new printer command representing printing of the specified document on a 
 }
 ```
 
-### Response
-
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CommandId` | string | required | Unique identifier of the created [Command](integrations.md#command). |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `PrinterId` | string | required | Uniqque identifier of the `Printer` [Device](integrations.md#device) where to print the document. |
+| `CopyCount` | int | required | Count of copies to be printed. |
+| `Data` | string | required | Base64 encoded data of PDF document to print. |
+
+### Response
 
 ```javascript
 {
     "CommandId": "588fc010-1971-4589-b39f-9550d1e1b3a7"
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CommandId` | string | required | Unique identifier of the created [Command](integrations.md#command). |
 
 ## Add key cutter command
 
@@ -255,14 +255,6 @@ Adds a new key cutter command representing cutting of a key for the specified re
 ### Request
 
 `[PlatformAddress]/api/connector/v1/commands/addKeyCutter`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `KeyCutterId` | string | required | Unique identifier of the `KeyCutter` [Device](integrations.md#device) where to encode the key. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to encode the key for. |
-| `KeyCount` | int | required | Count of keys to encode. |
 
 ```javascript
 {
@@ -274,17 +266,25 @@ Adds a new key cutter command representing cutting of a key for the specified re
 }
 ```
 
-### Response
-
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CommandId` | string | required | Unique identifier of the created [Command](integrations.md#command). |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `KeyCutterId` | string | required | Unique identifier of the `KeyCutter` [Device](integrations.md#device) where to encode the key. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to encode the key for. |
+| `KeyCount` | int | required | Count of keys to encode. |
+
+### Response
 
 ```javascript
 {
     "CommandId": "4a787fce-a881-4f40-8c97-bc97a6ef4ee8"
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CommandId` | string | required | Unique identifier of the created [Command](integrations.md#command). |
 
 ## Update command
 
@@ -293,15 +293,6 @@ Updates state of a command.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/commands/update`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `CommandId` | string | required | Identifier of the [Command](integrations.md#command) to be updated. |
-| `State` | string [Command state](integrations.md#command-state) | required | New state of the command. |
-| `Progress` | number | optional | Progress of the command processing. Only used if the `State` is `Processing`, otherwise ignored. |
-| `Notes` | string | optional | Notes about command execution. Only used if the `State` is `Processed`, `Cancelled` or `Error`, otherwise ignored. |
 
 ```javascript
 {
@@ -312,9 +303,16 @@ Updates state of a command.
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CommandId` | string | required | Identifier of the [Command](integrations.md#command) to be updated. |
+| `State` | string [Command state](integrations.md#command-state) | required | New state of the command. |
+| `Progress` | number | optional | Progress of the command processing. Only used if the `State` is `Processing`, otherwise ignored. |
+| `Notes` | string | optional | Notes about command execution. Only used if the `State` is `Processed`, `Cancelled` or `Error`, otherwise ignored. |
 
-Empty object.
+### Response
 
 ```javascript
 {}

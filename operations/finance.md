@@ -8,11 +8,6 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 
 `[PlatformAddress]/api/connector/v1/exchangeRates/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -20,19 +15,12 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ExchangeRates` | array of [Exchange rate](finance.md#exchange-rate) | required | The available exchange rates. |
-
-#### Exchange rate
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `SourceCurrency` | string | required | ISO-4217 code of the source [Currency](configuration.md#currency). |
-| `TargetCurrency` | string | required | ISO-4217 code of the target [Currency](configuration.md#currency). |
-| `Value` | number | required | The exchange rate from the source currency to the target currency. |
 
 ```javascript
 {
@@ -51,6 +39,18 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ExchangeRates` | array of [Exchange rate](finance.md#exchange-rate) | required | The available exchange rates. |
+
+#### Exchange rate
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `SourceCurrency` | string | required | ISO-4217 code of the source [Currency](configuration.md#currency). |
+| `TargetCurrency` | string | required | ISO-4217 code of the target [Currency](configuration.md#currency). |
+| `Value` | number | required | The exchange rate from the source currency to the target currency. |
+
 ## Get all cashiers
 
 Returns all cashiers in the enterprise.
@@ -59,11 +59,6 @@ Returns all cashiers in the enterprise.
 
 `[PlatformAddress]/api/connector/v1/cashiers/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -71,19 +66,12 @@ Returns all cashiers in the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Cashiers` | array of [Cashier](finance.md#cashier) | required | Cashiers in the enterprise. |
-
-#### Cashier
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the cashier. |
-| `IsActive` | boolean | required | Whether the cashier is still active. |
-| `Name` | string | required | Name of the cashier. |
 
 ```javascript
 {
@@ -97,6 +85,18 @@ Returns all cashiers in the enterprise.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Cashiers` | array of [Cashier](finance.md#cashier) | required | Cashiers in the enterprise. |
+
+#### Cashier
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the cashier. |
+| `IsActive` | boolean | required | Whether the cashier is still active. |
+| `Name` | string | required | Name of the cashier. |
+
 ## Get all cashier transactions
 
 Returns all cashier transactions created within the specified interval.
@@ -104,13 +104,6 @@ Returns all cashier transactions created within the specified interval.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/cashierTransactions/getAll`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `StartUtc` | string | required | Start of the creation interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the creation interval in UTC timezone in ISO 8601 format. |
 
 ```javascript
 {
@@ -121,23 +114,14 @@ Returns all cashier transactions created within the specified interval.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `StartUtc` | string | required | Start of the creation interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the creation interval in UTC timezone in ISO 8601 format. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CashierTransactions` | array of [Cashier transaction](finance.md#cashier-transaction) | required | Cashier transactions created in the interval. |
-
-#### Cashier transaction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the transaction. |
-| `CashierId` | string | required | Unique identifier of the [Cashier](finance.md#cashier). |
-| `PaymentId` | string | optional | Unique identifier of the corresponding payment [Accounting item](finance.md#accounting-item). |
-| `CreatedUtc` | string | required | Creation date and time of the transaction. |
-| `Number` | string | required | Number of the transaction. |
-| `Notes` | string | optional | Additional notes of the transaction. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Value of the transaction. |
 
 ```javascript
 {
@@ -161,6 +145,22 @@ Returns all cashier transactions created within the specified interval.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CashierTransactions` | array of [Cashier transaction](finance.md#cashier-transaction) | required | Cashier transactions created in the interval. |
+
+#### Cashier transaction
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the transaction. |
+| `CashierId` | string | required | Unique identifier of the [Cashier](finance.md#cashier). |
+| `PaymentId` | string | optional | Unique identifier of the corresponding payment [Accounting item](finance.md#accounting-item). |
+| `CreatedUtc` | string | required | Creation date and time of the transaction. |
+| `Number` | string | required | Number of the transaction. |
+| `Notes` | string | optional | Additional notes of the transaction. |
+| `Amount` | [Currency value](finance.md#currency-value) | required | Value of the transaction. |
+
 ## Get all accounting categories
 
 Returns all accounting categories of the enterprise associated with the connector integration.
@@ -169,11 +169,6 @@ Returns all accounting categories of the enterprise associated with the connecto
 
 `[PlatformAddress]/api/connector/v1/accountingCategories/getAll`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -181,32 +176,12 @@ Returns all accounting categories of the enterprise associated with the connecto
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `AccountingCategories` | array of [Accounting category](finance.md#accounting-category) | required | Accounting categories of the enterprise. |
-
-#### Accounting category
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the category. |
-| `IsActive` | boolean | required | Whether the accounting category is still active. |
-| `Name` | string | required | Name of the category. |
-| `Code` | string | optional | Code of the category within Mews. |
-| `Classification` | string [Accounting category classification](finance.md#accounting-category-classification) | optional | Classification of the accounting category allowing cross-enterprise reporting. |
-| `ExternalCode` | string | optional | Code of the category in external systems. |
-| `LedgerAccountCode` | string | optional | Code of the ledger account \(double entry accounting\). |
-| `PostingAccountCode` | string | optional | Code of the posting account \(double entry accounting\). |
-| `CostCenterCode` | string | optional | Code of cost center. |
-
-#### Accounting category classification
-
-* `Accommodation`
-* `FoodAndBeverage`
-* `Taxes`
-* ...
 
 ```javascript
 {
@@ -237,6 +212,31 @@ Returns all accounting categories of the enterprise associated with the connecto
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountingCategories` | array of [Accounting category](finance.md#accounting-category) | required | Accounting categories of the enterprise. |
+
+#### Accounting category
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the category. |
+| `IsActive` | boolean | required | Whether the accounting category is still active. |
+| `Name` | string | required | Name of the category. |
+| `Code` | string | optional | Code of the category within Mews. |
+| `Classification` | string [Accounting category classification](finance.md#accounting-category-classification) | optional | Classification of the accounting category allowing cross-enterprise reporting. |
+| `ExternalCode` | string | optional | Code of the category in external systems. |
+| `LedgerAccountCode` | string | optional | Code of the ledger account \(double entry accounting\). |
+| `PostingAccountCode` | string | optional | Code of the posting account \(double entry accounting\). |
+| `CostCenterCode` | string | optional | Code of cost center. |
+
+#### Accounting category classification
+
+* `Accommodation`
+* `FoodAndBeverage`
+* `Taxes`
+* ...
+
 ## Get all accounting items
 
 Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
@@ -244,6 +244,15 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 ### Request
 
 `[PlatformAddress]/api/connector/v1/accountingItems/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "StartUtc": "2017-01-01T00:00:00Z",
+    "EndUtc": "2017-02-01T00:00:00Z"
+}
+```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -259,16 +268,36 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `Consumed` - items consumed in the interval.
 * `Closed` - items whose bills have been closed in the interval.
 
+### Response
+
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
+    "AccountingItems": [
+        {
+            "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
+            "Amount": {
+                "Currency": "GBP",
+                "Net": 2.08,
+                "Tax": 0.42,
+                "TaxRate": 0.2,
+                "Value": 2.5
+            },
+            "BillId": null,
+            "ClosedUtc": "2017-02-41T10:41:54Z",
+            "ConsumptionUtc": "2016-07-27T12:48:39Z",
+            "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
+            "Id": "89b93f7c-5c63-4de2-bd17-ec5fee5e3120",
+            "InvoiceId": null,
+            "Name": "Caramel, Pepper & Chilli Popcorn",
+            "Notes": null,
+            "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
+            "ProductId": null,
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "Type": "ServiceRevenue"
+        }
+    ]
 }
 ```
-
-### Response
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -310,35 +339,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `TaxRate` | number | optional | Tax rate in case the item is taxed \(e.g. `0.21`\). |
 | `Value` | number | required | Amount in the currency \(including tax if taxed\). |
 
-```javascript
-{
-    "AccountingItems": [
-        {
-            "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
-            "Amount": {
-                "Currency": "GBP",
-                "Net": 2.08,
-                "Tax": 0.42,
-                "TaxRate": 0.2,
-                "Value": 2.5
-            },
-            "BillId": null,
-            "ClosedUtc": "2017-02-41T10:41:54Z",
-            "ConsumptionUtc": "2016-07-27T12:48:39Z",
-            "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
-            "Id": "89b93f7c-5c63-4de2-bd17-ec5fee5e3120",
-            "InvoiceId": null,
-            "Name": "Caramel, Pepper & Chilli Popcorn",
-            "Notes": null,
-            "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
-            "ProductId": null,
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "Type": "ServiceRevenue"
-        }
-    ]
-}
-```
-
 ## Get all bills by ids
 
 Returns all bills with the specified ids.
@@ -346,12 +346,6 @@ Returns all bills with the specified ids.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/bills/getAllByIds`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s. |
 
 ```javascript
 {
@@ -363,39 +357,13 @@ Returns all bills with the specified ids.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Bills` | array of [Bill](finance.md#bill) | required | The closed bills. |
-
-#### Bill
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the bill. |
-| `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
-| `CompanyId` | string | optional | Unique identifier of the [Company](enterprises.md#company) the bill is issued to. |
-| `State` | string [Bill state](finance.md#bill-state) | required | State of the bill. |
-| `Type` | string [Bill type](finance.md#bill-type) | required | Type of the bill. |
-| `Number` | string | required | Number of the bill. |
-| `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
-| `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
-| `Notes` | string | optional | Additional notes. |
-| `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
-| `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
-
-#### Bill state
-
-* `Open`
-* `Closed`
-
-#### Bill type
-
-A bill is either a `Receipt` which means , or `Invoice` that is supposed to be paid in the future.
-
-* `Receipt` - the bill has already been fully paid.
-* `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
 
 ```javascript
 {
@@ -463,6 +431,38 @@ A bill is either a `Receipt` which means , or `Invoice` that is supposed to be p
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Bills` | array of [Bill](finance.md#bill) | required | The closed bills. |
+
+#### Bill
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the bill. |
+| `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
+| `CompanyId` | string | optional | Unique identifier of the [Company](enterprises.md#company) the bill is issued to. |
+| `State` | string [Bill state](finance.md#bill-state) | required | State of the bill. |
+| `Type` | string [Bill type](finance.md#bill-type) | required | Type of the bill. |
+| `Number` | string | required | Number of the bill. |
+| `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
+| `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
+| `Notes` | string | optional | Additional notes. |
+| `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
+| `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
+
+#### Bill state
+
+* `Open`
+* `Closed`
+
+#### Bill type
+
+A bill is either a `Receipt` which means , or `Invoice` that is supposed to be paid in the future.
+
+* `Receipt` - the bill has already been fully paid.
+* `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
+
 ## Get all bills by customers
 
 Returns all bills of the specified customers.
@@ -470,12 +470,6 @@ Returns all bills of the specified customers.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/bills/getAllByCustomers`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `CustomerIds` | array of string | required | Unique identifiers of the [Customer](customers.md#customer)s. |
 
 ```javascript
 {
@@ -486,6 +480,12 @@ Returns all bills of the specified customers.
     ]
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerIds` | array of string | required | Unique identifiers of the [Customer](customers.md#customer)s. |
 
 ### Response
 
@@ -499,13 +499,6 @@ Returns all bills \(both receipts and invoices\) that have been closed in the sp
 
 `[PlatformAddress]/api/connector/v1/bills/getAllClosed`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -514,6 +507,13 @@ Returns all bills \(both receipts and invoices\) that have been closed in the sp
     "EndUtc": "2017-02-01T00:00:00Z"
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -526,27 +526,6 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 ### Request
 
 `[PlatformAddress]/api/connector/v1/payments/addCreditCard`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
-| `CreditCard` | [Credit card](finance.md#credit-card) | required | Credit card details. |
-| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category to be assigned to the payment. |
-| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
-| `Notes` | string | optional | Additional payment notes. |
-
-#### Credit card
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Type` | string | required | Type of the credit card, one of: `Visa`, `MasterCard`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `EnRoute`, `Maestro`, `UnionPay`. |
-| `Number` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. It is possible to provide even more obfuscated number or just last four digits. **Never provide full credit card number**. For example `411111******1111`. |
-| `Expiration` | string | required | Expiration of the credit card in format `MM/YYYY`, e.g. `12/2016` or `04/2017`. |
-| `Name` | string | required | Name of the card holder. |
 
 ```javascript
 {
@@ -571,9 +550,28 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
+| `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
+| `CreditCard` | [Credit card](finance.md#credit-card) | required | Credit card details. |
+| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category to be assigned to the payment. |
+| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
+| `Notes` | string | optional | Additional payment notes. |
 
-Empty object.
+#### Credit card
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Type` | string | required | Type of the credit card, one of: `Visa`, `MasterCard`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `EnRoute`, `Maestro`, `UnionPay`. |
+| `Number` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. It is possible to provide even more obfuscated number or just last four digits. **Never provide full credit card number**. For example `411111******1111`. |
+| `Expiration` | string | required | Expiration of the credit card in format `MM/YYYY`, e.g. `12/2016` or `04/2017`. |
+| `Name` | string | required | Name of the card holder. |
+
+### Response
 
 ```javascript
 {}
@@ -586,6 +584,19 @@ Adds a new external payment to a bill of the specified customer. An external pay
 ### Request
 
 `[PlatformAddress]/api/connector/v1/payments/addExternal`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "Amount": { 
+        "Currency": "GBP",
+        "Value": 100
+    },
+    "Type": "Cash"
+}
+```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -603,22 +614,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 * `Cash`
 * `CreditCard`
 
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-    "Amount": { 
-        "Currency": "GBP",
-        "Value": 100
-    },
-    "Type": "Cash"
-}
-```
-
 ### Response
-
-Empty object.
 
 ```javascript
 {}
