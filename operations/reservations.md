@@ -8,6 +8,20 @@ Returns all reservations from the specified interval according to the time filte
 
 `[PlatformAddress]/api/connector/v1/reservations/getAll`
 
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "StartUtc": "2016-01-01T00:00:00Z",
+    "EndUtc": "2016-01-07T00:00:00Z",
+    "Extent": {
+        "Reservations": true,
+        "ReservationGroups": true,
+        "Customers": true
+    }
+}
+```
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
@@ -43,93 +57,7 @@ Returns all reservations from the specified interval according to the time filte
 | `Services` | bool | optional | Whether the response should contain services reserved by the reservations. |
 | `Spaces` | bool | optional | Whether the response should contain spaces and space categories. |
 
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "StartUtc": "2016-01-01T00:00:00Z",
-    "EndUtc": "2016-01-07T00:00:00Z",
-    "Extent": {
-        "Reservations": true,
-        "ReservationGroups": true,
-        "Customers": true
-    }
-}
-```
-
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `BusinessSegments` | array of [Business segment](services.md#business-segment) | optional | Business segments of the reservations. |
-| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that are members of the reservations. |
-| `Items` | array of [Accounting item](finance.md#accounting-item) | optional | Revenue items of the reservations. |
-| `Products` | array of [Product](services.md#product) | optional | Products orderable with reservations. |
-| `RateGroups` | array of [Rate group](services.md#rate-group) | optional | Rate groups of the reservation rates. |
-| `Rates` | array of [Rate](services.md#rate) | optional | Rates of the reservations. |
-| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | Reservation groups that the reservations are members of. |
-| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The reservations that collide with the specified interval. |
-| `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
-| `SpaceCategories` | array of [Space category](enterprises.md#space-category) | optional | Space categories of the spaces. |
-| `Spaces` | array of [Space](enterprises.md#space) | optional | Assigned spaces of the reservations. |
-
-#### Reservation
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the reservation. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that is reserved. |
-| `GroupId` | string | required | Unique identifier of the [Reservation group](reservations.md#reservation-group). |
-| `Number` | string | required | Confirmation number of the reservation in Mews. |
-| `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
-| `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
-| `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel manager that transferred the reservation from Channel to Mews. |
-| `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
-| `State` | string [Reservation state](reservations.md#reservation-state) | required | State of the reservation. |
-| `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
-| `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
-| `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
-| `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
-| `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
-| `AssignedSpaceId` | string | optional | Identifier of the assigned [Space](enterprises.md#space). |
-| `AssignedSpaceLocked` | bool | required | Whether the reservation is locked in the assigned [Space](enterprises.md#space) and cannot be moved. |
-| `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](services.md#business-segment). |
-| `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
-| `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |
-| `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
-| `AdultCount` | number | required | Count of adults the reservation was booked for. |
-| `ChildCount` | number | required | Count of children the reservation was booked for. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will occupy the space. |
-
-#### Reservation state
-
-* `Enquired` - Confirmed neither by the customer nor enterprise.
-* `Requested` - Confirmed by the customer but not by the enterprise \(waitlist\).
-* `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding space for the guest\).
-* `Confirmed` - Confirmed by both parties, before check-in.
-* `Started` - Checked in.
-* `Processed` - Checked out.
-* `Canceled` - Canceled.
-
-#### Reservation origin
-
-* `ChannelManager`
-* `Connector`
-* `Distributor`
-* `Import`
-* `ManualEmail`
-* `ManualWebsite`
-* ...       
-
-#### Reservation group
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the reservation group. |
-| `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
 
 ```javascript
 {
@@ -210,6 +138,78 @@ Returns all reservations from the specified interval according to the time filte
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BusinessSegments` | array of [Business segment](services.md#business-segment) | optional | Business segments of the reservations. |
+| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that are members of the reservations. |
+| `Items` | array of [Accounting item](finance.md#accounting-item) | optional | Revenue items of the reservations. |
+| `Products` | array of [Product](services.md#product) | optional | Products orderable with reservations. |
+| `RateGroups` | array of [Rate group](services.md#rate-group) | optional | Rate groups of the reservation rates. |
+| `Rates` | array of [Rate](services.md#rate) | optional | Rates of the reservations. |
+| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | Reservation groups that the reservations are members of. |
+| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The reservations that collide with the specified interval. |
+| `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
+| `SpaceCategories` | array of [Space category](enterprises.md#space-category) | optional | Space categories of the spaces. |
+| `Spaces` | array of [Space](enterprises.md#space) | optional | Assigned spaces of the reservations. |
+
+#### Reservation
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the reservation. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that is reserved. |
+| `GroupId` | string | required | Unique identifier of the [Reservation group](reservations.md#reservation-group). |
+| `Number` | string | required | Confirmation number of the reservation in Mews. |
+| `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
+| `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
+| `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel manager that transferred the reservation from Channel to Mews. |
+| `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
+| `State` | string [Reservation state](reservations.md#reservation-state) | required | State of the reservation. |
+| `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
+| `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
+| `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
+| `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
+| `AssignedSpaceId` | string | optional | Identifier of the assigned [Space](enterprises.md#space). |
+| `AssignedSpaceLocked` | bool | required | Whether the reservation is locked in the assigned [Space](enterprises.md#space) and cannot be moved. |
+| `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](services.md#business-segment). |
+| `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
+| `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |
+| `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
+| `AdultCount` | number | required | Count of adults the reservation was booked for. |
+| `ChildCount` | number | required | Count of children the reservation was booked for. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
+| `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will occupy the space. |
+
+#### Reservation state
+
+* `Enquired` - Confirmed neither by the customer nor enterprise.
+* `Requested` - Confirmed by the customer but not by the enterprise \(waitlist\).
+* `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding space for the guest\).
+* `Confirmed` - Confirmed by both parties, before check-in.
+* `Started` - Checked in.
+* `Processed` - Checked out.
+* `Canceled` - Canceled.
+
+#### Reservation origin
+
+* `ChannelManager`
+* `Connector`
+* `Distributor`
+* `Import`
+* `ManualEmail`
+* `ManualWebsite`
+* ...       
+
+#### Reservation group
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the reservation group. |
+| `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
+
 ## Get all reservations by ids
 
 Returns all reservations with the specified unique identifiers.
@@ -217,13 +217,6 @@ Returns all reservations with the specified unique identifiers.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/getAllByIds`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationIds` | array of string | required | Unique identifiers of [Reservation](reservations.md#reservation)s to be returned. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
 
 ```javascript
 {
@@ -235,6 +228,13 @@ Returns all reservations with the specified unique identifiers.
     ]
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationIds` | array of string | required | Unique identifiers of [Reservation](reservations.md#reservation)s to be returned. |
+| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
 
 ### Response
 
@@ -248,13 +248,6 @@ Returns all reservations owned by the specified customers.
 
 `[PlatformAddress]/api/connector/v1/reservations/getAllByCustomers`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `CustomerIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s owning the reservations. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -264,6 +257,13 @@ Returns all reservations owned by the specified customers.
     ]
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s owning the reservations. |
+| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
 
 ### Response
 
@@ -277,13 +277,6 @@ Returns all revenue items associated with the specified reservations.
 
 `[PlatformAddress]/api/connector/v1/reservations/getAllItems`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationIds` | array of string | required | Unique identifiers of the [Reservation](reservations.md#reservation)s. |
-| `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -294,18 +287,14 @@ Returns all revenue items associated with the specified reservations.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationIds` | array of string | required | Unique identifiers of the [Reservation](reservations.md#reservation)s. |
+| `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Reservations` | array of [Reservation items](reservations.md#reservation-items) | required | The reservations with their items. |
-
-#### Reservation items
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `Items` | array of [Accounting item](finance.md#accounting-item) | required | The items associated with the reservation. |
 
 ```javascript
 {
@@ -341,6 +330,17 @@ Returns all revenue items associated with the specified reservations.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Reservations` | array of [Reservation items](reservations.md#reservation-items) | required | The reservations with their items. |
+
+#### Reservation items
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `Items` | array of [Accounting item](finance.md#accounting-item) | required | The items associated with the reservation. |
+
 ## Price reservations
 
 Returns prices of reservations with the specified parameters.
@@ -348,13 +348,6 @@ Returns prices of reservations with the specified parameters.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/price`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be priced. |
-| `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the reservations to price. Note that `CustomerId` is not required when pricing reservations. |
 
 ```javascript
 {
@@ -381,18 +374,14 @@ Returns prices of reservations with the specified parameters.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be priced. |
+| `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the reservations to price. Note that `CustomerId` is not required when pricing reservations. |
+
 ### Response
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ReservationPrices` | array of [Reservation price](reservations.md#reservation-price) | required | The reservation prices. |
-
-#### Reservation price
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `Total` | [Currency value](finance.md#currency-value) | required | Total price of the reservation. |
 
 ```javascript
 {
@@ -411,6 +400,17 @@ Returns prices of reservations with the specified parameters.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ReservationPrices` | array of [Reservation price](reservations.md#reservation-price) | required | The reservation prices. |
+
+#### Reservation price
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Identifier` | string | optional | Identifier of the reservation within the transaction. |
+| `Total` | [Currency value](finance.md#currency-value) | required | Total price of the reservation. |
+
 ## Add reservations
 
 Adds the specified reservations as a single group.
@@ -418,29 +418,6 @@ Adds the specified reservations as a single group.
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/add`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
-| `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
-
-#### Reservation parameters
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `State` | string [Reservation state](reservations.md#reservation-state) | optional | State of the newly created reservation \(either `Optional` or `Confirmed`\). If not specified, `Confirmed` is used. |
-| `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
-| `AdultCount` | number | required | Count of adults the reservation is for. |
-| `ChildCount` | number | required | Count of children the reservation is for. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
-| `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
-| `Notes` | string | optional | Additional notes. |
-| `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 
 ```javascript
 {
@@ -468,18 +445,30 @@ Adds the specified reservations as a single group.
 }
 ```
 
-### Response
-
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Reservations` | array of [Added reservation](reservations.md#added-reservation) | required | The added reservations. |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
+| `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 
-#### Added reservation
+#### Reservation parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
+| `State` | string [Reservation state](reservations.md#reservation-state) | optional | State of the newly created reservation \(either `Optional` or `Confirmed`\). If not specified, `Confirmed` is used. |
+| `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
+| `AdultCount` | number | required | Count of adults the reservation is for. |
+| `ChildCount` | number | required | Count of children the reservation is for. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
+| `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
+| `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
+| `Notes` | string | optional | Additional notes. |
+| `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
+
+### Response
 
 ```javascript
 {
@@ -522,6 +511,17 @@ Adds the specified reservations as a single group.
 }
 ```
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Reservations` | array of [Added reservation](reservations.md#added-reservation) | required | The added reservations. |
+
+#### Added reservation
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Identifier` | string | optional | Identifier of the reservation within the transaction. |
+| `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
+
 ## Start reservation
 
 Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting conditions are met \(the reservation has the `Confirmed` state, does not have start set to future, has an inspected room assigned etc\).
@@ -529,12 +529,6 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/start`
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to start. |
 
 ```javascript
 {
@@ -544,9 +538,13 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to start. |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -560,15 +558,6 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 
 `[PlatformAddress]/api/connector/v1/reservations/process`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to process. |
-| `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
-| `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
-| `Notes` | string | optional | Notes of the event, required if `AllowOpenBalance` set to `true`. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -580,9 +569,16 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to process. |
+| `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
+| `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
+| `Notes` | string | optional | Notes of the event, required if `AllowOpenBalance` set to `true`. |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -596,14 +592,6 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 
 `[PlatformAddress]/api/connector/v1/reservations/cancel`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to cancel. |
-| `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
-| `Notes` | string | required | Addiotional notes describing the cancellation. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -614,9 +602,15 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to cancel. |
+| `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
+| `Notes` | string | required | Addiotional notes describing the cancellation. |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -630,15 +624,6 @@ Updates reservation interval \(start, end or both\).
 
 `[PlatformAddress]/api/connector/v1/reservations/updateInterval`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
-| `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
-| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially cancelled nights. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -650,9 +635,16 @@ Updates reservation interval \(start, end or both\).
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
+| `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
+| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially cancelled nights. |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -666,13 +658,6 @@ Updates reservation allocation to space, e.g. to different room.
 
 `[PlatformAddress]/api/connector/v1/reservations/updateSpace`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be reassigned. |
-| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) where the reservation should be assigned. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -682,9 +667,14 @@ Updates reservation allocation to space, e.g. to different room.
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be reassigned. |
+| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) where the reservation should be assigned. |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -698,14 +688,6 @@ Updates reservation category requested by the customer to a different one.
 
 `[PlatformAddress]/api/connector/v1/reservations/updateRequestedCategory`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
-| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
-| `Reprice` | bool | required | Whether reservation should be repriced according to new category pricing. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -716,9 +698,15 @@ Updates reservation category requested by the customer to a different one.
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
+| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
+| `Reprice` | bool | required | Whether reservation should be repriced according to new category pricing. |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -732,13 +720,6 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 
 `[PlatformAddress]/api/connector/v1/reservations/addCompanion`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -748,9 +729,14 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -764,13 +750,6 @@ Removes customer companionship from the reservation. Note that the customer prof
 
 `[PlatformAddress]/api/connector/v1/reservations/deleteCompanion`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -780,9 +759,14 @@ Removes customer companionship from the reservation. Note that the customer prof
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
-Empty object.
+### Response
 
 ```javascript
 {}
@@ -796,14 +780,6 @@ Adds a new product order of the specified product to the reservation.
 
 `[PlatformAddress]/api/connector/v1/reservations/addProduct`
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
-| `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -814,9 +790,15 @@ Adds a new product order of the specified product to the reservation.
 }
 ```
 
-### Response
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
+| `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
 
-Empty object.
+### Response
 
 ```javascript
 {}

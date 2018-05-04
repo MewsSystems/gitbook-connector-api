@@ -110,18 +110,6 @@ Returns availability of a service in the specified interval. Note that response 
 
 ### Response
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryAvailabilities` | array of [Space category availability](services.md#space-category-availability) | required | Space category availabilities. |
-| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
-
-#### Space category availability
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
-| `Availabilities` | array of number | required | Availabilities of the space category in the covered dates. |
-
 ```javascript
 {
     "CategoryAvailabilities": [
@@ -141,6 +129,18 @@ Returns availability of a service in the specified interval. Note that response 
     ]
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryAvailabilities` | array of [Space category availability](services.md#space-category-availability) | required | Space category availabilities. |
+| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
+
+#### Space category availability
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
+| `Availabilities` | array of number | required | Availabilities of the space category in the covered dates. |
 
 ## Get all products
 
