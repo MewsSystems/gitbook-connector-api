@@ -4,35 +4,31 @@
 
 Raturns all services offered by the enterprise.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/services/getAll`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Services` | array of [Service](services.md#service) | required | Services offered by the enterprise. |
 
 #### Service
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the service. |
 | `IsActive` | boolean | required | Whether the service is still active. |
@@ -43,7 +39,7 @@ Raturns all services offered by the enterprise.
 
 #### Promotions
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
 | `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
@@ -51,8 +47,7 @@ Raturns all services offered by the enterprise.
 | `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 
-{% common %}
-```json
+```javascript
 {
     "Services": [
         {
@@ -86,18 +81,16 @@ Raturns all services offered by the enterprise.
     ]
 }
 ```
-{% endmethod %}
 
 ## Get service availability
 
 Returns availability of a service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/services/getAvailability`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -105,8 +98,7 @@ Returns availability of a service in the specified interval. Note that response 
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -115,25 +107,22 @@ Returns availability of a service in the specified interval. Note that response 
     "EndUtc":"2017-01-03T00:00:00.000Z"
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryAvailabilities` | array of [Space category availability](services.md#space-category-availability) | required | Space category availabilities. |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
 
 #### Space category availability
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
 | `Availabilities` | array of number | required | Availabilities of the space category in the covered dates. |
 
-{% common %}
-```json
+```javascript
 {
     "CategoryAvailabilities": [
         {
@@ -152,25 +141,22 @@ Returns availability of a service in the specified interval. Note that response 
     ]
 }
 ```
-{% endmethod %}
 
 ## Get all products
 
 Raturns all products offered together with the specified services.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/products/getAll`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -179,18 +165,16 @@ Raturns all products offered together with the specified services.
     ]
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Products` | array of [Product](services.md#product) | required | Products offered with the service. |
 
 #### Product
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the product. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
@@ -204,12 +188,11 @@ Raturns all products offered together with the specified services.
 
 #### Product charging
 
-- `Once`
-- `PerTimeUnit`
-- `PerPersonPerTimeUnit`
+* `Once`
+* `PerTimeUnit`
+* `PerPersonPerTimeUnit`
 
-{% common %}
-```json
+```javascript
 {
     "Products": [
         {
@@ -238,48 +221,42 @@ Raturns all products offered together with the specified services.
     ]
 }
 ```
-{% endmethod %}
 
 ## Get all business segments
 
 Returns all business segments of the default service provided by the enterprise.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/businessSegments/getAll`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `BusinessSegments` | array of [Business segment](services.md#business-segment) | required | Business segments of the default service. |
 
 #### Business segment
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the segment. |
 | `IsActive` | boolean | required | Whether the business segment is still active. |
 | `Name` | string | required | Name of the segment. |
 
-{% common %}
-```json
+```javascript
 {
     "BusinessSegments": [
         {
@@ -295,18 +272,16 @@ Returns all business segments of the default service provided by the enterprise.
     ]
 }
 ```
-{% endmethod %}
 
 ## Get all rates
 
-Returns all rates (pricing setups) and rate groups (condition settings) of the default service provided by the enterprise.
+Returns all rates \(pricing setups\) and rate groups \(condition settings\) of the default service provided by the enterprise.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/getAll`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -314,14 +289,13 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Rate extent
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
 | `RateRestrictions` | bool | optional | Whether the response should contain rate restrictions. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -332,12 +306,10 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
     }
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Rates` | array of [Rate](services.md#rate) | required | Rates of the default service. |
 | `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups of the default service. |
@@ -345,7 +317,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Rate
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of [Rate group](services.md#rate-group) where the rate belongs. |
@@ -357,7 +329,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Rate group
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the group. |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
@@ -365,7 +337,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Rate restrictions
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `DateRestrictions` | array of [Date restriction](services.md#date-restriction) | optional | The date restrictions. |
 | `EarlinessRestrictions` | array of [Earliness restriction](services.md#earliness-restriction) | optional | The earliness restrictions. |
@@ -373,7 +345,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Date restriction
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
 | `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
@@ -384,7 +356,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Earliness restriction
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
 | `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
@@ -397,7 +369,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Length restriction
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
 | `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
@@ -410,16 +382,15 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 #### Day
 
-- `Monday`
-- `Tuesday`
-- `Wednesday`
-- `Thursday`
-- `Friday`
-- `Saturday`
-- `Sunday`
+* `Monday`
+* `Tuesday`
+* `Wednesday`
+* `Thursday`
+* `Friday`
+* `Saturday`
+* `Sunday`
 
-{% common %}
-```json
+```javascript
 {
     "Rates": [
         {
@@ -478,18 +449,16 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
     }
 }
 ```
-{% endmethod %}
 
 ## Get rate pricing
 
 Returns prices of a rate in the specified interval. Note that response contains prices for all dates that the specified interval intersects. So e.g. interval `1st Jan 13:00 - 1st Jan 14:00` will result in one price for `1st Jan`. Interval `1st Jan 23:00 - 2nd Jan 01:00` will result in two prices for `1st Jan` and `2nd Jan`.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/getPricing`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -497,8 +466,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -507,12 +475,10 @@ Returns prices of a rate in the specified interval. Note that response contains 
     "EndUtc":"2017-01-03T00:00:00.000Z"
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
@@ -522,22 +488,21 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 #### Space category pricing
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
 | `Prices` | array of number | required | Prices of the rate for the space category in the covered dates. |
 
 #### Space category adjustment
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the adjustment [Space category](enterprises.md#space-category). |
 | `ParentCategoryId` | string | optional | Unique identifier of the parent [Space category](enterprises.md#space-category) that serves as a base price for the current category. |
-| `RelativeValue` | number | required | Relative value of the adjustment (e.g. `0.5` represents 50% increase). |
-| `AbsoluteValue` | number | required | Absolute value of the adjustment (e.g. `50` represents 50 EUR in case the rate currency is `EUR`). |
+| `RelativeValue` | number | required | Relative value of the adjustment \(e.g. `0.5` represents 50% increase\). |
+| `AbsoluteValue` | number | required | Absolute value of the adjustment \(e.g. `50` represents 50 EUR in case the rate currency is `EUR`\). |
 
-{% common %}
-```json
+```javascript
 {
     "Currency": "EUR",
     "BasePrices": [ 20, 20, 20 ],
@@ -568,18 +533,16 @@ Returns prices of a rate in the specified interval. Note that response contains 
     ]
 }
 ```
-{% endmethod %}
 
 ## Update rate price
 
 Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/updatePrice`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -588,15 +551,14 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 
 #### Price update
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | optional | Unique identifier of the [Space category](enterprises.md#space-category) whose prices to update. If not specified, base price is updated. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -616,29 +578,24 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
     ]
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
 Empty object.
 
-{% common %}
-```json
+```javascript
 {}
 ```
-{% endmethod %}
 
 ## Add order
 
-Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges (rebates), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
+Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/orders/add`
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -651,7 +608,7 @@ Creates a new order with the specified products and items. Only positive charges
 
 #### Product order parameters
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
@@ -659,30 +616,29 @@ Creates a new order with the specified products and items. Only positive charges
 
 #### Item parameters
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost, e.g. cost for one beer (note that total cost of the item is therefore `UnitCount` times `UnitCost`). |
+| `UnitCost` | [Cost](services.md#cost) | required | Unit cost, e.g. cost for one beer \(note that total cost of the item is therefore `UnitCount` times `UnitCost`\). |
 | `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Category of the item. |
 
 #### Cost
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Amount` | decimal | required | Amount including tax. |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `Tax` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate.  |
+| `Tax` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
 
 #### Accounting category parameters
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the accounting category in Mews. |
 | `Name` | string | optional | Name of the category, used if no category is matched using the code. |
 
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -711,19 +667,16 @@ Creates a new order with the specified products and items. Only positive charges
     ]
 }
 ```
-{% endmethod %}
 
-{% method %}
 ### Response
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `OrderId` | string | required | Unique identifier of the created order. |
 
-{% common %}
-```json
+```javascript
 {
     "OrderId": "cdfd5caa-2868-411b-ba95-322e70035f1a"
 }
 ```
-{% endmethod %}
+

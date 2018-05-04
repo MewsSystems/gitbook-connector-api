@@ -4,47 +4,26 @@
 
 Returns all company profiles of the enterprise, possible filtered by their identifiers.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/companies/getAll`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Ids` | array of string | optional | If specified, returns only companies with the specified identifiers.  |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Ids` | array of string | optional | If specified, returns only companies with the specified identifiers. |
+
 ### Response
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Companies` | array of [Company](enterprises.md#company) | required | The company profiles of the enterprise. |
-
-#### Company
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the company. |
-| `Name` | string  | required | Name of the company. |
-| `Identifier` | string  | optional | Identifier of the company (e.g. legal identifier). |
-| `TaxIdentificationNumber` | string  | optional | Tax identification number of the company. |
-| `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
-| `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifer of the company. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company (if it is non-empty, otherwise `null`). |
-
-{% common %}
-```json
+```javascript
 {
     "Companies": [
         {
@@ -74,50 +53,46 @@ Returns all company profiles of the enterprise, possible filtered by their ident
     ]
 }
 ```
-{% endmethod %}
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Companies` | array of [Company](enterprises.md#company) | required | The company profiles of the enterprise. |
+
+#### Company
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the company. |
+| `Name` | string | required | Name of the company. |
+| `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
+| `TaxIdentificationNumber` | string | optional | Tax identification number of the company. |
+| `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
+| `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifer of the company. |
+| `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 
 ## Get all company contracts
 
 Returns all contracts between the enterprise and other companies.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/companyContracts/getAll`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `TravelAgencyContracts` | array of [Travel agency contract](enterprises.md#travel-agency-contract) | required | The travel agency contracts. |
-
-#### Travel agency contract
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the contract. |
-| `CompanyId` | string | required | Unique identifier of the contracted [Company](enterprises.md#company). |
-| `IsActive` | boolean | required | Whether the contract is still active. |
-| `CommissionIncluded` | boolean  | optional | Whether commission of the travel agency is included in the rate. |
-| `Commission` | number  | optional | Commission of the travel agency. |
-
-{% common %}
-```json
+```javascript
 {
     "TravelAgencyContracts": [
         {
@@ -130,48 +105,44 @@ Returns all contracts between the enterprise and other companies.
     ]
 }
 ```
-{% endmethod %}
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `TravelAgencyContracts` | array of [Travel agency contract](enterprises.md#travel-agency-contract) | required | The travel agency contracts. |
+
+#### Travel agency contract
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the contract. |
+| `CompanyId` | string | required | Unique identifier of the contracted [Company](enterprises.md#company). |
+| `IsActive` | boolean | required | Whether the contract is still active. |
+| `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
+| `Commission` | number | optional | Commission of the travel agency. |
 
 ## Get all departments
 
 Returns all departments of an enterprise associated with the connector integration.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/departments/getAll`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Response
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Departments` | array of [Department](enterprises.md#department) | required | The departments of the enterprise. |
-
-#### Department
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the department. |
-| `IsActive` | boolean | required | Whether the department is still active. |
-| `Name` | string | required | Name of the department. |
-
-{% common %}
-```json
+```javascript
 {
     "Departments": [
         {
@@ -187,34 +158,28 @@ Returns all departments of an enterprise associated with the connector integrati
     ]
 }
 ```
-{% endmethod %}
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Departments` | array of [Department](enterprises.md#department) | required | The departments of the enterprise. |
+
+#### Department
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the department. |
+| `IsActive` | boolean | required | Whether the department is still active. |
+| `Name` | string | required | Name of the department. |
 
 ## Get all spaces
 
 Returns all spaces of an enterprise associated with the connector integration.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/spaces/getAll`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` and `SpaceCategories` is used as the default extent. |
-
-#### Space extent
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Spaces` | bool | optional | Whether the response should contain spaces. |
-| `SpaceCategories` | bool | optional | Whether the response should contain space categories. |
-| `SpaceFeatures` | bool | optional | Whether the response should contain space features and their assignments. |
-| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -226,77 +191,25 @@ Returns all spaces of an enterprise associated with the connector integration.
     }
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` and `SpaceCategories` is used as the default extent. |
+
+#### Space extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Spaces` | bool | optional | Whether the response should contain spaces. |
+| `SpaceCategories` | bool | optional | Whether the response should contain space categories. |
+| `SpaceFeatures` | bool | optional | Whether the response should contain space features and their assignments. |
+| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
+
 ### Response
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Spaces` | array of [Space](enterprises.md#space) | required | The spaces of the enterprise. |
-| `SpaceCategories` | array of [Space category](enterprises.md#space-category) | required | Categories of spaces in the enterprise. |
-| `SpaceFeatures` | array of [Space feature](enterprises.md#space-feature) | optional | Features of spaces in the enterprise. |
-| `SpaceFeatureAssignments` | array of [Space feature assignment](enterprises.md#space-feature-assignment) | optional | Assignments of space features to spaces. |
-
-#### Space
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the space. |
-| `IsActive` | bool | required | Whether the space is still active. |
-| `Type` | string [Space type](enterprises.md#space-type) | required | Type of the space. |
-| `Number` | string | required | Number of the space (e.g. room number). |
-| `FloorNumber` | string | optional | Number of the floor the space is on. |
-| `BuildingNumber` | string | optional | Number of the building the space is in. |
-| `ParentSpaceId` | string | optional | Identifier of the parent [Space](enterprises.md#space) (e.g. room of a bed). |
-| `CategoryId` | string | required | Identifier of the [Space category](enterprises.md#space-category) assigned to the space. |
-| `State` | string [Space state](enterprises.md#space-state) | required | State of the room. |
-
-#### Space type
-
-- `Room`
-- `Dorm`
-- `Bed`
-- ...
-
-#### Space state
-
-- `Dirty`
-- `Clean`
-- `Inspected`
-- `OutOfService`
-- `OutOfOrder`
-
-#### Space category
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the category. |
-| `IsActive` | bool | required | Whether the space category is still active. |
-| `Name` | string | required | Name of the category. |
-| `ShortName` | string | optional | Short name (e.g. code) of the category. |
-| `Description` | string | optional | Description of the category. |
-| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category (note that uniqueness nor continuous sequence is guaranteed). |
-| `UnitCount` | number | required | Count of units that can be accommodated (e.g. bed count). |
-| `ImageIds` | array of string | required | Unique identifiers of the space category images. |
-
-#### Space feature
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the feature. |
-| `Name` | string | required | Name of the feature. |
-| `Description` | string | optional | Description of the feature. |
-
-#### Space feature assignment
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `SpaceId` | string | required | Unique identifier [Space](enterprises.md#space). |
-| `SpaceFeatureId` | string | required | Unique identifier [Space feature](enterprises.md#space-feature). |
-
-{% common %}
-```json
+```javascript
 {
     "Spaces": [
         {
@@ -349,26 +262,80 @@ Returns all spaces of an enterprise associated with the connector integration.
     ]
 }
 ```
-{% endmethod %}
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Spaces` | array of [Space](enterprises.md#space) | required | The spaces of the enterprise. |
+| `SpaceCategories` | array of [Space category](enterprises.md#space-category) | required | Categories of spaces in the enterprise. |
+| `SpaceFeatures` | array of [Space feature](enterprises.md#space-feature) | optional | Features of spaces in the enterprise. |
+| `SpaceFeatureAssignments` | array of [Space feature assignment](enterprises.md#space-feature-assignment) | optional | Assignments of space features to spaces. |
+
+#### Space
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the space. |
+| `IsActive` | bool | required | Whether the space is still active. |
+| `Type` | string [Space type](enterprises.md#space-type) | required | Type of the space. |
+| `Number` | string | required | Number of the space \(e.g. room number\). |
+| `FloorNumber` | string | optional | Number of the floor the space is on. |
+| `BuildingNumber` | string | optional | Number of the building the space is in. |
+| `ParentSpaceId` | string | optional | Identifier of the parent [Space](enterprises.md#space) \(e.g. room of a bed\). |
+| `CategoryId` | string | required | Identifier of the [Space category](enterprises.md#space-category) assigned to the space. |
+| `State` | string [Space state](enterprises.md#space-state) | required | State of the room. |
+
+#### Space type
+
+* `Room`
+* `Dorm`
+* `Bed`
+* ...
+
+#### Space state
+
+* `Dirty`
+* `Clean`
+* `Inspected`
+* `OutOfService`
+* `OutOfOrder`
+
+#### Space category
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the category. |
+| `IsActive` | bool | required | Whether the space category is still active. |
+| `Name` | string | required | Name of the category. |
+| `ShortName` | string | optional | Short name \(e.g. code\) of the category. |
+| `Description` | string | optional | Description of the category. |
+| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
+| `UnitCount` | number | required | Count of units that can be accommodated \(e.g. bed count\). |
+| `ImageIds` | array of string | required | Unique identifiers of the space category images. |
+
+#### Space feature
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the feature. |
+| `Name` | string | required | Name of the feature. |
+| `Description` | string | optional | Description of the feature. |
+
+#### Space feature assignment
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `SpaceId` | string | required | Unique identifier [Space](enterprises.md#space). |
+| `SpaceFeatureId` | string | required | Unique identifier [Space feature](enterprises.md#space-feature). |
 
 ## Get all space blocks
 
-Returns all space blocks (out of order blocks or house use blocks) colliding with the specified interval.
+Returns all space blocks \(out of order blocks or house use blocks\) colliding with the specified interval.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/spaceBlocks/getAll`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -376,34 +343,17 @@ Returns all space blocks (out of order blocks or house use blocks) colliding wit
     "EndUtc": "2017-01-01T00:00:00Z"
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+
 ### Response
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `SpaceBlocks` | array of [Space block](enterprises.md#space-block) | required | The space blocks colliding with the interval. |
-
-#### Space block
-
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the block. |
-| `AssignedSpaceId` | string | required | Unique identifier of the assigned [Space](enterprises.md#space). |
-| `Type` | string [Space block type](enterprises.md#space-block-type) | required | Type of the space block. |
-| `StartUtc` | string | required | Start of the block in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the block in UTC timezone in ISO 8601 format. |
-| `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
-
-#### Space block type
-
-- `OutOfOrder`
-- `HouseUse`
-
-{% common %}
-```json
+```javascript
 {
     "SpaceBlocks": [
         {
@@ -427,26 +377,37 @@ Returns all space blocks (out of order blocks or house use blocks) colliding wit
     ]
 }
 ```
-{% endmethod %}
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `SpaceBlocks` | array of [Space block](enterprises.md#space-block) | required | The space blocks colliding with the interval. |
+
+#### Space block
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the block. |
+| `AssignedSpaceId` | string | required | Unique identifier of the assigned [Space](enterprises.md#space). |
+| `Type` | string [Space block type](enterprises.md#space-block-type) | required | Type of the space block. |
+| `StartUtc` | string | required | Start of the block in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the block in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
+
+#### Space block type
+
+* `OutOfOrder`
+* `HouseUse`
 
 ## Update space state
 
-Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces (beds) are also set to `Dirty`.
+Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/spaces/updateState`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) to be updated. |
-| `State` | string [Space state](enterprises.md#space-state) | required | New state of the space (`Dirty`, `Clean`, `Inspected` or `OutOfService`). |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -454,39 +415,29 @@ Updates state of the specified space. Note that the state is also updated on the
     "State": "Inspected"
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) to be updated. |
+| `State` | string [Space state](enterprises.md#space-state) | required | New state of the space \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+
 ### Response
 
-Empty object.
-
-{% common %}
-```json
+```javascript
 {}
 ```
-{% endmethod %}
 
 ## Add task
 
 Adds a new task to the enterprise, optionally to a specified department.
 
-{% method %}
 ### Request
 
 `[PlatformAddress]/api/connector/v1/tasks/add`
 
-| Property | Type | | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
-| `Name` | string | required | Name (or title) of the task. |
-| `Description` | string | optional | Further decription of the task. |
-| `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
-
-{% common %}
-```json
+```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -496,15 +447,19 @@ Adds a new task to the enterprise, optionally to a specified department.
     "DeadlineUtc": "2016-01-01T14:00:00Z"
 }
 ```
-{% endmethod %}
 
-{% method %}
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
+| `Name` | string | required | Name \(or title\) of the task. |
+| `Description` | string | optional | Further decription of the task. |
+| `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
+
 ### Response
 
-Empty object.
-
-{% common %}
-```json
+```javascript
 {}
 ```
-{% endmethod %}
+

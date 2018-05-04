@@ -188,7 +188,7 @@
 
 ## 26th January 2017 00:30 UTC
 
-* Extended `Customer` with `BirthPlace` \.
+* Extended `Customer` with `BirthPlace` .
 * Extended `Document` with `Issuance`.
 
 ## 18th January 2017 22:00 UTC
