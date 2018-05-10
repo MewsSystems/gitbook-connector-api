@@ -136,7 +136,7 @@ Returns all customers from the specified interval according to the time filter \
 * `Problematic`
 * ...
 
-#### Customer options
+#### Customer option
 
 * `SendMarketingEmails`
 
