@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th May 2018 21:00 UTC
+
+* Extended [Customer](operations/customers.md#customer) with `Options`.
+
 ## 28th April 2018 22:00 UTC
 
 * Extended [Company](operations/enterprises.md#company) with `AdditionalTaxIdentifier`.
