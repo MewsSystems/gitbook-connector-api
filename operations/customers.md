@@ -53,6 +53,7 @@ Returns all customers from the specified interval according to the time filter \
             "LoyaltyCode": null,
             "NationalityCode": "US",
             "Notes": "",
+            "Options": [],
             "Number": "1",
             "Passport": null,
             "Phone": "00420123456789",
@@ -91,6 +92,7 @@ Returns all customers from the specified interval according to the time filter \
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
 | `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
@@ -133,6 +135,10 @@ Returns all customers from the specified interval according to the time filter \
 * `VeryImportant`
 * `Problematic`
 * ...
+
+#### Customer options
+
+* `SendMarketingEmails`
 
 ## Get all customers by ids
 
@@ -237,6 +243,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
                 "NationalityCode": "US",
                 "Notes": "",
                 "Number": "1",
+                "Options": [],
                 "Passport": null,
                 "Phone": "00420123456789",
                 "SecondLastName": null,
