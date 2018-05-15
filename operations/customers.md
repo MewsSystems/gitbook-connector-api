@@ -513,3 +513,63 @@ Attaches the specified file to the customer profile.
 {}
 ```
 
+## Get all preauthorizations
+
+Get all customer preauthorizations.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/customers/getAllPreauthorizations`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerId": "49aaff6b-32d8-48f5-8234-ce875aefc508"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+
+### Response
+ Array of preauthorizations.
+```javascript
+{
+  "Preauthorizations": [
+    {
+      "Amount": 10,
+      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
+      "Currency": {
+        "Code": "EUR",
+        "Precision": 2
+      },
+      "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
+      "State": "Chargeable"
+    }
+  ]
+}
+```
+|Property|Type| |Description|
+|-|-|-|-|
+|Preauthorizations|array of [Preauthorization](#preauthorization)||Customer's preauthorizations.|
+
+#### Preauthorization
+
+|Property|Type| |Description|
+|-|-|-|-|
+|`Id`|string|required|Unique identifier of the preauthorization.|
+|`CreditCardId`|string|required|Unique identifier of the credit card.|
+|`Currency`|[Currency](configuration.md#currency)| Currency of the preauthorization.|
+|`Amount`|decimal| Value of the preauthorization.|
+|`State`|[State](#preauthorization-state)| Value of the preauthorization.|
+
+#### Preauthorization state
+* `Chargeable` - Created and prepared for the charging.
+* `Expired` - A preauthorization that is not charged and expired.
+* `Cancelled` - A preauthorization that was cancelled before charging.
+* `Charged` - Charged preauthorization.
+
