@@ -620,3 +620,85 @@ Adds a new external payment to a bill of the specified customer. An external pay
 {}
 ```
 
+## Get all preauthorizations
+
+Get all customer preauthorizations.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/preauthorizations/getAllByCustomers`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerIds": ["49aaff6b-32d8-48f5-8234-ce875aefc508"]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerIds` | array | required | Array of unique identifiers of the [Customers](customers.md#customer). |
+
+### Response
+ Array of preauthorizations.
+```javascript
+{
+  "Preauthorizations": [
+    {
+      "Amount": {
+        "Currency": "EUR",
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null,
+        "Value": 10
+      },
+      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
+      "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
+      "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
+      "IsActive": false,
+      "ReceiptIdentifier": "",
+      "SequenceCode": "",
+      "State": "Cancelled"
+    },
+    {
+      "Amount": {
+        "Currency": "EUR",
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null,
+        "Value": 22
+      },
+      "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
+      "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
+      "Id": "ad44411a-1efc-46b6-b903-ec5fa7842000",
+      "IsActive": true,
+      "ReceiptIdentifier": null,
+      "SequenceCode": null,
+      "State": "Charged"
+    }
+  ]
+}
+```
+|Property|Type| |Description|
+|-|-|-|-|
+|Preauthorizations|array of [Preauthorization](#preauthorization)||Customer's preauthorizations.|
+
+#### Preauthorization
+
+|Property|Type| |Description|
+|-|-|-|-|
+|`Id`|string|required|Unique identifier of the preauthorization.|
+|`CreditCardId`|string|required|Unique identifier of the credit card.|
+|`Amount`|[Currency value](/operations/finance.md#currency-value)|required| Value of the preauthorization.|
+|`State`|[State](#preauthorization-state)|required|Value of the preauthorization.|
+|`ReceiptIdentifier`|string|optional|Value from extenernal terminal used for identification of the preauthorization.|
+|`SequenceCode`|string|optional|Value from extenernal terminal used for identification of the preauthorization.|
+
+#### Preauthorization state
+* `Chargeable` - Created and prepared for the charging.
+* `Expired` - A preauthorization that is not charged and expired.
+* `Cancelled` - A preauthorization that was cancelled before charging.
+* `Charged` - Charged preauthorization.
