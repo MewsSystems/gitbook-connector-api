@@ -27,7 +27,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 {
     "Companies": [
         {
-            "AdditionalTaxIdentifier": "",
+            "AdditionalIdentifier": "",
             "Address": {
                 "City": "Dortmund",
                 "CountryCode": "DE",
@@ -39,16 +39,16 @@ Returns all company profiles of the enterprise, possible filtered by their ident
             "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
             "Identifier": "",
             "Name": "IBM",
-            "TaxIdentificationNumber": ""
+            "TaxIdentifier": ""
         },
         {
-            "AdditionalTaxIdentifier": "",
+            "Additionaldentifier": "",
             "Address": null,
             "ElectronicInvoiceIdentifier": "",
             "Id": "217b9da3-1c2a-45df-af20-54e57a13368c",
             "Identifier": "",
             "Name": "Booking.com",
-            "TaxIdentificationNumber": ""
+            "TaxIdentifier": ""
         }
     ]
 }
@@ -65,8 +65,8 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `Id` | string | required | Unique identifier of the company. |
 | `Name` | string | required | Name of the company. |
 | `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
-| `TaxIdentificationNumber` | string | optional | Tax identification number of the company. |
-| `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
+| `TaxIdentifier` | string | optional | Tax identification number of the company. |
+| `AdditionalIdentifier` | string | optional | Additional tax identifer of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifer of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 
