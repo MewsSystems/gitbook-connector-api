@@ -541,13 +541,31 @@ Get all customer preauthorizations.
 {
   "Preauthorizations": [
     {
-      "Amount": 10,
-      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
-      "Currency": {
-        "Code": "EUR",
-        "Precision": 2
+      "Amount": {
+        "Currency": "EUR",
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null,
+        "Value": 10
       },
+      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
       "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
+      "ReceiptIdentifier": "",
+      "SequenceCode": "",
+      "State": "Chargeable"
+    },
+    {
+      "Amount": {
+        "Currency": "EUR",
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null,
+        "Value": 22
+      },
+      "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
+      "Id": "ad44411a-1efc-46b6-b903-ec5fa7842000",
+      "ReceiptIdentifier": null,
+      "SequenceCode": null,
       "State": "Chargeable"
     }
   ]
@@ -563,9 +581,10 @@ Get all customer preauthorizations.
 |-|-|-|-|
 |`Id`|string|required|Unique identifier of the preauthorization.|
 |`CreditCardId`|string|required|Unique identifier of the credit card.|
-|`Currency`|[Currency](configuration.md#currency)| Currency of the preauthorization.|
-|`Amount`|decimal| Value of the preauthorization.|
-|`State`|[State](#preauthorization-state)| Value of the preauthorization.|
+|`Amount`|[Currency value](/operations/finance.md#currency-value)|required| Value of the preauthorization.|
+|`State`|[State](#preauthorization-state)|required|Value of the preauthorization.|
+|`ReceiptIdentifier`|string|optional|Value from extenernal terminal used for identification of the preauthorization.|
+|`SequenceCode`|string|optional|Value from extenernal terminal used for identification of the preauthorization.|
 
 #### Preauthorization state
 * `Chargeable` - Created and prepared for the charging.
