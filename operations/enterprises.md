@@ -28,6 +28,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
     "Companies": [
         {
             "AdditionalTaxIdentifier": "",
+            "AdditionalIdentifier": "",
             "Address": {
                 "City": "Dortmund",
                 "CountryCode": "DE",
@@ -39,16 +40,19 @@ Returns all company profiles of the enterprise, possible filtered by their ident
             "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
             "Identifier": "",
             "Name": "IBM",
-            "TaxIdentificationNumber": ""
+            "TaxIdentificationNumber": "",
+            "TaxIdentifier": ""
         },
         {
             "AdditionalTaxIdentifier": "",
+            "Additionaldentifier": "",
             "Address": null,
             "ElectronicInvoiceIdentifier": "",
             "Id": "217b9da3-1c2a-45df-af20-54e57a13368c",
             "Identifier": "",
             "Name": "Booking.com",
-            "TaxIdentificationNumber": ""
+            "TaxIdentificationNumber": "",
+            "TaxIdentifier": ""
         }
     ]
 }
