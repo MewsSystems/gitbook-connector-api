@@ -695,10 +695,10 @@ Returns all preauthorizations of specified customers.
 | `CreditCardId` | string | required|Unique identifier of the credit card. |
 | `Amount` | [Currency value](/operations/finance.md#currency-value) | required | Value of the preauthorization. |
 | `State` | string [Preauthorization State](#preauthorization-state) | required | State of the preauthorization. |
-| `ReceiptIdentifier` | string | optional | Value from extenernal terminal used for identification of the preauthorization. |
-| `SequenceCode` | string | optional | Value from extenernal terminal used for identification of the preauthorization. |
+| `Code` | string | optional | Code of the preauthorization. |
 
 #### Preauthorization state
+
 * `Chargeable` - Created and prepared for the charging.
 * `Expired` - A preauthorization that is not charged and expired.
 * `Cancelled` - A preauthorization that was cancelled before charging.
