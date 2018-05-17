@@ -622,7 +622,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 
 ## Get all preauthorizations
 
-Get all customer preauthorizations.
+Returns all preauthorizations of specified customers.
 
 ### Request
 
@@ -632,7 +632,7 @@ Get all customer preauthorizations.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "CustomerIds": ["49aaff6b-32d8-48f5-8234-ce875aefc508"]
+    "CustomerIds": ["e98995b0-140a-4208-bbeb-b77f2c43d6ee"]
 }
 ```
 
@@ -643,7 +643,7 @@ Get all customer preauthorizations.
 | `CustomerIds` | array | required | Array of unique identifiers of the [Customers](customers.md#customer). |
 
 ### Response
- Array of preauthorizations.
+
 ```javascript
 {
   "Preauthorizations": [
@@ -682,20 +682,21 @@ Get all customer preauthorizations.
   ]
 }
 ```
-|Property|Type| |Description|
-|-|-|-|-|
-|Preauthorizations|array of [Preauthorization](#preauthorization)||Customer's preauthorizations.|
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| Preauthorizations | array of [Preauthorization](#preauthorization) |  | Preauthorizations of the specified [Customers](customers.md#customer) |
 
 #### Preauthorization
 
-|Property|Type| |Description|
-|-|-|-|-|
-|`Id`|string|required|Unique identifier of the preauthorization.|
-|`CreditCardId`|string|required|Unique identifier of the credit card.|
-|`Amount`|[Currency value](/operations/finance.md#currency-value)|required| Value of the preauthorization.|
-|`State`|[State](#preauthorization-state)|required|Value of the preauthorization.|
-|`ReceiptIdentifier`|string|optional|Value from extenernal terminal used for identification of the preauthorization.|
-|`SequenceCode`|string|optional|Value from extenernal terminal used for identification of the preauthorization.|
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the preauthorization. |
+| `CreditCardId` | string | required|Unique identifier of the credit card. |
+| `Amount` | [Currency value](/operations/finance.md#currency-value) | required | Value of the preauthorization. |
+| `State` | string [Preauthorization State](#preauthorization-state) | required | State of the preauthorization. |
+| `ReceiptIdentifier` | string | optional | Value from extenernal terminal used for identification of the preauthorization. |
+| `SequenceCode` | string | optional | Value from extenernal terminal used for identification of the preauthorization. |
 
 #### Preauthorization state
 * `Chargeable` - Created and prepared for the charging.
