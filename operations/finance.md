@@ -620,7 +620,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 {}
 ```
 
-## Get all preauthorizations
+## Get all preauthorizations by customers
 
 Returns all preauthorizations of specified customers.
 
