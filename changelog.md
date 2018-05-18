@@ -2,7 +2,7 @@
 
 ## 17th May 2018 22:00 UTC
 
-* Added [Get all preauthorizations by customers](operations/customers.md#get-all-preauthorizations-by-customers) operation.
+* Added [Get all preauthorizations by customers](operations/finance.md#get-all-preauthorizations-by-customers) operation.
 
 ## 9th May 2018 21:00 UTC
 
