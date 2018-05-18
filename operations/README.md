@@ -61,7 +61,7 @@ This section describes all operations supported by the API:
   * [Get all bills by ids](finance.md#get-all-bills-by-ids) - returns all bills by their identifiers.
   * [Get all bills by customers](finance.md#get-all-bills-by-customers) - returns all bills of the specified customers.
   * [Get all closed bills](finance.md#get-all-closed-bills) - returns all closed bills in an interval.
-  * [Get all preauthorizations by customers](operations/finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
+  * [Get all preauthorizations by customers](finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
   * [Add credit card payment](finance.md#add-credit-card-payment) - adds a new credit card payment.
   * [Add external payment](finance.md#add-external-payment) - adds a new external payment.
 * [Integrations](integrations.md) - operations related to integrations, devices and commands to them.
