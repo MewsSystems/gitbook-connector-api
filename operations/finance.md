@@ -640,59 +640,59 @@ Returns all preauthorizations of specified customers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `CustomerIds` | array | required | Array of unique identifiers of the [Customers](customers.md#customer). |
+| `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
 
 ```javascript
 {
-  "Preauthorizations": [
-    {
-      "Amount": {
-        "Currency": "EUR",
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null,
-        "Value": 10
-      },
-      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
-      "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
-      "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
-      "IsActive": false,
-      "ReceiptIdentifier": "",
-      "SequenceCode": "",
-      "State": "Cancelled"
-    },
-    {
-      "Amount": {
-        "Currency": "EUR",
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null,
-        "Value": 22
-      },
-      "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
-      "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
-      "Id": "ad44411a-1efc-46b6-b903-ec5fa7842000",
-      "IsActive": true,
-      "ReceiptIdentifier": null,
-      "SequenceCode": null,
-      "State": "Charged"
-    }
-  ]
+    "Preauthorizations": [
+        {
+            "Amount": {
+                "Currency": "EUR",
+                "Net": null,
+                "Tax": null,
+                "TaxRate": null,
+                "Value": 10
+            },
+            "Code": null,
+            "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
+            "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
+            "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
+            "IsActive": false,
+            "State": "Cancelled"
+        },
+        {
+            "Amount": {
+                "Currency": "EUR",
+                "Net": null,
+                "Tax": null,
+                "TaxRate": null,
+                "Value": 22
+            },
+            "Code": null,
+            "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
+            "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
+            "Id": "ad44411a-1efc-46b6-b903-ec5fa7842000",
+            "IsActive": true,
+            "ReceiptIdentifier": null,
+            "SequenceCode": null,
+            "State": "Charged"
+        }
+    ]
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| Preauthorizations | array of [Preauthorization](#preauthorization) |  | Preauthorizations of the specified [Customers](customers.md#customer) |
+| Preauthorizations | array of [Preauthorization](#preauthorization) | required | Preauthorizations of the specified [Customers](customers.md#customer). |
 
 #### Preauthorization
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the preauthorization. |
-| `CreditCardId` | string | required|Unique identifier of the credit card. |
+| `CreditCardId` | string | required | Unique identifier of the credit card. |
 | `Amount` | [Currency value](/operations/finance.md#currency-value) | required | Value of the preauthorization. |
 | `State` | string [Preauthorization State](#preauthorization-state) | required | State of the preauthorization. |
 | `Code` | string | optional | Code of the preauthorization. |
