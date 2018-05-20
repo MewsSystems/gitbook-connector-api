@@ -57,12 +57,14 @@ Returns configuration of the enterprise and the client.
         "Phone": "+",
         "TimeZoneIdentifier": "Europe/Budapest",
         "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral"
-    }
+    },
+    "NowUtc": "2018-01-01T14:58:02Z"
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `NowUtc` | string | required | Current server date and time in UTC timezone in ISO 8601 format. |
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise \(e.g. hotel, hostel\) associated with the access token. |
 
 #### Enterprise
