@@ -36,6 +36,7 @@ This section describes all operations supported by the API:
   * [Start reservation](reservations.md#start-reservation) - starts \(checks in\) a reservation.
   * [Process reservation](reservations.md#process-reservation) - processes \(checks out\) a reservation.
   * [Cancel reservation](reservations.md#cancel-reservation) - cancels a reservation.
+  * [Update reservation customer](reservations.md#update-reservation-customer) - update reservation customer.
   * [Update reservation interval](reservations.md#update-reservation-interval) - updates start \(arrival\) and end \(departure\) of a reservation.
   * [Update reservation space](reservations.md#update-reservation-space) - updates assignment of a reservation to another space.
   * [Update reservation requested category](reservations.md#update-reservation-requested-category) - updates requested space category of a reservation.
