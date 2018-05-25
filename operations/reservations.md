@@ -616,6 +616,36 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 {}
 ```
 
+## Update reservation customer
+
+Updates customer of a reservation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/updateCustomer`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
+| `CustomerId` | string | required |  Unique identifier of the [Customer](customers.md#customer). |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Update reservation interval
 
 Updates reservation interval \(start, end or both\).

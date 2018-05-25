@@ -96,6 +96,7 @@ Returns all customers from the specified interval according to the time filter \
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
 | `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
+| `DriversLicense ` | [Document](customers.md#document) | optional | Drivers license  details of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
@@ -364,7 +365,16 @@ Adds a new customer to the system and returns details of the added customer. If 
     "Email": "john@doe.com",
     "Phone": "00420123456789",
     "LoyaltyCode": null,
-    "Notes": null
+    "Notes": null,
+    "IdentityCard": {
+        "Number": "123456",
+        "Expiration": "2020-01-01",
+        "Issuance": "2016-01-01",
+        "IssuingCountryCode": "US"
+    },
+    "Passport": null,
+    "Visa": null,
+    "DriversLicense": null
 }
 ```
 
@@ -384,7 +394,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Phone` | string | optional | Phone number of the customer \(possibly mobile\). |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
+| `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
+| `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
+| `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 
@@ -416,12 +429,15 @@ Updates personal information of a customer. Note that if any of the fields is le
     "Phone": "00420123456789",
     "LoyaltyCode": null,
     "Notes": null,
-    "Passport": {
+    "IdentityCard": {
         "Number": "123456",
         "Expiration": "2020-01-01",
         "Issuance": "2016-01-01",
         "IssuingCountryCode": "US"
-    }
+    },
+    "Passport": null,
+    "Visa": null,
+    "DriversLicense": null
 }
 ```
 
@@ -441,7 +457,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Phone` | string | optional | New phone number. |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
+| `IdentityCard` | [Document](customers.md#document) | optional | New identity card details. |
 | `Passport` | [Document](customers.md#document) | optional | New passport details. |
+| `Visa` | [Document](customers.md#document) | optional | New visa details. |
+| `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
 | `Address` | [Address](configuration.md#address) | optional | New address details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 
