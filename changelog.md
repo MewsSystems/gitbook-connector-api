@@ -1,5 +1,13 @@
 # Changelog
 
+## 25th May 2018 23:00 UTC
+
+* Extended [Company](operations/enterprise.md#company) with `TaxIdentifier`, `TaxIdentificationNumber` is deprecated. 
+* Extended [Product](operations/services.md#product) with `CategoryId`.
+* Extended [Company](operations/enterprise.md#company) with `AccountingCode`.
+* Extended [Add customer](operations/customers.md#add-customer) and [Update customer](operations/customers.md#update-customer) with `Identity card`, `Visa` and `Drivers license`.
+* Added [Update reservation customer](operations/reservations.md#update-reservation-customer) operation.
+
 ## 17th May 2018 22:00 UTC
 
 * Added [Get all preauthorizations by customers](operations/finance.md#get-all-preauthorizations-by-customers) operation.
