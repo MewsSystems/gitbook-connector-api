@@ -618,7 +618,7 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 
 ## Update reservation customer
 
-Updates reservation's customer.
+Updates customer of a reservation.
 
 ### Request
 
