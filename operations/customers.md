@@ -372,24 +372,9 @@ Adds a new customer to the system and returns details of the added customer. If 
         "Issuance": "2016-01-01",
         "IssuingCountryCode": "US"
     },
-    "Passport": {
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
-    },
-    "Visa": {
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
-    },
-    "DriversLicense": {
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
-    }
+    "Passport": null,
+    "Visa": null,
+    "DriversLicense": null
 }
 ```
 
@@ -450,24 +435,9 @@ Updates personal information of a customer. Note that if any of the fields is le
         "Issuance": "2016-01-01",
         "IssuingCountryCode": "US"
     },
-    "Passport": {
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
-    },
-    "Visa": {
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
-    },
-    "DriversLicense": {
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
-    }
+    "Passport": null,
+    "Visa": null,
+    "DriversLicense": null
 }
 ```
 
