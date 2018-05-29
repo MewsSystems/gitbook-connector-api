@@ -2,8 +2,9 @@
 
 ## 25th May 2018 23:00 UTC
 
-* Extended [Company](operations/enterprises.md#company) with `AccountingCode` and `TaxIdentifier`. `TaxIdentificationNumber` is deprecated. 
+* Extended [Company](operations/enterprises.md#company) with `TaxIdentifier`, `TaxIdentificationNumber` is deprecated. 
 * Extended [Product](operations/services.md#product) with `CategoryId`.
+* Extended [Company](operations/enterprises.md#company) with `AccountingCode`.
 * Extended [Add customer](operations/customers.md#add-customer) and [Update customer](operations/customers.md#update-customer) with `Identity card`, `Visa` and `Drivers license`.
 * Added [Update reservation customer](operations/reservations.md#update-reservation-customer) operation.
 

@@ -638,7 +638,7 @@ Updates customer of a reservation.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
-| `CustomerId` | string | required |  Unique identifier of the [Customer](customers.md#customer). |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
 

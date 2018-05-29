@@ -70,7 +70,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifer of the company. |
-| `AccountingCode ` | string | optional | Accounting code of the company. |
+| `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 
 ## Get all company contracts

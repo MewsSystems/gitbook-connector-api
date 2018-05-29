@@ -586,16 +586,16 @@ Returns all preauthorizations of specified customers.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| Preauthorizations | array of [Preauthorization](#preauthorization) | required | Preauthorizations of the specified [Customers](customers.md#customer). |
+| Preauthorizations | array of [Preauthorization](finance.md#preauthorization) | required | Preauthorizations of the specified [Customers](customers.md#customer). |
 
 #### Preauthorization
 
-| Property | Type | | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the preauthorization. |
 | `CreditCardId` | string | required | Unique identifier of the credit card. |
-| `Amount` | [Currency value](/operations/finance.md#currency-value) | required | Value of the preauthorization. |
-| `State` | string [Preauthorization State](#preauthorization-state) | required | State of the preauthorization. |
+| `Amount` | [Currency value](finance.md#currency-value) | required | Value of the preauthorization. |
+| `State` | string [Preauthorization State](finance.md#preauthorization-state) | required | State of the preauthorization. |
 | `Code` | string | optional | Code of the preauthorization. |
 
 #### Preauthorization state
@@ -705,3 +705,4 @@ Adds a new external payment to a bill of the specified customer. An external pay
 ```javascript
 {}
 ```
+

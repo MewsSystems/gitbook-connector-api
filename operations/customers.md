@@ -96,7 +96,7 @@ Returns all customers from the specified interval according to the time filter \
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
 | `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
-| `DriversLicense ` | [Document](customers.md#document) | optional | Drivers license  details of the customer. |
+| `DriversLicense` | [Document](customers.md#document) | optional | Drivers license  details of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
@@ -135,6 +135,9 @@ Returns all customers from the specified interval according to the time filter \
 * `Important`
 * `VeryImportant`
 * `Problematic`
+* `Cashlist`
+* `Disabled`
+* `Military`
 * ...
 
 #### Customer option
