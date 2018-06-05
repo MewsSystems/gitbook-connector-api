@@ -725,7 +725,7 @@ Updates reservation category requested by the customer to a different one.
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
     "Reprice": false,
-    "Overbook": "true"
+    "Overbook": true
 }
 ```
 
