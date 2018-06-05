@@ -180,7 +180,9 @@ Structure of command data varies depending on type of the [Device](integrations.
 | `LastName` | string | required | Last name of the reservation owner. |
 | `KeyCount` | number | required | Count of keys to cut. |
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
+| `Telephone` | string | optional | Telephone of the reservation owner. |
 | `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `ReservationNumber` | string | required | Confirmation number of the reservation in Mews. |
 
 ## Get all commands by ids
 
