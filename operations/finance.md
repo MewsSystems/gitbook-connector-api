@@ -314,7 +314,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ServiceId` | string | optional | Unique identifier of the [Service](services.md#service) the item belongs to. |
 | `OrderId` | string | optional | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
 | `BillId` | string | optional | Unique identifier of the bill the item is assigned to. |
-| `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated. |
+| `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
@@ -633,8 +633,7 @@ Returns all credit cards of specified customers.
 | `Format` | string | required | Format of the credit card, one of the: `Physical`, `Virtual`. |
 | `Kind` | string | required | Kind of the credit card, one of the: `Terminal`, `Gateway`. |
 | `State` | string | required | State of the credit card, one of the: `Enabled`, `Disabled`. |
-| `Type` | string | required | Type of the credit card, one of the: `MasterCard`, `Visa`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `Maestro`, `UnionPay`, `VPay`, `RuPay`, `Dankort`, `Mir`, `Verve`, `Troy`, `PostFinance`, `Giro`, `Bancomat`, `Bc`, `CarteBleue`, `Eftpos`, `Eps`, `Interac`, `Isracard`, `Meps`, `Nets`.  |
-
+| `Type` | string | required | Type of the credit card, one of the: `MasterCard`, `Visa`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `Maestro`, `UnionPay`, `VPay`, `RuPay`, `Dankort`, `Mir`, `Verve`, `Troy`, `PostFinance`, `Giro`, `Bancomat`, `Bc`, `CarteBleue`, `Eftpos`, `Eps`, `Interac`, `Isracard`, `Meps`, `Nets`. |
 
 ## Get all preauthorizations by customers
 
@@ -653,8 +652,6 @@ Returns all preauthorizations of specified customers.
     ]
 }
 ```
-
-### Response
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
