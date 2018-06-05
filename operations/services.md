@@ -223,6 +223,7 @@ Raturns all products offered together with the specified services.
 * `Once`
 * `PerTimeUnit`
 * `PerPersonPerTimeUnit`
+* `PerPerson`
 
 ## Get all business segments
 

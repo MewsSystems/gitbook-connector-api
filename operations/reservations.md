@@ -724,7 +724,8 @@ Updates reservation category requested by the customer to a different one.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-    "Reprice": false
+    "Reprice": false,
+    "Overbook": "true"
 }
 ```
 
@@ -735,6 +736,7 @@ Updates reservation category requested by the customer to a different one.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
 | `Reprice` | bool | required | Whether reservation should be repriced according to new category pricing. |
+| `Overbook` | bool | optional | Default value is `true`. Whether the overbooking is enabled.  |
 
 ### Response
 
@@ -816,7 +818,8 @@ Adds a new product order of the specified product to the reservation.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ReservationId": "c2e37cec-11a0-4fe7-8467-fbc50b54722f",
     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f",
-    "Count": 1
+    "Count": 1,
+    "UnitCost": null
 }
 ```
 
@@ -827,6 +830,7 @@ Adds a new product order of the specified product to the reservation.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
 | `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
+| `UnitCost` | [Cost](services.md#cost) | optional | Unit cost of the product that overrides the cost defined in Mews. |
 
 ### Response
 
