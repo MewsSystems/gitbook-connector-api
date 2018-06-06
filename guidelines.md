@@ -14,6 +14,8 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 * **Resource** - Logical group of operations, in most cases identifies target of the operations.
 * **Operation** - Name of the operation to be performed.
 
+### Body
+
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -30,11 +32,11 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `LanguageCode` | string | optional | Code of the [language](operations/configuration.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
-### Authentication
-
 All operations of the API require `ClientToken` and `AccessToken` to be present in the request. The `ClientToken` serves as an identificator of the client using the API. The `AccessToken` grants the client access to data of an enterprise in the system. For development purposes, use the demo environment. For production usage, the `ClientToken` will be provided to you by our integration team and `AccessToken` by admin of the enterprise.
 
-#### Demo environment
+All operations of the API accept language code and culture code. These values are optional and can be used for enforcing of the language and culture. Both of these values must be defined together otherwise default values of the Enterprise are used.
+
+### Demo environment
 
 This environment is meant to be used during implementation of the client applications.
 
@@ -48,15 +50,11 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 * **Email** - `connector-api@mews.li`
 * **Password** - `connector-api`
 
-#### Production environment
+### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
 * **ClientToken** - Will be provided to you by our integration team. For further information, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
 * **AccessToken** - Depends on the enterprise, should be provided to you by the enterprise admin.
-
-### Language and Culture
-
-All operations of the API accept language code and culture code. These values are optional and can be used for enforcing of the language and culture. Both of these values must be defined together otherwise default values of the Enterprise are used.
 
 ## Responses
 
