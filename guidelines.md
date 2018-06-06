@@ -70,3 +70,22 @@ In order to pass this interval to the API, it has to be converted to UTC:
 * StartUtc `2016-12-31T22:00:00Z`
 * EndUtc `2017-01-02T22:00:00Z`
 
+## Language and Culture
+
+All operations of the API accept language code and culture code. These values are optional and can be used for enforcing of the language and culture. Both of these values must be defined together otherwise default values of the Enterprise are used.
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "LanguageCode": null,
+    "CultureCode": null 
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `LanguageCode` | string | optional | Language code of the [language](operations/configuration.md#language). |
+| `CultureCode` | string | optional | Culture code of the culture. |

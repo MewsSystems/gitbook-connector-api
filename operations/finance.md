@@ -283,6 +283,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                 "Value": 2.5
             },
             "BillId": null,
+            "CreditCardId" : null,
             "ClosedUtc": "2017-02-41T10:41:54Z",
             "ConsumptionUtc": "2016-07-27T12:48:39Z",
             "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
@@ -313,6 +314,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ServiceId` | string | optional | Unique identifier of the [Service](services.md#service) the item belongs to. |
 | `OrderId` | string | optional | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
 | `BillId` | string | optional | Unique identifier of the bill the item is assigned to. |
+| `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
@@ -519,6 +521,121 @@ Returns all bills \(both receipts and invoices\) that have been closed in the sp
 
 Same structure as in [Get all bills by ids](finance.md#get-all-bills-by-ids) operation.
 
+## Get all credit cards by ids
+
+Returns all credit cards with the specified ids.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/creditCards/getAllByIds`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CreditCardIds": [
+        "f1d94a32-b4be-479b-9e47-a9fcb03d5196"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CreditCardIds` | array of string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
+
+### Response
+
+```javascript
+{
+    "CreditCards": [
+        {
+            "CreatedUtc": "2018-05-24T13:45:29Z",
+            "CustomerId": "a3c90426-43f2-4b53-8482-446dfc724bd2",
+            "Expiration": "2020-11",
+            "Format": "Physical",
+            "Id": "f1d94a32-b4be-479b-9e47-a9fcb03d5196",
+            "IsActive": true,
+            "Kind": "Gateway",
+            "ObfuscatedNumber": "************1111",
+            "State": "Enabled",
+            "Type": "Visa"
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| CreditCards | array of [Credit card](finance.md#credit-card)s | required | The credit cards. |
+
+#### Credit card
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the credit card. |
+| `CustomerId` | string | required | Unique identifier of the credit card [owner](customers.md#customer). |
+| `CreatedUtc` | string | required | Creation date and time of the credit card in UTC timezone in ISO 8601 format. |
+| `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`. |
+| `IsActive` | boolean | required | Whether the credit card is still active. |
+| `ObfuscatedNumber` | string | optinal | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
+| `Format` | string [Credit card format](finance.md#credit-card-format)| required | Format of the credit card. |
+| `Kind` | string [Credit card kind](finance.md#credit-card-kind) | required | Kind of the credit card. |
+| `State` | string [Credit card state](finance.md#credit-card-state) | required | State of the credit card. |
+| `Type` | string [Credit card type](finance.md#credit-card-type) | required | Type of the credit card. |
+
+#### Credit card format
+
+* `Physical`
+* `Virtual`
+
+#### Credit card kind
+
+* `Terminal`
+* `Gateway`
+
+#### Credit card state
+
+* `Enabled`
+* `Disabled`
+
+#### Credit card type
+
+* `MasterCard`, `Visa`, `Amex`, `Maestro`, `Discover`, `VPay`, ...
+
+## Get all credit cards by customers
+
+Returns all credit cards of specified customers.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/creditCards/getAllByCustomers`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerIds": [
+        "a3c90426-43f2-4b53-8482-446dfc724bd2"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer)s. |
+
+### Response
+
+Same structure as in [Get all credit cards by ids](finance.md#get-all-credit-cards-by-ids) operation.
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| CreditCards | array of [Credit card](finance.md#credit-card)s | required | Credit cards of the specified [Customer](customers.md#customer)s. |
+
 ## Get all preauthorizations by customers
 
 Returns all preauthorizations of specified customers.
@@ -643,18 +760,18 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
-| `CreditCard` | [Credit card](finance.md#credit-card) | required | Credit card details. |
+| `CreditCard` | [Credit card](finance.md#credit-card-parameters) | required | Credit card details. |
 | `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category to be assigned to the payment. |
 | `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
 | `Notes` | string | optional | Additional payment notes. |
 
-#### Credit card
+#### Credit card parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Type` | string | required | Type of the credit card, one of: `Visa`, `MasterCard`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `EnRoute`, `Maestro`, `UnionPay`. |
 | `Number` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. It is possible to provide even more obfuscated number or just last four digits. **Never provide full credit card number**. For example `411111******1111`. |
-| `Expiration` | string | required | Expiration of the credit card in format `MM/YYYY`, e.g. `12/2016` or `04/2017`. |
+| `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`, e.g. `12/2016` or `04/2017`. |
 | `Name` | string | required | Name of the card holder. |
 
 ### Response
