@@ -1,5 +1,16 @@
 # Changelog
 
+## 31st May 2018 22:30 UTC
+
+* Extended [API](guidelines.md#language-and-culture) parameters with optional `Language` and `Culture`.
+* Extended [Accounting item](operations/finance.md#accounting-item) with `CreditCardId`.
+* Extended [Update reservation requested category](operations/reservations.md#update-reservation-requested-category) with `Overbook`.
+* Extended [Add reservation product](operations/reservations.md#add-reservation-product) with `UnitCost`.
+* Extended [Product charging](operations/services.md#product-charging) with `PerPerson`.
+* Updated `Expiration` in [Credit card parameters](operations/finance.md#credit-card-parameters) to be optional. 
+* Added [Get all credit cards by ids](operations/finance.md#get-all-creditc-cards-by-ids) operation.
+* Added [Get all credit cards by customers](operations/finance.md#get-all-creditc-cards-by-customers) operation.
+
 ## 25th May 2018 23:00 UTC
 
 * Extended [Company](operations/enterprises.md#company) with `TaxIdentifier`, `TaxIdentificationNumber` is deprecated. 
