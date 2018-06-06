@@ -32,9 +32,31 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `LanguageCode` | string | optional | Code of the [language](operations/configuration.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
-All operations of the API require `ClientToken` and `AccessToken` to be present in the request. The `ClientToken` serves as an identificator of the client using the API. The `AccessToken` grants the client access to data of an enterprise in the system. For development purposes, use the demo environment. For production usage, the `ClientToken` will be provided to you by our integration team and `AccessToken` by admin of the enterprise.
+All operations of the API require `ClientToken` and `AccessToken` to be present in the request. The `ClientToken` serves as an identificator of the client using the API. The `AccessToken` grants the client access to data of an enterprise in the system. For development purposes, use the demo environment. For production usage, the `ClientToken` will be provided to you by our integration team and `AccessToken` by admin of the enterprise. See [Authentication](#authentication) for further details.
 
-All operations of the API accept language code and culture code. These values are optional and can be used for enforcing of the language and culture. Both of these values must be defined together otherwise default values of the Enterprise are used.
+All operations of the API optionally accept language code and culture code. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/enterprises.md#enterprise) are used.
+
+## Responses
+
+The API responds with `Content-Type` set to `application/json` and JSON content. In case of success, the HTTP status code is 200 and the content contains result according to the call. In case of error, there are multiple HTTP status codes for different types of errors:
+
+* **400 Bad Request** - Error caused by the client app, e.g. in case of malformed request or invalid identifier of a resource. In most cases, such an error signifies a bug in the client app \(consumer of the API\).
+* **401 Unauthorized** - Error caused by usage of invalid access token.
+* **403 Forbidden** - Server error that should be reported to the end user of the client app. Happens for example when the server-side validation fails or when a business-logic check is violated.
+* **500 Internal Server Error** - Unexpected error of the server. In most cases, such an error signifies a bug on our side. We are logging it and immediately notified when such error happens. If anything like this happens, feel free to directly contact us or raise an issue here on Github.
+
+In case of any error, the returned JSON object describes the error and has the following properties:
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Message` | string | required | Description of the error. |
+| `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
+
+Some errors may also contain additional information relevant to the error on top of this two properties. But that depends on the operation and is specifically described in the operation documentation.
+
+## Authentication
+
+Authentication and tokens that have to be used depend on environment.
 
 ### Demo environment
 
@@ -55,24 +77,6 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 * **PlatformAddress** - `https://www.mews.li`
 * **ClientToken** - Will be provided to you by our integration team. For further information, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
 * **AccessToken** - Depends on the enterprise, should be provided to you by the enterprise admin.
-
-## Responses
-
-The API responds with `Content-Type` set to `application/json` and JSON content. In case of success, the HTTP status code is 200 and the content contains result according to the call. In case of error, there are multiple HTTP status codes for different types of errors:
-
-* **400 Bad Request** - Error caused by the client app, e.g. in case of malformed request or invalid identifier of a resource. In most cases, such an error signifies a bug in the client app \(consumer of the API\).
-* **401 Unauthorized** - Error caused by usage of invalid access token.
-* **403 Forbidden** - Server error that should be reported to the end user of the client app. Happens for example when the server-side validation fails or when a business-logic check is violated.
-* **500 Internal Server Error** - Unexpected error of the server. In most cases, such an error signifies a bug on our side. We are logging it and immediately notified when such error happens. If anything like this happens, feel free to directly contact us or raise an issue here on Github.
-
-In case of any error, the returned JSON object describes the error and has the following properties:
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Message` | string | required | Description of the error. |
-| `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
-
-Some errors may also contain additional information relevant to the error on top of this two properties. But that depends on the operation and is specifically described in the operation documentation.
 
 ## Datetimes
 
