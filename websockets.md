@@ -53,8 +53,8 @@ If the Connector integration is configured to handle commands for some devices, 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Type` | string `DeviceCommand` | required | Type of the event. |
-| `Id` | string | required | Unique identifier of the [Command](operations/#command). |
-| `State` | string [Command state](operations/#command-state) | required | State of the command. |
+| `Id` | string | required | Unique identifier of the [Command](operations/integrations#command). |
+| `State` | string [Command state](operations/integrations#command-state) | required | State of the command. |
 
 #### Reservation event
 
@@ -63,8 +63,8 @@ If the Connector integration is configured to receive reservation updates, it wi
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Type` | string `Reservation` | required | Type of the event. |
-| `Id` | string | required | Unique identifier of the [Reservation](operations/#reservation). |
-| `State` | string [Reservation state](operations/#reservation-state) | required | State of the reservation. |
+| `Id` | string | required | Unique identifier of the [Reservation](operations/reservations#reservation). |
+| `State` | string [Reservation state](operations/reservations#reservation-state) | required | State of the reservation. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Endof the reservation \(departure\) in UTC timezone in ISO 8601 format. |
 
@@ -75,6 +75,6 @@ If the Connector integration is configured to receive space updates, it will rec
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Type` | string `Space` | required | Type of the event. |
-| `Id` | string | required | Unique identifier of the [Space](operations/#space). |
-| `State` | string [Space state](operations/#space-state) | required | State of the space. |
+| `Id` | string | required | Unique identifier of the [Space](operations/enterprises#space). |
+| `State` | string [Space state](operations/enterprises#space-state) | required | State of the space. |
 
