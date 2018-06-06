@@ -2,7 +2,7 @@
 
 ## 31st May 2018 22:30 UTC
 
-* Extended [API](guidelines.md#language-and-culture) parameters with optional `Language` and `Culture`.
+* Extended request [Body](guidelines.md#body) with optional `Language` and `Culture`.
 * Extended [Accounting item](operations/finance.md#accounting-item) with `CreditCardId`.
 * Extended [Update reservation requested category](operations/reservations.md#update-reservation-requested-category) with `Overbook`.
 * Extended [Add reservation product](operations/reservations.md#add-reservation-product) with `UnitCost`.
