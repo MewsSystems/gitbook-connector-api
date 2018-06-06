@@ -8,8 +8,8 @@
 * Extended [Add reservation product](operations/reservations.md#add-reservation-product) with `UnitCost`.
 * Extended [Product charging](operations/services.md#product-charging) with `PerPerson`.
 * Updated `Expiration` in [Credit card parameters](operations/finance.md#credit-card-parameters) to be optional. 
-* Added [Get all credit cards by ids](operations/finance.md#get-all-creditc-cards-by-ids) operation.
-* Added [Get all credit cards by customers](operations/finance.md#get-all-creditc-cards-by-customers) operation.
+* Added [Get all credit cards by ids](operations/finance.md#get-all-credit-cards-by-ids) operation.
+* Added [Get all credit cards by customers](operations/finance.md#get-all-credit-cards-by-customers) operation.
 
 ## 25th May 2018 23:00 UTC
 
