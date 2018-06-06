@@ -34,7 +34,7 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 
 All operations of the API require `ClientToken` and `AccessToken` to be present in the request. The `ClientToken` serves as an identificator of the client using the API. The `AccessToken` grants the client access to data of an enterprise in the system. For development purposes, use the demo environment. For production usage, the `ClientToken` will be provided to you by our integration team and `AccessToken` by admin of the enterprise. See [Authentication](#authentication) for further details.
 
-All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/enterprises.md#enterprise) are used.
+All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/configuration.md#enterprise) are used.
 
 ## Responses
 
