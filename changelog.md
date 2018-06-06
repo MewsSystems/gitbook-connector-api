@@ -2,7 +2,7 @@
 
 ## 5th Jun 2018 15:00 UTC
 
-* Updated security to `TLS 1.2`.
+* Mimimal required TLS version updated to `TLS 1.2`.
 
 ## 31st May 2018 22:30 UTC
 
