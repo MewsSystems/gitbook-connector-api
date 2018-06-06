@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th Jun 2018 15:00 UTC
+
+* Mimimal required TLS version updated to `TLS 1.2`.
+
 ## 31st May 2018 22:30 UTC
 
 * Extended request [Body](guidelines.md#body) with optional `Language` and `Culture`.
