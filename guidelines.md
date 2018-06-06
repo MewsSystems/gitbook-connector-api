@@ -72,7 +72,7 @@ In order to pass this interval to the API, it has to be converted to UTC:
 
 ## Language and Culture
 
-All operations of the API accept language code and culture code. These values are optional and can be used for enforcing of the language and culture. Both of these values must be defined together otherwise default values of the Hotel are used.
+All operations of the API accept language code and culture code. These values are optional and can be used for enforcing of the language and culture. Both of these values must be defined together otherwise default values of the Enterprise are used.
 
 ```javascript
 {
@@ -87,5 +87,5 @@ All operations of the API accept language code and culture code. These values ar
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `LanguageCode` | string | optional | Language code of the language. |
+| `LanguageCode` | string | optional | Language code of the [language](operations/configuration.md#language). |
 | `CultureCode` | string | optional | Culture code of the culture. |

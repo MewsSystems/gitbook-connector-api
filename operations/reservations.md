@@ -736,7 +736,7 @@ Updates reservation category requested by the customer to a different one.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
 | `Reprice` | bool | required | Whether reservation should be repriced according to new category pricing. |
-| `Overbook` | bool | optional | Default value is `true`. Whether the overbooking is enabled.  |
+| `Overbook` | bool | optional | Whether the overbooking is enabled. Default value is `true`. |
 
 ### Response
 

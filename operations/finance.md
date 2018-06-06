@@ -570,6 +570,39 @@ Returns all credit cards with the specified ids.
 | --- | --- | --- | --- |
 | CreditCards | array of [Credit card](finance.md#credit-card)s | required | The credit cards. |
 
+#### Credit card
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the credit card. |
+| `CustomerId` | string | required | Unique identifier of the credit card [owner](customers.md#customer). |
+| `CreatedUtc` | string | required | Creation date and time of the credit card in UTC timezone in ISO 8601 format. |
+| `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`. |
+| `IsActive` | boolean | required | Whether the credit card is still active. |
+| `ObfuscatedNumber` | string | optinal | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
+| `Format` | string [Credit card format](finance.md#credit-card-format)| required | Format of the credit card. |
+| `Kind` | string [Credit card kind](finance.md#credit-card-kind) | required | Kind of the credit card. |
+| `State` | string [Credit card state](finance.md#credit-card-state) | required | State of the credit card. |
+| `Type` | string [Credit card type](finance.md#credit-card-type) | required | Type of the credit card. |
+
+#### Credit card format
+
+* `Physical`
+* `Virtual`
+
+#### Credit card kind
+
+* `Terminal`
+* `Gateway`
+
+#### Credit card state
+
+* `Enabled`
+* `Disabled`
+
+#### Credit card type
+
+* `MasterCard`, `Visa`, `Amex`, `Maestro`, `Discover`, `VPay`, ...
 
 ## Get all credit cards by customers
 
@@ -593,47 +626,15 @@ Returns all credit cards of specified customers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer)s. |
 
 ### Response
 
-```javascript
-{
-    "CreditCards": [
-        {
-            "CreatedUtc": "2018-05-24T13:45:29Z",
-            "CustomerId": "a3c90426-43f2-4b53-8482-446dfc724bd2",
-            "Expiration": "2020-11",
-            "Format": "Physical",
-            "Id": "f1d94a32-b4be-479b-9e47-a9fcb03d5196",
-            "IsActive": true,
-            "Kind": "Gateway",
-            "ObfuscatedNumber": "************1111",
-            "State": "Enabled",
-            "Type": "Visa"
-        }
-    ]
-}
-```
+Same structure as in [Get all credit cards by ids](finance.md#get-all-credit-cards-by-ids) operation.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | CreditCards | array of [Credit card](finance.md#credit-card)s | required | Credit cards of the specified [Customer](customers.md#customer)s. |
-
-#### Credit card
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the credit card. |
-| `CustomerId` | string | required | Unique identifier of the credit card owner. |
-| `CreatedUtc` | string | required | Creation date and time of the credit card. |
-| `Expiration` | string | optional | Expiration of the credit card. |
-| `IsActive` | boolean | required | Whether the credit card is still active. |
-| `ObfuscatedNumber` | string | optinal | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. |
-| `Format` | string | required | Format of the credit card, one of the: `Physical`, `Virtual`. |
-| `Kind` | string | required | Kind of the credit card, one of the: `Terminal`, `Gateway`. |
-| `State` | string | required | State of the credit card, one of the: `Enabled`, `Disabled`. |
-| `Type` | string | required | Type of the credit card, one of the: `MasterCard`, `Visa`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `Maestro`, `UnionPay`, `VPay`, `RuPay`, `Dankort`, `Mir`, `Verve`, `Troy`, `PostFinance`, `Giro`, `Bancomat`, `Bc`, `CarteBleue`, `Eftpos`, `Eps`, `Interac`, `Isracard`, `Meps`, `Nets`. |
 
 ## Get all preauthorizations by customers
 
