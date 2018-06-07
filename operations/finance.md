@@ -444,6 +444,7 @@ Returns all bills with the specified ids.
 | `Id` | string | required | Unique identifier of the bill. |
 | `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
 | `CompanyId` | string | optional | Unique identifier of the [Company](enterprises.md#company) the bill is issued to. |
+| `CounterId` | string | optional | Unique identifier of the bill Counter. |
 | `State` | string [Bill state](finance.md#bill-state) | required | State of the bill. |
 | `Type` | string [Bill type](finance.md#bill-type) | required | Type of the bill. |
 | `Number` | string | required | Number of the bill. |
