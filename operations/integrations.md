@@ -175,7 +175,7 @@ Structure of command data varies depending on type of the [Device](integrations.
 | `KeyCutterData` | string | optional | Custom JSON data. |
 | `ApiUrl` | string | optional | URL of the key cutter server API. |
 | `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `ReservationNumber` | string | required | Confirmation number of the reservation in Mews. |
+| `ReservationNumber` | string | optional | Confirmation number of the reservation in Mews. |
 | `StartUtc` | string | required | Reservation start. |
 | `EndUtc` | string | required | Reservation end. |
 | `FirstName` | string | optional | First name of the reservation owner. |
