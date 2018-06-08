@@ -3,6 +3,7 @@
 ## 7th Jun 2018 22:00 UTC
 
 * Extended [Bill](operations/finance.md#bill) with `CounterId`.
+* Extended [Key cutter command data](operations/integrations.md#key-cutter-command-data) with `Telephone` and `ReservationNumber`.
 
 ## 5th Jun 2018 15:00 UTC
 
