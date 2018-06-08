@@ -1,5 +1,9 @@
 # Changelog
 
+## 7th Jun 2018 22:00 UTC
+
+* Extended [Bill](operations/finance.md#bill) with `CounterId`.
+
 ## 5th Jun 2018 15:00 UTC
 
 * Mimimal required TLS version updated to `TLS 1.2`.
