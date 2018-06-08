@@ -241,12 +241,19 @@ Returns all spaces of an enterprise associated with the connector integration.
     "SpaceCategories": [
         {
             "Description": "",
+            "Descriptions": {},
             "Id": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
             "IsActive": true,
             "ImageIds": [],
             "Name": "Best Room",
+            "Names": {
+                "en-US": "Best Room"
+            },
             "Ordering": 0,
             "ShortName": "BR",
+            "ShortNames":{
+                "en-US": "BR"
+            },
             "UnitCount": 2
         }
     ],
@@ -309,11 +316,18 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `Id` | string | required | Unique identifier of the category. |
 | `IsActive` | bool | required | Whether the space category is still active. |
 | `Name` | string | required | Name of the category. |
+| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name \(e.g. code\) of the category. |
+| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
 | `Description` | string | optional | Description of the category. |
+| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
 | `UnitCount` | number | required | Count of units that can be accommodated \(e.g. bed count\). |
 | `ImageIds` | array of string | required | Unique identifiers of the space category images. |
+
+#### Localized text
+
+An object where keys are the [Language](configuration.md#language) codes and values texts in respective languages.
 
 #### Space feature
 
