@@ -4,6 +4,7 @@
 
 * Extended [Bill](operations/finance.md#bill) with `CounterId`.
 * Extended [Key cutter command data](operations/integrations.md#key-cutter-command-data) with `Telephone` and `ReservationNumber`.
+* Extended [Space category](operations/enterprises.md#space-category) with `Names`, `ShortNames` and `Descriptions`.
 
 ## 5th Jun 2018 15:00 UTC
 
