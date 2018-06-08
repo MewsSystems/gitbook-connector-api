@@ -373,6 +373,7 @@ Returns all bills with the specified ids.
         {
             "CompanyId": null,
             "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+            "CounterId": null,
             "DueUtc": null,
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "IssuedUtc": "2017-01-31T10:58:06Z",
