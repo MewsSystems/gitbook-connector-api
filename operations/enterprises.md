@@ -327,7 +327,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 
 #### Localized text
 
-* All existing translation of given object accessible by [Language code](configuration.md#language).
+* All existing translations accessible by [Language code](configuration.md#language).
 
 #### Space feature
 
