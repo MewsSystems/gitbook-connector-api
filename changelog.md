@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th Jun 2018 21:30 UTC
+
+* Added [Get all outlets](operations/enterprises.md#get-all-outlets) operation.
+
 ## 7th Jun 2018 22:00 UTC
 
 * Extended [Bill](operations/finance.md#bill) with `CounterId`.
