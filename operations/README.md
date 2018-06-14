@@ -13,6 +13,7 @@ This section describes all operations supported by the API:
   * [Get all companies](enterprises.md#get-all-companies) - returns company profiles of the enterprise.
   * [Get all company contracts](enterprises.md#get-all-company-contracts) - returns contracts of the enterprise with companies.
   * [Get all departments](enterprises.md#get-all-departments) - returns all departments of the enterprise.
+  * [Get all outlets](enterprises.md#get-all-outlets) - returns all outlets of the enterprise.
   * [Get all spaces](enterprises.md#get-all-spaces) - returns spaces in the enterprise together with their configuration.
   * [Get all space blocks](enterprises.md#get-all-space-blocks) - returns space blocks in an interval.
   * [Update space state](enterprises.md#update-space-state) - updates state of a space.
