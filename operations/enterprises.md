@@ -174,57 +174,6 @@ Returns all departments of an enterprise associated with the connector integrati
 | `IsActive` | boolean | required | Whether the department is still active. |
 | `Name` | string | required | Name of the department. |
 
-## Get all outlets
-
-Returns all outlets of an enterprise associated with the connector integration.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/outlets/getAll`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-
-### Response
-
-```javascript
-{
-    "Outlets": [
-        {
-            "Id": "42427fb7-14f4-413b-a11d-7171d6d14e1a",
-            "IsActive": true,
-            "Name": "Hotel spa"
-        },
-        {
-            "Id": "45156837-3a03-40c9-af4e-99a0b38a4e41",
-            "IsActive": true,
-            "Name": "Hotel restaurant"
-        }
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Outlets` | array of [Outlet](enterprises.md#outlet) | required | The outlets of the enterprise. |
-
-#### Outlet
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the outlet. |
-| `IsActive` | boolean | required | Whether the outlet is still active. |
-| `Name` | string | required | Name of the outlet. |
-
 ## Get all spaces
 
 Returns all spaces of an enterprise associated with the connector integration.
