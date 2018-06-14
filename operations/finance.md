@@ -839,7 +839,7 @@ Adds new outlet bills with their items.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Bills": [  
         {  
-            "OutletId": "45156837-3A03-40C9-AF4E-99A0B38A4E41",
+            "OutletId": "7700469f-7667-4ebd-a1c0-10380afc9bd0",
             "Number": "1257",
             "ClosedUtc": "2017-01-01T00:00:00Z",
             "Items": [  
@@ -863,10 +863,10 @@ Adds new outlet bills with their items.
                         "Currency": "GBP",
                         "Tax": 0.20
                     },
+                    "ConsumedUtc": "2017-01-01T00:00:00Z",
                     "Category": {
                         "Code": "ABVG"
-                    },
-                    "ConsumedUtc": "2017-01-01T00:00:00Z"
+                    }
                 }
             ]
         }
