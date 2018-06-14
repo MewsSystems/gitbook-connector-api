@@ -3,6 +3,7 @@
 ## 13th Jun 2018 21:30 UTC
 
 * Added [Get all outlets](operations/enterprises.md#get-all-outlets) operation.
+* Added [Add outlet bills](operations/finance.md#add-outlet-bills) operation.
 
 ## 7th Jun 2018 22:00 UTC
 
