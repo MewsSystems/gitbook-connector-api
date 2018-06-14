@@ -68,6 +68,7 @@ This section describes all operations supported by the API:
   * [Get all preauthorizations by customers](finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
   * [Add credit card payment](finance.md#add-credit-card-payment) - adds a new credit card payment.
   * [Add external payment](finance.md#add-external-payment) - adds a new external payment.
+  * [Add outlet bills](finance.md#add-outlet-bills) - adds new outlet bills with items.
 * [Integrations](integrations.md) - operations related to integrations, devices and commands to them.
   * [Get all devices](integrations.md#get-all-devices) - returns all physical devices defined in the enterprise.
   * [Get all commands](integrations.md#get-all-commands) - returns all active commands issued for the client.
