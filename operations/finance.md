@@ -827,56 +827,50 @@ Adds a new external payment to a bill of the specified customer. An external pay
 
 ## Add outlet bills
 
-Adds a new outlet bills with items.
+Adds new outlet bills with their items.
 
 ### Request
 
 `[PlatformAddress]/api/connector/v1/outletBills/add`
 
 ```javascript
-{
+{  
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Bills":[  
-      {  
-         "OutletId":"45156837-3A03-40C9-AF4E-99A0B38A4E41",
-         "Number":"1257",
-         "ClosedUtc":"2018-06-06 12:19:56",
-         "Items":[  
-            {  
-               "Type":"Payment",
-               "UnitCost":
-               {
-               	"Amount":10,
-               	"Currency":"EUR",
-               	"Tax":0
-               },
-               "Name":"Invoice payment",
-               "ClosedUtc":"2018-06-05 15:10:17",
-               "ConsumedUtc":"2018-06-04 12:19:33",
-               "UnitCount":3
-            },
-            {  
-               "OutletId":"42427FB7-14F4-413B-A11D-7171D6D14E1A",
-               "AccountingCategory":
-               {
-               	"Code":"1232456"
-               },
-               "Type":"Revenue",
-               "UnitCost":
-               {
-               	"Amount":5,
-               	"Currency":"EUR",
-               	"Tax":0
-               },
-               "Name":"Miscellaneous",
-               "ClosedUtc":"2018-06-08 12:19:07",
-               "ConsumedUtc":"2018-06-08 11:50:13",
-               "UnitCount":2
-            }
-         ]
-      }
-   ]
+    "Bills": [  
+        {  
+            "OutletId": "45156837-3A03-40C9-AF4E-99A0B38A4E41",
+            "Number": "1257",
+            "ClosedUtc": "2017-01-01T00:00:00Z",
+            "Items": [  
+                {  
+                    "Type": "Payment",
+                    "Name": "Cash payment",
+                    "UnitCount": 1,
+                    "UnitCost": {  
+                        "Amount": -25,
+                        "Currency": "GBP",
+                        "Tax": 0
+                    },
+                    "ConsumedUtc": "2017-01-01T00:00:00Z"
+                },
+                {  
+                    "Type": "Revenue",
+                    "Name": "Beer",
+                    "UnitCount": 10,
+                    "UnitCost": {
+                        "Amount": 2.50,
+                        "Currency": "GBP",
+                        "Tax": 0.20
+                    },
+                    "Category": {
+                        "Code": "ABVG"
+                    },
+                    "ConsumedUtc": "2017-01-01T00:00:00Z"
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -884,35 +878,29 @@ Adds a new outlet bills with items.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Bills` | array of [Outlet bill](finance.md#outlet-bill) | required | Outlet bills. |
+| `Bills` | array of [Outlet bill](finance.md#outlet-bill) | required | The new outlet bills. |
 
-#### Outlet Bill
+#### Outlet bill
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `OutletId` | string | required | Unique identifier of the [Outlet](enteprises.md#outlet) the bill is issued to. |
+| `OutletId` | string | required | Unique identifier of the [Outlet](enteprises.md#outlet) where the bill was issued. |
 | `Number` | string | required | Number of the bill. |
-| `Notes` | string | optional | Additional notes of the bill. |
-| `ClosedUtc` | string | required | Date and time of the bill close in UTC timezone in ISO 8601 format. |
+| `Notes` | string | optional | Additional notes on the bill. |
+| `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
 | `Items` | array of [Outlet item](finance.md#outlet-item) | required | The items on the bill. |
 
 #### Outlet item
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the outlet item. |
-| `Name` | string | required | Name of the outlet item. |
-| `UnitCount ` | number | required | Count of the outlet items. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the outlet item. |
-| `ConsumedUtc` | string | required | Date and time of the outlet item consume in UTC timezone in ISO 8601 format. |
-| `Notes` | string | optional | Additional notes of the outlet item. |
-| `AccountingCategory` | [Accounting Category](services.md#accounting-category) | optional | Accounting category of the outlet item. |
-
-#### Accounting Category
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Code` | string | required | Code of the accounting category. |
+| `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
+| `Name` | string | required | Name of the item. |
+| `UnitCount ` | number | required | Unit count of the item. |
+| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
+| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `Notes` | string | optional | Additional notes of the item. |
+| `AccountingCategory` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category of the item. |
 
 #### Outlet item type
 
