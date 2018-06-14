@@ -200,14 +200,14 @@ Returns all outlets of an enterprise associated with the connector integration.
 {
     "Outlets": [
         {
-            "Id": "42427fb7-14f4-413b-a11d-7171d6d14e1a",
+            "Id": "7700469f-7667-4ebd-a1c0-10380afc9bd0",
             "IsActive": true,
-            "Name": "Hotel spa"
+            "Name": "Spa"
         },
         {
-            "Id": "45156837-3a03-40c9-af4e-99a0b38a4e41",
+            "Id": "2accff7b-feea-436a-9670-afa9bdb8c8d2",
             "IsActive": true,
-            "Name": "Hotel restaurant"
+            "Name": "Restaurant"
         }
     ]
 }
