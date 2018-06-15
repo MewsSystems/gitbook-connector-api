@@ -884,7 +884,7 @@ Adds new outlet bills with their items.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `OutletId` | string | required | Unique identifier of the [Outlet](https://github.com/MewsSystems/gitbook-connector-api/tree/57f6d72263b46aea45035695fe6cc24575059de9/operations/enteprises.md#outlet) where the bill was issued. |
+| `OutletId` | string | required | Unique identifier of the [Outlet](enterprises.md#outlet) where the bill was issued. |
 | `Number` | string | required | Number of the bill. |
 | `Notes` | string | optional | Additional notes on the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
