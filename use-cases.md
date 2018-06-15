@@ -7,7 +7,8 @@ This section describes, how to use the Connector API in order to implement some 
 * [Point of sale systems](use-cases.md#point-of-sale-systems)
 * [Guest technology systems](use-cases.md#guest-technology-systems)
 * [Reputation management systems](use-cases.md#reputation-management-systems)
-* [Mobile Key Systems](use-cases.md#mobile-key-systems)
+* [Mobile key systems](use-cases.md#mobile-key-systems)
+* [Customer relationship management systems](use-cases.md#customer-relationship-management-systems)
 
 ## Revenue management systems
 
@@ -57,9 +58,11 @@ Point of Sale systems \(POS\) need to be able to create charges in Mews. With Me
 
 ### Inital Setup
 
-The integration should use the [Get all services](operations/services.md#get-all-services) operation to retrieve all services the property has configured in Mews. Once all services are retrieved, the service which you would like all charges to be sent under should be selected. Ideally this would be done via the UI in the setup page. Alternatively, a field for the `ServiceId` to be entered in can be used.
+The integration should use the [Get all services](operations/services.md#get-all-services) operation to retrieve all services the property has configured in Mews. Once all services are retrieved, the service which the property would like all charges to be sent under should be selected. Ideally this would be done via the UI in the setup page.
 
 In the POS system, accounting categories usually exist such as entree, main, dessert, beverage or alcohol. In order for the revenue to be correctly reported in Mews with these categories, they should be correctly mapped against accounting categories in Mews. The POS integration should use the [Get all account categories](operations/finance.md#get-all-accounting-categories) operation to retrieve a list of all `AccountingCategories` which the property has in Mews. These should be mapped via a UI in the POS.
+
+A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as `Outlets`. The POS system should use the [Get all outlets](operations/finance.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
 
 ### Searching customers
 
@@ -73,6 +76,10 @@ Note: Room numbers of some hotels consist of numbers, letters and other characte
 
 Once the customer to be charged is identified, the items can be posted onto their bill using the [Add order](operations/services.md#add-order) operation. The order needs to be sent with its full name \(e.g. Caesar salad, Beer, etc.\) and not just “Item". The accounting category is to be specified per item to ensure reporting is correct.
 
+### Non in-house customer transaction
+
+A transaction which is being settled by an `External Payment`, such as cash or credit card must also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation. 
+
 ### Split payments
 
 If the POS supports split payments, e.g. one salad divided between two people, it must be sent to Mews as separate transactions with the item count rounded up to the nearest integer.
@@ -85,7 +92,7 @@ Rebates need to be allowed by the hotel to be performed. The [Add order](operati
 
 Gratuities should be sent as another item to Mews with possibility of assigning an different accounting category to it. In the full revenue push, both the tip revenue item and the payment used to cover the tip should be sent.
 
-## Guest Technology \(PABX &TV\)
+## Guest Technology \(PABX & TV\)
 
 Guest Technology integrations such as a telephone system are used for staff to identify guests on telephones or TV's and to generate revenue by charging guests for outside phone calls.
 
@@ -119,9 +126,28 @@ After a customer has checked out from a reservation, reputation management syste
 
 Upon a Reputation management system associating feedback with a customer the [Update customer](operations/customers.md#update-customer) operation should be added to the customer profile in Mews. The customer classification type `Previous complaint` is one which should be used when negative feedback has been received. Further to this, keywords from the complaint and a url to the survey or Tripadvisor post can be added to the customer `notes`.
 
-## Mobile Key Systems
+### Marketing Opt-out
+
+A customer has the ability to opt-out of marketing communciation. As Reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails` in the customer object is non existant then the customer is unsubscribed to any marketing.
+
+## Mobile key systems
 
 Mobile Key solutions require a state of reservation in real time, a key should not be issued to a guest until they have been checked in Mews. To avoid polling for updated reservations, a Reservation Websocket should be used.
 
 After receiving a websocket event, use [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) to retrieve information about the reservation and customer if the websocket event fits your criteria. With this response, you will have information to issue the mobile key to the customer using their contact information in Mews.
 
+## Customer relationship management systems
+
+### Inital Data Pull
+
+Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservtions. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) with the time filter set to `created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
+
+One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in future, the lower the occupancy, so the reservation batch length may increase with the distance to future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
+
+### Retrieving information
+
+A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) operations hourly with the `updated` TimeFilter with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always newly created and updated customers and reservations.
+
+### Marketing Opt-out
+
+A customer has the ability to opt-out of marketing communciation. As a CRM is commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails` in the customer object is non existant then the customer is unsubscribed to any marketing.
