@@ -367,11 +367,11 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `Id` | string | required | Unique identifier of the category. |
 | `IsActive` | bool | required | Whether the space category is still active. |
 | `Name` | string | required | Name of the category. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
+| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name \(e.g. code\) of the category. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
+| `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
 | `Description` | string | optional | Description of the category. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
+| `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
 | `UnitCount` | number | required | Count of units that can be accommodated \(e.g. bed count\). |
 | `ImageIds` | array of string | required | Unique identifiers of the space category images. |

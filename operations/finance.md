@@ -582,7 +582,7 @@ Returns all credit cards with the specified ids.
 | `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`. |
 | `IsActive` | boolean | required | Whether the credit card is still active. |
 | `ObfuscatedNumber` | string | optinal | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
-| `Format` | string [Credit card format](finance.md#credit-card-format)| required | Format of the credit card. |
+| `Format` | string [Credit card format](finance.md#credit-card-format) | required | Format of the credit card. |
 | `Kind` | string [Credit card kind](finance.md#credit-card-kind) | required | Kind of the credit card. |
 | `State` | string [Credit card state](finance.md#credit-card-state) | required | State of the credit card. |
 | `Type` | string [Credit card type](finance.md#credit-card-type) | required | Type of the credit card. |
@@ -884,7 +884,7 @@ Adds new outlet bills with their items.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `OutletId` | string | required | Unique identifier of the [Outlet](enteprises.md#outlet) where the bill was issued. |
+| `OutletId` | string | required | Unique identifier of the [Outlet](https://github.com/MewsSystems/gitbook-connector-api/tree/57f6d72263b46aea45035695fe6cc24575059de9/operations/enteprises.md#outlet) where the bill was issued. |
 | `Number` | string | required | Number of the bill. |
 | `Notes` | string | optional | Additional notes on the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
@@ -896,7 +896,7 @@ Adds new outlet bills with their items.
 | --- | --- | --- | --- |
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
 | `Name` | string | required | Name of the item. |
-| `UnitCount ` | number | required | Unit count of the item. |
+| `UnitCount` | number | required | Unit count of the item. |
 | `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |

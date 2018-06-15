@@ -2,7 +2,7 @@
 
 For use cases, when polling would be too resource consuming or not enough "real-time", websockets should be used. After successful connection, the client will start receiving messages depending on configuration of the Connector integration in Commander.
 
-## Endpoint 
+## Endpoint
 
 `[PlatformAddress]/ws/connector?ClientToken=[ClientToken]&AccessToken=[AccessToken]`
 
@@ -77,3 +77,4 @@ If the Connector integration is configured to receive space updates, it will rec
 | `Type` | string `Space` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Space](operations/enterprises.md#space). |
 | `State` | string [Space state](operations/enterprises.md#space-state) | required | State of the space. |
+
