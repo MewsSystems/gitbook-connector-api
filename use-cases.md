@@ -78,7 +78,7 @@ Once the customer to be charged is identified, the items can be posted onto thei
 
 ### Non in-house customer transaction
 
-A transaction which is being settled by an `External Payment`, such as cash or credit card must also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation. 
+A transaction which is being settled by an `External Payment`, such as cash or credit card must also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation.
 
 ### Split payments
 
@@ -128,7 +128,7 @@ Upon a Reputation management system associating feedback with a customer the [Up
 
 ### Marketing Opt-out
 
-A customer has the ability to opt-out of marketing communciation. As Reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails` in the customer object is non existant then the customer is unsubscribed to any marketing.
+A customer has the ability to opt-out of marketing communication. As reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails`, in the [customer response](customers.md#get-all-customers) is non existent then the customer is unsubscribed from any marketing.
 
 ## Mobile key systems
 
@@ -142,12 +142,12 @@ After receiving a websocket event, use [Get all reservations by ids](operations/
 
 Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservtions. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) with the time filter set to `created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
 
-One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in future, the lower the occupancy, so the reservation batch length may increase with the distance to future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
+One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in the future, the lower the occupancy, so the reservation batch length may increase with the distance into future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
 ### Retrieving information
 
-A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) operations hourly with the `updated` TimeFilter with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always newly created and updated customers and reservations.
+A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) operations hourly with the `updated` TimeFilter with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always have newly created and updated customers and reservations.
 
 ### Marketing Opt-out
 
-A customer has the ability to opt-out of marketing communciation. As a CRM is commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails` in the customer object is non existant then the customer is unsubscribed to any marketing.
+A customer has the ability to opt-out of marketing communciation. As a CRM is commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails` in the [customer response](customers.md#get-all-customers) is non existent then the customer is unsubscribed from any marketing.
