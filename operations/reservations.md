@@ -153,7 +153,7 @@ Returns all reservations from the specified interval according to the time filte
 | `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
 | `SpaceCategories` | array of [Space category](enterprises.md#space-category) | optional | Space categories of the spaces. |
 | `Spaces` | array of [Space](enterprises.md#space) | optional | Assigned spaces of the reservations. |
-| `Notes` | array of [Note](#reservation-note) | optional | Notes of the reservations. | 
+| `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
 
 #### Reservation
 
@@ -213,17 +213,17 @@ Returns all reservations from the specified interval according to the time filte
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
 
-#### Reservation note
+#### Order note
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the note. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
+| `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation). |
 | `Text` | string | required | Value of the note. |
 | `Type` | string [Note type](#reservation-note-type) | required | Type of the note. Whether the note came from channel manager or doesn't. |
 | `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
 
-#### Reservation note type
+#### Order note type
 
 * General
 * ChannelManager 
