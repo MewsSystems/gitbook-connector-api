@@ -220,13 +220,14 @@ Returns all reservations from the specified interval according to the time filte
 | `Id` | string | required | Unique identifier of the note. |
 | `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation). |
 | `Text` | string | required | Value of the note. |
-| `Type` | string [Note type](#order-note-type) | required | Type of the note. Whether the note came from channel manager or doesn't. |
+| `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
 | `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
 
 #### Order note type
 
-* General
-* ChannelManager 
+* `General`
+* `ChannelManager`
+* ...
 
 ## Get all reservations by ids
 
