@@ -56,6 +56,7 @@ Returns all reservations from the specified interval according to the time filte
 | `ReservationGroups` | bool | optional | Whether the response should contain groups of the reservations. |
 | `Services` | bool | optional | Whether the response should contain services reserved by the reservations. |
 | `Spaces` | bool | optional | Whether the response should contain spaces and space categories. |
+| `Notes` | bool | optional | Whether the response should contain notes. |
 
 ### Response
 
@@ -134,7 +135,8 @@ Returns all reservations from the specified interval according to the time filte
     ],
     "Services": null,
     "SpaceCategories": null,
-    "Spaces": null
+    "Spaces": null,
+    "Notes": null
 }
 ```
 
@@ -151,6 +153,7 @@ Returns all reservations from the specified interval according to the time filte
 | `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
 | `SpaceCategories` | array of [Space category](enterprises.md#space-category) | optional | Space categories of the spaces. |
 | `Spaces` | array of [Space](enterprises.md#space) | optional | Assigned spaces of the reservations. |
+| `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
 
 #### Reservation
 
@@ -209,6 +212,22 @@ Returns all reservations from the specified interval according to the time filte
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
+
+#### Order note
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the note. |
+| `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation). |
+| `Text` | string | required | Value of the note. |
+| `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
+| `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
+
+#### Order note type
+
+* `General`
+* `ChannelManager`
+* ...
 
 ## Get all reservations by ids
 
