@@ -1,5 +1,9 @@
 # Changelog
 
+## 20th Jun 2018 16:15 UTC
+
+* Extended [Get all reservations](operations/reservations.md#get-all-reservations) with possibility to retrieve notes.
+
 ## 13th Jun 2018 21:30 UTC
 
 * Added [Get all outlets](operations/enterprises.md#get-all-outlets) operation.
