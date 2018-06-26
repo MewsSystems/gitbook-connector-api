@@ -12,11 +12,11 @@ This section describes, how to use the Connector API in order to implement some 
 
 ## Revenue management systems
 
-Revenue management systems obtain information about reservations, revenue and pricing from Mews. And based on the data they may recommend or directly update rate prices, give future revenue estimates, predict occupancy etc. In bigger hotels, there might be more than 50k reservations in a year, so it is necessary to always limit the operations in terms of potential data size, in order to avoid timeouts, network errors etc. A recommended approach, how to implement a RMS client is described below. Following these guidelines should ensure that both our servers and RMS clients are not unnecessarily overutilized.
+Revenue management systems obtain information about reservations, revenue and pricing from Mews. Based on the data they may recommend or directly update rate prices, give future revenue estimates, predict occupancy etc. In bigger hotels, there might be more than 50k reservations in a year, so it is necessary to always limit the operations in terms of potential data size, in order to avoid timeouts, network errors etc. A recommended approach, how to implement a RMS client is described below. Following these guidelines should ensure that both our servers and RMS clients are not unnecessarily overutilized.
 
 ### Initial data pull
 
-Performed once when setting up the connection, because the RMS needs to obtain historical data. RMS should obtain the reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) with [Reservation time filter](operations/reservations.md#reservation-time-filter) set to `Start` \(that will give you all reservations with arrival time colliding with the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get reservations e.g. in the past year, RMS should call [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times \(one call for each week in the past year\). That would give RMS all reservations that have arrival within the past year. To obtain revenue items associated with reservations, `Items` should be set to `true` in the `Extent` parameter.
+Performed once when setting up the connection, because the RMS needs to obtain historical data. The RMS should obtain the reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) with [Reservation time filter](operations/reservations.md#reservation-time-filter) set to `Start` \(that will give you all reservations with arrival time colliding with the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get reservations e.g. in the past year, RMS should call [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times \(one call for each week in the past year\). That would give RMS all reservations that have arrival within the past year. To obtain revenue items associated with reservations, `Items` should be set to `true` in the `Extent` parameter.
 
 One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in future, the lower the occupancy, so the reservation batch length may increase with the distance to future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
@@ -32,11 +32,11 @@ To know the data about the rates of the enterprise, there are two relevant opera
 
 ### Occupancy
 
-When calculating occupancy, it is important to take hierarchy of spaces into account. For example if there is a reservation for whole dorm, it occupies the dorm but also all child spaces in the hierarchy \(the beds\). And vice versa, if there is a bed reservation, it occupies the bed but also all parent spaces \(the dorm\). We consider a space occupied if there is a reservation colliding with interval 18:00 to 24:00 on that day. So e.g. reservation from 14:00 to 16:00 is not calculated towards occupancy.
+When calculating occupancy, it is important to take hierarchy of spaces into account. For example if there is a reservation for a whole dorm, it occupies the dorm but also all child spaces in the hierarchy \(the beds\). And vice versa, if there is a bed reservation, it occupies the bed but also all parent spaces \(the dorm\). We consider a space occupied if there is a reservation colliding with interval 18:00 to 24:00 on that day. So e.g. reservation from 14:00 to 16:00 is not calculated towards occupancy.
 
 ## Device integrations
 
-In order to communicate with devices on the local hotel network, such as printers, lock systems, PBX, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands. When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed. Of course, as many of the actions with devices should happen in real time, you should in most of the cases use this in combination with [Websockets](websockets.md) to avoid polling for new commands. Whenever a relevant command is created, you would receive a notification about such an event through the opened websocket.
+In order to communicate with devices on the local hotel network, such as printers, lock systems, PBXs, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands. When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed. Of course, as many of the actions with devices should happen in real time, you should in most of the cases use this in combination with [Websockets](websockets.md) to avoid polling for new commands. Whenever a relevant command is created, you would receive a notification about such an event through the opened websocket.
 
 ### Processing commands
 
@@ -62,7 +62,7 @@ The integration should use the [Get all services](operations/services.md#get-all
 
 In the POS system, accounting categories usually exist such as entree, main, dessert, beverage or alcohol. In order for the revenue to be correctly reported in Mews with these categories, they should be correctly mapped against accounting categories in Mews. The POS integration should use the [Get all account categories](operations/finance.md#get-all-accounting-categories) operation to retrieve a list of all `AccountingCategories` which the property has in Mews. These should be mapped via a UI in the POS.
 
-A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as `Outlets`. The POS system should use the [Get all outlets](operations/finance.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
+A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as an [Outlet](operations/enterprises.md#get-all-outlets). The POS system should use the [Get all outlets](operations/enterprises.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
 
 ### Searching customers
 
@@ -78,7 +78,7 @@ Once the customer to be charged is identified, the items can be posted onto thei
 
 ### Non in-house customer transaction
 
-A transaction which is being settled by an `External Payment`, such as cash or credit card must also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation.
+A transaction which is being settled externally within the outlet, such bill which is settled with cash or credit card can also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation.
 
 ### Split payments
 
@@ -92,7 +92,7 @@ Rebates need to be allowed by the hotel to be performed. The [Add order](operati
 
 Gratuities should be sent as another item to Mews with possibility of assigning an different accounting category to it. In the full revenue push, both the tip revenue item and the payment used to cover the tip should be sent.
 
-## Guest Technology \(PABX & TV\)
+## Guest technology \(PABX & TV\)
 
 Guest Technology integrations such as a telephone system are used for staff to identify guests on telephones or TV's and to generate revenue by charging guests for outside phone calls.
 
@@ -126,9 +126,9 @@ After a customer has checked out from a reservation, reputation management syste
 
 Upon a Reputation management system associating feedback with a customer the [Update customer](operations/customers.md#update-customer) operation should be added to the customer profile in Mews. The customer classification type `Previous complaint` is one which should be used when negative feedback has been received. Further to this, keywords from the complaint and a url to the survey or Tripadvisor post can be added to the customer `notes`.
 
-### Marketing Opt-out
+### Marketing opt-out
 
-A customer has the ability to opt-out of marketing communication. As reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails`, in the [customer response](customers.md#get-all-customers) is non existent then the customer is unsubscribed from any marketing.
+A customer has the ability to opt-out of marketing communication. As reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that the [Customer](customers.md#get-all-customers) has `SendMarketingEmails` within their `Options`, if this existent, then the customer is subscribed from any marketing.
 
 ## Mobile key systems
 
@@ -140,14 +140,14 @@ After receiving a websocket event, use [Get all reservations by ids](operations/
 
 ### Inital Data Pull
 
-Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservtions. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) with the time filter set to `created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
+Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservations. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) with the reservation time filter set to `Created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
 
 One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in the future, the lower the occupancy, so the reservation batch length may increase with the distance into future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
 ### Retrieving information
 
-A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) operations hourly with the `updated` TimeFilter with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always have newly created and updated customers and reservations.
+A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) operations hourly with the `Updated` `TimeFilter` with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always have newly created and updated customers and reservations.
 
-### Marketing Opt-out
+### Marketing opt-out
 
-A customer has the ability to opt-out of marketing communciation. As a CRM is commonly used to launch marketing campaigns, the integration should ensure that if the option, `SendMarketingEmails` in the [customer response](customers.md#get-all-customers) is non existent then the customer is unsubscribed from any marketing.
+A customer has the ability to opt-out of marketing communication. As customer relationship management systems are also commonly used to launch marketing campaigns, the integration should ensure that the [Customer](customers.md#get-all-customers) has `SendMarketingEmails` within their `Options`, if this existent, then the customer is subscribed from any marketing.
