@@ -84,7 +84,7 @@ Returns all services offered by the enterprise.
 
 ## Get service availability
 
-Returns availability of a product service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
+Returns availability of a reservation service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
