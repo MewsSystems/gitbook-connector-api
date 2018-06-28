@@ -48,6 +48,7 @@ This section describes all operations supported by the API:
   * [Get all customers](customers.md#get-all-customers) - returns all customers in an interval.
   * [Get all customers by ids](customers.md#get-all-customers-by-ids) - returns all customers by their identifiers.
   * [Get all customers by emails](customers.md#get-all-customers-by-emails) - returns all customers by their emails.
+  * [Get all customers by name](customers.md#get-all-customers-by-name) - returns all customers by their name.
   * [Search customers](customers.md#search-customers) - searches among active customers.
   * [Get customers open items](customers.md#get-customers-open-items) - returns open items of customers.
   * [Add customer](customers.md#add-customer) - adds a new customer.

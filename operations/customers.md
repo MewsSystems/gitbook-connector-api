@@ -200,6 +200,34 @@ Returns all customers with the specified emails.
 
 Same structure as in [Get all customers](customers.md#get-all-customers) operation.
 
+## Get all customers by name
+
+Returns all customers with the specified first name and last name.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/customers/getAllByName`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "FirstName": "John",
+    "LastName": "Doe"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `FirstName` | string | required | First name of the [Customer](customers.md#customer). |
+| `LastName` | string | required | Last name of the [Customer](customers.md#customer). |
+
+### Response
+
+Same structure as in [Get all customers](customers.md#get-all-customers) operation.
+
 ## Search customers
 
 Searches for customers that are active at the moment in the enterprise \(e.g. companions of on checked-in reservations or paymasters\).
