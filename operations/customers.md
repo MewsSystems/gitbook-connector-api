@@ -212,8 +212,8 @@ Returns all customers with the specified first name and last name.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "FirstName": null,
-    "LastName": null
+    "FirstName": "John",
+    "LastName": "Doe"
 }
 ```
 
@@ -221,8 +221,8 @@ Returns all customers with the specified first name and last name.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `FirstName` | string | optional | First name of the [Customer](customers.md#customer). |
-| `LastName` | string | optional | Last name of the [Customer](customers.md#customer). |
+| `FirstName` | string | required | First name of the [Customer](customers.md#customer). |
+| `LastName` | string | required | Last name of the [Customer](customers.md#customer). |
 
 ### Response
 
