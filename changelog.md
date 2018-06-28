@@ -1,5 +1,9 @@
 # Changelog
 
+## 27th Jun 2018 16:30 UTC
+
+* Added [Get all customers by name](operations/customers.md#get-all-customers-by-name) operation.
+
 ## 20th Jun 2018 16:15 UTC
 
 * Extended [Get all reservations](operations/reservations.md#get-all-reservations) with possibility to retrieve notes.
