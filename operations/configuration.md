@@ -96,6 +96,7 @@ Returns configuration of the enterprise and the client.
 | `City` | string | optional | The city. |
 | `PostalCode` | string | optional | Postal code. |
 | `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 
 #### Accepted currency
 
