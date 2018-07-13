@@ -460,7 +460,8 @@ Adds the specified reservations as a single group.
                 }
             ]
         }
-    ]
+    ],
+    "IgnoreRateApplicability": false
 }
 ```
 
@@ -470,6 +471,7 @@ Adds the specified reservations as a single group.
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
+| `IgnoreRateApplicability` | bool | optional | Whether the applicability check of the reservation's rate is used. |
 
 #### Reservation parameters
 
