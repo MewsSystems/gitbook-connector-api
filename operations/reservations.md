@@ -470,6 +470,7 @@ Adds the specified reservations as a single group.
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
+| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 
 #### Reservation parameters
 
