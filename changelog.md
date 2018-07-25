@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th Jul 2018 16:20 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CheckRateApplicability`.
+
 ## 27th Jun 2018 16:30 UTC
 
 * Added [Get all customers by name](operations/customers.md#get-all-customers-by-name) operation.
