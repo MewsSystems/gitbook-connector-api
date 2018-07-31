@@ -433,16 +433,12 @@ Returns all outlet items and bills of the enterprise that were consumed \(posted
 }
 ```
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `OutletItems` | array of [Outlet item](finance.md#outlet-item) | required | The consumed outlet items. |
-
 #### Outlet item
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the item. |
-| `BillId` | string | required | Unique identifier of the [Customer](customers.md#customer) whose account the item belongs to. |
+| `BillId` | string | required | Unique identifier of the [Bill](finance.md#outlet-bill) whose account the item belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
@@ -999,9 +995,9 @@ Adds new outlet bills with their items.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Bills` | array of [Outlet bill](finance.md#outlet-bill) | required | The new outlet bills. |
+| `Bills` | array of [Outlet bill](finance.md#new-outlet-bill) | required | The new outlet bills. |
 
-#### Outlet bill
+#### New Outlet bill
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -1009,9 +1005,9 @@ Adds new outlet bills with their items.
 | `Number` | string | required | Number of the bill. |
 | `Notes` | string | optional | Additional notes on the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
-| `Items` | array of [Outlet item](finance.md#outlet-item) | required | The items on the bill. |
+| `Items` | array of [Outlet item](finance.md#new-outlet-item) | required | The items on the bill. |
 
-#### Outlet item
+#### New Outlet item
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
