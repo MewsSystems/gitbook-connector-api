@@ -62,7 +62,7 @@ The integration should use the [Get all services](operations/services.md#get-all
 
 In the POS system, accounting categories usually exist such as entree, main, dessert, beverage or alcohol. In order for the revenue to be correctly reported in Mews with these categories, they should be correctly mapped against accounting categories in Mews. The POS integration should use the [Get all account categories](operations/finance.md#get-all-accounting-categories) operation to retrieve a list of all `AccountingCategories` which the property has in Mews. These should be mapped via a UI in the POS.
 
-A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as an [Outlet](operations/enterprises.md#get-all-outlets). The POS system should use the [Get all outlets](operations/enterprises.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
+A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as an `Outlet`. The POS system should use the [Get all outlets](operations/enterprises.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
 
 ### Searching customers
 
@@ -78,7 +78,7 @@ Once the customer to be charged is identified, the items can be posted onto thei
 
 ### Non in-house customer transaction
 
-A transaction which is being settled externally within the outlet, such bill which is settled with cash or credit card can also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation.
+A bill which is settled with cash or credit card can also be recorded in Mews. All revenue and payment information is sent into Mews using the [Add outlet bills](operations/finance.md#add-outlet-bills) operation.
 
 ### Split payments
 
@@ -150,4 +150,4 @@ A CRM should always be up to date with the latest data. Using the [Get all reser
 
 ### Marketing opt-out
 
-A customer has the ability to opt-out of marketing communication. As customer relationship management systems are also commonly used to launch marketing campaigns, the integration should ensure that the [Customer](customers.md#get-all-customers) has `SendMarketingEmails` within their `Options`, if this existent, then the customer is subscribed from any marketing.
+A customer has the ability to opt-out of marketing communication. As customer relationship management systems are also commonly used to launch marketing campaigns, the integration should acknowledge that in the [Customer Response](operations/customers#response), if a `Customer` has `SendMarketingEmails` within their `Options`, then the customer is subscribed to any marketing.
