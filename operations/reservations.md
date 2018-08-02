@@ -471,6 +471,7 @@ Adds the specified reservations as a single group.
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
+| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 
 #### Reservation parameters
 
