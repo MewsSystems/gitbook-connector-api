@@ -259,8 +259,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | required | Start of the consumption interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the consumption interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 #### Accounting item time filter
@@ -302,7 +302,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `AccountingItems` | array of [Accounting item](finance.md#accounting-item) | required | The consumed accounting items. |
+| `AccountingItems` | array of [Accounting item](finance.md#accounting-item) | required | The accounting items. |
 
 #### Accounting item
 
@@ -340,123 +340,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Tax` | number | optional | Tax value in case the item is taxed. |
 | `TaxRate` | number | optional | Tax rate in case the item is taxed \(e.g. `0.21`\). |
 | `Value` | number | required | Amount in the currency \(including tax if taxed\). |
-
-## Get all outlet items and bills
-
-Returns all outlet items and bills of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/outletItems/getAll`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `TimeFilter` | string [Accounting item time filter](finance.md#outlet-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | required | Start of the consumption interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the consumption interval in UTC timezone in ISO 8601 format. |
-| `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
-
-#### Outlet item time filter
-
-* `Consumed` - items consumed in the interval.
-* `Closed` - items whose bills have been closed in the interval.
-
-### Response
-
-```javascript
-{  
-   "OutletItems":[  
-      {  
-         "Id":"f29821b7-1659-4c96-a8c7-3725d0f1509b",
-         "BillId":"5c82a9bd-729c-4f80-af48-a56ab3aebbf6",
-         "AccountingCategoryId":"1131ddd1-fa2b-4150-bbf6-7fce94941f65",
-         "Type":"Revenue",
-         "Name":"sample revenue item",
-         "UnitCount":4,
-         "UnitCost":{  
-            "Currency":"EUR",
-            "Value":11,
-            "Net":11,
-            "Tax":0,
-            "TaxRate":0
-         },
-         "CreatedUtc":"2018-07-25T12:47:11Z",
-         "ConsumedUtc":"2018-07-26T12:19:07Z",
-         "Notes":null
-      },
-      {  
-         "Id":"dfec07c6-e278-4ed0-932f-41bbd1f38039",
-         "BillId":"7bdd3b53-7bb3-419d-8ff2-c9bde65d0c7e",
-         "AccountingCategoryId":"7EDAB816-BF4E-40CC-8936-7BC0B222908D",
-         "Type":"Payment",
-         "Name":"sample payment item",
-         "UnitCount":77,
-         "UnitCost":{  
-            "Currency":"EUR",
-            "Value":2,
-            "Net":2,
-            "Tax":0,
-            "TaxRate":0
-         },
-         "CreatedUtc":"2018-07-25T16:25:28Z",
-         "ConsumedUtc":"2018-07-26T10:11:08Z",
-         "Notes":null
-      }
-   ],
-   "OutletBills":[  
-      {  
-         "Id":"5c82a9bd-729c-4f80-af48-a56ab3aebbf6",
-         "OutletId":"c9f09414-2fdf-41d6-bdb1-12158b01048e",
-         "Number":"1305",
-         "ClosedUtc":"2018-07-26T12:19:07Z",
-         "Notes":null
-      },
-      {  
-         "Id":"7bdd3b53-7bb3-419d-8ff2-c9bde65d0c7e",
-         "OutletId":"E0A29D6D-411E-4302-AA6D-9289935C5F14",
-         "Number":"1306",
-         "ClosedUtc":"2018-07-26T10:19:02Z",
-         "Notes":null
-      }
-   ]
-}
-```
-
-#### Outlet item
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the item. |
-| `BillId` | string | required | Unique identifier of the [Bill](finance.md#outlet-bill) whose account the item belongs to. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
-| `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
-| `Name` | string | required | Name of the item. |
-| `UnitCount` | number | required | Unit count of the item. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
-| `CreatedUtc` | string | optional | Date and time of the item bill creation in UTC timezone in ISO 8601 format. |
-| `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
-| `Notes` | string | optional | Additional notes. |
-
-#### Outlet bill
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the bill. |
-| `OutletId` | string | required | Unique identifier of the [Outlet](enterprises.md#outlet) where the bill was issued. |
-| `Number` | string | required | Number of the bill. |
-| `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
-| `Notes` | string | optional | Additional notes on the bill. |
 
 ## Get all bills by ids
 
@@ -639,6 +522,134 @@ Returns all bills \(both receipts and invoices\) that have been closed in the sp
 ### Response
 
 Same structure as in [Get all bills by ids](finance.md#get-all-bills-by-ids) operation.
+
+## Get all outlet items
+
+Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/outletItems/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "StartUtc": "2017-01-01T00:00:00Z",
+    "EndUtc": "2017-02-01T00:00:00Z"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `TimeFilter` | string [Outlet item time filter](finance.md#outlet-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
+
+#### Outlet item time filter
+
+* `Consumed` - items consumed in the interval.
+* `Closed` - items whose bills have been closed in the interval.
+
+### Response
+
+```javascript
+{  
+    "OutletItems": [  
+        {  
+            "Id": "f29821b7-1659-4c96-a8c7-3725d0f1509b",
+            "BillId": "5c82a9bd-729c-4f80-af48-a56ab3aebbf6",
+            "AccountingCategoryId": "1131ddd1-fa2b-4150-bbf6-7fce94941f65",
+            "Type": "Revenue",
+            "Name": "sample revenue item",
+            "UnitCount": 4,
+            "UnitCost": {  
+                "Currency": "EUR",
+                "Value": 11,
+                "Net": 11,
+                "Tax": 0,
+                "TaxRate": 0
+            },
+            "CreatedUtc": "2018-07-25T12:47:11Z",
+            "ConsumedUtc": "2018-07-26T12:19:07Z",
+            "Notes": null
+        },
+        {  
+            "Id": "dfec07c6-e278-4ed0-932f-41bbd1f38039",
+            "BillId": "7bdd3b53-7bb3-419d-8ff2-c9bde65d0c7e",
+            "AccountingCategoryId": "7EDAB816-BF4E-40CC-8936-7BC0B222908D",
+            "Type": "Payment",
+            "Name": "sample payment item",
+            "UnitCount": 77,
+            "UnitCost": {  
+                "Currency": "EUR",
+                "Value": 2,
+                "Net": 2,
+                "Tax": 0,
+                "TaxRate": 0
+            },
+            "CreatedUtc": "2018-07-25T16:25:28Z",
+            "ConsumedUtc": "2018-07-26T10:11:08Z",
+            "Notes": null
+        }
+    ],
+    "OutletBills": [  
+        {  
+            "Id": "5c82a9bd-729c-4f80-af48-a56ab3aebbf6",
+            "OutletId": "c9f09414-2fdf-41d6-bdb1-12158b01048e",
+            "Number": "1305",
+            "ClosedUtc": "2018-07-26T12:19:07Z",
+            "Notes": null
+        },
+        {  
+            "Id": "7bdd3b53-7bb3-419d-8ff2-c9bde65d0c7e",
+            "OutletId": "E0A29D6D-411E-4302-AA6D-9289935C5F14",
+            "Number": "1306",
+            "ClosedUtc": "2018-07-26T10:19:02Z",
+            "Notes": null
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `OutletItems` | array of [Outlet item](finance.md#outlet-item) | required | The outlet items. |
+| `OutletBills` | array of [Outlet bill](finance.md#outlet-bill) | required | The outlet bills of the items. |
+
+#### Outlet item
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the item. |
+| `BillId` | string | required | Unique identifier of the [Outlet bill](finance.md#outlet-bill) the item belongs to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
+| `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
+| `Name` | string | required | Name of the item. |
+| `UnitCount` | number | required | Unit count of the item. |
+| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
+| `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
+| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `Notes` | string | optional | Additional notes. |
+
+#### Outlet item type
+
+* `Revenue`
+* `NonRevenue`
+* `Payment`
+
+#### Outlet bill
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the bill. |
+| `OutletId` | string | required | Unique identifier of the [Outlet](enterprises.md#outlet) where the bill was issued. |
+| `Number` | string | required | Number of the bill. |
+| `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
+| `Notes` | string | optional | Additional notes on the bill. |
 
 ## Get all credit cards by ids
 
@@ -995,9 +1006,9 @@ Adds new outlet bills with their items.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Bills` | array of [Outlet bill](finance.md#new-outlet-bill) | required | The new outlet bills. |
+| `Bills` | array of [Outlet bill parameters](finance.md#outlet-bill-parameters) | required | The new outlet bills. |
 
-#### New Outlet bill
+#### Outlet bill parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -1005,9 +1016,9 @@ Adds new outlet bills with their items.
 | `Number` | string | required | Number of the bill. |
 | `Notes` | string | optional | Additional notes on the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
-| `Items` | array of [Outlet item](finance.md#new-outlet-item) | required | The items on the bill. |
+| `Items` | array of [Outlet item parameters](finance.md#outlet-item-parameters) | required | The items on the bill. |
 
-#### New Outlet item
+#### Outlet item parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -1018,12 +1029,6 @@ Adds new outlet bills with their items.
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |
 | `AccountingCategory` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category of the item. |
-
-#### Outlet item type
-
-* `Revenue`
-* `NonRevenue`
-* `Payment`
 
 ### Response
 
