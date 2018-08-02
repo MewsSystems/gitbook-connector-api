@@ -1,5 +1,10 @@
 # Changelog
 
+## 1st Aug 2018 16:00 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CheckOverbooking`.
+* Added [Get all outlet items](operations/finance.md#get-all-outlet-items) operation. 
+
 ## 25th Jul 2018 16:20 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CheckRateApplicability`.
