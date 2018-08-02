@@ -64,6 +64,7 @@ This section describes all operations supported by the API:
   * [Get all bills by ids](finance.md#get-all-bills-by-ids) - returns all bills by their identifiers.
   * [Get all bills by customers](finance.md#get-all-bills-by-customers) - returns all bills of the specified customers.
   * [Get all closed bills](finance.md#get-all-closed-bills) - returns all closed bills in an interval.
+  * [Get all outlet items](finance.md#get-all-outlet-items) - returns all outlet items in an interval.
   * [Get all credit cards by ids](finance.md#get-all-credit-cards-by-ids) - returns all credit cards by their identifiers.
   * [Get all credit cards by customers](finance.md#get-all-credit-cards-by-customers) - return all credit cards of the specified customers.
   * [Get all preauthorizations by customers](finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
