@@ -61,7 +61,7 @@ This section describes all operations supported by the API:
   * [Get all cashier transactions](finance.md#get-all-cashier-transactions) - returns all cashier transactions in an interval.
   * [Get all accounting categories](finance.md#get-all-accounting-categories) - returns all accounting categories of the enterprise.
   * [Get all accounting items](finance.md#get-all-accounting-items) - returns all accounting items in an interval.
-  * [Get all outlet items and bills](finance.md#get-all-outlet-items) - returns all outlet items and bills in an interval.
+  * [Get all outlet items](finance.md#get-all-outlet-items) - returns all outlet items in an interval.
   * [Get all bills by ids](finance.md#get-all-bills-by-ids) - returns all bills by their identifiers.
   * [Get all bills by customers](finance.md#get-all-bills-by-customers) - returns all bills of the specified customers.
   * [Get all closed bills](finance.md#get-all-closed-bills) - returns all closed bills in an interval.
