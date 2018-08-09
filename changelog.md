@@ -1,5 +1,12 @@
 # Changelog
 
+## 8th Aug 2018 17:00 UTC
+
+* Extended [Get all countries](operations/configuration.md#get-all-countries) response with `CountrySubdivisions` and `CountryAlliances`.
+* Extended [Get all space blocks](operations/enterprises.md#get-all-space-blocks) parameters with `TimeFilter`.
+* Extended [Get all accounting items](operations/finance.md#get-all-accounting-items) parameters with `Extent` and response with `CreditCardTransactions`.
+* Extended [Key cutter command data](operations/integrations.md#key-cutter-command-data) with `Email`.
+
 ## 1st Aug 2018 16:00 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CheckOverbooking`.
