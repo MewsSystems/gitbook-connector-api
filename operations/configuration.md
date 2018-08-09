@@ -171,7 +171,7 @@ Returns all countries supported by the API.
 | --- | --- | --- | --- |
 | `Countries` | array of [Country](configuration.md#country) | required | The supported countries. |
 | `CountrySubdivisions` | array of [Country subdivision](configuration.md#country-subdivision) | required | The supported country subdivisions. |
-| `CountryAlliances` | array of [Country alliance](configuration.md#country-alliance) | required | The supported country allicances. |
+| `CountryAlliances` | array of [Country alliance](configuration.md#country-alliance) | required | The supported country alliances. |
 
 #### Country
 
@@ -193,8 +193,8 @@ Returns all countries supported by the API.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the alliance, e.g `EU`, `SCHENGEN`, `SCHENGEN-VISA`. |
-| `EnglishName` | string | required | English name of the allicance. |
-| `CountryCodes` | array of [Country code](#country) | required | ISO 3166-1 code of the [Country](#country) within alliance. |
+| `EnglishName` | string | required | English name of the alliance. |
+| `CountryCodes` | array of string | required | ISO 3166-1 codes of the member countries. |
 
 
 ## Get all currencies
