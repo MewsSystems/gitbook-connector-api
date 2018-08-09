@@ -139,6 +139,30 @@ Returns all countries supported by the API.
             "Code": "US",
             "EnglishName": "United States of America"
         }
+    ],
+    "CountrySubdivisions": [
+        {
+            "Code": "AU-NSW",
+            "CountryCode": "AU",
+            "EnglishName": "New South Wales"
+        },
+        {
+            "Code": "AU-QLD",
+            "CountryCode": "AU",
+            "EnglishName": "Queensland"
+        }
+    ],
+    "CountryAlliances": [
+        {
+            "Code": "SCHENGEN",
+            "EnglishName": "Schengen Area",
+            "CountryCodes":[
+                "AT",
+                "BE",
+                "CZ",
+                ...
+            ]
+        }
     ]
 }
 ```
@@ -146,6 +170,8 @@ Returns all countries supported by the API.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Countries` | array of [Country](configuration.md#country) | required | The supported countries. |
+| `CountrySubdivisions` | array of [Country subdivision](configuration.md#country-subdivision) | required | The supported country subdivisions. |
+| `CountryAlliances` | array of [Country alliance](configuration.md#country-alliance) | required | The supported country alliances. |
 
 #### Country
 
@@ -153,6 +179,23 @@ Returns all countries supported by the API.
 | --- | --- | --- | --- |
 | `Code` | string | required | ISO 3166-1 alpha-2 code, e.g. `US` or `GB`. |
 | `EnglishName` | string | required | English name of the country. |
+
+#### Country subdivision
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required | ISO 3166-2 code of the administrative division, e.g `AU-QLD`. |
+| `CountryCode` | string | required | ISO 3166-1 code of the [Country](#country). |
+| `EnglishName` | string | required | English name of the country subdivision. |
+
+#### Country alliance
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required | Code of the alliance, e.g `EU`, `SCHENGEN`, `SCHENGEN-VISA`. |
+| `EnglishName` | string | required | English name of the alliance. |
+| `CountryCodes` | array of string | required | ISO 3166-1 codes of the member countries. |
+
 
 ## Get all currencies
 
