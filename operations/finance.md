@@ -262,11 +262,19 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
+| `Extent` | [Accounting item extent](#accounting-item-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. If not specified, AccountingItems is used as the default extent. |
 
 #### Accounting item time filter
 
 * `Consumed` - items consumed in the interval.
 * `Closed` - items whose bills have been closed in the interval.
+
+#### Accounting item extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountingItems` | bool | optional | Whether the response should contain [Accounting item](#accounting-item)s. |
+| `CreditCardTransactions` | bool | optional | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the accounting items. |
 
 ### Response
 
@@ -296,13 +304,15 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "Type": "ServiceRevenue"
         }
-    ]
+    ],
+    "CreditCardTransactions": null
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `AccountingItems` | array of [Accounting item](finance.md#accounting-item) | required | The accounting items. |
+| `CreditCardTransactions` | array of [Credit card transaction](finance.md#credit-card-transaction) | optional | The accounting items. |
 
 #### Accounting item
 
@@ -340,6 +350,18 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Tax` | number | optional | Tax value in case the item is taxed. |
 | `TaxRate` | number | optional | Tax rate in case the item is taxed \(e.g. `0.21`\). |
 | `Value` | number | required | Amount in the currency \(including tax if taxed\). |
+
+#### Credit card transaction
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the credit card transaction. |
+| `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
+| `ChargedAmount` | [Cost](services#cost) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Cost](services#cost) | optional | Settled amount of the transaction. |
+| `Fee` | [Cost](services#cost) | optional | Fee of the transaction. |
+| `SettlementId` | string | optional | Identifier of the settlement. |
+| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
 ## Get all bills by ids
 

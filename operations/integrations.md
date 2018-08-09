@@ -181,6 +181,7 @@ Structure of command data varies depending on type of the [Device](integrations.
 | `FirstName` | string | optional | First name of the reservation owner. |
 | `LastName` | string | required | Last name of the reservation owner. |
 | `Telephone` | string | optional | Telephone of the reservation owner. |
+| `Email` | string | optional | Email of the reservation owner. |
 | `KeyCount` | number | required | Count of keys to cut. |
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
 
