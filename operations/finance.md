@@ -312,7 +312,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `AccountingItems` | array of [Accounting item](finance.md#accounting-item) | optional | The accounting items. |
-| `CreditCardTransactions` | array of [Credit card transaction](finance.md#credit-card-transaction) | optional | The accounting items. |
+| `CreditCardTransactions` | array of [Credit card transaction](finance.md#credit-card-transaction) | optional | The credit card payment transactions. |
 
 #### Accounting item
 
