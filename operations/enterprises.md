@@ -419,7 +419,7 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | `AccessToken` | string | required | Access token of the client application. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `TimeFilter` | string [Space block time filter](#space-block-time-filter) | required | Time filter of the interval. |
+| `TimeFilter` | string [Space block time filter](#space-block-time-filter) | optional | Time filter of the interval. If not specified, `Colliding` is used. |
 
 ### Response
 
