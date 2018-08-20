@@ -151,6 +151,16 @@ Structure of command data varies depending on type of the [Device](integrations.
 | `PrinterDriverName` | string | required | Name of the printer driver. |
 | `PrinterPortName` | string | required | Name of the printer port. |
 
+#### Payment terminal command data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `PaymentTerminalId` | string | required | Identifier of the payment terminal. |
+| `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
+| `BillId` | string | optional | Identifier of the [Bill](finance.md#bill). |
+| `Amount` | [Currency value](finance.md#currency-value) | required | Amount to be processed. | 
+| `PaymentTerminalData` | string | optional | Custom JSON data. |
+
 #### Passport scanner command data
 
 | Property | Type |  | Description |
