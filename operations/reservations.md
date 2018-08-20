@@ -551,7 +551,7 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/reservations/start`
+`[PlatformAddress]/api/connector/v1/reservations/confirm`
 
 ```javascript
 {
