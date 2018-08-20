@@ -4,7 +4,7 @@
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `GroupId`.
 * Extended [Payment terminal command data](operations/integrations.md#payment-terminal-command-data) with `PaymentTerminalData`.
-* Added [Confirm reservation](operations/reservations.me#confirm-reservation) operation.
+* Added [Confirm reservation](operations/reservations.md#confirm-reservation) operation.
 
 ## 8th Aug 2018 17:00 UTC
 
