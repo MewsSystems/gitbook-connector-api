@@ -443,6 +443,7 @@ Adds the specified reservations as a single group.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "GroupId": null,
     "Reservations": [
         {
             "Identifier": "1234",
@@ -469,6 +470,7 @@ Adds the specified reservations as a single group.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
+| `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) that the reservation is part of. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
@@ -542,6 +544,34 @@ Adds the specified reservations as a single group.
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
+
+## Confirm reservation
+
+Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions are met \(the reservation has the `Optional` state\).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/start`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to start. |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Start reservation
 

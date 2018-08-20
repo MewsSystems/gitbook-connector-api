@@ -34,6 +34,7 @@ This section describes all operations supported by the API:
   * [Get all reservation items](reservations.md#get-all-reservation-items) - returns all accounting items of reservations. 
   * [Price reservations](reservations.md#price-reservations) - returns prices of specified reservations.
   * [Add reservations](reservations.md#add-reservations) - adds a new group of reservations.
+  * [Confirm reservation](reservations.md#confirm-reservation) - confirms a reservation.
   * [Start reservation](reservations.md#start-reservation) - starts \(checks in\) a reservation.
   * [Process reservation](reservations.md#process-reservation) - processes \(checks out\) a reservation.
   * [Cancel reservation](reservations.md#cancel-reservation) - cancels a reservation.
