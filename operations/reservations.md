@@ -432,7 +432,7 @@ Returns prices of reservations with the specified parameters.
 
 ## Add reservations
 
-Adds the specified reservations as a single group.
+Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group.
 
 ### Request
 
@@ -470,7 +470,7 @@ Adds the specified reservations as a single group.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
-| `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) that the reservation is part of. |
+| `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
@@ -565,7 +565,7 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to start. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to confirm. |
 
 ### Response
 
