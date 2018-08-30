@@ -305,7 +305,8 @@ Returns all spaces of an enterprise associated with the connector integration.
             "ShortNames":{
                 "en-US": "BR"
             },
-            "UnitCount": 2
+            "UnitCount": 2,
+            "ExtraUnitCount": 0
         }
     ],
     "SpaceFeatures": [
@@ -374,6 +375,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
 | `UnitCount` | number | required | Count of units that can be accommodated \(e.g. bed count\). |
+| `ExtraUnitCount` | number | required | Count of extra units that can be accommodated \(e.g. extra bed count\). |
 | `ImageIds` | array of string | required | Unique identifiers of the space category images. |
 
 #### Localized text
