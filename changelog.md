@@ -1,5 +1,9 @@
 # Changelog
 
+## 29th Aug 2018 17:00 UTC
+
+* Extended [Space category](operations/enterprises.md#space-category) with `ExtraUnitCount`.
+
 ## 16th Aug 2018 22:00 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `GroupId`.
