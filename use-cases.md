@@ -62,7 +62,7 @@ The integration should use the [Get all services](operations/services.md#get-all
 
 In the POS system, accounting categories usually exist such as entree, main, dessert, beverage or alcohol. In order for the revenue to be correctly reported in Mews with these categories, they should be correctly mapped against accounting categories in Mews. The POS integration should use the [Get all account categories](operations/finance.md#get-all-accounting-categories) operation to retrieve a list of all `AccountingCategories` which the property has in Mews. These should be mapped via a UI in the POS.
 
-A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as an `Outlet`. The POS system should use the [Get all outlets](operations/enterprises.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
+A property may operate different outlets such as a bar, room service and/or multiple restaurants. In Mews, these are referred to as an [Outlet](/operations/enterprises.md#outlet). The POS system should use the [Get all outlets](operations/enterprises.md#get-all-outlets) operation to retrieve all the outlets the property has configured in Mews. These should be mapped via a UI in the POS.
 
 ### Searching customers
 
