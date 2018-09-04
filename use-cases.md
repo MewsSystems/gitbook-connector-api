@@ -5,7 +5,7 @@ This section describes, how to use the Connector API in order to implement some 
 * [Revenue management systems](use-cases.md#revenue-management-systems)
 * [Device integrations](use-cases.md#device-integrations)
 * [Point of sale systems](use-cases.md#point-of-sale-systems)
-* [Guest technology systems](use-cases.md#guest-technology-systems)
+* [Guest technology systems](use-cases.md#guest-technology-\(pabx-&-tv\))
 * [Reputation management systems](use-cases.md#reputation-management-systems)
 * [Mobile key systems](use-cases.md#mobile-key-systems)
 * [Customer relationship management systems](use-cases.md#customer-relationship-management-systems)
