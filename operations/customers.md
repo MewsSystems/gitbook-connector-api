@@ -413,7 +413,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `OverwriteExisting` | bool | required | Whether an existing customer should be overwritten in case of duplicity. This applies only for basic personal information \(Title, FirstName, LastName, ...\). |
+| `OverwriteExisting` | bool | required | Whether an existing customer should be overwritten in case of duplicity. This applies only to basic personal information \(`Title`, `FirstName`, `LastName`, ...\). |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
