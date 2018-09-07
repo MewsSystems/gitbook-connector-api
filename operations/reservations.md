@@ -449,6 +449,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "Identifier": "1234",
             "StartUtc": "2018-01-01T14:00:00Z",
             "EndUtc": "2018-01-02T10:00:00Z",
+            "ReleasedUtc": null,
             "AdultCount": 2,
             "ChildCount": 0,
             "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
@@ -483,6 +484,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `State` | string [Reservation state](reservations.md#reservation-state) | optional | State of the newly created reservation \(either `Optional` or `Confirmed`\). If not specified, `Confirmed` is used. |
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
 | `AdultCount` | number | required | Count of adults the reservation is for. |
 | `ChildCount` | number | required | Count of children the reservation is for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
@@ -522,6 +524,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                 "Number": "870",
                 "Origin": "Manual",
                 "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
+                "ReleasedUtc": null,
                 "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
                 "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
                 "StartUtc": "2018-01-01T14:00:00Z",

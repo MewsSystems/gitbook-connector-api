@@ -40,6 +40,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
             "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
             "Identifier": "",
             "Name": "IBM",
+            "Number": 25,
             "TaxIdentifier": ""
         },
         {
@@ -66,6 +67,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the company. |
 | `Name` | string | required | Name of the company. |
+| `Number`| number | required | Unique number of the company. |
 | `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
