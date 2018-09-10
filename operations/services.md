@@ -591,6 +591,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 ## Add order
 
 Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
+**Note**: This call only applies to Service products, which are independent from the Stay products.
 
 ### Request
 
