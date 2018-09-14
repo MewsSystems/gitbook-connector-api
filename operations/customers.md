@@ -487,7 +487,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Email` | string | optional | New email address. |
 | `Phone` | string | optional | New phone number. |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
-| `Notes` | string | optional | Internal notes about the customer.  Pre-existing notes must be sent with the new note separated by a comma, e.g. "original note, new note". |
+| `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
 | `IdentityCard` | [Document](customers.md#document) | optional | New identity card details. |
 | `Passport` | [Document](customers.md#document) | optional | New passport details. |
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
