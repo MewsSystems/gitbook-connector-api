@@ -37,7 +37,8 @@ Returns all services offered by the enterprise.
                 "DuringStay": false,
                 "BeforeCheckOut": false,
                 "AfterCheckOut": false
-            }
+            },
+            "Type": "Orderable"
         },
         {
             "EndTime": "PT12H",
@@ -51,7 +52,8 @@ Returns all services offered by the enterprise.
                 "DuringStay": false,
                 "BeforeCheckOut": false,
                 "AfterCheckOut": false
-            }
+            },
+            "Type": "Reservable"
         }
     ]
 }
@@ -71,6 +73,7 @@ Returns all services offered by the enterprise.
 | `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
 | `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
+| `Type` | string | [Service type](#services.md#service-type) | required | Type of the service. |
 
 #### Promotions
 
@@ -81,6 +84,11 @@ Returns all services offered by the enterprise.
 | `DuringStay` | boolean | required | Whether it can be promoted during stay. |
 | `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
+
+#### Service type
+
+* `Reservable`
+* `Orderable`
 
 ## Get service availability
 
