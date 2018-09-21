@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th Sep 2018 18:00 UTC
+
+* Extended [Service](operations/services.md#service) with `Type`.
+
 ## 29th Aug 2018 17:00 UTC
 
 * Extended [Space category](operations/enterprises.md#space-category) with `ExtraUnitCount`.
