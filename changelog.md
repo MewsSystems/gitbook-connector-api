@@ -2,6 +2,7 @@
 
 ## 19th Sep 2018 18:00 UTC
 
+* Extended [Reservation event](websockets.md#reservation-event) with `AssignedSpaceId`.
 * Extended [Service](operations/services.md#service) with `Type`.
 
 ## 29th Aug 2018 17:00 UTC
