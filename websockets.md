@@ -67,6 +67,7 @@ If the Connector integration is configured to receive reservation updates, it wi
 | `State` | string [Reservation state](operations/reservations.md#reservation-state) | required | State of the reservation. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Endof the reservation \(departure\) in UTC timezone in ISO 8601 format. |
+| `AssignedSpaceId` | string | optional | Unique identifier of the [operations/enterprises#space](Space) assigned to the reservation. |
 
 #### Space event
 
