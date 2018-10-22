@@ -1014,7 +1014,7 @@ Adds new outlet bills with their items.
                         "Tax": 0.20
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z",
-                    "Category": {
+                    "AccountingCategory": {
                         "Code": "ABVG"
                     }
                 }
