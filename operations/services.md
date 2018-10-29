@@ -596,6 +596,141 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 {}
 ```
 
+## Get all restrictions
+
+Returns all restrictions of the default service provided by the enterprise.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
+### Response
+
+```javascript
+{
+    "Restrictions": [
+        {
+            "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+            "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "BaseRateId": null,
+            "StartUtc": "2018-10-09T00:00:00Z",
+            "EndUtc": "2018-10-31T00:00:00Z",
+            "Days": [
+                "Saturday",
+                "Sunday"
+            ],
+            "MinAdvance": null,
+            "MaxAdvance": null,
+            "MinLength": "P0M2DT0H0M0S",
+            "MaxLength": "P0M7DT0H0M0S"
+        },
+        {
+            "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+            "ExactRateId": null,
+            "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+            "StartUtc": "2018-10-01T00:00:00Z",
+            "EndUtc": "2018-10-31T00:00:00Z",
+            "Days": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "MinAdvance": "P0M1DT0H0M0S",
+            "MaxAdvance": "P0M3DT0H0M0S",
+            "MinLength": null,
+            "MaxLength": null
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Restrictions` | array of [Restriction](services.md#restriction) | required | Restrictions of the default service. |
+
+#### Restriction
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the restriction. |
+| `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
+| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
+| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
+| `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
+| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
+| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+
+## Add restrictions
+
+Creates new restrictions with the specified conditions.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Restrictions": [
+        {
+            "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "Days": [
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "MinAdvance": "P0Y0M1DT0H0M0S",
+            "MaxAdvance": "P0Y0M3DT0H0M0S"
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | optional | Parameters of restrictions. |
+
+#### Restriction parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
+| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
+| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
+| `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
+| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
+| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+
+### Response
+
+```javascript
+{
+}
+```
+
 ## Add order
 
 Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
