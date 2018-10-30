@@ -27,7 +27,7 @@ This section describes all operations supported by the API:
   * [Get rate pricing](services.md#get-rate-pricing) - returns prices of a rate in an interval.
   * [Update rate price](services.md#update-rate-price) - updates prices of a rate.
   * [Get all restrictions](services.md#get-all-restrictions) - returns all restrictions of a service.
-  * [Add restrictions](services.md#add-restrictions) - add new restrictions.
+  * [Add restrictions](services.md#add-restrictions) - adds new restrictions.
   * [Add order](services.md#add-order) - adds a new service order.
 * [Reservations](reservations.md) - operations for retrieval and modifications of reservations.
   * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations in an interval.
