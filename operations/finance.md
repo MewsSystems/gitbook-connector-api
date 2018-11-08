@@ -897,9 +897,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
         "Expiration": "12/2016",
         "Name": "John Smith"
     },
-    "Category": {
-        "Code": "CCP"
-    },
+    "AccountingCategoryId": null,
     "ReceiptIdentifier": "123456",
     "Notes": "Terminal A"
 }
@@ -913,7 +911,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
 | `CreditCard` | [Credit card](finance.md#credit-card-parameters) | required | Credit card details. |
-| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category to be assigned to the payment. |
+| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the credit card payment. |
 | `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
 | `Notes` | string | optional | Additional payment notes. |
 
@@ -949,7 +947,8 @@ Adds a new external payment to a bill of the specified customer. An external pay
         "Currency": "GBP",
         "Value": 100
     },
-    "Type": "Cash"
+    "Type": "Cash",
+    "AccountingCategoryId": null,
 }
 ```
 
@@ -961,7 +960,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the external card payment. |
 | `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. |
-| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category to be assigned to the payment. |
+| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
 #### External payment type
@@ -1014,9 +1013,7 @@ Adds new outlet bills with their items.
                         "Tax": 0.20
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z",
-                    "AccountingCategory": {
-                        "Code": "ABVG"
-                    }
+                    "AccountingCategoryId": null
                 }
             ]
         }
@@ -1050,7 +1047,7 @@ Adds new outlet bills with their items.
 | `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |
-| `AccountingCategory` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Accounting category of the item. |
+| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
 ### Response
 
