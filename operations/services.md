@@ -626,9 +626,7 @@ Creates a new order with the specified products and items. Only positive charges
                 "Currency": "GBP",
                 "Tax": 0.20
             },
-            "Category": {
-                "Code": "ABVG"
-            }
+            "AccountingCategoryId": null
         }
     ]
 }
@@ -660,7 +658,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitCost` | [Cost](services.md#cost) | required | Unit cost, e.g. cost for one beer \(note that total cost of the item is therefore `UnitCount` times `UnitCost`\). |
-| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Category of the item. |
+| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
 #### Cost
 
@@ -669,13 +667,6 @@ Creates a new order with the specified products and items. Only positive charges
 | `Amount` | decimal | required | Amount including tax. |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `Tax` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
-
-#### Accounting category parameters
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Code` | string | required | Code of the accounting category in Mews. |
-| `Name` | string | optional | Name of the category, used if no category is matched using the code. |
 
 ### Response
 
