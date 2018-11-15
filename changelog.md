@@ -1,5 +1,12 @@
 # Changelog
 
+## 14th Nov 2018 17:00 UTC
+
+* Extended [Add credit card payments](operations/finance.md#add-credit-card-payment) parameters with `AccountingCategoryId`.
+* Extended [Add external payment](operations/finance.md#add-external-payment) parameters with `AccountingCategoryId`.
+* Extended [Add outlet bills](operations/finance.md#outlet-item-parameters) parameters with `AccountingCategoryId`.
+* Extended [Add order](operations/services.md#add-order) parameters with `AccountingCategoryId`.
+
 ## 19th Sep 2018 18:00 UTC
 
 * Extended [Reservation event](websockets.md#reservation-event) with `AssignedSpaceId`.
