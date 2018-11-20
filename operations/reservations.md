@@ -37,7 +37,7 @@ Returns all reservations from the specified interval according to the time filte
 
 * `Colliding` - reservation interval collides with the interval.
 * `Created` - reservation created within the interval.
-* `Updated` - reservation updated \(or created\) within the interval.
+* `Updated` - reservation last update date and time within the interval.
 * `Start`- reservation start \(= arrival\) within the interval.
 * `End` - reservation end \(= departure\) within the interval.
 * `Overlapping` - reservation interval contains the specified interval.
