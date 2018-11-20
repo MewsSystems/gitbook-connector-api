@@ -35,13 +35,13 @@ Returns all reservations from the specified interval according to the time filte
 
 #### Reservation time filter
 
-* `Colliding` - reservation intervals colliding with the interval.
-* `Created` - reservations created within the interval.
-* `Updated` - reservations updated \(= modified\) within the interval.
-* `Start`- reservations starting \(= arriving\) within the interval.
-* `End` - reservations finishing \(= departing\) within the interval.
-* `Overlapping` - reservation intervals contained in the interval.
-* `Canceled` - reservations cancelled in the interval.
+* `Colliding` - reservation intervals which collide with the specified interval.
+* `Created` - reservations created within the specified interval.
+* `Updated` - reservations updated within the specified interval.
+* `Start`- reservations starting \(= arriving\) within the specified interval.
+* `End` - reservations finishing \(= departing\) within the specified interval.
+* `Overlapping` - reservation intervals which are contained within the specified interval.
+* `Canceled` - reservations cancelled within the specified interval.
 
 #### Reservation extent
 
