@@ -547,7 +547,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects.
+Updates price of a base rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price for all space categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects.  Only base rates can be updated. These are the rates with `"BaseRateId": null` in the [Get rate prices](services.md/get-rate-prices) response.
 
 ### Request
 
