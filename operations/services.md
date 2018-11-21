@@ -578,7 +578,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) to update. |
+| `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
 | `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
 
 #### Price update
