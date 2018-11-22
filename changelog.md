@@ -1,5 +1,9 @@
 # Changelog
 
+## 21st Nov 2018 18:00 UTC
+
+* Extended [Space feature](operations/enterprises.md#space-feature) with `Names`, `ShortName`, `ShortNames` and `Descriptions`.
+
 ## 14th Nov 2018 17:00 UTC
 
 * Extended [Add credit card payments](operations/finance.md#add-credit-card-payment) parameters with `AccountingCategoryId`.
