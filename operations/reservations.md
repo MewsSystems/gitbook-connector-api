@@ -57,6 +57,7 @@ Returns all reservations from the specified interval according to the time filte
 | `Services` | bool | optional | Whether the response should contain services reserved by the reservations. |
 | `Spaces` | bool | optional | Whether the response should contain spaces and space categories. |
 | `Notes` | bool | optional | Whether the response should contain notes. |
+| `QrCodeData` | bool | optional | Whether the response should contain QR code data. |
 
 ### Response
 
@@ -154,6 +155,7 @@ Returns all reservations from the specified interval according to the time filte
 | `SpaceCategories` | array of [Space category](enterprises.md#space-category) | optional | Space categories of the spaces. |
 | `Spaces` | array of [Space](enterprises.md#space) | optional | Assigned spaces of the reservations. |
 | `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
+| `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. | 
 
 #### Reservation
 
@@ -228,6 +230,13 @@ Returns all reservations from the specified interval according to the time filte
 * `General`
 * `ChannelManager`
 * ...
+
+#### QrCode data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `Data` | string | required | Reservation data for QR code generation. |
 
 ## Get all reservations by ids
 
