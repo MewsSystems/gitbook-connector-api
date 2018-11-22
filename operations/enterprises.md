@@ -390,7 +390,11 @@ An object where keys are the [Language](configuration.md#language) codes and val
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the feature. |
 | `Name` | string | required | Name of the feature. |
+| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
+| `ShortName` | string | optional | Short name \(e.g. code\) of the feature. |
+| `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
 | `Description` | string | optional | Description of the feature. |
+| `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
 
 #### Space feature assignment
 
