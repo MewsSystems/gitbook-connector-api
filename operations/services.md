@@ -623,6 +623,7 @@ Returns all restrictions of the default service provided by the enterprise.
     "Restrictions": [
         {
             "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+            "Type": "InHouse",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "BaseRateId": null,
             "StartUtc": "2018-10-09T00:00:00Z",
@@ -638,6 +639,7 @@ Returns all restrictions of the default service provided by the enterprise.
         },
         {
             "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+            "Type": "Start",
             "ExactRateId": null,
             "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
             "StartUtc": "2018-10-01T00:00:00Z",
@@ -667,6 +669,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
+| `Type` | string | required | Restriction type (services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
@@ -676,6 +679,12 @@ Returns all restrictions of the default service provided by the enterprise.
 | `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+
+#### Restriction type
+
+* `InHouse`
+* `Start`
+* `End`
 
 ## Add restrictions
 
@@ -691,6 +700,7 @@ Creates new restrictions with the specified conditions.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Restrictions": [
         {
+            "Type": "Start",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "Days": [
                 "Friday",
@@ -714,6 +724,7 @@ Creates new restrictions with the specified conditions.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Type` | string | required | Restriction type (services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
