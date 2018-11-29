@@ -1,5 +1,9 @@
 # Changelog
 
+## 28th November 2018 22:00 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `TimeUnitCost`.
+
 ## 21st Nov 2018 18:00 UTC
 
 * Extended [Reservation extent](operations/reservations.md#reservation-extent) with `QrCodeData`.
