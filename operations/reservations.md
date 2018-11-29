@@ -465,6 +465,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
             "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
             "Notes": "Test reservation",
+            "TimeUnitCost": null,
             "ProductOrders": [
                 {
                     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
@@ -500,6 +501,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `Notes` | string | optional | Additional notes. |
+| `TimeUnitCost` | [Cost](services.md#cost) | optional | Cost of each night of the reservation. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 
 ### Response
