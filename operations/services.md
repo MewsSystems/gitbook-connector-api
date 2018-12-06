@@ -718,7 +718,7 @@ Creates new restrictions with the specified conditions.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | optional | Parameters of restrictions. |
+| `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | required | Parameters of restrictions. |
 
 #### Restriction parameters
 
@@ -734,6 +734,38 @@ Creates new restrictions with the specified conditions.
 | `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+
+### Response
+
+```javascript
+{
+}
+```
+
+## Delete restrictions
+
+Delete specified by Id restrictions.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "RestrictionIds": [
+        "af4949ce-c061-4f27-89f9-5a6a9ef725a7", 
+        "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](services.md#restriction)s. |
 
 ### Response
 
