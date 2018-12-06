@@ -623,7 +623,7 @@ Returns all restrictions of the default service provided by the enterprise.
     "Restrictions": [
         {
             "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
-            "Type": "InHouse",
+            "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "BaseRateId": null,
             "StartUtc": "2018-10-09T00:00:00Z",
@@ -682,7 +682,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 #### Restriction type
 
-* `InHouse`
+* `Stay`
 * `Start`
 * `End`
 
