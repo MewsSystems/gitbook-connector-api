@@ -672,6 +672,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Type` | string | required | Restriction type (services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
+| `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
@@ -727,6 +728,7 @@ Creates new restrictions with the specified conditions.
 | `Type` | string | required | Restriction type (services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
+| `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
