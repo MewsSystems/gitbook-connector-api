@@ -626,6 +626,9 @@ Returns all restrictions of the default service provided by the enterprise.
             "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "BaseRateId": null,
+            "RateGroupId": null,
+            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "SpaceType": null,
             "StartUtc": "2018-10-09T00:00:00Z",
             "EndUtc": "2018-10-31T00:00:00Z",
             "Days": [
@@ -642,6 +645,9 @@ Returns all restrictions of the default service provided by the enterprise.
             "Type": "Start",
             "ExactRateId": null,
             "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+            "RateGroupId": null,
+            "SpaceCategoryId": null,
+            "SpaceType": "Room",
             "StartUtc": "2018-10-01T00:00:00Z",
             "EndUtc": "2018-10-31T00:00:00Z",
             "Days": [
@@ -673,6 +679,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
 | `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
+| `SpaceCategoryId` | string | optional | Unique identifier of the restricted [SpaceCategory](enterprises.md#space-category). |
+| `SpaceType` | string | optional | Space type (services.md#space-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
@@ -686,6 +694,16 @@ Returns all restrictions of the default service provided by the enterprise.
 * `Stay`
 * `Start`
 * `End`
+
+#### Space type
+
+* `Room`
+* `Bed`
+* `Dorm`
+* `Apartment`
+* `Suite`
+* `Villa`
+* `Site`
 
 ## Add restrictions
 
@@ -703,6 +721,7 @@ Creates new restrictions with the specified conditions.
         {
             "Type": "Start",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
             "Days": [
                 "Friday",
                 "Saturday",
@@ -729,6 +748,8 @@ Creates new restrictions with the specified conditions.
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
 | `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
+| `SpaceCategoryId` | string | optional | Unique identifier of the restricted [SpaceCategory](enterprises.md#space-category). |
+| `SpaceType` | string | optional | Space type (services.md#space-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
