@@ -143,6 +143,7 @@ Returns all customers from the specified interval according to the time filter \
 #### Customer option
 
 * `SendMarketingEmails`
+* ...
 
 ## Get all customers by ids
 
