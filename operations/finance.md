@@ -401,6 +401,7 @@ Returns all bills with the specified ids.
             "IssuedUtc": "2017-01-31T10:58:06Z",
             "Notes": "",
             "Number": "29",
+            "VariableSymbol": null,
             "Payments": [
                 {
                     "AccountingCategoryId": null,
@@ -471,6 +472,7 @@ Returns all bills with the specified ids.
 | `State` | string [Bill state](finance.md#bill-state) | required | State of the bill. |
 | `Type` | string [Bill type](finance.md#bill-type) | required | Type of the bill. |
 | `Number` | string | required | Number of the bill. |
+| `VariableSymbol` | string | optional | Variable symbol of the bill. |
 | `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
