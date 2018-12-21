@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th December 2018 18:00 UTC
+
+* Extended [Bill](operations/finance.md#bill) with `VariableSymbol`.
+
 ## 12th December 2018 18:00 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `TravelAgencyId`.
