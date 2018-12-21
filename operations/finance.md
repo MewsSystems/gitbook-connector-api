@@ -401,6 +401,7 @@ Returns all bills with the specified ids.
             "IssuedUtc": "2017-01-31T10:58:06Z",
             "Notes": "",
             "Number": "29",
+            "VariableSymbol": null,
             "Payments": [
                 {
                     "AccountingCategoryId": null,
