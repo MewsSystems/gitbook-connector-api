@@ -143,6 +143,7 @@ Returns all customers from the specified interval according to the time filter \
 #### Customer option
 
 * `SendMarketingEmails`
+* ...
 
 ## Get all customers by ids
 
@@ -431,6 +432,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
 ### Response
 
@@ -494,6 +496,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
 | `Address` | [Address](configuration.md#address) | optional | New address details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
 ### Response
 
