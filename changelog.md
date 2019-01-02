@@ -3,7 +3,7 @@
 ## 2nd January 2019 16:00 UTC
 
 * Extended [Add customer](operations/customers.md#add-customer) parameters with `Options`.
-* Extended [Update customer](operations/customers.md#add-customer) parameters with `Options`.
+* Extended [Update customer](operations/customers.md#update-customer) parameters with `Options`.
 
 ## 19th December 2018 18:00 UTC
 
