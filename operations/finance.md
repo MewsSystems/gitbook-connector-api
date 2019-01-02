@@ -758,7 +758,6 @@ Returns all credit cards with the specified ids.
 
 * `MasterCard`, `Visa`, `Amex`, `Maestro`, `Discover`, `VPay`, ...
 
-
 ## Get all credit cards by customers
 
 Returns all credit cards of specified customers.
@@ -793,7 +792,7 @@ Same structure as in [Get all credit cards by ids](finance.md#get-all-credit-car
 
 ## Charge credit card
 
-Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be Gateway.
+Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be `Gateway`.
 
 ### Request
 
@@ -806,7 +805,7 @@ Creates payment for specified customer credit card and charges the credit card v
     "CustomerId": "a3c90426-43f2-4b53-8482-446dfc724bd2",
     "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
     "Amount": {
-        "Value": 5.00,
+        "Value": 5,
         "Currency": "EUR"
     },
     "AccountingCategoryId": null,
