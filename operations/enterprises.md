@@ -75,6 +75,32 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 
+## Get all companies by name
+
+Returns all company profiles with the specified name.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companies/getAllByName`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Name": "Sample Company 1"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Name` | string | required | Name of the [Company](enterprises.md#company). |
+
+### Response
+
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+
 ## Get all company contracts
 
 Returns all contracts between the enterprise and other companies.
