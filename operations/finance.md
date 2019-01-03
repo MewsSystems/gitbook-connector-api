@@ -802,7 +802,6 @@ Creates payment for specified customer credit card and charges the credit card v
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "CustomerId": "a3c90426-43f2-4b53-8482-446dfc724bd2",
     "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
     "Amount": {
         "Value": 5,
@@ -818,7 +817,6 @@ Creates payment for specified customer credit card and charges the credit card v
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#finance.md#accounting-category). |
