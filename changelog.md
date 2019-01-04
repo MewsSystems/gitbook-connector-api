@@ -1,5 +1,10 @@
 # Changelog
 
+## 4nd January 2019 18:00 UTC
+
+* Added [Charge credit card](operations/finance.md#charge-credit-card) operation.
+* Added [Get all companies by name](operations/enterprises.md#get-all-companies-by-name) operation.
+
 ## 2nd January 2019 16:00 UTC
 
 * Extended [Add customer](operations/customers.md#add-customer) parameters with `Options`.
