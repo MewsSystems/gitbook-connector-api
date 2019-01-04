@@ -11,6 +11,7 @@ This section describes all operations supported by the API:
   * [Get image URLs](configuration.md#get-image-urls) - returns URLs of specified images.
 * [Enterprises](enterprises.md) - operations related to the enterprise and its settings.
   * [Get all companies](enterprises.md#get-all-companies) - returns company profiles of the enterprise.
+  * [Get all companies by name](enterprises.md#get-all-companies-by-name) - returns company profiles by their name.
   * [Get all company contracts](enterprises.md#get-all-company-contracts) - returns contracts of the enterprise with companies.
   * [Get all departments](enterprises.md#get-all-departments) - returns all departments of the enterprise.
   * [Get all outlets](enterprises.md#get-all-outlets) - returns all outlets of the enterprise.
