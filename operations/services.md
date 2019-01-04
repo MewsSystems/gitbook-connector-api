@@ -638,7 +638,17 @@ Returns all restrictions of the default service provided by the enterprise.
             "MinAdvance": null,
             "MaxAdvance": null,
             "MinLength": "P0M2DT0H0M0S",
-            "MaxLength": "P0M7DT0H0M0S"
+            "MaxLength": "P0M7DT0H0M0S",
+            "MinPrice":
+            {
+                "Value": 50,
+                "Currency": "EUR"
+            },
+            "MaxPrice":
+            {
+                "Value": 150,
+                "Currency": "EUR"
+            }
         },
         {
             "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
@@ -660,7 +670,9 @@ Returns all restrictions of the default service provided by the enterprise.
             "MinAdvance": "P0M1DT0H0M0S",
             "MaxAdvance": "P0M3DT0H0M0S",
             "MinLength": null,
-            "MaxLength": null
+            "MaxLength": null,
+            "MinPrice": null,
+            "MaxPrice": null
         }
     ]
 }
@@ -688,6 +700,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+| `MinPrice` | [Currency value](finance.md#currency-value)| optional | Value of the minimum price. |
+| `MaxPrice` | [Currency value](finance.md#currency-value)| optional | Value of the maximum price. |
 
 #### Restriction type
 
@@ -757,6 +771,8 @@ Creates new restrictions with the specified conditions.
 | `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+| `MinPrice` | [Currency value](finance.md#currency-value)| optional | Value of the minimum price. |
+| `MaxPrice` | [Currency value](finance.md#currency-value)| optional | Value of the maximum price. |
 
 ### Response
 
