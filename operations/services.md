@@ -696,32 +696,25 @@ Returns all restrictions of the default service provided by the enterprise.
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-| `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
-| `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
+| `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
-| `MinPrice` | [Currency value](finance.md#currency-value)| optional | Value of the minimum price. |
-| `MaxPrice` | [Currency value](finance.md#currency-value)| optional | Value of the maximum price. |
+| `MinPrice` | [Currency value](finance.md#currency-value)| optional | Value of the minimum night price. |
+| `MaxPrice` | [Currency value](finance.md#currency-value)| optional | Value of the maximum night price. |
 
 #### Restriction type
 
 * `Stay`
+Guests can't stay overnight within specified dates.
 * `Start`
+Guests can't check in within specified dates.
 * `End`
-
-#### Space type
-
-* `Room`
-* `Bed`
-* `Dorm`
-* `Apartment`
-* `Suite`
-* `Villa`
-* `Site`
+Guests can't check out within specified dates.
 
 ## Add restrictions
 
-Creates new restrictions with the specified conditions.
+Adds new restrictions with the specified conditions.
 
 ### Request
 
@@ -783,7 +776,7 @@ Creates new restrictions with the specified conditions.
 
 ## Delete restrictions
 
-Delete specified by Id restrictions.
+Removes restrictions from the service.
 
 ### Request
 
