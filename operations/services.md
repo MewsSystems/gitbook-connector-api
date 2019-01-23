@@ -705,12 +705,9 @@ Returns all restrictions of the default service provided by the enterprise.
 
 #### Restriction type
 
-* `Stay`
-Guests can't stay overnight within specified dates.
-* `Start`
-Guests can't check in within specified dates.
-* `End`
-Guests can't check out within specified dates.
+* `Stay` - guests can't stay overnight within specified dates.
+* `Start`- guests can't check in within specified dates.
+* `End` - guests can't check out within specified dates.
 
 ## Add restrictions
 
