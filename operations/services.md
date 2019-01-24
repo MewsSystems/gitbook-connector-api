@@ -298,8 +298,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Extent": {
         "Rates": true,
-        "RateGroups": true,
-        "RateRestrictions": false
+        "RateGroups": true
     }
 }
 ```
@@ -339,44 +338,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "IsActive": true,
             "Name": "Default"
         }
-    ],
-    "RateRestrictions": {
-        "DateRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "cd12a0db-1eeb-4eda-965c-229efff4bd5d",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": "2019-12-31T23:00:00Z",
-                "IsInverted": false,
-                "StartUtc": "2016-12-31T23:00:00Z"
-            }
-        ],
-        "EarlinessRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "0b9f74e7-3b7b-4472-a476-8ac1f01696ea",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": null,
-                "MaxAdvance": null,
-                "MinAdvance": "P7D",
-                "StartUtc": null
-            }
-        ],
-        "LengthRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "c91dcd27-fd53-4bc6-bb2a-a783e39c61f1",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": null,
-                "MaxLength": null,
-                "MinLength": "P4D",
-                "StartUtc": null
-            }
-        ]
-    }
+    ]
 }
 ```
 
@@ -384,7 +346,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | --- | --- | --- | --- |
 | `Rates` | array of [Rate](services.md#rate) | required | Rates of the default service. |
 | `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups of the default service. |
-| `RateRestrictions` | [Rate restrictions](services.md#rate-restrictions) | required | Rate restrictions of the rates. |
 
 #### Rate
 
@@ -405,61 +366,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Id` | string | required | Unique identifier of the group. |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
-
-#### Rate restrictions
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `DateRestrictions` | array of [Date restriction](services.md#date-restriction) | optional | The date restrictions. |
-| `EarlinessRestrictions` | array of [Earliness restriction](services.md#earliness-restriction) | optional | The earliness restrictions. |
-| `LengthRestrictions` | array of [Length restriction](services.md#length-restriction) | optional | The length restrictions. |
-
-#### Date restriction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the restriction. |
-| `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
-| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-
-#### Earliness restriction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the restriction. |
-| `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
-| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-| `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
-| `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
-
-#### Length restriction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the restriction. |
-| `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
-| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
-| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
-
-#### Day
-
-* `Monday`
-* `Tuesday`
-* `Wednesday`
-* `Thursday`
-* `Friday`
-* `Saturday`
-* `Sunday`
 
 ## Get rate pricing
 
@@ -704,6 +610,16 @@ Returns all restrictions of the default service provided by the enterprise.
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
 | `MinPrice` | [Currency value](finance.md#currency-value)| optional | Value of the minimum night price. |
 | `MaxPrice` | [Currency value](finance.md#currency-value)| optional | Value of the maximum night price. |
+
+#### Day
+
+* `Monday`
+* `Tuesday`
+* `Wednesday`
+* `Thursday`
+* `Friday`
+* `Saturday`
+* `Sunday`
 
 #### Restriction type
 
