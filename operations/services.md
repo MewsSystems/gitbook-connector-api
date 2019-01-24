@@ -687,10 +687,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
-
 `Conditions`:
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
 | `Type` | string | required | [Restriction type](services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
@@ -700,10 +697,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-
 `Exceptions`:
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
 | `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
@@ -754,9 +748,9 @@ Adds new restrictions with the specified conditions.
 
 #### Restriction parameters
 
-`Conditions`:
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+`Conditions`:
 | `Type` | string | required | [Restriction type](services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
@@ -766,10 +760,7 @@ Adds new restrictions with the specified conditions.
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-
 `Exceptions`:
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
 | `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
 | `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
