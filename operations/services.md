@@ -756,7 +756,7 @@ Adds new restrictions with the specified conditions.
 | `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
 | `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
 | `SpaceCategoryId` | string | optional | Unique identifier of the restricted [SpaceCategory](enterprises.md#space-category). |
-| `SpaceType` | string | optional | [Space type](services.md#space-type). |
+| `SpaceType` | string | optional | Name of the restricted [Space type](services.md#space-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
