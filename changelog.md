@@ -1,5 +1,9 @@
 # Changelog
 
+## 26th January 2019 15:40 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CompanyId`.
+
 ## 4nd January 2019 18:00 UTC
 
 * Added [Charge credit card](operations/finance.md#charge-credit-card) operation.
