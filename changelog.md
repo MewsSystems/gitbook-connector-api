@@ -1,5 +1,9 @@
 # Changelog
 
+## 29th January 2019 19:00 UTC
+
+* Extended [Company](operations/enterprises.md#company) with `IsActive`.
+
 ## 26th January 2019 15:40 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CompanyId`.
