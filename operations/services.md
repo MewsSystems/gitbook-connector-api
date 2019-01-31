@@ -528,48 +528,48 @@ Returns all restrictions of the default service provided by the enterprise.
 {  
    "Restrictions":[  
       {  
-         "Id":"40c24757-c16e-4094-91d3-4ca952e488a1",
-         "Conditions":{  
+         "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+         "Conditions": {  
             "Type":"Stay",
-            "ExactRateId":"7c7e89d6-69c0-4cce-9d42-35443f2193f3",
-            "BaseRateId":null,
-            "RateGroupId":null,
-            "SpaceCategoryId":"86336EAC-4168-46B1-A544-2A47251BF864",
-            "SpaceType":null,
-            "StartUtc":"2018-10-09T00:00:00Z",
-            "EndUtc":"2018-10-31T00:00:00Z",
-            "Days":[  
+            "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "BaseRateId": null,
+            "RateGroupId": null,
+            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "SpaceType": null,
+            "StartUtc": "2018-10-09T00:00:00Z",
+            "EndUtc": "2018-10-31T00:00:00Z",
+            "Days": [  
                "Saturday",
                "Sunday"
             ]
          },
-         "Exceptions":{  
-            "MinAdvance":null,
-            "MaxAdvance":null,
-            "MinLength":"P0M2DT0H0M0S",
-            "MaxLength":"P0M7DT0H0M0S",
-            "MinPrice":{  
-               "Value":50,
-               "Currency":"EUR"
+         "Exceptions": {  
+            "MinAdvance": null,
+            "MaxAdvance": null,
+            "MinLength": "P0M2DT0H0M0S",
+            "MaxLength": "P0M7DT0H0M0S",
+            "MinPrice": {  
+               "Value": 50,
+               "Currency": "EUR"
             },
-            "MaxPrice":{  
-               "Value":150,
-               "Currency":"EUR"
+            "MaxPrice": {  
+               "Value": 150,
+               "Currency": "EUR"
             }
          }
       },
       {  
-         "Id":"b40ac4a8-f5da-457d-88fe-7a895e1580ab",
-         "Conditions":{  
-            "Type":"Start",
-            "ExactRateId":null,
-            "BaseRateId":"e5b538b1-36e6-43a0-9f5c-103204c7f68e",
-            "RateGroupId":null,
-            "SpaceCategoryId":null,
-            "SpaceType":"Room",
-            "StartUtc":"2018-10-01T00:00:00Z",
-            "EndUtc":"2018-10-31T00:00:00Z",
-            "Days":[  
+         "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+         "Conditions": {  
+            "Type": "Start",
+            "ExactRateId": null,
+            "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+            "RateGroupId": null,
+            "SpaceCategoryId": null,
+            "SpaceType": "Room",
+            "StartUtc": "2018-10-01T00:00:00Z",
+            "EndUtc": "2018-10-31T00:00:00Z",
+            "Days": [  
                "Monday",
                "Tuesday",
                "Wednesday",
@@ -577,13 +577,13 @@ Returns all restrictions of the default service provided by the enterprise.
                "Friday"
             ]
          },
-         "Exceptions":{  
-            "MinAdvance":"P0M1DT0H0M0S",
-            "MaxAdvance":"P0M3DT0H0M0S",
-            "MinLength":null,
-            "MaxLength":null,
-            "MinPrice":null,
-            "MaxPrice":null
+         "Exceptions": {  
+            "MinAdvance": "P0M1DT0H0M0S",
+            "MaxAdvance": "P0M3DT0H0M0S",
+            "MinLength": null,
+            "MaxLength": null,
+            "MinPrice": null,
+            "MaxPrice": null
          }
       }
    ]
@@ -652,23 +652,23 @@ Adds new restrictions with the specified conditions.
 
 ```javascript
 {  
-   "ClientToken":"E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-   "AccessToken":"C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-   "Restrictions":[  
+   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+   "Restrictions": [  
       {  
-         "Conditions":{  
-            "Type":"Start",
-            "ExactRateId":"7c7e89d6-69c0-4cce-9d42-35443f2193f3",
-            "SpaceCategoryId":"86336EAC-4168-46B1-A544-2A47251BF864",
-            "Days":[  
+         "Conditions": {  
+            "Type": "Start",
+            "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "Days": [  
                "Friday",
                "Saturday",
                "Sunday"
             ]
          },
-         "Exceptions":{  
-            "MinAdvance":"P0Y0M1DT0H0M0S",
-            "MaxAdvance":"P0Y0M3DT0H0M0S"
+         "Exceptions": {  
+            "MinAdvance": "P0Y0M1DT0H0M0S",
+            "MaxAdvance": "P0Y0M3DT0H0M0S"
          }
       }
    ]
