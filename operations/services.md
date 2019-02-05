@@ -526,11 +526,11 @@ Returns all restrictions of the default service provided by the enterprise.
 
 ```javascript
 {  
-   "Restrictions":[  
+   "Restrictions": [  
       {  
          "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
          "Conditions": {  
-            "Type":"Stay",
+            "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "BaseRateId": null,
             "RateGroupId": null,
@@ -602,8 +602,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
+#### Restriction Conditions
 
-#### Restriction Conditions:
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Type` | string | required | [Restriction type](services.md#restriction-type). |
@@ -617,6 +617,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
 
 #### Restriction Exceptions
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
