@@ -691,8 +691,7 @@ Adds new restrictions with the specified conditions.
 ### Response
 
 ```javascript
-{
-}
+{}
 ```
 
 ## Delete restrictions
@@ -723,8 +722,7 @@ Removes restrictions from the service.
 ### Response
 
 ```javascript
-{
-}
+{}
 ```
 
 ## Add order
