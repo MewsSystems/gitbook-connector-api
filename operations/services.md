@@ -298,8 +298,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Extent": {
         "Rates": true,
-        "RateGroups": true,
-        "RateRestrictions": false
+        "RateGroups": true
     }
 }
 ```
@@ -339,44 +338,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "IsActive": true,
             "Name": "Default"
         }
-    ],
-    "RateRestrictions": {
-        "DateRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "cd12a0db-1eeb-4eda-965c-229efff4bd5d",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": "2019-12-31T23:00:00Z",
-                "IsInverted": false,
-                "StartUtc": "2016-12-31T23:00:00Z"
-            }
-        ],
-        "EarlinessRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "0b9f74e7-3b7b-4472-a476-8ac1f01696ea",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": null,
-                "MaxAdvance": null,
-                "MinAdvance": "P7D",
-                "StartUtc": null
-            }
-        ],
-        "LengthRestrictions": [
-            {
-                "Days": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
-                "Id": "c91dcd27-fd53-4bc6-bb2a-a783e39c61f1",
-                "IsInherited": true,
-                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
-                "EndUtc": null,
-                "MaxLength": null,
-                "MinLength": "P4D",
-                "StartUtc": null
-            }
-        ]
-    }
+    ]
 }
 ```
 
@@ -384,7 +346,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | --- | --- | --- | --- |
 | `Rates` | array of [Rate](services.md#rate) | required | Rates of the default service. |
 | `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups of the default service. |
-| `RateRestrictions` | [Rate restrictions](services.md#rate-restrictions) | required | Rate restrictions of the rates. |
 
 #### Rate
 
@@ -405,61 +366,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Id` | string | required | Unique identifier of the group. |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
-
-#### Rate restrictions
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `DateRestrictions` | array of [Date restriction](services.md#date-restriction) | optional | The date restrictions. |
-| `EarlinessRestrictions` | array of [Earliness restriction](services.md#earliness-restriction) | optional | The earliness restrictions. |
-| `LengthRestrictions` | array of [Length restriction](services.md#length-restriction) | optional | The length restrictions. |
-
-#### Date restriction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the restriction. |
-| `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
-| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-
-#### Earliness restriction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the restriction. |
-| `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
-| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-| `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
-| `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
-
-#### Length restriction
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the restriction. |
-| `RateId` | string | required | Unique identifier of the restricted [Rate](services.md#rate). |
-| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
-| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
-| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
-
-#### Day
-
-* `Monday`
-* `Tuesday`
-* `Wednesday`
-* `Thursday`
-* `Friday`
-* `Saturday`
-* `Sunday`
 
 ## Get rate pricing
 
@@ -594,6 +500,231 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 
 ```javascript
 {}
+```
+
+## Get all restrictions
+
+Returns all restrictions of the default service provided by the enterprise.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
+### Response
+
+```javascript
+{  
+   "Restrictions": [  
+      {  
+         "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+         "Conditions": {  
+            "Type": "Stay",
+            "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "BaseRateId": null,
+            "RateGroupId": null,
+            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "SpaceType": null,
+            "StartUtc": "2018-10-09T00:00:00Z",
+            "EndUtc": "2018-10-31T00:00:00Z",
+            "Days": [  
+               "Saturday",
+               "Sunday"
+            ]
+         },
+         "Exceptions": {  
+            "MinAdvance": null,
+            "MaxAdvance": null,
+            "MinLength": "P0M2DT0H0M0S",
+            "MaxLength": "P0M7DT0H0M0S",
+            "MinPrice": {  
+               "Value": 50,
+               "Currency": "EUR"
+            },
+            "MaxPrice": {  
+               "Value": 150,
+               "Currency": "EUR"
+            }
+         }
+      },
+      {  
+         "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+         "Conditions": {  
+            "Type": "Start",
+            "ExactRateId": null,
+            "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+            "RateGroupId": null,
+            "SpaceCategoryId": null,
+            "SpaceType": "Room",
+            "StartUtc": "2018-10-01T00:00:00Z",
+            "EndUtc": "2018-10-31T00:00:00Z",
+            "Days": [  
+               "Monday",
+               "Tuesday",
+               "Wednesday",
+               "Thursday",
+               "Friday"
+            ]
+         },
+         "Exceptions": {  
+            "MinAdvance": "P0M1DT0H0M0S",
+            "MaxAdvance": "P0M3DT0H0M0S",
+            "MinLength": null,
+            "MaxLength": null,
+            "MinPrice": null,
+            "MaxPrice": null
+         }
+      }
+   ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Restrictions` | array of [Restriction](services.md#restriction) | required | Restrictions of the default service. |
+
+#### Restriction
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the restriction. |
+| `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
+| `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
+
+#### Restriction Conditions
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Type` | string | required | [Restriction type](services.md#restriction-type). |
+| `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
+| `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
+| `SpaceCategoryId` | string | optional | Unique identifier of the restricted [SpaceCategory](enterprises.md#space-category). |
+| `SpaceType` | string | optional | Name of the restricted [Space type](services.md#space-type). |
+| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
+| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
+
+#### Restriction Exceptions
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
+| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
+| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+| `MinPrice` | [Currency value](finance.md#currency-value)| optional | Value of the minimum night price. |
+| `MaxPrice` | [Currency value](finance.md#currency-value)| optional | Value of the maximum night price. |
+
+#### Day
+
+* `Monday`
+* `Tuesday`
+* `Wednesday`
+* `Thursday`
+* `Friday`
+* `Saturday`
+* `Sunday`
+
+#### Restriction type
+
+* `Stay` - guests can't stay overnight within specified dates.
+* `Start`- guests can't check in within specified dates.
+* `End` - guests can't check out within specified dates.
+
+## Add restrictions
+
+Adds new restrictions with the specified conditions.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/add`
+
+```javascript
+{  
+   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+   "Restrictions": [  
+      {  
+         "Conditions": {  
+            "Type": "Start",
+            "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "Days": [  
+               "Friday",
+               "Saturday",
+               "Sunday"
+            ]
+         },
+         "Exceptions": {  
+            "MinAdvance": "P0Y0M1DT0H0M0S",
+            "MaxAdvance": "P0Y0M3DT0H0M0S"
+         }
+      }
+   ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | required | Parameters of restrictions. |
+
+#### Restriction parameters
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
+| `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
+
+### Response
+
+```javascript
+{
+}
+```
+
+## Delete restrictions
+
+Removes restrictions from the service.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "RestrictionIds": [
+        "af4949ce-c061-4f27-89f9-5a6a9ef725a7", 
+        "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](services.md#restriction)s. |
+
+### Response
+
+```javascript
+{
+}
 ```
 
 ## Add order

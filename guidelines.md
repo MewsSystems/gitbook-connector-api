@@ -92,3 +92,12 @@ In order to pass this interval to the API, it has to be converted to UTC:
 * StartUtc `2016-12-31T22:00:00Z`
 * EndUtc `2017-01-02T22:00:00Z`
 
+## Durations
+
+Some operations of the API accept durations in their parameters or return them in their results. The durations are represented as `string`s following the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) formatting rules.
+
+As an example, consider minimum and maximum length of the reservation:
+
+* MinLength `P0Y0M1DT0H0M0S`
+* MaxLength `P0Y0M3DT0H0M0S`
+
