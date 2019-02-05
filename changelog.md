@@ -1,5 +1,11 @@
 # Changelog
 
+## 5th February 2019 9:20 UTC
+
+* Added [Get all restrictions](operations/services.md#get-all-restrictions) operation.
+* Added [Add restrictions](operations/services.md#add-restrictions) operation.
+* Added [Delete restrictions](operations/services.md#delete-restrictions) operation.
+
 ## 29th January 2019 19:00 UTC
 
 * Extended [Company](operations/enterprises.md#company) with `IsActive`.
