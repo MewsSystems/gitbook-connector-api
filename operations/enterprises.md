@@ -462,6 +462,12 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | `TimeFilter` | string [Space block time filter](#space-block-time-filter) | optional | Time filter of the interval. If not specified, `Colliding` is used. |
 | `Extent` | [Space block extent](#space-block-extent) | optional | Extent of data to be returned. |
 
+#### Space block extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
+
 ### Response
 
 ```javascript
@@ -518,12 +524,6 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 * `Colliding` - space block with duration within the interval.
 * `Updated` - space block updated within the interval.
 * `Created` - space block created within the interval.
-
-#### Space block extent
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
 
 ## Update space state
 
