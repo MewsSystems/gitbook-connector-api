@@ -1,5 +1,10 @@
 # Changelog
 
+## 6th February 2019 17:00 UTC
+
+* Extended [Get all space blocks](operations/enterprise.md#get-all-space-blocks) parameters with `Extent`.
+* Extended [Space block](operations/enterprise.md#space-block) with `IsActive`.
+
 ## 5th February 2019 9:20 UTC
 
 * Added [Get all restrictions](operations/services.md#get-all-restrictions) operation.
