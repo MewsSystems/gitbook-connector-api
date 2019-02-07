@@ -446,7 +446,10 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2017-01-01T00:00:00Z",
-    "TimeFilter": "Colliding"
+    "TimeFilter": "Colliding",
+    "Extent": {
+        "Inactive": true
+    }
 }
 ```
 
@@ -457,6 +460,13 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `TimeFilter` | string [Space block time filter](#space-block-time-filter) | optional | Time filter of the interval. If not specified, `Colliding` is used. |
+| `Extent` | [Space block extent](#space-block-extent) | optional | Extent of data to be returned. |
+
+#### Space block extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
 
 ### Response
 
@@ -468,6 +478,7 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
             "CreatedUtc": "2016-03-29T22:02:34Z",
             "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "5ab9d519-2485-4d77-85c4-2a619cbdc4e7",
+            "IsActive": true,
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "HouseUse",
             "UpdatedUtc": "2016-03-29T22:02:34Z"
@@ -477,6 +488,7 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
             "CreatedUtc": "2016-03-29T15:14:06Z",
             "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "4d98ad40-a726-409e-8bf3-2c12ff3c0331",
+            "IsActive": true,
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "OutOfOrder",
             "UpdatedUtc": "2016-03-29T15:14:06Z"
@@ -495,6 +507,7 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the block. |
 | `AssignedSpaceId` | string | required | Unique identifier of the assigned [Space](enterprises.md#space). |
+| `IsActive` | bool | required | Whether the block is still active. |
 | `Type` | string [Space block type](enterprises.md#space-block-type) | required | Type of the space block. |
 | `StartUtc` | string | required | Start of the block in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the block in UTC timezone in ISO 8601 format. |
