@@ -778,7 +778,7 @@ Adds new restrictions with the specified conditions.
 | --- | --- | --- | --- |
 | `Restrictions` | array of [Added restriction](services.md#added-restriction) | required | The added restrictions. |
 
-#### Added reservation
+#### Added restriction
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
