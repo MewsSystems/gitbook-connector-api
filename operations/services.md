@@ -657,10 +657,27 @@ Adds new restrictions with the specified conditions.
    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
    "Restrictions": [  
       {  
+         "Identifier": "1234",
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "Days": [  
+               "Friday",
+               "Saturday",
+               "Sunday"
+            ]
+         },
+         "Exceptions": {  
+            "MinLength": "P0M2DT0H0M0S",
+            "MaxLength": "P0M7DT0H0M0S",
+         }
+      },
+      {  
+         "Identifier": "1235",
+         "Conditions": {  
+            "Type": "Start",
+            "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
             "Days": [  
                "Friday",
                "Saturday",
@@ -685,14 +702,88 @@ Adds new restrictions with the specified conditions.
 #### Restriction parameters
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
 ### Response
 
 ```javascript
-{}
+{  
+   "Restrictions":[  
+      {  
+         "Identifier": "1234",
+         "Restriction": {  
+            "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+            "Conditions": {  
+               "Type": "Stay",
+               "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+               "BaseRateId": null,
+               "RateGroupId": null,
+               "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+               "SpaceType": null,
+               "StartUtc": "2018-10-09T00:00:00Z",
+               "EndUtc":" 2018-10-31T00:00:00Z",
+               "Days": [  
+                  "Saturday",
+                  "Sunday"
+               ]
+            },
+            "Exceptions": {  
+               "MinAdvance": null,
+               "MaxAdvance": null,
+               "MinLength": "P0M2DT0H0M0S",
+               "MaxLength": "P0M7DT0H0M0S",
+               "MinPrice": null,
+               "MaxPrice": null
+            }
+         }
+      },
+      {  
+         "Identifier": "1235",
+         "Restriction": {  
+            "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+            "Conditions": {  
+               "Type": "Start",
+               "ExactRateId": null,
+               "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+               "RateGroupId": null,
+               "SpaceCategoryId": null,
+               "SpaceType": "Room",
+               "StartUtc": "2018-10-01T00:00:00Z",
+               "EndUtc": "2018-10-31T00:00:00Z",
+               "Days": [  
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+               ]
+            },
+            "Exceptions": {  
+               "MinAdvance": "P0M1DT0H0M0S",
+               "MaxAdvance": "P0M3DT0H0M0S",
+               "MinLength": null,
+               "MaxLength": null,
+               "MinPrice": null,
+               "MaxPrice": null
+            }
+         }
+      }
+   ]
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Restrictions` | array of [Added restriction](services.md#added-restriction) | required | The added restrictions. |
+
+#### Added reservation
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Identifier` | string | optional | Identifier of the restriction within the transaction. |
+| `Restriction` | [Restriction](services.md#restriction) | required | The added restriction. |
 
 ## Delete restrictions
 
