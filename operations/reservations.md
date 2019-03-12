@@ -319,7 +319,7 @@ Returns all reservations with Numbers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Numbers` | array of string | required | Unique identifiers of [Reservation](reservations.md#reservation)s. |
+| `Numbers` | array of string | required | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
 
 ### Response
 
