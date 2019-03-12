@@ -297,6 +297,34 @@ Returns all reservations owned by the specified customers.
 
 Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
 
+## Get all Reservations by Confirmation Numbers
+
+Returns all reservations with Confirmation Numbers.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/getAllByConfirmationNumbers`
+
+```javascript
+{
+  "ConfirmationNumbers": ["1"],
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "LanguageCode": null,
+  "CultureCode": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ConfirmationNumbers` | array of string | required | Unique identifiers of [Rezervation](reservations.md#reservation)s confirmations. |
+
+### Response
+
+Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
+
 ## Get all reservation items
 
 Returns all revenue items associated with the specified reservations.
