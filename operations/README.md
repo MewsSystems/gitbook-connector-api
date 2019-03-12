@@ -35,6 +35,7 @@ This section describes all operations supported by the API:
   * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations in an interval.
   * [Get all reservations by ids](reservations.md#get-all-reservations-by-ids) - returns all reservations by their identifiers.
   * [Get all reservations by customers](reservations.md#get-all-reservations-by-customers) - returns all reservations by the customers that own them.
+  * [Get all reservations by numbers](reservations.md#get-all-reservations-by-numbers) - returns all reservations by numbers.
   * [Get all reservation items](reservations.md#get-all-reservation-items) - returns all accounting items of reservations. 
   * [Price reservations](reservations.md#price-reservations) - returns prices of specified reservations.
   * [Add reservations](reservations.md#add-reservations) - adds a new group of reservations.
