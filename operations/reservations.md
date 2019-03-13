@@ -108,6 +108,7 @@ Returns all reservations from the specified interval according to the time filte
             "AssignedSpaceId": "20e00c32-d561-4008-8609-82d8aa525714",
             "AssignedSpaceLocked": false,
             "BusinessSegmentId": null,
+            "CancellationReason": "RequestedByGuest",
             "CancelledUtc": null,
             "ChannelNumber": "1337614414",
             "ChannelManagerNumber": "01",
@@ -125,6 +126,13 @@ Returns all reservations from the specified interval according to the time filte
             "Id": "bfee2c44-1f84-4326-a862-5289598f6e2d",
             "Number": "52",
             "Origin": "Manual",
+            "PreCancelTotalCost": {
+                "Currency": "EUR",
+                "Value": 0,
+                "Net": 0,
+                "Tax": 0,
+                "TaxRate": 0.19
+            },
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -171,11 +179,13 @@ Returns all reservations from the specified interval according to the time filte
 | `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
 | `State` | string [Reservation state](reservations.md#reservation-state) | required | State of the reservation. |
 | `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
+| `PreCancelTotalCost` | [Currency value](reservations.md#currency-value) | optional | The price of the reservation per night when it was cancelled.|
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
+| `CancellationReason` | string | optional | Cancellation reason. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
 | `AssignedSpaceId` | string | optional | Identifier of the assigned [Space](enterprises.md#space). |
 | `AssignedSpaceLocked` | bool | required | Whether the reservation is locked in the assigned [Space](enterprises.md#space) and cannot be moved. |
@@ -187,6 +197,16 @@ Returns all reservations from the specified interval according to the time filte
 | `ChildCount` | number | required | Count of children the reservation was booked for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will occupy the space. |
+
+#### Currency value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Currency` | string | required | ISO-4217 three-letter code. |
+| `Value` | decimal | required | Amount. |
+| `Net` | decimal | optional | Net. |
+| `Tax` | decimal | optional | Tax. |
+| `TaxRate` | decimal | optional | Tax rate, typicaly between 0-1. |
 
 #### Reservation state
 
