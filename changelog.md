@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th February 2019 18:00 UTC
+
+* Extended [Add restriction](operations/services.md#add-restrictions) parameters with `Identifier`.
+
 ## 6th February 2019 17:00 UTC
 
 * Extended [Get all space blocks](operations/enterprises.md#get-all-space-blocks) parameters with `Extent`.
