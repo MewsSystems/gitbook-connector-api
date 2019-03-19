@@ -709,13 +709,13 @@ Adds new restrictions with the specified conditions.
 ### Response
 
 ```javascript
-{  
-   "Restrictions":[  
-      {  
+{
+   "Restrictions":[
+      {
          "Identifier": "1234",
-         "Restriction": {  
+         "Restriction": {
             "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
-            "Conditions": {  
+            "Conditions": {
                "Type": "Stay",
                "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
                "BaseRateId": null,
@@ -723,13 +723,13 @@ Adds new restrictions with the specified conditions.
                "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
                "SpaceType": null,
                "StartUtc": "2018-10-09T00:00:00Z",
-               "EndUtc":" 2018-10-31T00:00:00Z",
-               "Days": [  
+               "EndUtc": "2018-10-31T00:00:00Z",
+               "Days": [
                   "Saturday",
                   "Sunday"
                ]
             },
-            "Exceptions": {  
+            "Exceptions": {
                "MinAdvance": null,
                "MaxAdvance": null,
                "MinLength": "P0M2DT0H0M0S",
@@ -739,11 +739,11 @@ Adds new restrictions with the specified conditions.
             }
          }
       },
-      {  
+      {
          "Identifier": "1235",
-         "Restriction": {  
+         "Restriction": {
             "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
-            "Conditions": {  
+            "Conditions": {
                "Type": "Start",
                "ExactRateId": null,
                "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
@@ -752,7 +752,7 @@ Adds new restrictions with the specified conditions.
                "SpaceType": "Room",
                "StartUtc": "2018-10-01T00:00:00Z",
                "EndUtc": "2018-10-31T00:00:00Z",
-               "Days": [  
+               "Days": [
                   "Monday",
                   "Tuesday",
                   "Wednesday",
@@ -760,7 +760,7 @@ Adds new restrictions with the specified conditions.
                   "Friday"
                ]
             },
-            "Exceptions": {  
+            "Exceptions": {
                "MinAdvance": "P0M1DT0H0M0S",
                "MaxAdvance": "P0M3DT0H0M0S",
                "MinLength": null,
