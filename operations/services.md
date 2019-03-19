@@ -710,7 +710,7 @@ Adds new restrictions with the specified conditions.
 
 ```javascript
 {
-   "Restrictions":[
+   "Restrictions": [
       {
          "Identifier": "1234",
          "Restriction": {
