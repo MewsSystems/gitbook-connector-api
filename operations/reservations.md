@@ -453,7 +453,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "GroupId": null,
-    "SendCofirmationEmail": true,
+    "SendConfirmationEmail": true,
     "Reservations": [
         {
             "Identifier": "1234",
