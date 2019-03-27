@@ -1,5 +1,9 @@
 # Changelog
 
+## 27th February 2019 22:00 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `SendConfirmationEmail`.
+
 ## 19th February 2019 18:00 UTC
 
 * Extended [Add restriction](operations/services.md#add-restrictions) parameters with `Identifier`.
