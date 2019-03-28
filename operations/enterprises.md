@@ -42,7 +42,8 @@ Returns all company profiles of the enterprise, possible filtered by their ident
             "Name": "IBM",
             "IsActive": true,
             "Number": 25,
-            "TaxIdentifier": ""
+            "TaxIdentifier": "",
+            "BillingCode": ""
         },
         {
             "AccountingCode": "",
@@ -53,7 +54,8 @@ Returns all company profiles of the enterprise, possible filtered by their ident
             "Identifier": "",
             "Name": "Booking.com",
             "IsActive": true,
-            "TaxIdentifier": ""
+            "TaxIdentifier": "",
+            "BillingCode": ""
         }
     ]
 }
@@ -76,6 +78,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifer of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
+| `BillingCode` | string | optional | Billing code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 
 ## Get all companies by name
