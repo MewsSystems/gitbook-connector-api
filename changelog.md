@@ -7,6 +7,7 @@
 ## 19th February 2019 18:00 UTC
 
 * Extended [Add restriction](operations/services.md#add-restrictions) parameters with `Identifier`.
+* Extended [Company](operations/enterprises.md#company) with `BillingCode`.
 
 ## 6th February 2019 17:00 UTC
 
