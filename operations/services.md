@@ -152,7 +152,7 @@ Returns availability of a reservation service in the specified interval. Note th
 
 ## Get all products
 
-Raturns all products offered together with the specified services.
+Returns all products offered together with the specified services.
 
 ### Request
 
