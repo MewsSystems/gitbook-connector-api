@@ -2,7 +2,7 @@
 
 ## 13th Match 2019 19:00 UTC
 
-* Added [Get all reservations by numbers](reservations.md#get-all-reservations-by-numbers) operation.
+* Added [Get all reservations by numbers](operations/reservations.md#get-all-reservations-by-numbers) operation.
 
 ## 27th February 2019 22:00 UTC
 
