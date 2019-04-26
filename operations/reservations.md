@@ -299,7 +299,7 @@ Same structure as in [Get all reservations](reservations.md#get-all-reservations
 
 ## Get all Reservations by Numbers
 
-Returns all reservations with Numbers.
+Returns all reservations with the specified confirmation numbers.
 
 ### Request
 
@@ -307,7 +307,7 @@ Returns all reservations with Numbers.
 
 ```javascript
 {
-  "Numbers": ["1"],
+  "Numbers": ["7781"],
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "LanguageCode": null,
