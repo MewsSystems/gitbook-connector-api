@@ -297,7 +297,7 @@ Returns all reservations owned by the specified customers.
 
 Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
 
-## Get all reservations by Numbers
+## Get all reservations by numbers
 
 Returns all reservations with the specified confirmation numbers.
 
