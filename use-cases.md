@@ -30,6 +30,12 @@ Performed periodically after the connection is set up so that RMS has future res
 
 To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](operations/services.md#update-rate-price) operation be used. Individual rate, room category and time span can be chosen.
 
+### Restrictions
+
+To retrieve all restrictions active in the enterprise, the RMS should periodically use the [Get all restrictions](operations/services.md#get-all-restrictions) endpoint which will return information about the applicability of the restriction.
+
+Restrictions are able to be managed in the RMS by adding and deleting restrictions using the [Add restrictions](operations/services.md#add-restrictions) and [Delete restrictions](operations/services.md#delete-restrictions) endpoints respectively.
+
 ### Occupancy
 
 When calculating occupancy, it is important to take hierarchy of spaces into account. For example if there is a reservation for a whole dorm, it occupies the dorm but also all child spaces in the hierarchy \(the beds\). And vice versa, if there is a bed reservation, it occupies the bed but also all parent spaces \(the dorm\). We consider a space occupied if there is a reservation colliding with interval 18:00 to 24:00 on that day. So e.g. reservation from 14:00 to 16:00 is not calculated towards occupancy.
@@ -128,7 +134,7 @@ Upon a Reputation management system associating feedback with a customer the [Up
 
 ### Marketing opt-out
 
-A customer has the ability to opt-out of marketing communication. As reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that the [Customer](customers.md#get-all-customers) has `SendMarketingEmails` within their `Options`, if this existent, then the customer is subscribed from any marketing.
+A customer has the ability to opt-out of marketing communication. As reputation management systems are also commonly used to launch marketing campaigns, the integration should ensure that the [Customer](operations/customers.md#response) has `SendMarketingEmails` within their `Options`, if this existent, then the customer is subscribed from any marketing.
 
 ## Mobile key systems
 
@@ -140,14 +146,14 @@ After receiving a websocket event, use [Get all reservations by ids](operations/
 
 ### Inital Data Pull
 
-Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservations. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) with the reservation time filter set to `Created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
+Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservations. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/customers.md#get-all-customers) with the reservation time filter set to `Created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
 
 One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in the future, the lower the occupancy, so the reservation batch length may increase with the distance into future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
 ### Retrieving information
 
-A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/reservations.md#get-all-customers) operations hourly with the `Updated` `TimeFilter` with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always have newly created and updated customers and reservations.
+A CRM should always be up to date with the latest data. Using the [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/customers.md#get-all-customers) operations hourly with the `Updated` `TimeFilter` with an `EndUtc` of the current time and `StartUtc` with one hour before the current time would ensure you always have newly created and updated customers and reservations.
 
 ### Marketing opt-out
 
-A customer has the ability to opt-out of marketing communication. As customer relationship management systems are also commonly used to launch marketing campaigns, the integration should acknowledge that in the [Customer Response](operations/customers#response), if a `Customer` has `SendMarketingEmails` within their `Options`, then the customer is subscribed to any marketing.
+A customer has the ability to opt-out of marketing communication. As customer relationship management systems are also commonly used to launch marketing campaigns, the integration should acknowledge that in the [Customer Response](operations/customers.md#response), if a `Customer` has `SendMarketingEmails` within their `Options`, then the customer is subscribed to any marketing.
