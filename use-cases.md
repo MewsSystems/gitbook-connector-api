@@ -5,14 +5,14 @@ This section describes, how to use the Connector API in order to implement some 
 * [Revenue management systems](use-cases.md#revenue-management-systems)
 * [Device integrations](use-cases.md#device-integrations)
 * [Point of sale systems](use-cases.md#point-of-sale-systems)
-* [Guest technology systems](use-cases.md#guest-technology-\(pabx-&-tv\))
+* [Guest technology systems](use-cases.md#guest-technology-pabx--tv)
 * [Reputation management systems](use-cases.md#reputation-management-systems)
 * [Mobile key systems](use-cases.md#mobile-key-systems)
 * [Customer relationship management systems](use-cases.md#customer-relationship-management-systems)
 
 ## Revenue management systems
 
-Revenue management systems obtain information about reservations, revenue and pricing from Mews. Based on the data they may recommend or directly update rate prices, give future revenue estimates, predict occupancy etc. In bigger hotels, there might be more than 50k reservations in a year, so it is necessary to always limit the operations in terms of potential data size, in order to avoid timeouts, network errors etc. A recommended approach, how to implement a RMS client is described below. Following these guidelines should ensure that both our servers and RMS clients are not unnecessarily overutilized.
+Revenue management systems obtain information about reservations, revenue and pricing from Mews. Based on the data they may recommend or directly update rate prices, give future revenue estimates, predict occupancy etc. In bigger hotels, there might be more than 50k reservations in a year, so it is necessary to always limit the operations in terms of potential data size, in order to avoid timeouts, network errors etc. A recommended approach, how to implement a RMS client is described [here](use-cases.md#periodic-future-update). Following these guidelines should ensure that both our servers and RMS clients are not unnecessarily overutilized.
 
 ### Initial data pull
 
@@ -31,6 +31,8 @@ Performed periodically after the connection is set up so that RMS has future res
 To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](operations/services.md#update-rate-price) operation be used. Individual rate, room category and time span can be chosen.
 
 ### Restrictions
+
+A restriction is used to prevent reservation creation in an enterprise. Restrictions can prevent creating reservations which will arrive on certain days, described as [DateRestrictions](operations/services.md#date-restriction). [EarlinessRestrictions](operations/services.md#earliness-restriction) would prevent reservation creation too far in advance or too late whilst [LengthRestrictions](operations/services.md#length-restriction) dictate the minimum and/or maximum amount of a time a reservation can be.
 
 To retrieve all restrictions active in the enterprise, the RMS should periodically use the [Get all restrictions](operations/services.md#get-all-restrictions) endpoint which will return information about the applicability of the restriction.
 
@@ -146,7 +148,7 @@ After receiving a websocket event, use [Get all reservations by ids](operations/
 
 ### Inital Data Pull
 
-Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservations. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/customers.md#get-all-customers) with the reservation time filter set to `Created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the `Extent` parameter.
+Performed once when setting up the connection, because the CRM needs to obtain existing customers and previous reservations. The CRM should obtain the customers and reservations in time-limited batches using [Get all reservations](operations/reservations.md#get-all-reservations) and [Get all customers](operations/customers.md#get-all-customers) with the reservation time filter set to `Created` \(that will give you all customers and reservations which were created in the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and should work well even for big hotels \(1000+ units\). In order to get all customers and reservations e.g. in the past year, the CRM should call [Get all customers](operations/reservations.md#get-all-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) sequentially 52 times (one call for each week in the past year). That would give the CRM all customers and all reservations that have been created within the past year. To obtain products associated with reservations e.g. a breakfast, `Items` should be set to `true` in the [Extent](operations/reservations.md#reservation-extent) parameter.
 
 One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in the future, the lower the occupancy, so the reservation batch length may increase with the distance into future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
