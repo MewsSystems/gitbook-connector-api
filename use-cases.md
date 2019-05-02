@@ -125,3 +125,23 @@ Mobile Key solutions require a state of reservation in real time, a key should n
 
 After receiving a websocket event, use [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) to retrieve information about the reservation and customer if the websocket event fits your criteria. With this response, you will have information to issue the mobile key to the customer using their contact information in Mews.
 
+### **Event Management Software**
+
+An event management integration pushes contracted revenue to the relevant client’s profile in Mews, pulls live information about rates and availability and allows for the group bookings already pushed into Mews to be managed from the event management software. The sections below contain guidelines regarding the flow of information and the relevant endpoints used.
+
+**New/Existing Guest**
+
+In Mews, billing is managed at the guest’s profile level instead of being placed on a specific room. In order to be able to send the charges to the correct guest, they must have a profile in Mews. A new guest can be added using the [Add Customer](https://app.gitbook.com/@mews-systems/s/connector-api/operations/customers#add-customer) operation and any information can be updated using the [Update Customer](https://app.gitbook.com/@mews-systems/s/connector-api/operations/customers#update-customer) one. In order to retrieve a list of all customers created within a certain interval, use the [Get All Customers](https://app.gitbook.com/@mews-systems/s/connector-api/operations/customers#get-all-customers) operation.
+
+**New Group Booking** 
+
+When a new group booking is created within the event management software, this new reservation needs to be synced with Mews. This information can be pushed into Mews using the [Add Reservations](https://app.gitbook.com/@mews-systems/s/connector-api/operations/reservations) operation. 
+In order to ensure that the client can further manage individual companions to the group booking via the integration, use the [Add](https://app.gitbook.com/@mews-systems/s/connector-api/operations/reservations#add-reservation-companion) or [Delete Reservation Companion](https://app.gitbook.com/@mews-systems/s/connector-api/operations/reservations#delete-reservation-companion). 
+
+**Adding Products to the Booking**
+
+One of the expected functionalities of an event management integration is to push product and service orders into Mews to the correct customer’s profile. This can be done using the operation [Add order](https://app.gitbook.com/@mews-systems/s/connector-api/operations/services#add-order). 
+
+**Rates and Availability** 
+
+In order to pull live data about rates from Mews into the event management integration you can use the [Get All Rates](https://app.gitbook.com/@mews-systems/s/connector-api/operations/services#get-all-rates) and  [Pricing](https://app.gitbook.com/@mews-systems/s/connector-api/operations/services#get-rate-pricing) as well as [Service Availability](https://app.gitbook.com/@mews-systems/s/connector-api/operations/services#get-service-availability).
