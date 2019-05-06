@@ -138,9 +138,9 @@ In Mews, billing is managed at the customer’s profile level instead of being c
 When a new reservation is created within the event management software, it needs to be synced with Mews. This can be pushed into Mews using the [Add reservations](operations/reservations.md#add-reservations) operation. 
 In order to ensure that the property can further manage individual companions to the group reservation via the integration, use the [Add reservation companion](operations/reservations.md#add-reservation-companion) or [Delete reservation companion](operations/reservations.md#delete-reservation-companion). 
 
-### Adding products
+### Adding items
 
-One of the expected functionalities of an event management integration is to push product and service orders into Mews to the correct customer’s profile. This can be done using the operation [Add order](operations/services.md#add-order). 
+One of the expected functionalities of an event management integration is to push items into Mews to the correct customer’s profile. This can be done using the operation [Add order](operations/services.md#add-order). 
 
 ### Rates and availability
 
