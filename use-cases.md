@@ -8,6 +8,7 @@ This section describes, how to use the Connector API in order to implement some 
 * [Guest technology systems](use-cases.md#guest-technology-systems)
 * [Reputation management systems](use-cases.md#reputation-management-systems)
 * [Mobile Key Systems](use-cases.md#mobile-key-systems)
+* [Event management software](use-cases.md#event-management-software)
 
 ## Revenue management systems
 
