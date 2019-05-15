@@ -434,6 +434,10 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
 | `CategoryPrices` | array of [Space category pricing](services.md#space-category-pricing) | required | Space category prices. |
 | `CategoryAdjustments` | array of [Space category adjustment](services.md#space-category-adjustment) | required | Space category adjustments. |
+| `RelativeAdjustment` | decimal | required | Specific amount which shows the difference between this rate and the base rate. |
+| `AbsoluteAdjustment` | decimal | required | Relative amount which shows the difference between this rate and the base rate. |
+| `EmptyUnitAdjustment` | decimal | required | Price adjustment for when the space booked with this rate is not full to capacity. |
+| `ExtraUnitAdjustment` | decimal | required | Price adjustment for when the space booked with this rate exceeds capacity. |
 
 #### Space category pricing
 

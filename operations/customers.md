@@ -426,6 +426,8 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Phone` | string | optional | Phone number of the customer \(possibly mobile\). |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
+| `CarRegistrationNumber` | string | optional | Registration number of the customer's car. |
+| `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
 | `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
@@ -490,6 +492,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Phone` | string | optional | New phone number. |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
+| `CarRegistrationNumber` | string | optional | New registration number of the customer's car. |
+| `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
 | `IdentityCard` | [Document](customers.md#document) | optional | New identity card details. |
 | `Passport` | [Document](customers.md#document) | optional | New passport details. |
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
