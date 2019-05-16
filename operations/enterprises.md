@@ -630,5 +630,4 @@ Adds a new company to the enterprise.
 
 ### Response
 
-The created [Company](enterprises.md#company).
-
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
