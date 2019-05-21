@@ -76,7 +76,11 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 
 * **PlatformAddress** - `https://www.mews.li`
 * **ClientToken** - Will be provided to you by our integration team. For further information, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
-* **AccessToken** - Depends on the enterprise, should be provided to you by the enterprise admin.
+* **AccessToken** - Will be provided to you via [email and your provided webhook](guidelines.md#AccessToken-delivery).
+
+#### AccessToken delivery
+
+Upon the assoication of 
 
 ## Datetimes
 
@@ -100,4 +104,3 @@ As an example, consider minimum and maximum length of the reservation:
 
 * MinLength `P0Y0M1DT0H0M0S`
 * MaxLength `P0Y0M3DT0H0M0S`
-

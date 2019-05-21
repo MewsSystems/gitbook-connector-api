@@ -1,5 +1,9 @@
 # Changelog
 
+## 21 May 2019 19:00UTC
+
+* Extended [Guidelines](guidelines.md#AccessToken-delivery) with information about AccessToken delivery via webhook.
+
 ## 15th May 2019 19:00 UTC
 
 * Added [Update Company](operations/enterprises.md#update-company) operation.
