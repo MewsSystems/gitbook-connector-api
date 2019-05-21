@@ -58,7 +58,7 @@ If the Connector integration is configured to handle commands for some devices, 
 
 #### Reservation event
 
-If the Connector integration is configured to receive reservation updates, it will receive events whenever a reservation is updated \(created, updated, cancelled etc\).
+If the Connector integration is configured to receive reservation updates, it will receive events whenever a reservation is updated \(created, updated, canceled etc\).
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
