@@ -2,6 +2,7 @@
 
 ## 15th May 2019 19:00 UTC
 
+* Added [Update Company](operations/enterprises.md#update-company) operation.
 * Added [Add Company](operations/enterprises.md#add-company) operation.
 * Extended [Add Customer](operations/customers.md#add-customer) parameters with `CarRegistrationNumber` and `TaxIdentificationNumber`.
 * Extended [Update Customer](operations/customers.md#update-customer) parameters with `CarRegistrationNumber` and `TaxIdentificationNumber`.

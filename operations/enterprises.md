@@ -631,3 +631,54 @@ Adds a new company to the enterprise.
 ### Response
 
 Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+
+## Update company
+
+Updates information about a company. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `value` within the object is sent as `null`, the field will be cleared in Mews.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companies/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CompanyId": "9ebf6446-64c3-4f85-943c-aa540092b963",
+    "Name": {
+        "Value": "Golden Tech Company"
+    },
+    "MotherCompanyId": null,
+    "Identifier": null,
+    "TaxIdentifier": null,
+    "AdditionalTaxIdentifier": null,
+    "BillingCode": null,
+    "AccountingCode": {
+        "Value": "1234"
+    }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CompanyId` | string | required | Unique identifier of the [Company](enterprises.md#company). |
+| `Name` | [Value](enterprises.md#value) | optional | Name of the company \(if it is non-empty, otherwise `null`\). |
+| `MotherCompanyId` | [Value](enterprises.md#value) | optional | Unique identifier of the mother company \(if it is non-empty, otherwise `null`\). |
+| `Identifier` | [Value](enterprises.md#value) | optional | Identifier of the company (e.g. legal identifier) \(if it is non-empty, otherwise `null`\). |
+| `TaxIdentifier` | [Value](enterprises.md#value) | optional | Tax identification number of the company \(if it is non-empty, otherwise `null`\). |
+| `AdditionalTaxIdentifier` | [Value](enterprises.md#value) | optional | Additional tax identifer of the company \(if it is non-empty, otherwise `null`\). |
+| `BillingCode` | [Value](enterprises.md#value) | optional | Billing code of the company \(if it is non-empty, otherwise `null`\). |
+| `AccountingCode` | [Value](enterprises.md#value) | optional | Accounting code of the company \(if it is non-empty, otherwise `null`\). |
+
+#### Value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | string | optional | Value which is to be updated. |
+
+
+### Response
+
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
