@@ -78,9 +78,78 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 * **ClientToken** - Will be provided to you by our integration team. For further information, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
 * **AccessToken** - Will be provided to you via [email and your provided webhook](guidelines.md#AccessToken-delivery).
 
-#### AccessToken delivery
+### Integration event webhook
 
-Upon the assoication of 
+The integrator may provide a webhook address to [integrations@mewssystems.com](mailto://integrations@mewssystems.com) where Mews will deliver the `AccessToken` upon integration creation and other events related to the integration.
+
+#### Response
+
+```javascript
+{
+  "Action": "IntegrationCreated",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "CreatedUtc": "2019-05-24T07:35:35Z",
+  "IsEnabled": true,
+  "Data": {
+    "Enterprise": {
+      "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
+      "Name": "Connector API Hotel"
+    },
+    "Requestor": {
+      "Name": "Mews Integrations",
+      "Email": "integrations@mewssystems.com"
+    },
+    "Integration": {
+      "Id": "c66ef7b2-39d2-4632-943d-115ede9cb810",
+      "Name": "Example"
+    }
+  }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Action` | string | required | The [Action](guidelines.md#Action) performed |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CreatedUtc` | string | optional | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
+| `IsEnabled` | string | optional | The state of the integration. |
+| `Data` | [Data](guidelines.md#data) | required | Data of the integration event. |
+
+#### Action
+
+* `IntegrationEnabled`
+* `IntegrationCreated`
+* `IntegrationDisabled`
+* ...
+
+#### Data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Enterprise` | [Data](guidelines.md#Enterprise) | optional | Data of the integration event. |
+| `Requestor` | [Data](guidelines.md#Requestor) | optional | Data of the integration event. |
+| `Integration` | [Integration](guidelines.md#Integration) | required | Data of the integration event. |
+
+#### Enterprise
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the enterprise. |
+| `Name` | string | required | Name of the enterprise. |
+
+#### Requestor
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Name` | string | required | Name of the user who requested the integration. |
+| `Email` | string | required | Email of the user who requested the integration. |
+
+#### Integration
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the integration.|
+| `Name` | string | required | Name of the integration. |
 
 ## Datetimes
 
