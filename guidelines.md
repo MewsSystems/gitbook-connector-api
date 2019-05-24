@@ -126,8 +126,8 @@ The integrator may provide a webhook address to [integrations@mewssystems.com](m
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` | [Data](guidelines.md#Enterprise) | optional | Data of the integration event. |
-| `Requestor` | [Data](guidelines.md#Requestor) | optional | Data of the integration event. |
+| `Enterprise` | [Enterprise](guidelines.md#Enterprise) | optional | Data of the integration event. |
+| `Requestor` | [Requestor](guidelines.md#Requestor) | optional | Data of the integration event. |
 | `Integration` | [Integration](guidelines.md#Integration) | required | Data of the integration event. |
 
 #### Enterprise

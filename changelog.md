@@ -2,7 +2,7 @@
 
 ## 21 May 2019 19:00UTC
 
-* Extended [Guidelines](guidelines.md#AccessToken-delivery) with information about AccessToken delivery via webhook.
+* Extended [Guidelines](guidelines.md#Integration-event-webhook) with information about AccessToken delivery via webhook.
 
 ## 15th May 2019 19:00 UTC
 
