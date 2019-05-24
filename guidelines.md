@@ -80,7 +80,7 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 
 ### Integration event webhook
 
-The integrator may provide a webhook address to [integrations@mewssystems.com](mailto://integrations@mewssystems.com) where Mews will deliver the `AccessToken` upon integration creation and other events related to the integration.
+The integrator may provide a webhook address to [integrations@mewssystems.com](mailto://integrations@mewssystems.com) where Mews will deliver data related to an integration [action](guidelines.md#Action).
 
 #### Response
 
@@ -109,7 +109,7 @@ The integrator may provide a webhook address to [integrations@mewssystems.com](m
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Action` | string | required | The [Action](guidelines.md#Action) performed |
+| `Action` | string | required | The [Action](guidelines.md#Action) performed. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreatedUtc` | string | optional | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
 | `IsEnabled` | string | optional | The state of the integration. |
@@ -117,9 +117,9 @@ The integrator may provide a webhook address to [integrations@mewssystems.com](m
 
 #### Action
 
-* `IntegrationEnabled`
-* `IntegrationCreated`
-* `IntegrationDisabled`
+* `IntegrationCreated` - A new integration has been created.
+* `IntegrationEnabled` - An integration has been enabled.
+* `IntegrationDisabled` - An integration has been disabled.
 * ...
 
 #### Data

@@ -664,19 +664,19 @@ Updates information about a company. Note that if any of the fields are sent as 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CompanyId` | string | required | Unique identifier of the [Company](enterprises.md#company). |
-| `Name` | [Value](enterprises.md#value) | optional | Name of the company \(if it is non-empty, otherwise `null`\). |
-| `MotherCompanyId` | [Value](enterprises.md#value) | optional | Unique identifier of the mother company \(if it is non-empty, otherwise `null`\). |
-| `Identifier` | [Value](enterprises.md#value) | optional | Identifier of the company (e.g. legal identifier) \(if it is non-empty, otherwise `null`\). |
-| `TaxIdentifier` | [Value](enterprises.md#value) | optional | Tax identification number of the company \(if it is non-empty, otherwise `null`\). |
-| `AdditionalTaxIdentifier` | [Value](enterprises.md#value) | optional | Additional tax identifer of the company \(if it is non-empty, otherwise `null`\). |
-| `BillingCode` | [Value](enterprises.md#value) | optional | Billing code of the company \(if it is non-empty, otherwise `null`\). |
-| `AccountingCode` | [Value](enterprises.md#value) | optional | Accounting code of the company \(if it is non-empty, otherwise `null`\). |
+| `Name` | String [Value](enterprises.md#update-value) | optional | Name of the company \(if it is non-empty, otherwise `null`\). |
+| `MotherCompanyId` | String [Value](enterprises.md#update-value) | optional | Unique identifier of the mother company \(if it is non-empty, otherwise `null`\). |
+| `Identifier` | String [Value](enterprises.md#update-value) | optional | Identifier of the company (e.g. legal identifier) \(if it is non-empty, otherwise `null`\). |
+| `TaxIdentifier` | String [Value](enterprises.md#update-value) | optional | Tax identification number of the company \(if it is non-empty, otherwise `null`\). |
+| `AdditionalTaxIdentifier` | String [Value](enterprises.md#update-value) | optional | Additional tax identifer of the company \(if it is non-empty, otherwise `null`\). |
+| `BillingCode` | String [Value](enterprises.md#update-value) | optional | Billing code of the company \(if it is non-empty, otherwise `null`\). |
+| `AccountingCode` | String [Value](enterprises.md#update-value) | optional | Accounting code of the company \(if it is non-empty, otherwise `null`\). |
 
-#### Value
+#### Update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
+| `Value` | Type defined by property | optional | Value which is to be updated. |
 
 
 ### Response
