@@ -592,3 +592,42 @@ Adds a new task to the enterprise, optionally to a specified department.
 {}
 ```
 
+## Add company
+
+Adds a new company to the enterprise.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companies/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Name": "Mews Systems",
+    "MotherCompanyId": null,
+    "Identifier": null,
+    "TaxIdentifier": null,
+    "AdditionalTaxIdentifier": null,
+    "BillingCode": null,
+    "AccountingCode": null,
+    "Address": null,
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Name` | string | required | Name of the company. |
+| `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
+| `Identifier` | string | optional | Identifier of the company (e.g. legal identifier). |
+| `TaxIdentifier` | string | optional | Tax identification number of the company. |
+| `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
+| `BillingCode` | string | optional | Billing code of the company. |
+| `AccountingCode` | string | optional | Accounting code of the company. |
+| `Address` | [Address](configuration.md#address) | optional | Address of the company. |
+
+### Response
+
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.

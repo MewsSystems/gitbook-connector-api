@@ -263,6 +263,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. If not specified, `AccountingItems` is used as the default extent. |
+| `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
 
 #### Accounting item time filter
 
@@ -275,6 +276,13 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `AccountingItems` | bool | optional | Whether the response should contain [Accounting item](#accounting-item)s. |
 | `CreditCardTransactions` | bool | optional | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the accounting items. |
+
+#### Accounting item state
+
+* `Open` - Accounting items which are open and have not been closed.
+* `Closed` - Accounting items which have been closed on a bill.
+* `Inactive` - Accounting items which are inactive.
+* `Canceled` - Accounting items which have been canceled.
 
 ### Response
 

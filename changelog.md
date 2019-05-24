@@ -1,5 +1,15 @@
 # Changelog
 
+## 15th May 2019 19:00 UTC
+
+* Added [Add Company](operations/enterprises.md#add-company) operation.
+* Extended [Add Customer](operations/customers.md#add-customer) parameters with `CarRegistrationNumber` and `TaxIdentificationNumber`.
+* Extended [Update Customer](operations/customers.md#update-customer) parameters with `CarRegistrationNumber` and `TaxIdentificationNumber`.
+* Extended [Confirm reservation](operations/reservations.md#confirm-reservation) parameters with `SendConfirmationEmail`.
+* Extended [Get all accounting items](operations/finance.md#accounting-items-get-all) parameters with `States`.
+* Extended [Reservation extent](operations/reservations.md#reservation-extent) with `AccountingStates`.
+* Extended [Get rate pricing](operations/services.md#get-rate-pricing) response with `RelativeAdjustment`, `AbsoluteAdjustment`, `EmptyUnitAdjustment` and `ExtraUnitAdjustment`.
+
 ## 13th Match 2019 19:00 UTC
 
 * Added [Get all reservations by numbers](operations/reservations.md#get-all-reservations-by-numbers) operation.

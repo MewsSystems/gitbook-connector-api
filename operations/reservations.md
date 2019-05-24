@@ -58,6 +58,7 @@ Returns all reservations from the specified interval according to the time filte
 | `Spaces` | bool | optional | Whether the response should contain spaces and space categories. |
 | `Notes` | bool | optional | Whether the response should contain notes. |
 | `QrCodeData` | bool | optional | Whether the response should contain QR code data. |
+| `AccountingStates` | array of string [Accounting state](finance.md#Accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
 
 ### Response
 
@@ -614,6 +615,7 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to confirm. |
+| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 
 ### Response
 
