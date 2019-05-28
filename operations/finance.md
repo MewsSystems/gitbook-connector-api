@@ -926,7 +926,7 @@ Returns all preauthorizations of specified customers.
 
 * `Chargeable` - Created and prepared for the charging.
 * `Expired` - A preauthorization that is not charged and expired.
-* `Cancelled` - A preauthorization that was cancelled before charging.
+* `Cancelled` - A preauthorization that was canceled before charging.
 * `Charged` - Charged preauthorization.
 
 ## Add credit card payment
