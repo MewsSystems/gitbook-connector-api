@@ -41,7 +41,7 @@ Returns all reservations from the specified interval according to the time filte
 * `Start`- reservations starting \(= arriving\) within the specified interval.
 * `End` - reservations ending \(= departing\) within the specified interval.
 * `Overlapping` - reservations whose intervals contain the specified interval.
-* `Canceled` - reservations canceled within the specified interval.
+* `Canceled` - reservations cancelled within the specified interval.
 
 #### Reservation extent
 
@@ -773,7 +773,7 @@ Updates reservation interval \(start, end or both\).
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
-| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially canceled nights. |
+| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially cancelled nights. |
 
 ### Response
 
