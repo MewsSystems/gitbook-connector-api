@@ -2,8 +2,6 @@
 
 ## Get all customers
 
-Returns all customers from the specified interval according to the time filter \(e.g. customers created in that interval\).
-
 ### Request
 
 `[PlatformAddress]/api/connector/v1/customers/getAll`
