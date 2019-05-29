@@ -119,7 +119,7 @@ Returns all commands the are still active from the client application point of v
 * `Received` - Received by the client application.
 * `Processing` - Being processed by the client application.
 * `Processed` - Successfully processed command.
-* `Cancelled` - A command whose execution has been cancelled before \(or during\) processing.
+* `Cancelled` - A command whose execution has been canceled before \(or during\) processing.
 * `Error` - A command whose execution or processing was terminated by an error.
 
 #### User

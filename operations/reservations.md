@@ -41,7 +41,7 @@ Returns all reservations from the specified interval according to the time filte
 * `Start`- reservations starting \(= arriving\) within the specified interval.
 * `End` - reservations ending \(= departing\) within the specified interval.
 * `Overlapping` - reservations whose intervals contain the specified interval.
-* `Canceled` - reservations cancelled within the specified interval.
+* `Canceled` - reservations canceled within the specified interval.
 
 #### Reservation extent
 
@@ -58,6 +58,7 @@ Returns all reservations from the specified interval according to the time filte
 | `Spaces` | bool | optional | Whether the response should contain spaces and space categories. |
 | `Notes` | bool | optional | Whether the response should contain notes. |
 | `QrCodeData` | bool | optional | Whether the response should contain QR code data. |
+| `AccountingStates` | array of string [Accounting state](finance.md#Accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
 
 ### Response
 
@@ -614,6 +615,7 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to confirm. |
+| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 
 ### Response
 
@@ -771,7 +773,7 @@ Updates reservation interval \(start, end or both\).
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
-| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially cancelled nights. |
+| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially canceled nights. |
 
 ### Response
 
