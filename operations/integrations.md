@@ -194,6 +194,7 @@ Structure of command data varies depending on type of the [Device](integrations.
 | `Email` | string | optional | Email of the reservation owner. |
 | `KeyCount` | number | required | Count of keys to cut. |
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
+| `KeyMode` | string [KeyMode](integrations.md#keymode) | optional | Type of keys to encode. |
 
 ## Get all commands by ids
 
@@ -286,6 +287,13 @@ Adds a new key cutter command representing cutting of a key for the specified re
 | `KeyCutterId` | string | required | Unique identifier of the `KeyCutter` [Device](integrations.md#device) where to encode the key. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to encode the key for. |
 | `KeyCount` | int | required | Count of keys to encode. |
+| `KeyMode` | string [KeyMode](integrations.md#keymode) | optional | Type of keys to encode. |
+
+#### KeyMode
+
+* `New`
+* `Duplicate`
+* ...
 
 ### Response
 
