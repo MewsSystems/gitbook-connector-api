@@ -10,7 +10,7 @@
 * Extended [Reservation extent](operations/reservations.md#reservation-extent) with `AccountingStates`.
 * Extended [Get rate pricing](operations/services.md#get-rate-pricing) response with `RelativeAdjustment`, `AbsoluteAdjustment`, `EmptyUnitAdjustment` and `ExtraUnitAdjustment`.
 
-## 13th Match 2019 19:00 UTC
+## 13th March 2019 19:00 UTC
 
 * Added [Get all reservations by numbers](operations/reservations.md#get-all-reservations-by-numbers) operation.
 
