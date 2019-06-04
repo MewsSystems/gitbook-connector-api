@@ -1,6 +1,11 @@
 # Changelog
 
-## 21 May 2019 19:00UTC
+## 4th June 2019 19:00UTC
+
+* Extended [Add key cutter command](integrations.md#add-key-cutter-command) parameters with `KeyMode`.
+* Extended [Key cutter command data](integrations.md#key-cutter-command-data) response with `KeyMode`.
+
+## 21th May 2019 19:00UTC
 
 * Added [Integration event webhook](guidelines.md#Integration-event-webhook) to [Guidelines](guidelines.md).
 
