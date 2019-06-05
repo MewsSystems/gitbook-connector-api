@@ -125,3 +125,38 @@ Mobile Key solutions require a state of reservation in real time, a key should n
 
 After receiving a websocket event, use [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) to retrieve information about the reservation and customer if the websocket event fits your criteria. With this response, you will have information to issue the mobile key to the customer using their contact information in Mews.
 
+## Event management software
+
+An event management integration pushes contracted revenue to the relevant guest’s profile in Mews, pulls live information about rates and availability and allows for the group reservations already pushed into Mews to be managed from the event management software. The sections below contain guidelines regarding the relevant endpoints used.
+
+### Managing customers
+
+In Mews, billing is managed at the customer’s profile level instead of being charged to a specific room. In order to be able to send the charges to the correct customer, they must have a profile in Mews. A new customer can be added using the [Add customer](operations/customers.md#add-customer) operation and any information can be updated using the [Update customer](operations/customers.md#update-customer) one. In order to retrieve a list of all customer profiles created within a certain interval, use the [Get all customers](operations/customers.md#get-all-customers) operation.
+
+### New group reservation 
+
+When a new reservation is created within the event management software, it needs to be synced with Mews. This can be pushed into Mews using the [Add reservations](operations/reservations.md#add-reservations) operation. 
+In order to ensure that the property can further manage individual companions to the group reservation via the integration, use the [Add reservation companion](operations/reservations.md#add-reservation-companion) or [Delete reservation companion](operations/reservations.md#delete-reservation-companion). 
+
+### Adding items
+
+One of the expected functionalities of an event management integration is to push items into Mews to the correct customer’s profile. This can be done using the operation [Add order](operations/services.md#add-order). 
+
+### Rates and availability
+
+In order to pull data about rates from Mews into the event management integration you can use the [Get all rates](operations/services.md#get-all-rates) and  [Get rate pricing](operations/services.md#get-all-rates) as well as [Get service availability](operations/services.md#get-service-availability).
+
+## Accounting Systems
+
+Accounting systems are created to record and process accounting transactions for internal and external review and auditing. Accounting systems must include core modules such as accounts payable, accounts receivable, general ledger, and billing. Additional non-core modules could include reconciliation, inventory, a document approval system, expense tracking, reporting and electronic payment processing for added value. 
+
+### Initial configuration
+
+The integration must first retrieve all configured accounting categories using [Get all accounting categories](operations/finance.md#get-all-accounting-categories) which returns all ids and codes required to ensure revenue, payments and costs are correctly assigned to their designated accounting categories. To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. Mews includes an Editable History Window configuration which allows properties to determine, how long after a bill or invoice has been closed can it be amended. Accounting integrations retrieve this information from `EditableHistoryInterval` using [Get configuration](operations/configuration#get-configuration).
+
+### Periodic update
+
+The integration should call [Get all accounting items](operations/finance#get-all-accounting-items) with the accounting item time filter `Consumed` at regular (at least daily) intervals to return all accounting items of the enterprise that have been consumed within the selected time period. The same must be done with all outlet items using [Get all outlet items](operations/finance#get-all-outlet-items) with the time filter `Consumed`. For both calls, if the `Currency`
+is specified, the cost of the items will be converted to that currency. When retrieving the accounting items, the extent should include `CreditCardTransactions`  
+
+In order to retrieve all bills and invoices that must be paid and reconciled within the accounting software, the integration should use [Get all closed bills](operations/finance#get-all-closed-bills).
