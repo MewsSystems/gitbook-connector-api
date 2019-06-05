@@ -152,7 +152,7 @@ Accounting systems are created to record and process accounting transactions for
 
 ### Initial configuration
 
-The integration must first retrieve all configured accounting categories using [Get all accounting categories](operations/finance.md#get-all-accounting-categories) which returns all ids and codes required to ensure revenue, payments and costs are correctly assigned to their designated accounting categories. To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. Mews includes an Editable History Window configuration which allows properties to determine, in accordance with their legal environment, how long after a bill or invoice has been closed can it be amended. Accounting integrations retrieve this information from `EditableHistoryInterval` using [Get configuration](operations/configuration#get-configuration).
+The integration must first retrieve all configured accounting categories using [Get all accounting categories](operations/finance.md#get-all-accounting-categories) which returns all ids and codes required to ensure revenue, payments and costs are correctly assigned to their designated accounting categories. To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. Mews includes an Editable History Window configuration which allows properties to determine, how long after a bill or invoice has been closed can it be amended. Accounting integrations retrieve this information from `EditableHistoryInterval` using [Get configuration](operations/configuration#get-configuration).
 
 ### Periodic update
 
