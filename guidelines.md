@@ -101,3 +101,61 @@ As an example, consider minimum and maximum length of the reservation:
 * MinLength `P0Y0M1DT0H0M0S`
 * MaxLength `P0Y0M3DT0H0M0S`
 
+# Mews Certification
+
+Before going live in the production environment all connections must be certified by Mews.
+
+### Pre-Certification
+
+- Sign in to the Mews Connector API demo account. Credentials for this can be found in the [guidelines](https://mews-systems.gitbook.io/connector-api/guidelines#authentication) section.
+- Create a unique access token. The client token will always be `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`.
+  - Go to **Main menu** > **Settings** > **Marketplace**.
+  - Search for **connector API Demo client**.
+  - You can search the Marketplace by using either the categories section (the application you need is in the Connectivity section), or by pressing Ctrl (Windows) or Command (Mac) + F to search by name.
+  - Select **see more** > **ok**.
+    - If you're having trouble, check the [Mews guide](https://help.mewssystems.com/reference#about-marketplace) for more information on setting up the connection.
+    - At this point, you'll now be viewing the active connections for the demo environment. Select Settings for the connection you've just created. 
+    - **Name:** name of your application/company.
+    - Select the **Enabled** checkbox, and click **Save**.
+      - If the connection is not enabled, you will not receive any data from the property.
+  - Add the unique access token (from the first step) to your code.
+
+### Certification Procedure
+
+All testing must be conducted in the [demo environment](https://mews-systems.gitbook.io/connector-api/guidelines#authentication) before going live.
+
+Once you have completed building and testing the connection, send an email to marketplace@mewssystems.com with the following information:
+
+- Name of application.
+- Type of application (e.g. Revenue management, Point of sales etc.)
+- A list of all the intended API endpoints used, as well as the logic (use case) for each endpoint.
+- Complete this [commercial form](https://goo.gl/forms/lCs75PuCuszhgp0L2) (sales & technical contacts, description of application/company, etc.) 
+  - This form is mandatory for certification.
+- Once the Marketplace team has this information, you will need to run your connection as you would in a live context for 24 hours.
+
+### Evaluation
+
+- If we notice any issues with your connection, you'll be contacted with questions &/or requests for improvements.
+- If the required tests can't be completed successfully, Mews will not allow the connection to advance to the production environment.
+  - If no issues are found, they must be resolve them before the certification process can be completed.
+- If there are no critical issues discovered during certification, we'll advance your application to the production environment.
+- Before you go live, Mews will issue a new [Client token](https://mews-systems.gitbook.io/connector-api/guidelines#requests) for use in the production environment. The token will be sent to the technical contact email that you provide your commercial form.
+- Once that is complete, you will become Mews certified
+
+### Production Authentication
+
+Once you're Mews certified, you'll be added to the Mews Marketplace. You'll then be able to operate your application in the [Mews production environment](https://mews-systems.gitbook.io/connector-api/guidelines#production-environment), which gives you the ability to work wit any Mews property that would like a connection with your system.
+
+**Client Token**
+
+- In order to connect with Mews, you (the partner) will be assigned a unique client token. Please hardcode this token within your own system. 
+- A single email address will be added as a Client token contact. If you'd like to change this address, please contact marketplace@mewssystems.com
+  - Partners with resellers will be given a unique client token for each reseller that you work with.
+
+**Access Token**
+
+- Each access token is unique to a particular enterprise.
+- Access tokens will be automatically created when properties connect to new applications from the Mews Marketplace.
+- Clients will follow the Mews Marketplace setup guide to independently create new connections.
+
+All connectivity updates must be conducted in the Mews demo environment and certified. Please inform the Mews Marketplace team if you are building any improvements to your existing connections.
