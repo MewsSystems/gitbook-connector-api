@@ -75,7 +75,7 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 ### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
-* **ClientToken** - Will be provided to you by our integration team. For further information, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
+* **ClientToken** - Will be provided to you by our integration team. For further information, please contact [marketplace@mewssystems.com](mailto://marketplace@mewssystems.com).
 * **AccessToken** - Will be provided to you via [email and your provided webhook](guidelines.md#AccessToken-delivery).
 
 ### Integration event webhook
@@ -86,24 +86,24 @@ The integrator may provide a webhook address to [integrations@mewssystems.com](m
 
 ```javascript
 {
-  "Action": "IntegrationCreated",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "CreatedUtc": "2019-05-24T07:35:35Z",
-  "IsEnabled": true,
-  "Data": {
-    "Enterprise": {
-      "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
-      "Name": "Connector API Hotel"
-    },
-    "Requestor": {
-      "Name": "Mews Integrations",
-      "Email": "integrations@mewssystems.com"
-    },
-    "Integration": {
-      "Id": "c66ef7b2-39d2-4632-943d-115ede9cb810",
-      "Name": "Example"
+    "Action": "IntegrationCreated",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CreatedUtc": "2019-05-24T07:35:35Z",
+    "IsEnabled": true,
+    "Data": {
+        "Enterprise": {
+            "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
+            "Name": "Connector API Hotel"
+            },
+        "Requestor": {
+            "Name": "Mews Integrations",
+            "Email": "integrations@mewssystems.com"
+            },
+        "Integration": {
+            "Id": "c66ef7b2-39d2-4632-943d-115ede9cb810",
+            "Name": "Example"
+        }
     }
-  }
 }
 ```
 
