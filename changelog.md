@@ -1,5 +1,9 @@
 # Changelog
 
+## 10th June 2019 19:00 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `GroupName`.
+
 ## 15th May 2019 19:00 UTC
 
 * Added [Add Company](operations/enterprises.md#add-company) operation.
