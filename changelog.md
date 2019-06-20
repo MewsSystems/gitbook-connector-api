@@ -1,5 +1,9 @@
 # Changelog
 
+## 21st June 2019 19:00 UTC
+
+* Added [Update Reservation](operations/reservations.md#update-reservation) operation.
+
 ## 15th May 2019 19:00 UTC
 
 * Added [Add Company](operations/enterprises.md#add-company) operation.
