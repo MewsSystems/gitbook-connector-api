@@ -622,7 +622,6 @@ Updates information about a reservation. Note that if any of the fields are sent
                 "Value": 1,
             },
     "ChannelNumber": null,
-
     "RequestedCategoryId": null,
     "TraveAgencyId": {
                 "Value": null
