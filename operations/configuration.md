@@ -326,9 +326,9 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `TaxEnvironments` | array of [Tax Environments](configuration.md#taxenvironments) | required | The supported tax environments. |
+| `TaxEnvironments` | array of [Tax Environments](configuration.md#tax-environments) | required | The supported tax environments. |
 | `Taxations` | array of [Taxations](configuration.md#taxations) | required | The supported taxations. |
-| `TaxRates` | array of [Tax Rates](configuration.md#taxrates) | required | The supported tax rates. |
+| `TaxRates` | array of [Tax Rates](configuration.md#tax-rates) | required | The supported tax rates. |
 
 #### Tax Environments
 
