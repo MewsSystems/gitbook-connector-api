@@ -112,7 +112,6 @@ Returns configuration of the enterprise and the client.
 * `Gross` - the enterprise shows amount with gross prices.
 * `Net` - the enterprise shows amount with net prices.
 
-
 ## Get all countries
 
 Returns all countries supported by the API.
