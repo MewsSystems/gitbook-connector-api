@@ -334,25 +334,25 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required |  |
+| `Code` | string | required | Code of the tax enivironment. |
 | `CountryCode` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
 
 #### Taxations
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required |  |
-| `TaxEnvironmentCode` | string | required |  |
-| `Name` | string | required |  |
-| `LocalName` | string | required |  |
+| `Code` | string | required | Code of the taxation. |
+| `TaxEnvironmentCode` | string | required | Code of the tax enivironment. |
+| `Name` | string | required | Name of the taxation. |
+| `LocalName` | string | required | Local name of the taxation. |
 
 #### Tax Rates
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required |  |
-| `TaxationCode` | string | required |  |
-| `Value` | string | required |  |
+| `Code` | string | required | Code of the tax rate. |
+| `TaxationCode` | string | required | Code of the taxation. |
+| `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
 
 
 ## Get all languages
