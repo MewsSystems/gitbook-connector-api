@@ -337,6 +337,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
 | `Amount` | [Currency value](finance.md#currency-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
 | `Type` | string [Accounting item type](finance.md#accounting-item-type) | required | Type of the item. |
+| `SubType` | string | required | Sub type of the item. |
 | `Name` | string | required | Name of the item. |
 | `Notes` | string | optional | Additional notes. |
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
