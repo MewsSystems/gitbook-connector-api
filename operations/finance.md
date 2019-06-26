@@ -293,10 +293,14 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
             "Amount": {
                 "Currency": "GBP",
-                "Net": 2.08,
-                "Tax": 0.42,
-                "TaxRate": 0.2,
-                "Value": 2.5
+                "NetValue": 2.08,
+                "GrossValue": 2.5,
+                "TaxValues": [
+                    {
+                        "Code": "UK-S",
+                        "Value": 0.42
+                    }
+                ],
             },
             "BillId": null,
             "CreditCardId" : null,
@@ -355,10 +359,13 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `Net` | number | optional | Net value in case the item is taxed. |
-| `Tax` | number | optional | Tax value in case the item is taxed. |
-| `TaxRate` | number | optional | Tax rate in case the item is taxed \(e.g. `0.21`\). |
-| `Value` | number | required | Amount in the currency \(including tax if taxed\). |
+| `NetValue` | number | required | Net value in case the item is taxed. |
+| `GrossValue` | number | required | Gross value in case the item is not taxed. |
+| `TaxValues` | array of [Tax Values](finance.md#tax-value) | required | The tax values applied. |
+
+#### Tax Value
+| `Code` | number | required | Code corresponding to tax type. |
+| `Value` | number | required | Amount of tax type. |
 
 #### Credit card transaction
 
