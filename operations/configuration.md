@@ -196,7 +196,6 @@ Returns all countries supported by the API.
 | `EnglishName` | string | required | English name of the alliance. |
 | `CountryCodes` | array of string | required | ISO 3166-1 codes of the member countries. |
 
-
 ## Get all currencies
 
 Returns all currencies supported by the API.
@@ -244,6 +243,117 @@ Returns all currencies supported by the API.
 | --- | --- | --- | --- |
 | `Code` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
 | `Precision` | number | required | Precision of the currency \(count of decimal places\). |
+
+## Get all tax environments
+
+Returns all tax environments supported by the API.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/taxenvironments/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
+### Response
+
+```javascript
+{
+    "TaxEnvironments": [
+        {
+            "Code": "US-NY-SU",
+            "CountryCode": "USA"
+        },
+        {
+            "Code": "US-MI-DA",
+            "CountryCode": "USA"
+        }
+    ],
+    "Taxations": [
+        {
+            "Code": "US-MI",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Florida state tax",
+            "LocalName": "Florida state tax"
+        },
+        {
+            "Code": "US-MI-DA",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Miami-Dade County tax",
+            "LocalName": "Miami-Dade County tax"
+        },
+        {
+            "Code": "US-MI-BE",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Miami Beach tax",
+            "LocalName": "Miami Beach tax"
+        },
+        {
+            "Code": "US-MI-FB",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Miami F&B tax",
+            "LocalName": "Miami F&B tax"
+        },
+    ],
+    "TaxRates": [
+        {
+            "Code": "UK-L",
+            "TaxationCode": "UK",
+            "Value": 0.04
+        },
+        {
+            "Code": "UK-R",
+            "TaxationCode": "UK",
+            "Value": 0.05
+        },
+        {
+            "Code": "UK-S",
+            "TaxationCode": "UK",
+            "Value": 0.2
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `TaxEnvironments` | array of [Tax Environments](configuration.md#taxenvironments) | required | The supported tax environments. |
+| `Taxations` | array of [Taxations](configuration.md#taxations) | required | The supported taxations. |
+| `TaxRates` | array of [Tax Rates](configuration.md#taxrates) | required | The supported tax rates. |
+
+#### Tax Environments
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required |  |
+| `CountryCode` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
+
+#### Taxations
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required |  |
+| `TaxEnvironmentCode` | string | required |  |
+| `Name` | string | required |  |
+| `LocalName` | string | required |  |
+
+#### Tax Rates
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required |  |
+| `TaxationCode` | string | required |  |
+| `Value` | string | required |  |
+
 
 ## Get all languages
 
