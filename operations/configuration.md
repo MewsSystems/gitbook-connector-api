@@ -86,6 +86,7 @@ Returns configuration of the enterprise and the client.
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
 | `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
+| `Pricing` | string [Pricing](configuration.md#pricing) | required | Pricing of the enterprise. |
 
 #### Address
 
@@ -105,6 +106,12 @@ Returns configuration of the enterprise and the client.
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `IsDefault` | bool | required | Whether the currency is a default accounting currency. |
 | `IsEnabled` | bool | required | Whether the currency is enabled for usage. |
+
+#### Pricing
+
+* `Gross` - the enterprise shows amount with gross prices.
+* `Net` - the enterprise shows amount with net prices.
+
 
 ## Get all countries
 
