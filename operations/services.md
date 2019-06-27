@@ -190,10 +190,14 @@ Returns all products offered together with the specified services.
             "ShortName": "BFST",
             "Price": {
                 "Currency": "GBP",
-                "Net": 7.5,
-                "Tax": 1.5,
-                "TaxRate": 0.2,
-                "Value": 9
+                "NetValue": 7.5,
+                "GrossValue": 9
+                "TaxValues": [
+                    {
+                        "Code": "UK-S",
+                        "Value": 1.50
+                    }
+                ],
             },
             "Promotions": {
                 "BeforeCheckIn": false,
