@@ -129,10 +129,8 @@ Returns all cashier transactions created within the specified interval.
         {
             "Amount": {
                 "Currency": "EUR",
-                "Net": null,
-                "Tax": null,
-                "TaxRate": null,
-                "Value": 100
+                "NetValue": null,
+                "GrossValue": 100
             },
             "CashierId": "9a36e3fa-2299-474b-a8a2-5ea4da317abc",
             "CreatedUtc": "2017-01-10T00:00:00Z",
@@ -423,10 +421,8 @@ Returns all bills with the specified ids.
                     "AccountingCategoryId": null,
                     "Amount": {
                         "Currency": "GBP",
-                        "Net": null,
-                        "Tax": null,
-                        "TaxRate": null,
-                        "Value": -340.22
+                        "NetValue": null,
+                        "GrossValue": -340.22
                     },
                     "BillId": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "ClosedUtc": "2017-02-41T10:41:54Z",
@@ -447,10 +443,8 @@ Returns all bills with the specified ids.
                     "AccountingCategoryId": "7cd113f6-c5de-4bc9-8d78-3f73721c4c37",
                     "Amount": {
                         "Currency": "GBP",
-                        "Net": 340.22,
-                        "Tax": 0,
-                        "TaxRate": 0,
-                        "Value": 340.22
+                        "NetValue": 340.22,
+                        "GrossValue": 340.22
                     },
                     "BillId": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "ClosedUtc": "2017-01-41T10:41:54Z",
@@ -608,10 +602,8 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "UnitCount": 4,
             "UnitCost": {  
                 "Currency": "EUR",
-                "Value": 11,
-                "Net": 11,
-                "Tax": 0,
-                "TaxRate": 0
+                "GrossValue": 11,
+                "NetValue": 11
             },
             "CreatedUtc": "2018-07-25T12:47:11Z",
             "ConsumedUtc": "2018-07-26T12:19:07Z",
@@ -626,10 +618,8 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "UnitCount": 77,
             "UnitCost": {  
                 "Currency": "EUR",
-                "Value": 2,
-                "Net": 2,
-                "Tax": 0,
-                "TaxRate": 0
+                "GrossValue": 2,
+                "NetValue": 2
             },
             "CreatedUtc": "2018-07-25T16:25:28Z",
             "ConsumedUtc": "2018-07-26T10:11:08Z",
@@ -820,7 +810,7 @@ Creates payment for specified customer credit card and charges the credit card v
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
     "Amount": {
-        "Value": 5,
+        "GrossValue": 5,
         "Currency": "EUR"
     },
     "AccountingCategoryId": null,
@@ -883,10 +873,8 @@ Returns all preauthorizations of specified customers.
         {
             "Amount": {
                 "Currency": "EUR",
-                "Net": null,
-                "Tax": null,
-                "TaxRate": null,
-                "Value": 10
+                "NetValue": null,
+                "GrossValue": 10
             },
             "Code": null,
             "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
@@ -898,10 +886,8 @@ Returns all preauthorizations of specified customers.
         {
             "Amount": {
                 "Currency": "EUR",
-                "Net": null,
-                "Tax": null,
-                "TaxRate": null,
-                "Value": 22
+                "NetValue": null,
+                "GrossValue": 22
             },
             "Code": null,
             "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
@@ -952,7 +938,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
-        "Value": 100
+        "GrossValue": 100
     },
     "CreditCard": {
         "Type": "Visa",
@@ -1008,7 +994,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
-        "Value": 100
+        "GrossValue": 100
     },
     "Type": "Cash",
     "AccountingCategoryId": null,
