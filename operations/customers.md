@@ -339,10 +339,8 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
                     "AccountingCategoryId": "12345678-7e6f-4131-af21-402cec59b8b9",
                     "Amount": {
                         "Currency": "EUR",
-                        "Net": null,
-                        "Tax": null,
-                        "TaxRate": null,
-                        "Value": -100
+                        "NetValue": null,
+                        "GrossValue": -100
                     },
                     "BillId": null,
                     "ClosedUtc": null,
