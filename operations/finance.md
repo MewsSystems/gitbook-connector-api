@@ -1047,10 +1047,12 @@ Adds new outlet bills with their items.
                     "Type": "Payment",
                     "Name": "Cash payment",
                     "UnitCount": 1,
-                    "UnitCost": {  
-                        "Amount": -25,
-                        "Currency": "GBP",
-                        "Tax": 0
+                    "UnitAmount": {
+      		            "Currency": "GBP",
+       		            "GrossValue": -25,
+        	            "TaxCodes": [
+                            "UK-S"
+                        ]
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z"
                 },
@@ -1058,10 +1060,12 @@ Adds new outlet bills with their items.
                     "Type": "Revenue",
                     "Name": "Beer",
                     "UnitCount": 10,
-                    "UnitCost": {
-                        "Amount": 2.50,
-                        "Currency": "GBP",
-                        "Tax": 0.20
+                    "UnitAmount": {
+      		            "Currency": "GBP",
+       		            "GrossValue": 2.50,
+        	            "TaxCodes": [
+                            "UK-S"
+                        ]
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z",
                     "AccountingCategoryId": null
