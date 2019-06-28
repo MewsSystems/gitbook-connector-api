@@ -129,8 +129,7 @@ Returns all cashier transactions created within the specified interval.
         {
             "Amount": {
                 "Currency": "EUR",
-                "NetValue": null,
-                "GrossValue": 100
+                "Value": 100
             },
             "CashierId": "9a36e3fa-2299-474b-a8a2-5ea4da317abc",
             "CreatedUtc": "2017-01-10T00:00:00Z",
