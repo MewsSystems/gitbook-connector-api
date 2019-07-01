@@ -7,7 +7,7 @@
 
 ## 21th May 2019 19:00UTC
 
-* Added [Integration event webhook](guidelines.md#Integration-event-webhook) to [Guidelines](guidelines.md).
+* Added [Integration event](webhooks.md#integration-event) webhook.
 
 ## 15th May 2019 19:00 UTC
 

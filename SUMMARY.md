@@ -12,5 +12,6 @@
   * [Finance](operations/finance.md)
   * [Integrations](operations/integrations.md)
 * [Websockets](websockets.md)
+* [Webhooks](webhooks.md)
 * [Changelog](changelog.md)
 

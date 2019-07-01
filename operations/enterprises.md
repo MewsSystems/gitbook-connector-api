@@ -667,26 +667,26 @@ Updates information about a company. Note that if any of the fields are sent as 
 | `AccessToken` | string | required | Access token of the client application. |
 | `CompanyId` | string | required | Unique identifier of the [Company](enterprises.md#company). |
 | `Name` | [String UpdateValue](enterprises.md#update-value) | optional | Name of the company \(or `null` if mother company should not be updated). |
-| `MotherCompanyId` | [String Update Value](enterprises.md#update-string-value) | optional | Unique identifier of the mother company \(or `null` if mother company should not be updated). |
-| `Identifier` | [String Update Value](enterprises.md#update-string-value) | optional | Identifier of the company (e.g. legal identifier) \(or `null` if mother company should not be updated). |
-| `TaxIdentifier` | [String Update Value](enterprises.md#update-string-value) | optional | Tax identification number of the company \(or `null` if mother company should not be updated). |
-| `AdditionalTaxIdentifier` | [String Update Value](enterprises.md#update-string-value) | optional | Additional tax identifer of the company \(or `null` if mother company should not be updated). |
-| `BillingCode` | [String Update Value](enterprises.md#update-string-value) | optional | Billing code of the company \(or `null` if mother company should not be updated). |
-| `AccountingCode` | [String Update Value](enterprises.md#update-string-value) | optional | Accounting code of the company \(or `null` if mother company should not be updated). |
+| `MotherCompanyId` | [String Update Value](enterprises.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if mother company should not be updated). |
+| `Identifier` | [String Update Value](enterprises.md#string-update-value) | optional | Identifier of the company (e.g. legal identifier) \(or `null` if mother company should not be updated). |
+| `TaxIdentifier` | [String Update Value](enterprises.md#string-update-value) | optional | Tax identification number of the company \(or `null` if mother company should not be updated). |
+| `AdditionalTaxIdentifier` | [String Update Value](enterprises.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if mother company should not be updated). |
+| `BillingCode` | [String Update Value](enterprises.md#string-update-value) | optional | Billing code of the company \(or `null` if mother company should not be updated). |
+| `AccountingCode` | [String Update Value](enterprises.md#string-update-value) | optional | Accounting code of the company \(or `null` if mother company should not be updated). |
 
-#### Update string value
+#### String value update
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | string | optional | Value which is to be updated. |
 
-#### Update number value
+#### Number update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | number | optional | Value which is to be updated. |
 
-#### Update bool value
+#### Bool update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
