@@ -231,7 +231,9 @@ Returns all products offered together with the specified services.
 * `Once`
 * `PerTimeUnit`
 * `PerPersonPerTimeUnit`
-* `PerPerson`
+* `PerPerson`,
+* `PostedPerTimeUnit` (Reserved fpr future use),
+* `PostedPerPersonPerTimeUnit` (Reserved fpr future use)
 
 ## Get all business segments
 
