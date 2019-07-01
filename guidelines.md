@@ -76,7 +76,7 @@ The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(an
 
 * **PlatformAddress** - `https://www.mews.li`
 * **ClientToken** - Will be provided to you by our integration team. For further information, please contact [marketplace@mewssystems.com](mailto://marketplace@mewssystems.com).
-* **AccessToken** - Will be provided to you via email and [webhook](webhooks.md) if provided.
+* **AccessToken** - Will be delivered to you via email and [webhook](webhooks.md) if provided.
 
 ## Datetimes
 
