@@ -33,7 +33,7 @@ Returns event information related to the integration connection.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Action` | string | required | The [Action](webhooks.md#Action) performed. |
+| `Action` | string | required | The [Action](webhooks.md#action) performed. |
 | `AccessToken` | string | optional | Access token of the client application. |
 | `CreatedUtc` | string | optional | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
 | `IsEnabled` | string | optional | The state of the integration. |
@@ -50,16 +50,16 @@ Returns event information related to the integration connection.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` | [Enterprise](operations/configuration.md#Enterprise) | optional | Enterprise data from the enterprise event where the integration event was generated. |
-| `Requestor` | [Requestor](webhooks.md#Requestor) | optional | Information relating to the user who requested the integration event. |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Identification data of the integration event. |
+| `Enterprise` | [Enterprise](operations/configuration.md#enterprise) | optional | Enterprise data from the enterprise event where the integration event was generated. |
+| `Requestor` | [Requestor](webhooks.md#requestor) | optional | Information relating to the user who requested the integration event. |
+| `Integration` | [Integration](webhooks.md#integration) | required | Information relating to the integration. |
 
 #### Enterprise
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the [Enterprise](operations/configuration.md#Enterprise). |
-| `Name` | string | required | Name of the [Enterprise](operations/configuration.md#Enterprise). |
+| `Id` | string | required | Unique identifier of the [Enterprise](operations/configuration.md#enterprise). |
+| `Name` | string | required | Name of the [Enterprise](operations/configuration.md#enterprise). |
 
 #### Requestor
 
