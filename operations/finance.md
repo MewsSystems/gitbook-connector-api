@@ -336,7 +336,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
+| `Amount` | [Amount value](finance.md#currency-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
 | `Type` | string [Accounting item type](finance.md#accounting-item-type) | required | Type of the item. |
 | `SubType` | string | required | Sub type of the item. |
 | `Name` | string | required | Name of the item. |
@@ -356,11 +356,12 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `NetValue` | number | required | Net value in case the item is taxed. |
-| `GrossValue` | number | required | Gross value in case the item is not taxed. |
-| `TaxValues` | array of [Tax Values](finance.md#tax-value) | required | The tax values applied. |
+| `NetValue` | number | optional | Net value in case the item is taxed. |
+| `GrossValue` | number | optional | Gross value in case the item is not taxed. |
+| `Value` | number | optional | Amount in the currency \(including tax if taxed\). |
+| `TaxValues` | array of [Tax Values](finance.md#tax-value) | optional | The tax values applied. |
 
-#### Tax Value
+#### Tax value
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | number | required | Code corresponding to tax type. |
@@ -372,9 +373,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the credit card transaction. |
 | `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
-| `ChargedAmount` | [Cost](services#cost) | required | Charged amount of the transaction. |
-| `SettledAmount` | [Cost](services#cost) | optional | Settled amount of the transaction. |
-| `Fee` | [Cost](services#cost) | optional | Fee of the transaction. |
+| `ChargedAmount` | [Cost](finance.md#currency-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Cost](finance.md#currency-value) | optional | Settled amount of the transaction. |
+| `Fee` | [Cost](finance.md#currency-value) | optional | Fee of the transaction. |
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
@@ -601,7 +602,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "Type": "Revenue",
             "Name": "sample revenue item",
             "UnitCount": 4,
-            "UnitCost": {  
+            "UnitAmount": {  
                 "Currency": "EUR",
                 "GrossValue": 11,
                 "NetValue": 11
@@ -617,7 +618,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "Type": "Payment",
             "Name": "sample payment item",
             "UnitCount": 77,
-            "UnitCost": {  
+            "UnitAmount": {  
                 "Currency": "EUR",
                 "GrossValue": 2,
                 "NetValue": 2
@@ -661,7 +662,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
+| `UnitAmount` | [Cost](finance.md#currency-value) | required | Unit cost of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
@@ -1098,7 +1099,7 @@ Adds new outlet bills with their items.
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
+| `UnitAmount` | [Cost](finance.md#currency-value) | required | Unit cost of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
