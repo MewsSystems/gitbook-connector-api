@@ -341,7 +341,7 @@ Returns all tax environments supported by the API.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax enivironment. |
-| `CountryCode` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
+| `CountryCode` | string | required | ISO 3166-1 alpha-3 code, e.g. `USA` or `GBR`. |
 
 #### Taxations
 
