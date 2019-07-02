@@ -890,7 +890,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `UnitAmount` | [Amount](services.md#amount) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitAmount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
-#### Amount
+#### Amount parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
