@@ -379,9 +379,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the credit card transaction. |
 | `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
-| `ChargedAmount` | [Cost](finance.md#currency-value) | required | Charged amount of the transaction. |
-| `SettledAmount` | [Cost](finance.md#currency-value) | optional | Settled amount of the transaction. |
-| `Fee` | [Cost](finance.md#currency-value) | optional | Fee of the transaction. |
+| `ChargedAmount` | [Amount](finance.md#currency-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](finance.md#currency-value) | optional | Settled amount of the transaction. |
+| `Fee` | [Amount](finance.md#currency-value) | optional | Fee of the transaction. |
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
@@ -672,7 +672,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitAmount` | [Cost](finance.md#amount-value) | required | Unit cost of the item. |
+| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit cost of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |

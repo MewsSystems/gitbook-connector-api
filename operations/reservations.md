@@ -364,7 +364,7 @@ Returns all revenue items associated with the specified reservations.
                         "Currency": "GBP",
                         "NetValue": 16.67,
                         "GrossValue": 20
-                       "TaxValues": [
+                        "TaxValues": [
                             {
                                "Code":"UK-S",
                                "Value": 3.33
@@ -453,7 +453,7 @@ Returns prices of reservations with the specified parameters.
                 "Currency": "GBP",
                 "NetValue": 20,
                 "GrossValue": 23
-               "TaxValues": [
+                "TaxValues": [
                     {
                        "Code":"UK-S",
                        "Value": 3

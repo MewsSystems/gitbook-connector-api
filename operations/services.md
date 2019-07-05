@@ -854,7 +854,7 @@ Creates a new order with the specified products and items. Only positive charges
        		    "GrossValue": 2,
         	    "TaxCodes": [
                     "UK-S"
-                    ]
+                ]
             }
             "AccountingCategoryId": null
         }
@@ -895,8 +895,9 @@ Creates a new order with the specified products and items. Only positive charges
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `GrossValue` | decimal | required | Amount including tax. |
+| `NetValue` | number | optional | Net value in case the item is taxed. |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rates) | required | Tax codes to be applied to the item. |
+| `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rates) | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
 
 ### Response
 
