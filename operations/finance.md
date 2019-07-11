@@ -381,7 +381,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
 | `ChargedAmount` | [Amount](finance.md#currency-value) | required | Charged amount of the transaction. |
 | `SettledAmount` | [Amount](finance.md#currency-value) | optional | Settled amount of the transaction. |
-| `Fee` | [Amount](finance.md#currency-value) | optional | Fee of the transaction. |
+| `Fee` | [Amount](finance.md#amount-value) | optional | Fee of the transaction. |
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
