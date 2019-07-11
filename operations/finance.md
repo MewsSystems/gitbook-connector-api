@@ -368,6 +368,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `TaxValues` | array of [Tax Values](finance.md#tax-value) | optional | The tax values applied. |
 
 #### Tax value
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | number | required | Code corresponding to tax type. |
