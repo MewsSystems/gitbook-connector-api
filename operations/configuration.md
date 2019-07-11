@@ -86,7 +86,7 @@ Returns configuration of the enterprise and the client.
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
 | `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
-| `Pricing` | string [Pricing](configuration.md#pricing) | required | Pricing of the enterprise. |
+| `Pricing` | string | required | [Pricing](configuration.md#pricing) of the enterprise. |
 
 #### Address
 
