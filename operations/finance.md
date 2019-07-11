@@ -379,7 +379,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the credit card transaction. |
 | `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
-| `ChargedAmount` | [Amount](finance.md#currency-value) | required | Charged amount of the transaction. |
+| `ChargedAmount` | [Amount](finance.md#amount-value) | required | Charged amount of the transaction. |
 | `SettledAmount` | [Amount](finance.md#amount-value) | optional | Settled amount of the transaction. |
 | `Fee` | [Amount](finance.md#amount-value) | optional | Fee of the transaction. |
 | `SettlementId` | string | optional | Identifier of the settlement. |
