@@ -3,7 +3,8 @@
 ## 26th June 2019 19:00 UTC
 
 * Added [Get all tax enivonments](operations/configuration.md#get-all-tax-environments) operation.
-* Extended [Currency value](operations/finance.md#currency-value) with `TaxValues`.
+* Added [Amount](operations/finance.md#amount-value).
+* Added [Amount Parameters](operations/services.md#amount-parameters).
 * Extended [Fiscal machine command data](integrations.md#fiscal-machine-command-data) response with `FiscalMachineData` and `ApiUrl`.
 * Extended [Get all accounting items](operations/finance.md#get-all-accounting-items) response with `SubType`.
 
