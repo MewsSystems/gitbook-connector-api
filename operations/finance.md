@@ -356,7 +356,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `Value` | number | optional | Amount in the currency \(including tax if taxed\). |
+| `Value` | number | optional | Amount in the currency. |
 
 #### Amount Value
 
