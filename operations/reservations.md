@@ -499,6 +499,39 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "CompanyId": null,
             "Notes": "Test reservation",
             "TimeUnitCost": null,
+            "TimeUnitPrices": [
+                {
+                    "Index": 0
+                    "Amount": {
+                        "Currency": "GBP",
+                        "NetValue": 2.08,
+                        "GrossValue": 2.5,
+                        "TaxValues": [
+                            {
+                                "Code": "UK-S",
+                                "Value": 0.42
+                            }
+                        ]
+                    }
+                    
+                },
+                {
+                    "Index": 1
+                    "Amount": {
+                        "Currency": "GBP",
+                        "NetValue": 2.08,
+                        "GrossValue": 2.5,
+                        "TaxValues": [
+                            {
+                                "Code": "UK-S",
+                                "Value": 0.42
+                            }
+                        ]
+                    }
+                    
+                }
+
+            ]
             "ProductOrders": [
                 {
                     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
@@ -515,9 +548,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
-| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specifed, this field is ignored. If not specified, the group name is automatically created. |
+| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specified, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
-| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
+| `SendConfirmationEmail` | bool | optional | Whether the confirmation email is sent. Default value is `true`. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 
@@ -539,7 +572,15 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `Notes` | string | optional | Additional notes. |
 | `TimeUnitCost` | [Cost](services.md#cost) | optional | Cost of each night of the reservation. |
+| `TimeUnitPrices` | array of [Cost](services.md#cost) | optional | Cost of each unit of time added. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
+
+#### Time unit price parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Index` | number | required | Index of the time unit. (note that number of indices cannot exceed total number of units, e.g. for a reservation with 3 nights, indexes would be 0,1 and 2). |
+| `Amount` | [Cost](services.md#cost) | required | Cost of the time unit. |
 
 ### Response
 
