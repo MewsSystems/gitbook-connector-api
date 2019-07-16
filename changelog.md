@@ -9,6 +9,10 @@
 * Extended [Get all accounting items](operations/finance.md#get-all-accounting-items) response with `SubType`.
 * Extended [Enterprise](operations/configuration.md#enterprise) with `Pricing`.
 
+## 10th June 2019 19:00 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `GroupName`.
+
 ## 15th May 2019 19:00 UTC
 
 * Added [Add Company](operations/enterprises.md#add-company) operation.

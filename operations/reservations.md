@@ -490,6 +490,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "GroupId": null,
+    "GroupName": null,
     "SendConfirmationEmail": true,
     "Reservations": [
         {
@@ -522,6 +523,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
+| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specifed, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
