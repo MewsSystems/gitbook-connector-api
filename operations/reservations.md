@@ -506,7 +506,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "TravelAgencyId": null,
             "CompanyId": null,
             "Notes": "Test reservation",
-            "TimeUnitCost": null,
+            "TimeUnitAmount": null,
             "ProductOrders": [
                 {
                     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
@@ -546,7 +546,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `Notes` | string | optional | Additional notes. |
-| `TimeUnitCost` | [Cost](services.md#cost) | optional | Cost of each night of the reservation. |
+| `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 
 ### Response
