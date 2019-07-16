@@ -362,10 +362,14 @@ Returns all revenue items associated with the specified reservations.
                     "AccountingCategoryId": "0cf7aa90-736f-43e9-a7dc-787704548d86",
                     "Amount": {
                         "Currency": "GBP",
-                        "Net": 16.67,
-                        "Tax": 3.33,
-                        "TaxRate": 0.2,
-                        "Value": 20
+                        "NetValue": 16.67,
+                        "GrossValue": 20
+                        "TaxValues": [
+                            {
+                               "Code":"UK-S",
+                               "Value": 3.33
+                            }
+                        ],
                     },
                     "BillId": null,
                     "ClosedUtc": "2017-02-41T10:41:54Z",
@@ -447,10 +451,14 @@ Returns prices of reservations with the specified parameters.
             "Identifier": "1234",
             "Total": {
                 "Currency": "GBP",
-                "Net": 20,
-                "Tax": 3,
-                "TaxRate": null,
-                "Value": 23
+                "NetValue": 20,
+                "GrossValue": 23
+                "TaxValues": [
+                    {
+                       "Code":"UK-S",
+                       "Value": 3
+                    }
+                ],
             }
         }
     ]

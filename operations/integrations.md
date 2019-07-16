@@ -174,6 +174,8 @@ Structure of command data varies depending on type of the [Device](integrations.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `FiscalMachineId` | string | optional | Identifier of the fiscal machine. |
+| `FiscalMachineData` | string | optional | Custom JSON data. |
+| `ApiUrl` | string | optional | URL of the fiscal machine API. |
 | `Bill` | [Bill](finance.md#bill) | required | The issued bill that should be fiscalized. |
 | `TaxIdentifier` | string | optional | Tax identifier to be used for fiscalization. |
 

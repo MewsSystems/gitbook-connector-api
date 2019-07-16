@@ -129,9 +129,6 @@ Returns all cashier transactions created within the specified interval.
         {
             "Amount": {
                 "Currency": "EUR",
-                "Net": null,
-                "Tax": null,
-                "TaxRate": null,
                 "Value": 100
             },
             "CashierId": "9a36e3fa-2299-474b-a8a2-5ea4da317abc",
@@ -293,10 +290,14 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
             "Amount": {
                 "Currency": "GBP",
-                "Net": 2.08,
-                "Tax": 0.42,
-                "TaxRate": 0.2,
-                "Value": 2.5
+                "NetValue": 2.08,
+                "GrossValue": 2.5,
+                "TaxValues": [
+                    {
+                        "Code": "UK-S",
+                        "Value": 0.42
+                    }
+                ],
             },
             "BillId": null,
             "CreditCardId" : null,
@@ -310,7 +311,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
             "ProductId": null,
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "Type": "ServiceRevenue"
+            "Type": "ServiceRevenue",
+            "SubType": "CustomItem"
         }
     ],
     "CreditCardTransactions": null
@@ -335,8 +337,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 | `Type` | string [Accounting item type](finance.md#accounting-item-type) | required | Type of the item. |
+| `SubType` | string [Accounting item subtype] | required | subtype of the item. Note that the subtype depends on the `Type` of the item.  |
 | `Name` | string | required | Name of the item. |
 | `Notes` | string | optional | Additional notes. |
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
@@ -349,15 +352,57 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `AdditionalRevenue`
 * `Payment`
 
+#### Accounting item subtype
+
+##### Revenue subtypes
+
+* `CancellationFee`
+* `Rebate`
+* `Deposit`
+* `ExchangeRateDifference`
+* `CustomItem`
+* `Surcharge`
+* `SurchargeDiscount`
+* `SpaceOrder`
+* `ProductOrder`
+* `Other`
+
+##### Payment subtypes
+
+* `CreditCard`
+* `Invoice`
+* `Cash`
+* `Unspecified`
+* `BadDebts`
+* `WireTransfer`
+* `ExchangeRateDifference`
+* `ExchangeRoundingDifference`
+* `BankCharges`
+* `Cheque`
+* `Other`
+
 #### Currency value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `Net` | number | optional | Net value in case the item is taxed. |
-| `Tax` | number | optional | Tax value in case the item is taxed. |
-| `TaxRate` | number | optional | Tax rate in case the item is taxed \(e.g. `0.21`\). |
-| `Value` | number | required | Amount in the currency \(including tax if taxed\). |
+| `Value` | number | optional | Amount in the currency. |
+
+#### Amount Value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
+| `NetValue` | number | optional | Net value in case the item is taxed. |
+| `GrossValue` | number | optional | Gross value including all taxes. |
+| `TaxValues` | array of [Tax Values](finance.md#tax-value) | optional | The tax values applied. |
+
+#### Tax value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | number | required | Code corresponding to tax type. |
+| `Value` | number | required | Amount of tax applied. |
 
 #### Credit card transaction
 
@@ -365,9 +410,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the credit card transaction. |
 | `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
-| `ChargedAmount` | [Cost](services#cost) | required | Charged amount of the transaction. |
-| `SettledAmount` | [Cost](services#cost) | optional | Settled amount of the transaction. |
-| `Fee` | [Cost](services#cost) | optional | Fee of the transaction. |
+| `ChargedAmount` | [Amount](finance.md#amount-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](finance.md#amount-value) | optional | Settled amount of the transaction. |
+| `Fee` | [Amount](finance.md#amount-value) | optional | Fee of the transaction. |
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
@@ -415,10 +460,9 @@ Returns all bills with the specified ids.
                     "AccountingCategoryId": null,
                     "Amount": {
                         "Currency": "GBP",
-                        "Net": null,
-                        "Tax": null,
-                        "TaxRate": null,
-                        "Value": -340.22
+                        "NetValue": null,
+                        "GrossValue": -340.22,
+                        "TaxValues": []
                     },
                     "BillId": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "ClosedUtc": "2017-02-41T10:41:54Z",
@@ -439,10 +483,9 @@ Returns all bills with the specified ids.
                     "AccountingCategoryId": "7cd113f6-c5de-4bc9-8d78-3f73721c4c37",
                     "Amount": {
                         "Currency": "GBP",
-                        "Net": 340.22,
-                        "Tax": 0,
-                        "TaxRate": 0,
-                        "Value": 340.22
+                        "NetValue": 340.22,
+                        "GrossValue": 340.22,
+                        "TaxValues": []
                     },
                     "BillId": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "ClosedUtc": "2017-01-41T10:41:54Z",
@@ -598,12 +641,11 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "Type": "Revenue",
             "Name": "sample revenue item",
             "UnitCount": 4,
-            "UnitCost": {  
+            "UnitAmount": {  
                 "Currency": "EUR",
-                "Value": 11,
-                "Net": 11,
-                "Tax": 0,
-                "TaxRate": 0
+                "GrossValue": 11,
+                "NetValue": 11,
+                "TaxValues": []
             },
             "CreatedUtc": "2018-07-25T12:47:11Z",
             "ConsumedUtc": "2018-07-26T12:19:07Z",
@@ -616,12 +658,11 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "Type": "Payment",
             "Name": "sample payment item",
             "UnitCount": 77,
-            "UnitCost": {  
+            "UnitAmount": {  
                 "Currency": "EUR",
-                "Value": 2,
-                "Net": 2,
-                "Tax": 0,
-                "TaxRate": 0
+                "GrossValue": 2,
+                "NetValue": 2
+                "TaxValues": []
             },
             "CreatedUtc": "2018-07-25T16:25:28Z",
             "ConsumedUtc": "2018-07-26T10:11:08Z",
@@ -662,7 +703,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
+| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit amount of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
@@ -812,7 +853,7 @@ Creates payment for specified customer credit card and charges the credit card v
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
     "Amount": {
-        "Value": 5,
+        "GrossValue": 5,
         "Currency": "EUR"
     },
     "AccountingCategoryId": null,
@@ -826,7 +867,7 @@ Creates payment for specified customer credit card and charges the credit card v
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the credit card payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#finance.md#accounting-category). |
 | `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
 | `Notes` | string | optional | Additional payment notes. |
@@ -875,10 +916,9 @@ Returns all preauthorizations of specified customers.
         {
             "Amount": {
                 "Currency": "EUR",
-                "Net": null,
-                "Tax": null,
-                "TaxRate": null,
-                "Value": 10
+                "NetValue": null,
+                "GrossValue": 10,
+                "TaxValues": []
             },
             "Code": null,
             "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
@@ -890,10 +930,9 @@ Returns all preauthorizations of specified customers.
         {
             "Amount": {
                 "Currency": "EUR",
-                "Net": null,
-                "Tax": null,
-                "TaxRate": null,
-                "Value": 22
+                "NetValue": null,
+                "GrossValue": 22,
+                "TaxValues": []
             },
             "Code": null,
             "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
@@ -918,7 +957,7 @@ Returns all preauthorizations of specified customers.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the preauthorization. |
 | `CreditCardId` | string | required | Unique identifier of the credit card. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Value of the preauthorization. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Value of the preauthorization. |
 | `State` | string [Preauthorization State](finance.md#preauthorization-state) | required | State of the preauthorization. |
 | `Code` | string | optional | Code of the preauthorization. |
 
@@ -944,7 +983,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
-        "Value": 100
+        "GrossValue": 100
     },
     "CreditCard": {
         "Type": "Visa",
@@ -964,7 +1003,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 | `AccessToken` | string | required | Access token of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the credit card payment. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the credit card payment. |
 | `CreditCard` | [Credit card](finance.md#credit-card-parameters) | required | Credit card details. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the credit card payment. |
 | `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
@@ -1000,7 +1039,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
-        "Value": 100
+        "GrossValue": 100
     },
     "Type": "Cash",
     "AccountingCategoryId": null,
@@ -1013,7 +1052,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `AccessToken` | string | required | Access token of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `Amount` | [Currency value](finance.md#currency-value) | required | Amount of the external card payment. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the external card payment. |
 | `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
@@ -1051,10 +1090,12 @@ Adds new outlet bills with their items.
                     "Type": "Payment",
                     "Name": "Cash payment",
                     "UnitCount": 1,
-                    "UnitCost": {  
-                        "Amount": -25,
-                        "Currency": "GBP",
-                        "Tax": 0
+                    "UnitAmount": {
+      		            "Currency": "GBP",
+       		            "GrossValue": -25,
+        	            "TaxCodes": [
+                            "UK-S"
+                        ]
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z"
                 },
@@ -1062,10 +1103,12 @@ Adds new outlet bills with their items.
                     "Type": "Revenue",
                     "Name": "Beer",
                     "UnitCount": 10,
-                    "UnitCost": {
-                        "Amount": 2.50,
-                        "Currency": "GBP",
-                        "Tax": 0.20
+                    "UnitAmount": {
+      		            "Currency": "GBP",
+       		            "GrossValue": 2.50,
+        	            "TaxCodes": [
+                            "UK-S"
+                        ]
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z",
                     "AccountingCategoryId": null
@@ -1099,7 +1142,7 @@ Adds new outlet bills with their items.
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost of the item. |
+| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit amount of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
