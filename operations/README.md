@@ -6,6 +6,7 @@ This section describes all operations supported by the API:
   * [Get configuration](configuration.md#get-configuration) - returns configuration of the client and enterprise.
   * [Get all countries](configuration.md#get-all-countries) - returns all countries supported by the API.
   * [Get all currencies](configuration.md#get-all-currencies) - returns all currencies supported by the API.
+  * [Get all tax environments](configuration.md#get-all-taxenvironments) - returns all tax environments supported by the API.
   * [Get all languages](configuration.md#get-all-languages) - returns all languages supported by the API.
   * [Get language texts](configuration.md#get-language-texts) - returns translations of texts to a specified language.
   * [Get image URLs](configuration.md#get-image-urls) - returns URLs of specified images.

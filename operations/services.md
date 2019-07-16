@@ -190,10 +190,14 @@ Returns all products offered together with the specified services.
             "ShortName": "BFST",
             "Price": {
                 "Currency": "GBP",
-                "Net": 7.5,
-                "Tax": 1.5,
-                "TaxRate": 0.2,
-                "Value": 9
+                "NetValue": 7.5,
+                "GrossValue": 9
+                "TaxValues": [
+                    {
+                        "Code": "UK-S",
+                        "Value": 1.50
+                    }
+                ],
             },
             "Promotions": {
                 "BeforeCheckIn": false,
@@ -231,7 +235,9 @@ Returns all products offered together with the specified services.
 * `Once`
 * `PerTimeUnit`
 * `PerPersonPerTimeUnit`
-* `PerPerson`
+* `PerPerson`,
+* `PostedPerTimeUnit` (Reserved for future use),
+* `PostedPerPersonPerTimeUnit` (Reserved for future use)
 
 ## Get all business segments
 
@@ -845,11 +851,13 @@ Creates a new order with the specified products and items. Only positive charges
         {
             "Name": "Beer",
             "UnitCount": 10,
-            "UnitCost": {
-                "Amount": 2.50,
-                "Currency": "GBP",
-                "Tax": 0.20
-            },
+            "UnitAmount": {
+      		    "Currency": "GBP",
+       		    "GrossValue": 2,
+        	    "TaxCodes": [
+                    "UK-S"
+                ]
+            }
             "AccountingCategoryId": null
         }
     ]
@@ -873,7 +881,7 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitCost` | [Cost](services.md#cost) | optional | Unit cost of the product that overrides the cost defined in Mews. |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
 
 #### Item parameters
 
@@ -881,16 +889,17 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitCost` | [Cost](services.md#cost) | required | Unit cost, e.g. cost for one beer \(note that total cost of the item is therefore `UnitCount` times `UnitCost`\). |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitAmount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
-#### Cost
+#### Amount parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Amount` | decimal | required | Amount including tax. |
+| `GrossValue` | decimal | required | Amount including tax. |
+| `NetValue` | number | optional | Net value in case the item is taxed. |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `Tax` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
+| `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rates) | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
 
 ### Response
 

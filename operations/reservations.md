@@ -362,10 +362,14 @@ Returns all revenue items associated with the specified reservations.
                     "AccountingCategoryId": "0cf7aa90-736f-43e9-a7dc-787704548d86",
                     "Amount": {
                         "Currency": "GBP",
-                        "Net": 16.67,
-                        "Tax": 3.33,
-                        "TaxRate": 0.2,
-                        "Value": 20
+                        "NetValue": 16.67,
+                        "GrossValue": 20
+                        "TaxValues": [
+                            {
+                               "Code":"UK-S",
+                               "Value": 3.33
+                            }
+                        ],
                     },
                     "BillId": null,
                     "ClosedUtc": "2017-02-41T10:41:54Z",
@@ -447,10 +451,14 @@ Returns prices of reservations with the specified parameters.
             "Identifier": "1234",
             "Total": {
                 "Currency": "GBP",
-                "Net": 20,
-                "Tax": 3,
-                "TaxRate": null,
-                "Value": 23
+                "NetValue": 20,
+                "GrossValue": 23
+                "TaxValues": [
+                    {
+                       "Code":"UK-S",
+                       "Value": 3
+                    }
+                ],
             }
         }
     ]
@@ -482,6 +490,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "GroupId": null,
+    "GroupName": null,
     "SendConfirmationEmail": true,
     "Reservations": [
         {
@@ -514,6 +523,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `AccessToken` | string | required | Access token of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
+| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specifed, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |

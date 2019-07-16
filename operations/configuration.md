@@ -86,6 +86,7 @@ Returns configuration of the enterprise and the client.
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
 | `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
+| `Pricing` | string | required | [Pricing](configuration.md#pricing) of the enterprise. |
 
 #### Address
 
@@ -105,6 +106,11 @@ Returns configuration of the enterprise and the client.
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `IsDefault` | bool | required | Whether the currency is a default accounting currency. |
 | `IsEnabled` | bool | required | Whether the currency is enabled for usage. |
+
+#### Pricing
+
+* `Gross` - the enterprise shows amount with gross prices.
+* `Net` - the enterprise shows amount with net prices.
 
 ## Get all countries
 
@@ -196,7 +202,6 @@ Returns all countries supported by the API.
 | `EnglishName` | string | required | English name of the alliance. |
 | `CountryCodes` | array of string | required | ISO 3166-1 codes of the member countries. |
 
-
 ## Get all currencies
 
 Returns all currencies supported by the API.
@@ -244,6 +249,117 @@ Returns all currencies supported by the API.
 | --- | --- | --- | --- |
 | `Code` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
 | `Precision` | number | required | Precision of the currency \(count of decimal places\). |
+
+## Get all tax environments
+
+Returns all tax environments supported by the API.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/taxenvironments/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+
+### Response
+
+```javascript
+{
+    "TaxEnvironments": [
+        {
+            "Code": "US-NY-SU",
+            "CountryCode": "USA"
+        },
+        {
+            "Code": "US-MI-DA",
+            "CountryCode": "USA"
+        }
+    ],
+    "Taxations": [
+        {
+            "Code": "US-MI",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Florida state tax",
+            "LocalName": "Florida state tax"
+        },
+        {
+            "Code": "US-MI-DA",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Miami-Dade County tax",
+            "LocalName": "Miami-Dade County tax"
+        },
+        {
+            "Code": "US-MI-BE",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Miami Beach tax",
+            "LocalName": "Miami Beach tax"
+        },
+        {
+            "Code": "US-MI-FB",
+            "TaxEnvironmentCode": "US-MI-DA",
+            "Name": "Miami F&B tax",
+            "LocalName": "Miami F&B tax"
+        },
+    ],
+    "TaxRates": [
+        {
+            "Code": "UK-L",
+            "TaxationCode": "UK",
+            "Value": 0.04
+        },
+        {
+            "Code": "UK-R",
+            "TaxationCode": "UK",
+            "Value": 0.05
+        },
+        {
+            "Code": "UK-S",
+            "TaxationCode": "UK",
+            "Value": 0.2
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `TaxEnvironments` | array of [Tax Environments](configuration.md#tax-environments) | required | The supported tax environments. |
+| `Taxations` | array of [Taxations](configuration.md#taxations) | required | The supported taxations. |
+| `TaxRates` | array of [Tax Rates](configuration.md#tax-rates) | required | The supported tax rates. |
+
+#### Tax Environments
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required | Code of the tax enivironment. |
+| `CountryCode` | string | required | ISO 3166-1 alpha-3 code, e.g. `USA` or `GBR`. |
+
+#### Taxations
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required | Code of the taxation. |
+| `TaxEnvironmentCode` | string | required | Code of the tax enivironment. |
+| `Name` | string | required | Name of the taxation. |
+| `LocalName` | string | required | Local name of the taxation. |
+
+#### Tax Rates
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required | Code of the tax rate. |
+| `TaxationCode` | string | required | Code of the taxation. |
+| `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
+
 
 ## Get all languages
 
