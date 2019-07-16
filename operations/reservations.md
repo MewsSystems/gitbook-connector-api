@@ -641,30 +641,30 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `ReservationId` | string | required | Identifier of the reservation within the transaction. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
-| `StartUtc` | [String update value](reservations.md#update-string-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
-| `EndUtc` | [String update value](reservations.md#update-string-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
-| `AdultCount` | [Number update value](reservations.md#update-number-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
-| `ChildCount` | [Number update value](reservations.md#update-number-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
-| `ChannelNumber` | [String update value](reservations.md#update-string-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
-| `RequestedCategoryId` | [String update value](reservations.md#update-string-value) | optional | Identifier of the requested [Space category](enterprises.md#space-category) \(or `null` if space category should not be updated). |
-| `TraveAgencyId` | [String update value](reservations.md#update-string-value) | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
-| `CompanyId` | [String update value](reservations.md#update-string-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
-| `BusinessSegmentId` | [String update value](reservations.md#update-string-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
-| `RateId` | [String update value](reservations.md#update-string-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
+| `StartUtc` | [String udpate value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
+| `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
+| `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
+| `ChildCount` | [Number update value](reservations.md#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
+| `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
+| `RequestedCategoryId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the requested [Space category](enterprises.md#space-category) \(or `null` if space category should not be updated). |
+| `TraveAgencyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
+| `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
+| `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
+| `RateId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
 
-#### Update string value
+#### String udpate value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | string | optional | Value which is to be updated. |
 
-#### Update number value
+#### Number update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | number | optional | Value which is to be updated. |
 
-#### Update bool value
+#### Bool update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
