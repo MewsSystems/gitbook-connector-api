@@ -596,7 +596,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 
 ## Update reservation
 
-Updates information about a reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `value` within the object is sent as `null`, the field will be cleared in Mews.
+Updates information about a reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
 
 ### Request
 
