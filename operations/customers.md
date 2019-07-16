@@ -340,7 +340,8 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
                     "Amount": {
                         "Currency": "EUR",
                         "NetValue": null,
-                        "GrossValue": -100
+                        "GrossValue": -100,
+                        "TaxValues": []
                     },
                     "BillId": null,
                     "ClosedUtc": null,

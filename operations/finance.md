@@ -311,7 +311,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
             "ProductId": null,
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "Type": "ServiceRevenue"
+            "Type": "ServiceRevenue",
+            "SubType": "CustomItem"
         }
     ],
     "CreditCardTransactions": null
@@ -336,9 +337,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
-| `Amount` | [Amount value](finance.md#amount-value) | required | Amount the item costs, negative amount represents either rebate or a payment. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 | `Type` | string [Accounting item type](finance.md#accounting-item-type) | required | Type of the item. |
-| `SubType` | string | required | Sub type of the item. |
+| `SubType` | string [Accounting item subtype] | required | subtype of the item. Note that the subtype depends on the `Type` of the item.  |
 | `Name` | string | required | Name of the item. |
 | `Notes` | string | optional | Additional notes. |
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
@@ -350,6 +351,35 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `ProductRevenue`
 * `AdditionalRevenue`
 * `Payment`
+
+#### Accounting item subtype
+
+##### Revenue subtypes
+
+* `CancellationFee`
+* `Rebate`
+* `Deposit`
+* `ExchangeRateDifference`
+* `CustomItem`
+* `Surcharge`
+* `SurchargeDiscount`
+* `SpaceOrder`
+* `ProductOrder`
+* `Other`
+
+##### Payment subtypes
+
+* `CreditCard`
+* `Invoice`
+* `Cash`
+* `Unspecified`
+* `BadDebts`
+* `WireTransfer`
+* `ExchangeRateDifference`
+* `ExchangeRoundingDifference`
+* `BankCharges`
+* `Cheque`
+* `Other`
 
 #### Currency value
 
@@ -364,7 +394,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `NetValue` | number | optional | Net value in case the item is taxed. |
-| `GrossValue` | number | optional | Gross value in case the item is not taxed. |
+| `GrossValue` | number | optional | Gross value including all taxes. |
 | `TaxValues` | array of [Tax Values](finance.md#tax-value) | optional | The tax values applied. |
 
 #### Tax value
@@ -673,7 +703,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit cost of the item. |
+| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit amount of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |

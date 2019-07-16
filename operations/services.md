@@ -879,7 +879,7 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the cost defined in Mews. |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
 
 #### Item parameters
 
