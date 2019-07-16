@@ -604,6 +604,86 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
 
+## Update reservation
+
+Updates information about a reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
+    "CheckOverbooking": true,
+    "CheckRateApplicability": true,
+    "StartUtc": {
+        "Value": "2018-01-01T14:00:00Z"
+    },
+    "EndUtc": {
+        "Value": "2018-01-02T10:00:00Z"
+    },
+    "AdultCount": {
+        "Value": 2
+    },
+    "ChildCount": {
+        "Value": 1
+    },
+    "ChannelNumber": null,
+    "RequestedCategoryId": null,
+    "TraveAgencyId": {
+        "Value": null
+    },
+    "CompanyId": {
+        "Value": "73ba34d1-f375-460c-bf2d-8a63e71677a6"
+    },
+    "BusinessSegmentId": null,
+    "RateId": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Identifier of the reservation within the transaction. |
+| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
+| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
+| `StartUtc` | [String udpate value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
+| `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
+| `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
+| `ChildCount` | [Number update value](reservations.md#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
+| `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
+| `RequestedCategoryId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the requested [Space category](enterprises.md#space-category) \(or `null` if space category should not be updated). |
+| `TraveAgencyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
+| `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
+| `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
+| `RateId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
+
+#### String udpate value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | string | optional | Value which is to be updated. |
+
+#### Number update value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | number | optional | Value which is to be updated. |
+
+#### Bool update value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | bool | optional | Value which is to be updated. |
+
+### Response
+
+Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
+
 ## Confirm reservation
 
 Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions are met \(the reservation has the `Optional` state\).
