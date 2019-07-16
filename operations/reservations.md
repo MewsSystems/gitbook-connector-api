@@ -701,7 +701,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
 | `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
 | `RateId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
-| `TimeUnitPrices` | [Time unit update value](reservations.md#time-unit-update-value) | optional | Time unit amounts. e.g amount of the first or the second night. \(or `null` if the unit amounts should not be updated). |
+| `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Time unit amounts. e.g amount of the first or the second night. \(or `null` if the unit amounts should not be updated). |
 
 #### String udpate value
 
@@ -721,13 +721,13 @@ Updates information about a reservation. Note that if any of the fields are sent
 | --- | --- | --- | --- |
 | `Value` | bool | optional | Value which is to be updated. |
 
-#### Time unit update value
+#### Time unit amount update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | array of [Time unit price](reservations.md#time-unit-price-parameters) | required | Value which is to be updated. |
+| `Value` | array of [Time unit price](reservations.md#time-unit-amount-parameters) | required | Value which is to be updated. |
 
-#### Time unit price parameters
+#### Time unit amount parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
