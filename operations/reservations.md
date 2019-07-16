@@ -507,6 +507,24 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "CompanyId": null,
             "Notes": "Test reservation",
             "TimeUnitAmount": null,
+            "TimeUnitPrices": [
+                {
+                    "Index": 0,
+                    "Amount": {
+                        "Currency": "GBP",
+                        "GrossValue": 20
+                        "TaxCodes": [ "UK-S" ]
+                    }
+                },
+                {
+                    "Index": 1,
+                    "Amount": {
+                        "Currency": "GBP",
+                        "GrossValue": 30
+                        "TaxCodes": [ "UK-S" ]
+                    }
+                }
+            ],
             "ProductOrders": [
                 {
                     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
@@ -547,6 +565,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `Notes` | string | optional | Additional notes. |
 | `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
+| `TimeUnitPrices` | array of [Time unit price parameters](services.md#time-unit-price-parameters) | optional | Amounts of the reservation units. e.g Amount for the first and the last night.  |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 
 ### Response
@@ -640,7 +659,28 @@ Updates information about a reservation. Note that if any of the fields are sent
         "Value": "73ba34d1-f375-460c-bf2d-8a63e71677a6"
     },
     "BusinessSegmentId": null,
-    "RateId": null
+    "RateId": null,
+    "TimeUnitPrices": {
+        "Value": [
+            {
+                "Index": 0,
+                "Amount": {
+                    "Currency": "GBP",
+                    "GrossValue": 20
+                    "TaxCodes": [ "UK-S" ]
+                }
+            },
+            {
+                "Index": 1,
+                "Amount": {
+                    "Currency": "GBP",
+                    "GrossValue": 30
+                    "TaxCodes": [ "UK-S" ]
+                }
+            }
+        ]
+    }
+
 }
 ```
 
@@ -661,6 +701,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
 | `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
 | `RateId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
+| `TimeUnitPrices` | [Time unit update value](reservations.md#time-unit-update-value) | optional | Time unit amounts. e.g amount of the first or the second night. \(or `null` if the unit amounts should not be updated). |
 
 #### String udpate value
 
@@ -679,6 +720,19 @@ Updates information about a reservation. Note that if any of the fields are sent
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | bool | optional | Value which is to be updated. |
+
+#### Time unit update value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | array of [Time unit price](reservations.md#time-unit-price-parameters) | required | Value which is to be updated. |
+
+#### Time unit price parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Index` | string | required | Index of the unit. Indexing starts with `0`. The first night of the reservation has index 0. |
+| `Amount` | [Amount](#services.md#amount-parameters) | required | Amount of the unit. |
 
 ### Response
 
