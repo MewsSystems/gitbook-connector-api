@@ -565,7 +565,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `Notes` | string | optional | Additional notes. |
 | `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
-| `TimeUnitPrices` | array of [Time unit price parameters](services.md#time-unit-price-parameters) | optional |  `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Time unit amounts. e.g Amount of the first and the last night.  |
+| `TimeUnitPrices` | array of [Time unit price parameters](services.md#time-unit-price-parameters) | optional | Time unit amounts. e.g Amount of the first or the second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 
 ### Response
