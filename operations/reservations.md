@@ -731,7 +731,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Index` | string | required | Index of the unit. Indexing starts with `0`. The first night of the reservation has index 0. |
+| `Index` | string | required | Index of the unit. Indexing starts with `0`. e.g the first night of the reservation has index 0. |
 | `Amount` | [Amount](#services.md#amount-parameters) | required | Amount of the unit. |
 
 ### Response
