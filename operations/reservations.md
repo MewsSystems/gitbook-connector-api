@@ -725,7 +725,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | array of [Time unit price](reservations.md#time-unit-amount-parameters) | required | Value which is to be updated. |
+| `Value` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | required | Value which is to be updated. |
 
 #### Time unit amount parameters
 
