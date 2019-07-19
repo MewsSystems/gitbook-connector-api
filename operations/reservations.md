@@ -565,7 +565,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `Notes` | string | optional | Additional notes. |
 | `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
-| `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Time unit amounts. e.g Amount of the first or the second night. |
+| `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 
 ### Response
@@ -701,7 +701,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
 | `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
 | `RateId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
-| `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Time unit amounts. e.g amount of the first or the second night. \(or `null` if the unit amounts should not be updated). |
+| `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
 
 #### String udpate value
 
@@ -731,7 +731,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Index` | string | required | Index of the unit. Indexing starts with `0`. e.g the first night of the reservation has index 0. |
+| `Index` | string | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
 | `Amount` | [Amount](#services.md#amount-parameters) | required | Amount of the unit. |
 
 ### Response
