@@ -1,5 +1,10 @@
 # Changelog
 
+## 17th July 2019 18:00 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `TimeUnitPrices`.
+* Extended [Update Reservation](operations/reservations.md#update-reservation) parameters with `TimeUnitPrices`.
+
 ## 26th June 2019 19:00 UTC
 
 * Added [Get all tax enivonments](operations/configuration.md#get-all-tax-environments) operation.
