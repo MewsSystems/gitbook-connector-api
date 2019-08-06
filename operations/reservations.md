@@ -512,7 +512,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                     "Index": 0,
                     "Amount": {
                         "Currency": "GBP",
-                        "GrossValue": 20
+                        "GrossValue": 20,
                         "TaxCodes": [ "UK-S" ]
                     }
                 },
@@ -520,7 +520,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                     "Index": 1,
                     "Amount": {
                         "Currency": "GBP",
-                        "GrossValue": 30
+                        "GrossValue": 30,
                         "TaxCodes": [ "UK-S" ]
                     }
                 }
