@@ -1062,7 +1062,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 * `Cash`
 * `CreditCard`
 * `Invoice`
-* `Wire transfer`
+* `WireTransfer`
 * `Bacs`
 
 ### Response
