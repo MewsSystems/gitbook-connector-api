@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th August 2019 16:55 UTC
+
+* Extended [External payment type](operations/finance.md#external-payment-type) with `Invoice`, `WireTransfer` and `Bacs`.
+
 ## 17th July 2019 18:00 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `TimeUnitPrices`.
