@@ -523,7 +523,11 @@ Returns all restrictions of the default service provided by the enterprise.
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "StartUtc": "2016-01-01T00:00:00Z",
+    "EndUtc": "2016-01-07T00:00:00Z",
+    "SpaceCategoryIds": ["86336EAC-4168-46B1-A544-2A47251BF864"],
+    "RateIds": ["7c7e89d6-69c0-4cce-9d42-35443f2193f3"]
 }
 ```
 
@@ -531,6 +535,17 @@ Returns all restrictions of the default service provided by the enterprise.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `TimeFilter` | string [Restriction time filter](services.md#restriction-time-filter) | optional | Time filter of the interval.| If not specified, reservations Created with the interval are returned. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `SpaceCategoryIds` | array of string | optional | Categories of spaces in the enterprise. |
+| `RateIds` | array of string | optional | Rates of the default service.
+
+
+#### Restriction time filter
+
+* `Applicable` - reservations whose intervals collide with the specified interval.
+* `Created` - restrictions created within the specified interval.
 
 ### Response
 
