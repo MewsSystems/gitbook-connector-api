@@ -430,7 +430,10 @@ Returns all bills with the specified ids.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "BillIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
-    ]
+    ],
+    "Extent": {
+        "Items": true
+    }
 }
 ```
 
@@ -439,6 +442,13 @@ Returns all bills with the specified ids.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s. |
+| `Extent` | [Bill extent](finance.md#bill-extent) | required | Extent of data to be returned. E.g it is possible to specify that toghether with the bills, revenue and payment items should be also returned. |
+
+### Bill extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Items` | bool | optional | Whether the response should contain revenue and payment items of the bill. |
 
 ### Response
 
@@ -556,7 +566,10 @@ Returns all bills of the specified customers.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "CustomerIds": [
         "35d4b117-4e60-44a3-9580-c582117eff98"
-    ]
+    ],
+    "Extent": {
+        "Items": true
+    }
 }
 ```
 
@@ -583,7 +596,10 @@ Returns all bills \(both receipts and invoices\) that have been closed in the sp
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
+    "EndUtc": "2017-02-01T00:00:00Z",
+    "Extent": {
+        "Items": true
+    }
 }
 ```
 
