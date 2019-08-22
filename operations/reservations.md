@@ -568,7 +568,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
-| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) who made the reservation. |
+| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on behalf of the reservation was made. |
 
 ### Response
 
