@@ -540,10 +540,6 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `TimeFilter` | [Restriction time filter](services.md#restriction-time-filter) | optional | Time filter of the interval. If not specified, Created is the defaut value. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space category](enterprises.md#space-category). |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate). |
 
 #### Restriction time filter
 
