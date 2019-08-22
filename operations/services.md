@@ -529,7 +529,9 @@ Returns all restrictions of the default service provided by the enterprise.
     "SpaceCategoryIds": [
         "86336EAC-4168-46B1-A544-2A47251BF864"
     ],
-    "RateIds": ["7c7e89d6-69c0-4cce-9d42-35443f2193f3"]
+    "RateIds": [
+        "7c7e89d6-69c0-4cce-9d42-35443f2193f3"
+    ]
 }
 ```
 
