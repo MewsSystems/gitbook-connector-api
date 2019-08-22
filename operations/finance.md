@@ -451,8 +451,8 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s. |
-| `CustomerIds` | array of string | required | Unique identifiers of the [Customer](customers.md#customer)s. |
+| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
+| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `States` | array of [Bill state](finance.md#bill-state)s | optional | States the bills should be in. |
 | `TimeFilter` | string | optional | Time filter of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
