@@ -435,10 +435,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
     "TimeFilter": "Created",
-    "States": [
-        "Open",
-        "Closed"
-    ],
+    "State": "Open",
     "Extent": {
         "Items": false
     },
@@ -453,7 +450,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `AccessToken` | string | required | Access token of the client application. |
 | `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
-| `States` | array of [Bill state](finance.md#bill-state)s | optional | States the bills should be in. |
+| `State` | string | optional | [Bill State](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
 | `TimeFilter` | string | optional | Time filter of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
@@ -515,11 +512,6 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `Notes` | string | optional | Additional notes. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
-
-#### Bill state
-
-* `Open`
-* `Closed`
 
 #### Bill type
 
