@@ -542,8 +542,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `TimeFilter` | [Restriction time filter](services.md#restriction-time-filter) | optional | Time filter of the interval. If not specified, restrictions `Created` within the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space category](enterprises.md#space-category). |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate). |
+| `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space categories](enterprises.md#space-category). |
+| `RateIds` | array of string | optional | Unique identifiers of [Rates](services.md#rate). |
 
 #### Restriction time filter
 
