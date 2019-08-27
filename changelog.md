@@ -1,5 +1,9 @@
 # Changelog
 
+## 18th August 2019 18:00 UTC
+
+* Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `StartUtc`, `EndUtc`, `TimeFilter`, `SpaceCategoryIds` and `RateIds`.
+
 ## 13th August 2019 16:55 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `BookerId`.
