@@ -543,7 +543,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space categories](enterprises.md#space-category). |
-| `RateIds` | array of string | optional | Unique identifiers of [Rates](services.md#rate). |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
 
 #### Restriction time filter
 
