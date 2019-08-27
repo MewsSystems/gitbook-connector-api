@@ -1,5 +1,10 @@
 # Changelog
 
+## 13th August 2019 16:55 UTC
+
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `BookerId`.
+* Extended [Update Reservation](operations/reservations.md#update-reservation) parameters with `BookerId`.
+
 ## 12th August 2019 16:55 UTC
 
 * Extended [External payment type](operations/finance.md#external-payment-type) with `Invoice`, `WireTransfer` and `Bacs`.
