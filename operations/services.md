@@ -1000,6 +1000,6 @@ Returns all companionships based on customers, reservations or reservation group
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CustomerId` | string | | Unique identifier of [Customer](customers.md#customer). |
-| `ReservationId` | string | | Unique identifier of [Reservation](reservations.md#reservation). |
-| `ReservationGroupId` | string | | Unique identifier of [Reservation group](reservations.md#reservation-group). |
+| `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
+| `ReservationId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
