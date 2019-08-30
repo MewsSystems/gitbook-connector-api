@@ -978,6 +978,7 @@ Returns all companionships based on customers, reservations or reservation group
 {
     "Companionships": [
         {
+            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
             "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
             "ReservationGroupId": "c704dff3-7811-4af7-a3a0-7b2b0635ac59",
             "ReservationId": "bfee2c44-1f84-4326-a862-5289598f6e2d"
@@ -1000,6 +1001,7 @@ Returns all companionships based on customers, reservations or reservation group
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
 | `ReservationId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
