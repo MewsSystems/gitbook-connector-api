@@ -992,9 +992,9 @@ Returns all companionships based on customers, reservations or reservation group
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Companionships` | array of [Companionship](services.md#companionship) | required | Companionships. |
-| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belongs to companionship. |
-| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The reservations that belongs to companionship. |
-| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | Reservation groups that belongs to companionship. |
+| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
+| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
+| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
 
 #### Companionship
 
