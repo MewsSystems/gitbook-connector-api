@@ -638,13 +638,14 @@ Updates information about a reservation. Note that if any of the fields are sent
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
+    "Reason": "Testing",
     "CheckOverbooking": true,
     "CheckRateApplicability": true,
     "StartUtc": {
-        "Value": "2018-01-01T14:00:00Z"
+        "Value": "2019-10-01T14:00:00Z"
     },
     "EndUtc": {
-        "Value": "2018-01-02T10:00:00Z"
+        "Value": "2019-10-03T10:00:00Z"
     },
     "AdultCount": {
         "Value": 2
@@ -662,8 +663,8 @@ Updates information about a reservation. Note that if any of the fields are sent
     },
     "BusinessSegmentId": null,
     "RateId": null,
-    "BookerId: {
-        "Value": "25ba34d1-f375-460c-bf2d-8a63e71677a6"
+    "BookerId": {
+        "Value": "92923102-bf91-4a4a-8ee8-9dcb79c9d6de"
     }
     "TimeUnitPrices": {
         "Value": [
@@ -671,7 +672,7 @@ Updates information about a reservation. Note that if any of the fields are sent
                 "Index": 0,
                 "Amount": {
                     "Currency": "GBP",
-                    "GrossValue": 20
+                    "GrossValue": 20,
                     "TaxCodes": [ "UK-S" ]
                 }
             },
@@ -679,7 +680,7 @@ Updates information about a reservation. Note that if any of the fields are sent
                 "Index": 1,
                 "Amount": {
                     "Currency": "GBP",
-                    "GrossValue": 30
+                    "GrossValue": 30,
                     "TaxCodes": [ "UK-S" ]
                 }
             }
@@ -694,6 +695,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ReservationId` | string | required | Identifier of the reservation within the transaction. |
+| `Reason` | string | required | Reason for updating the reservation. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `StartUtc` | [String udpate value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
