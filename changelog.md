@@ -1,5 +1,9 @@
 # Changelog
 
+## 6th September 2019 18:00 UTC
+
+* Extended websocket events with [Price update event](websockets.md#price-update-event).
+
 ## 18th August 2019 18:00 UTC
 
 * Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `StartUtc`, `EndUtc`, `TimeFilter`, `SpaceCategoryIds` and `RateIds`.
