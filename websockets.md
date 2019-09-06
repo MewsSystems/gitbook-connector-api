@@ -97,5 +97,5 @@ If the Connector integration is configured to receive price updates, it will rec
 | `Id` | string | required | Unique identifier of the update event. |
 | `StartUtc` | string | required | Start of the price update interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the price update interval in UTC timezone in ISO 8601 format. |
-| `RateId` | string | optional | Unique identifier of the [operations/services#rate](Rate) assigned to the update price event. |
-| `SpaceCategoryId` | string | optional | Unique identifier of the [operations/enterprises.md#space-category](Space category) assigned to the update price event. |
+| `RateId` | string | optional | Unique identifier of the [Rate](operations/services#rate) assigned to the update price event. |
+| `SpaceCategoryId` | string | optional | Unique identifier of the [Space category](operations/enterprises.md#space-category) assigned to the update price event. |
