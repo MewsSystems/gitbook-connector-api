@@ -89,7 +89,7 @@ If the Connector integration is configured to receive space updates, it will rec
 
 #### Price update event
 
-If the Connector integration is configured to receive price updates, it will receive events whenever a price is updated \(created\).
+If the Connector integration is configured to receive price updates, it will receive events whenever a rate price is updated \(created\). Events are related to rate base price update, price adjustment and category adjustment.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
