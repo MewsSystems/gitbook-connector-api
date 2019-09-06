@@ -29,6 +29,14 @@ Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. I
             "Type": "Space",
             "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
             "State": "Dirty"
+        },
+        {
+            "Type": "PriceUpdate",
+            "Id": "bd75f159-f22a-4685-abdb-aac0008e2af3",
+            "StartUtc": "2019-09-07T22:00:00Z",
+            "EndUtc": "2019-09-07T22:00:00Z",
+            "RateId": "9c6c0556-42bb-409a-86ca-6ca430773b99",
+            "SpaceCategoryId": null
         }
     ]
 }
@@ -79,3 +87,15 @@ If the Connector integration is configured to receive space updates, it will rec
 | `Id` | string | required | Unique identifier of the [Space](operations/enterprises.md#space). |
 | `State` | string [Space state](operations/enterprises.md#space-state) | required | State of the space. |
 
+#### Price update event
+
+If the Connector integration is configured to receive price updates, it will receive events whenever a rate price is updated \(created\). Events are related to rate base price update, price adjustment and category adjustment.
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Type` | string `PriceUpdate` | required | Type of the event. |
+| `Id` | string | required | Unique identifier of the update event. |
+| `StartUtc` | string | required | Start of the price update interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the price update interval in UTC timezone in ISO 8601 format. |
+| `RateId` | string | optional | Unique identifier of the [operations/services#rate](Rate) assigned to the update price event. |
+| `SpaceCategoryId` | string | optional | Unique identifier of the [operations/enterprises.md#space-category](Space category) assigned to the update price event. |
