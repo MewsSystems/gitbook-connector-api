@@ -527,10 +527,10 @@ Returns all restrictions of the default service provided by the enterprise.
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
     "SpaceCategoryIds": [
-        "86336EAC-4168-46B1-A544-2A47251BF864"
+        "34c29e73-c8db-4e93-b51b-981e42655e03"
     ],
     "RateIds": [
-        "7c7e89d6-69c0-4cce-9d42-35443f2193f3"
+        "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     ]
 }
 ```
