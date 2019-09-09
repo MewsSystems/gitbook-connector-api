@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th September 2019 15:50 UTC
+
+* Added [Get all bills](operations/finance.md#get-all-bills) operation.
+
 ## 6th September 2019 18:00 UTC
 
 * Extended websocket events with [Price update event](websockets.md#price-update-event).
