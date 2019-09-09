@@ -434,13 +434,13 @@ Returns all bills, possible filtered by customers, identifiers and other filters
     "CustomerIds": [
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
-    "TimeFilter": "Created",
     "State": "Open",
+    "TimeFilter": "Created",
+    "StartUtc": null,
+    "EndUtc": null,
     "Extent": {
         "Items": false
-    },
-    "StartUtc": null,
-    "EndUtc": null
+    }
 }
 ```
 
@@ -450,22 +450,29 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `AccessToken` | string | required | Access token of the client application. |
 | `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
-| `State` | string | optional | [Bill State](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `TimeFilter` | string | optional | Time filter of the interval. |
+| `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
+| `TimeFilter` | string | optional | [Time filter](finance.md#bill-time-filter) of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
+| `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
 
 #### Bill state
 
 * `Open`
 * `Closed`
 
-### Bill time filter
+#### Bill time filter
 
 * `Created` - bills created in the interval.
 * `Closed` - bills closed in the interval.
 * `Paid` - bills paid in the interval.
 * `DueDate` - bills having a due date in the interval.
+
+#### Bill extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Items` | bool | required | Whether the response should contain payments and revenue items. |
 
 ### Response
 
