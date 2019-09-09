@@ -454,7 +454,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `TimeFilter` | string | optional | [Time filter](finance.md#bill-time-filter) of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
-| `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
+| `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
 
 #### Bill state
 
