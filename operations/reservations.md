@@ -695,7 +695,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ReservationId` | string | required | Identifier of the reservation within the transaction. |
-| `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation |
+| `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
