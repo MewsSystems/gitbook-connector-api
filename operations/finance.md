@@ -416,13 +416,13 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
-## Get all bills by ids
+## Get all bills
 
-Returns all bills with the specified ids.
+Returns all bills, possible filtered by customers, identifiers and other filters.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/bills/getAllByIds`
+`[PlatformAddress]/api/connector/v1/bills/getAll`
 
 ```javascript
 {
@@ -430,7 +430,17 @@ Returns all bills with the specified ids.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "BillIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
-    ]
+    ],
+    "CustomerIds": [
+        "fe795f96-0b64-445b-89ed-c032563f2bac"
+    ],
+    "State": "Open",
+    "TimeFilter": "Created",
+    "StartUtc": null,
+    "EndUtc": null,
+    "Extent": {
+        "Items": false
+    }
 }
 ```
 
@@ -438,7 +448,31 @@ Returns all bills with the specified ids.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s. |
+| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
+| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
+| `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
+| `TimeFilter` | string | optional | [Time filter](finance.md#bill-time-filter) of the interval. |
+| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
+| `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
+
+#### Bill state
+
+* `Open`
+* `Closed`
+
+#### Bill time filter
+
+* `Created` - bills created in the interval.
+* `Closed` - bills closed in the interval.
+* `Paid` - bills paid in the interval.
+* `DueDate` - bills having a due date in the interval.
+
+#### Bill extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Items` | bool | required | Whether the response should contain payments and revenue items. |
 
 ### Response
 
@@ -455,52 +489,8 @@ Returns all bills with the specified ids.
             "Notes": "",
             "Number": "29",
             "VariableSymbol": null,
-            "Payments": [
-                {
-                    "AccountingCategoryId": null,
-                    "Amount": {
-                        "Currency": "GBP",
-                        "NetValue": null,
-                        "GrossValue": -340.22,
-                        "TaxValues": []
-                    },
-                    "BillId": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                    "ClosedUtc": "2017-02-41T10:41:54Z",
-                    "ConsumptionUtc": "2017-01-31T10:58:06Z",
-                    "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
-                    "Id": "9701f58d-3959-4d9d-9ba8-8e1d7c0adceb",
-                    "InvoiceId": null,
-                    "Name": "Invoice payment",
-                    "Notes": null,
-                    "OrderId": null,
-                    "ProductId": null,
-                    "ServiceId": null,
-                    "Type": "Payment"
-                }
-            ],
-            "Revenue": [
-                {
-                    "AccountingCategoryId": "7cd113f6-c5de-4bc9-8d78-3f73721c4c37",
-                    "Amount": {
-                        "Currency": "GBP",
-                        "NetValue": 340.22,
-                        "GrossValue": 340.22,
-                        "TaxValues": []
-                    },
-                    "BillId": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                    "ClosedUtc": "2017-01-41T10:41:54Z",
-                    "ConsumptionUtc": "2017-01-31T08:41:54Z",
-                    "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
-                    "Id": "bc5885fe-38ce-4d3e-b5c4-f30cb3b8622f",
-                    "InvoiceId": null,
-                    "Name": "Miscellaneous",
-                    "Notes": null,
-                    "OrderId": "1dac7592-afe7-4dd3-acc0-fefdddadbe6e",
-                    "ProductId": null,
-                    "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
-                    "Type": "ProductRevenue"
-                }
-            ],
+            "Payments": [],
+            "Revenue": [],
             "State": "Closed",
             "Type": "Invoice"
         }
@@ -530,73 +520,12 @@ Returns all bills with the specified ids.
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
 
-#### Bill state
-
-* `Open`
-* `Closed`
-
 #### Bill type
 
 A bill is either a `Receipt` which means , or `Invoice` that is supposed to be paid in the future.
 
 * `Receipt` - the bill has already been fully paid.
 * `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
-
-## Get all bills by customers
-
-Returns all bills of the specified customers.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/bills/getAllByCustomers`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "CustomerIds": [
-        "35d4b117-4e60-44a3-9580-c582117eff98"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `CustomerIds` | array of string | required | Unique identifiers of the [Customer](customers.md#customer)s. |
-
-### Response
-
-Same structure as in [Get all bills by ids](finance.md#get-all-bills-by-ids) operation.
-
-## Get all closed bills
-
-Returns all bills \(both receipts and invoices\) that have been closed in the specified time interval.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/bills/getAllClosed`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-
-### Response
-
-Same structure as in [Get all bills by ids](finance.md#get-all-bills-by-ids) operation.
 
 ## Get all outlet items
 
