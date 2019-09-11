@@ -542,8 +542,8 @@ Adds a new space block to the specified space for a defined period of time.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "SpaceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
     "Name": "Space block 1",
-    "StartUtc": "2019-10-15",
-    "EndUtc": "2019-10-20",
+    "StartUtc": "2019-10-15T10:00:00Z",
+    "EndUtc": "2019-10-20T10:00:00Z",
     "Type": "OutOfOrder",
     "Notes": "Note"
 }
@@ -558,7 +558,7 @@ Adds a new space block to the specified space for a defined period of time.
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Type` | string [Space block type](#space-block-type) | required | Type of the space block. |
-| `Notes` | string | optional | Note for space block. |
+| `Notes` | string | optional | Note describing the space block. |
 
 ### Response
 
