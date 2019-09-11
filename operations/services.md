@@ -1003,5 +1003,5 @@ Returns all companionships based on customers, reservations or reservation group
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
-| `ReservationId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
