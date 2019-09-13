@@ -160,7 +160,7 @@ Returns all countries supported by the API.
         {
             "Code": "AU-NSW",
             "CountryCode": "AU",
-            "EnglishName": "New South Wales"d
+            "EnglishName": "New South Wales"
         },
         {
             "Code": "AU-QLD",
