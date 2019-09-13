@@ -69,7 +69,7 @@ Returns configuration of the enterprise and the client.
 | --- | --- | --- | --- |
 | `NowUtc` | string | required | Current server date and time in UTC timezone in ISO 8601 format. |
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise \(e.g. hotel, hostel\) associated with the access token. |
-| `PaymentCardStorage` | [PaymentCardStorage](configuration.md#payment-card-storage) | optional | Contains information about payment card storage. |
+| `PaymentCardStorage` | [PaymentCardStorage](configuration.md#payment-card-storage) | required | Contains information about payment card storage. |
 
 #### Enterprise
 
@@ -120,7 +120,7 @@ Returns configuration of the enterprise and the client.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `PublicKey` | string | required | Key for accessing PCI proxy storage. |
+| `PublicKey` | string | optional | Key for accessing PCI proxy storage. |
 
 ## Get all countries
 
