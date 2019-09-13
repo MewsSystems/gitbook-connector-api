@@ -58,7 +58,8 @@ Returns configuration of the enterprise and the client.
         "TimeZoneIdentifier": "Europe/Budapest",
         "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral"
     },
-    "NowUtc": "2018-01-01T14:58:02Z"
+    "NowUtc": "2018-01-01T14:58:02Z",
+    "PaymentCardStorage": null
 }
 ```
 
@@ -66,6 +67,7 @@ Returns configuration of the enterprise and the client.
 | --- | --- | --- | --- |
 | `NowUtc` | string | required | Current server date and time in UTC timezone in ISO 8601 format. |
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise \(e.g. hotel, hostel\) associated with the access token. |
+| `PaymentCardStorage` | [PaymentCardStorage](configuration.md#payment-card-storage) | optional | Contains information about payment card storage. |
 
 #### Enterprise
 
@@ -112,6 +114,12 @@ Returns configuration of the enterprise and the client.
 * `Gross` - the enterprise shows amount with gross prices.
 * `Net` - the enterprise shows amount with net prices.
 
+#### Payment card storage
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `PublicKey` | string | required | Key for accessing PCI proxy storage. |
+
 ## Get all countries
 
 Returns all countries supported by the API.
@@ -150,7 +158,7 @@ Returns all countries supported by the API.
         {
             "Code": "AU-NSW",
             "CountryCode": "AU",
-            "EnglishName": "New South Wales"
+            "EnglishName": "New South Wales"d
         },
         {
             "Code": "AU-QLD",
