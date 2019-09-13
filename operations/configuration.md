@@ -59,7 +59,9 @@ Returns configuration of the enterprise and the client.
         "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral"
     },
     "NowUtc": "2018-01-01T14:58:02Z",
-    "PaymentCardStorage": null
+    "PaymentCardStorage": {
+        "PublicKey": null
+    }
 }
 ```
 
