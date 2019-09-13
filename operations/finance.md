@@ -813,6 +813,43 @@ Creates payment for specified customer credit card and charges the credit card v
 | --- | --- | --- | --- |
 | PaymentId | string | required | Unique identifier of the payment [Accounting item](finance.md#accounting-item). |
 
+## Add tokenized credit card
+
+Allows you to add tokenized credit card to the system.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/creditCards/addTokenized`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
+    "CreditCardData": {
+        "PaymentStorageData": "2235057813",
+        "ObfuscatedNumber": "************1111",
+        "Expiration": "2020-10"
+    }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `CreditCardData` | [Credit card data](finance.md#credit-card-data) | required | Information about credit card. |
+
+#### Credit card data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| PaymentStorageData | string | required | [Key](configuration.md#payment-card-storage) for accessing PCI proxy storage. |
+| ObfuscatedNumber | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
+| Expiration | string | required | Expiration of the credit card in format `MM/YYYY`. |
+
+
 ## Get all preauthorizations by customers
 
 Returns all preauthorizations of specified customers.
