@@ -815,7 +815,7 @@ Creates payment for specified customer credit card and charges the credit card v
 
 ## Add tokenized credit card
 
-Allows you to add tokenized credit card to the system.
+Allows you to attach tokenized credit card to the specific customer.
 
 ### Request
 
