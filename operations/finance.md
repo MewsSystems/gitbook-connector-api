@@ -815,7 +815,7 @@ Creates payment for specified customer credit card and charges the credit card v
 
 ## Add tokenized credit card
 
-Allows you to attach tokenized credit card to the specific customer.
+Adds a new tokenized credit card to the specified customer.
 
 ### Request
 
@@ -828,7 +828,7 @@ Allows you to attach tokenized credit card to the specific customer.
     "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
     "CreditCardData": {
         "PaymentStorageData": "2235057813",
-        "ObfuscatedNumber": "************1111",
+        "ObfuscatedNumber": "41111********1111",
         "Expiration": "2020-10"
     }
 }
@@ -839,7 +839,7 @@ Allows you to attach tokenized credit card to the specific customer.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `CreditCardData` | [Credit card data](finance.md#credit-card-data) | required | Information about credit card. |
+| `CreditCardData` | [Credit card data](finance.md#credit-card-data) | required | CreditCard details provided by PCI provider. |
 
 #### Credit card data
 
@@ -857,7 +857,7 @@ Allows you to attach tokenized credit card to the specific customer.
     "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
     "IsActive": true,
     "State": "Enabled",
-    "Kind": "Terminal",
+    "Kind": "Gateway",
     "Format": "Physical",
     "Type": "None",
     "ObfuscatedNumber": "************1111",
