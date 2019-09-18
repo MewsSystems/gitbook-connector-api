@@ -59,9 +59,7 @@ Returns configuration of the enterprise and the client.
         "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral"
     },
     "NowUtc": "2018-01-01T14:58:02Z",
-    "PaymentCardStorage": {
-        "PublicKey": null
-    }
+    "PaymentCardStorage": null
 }
 ```
 
@@ -69,7 +67,7 @@ Returns configuration of the enterprise and the client.
 | --- | --- | --- | --- |
 | `NowUtc` | string | required | Current server date and time in UTC timezone in ISO 8601 format. |
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise \(e.g. hotel, hostel\) associated with the access token. |
-| `PaymentCardStorage` | [PaymentCardStorage](configuration.md#payment-card-storage) | required | Contains information about payment card storage. |
+| `PaymentCardStorage` | [PaymentCardStorage](configuration.md#payment-card-storage) | optional | Contains information about payment card storage. |
 
 #### Enterprise
 
@@ -120,7 +118,7 @@ Returns configuration of the enterprise and the client.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `PublicKey` | string | optional | Key for accessing PCI proxy storage. |
+| `PublicKey` | string | required | Key for accessing PCI proxy storage. |
 
 ## Get all countries
 
