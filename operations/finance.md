@@ -827,7 +827,7 @@ Adds a new tokenized credit card to the specified customer.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
     "CreditCardData": {
-        "PaymentStorageData": "2235057813",
+        "StorageData": "2235057813",
         "ObfuscatedNumber": "41111********1111",
         "Expiration": "2020-10"
     }
