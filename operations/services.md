@@ -931,3 +931,77 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `OrderId` | string | required | Unique identifier of the created order. |
 
+## Get all companionships
+
+Returns all companionships based on customers, reservations or reservation groups. One of them must be specified in the request.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companionships/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "CustomerIds": [
+        "35d4b117-4e60-44a3-9580-c582117eff98"
+    ],
+    "ReservationIds": [
+        "bfee2c44-1f84-4326-a862-5289598f6e2d"
+    ],
+    "ReservationGroupIds": [
+        "c704dff3-7811-4af7-a3a0-7b2b0635ac59"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
+| `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
+| `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
+| `Extent` | [Companionship extent](services.md#companionship-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. If not specified, only `Companionships` are returned. |
+
+#### Companionship extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Customers` | bool | optional | Whether the response should contain customers. |
+| `Reservations` | bool | optional | Whether the response should contain reservations. |
+| `ReservationGroups` | bool | optional | Whether the response should contain reservation groups. |
+
+### Response
+
+```javascript
+{
+    "Companionships": [
+        {
+            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "ReservationGroupId": "c704dff3-7811-4af7-a3a0-7b2b0635ac59",
+            "ReservationId": "bfee2c44-1f84-4326-a862-5289598f6e2d"
+        }
+    ],
+    "Customers": null,
+    "Reservations": null,
+    "ReservationGroups": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Companionships` | array of [Companionship](services.md#companionship) | required | Companionships. |
+| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
+| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
+| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
+
+#### Companionship
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
+| `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
+| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
