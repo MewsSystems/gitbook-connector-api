@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th September 2019 08:08 UTC
+
+* Added [Get all companionships](operations/services.md#get-all-companionships) operation.
+
 ## 9th September 2019 15:50 UTC
 
 * Added [Get all bills](operations/finance.md#get-all-bills) operation.
