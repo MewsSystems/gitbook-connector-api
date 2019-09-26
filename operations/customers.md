@@ -90,6 +90,8 @@ Returns all customers from the specified interval according to the time filter \
 | `Phone` | string | optional | Phone number of the customer \(possibly mobile\). |
 | `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
+| `AccountingCode` | string | optional | Accounting code of the customer. |
+| `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
