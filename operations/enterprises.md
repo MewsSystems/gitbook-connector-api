@@ -563,8 +563,14 @@ Adds a new space block to the specified space for a defined period of time.
 ### Response
 
 ```javascript
-{}
+{
+    "SpaceBlockId": "bf1e10b7-8a03-4675-9e27-05fc84312a58"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `SpaceBlockId` | string | required | Unique identifier of added space block. |
 
 ## Update space state
 
