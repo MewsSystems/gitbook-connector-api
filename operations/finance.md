@@ -522,7 +522,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 
 #### Bill type
 
-A bill is either a `Receipt` which means , or `Invoice` that is supposed to be paid in the future.
+A bill is either a `Receipt` which means that it has been fully paid, or `Invoice` that is supposed to be paid in the future.
 
 * `Receipt` - the bill has already been fully paid.
 * `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
