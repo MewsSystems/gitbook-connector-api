@@ -486,7 +486,6 @@ Returns all bills, possible filtered by customers, identifiers and other filters
             "DueUtc": null,
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "IssuedUtc": "2017-01-31T10:58:06Z",
-            "TaxedUtc": null,
             "Notes": "",
             "Number": "29",
             "VariableSymbol": null,
@@ -516,7 +515,6 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `Number` | string | required | Number of the bill. |
 | `VariableSymbol` | string | optional | Variable symbol of the bill. |
 | `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
-| `TaxedUtc` | string | optional | Taxation date of the bill in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
