@@ -12,7 +12,7 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews"
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -20,7 +20,7 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -65,7 +65,7 @@ Returns all cashiers in the enterprise.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews"
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -73,7 +73,7 @@ Returns all cashiers in the enterprise.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -113,7 +113,7 @@ Returns all cashier transactions created within the specified interval.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "StartUtc": "2017-01-01T00:00:00Z",
     "EndUtc": "2017-02-01T00:00:00Z"    
 }
@@ -123,7 +123,7 @@ Returns all cashier transactions created within the specified interval.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `StartUtc` | string | required | Start of the creation interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the creation interval in UTC timezone in ISO 8601 format. |
 
@@ -176,7 +176,7 @@ Returns all accounting categories of the enterprise associated with the connecto
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews"
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -184,7 +184,7 @@ Returns all accounting categories of the enterprise associated with the connecto
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -254,7 +254,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "StartUtc": "2017-01-01T00:00:00Z",
     "EndUtc": "2017-02-01T00:00:00Z"
 }
@@ -264,7 +264,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -438,7 +438,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "BillIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
     ],
@@ -459,7 +459,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
@@ -551,7 +551,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "StartUtc": "2017-01-01T00:00:00Z",
     "EndUtc": "2017-02-01T00:00:00Z"
 }
@@ -561,7 +561,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Outlet item time filter](finance.md#outlet-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -679,7 +679,7 @@ Returns all credit cards with the specified ids.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CreditCardIds": [
         "f1d94a32-b4be-479b-9e47-a9fcb03d5196"
     ]
@@ -690,7 +690,7 @@ Returns all credit cards with the specified ids.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CreditCardIds` | array of string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
 ### Response
@@ -764,7 +764,7 @@ Returns all credit cards of specified customers.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CustomerIds": [
         "a3c90426-43f2-4b53-8482-446dfc724bd2"
     ]
@@ -775,7 +775,7 @@ Returns all credit cards of specified customers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer)s. |
 
 ### Response
@@ -798,7 +798,7 @@ Creates payment for specified customer credit card and charges the credit card v
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
     "Amount": {
         "GrossValue": 5,
@@ -814,7 +814,7 @@ Creates payment for specified customer credit card and charges the credit card v
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the credit card payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#finance.md#accounting-category). |
@@ -845,7 +845,7 @@ Returns all preauthorizations of specified customers.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CustomerIds": [
         "e98995b0-140a-4208-bbeb-b77f2c43d6ee"
     ]
@@ -856,7 +856,7 @@ Returns all preauthorizations of specified customers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
@@ -931,7 +931,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
@@ -953,7 +953,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the credit card payment. |
@@ -989,7 +989,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
@@ -1004,7 +1004,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the external card payment. |
@@ -1038,7 +1038,7 @@ Adds new outlet bills with their items.
 {  
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "Bills": [  
         {  
             "OutletId": "7700469f-7667-4ebd-a1c0-10380afc9bd0",
@@ -1082,7 +1082,7 @@ Adds new outlet bills with their items.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Bills` | array of [Outlet bill parameters](finance.md#outlet-bill-parameters) | required | The new outlet bills. |
 
 #### Outlet bill parameters

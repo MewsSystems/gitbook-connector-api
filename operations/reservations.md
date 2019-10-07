@@ -12,7 +12,7 @@ Returns all reservations from the specified interval according to the time filte
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
     "Extent": {
@@ -27,7 +27,7 @@ Returns all reservations from the specified interval according to the time filte
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -253,7 +253,7 @@ Returns all reservations with the specified unique identifiers.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationIds": [
         "2b6212d4-55d5-47ba-b8d2-da07be15bce9",
         "0e2983e9-5ac1-4fd9-9f76-76565c1a9b67"
@@ -265,7 +265,7 @@ Returns all reservations with the specified unique identifiers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | required | Unique identifiers of [Reservation](reservations.md#reservation)s to be returned. |
 | `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
 
@@ -285,7 +285,7 @@ Returns all reservations owned by the specified customers.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "CustomerIds": [
         "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
     ]
@@ -296,7 +296,7 @@ Returns all reservations owned by the specified customers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s owning the reservations. |
 | `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
 
@@ -316,8 +316,8 @@ Returns all reservations with the specified confirmation numbers.
 {
   "Numbers": ["7781"],
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",,
-  "Client": "Mews",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
   "LanguageCode": null,
   "CultureCode": null
 }
@@ -327,7 +327,7 @@ Returns all reservations with the specified confirmation numbers.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Numbers` | array of string | required | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
 
 ### Response
@@ -346,7 +346,7 @@ Returns all revenue items associated with the specified reservations.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationIds": [
         "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
     ]
@@ -357,7 +357,7 @@ Returns all revenue items associated with the specified reservations.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | required | Unique identifiers of the [Reservation](reservations.md#reservation)s. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
@@ -424,7 +424,7 @@ Returns prices of reservations with the specified parameters.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "Reservations": [
         {
@@ -450,7 +450,7 @@ Returns prices of reservations with the specified parameters.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be priced. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the reservations to price. Note that `CustomerId` is not required when pricing reservations. |
 
@@ -500,7 +500,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "GroupId": null,
     "GroupName": null,
@@ -553,7 +553,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
 | `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specifed, this field is ignored. If not specified, the group name is automatically created. |
@@ -651,7 +651,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
     "Reason": "Testing",
     "CheckOverbooking": true,
@@ -709,7 +709,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Identifier of the reservation within the transaction. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
@@ -774,7 +774,7 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
 }
 ```
@@ -783,7 +783,7 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to confirm. |
 | `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 
@@ -805,7 +805,7 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
 }
 ```
@@ -814,7 +814,7 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to start. |
 
 ### Response
@@ -835,7 +835,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CloseBills": false,
     "AllowOpenBalance": false,
@@ -847,7 +847,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to process. |
 | `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
 | `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
@@ -871,7 +871,7 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "ChargeCancellationFee": true,
     "Notes": "Cancellation through Connector API"
@@ -882,7 +882,7 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to cancel. |
 | `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Addiotional notes describing the cancellation. |
@@ -905,7 +905,7 @@ Updates customer of a reservation.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
@@ -915,7 +915,7 @@ Updates customer of a reservation.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
@@ -937,7 +937,7 @@ Updates reservation interval \(start, end or both\).
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
     "StartUtc": "2017-08-12T15:00:00Z",
     "EndUtc": "2017-08-15T12:00:00Z",
@@ -949,7 +949,7 @@ Updates reservation interval \(start, end or both\).
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
@@ -973,7 +973,7 @@ Updates reservation allocation to space, e.g. to different room.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "SpaceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f"
 }
@@ -983,7 +983,7 @@ Updates reservation allocation to space, e.g. to different room.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be reassigned. |
 | `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) where the reservation should be assigned. |
 
@@ -1005,7 +1005,7 @@ Updates reservation category requested by the customer to a different one.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
     "Reprice": false,
@@ -1017,7 +1017,7 @@ Updates reservation category requested by the customer to a different one.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
 | `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
 | `Reprice` | bool | required | Whether reservation should be repriced according to new category pricing. |
@@ -1041,7 +1041,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
@@ -1051,7 +1051,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
@@ -1073,7 +1073,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
@@ -1083,7 +1083,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
@@ -1105,7 +1105,7 @@ Adds a new product order of the specified product to the reservation.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Mews",
+    "Client": "Sample Client 1.0.0",
     "ReservationId": "c2e37cec-11a0-4fe7-8467-fbc50b54722f",
     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f",
     "Count": 1,
@@ -1117,7 +1117,7 @@ Adds a new product order of the specified product to the reservation.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
 | `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
