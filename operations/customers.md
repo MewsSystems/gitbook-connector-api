@@ -12,6 +12,7 @@ Returns all customers from the specified interval according to the time filter \
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "TimeFilter": "Created",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z"
@@ -22,6 +23,7 @@ Returns all customers from the specified interval according to the time filter \
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Customer time filter](customers.md#customer-time-filter) | required | Time filter of the interval. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -157,6 +159,7 @@ Returns all customers with the specified ids.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerIds": [
         "35d4b117-4e60-44a3-9580-c582117eff98"
     ]
@@ -167,6 +170,7 @@ Returns all customers with the specified ids.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerIds` | array of string | required | Identifiers of [Customer](customers.md#customer)s. |
 
 ### Response
@@ -185,6 +189,7 @@ Returns all customers with the specified emails.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "Emails": [
         "john@doe.com"
     ]
@@ -195,6 +200,7 @@ Returns all customers with the specified emails.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Emails` | array of string | required | Emails of the [Customer](customers.md#customer)s. |
 
 ### Response
@@ -213,6 +219,7 @@ Returns all customers with the specified first name and last name.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "FirstName": "John",
     "LastName": "Doe"
 }
@@ -222,6 +229,7 @@ Returns all customers with the specified first name and last name.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `FirstName` | string | required | First name of the [Customer](customers.md#customer). |
 | `LastName` | string | required | Last name of the [Customer](customers.md#customer). |
 
@@ -241,6 +249,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "Name": "Smith"
 }
 ```
@@ -249,6 +258,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
 | `SpaceId` | string | optional | Identifier of [Space](enterprises.md#space) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
 
@@ -314,6 +324,7 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerIds": [
         "2a1a4315-7e6f-4131-af21-402cec59b8b9"
     ]
@@ -324,6 +335,7 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerIds` | array of string | required | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
@@ -385,6 +397,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "OverwriteExisting": false,
     "FirstName": "John",
     "LastName": "Doe",
@@ -413,6 +426,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `OverwriteExisting` | bool | required | Whether an existing customer should be overwritten in case of duplicity. This applies only to basic personal information \(`Title`, `FirstName`, `LastName`, ...\). |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
@@ -451,6 +465,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "FirstName": "John",
     "LastName": "Smith",
@@ -479,6 +494,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |
@@ -517,6 +533,7 @@ Merges one customer to another. All entities attached to the source customer \(e
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "SourceCustomerId": "e11801ff-4148-4010-87f3-0d111e2893e3",
     "TargetCustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
@@ -526,6 +543,7 @@ Merges one customer to another. All entities attached to the source customer \(e
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `SourceCustomerId` | string | required | Unique identifier of the source [Customer](customers.md#customer). |
 | `TargetCustomerId` | string | required | Unique identifier of the target [Customer](customers.md#customer). |
 
@@ -547,6 +565,7 @@ Attaches the specified file to the customer profile.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerId": "49aaff6b-32d8-48f5-8234-ce875aefc508",
     "Name": "test.pdf",
     "Type": "application/pdf",
@@ -558,6 +577,7 @@ Attaches the specified file to the customer profile.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `Name` | string | required | Name of the file. |
 | `Type` | string | required | MIME type of the file \(e.g. `application/pdf`\). |

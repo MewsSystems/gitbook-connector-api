@@ -11,7 +11,8 @@ Returns all services offered by the enterprise.
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -19,6 +20,7 @@ Returns all services offered by the enterprise.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -102,6 +104,7 @@ Returns availability of a reservation service in the specified interval. Note th
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "StartUtc":"2017-01-01T00:00:00.000Z",
     "EndUtc":"2017-01-03T00:00:00.000Z"
@@ -112,6 +115,7 @@ Returns availability of a reservation service in the specified interval. Note th
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -162,6 +166,7 @@ Returns all products offered together with the specified services.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ]
@@ -172,6 +177,7 @@ Returns all products offered together with the specified services.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
 
 ### Response
@@ -248,7 +254,8 @@ Returns all business segments of the default service provided by the enterprise.
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -256,6 +263,7 @@ Returns all business segments of the default service provided by the enterprise.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -300,6 +308,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "Extent": {
         "Rates": true,
         "RateGroups": true
@@ -311,6 +320,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Extent` | [Rate extent](services.md#rate-extent) | optional | Extent of data to be returned. If not specified, `Rates` and `RateGroups` is used as the default extent. |
 
 #### Rate extent
@@ -383,6 +393,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
     "StartUtc":"2017-01-01T00:00:00.000Z",
     "EndUtc":"2017-01-03T00:00:00.000Z"
@@ -393,6 +404,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -471,6 +483,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
     "PriceUpdates": [
         {
@@ -492,6 +505,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
 | `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
 
@@ -522,6 +536,7 @@ Returns all restrictions of the default service provided by the enterprise.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
     "SpaceCategoryIds": [
@@ -537,6 +552,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | [Restriction time filter](services.md#restriction-time-filter) | optional | Time filter of the interval. If not specified, restrictions `Created` within the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -723,6 +739,7 @@ Adds new restrictions with the specified conditions.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | required | Parameters of restrictions. |
 
 #### Restriction parameters
@@ -823,6 +840,7 @@ Removes restrictions from the service.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "RestrictionIds": [
         "af4949ce-c061-4f27-89f9-5a6a9ef725a7", 
         "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
@@ -834,6 +852,7 @@ Removes restrictions from the service.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](services.md#restriction)s. |
 
 ### Response
@@ -854,6 +873,7 @@ Creates a new order with the specified products and items. Only positive charges
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerId": "794dbb77-0a9a-4170-9fa9-62ea4bf2a56e",
     "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
     "ConsumptionUtc": "2018-01-01T00:00:00Z",
@@ -884,6 +904,7 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer) to be charged. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
 | `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. |
@@ -941,6 +962,7 @@ Returns all companionships based on customers, reservations or reservation group
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerIds": [
         "35d4b117-4e60-44a3-9580-c582117eff98"
     ],
@@ -957,6 +979,7 @@ Returns all companionships based on customers, reservations or reservation group
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
 | `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
 | `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
