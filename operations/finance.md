@@ -871,7 +871,7 @@ Adds a new tokenized credit card to the specified customer.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | Id | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
-| CustomerId | string | required | Unique identifier of the credit card [owner](customers.md#customer). |
+| CustomerId | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | IsActive | string | required | Whether the credit card is still active. |
 | State | string [Credit card state](finance.md#credit-card-state) | required | State of the credit card. |
 | Kind | string [Credit card kind](finance.md#credit-card-kind) | required | Kind of the credit card. |
