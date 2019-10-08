@@ -730,13 +730,13 @@ Updates information of the company.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company. |
-| `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company (or `null` if the mother company should not be updated). |
-| `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company (or `null` if the identifier should not be updated). |
-| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identification number of the company (or `null` if the tax identifier should not be updated). |
-| `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company (or `null` if the additional tax identifier should not be updated). |
-| `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company (or `null` if the billing code should not be updated). |
-| `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company (or `null` if the acounting code should not be updated). |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
+| `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
+| `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company \(or `null` if the identifier should not be updated). |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
+| `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
+| `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
+| `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
 
 ### Response
 
