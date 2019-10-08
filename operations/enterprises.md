@@ -572,7 +572,7 @@ Adds a new space block to the specified space for a defined period of time.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `SpaceBlockId` | string | required | Unique identifier of added space block. |
+| `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
 
 ## Update space state
 
