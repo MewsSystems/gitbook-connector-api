@@ -697,3 +697,47 @@ Adds a new company to the enterprise.
 ### Response
 
 Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+
+## Update company
+
+Updates information of the company.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companies/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Name": {
+        "Value": "Sample company name"
+    },
+    "MotherCompanyId": {
+        "Value": "ff649bce-0c4b-4395-9cdd-02039acb7cb3"
+    },
+    "Identifier": null,
+    "TaxIdentifier": null,
+    "AdditionalTaxIdentifier": null,
+    "BillingCode": null,
+    "AccountingCode": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company. |
+| `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company (or `null` if the mother company should not be updated). |
+| `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company (or `null` if the identifier should not be updated). |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identification number of the company (or `null` if the tax identifier should not be updated). |
+| `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company (or `null` if the additional tax identifier should not be updated). |
+| `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company (or `null` if the billing code should not be updated). |
+| `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company (or `null` if the acounting code should not be updated). |
+
+### Response
+
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
