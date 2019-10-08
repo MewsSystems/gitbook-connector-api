@@ -1,6 +1,6 @@
 # Changelog
 
-## 7th October 2019 10:00 UTC
+## 7th October 2019 13:10 UTC
 
 * Extended [Bill](operations/finance.md#bill) with `TaxedUtc`.
 
