@@ -21,6 +21,7 @@ This section describes all operations supported by the API:
   * [Update space state](enterprises.md#update-space-state) - updates state of a space.
   * [Add task](enterprises.md#add-task) - adds a task to the enterprise.
   * [Add Company](enterprises.md#add-company) - adds a new company to the enterprise.
+  * [Add space block](enterprises.md#add-space-block) - adds a new space block to the room.
 * [Services](services.md) - operations related to offered services, availability and prices.
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.
