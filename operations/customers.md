@@ -53,6 +53,8 @@ Returns all customers from the specified interval according to the time filter \
             "LanguageCode": null,
             "LastName": "Smith",
             "LoyaltyCode": null,
+            "AccountingCode": null,
+            "BillingCode": null,
             "NationalityCode": "US",
             "Notes": "",
             "Options": [],
