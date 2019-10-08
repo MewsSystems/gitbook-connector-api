@@ -825,6 +825,7 @@ Adds a new tokenized credit card to the specified customer.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
     "CreditCardData": {
         "StorageData": "2235057813",
@@ -838,6 +839,7 @@ Adds a new tokenized credit card to the specified customer.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `CreditCardData` | [Credit card data](finance.md#credit-card-data) | required | CreditCard details provided by PCI provider. |
 
