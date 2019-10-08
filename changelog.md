@@ -3,6 +3,7 @@
 ## 8th October 2019 09:00 UTC
 
 * Added [Add space block](operations/enterprises.md#add-space-block) operation.
+* Extended [Customer](operations/customers.md#customer) with `BillingCode` and `AccountingCode`.
 
 ## 7th October 2019 13:10 UTC
 
