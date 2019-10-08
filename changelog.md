@@ -2,6 +2,10 @@
 
 ## 7th October 2019 10:00 UTC
 
+* Extended [Bill](operations/finance.md#bill) with `TaxedUtc`.
+
+## 7th October 2019 10:00 UTC
+
 * Extended [Request body](guidelines.md#body) with `Client`.
 
 ## 25th September 2019 08:08 UTC
