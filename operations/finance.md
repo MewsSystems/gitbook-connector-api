@@ -528,7 +528,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `Number` | string | required | Number of the bill. |
 | `VariableSymbol` | string | optional | Variable symbol of the bill. |
 | `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
-| `TaxedUtc` | string | optional | Taxation date of the bill in ISO 8601 format. |
+| `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
