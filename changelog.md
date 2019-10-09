@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th October 2019 09:00 UTC
+
+* Added [Update company](operations/enterprises.md#udpate-company) operation.
+
 ## 8th October 2019 09:00 UTC
 
 * Added [Add space block](operations/enterprises.md#add-space-block) operation.
