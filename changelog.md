@@ -2,7 +2,7 @@
 
 ## 9th October 2019 09:00 UTC
 
-* Added [Update company](operations/enterprises.md#udpate-company) operation.
+* Added [Update company](operations/enterprises.md#update-company) operation.
 
 ## 8th October 2019 09:00 UTC
 
