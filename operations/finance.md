@@ -855,31 +855,13 @@ Adds a new tokenized credit card to the specified customer.
 
 ```javascript
 {
-    "Id": "ee2209ce-71c6-4e3a-978f-aac700c82c7b",
-    "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
-    "IsActive": true,
-    "State": "Enabled",
-    "Kind": "Gateway",
-    "Format": "Physical",
-    "Type": "None",
-    "ObfuscatedNumber": "************1111",
-    "Expiration": "2020-10",
-    "CreatedUtc": "2019-09-13T12:08:48Z"
+    "CreditCardId": "ee2209ce-71c6-4e3a-978f-aac700c82c7b"
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| Id | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
-| CustomerId | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| IsActive | string | required | Whether the credit card is still active. |
-| State | string [Credit card state](finance.md#credit-card-state) | required | State of the credit card. |
-| Kind | string [Credit card kind](finance.md#credit-card-kind) | required | Kind of the credit card. |
-| Format | string [Credit card format](finance.md#credit-card-format) | required | Format of the credit card. |
-| Type | string [Credit card type](finance.md#credit-card-type) | required | Type of the credit card. |
-| ObfuscatedNumber | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
-| Expiration | string | required | Expiration of the credit card in format `yyyy-MM`. |
-| CreatedUtc | string | required | Creation date and time of the credit card in UTC timezone in ISO 8601 format. |
+| CreditCardId | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
 ## Get all preauthorizations by customers
 
