@@ -727,7 +727,7 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `BookerId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
 
-#### String udpate value
+#### String update value
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
