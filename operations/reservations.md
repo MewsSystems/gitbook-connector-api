@@ -2,7 +2,7 @@
 
 ## Get all reservations
 
-Returns all reservations from the specified interval according to the time filter \(e.g. colliding with that interval or created in that interval\).
+Returns all reservations possible filtered by identifiers, customers, spaces, rates, business segments, numbers or time filter. One of the filters must be present.
 
 ### Request
 
@@ -15,10 +15,27 @@ Returns all reservations from the specified interval according to the time filte
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
+	"TimeFilter": "Colliding",
+    "ReservationIds": [
+        "2b6212d4-55d5-47ba-b8d2-da07be15bce9"
+    ],
+    "CustomerIds": [
+        "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
+    ],
+	"SpaceIds": [
+		"5ee074b1-6c86-48e8-915f-c7aa4702086f"
+	],
+	"RateIds": [
+		"ed4b660b-19d0-434b-9360-a4de2ea42eda"
+	],
+	"BusinessSegmentIds": [
+		"7760b5cb-a666-41bb-9758-76bf5d1df399"
+	],
+	"Numbers": [
+		"7781"
+	],
     "Extent": {
-        "Reservations": true,
-        "ReservationGroups": true,
-        "Customers": true
+        "Reservations": true
     }
 }
 ```
@@ -29,8 +46,14 @@ Returns all reservations from the specified interval according to the time filte
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
+| `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s to be returned. |
+| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s owning the reservations. |
+| `SpaceIds` | array of string | optional | Unique identifiers of [Space](enterprises.md#space)s assigned to the reservations. |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
+| `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
+| `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
 | `States` | array of string [Reservation state](reservations.md#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
 | `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. If not specified, `Reservations`, `Groups` and `Customers` is used as the default extent. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
@@ -240,99 +263,6 @@ Returns all reservations from the specified interval according to the time filte
 | --- | --- | --- | --- |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | required | Reservation data for QR code generation. |
-
-## Get all reservations by ids
-
-Returns all reservations with the specified unique identifiers.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/getAllByIds`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationIds": [
-        "2b6212d4-55d5-47ba-b8d2-da07be15bce9",
-        "0e2983e9-5ac1-4fd9-9f76-76565c1a9b67"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | required | Unique identifiers of [Reservation](reservations.md#reservation)s to be returned. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
-
-### Response
-
-Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
-
-## Get all reservations by customers
-
-Returns all reservations owned by the specified customers.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/getAllByCustomers`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CustomerIds": [
-        "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s owning the reservations. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. |
-
-### Response
-
-Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
-
-## Get all reservations by numbers
-
-Returns all reservations with the specified confirmation numbers.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/getAllByNumbers`
-
-```javascript
-{
-  "Numbers": ["7781"],
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "LanguageCode": null,
-  "CultureCode": null
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `Numbers` | array of string | required | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
-
-### Response
-
-Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
 
 ## Get all reservation items
 
