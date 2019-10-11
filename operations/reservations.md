@@ -15,7 +15,7 @@ Returns all reservations possible filtered by identifiers, customers, spaces, ra
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
-	"TimeFilter": "Colliding",
+    "TimeFilter": "Colliding",
     "ReservationIds": [
         "2b6212d4-55d5-47ba-b8d2-da07be15bce9"
     ],
