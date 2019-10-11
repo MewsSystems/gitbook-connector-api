@@ -15,25 +15,25 @@ Returns all reservations possible filtered by identifiers, customers, spaces, ra
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
-	"TimeFilter": "Colliding",
+    "TimeFilter": "Colliding",
     "ReservationIds": [
         "2b6212d4-55d5-47ba-b8d2-da07be15bce9"
     ],
     "CustomerIds": [
         "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
     ],
-	"SpaceIds": [
-		"5ee074b1-6c86-48e8-915f-c7aa4702086f"
-	],
-	"RateIds": [
-		"ed4b660b-19d0-434b-9360-a4de2ea42eda"
-	],
-	"BusinessSegmentIds": [
-		"7760b5cb-a666-41bb-9758-76bf5d1df399"
-	],
-	"Numbers": [
-		"7781"
-	],
+    "SpaceIds": [
+    	"5ee074b1-6c86-48e8-915f-c7aa4702086f"
+    ],
+    "RateIds": [
+	"ed4b660b-19d0-434b-9360-a4de2ea42eda"
+    ],
+    "BusinessSegmentIds": [
+	"7760b5cb-a666-41bb-9758-76bf5d1df399"
+    ],
+    "Numbers": [
+	"7781"
+    ],
     "Extent": {
         "Reservations": true
     }
