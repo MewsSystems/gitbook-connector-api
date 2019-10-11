@@ -45,7 +45,7 @@ Returns all reservations possible filtered by identifiers, customers, spaces, ra
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | string [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. If no other filter is specified, TimeFilter, StartUtc and EndUtc are required. |
+| `TimeFilter` | string [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. If no other filter is specified, `TimeFilter`, `StartUtc` and `EndUtc` are required. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s to be returned. |
