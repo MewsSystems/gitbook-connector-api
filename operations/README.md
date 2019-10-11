@@ -29,13 +29,13 @@ This section describes all operations supported by the API:
   * [Get all products](services.md#get-all-products) - returns all products offered together with services.
   * [Get all business segments](services.md#get-all-business-segments) - returns all business segments of a service.
   * [Get all rates](services.md#get-all-rates) - returns all rates of a service.
+  * [Get all companionships](services.md#get-all-companionships) - returns all companionships by filter.
   * [Get rate pricing](services.md#get-rate-pricing) - returns prices of a rate in an interval.
   * [Update rate price](services.md#update-rate-price) - updates prices of a rate.
   * [Get all restrictions](services.md#get-all-restrictions) - returns all restrictions of a service.
   * [Add restrictions](services.md#add-restrictions) - adds new restrictions.
   * [Delete restrictions](services.md#delete-restrictions) - removes restrictions.
   * [Add order](services.md#add-order) - adds a new service order.
-  * [Get all companionships](services.md#get-all-companionships) - returns all companionships by filter.
 * [Reservations](reservations.md) - operations for retrieval and modifications of reservations.
   * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations in an interval.
   * [Get all reservations by ids](reservations.md#get-all-reservations-by-ids) - returns all reservations by their identifiers.
