@@ -241,81 +241,6 @@ Returns all customers with the specified first name and last name.
 
 Same structure as in [Get all customers](customers.md#get-all-customers) operation.
 
-## Search customers
-
-Searches for customers that are active at the moment in the enterprise \(e.g. companions of on checked-in reservations or paymasters\).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/search`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "Name": "Smith"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
-| `SpaceId` | string | optional | Identifier of [Space](enterprises.md#space) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
-
-### Response
-
-```javascript
-{
-    "Customers": [
-        {
-            "Customer": {
-                "Address": null,
-                "BirthDate": null,
-                "BirthPlace": null,
-                "CategoryId": null,
-                "Classifications": [],
-                "CreatedUtc": "2016-01-01T00:00:00Z",
-                "Email": null,
-                "FirstName": "John",
-                "Gender": null,
-                "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
-                "IdentityCard": null,
-                "LanguageCode": null,
-                "LastName": "Smith",
-                "LoyaltyCode": null,
-                "NationalityCode": "US",
-                "Notes": "",
-                "Number": "1",
-                "Options": [],
-                "Passport": null,
-                "Phone": "00420123456789",
-                "SecondLastName": null,
-                "TaxIdentificationNumber": null,
-                "Title": null,
-                "UpdatedUtc": "2016-01-01T00:00:00Z",
-                "Visa": null
-            },
-            "Reservation": null
-        }
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
-
-#### Customer search result
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Customer` | [Customer](customers.md#customer) | required | The found customer. |
-| `Reservation` | [Reservation](reservations.md#reservation) | optional | Reservation of the customer in case he currently stays in the enterprise. |
-
 ## Get customers open items
 
 Returns all open items of the specified customers, i.e. all unpaid items and all deposited payments. Sum of the open items is the balance of the customer. If the `Currency` is specified, costs of the items are converted to that currency.
@@ -457,6 +382,42 @@ Adds a new customer to the system and returns details of the added customer. If 
 
 The created [Customer](customers.md#customer) or an existing [Customer](customers.md#customer) with the specified email.
 
+## Add customer file
+
+Attaches the specified file to the customer profile.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/customers/addFile`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CustomerId": "49aaff6b-32d8-48f5-8234-ce875aefc508",
+    "Name": "test.pdf",
+    "Type": "application/pdf",
+    "Data": "JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `Name` | string | required | Name of the file. |
+| `Type` | string | required | MIME type of the file \(e.g. `application/pdf`\). |
+| `Data` | string | required | Base64-encoded data of the file. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Update customer
 
 Updates personal information of a customer. Note that if any of the fields is left blank, it won't clear the field in Mews. The field will be left intact. In case of email update, the email will change in Mews only if there is no other customer profile in the hotel with such email. Otherwise an error response is returned.
@@ -525,6 +486,81 @@ Updates personal information of a customer. Note that if any of the fields is le
 
 The updated [Customer](customers.md#customer).
 
+## Search customers
+
+Searches for customers that are active at the moment in the enterprise \(e.g. companions of on checked-in reservations or paymasters\).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/customers/search`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Name": "Smith"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
+| `SpaceId` | string | optional | Identifier of [Space](enterprises.md#space) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
+
+### Response
+
+```javascript
+{
+    "Customers": [
+        {
+            "Customer": {
+                "Address": null,
+                "BirthDate": null,
+                "BirthPlace": null,
+                "CategoryId": null,
+                "Classifications": [],
+                "CreatedUtc": "2016-01-01T00:00:00Z",
+                "Email": null,
+                "FirstName": "John",
+                "Gender": null,
+                "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
+                "IdentityCard": null,
+                "LanguageCode": null,
+                "LastName": "Smith",
+                "LoyaltyCode": null,
+                "NationalityCode": "US",
+                "Notes": "",
+                "Number": "1",
+                "Options": [],
+                "Passport": null,
+                "Phone": "00420123456789",
+                "SecondLastName": null,
+                "TaxIdentificationNumber": null,
+                "Title": null,
+                "UpdatedUtc": "2016-01-01T00:00:00Z",
+                "Visa": null
+            },
+            "Reservation": null
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
+
+#### Customer search result
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Customer` | [Customer](customers.md#customer) | required | The found customer. |
+| `Reservation` | [Reservation](reservations.md#reservation) | optional | Reservation of the customer in case he currently stays in the enterprise. |
+
 ## Merge customers
 
 Merges one customer to another. All entities attached to the source customer \(e.g. orders, bills\) are attached to the target customer. Profile information of the target customer are extended but not overwritten with profile information of the source customer.
@@ -550,42 +586,6 @@ Merges one customer to another. All entities attached to the source customer \(e
 | `Client` | string | required | Name and version of the client application. |
 | `SourceCustomerId` | string | required | Unique identifier of the source [Customer](customers.md#customer). |
 | `TargetCustomerId` | string | required | Unique identifier of the target [Customer](customers.md#customer). |
-
-### Response
-
-```javascript
-{}
-```
-
-## Add customer file
-
-Attaches the specified file to the customer profile.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/addFile`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CustomerId": "49aaff6b-32d8-48f5-8234-ce875aefc508",
-    "Name": "test.pdf",
-    "Type": "application/pdf",
-    "Data": "JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `Name` | string | required | Name of the file. |
-| `Type` | string | required | MIME type of the file \(e.g. `application/pdf`\). |
-| `Data` | string | required | Base64-encoded data of the file. |
 
 ### Response
 

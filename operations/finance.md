@@ -788,53 +788,6 @@ Same structure as in [Get all credit cards by ids](finance.md#get-all-credit-car
 | --- | --- | --- | --- |
 | CreditCards | array of [Credit card](finance.md#credit-card)s | required | Credit cards of the specified [Customer](customers.md#customer)s. |
 
-## Charge credit card
-
-Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be `Gateway`.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/creditCards/charge`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
-    "Amount": {
-        "GrossValue": 5,
-        "Currency": "EUR"
-    },
-    "AccountingCategoryId": null,
-    "Notes": null,
-    "ReceiptIdentifier": null
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
-| `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the credit card payment. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#finance.md#accounting-category). |
-| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
-| `Notes` | string | optional | Additional payment notes. |
-
-### Response
-
-```javascript
-{
-    "PaymentId": "98753f51-5b8b-4e8f-a3af-5b8476865983"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| PaymentId | string | required | Unique identifier of the payment [Accounting item](finance.md#accounting-item). |
-
 ## Get all preauthorizations by customers
 
 Returns all preauthorizations of specified customers.
@@ -1115,3 +1068,49 @@ Adds new outlet bills with their items.
 {}
 ```
 
+## Charge credit card
+
+Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be `Gateway`.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/creditCards/charge`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
+    "Amount": {
+        "GrossValue": 5,
+        "Currency": "EUR"
+    },
+    "AccountingCategoryId": null,
+    "Notes": null,
+    "ReceiptIdentifier": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the credit card payment. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#finance.md#accounting-category). |
+| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
+| `Notes` | string | optional | Additional payment notes. |
+
+### Response
+
+```javascript
+{
+    "PaymentId": "98753f51-5b8b-4e8f-a3af-5b8476865983"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| PaymentId | string | required | Unique identifier of the payment [Accounting item](finance.md#accounting-item). |

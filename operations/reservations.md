@@ -488,6 +488,7 @@ Returns prices of reservations with the specified parameters.
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Total` | [Currency value](finance.md#currency-value) | required | Total price of the reservation. |
 
+
 ## Add reservations
 
 Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group.
@@ -638,6 +639,74 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
+
+## Add reservation companion
+
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion \(count of current companions is less than `AdultCount + ChildCount`\).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+
+### Response
+
+```javascript
+{}
+```
+
+## Add reservation product
+
+Adds a new product order of the specified product to the reservation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addProduct`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ReservationId": "c2e37cec-11a0-4fe7-8467-fbc50b54722f",
+    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f",
+    "Count": 1,
+    "UnitCost": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
+| `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
+| `UnitCost` | [Cost](services.md#cost) | optional | Unit cost of the product that overrides the cost defined in Mews. |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Update reservation
 
@@ -1029,37 +1098,6 @@ Updates reservation category requested by the customer to a different one.
 {}
 ```
 
-## Add reservation companion
-
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion \(count of current companions is less than `AdultCount + ChildCount`\).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-
-### Response
-
-```javascript
-{}
-```
 
 ## Delete reservation companion
 
@@ -1093,39 +1131,4 @@ Removes customer companionship from the reservation. Note that the customer prof
 {}
 ```
 
-## Add reservation product
-
-Adds a new product order of the specified product to the reservation.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addProduct`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationId": "c2e37cec-11a0-4fe7-8467-fbc50b54722f",
-    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f",
-    "Count": 1,
-    "UnitCost": null
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
-| `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-| `UnitCost` | [Cost](services.md#cost) | optional | Unit cost of the product that overrides the cost defined in Mews. |
-
-### Response
-
-```javascript
-{}
-```
 

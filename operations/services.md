@@ -381,6 +381,83 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
 
+## Get all companionships
+
+Returns all companionships based on customers, reservations or reservation groups. One of them must be specified in the request.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companionships/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CustomerIds": [
+        "35d4b117-4e60-44a3-9580-c582117eff98"
+    ],
+    "ReservationIds": [
+        "bfee2c44-1f84-4326-a862-5289598f6e2d"
+    ],
+    "ReservationGroupIds": [
+        "c704dff3-7811-4af7-a3a0-7b2b0635ac59"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
+| `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
+| `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
+| `Extent` | [Companionship extent](services.md#companionship-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. If not specified, only `Companionships` are returned. |
+
+#### Companionship extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Customers` | bool | optional | Whether the response should contain customers. |
+| `Reservations` | bool | optional | Whether the response should contain reservations. |
+| `ReservationGroups` | bool | optional | Whether the response should contain reservation groups. |
+
+### Response
+
+```javascript
+{
+    "Companionships": [
+        {
+            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "ReservationGroupId": "c704dff3-7811-4af7-a3a0-7b2b0635ac59",
+            "ReservationId": "bfee2c44-1f84-4326-a862-5289598f6e2d"
+        }
+    ],
+    "Customers": null,
+    "Reservations": null,
+    "ReservationGroups": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Companionships` | array of [Companionship](services.md#companionship) | required | Companionships. |
+| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
+| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
+| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
+
+#### Companionship
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
+| `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
+| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
+
 ## Get rate pricing
 
 Returns prices of a rate in the specified interval. Note that response contains prices for all dates that the specified interval intersects. So e.g. interval `1st Jan 13:00 - 1st Jan 14:00` will result in one price for `1st Jan`. Interval `1st Jan 23:00 - 2nd Jan 01:00` will result in two prices for `1st Jan` and `2nd Jan`.
@@ -470,59 +547,6 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `ParentCategoryId` | string | optional | Unique identifier of the parent [Space category](enterprises.md#space-category) that serves as a base price for the current category. |
 | `RelativeValue` | number | required | Relative value of the adjustment \(e.g. `0.5` represents 50% increase\). |
 | `AbsoluteValue` | number | required | Absolute value of the adjustment \(e.g. `50` represents 50 EUR in case the rate currency is `EUR`\). |
-
-## Update rate price
-
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price for all space categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/rates/updatePrice`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-    "PriceUpdates": [
-        {
-            "StartUtc": "2016-09-01T00:00:00Z",
-            "EndUtc": "2016-09-02T00:00:00Z",
-            "Value": 111
-        },
-        {
-            "CategoryId": "e3aa3117-dff0-46b7-b49a-2c0391e70ff9",
-            "StartUtc": "2016-09-04T00:00:00Z",
-            "EndUtc": "2016-09-05T00:00:00Z",
-            "Value": 222
-        }
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
-| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
-
-#### Price update
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryId` | string | optional | Unique identifier of the [Space category](enterprises.md#space-category) whose prices to update. If not specified, base price is updated. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
-
-### Response
-
-```javascript
-{}
-```
 
 ## Get all restrictions
 
@@ -828,39 +852,6 @@ Adds new restrictions with the specified conditions.
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `Restriction` | [Restriction](services.md#restriction) | required | The added restriction. |
 
-## Delete restrictions
-
-Removes restrictions from the service.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/restrictions/delete`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "RestrictionIds": [
-        "af4949ce-c061-4f27-89f9-5a6a9ef725a7", 
-        "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](services.md#restriction)s. |
-
-### Response
-
-```javascript
-{}
-```
-
 ## Add order
 
 Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
@@ -950,27 +941,32 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `OrderId` | string | required | Unique identifier of the created order. |
 
-## Get all companionships
+## Update rate price
 
-Returns all companionships based on customers, reservations or reservation groups. One of them must be specified in the request.
+Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price for all space categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/companionships/getAll`
+`[PlatformAddress]/api/connector/v1/rates/updatePrice`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "CustomerIds": [
-        "35d4b117-4e60-44a3-9580-c582117eff98"
-    ],
-    "ReservationIds": [
-        "bfee2c44-1f84-4326-a862-5289598f6e2d"
-    ],
-    "ReservationGroupIds": [
-        "c704dff3-7811-4af7-a3a0-7b2b0635ac59"
+    "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+    "PriceUpdates": [
+        {
+            "StartUtc": "2016-09-01T00:00:00Z",
+            "EndUtc": "2016-09-02T00:00:00Z",
+            "Value": 111
+        },
+        {
+            "CategoryId": "e3aa3117-dff0-46b7-b49a-2c0391e70ff9",
+            "StartUtc": "2016-09-04T00:00:00Z",
+            "EndUtc": "2016-09-05T00:00:00Z",
+            "Value": 222
+        }
     ]
 }
 ```
@@ -980,49 +976,53 @@ Returns all companionships based on customers, reservations or reservation group
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
-| `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
-| `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
-| `Extent` | [Companionship extent](services.md#companionship-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. If not specified, only `Companionships` are returned. |
+| `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
+| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
 
-#### Companionship extent
+#### Price update
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Customers` | bool | optional | Whether the response should contain customers. |
-| `Reservations` | bool | optional | Whether the response should contain reservations. |
-| `ReservationGroups` | bool | optional | Whether the response should contain reservation groups. |
+| `CategoryId` | string | optional | Unique identifier of the [Space category](enterprises.md#space-category) whose prices to update. If not specified, base price is updated. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
 
 ```javascript
+{}
+```
+
+## Delete restrictions
+
+Removes restrictions from the service.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/delete`
+
+```javascript
 {
-    "Companionships": [
-        {
-            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
-            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-            "ReservationGroupId": "c704dff3-7811-4af7-a3a0-7b2b0635ac59",
-            "ReservationId": "bfee2c44-1f84-4326-a862-5289598f6e2d"
-        }
-    ],
-    "Customers": null,
-    "Reservations": null,
-    "ReservationGroups": null
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "RestrictionIds": [
+        "af4949ce-c061-4f27-89f9-5a6a9ef725a7", 
+        "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
+    ]
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Companionships` | array of [Companionship](services.md#companionship) | required | Companionships. |
-| `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
-| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
-| `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](services.md#restriction)s. |
 
-#### Companionship
+### Response
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
-| `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
-| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
-| `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
+```javascript
+{}
+```

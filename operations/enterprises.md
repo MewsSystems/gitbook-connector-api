@@ -542,84 +542,6 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 * `Updated` - space block updated within the interval.
 * `Created` - space block created within the interval.
 
-## Add space block
-
-Adds a new space block to the specified space for a defined period of time.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/spaceBlocks/add`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "SpaceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
-    "Name": "Space block 1",
-    "StartUtc": "2019-10-15T10:00:00Z",
-    "EndUtc": "2019-10-20T10:00:00Z",
-    "Type": "OutOfOrder",
-    "Notes": "Note"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `SpaceId` | string | required | Unique identifier of [Space](#space). |
-| `Name` | string | required | Name of the space block. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `Type` | string [Space block type](#space-block-type) | required | Type of the space block. |
-| `Notes` | string | optional | Note describing the space block. |
-
-### Response
-
-```javascript
-{
-    "SpaceBlockId": "bf1e10b7-8a03-4675-9e27-05fc84312a58"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
-
-## Update space state
-
-Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/spaces/updateState`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "SpaceId": "41b3e3a2-3400-4d72-86d4-1e341ccf8977",
-    "State": "Inspected"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) to be updated. |
-| `State` | string [Space state](enterprises.md#space-state) | required | New state of the space \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
-
-### Response
-
-```javascript
-{}
-```
-
 ## Add task
 
 Adds a new task to the enterprise, optionally to a specified department.
@@ -697,6 +619,84 @@ Adds a new company to the enterprise.
 ### Response
 
 Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+
+## Add space block
+
+Adds a new space block to the specified space for a defined period of time.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/spaceBlocks/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "SpaceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
+    "Name": "Space block 1",
+    "StartUtc": "2019-10-15T10:00:00Z",
+    "EndUtc": "2019-10-20T10:00:00Z",
+    "Type": "OutOfOrder",
+    "Notes": "Note"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `SpaceId` | string | required | Unique identifier of [Space](#space). |
+| `Name` | string | required | Name of the space block. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `Type` | string [Space block type](#space-block-type) | required | Type of the space block. |
+| `Notes` | string | optional | Note describing the space block. |
+
+### Response
+
+```javascript
+{
+    "SpaceBlockId": "bf1e10b7-8a03-4675-9e27-05fc84312a58"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
+
+## Update space state
+
+Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/spaces/updateState`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "SpaceId": "41b3e3a2-3400-4d72-86d4-1e341ccf8977",
+    "State": "Inspected"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) to be updated. |
+| `State` | string [Space state](enterprises.md#space-state) | required | New state of the space \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Update company
 
