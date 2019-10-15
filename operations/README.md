@@ -20,13 +20,16 @@ This section describes all operations supported by the API:
   * [Get all space blocks](enterprises.md#get-all-space-blocks) - returns space blocks in an interval.
   * [Update space state](enterprises.md#update-space-state) - updates state of a space.
   * [Add task](enterprises.md#add-task) - adds a task to the enterprise.
-  * [Add Company](enterprises.md#add-company) - adds a new company to the enterprise.
+  * [Add company](enterprises.md#add-company) - adds a new company to the enterprise.
+  * [Update company](enterprises.md#update-company) - updates a company.
+  * [Add space block](enterprises.md#add-space-block) - adds a new space block to the room.
 * [Services](services.md) - operations related to offered services, availability and prices.
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.
   * [Get all products](services.md#get-all-products) - returns all products offered together with services.
   * [Get all business segments](services.md#get-all-business-segments) - returns all business segments of a service.
   * [Get all rates](services.md#get-all-rates) - returns all rates of a service.
+  * [Get all companionships](services.md#get-all-companionships) - returns all companionships by filter.
   * [Get rate pricing](services.md#get-rate-pricing) - returns prices of a rate in an interval.
   * [Update rate price](services.md#update-rate-price) - updates prices of a rate.
   * [Get all restrictions](services.md#get-all-restrictions) - returns all restrictions of a service.

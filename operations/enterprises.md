@@ -11,7 +11,8 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -19,6 +20,7 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Ids` | array of string | optional | If specified, returns only companies with the specified identifiers. |
 
 ### Response
@@ -93,6 +95,7 @@ Returns all company profiles with the specified name.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "Name": "AC Company"
 }
 ```
@@ -101,6 +104,7 @@ Returns all company profiles with the specified name.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Name` | string | required | Name of the [Company](enterprises.md#company). |
 
 ### Response
@@ -118,7 +122,8 @@ Returns all contracts between the enterprise and other companies.
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -126,6 +131,7 @@ Returns all contracts between the enterprise and other companies.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -169,6 +175,7 @@ Returns all departments of an enterprise associated with the connector integrati
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -176,6 +183,7 @@ Returns all departments of an enterprise associated with the connector integrati
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -220,6 +228,7 @@ Returns all outlets of an enterprise associated with the connector integration.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
 }
 ```
 
@@ -227,6 +236,7 @@ Returns all outlets of an enterprise associated with the connector integration.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -271,6 +281,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "Extent": {
         "Spaces": true,
         "SpaceCategories": true,
@@ -284,6 +295,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` and `SpaceCategories` is used as the default extent. |
 
 #### Space extent
@@ -447,6 +459,7 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2017-01-01T00:00:00Z",
     "TimeFilter": "Colliding",
@@ -460,6 +473,7 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `TimeFilter` | string [Space block time filter](#space-block-time-filter) | optional | Time filter of the interval. If not specified, `Colliding` is used. |
@@ -528,6 +542,52 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 * `Updated` - space block updated within the interval.
 * `Created` - space block created within the interval.
 
+## Add space block
+
+Adds a new space block to the specified space for a defined period of time.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/spaceBlocks/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "SpaceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
+    "Name": "Space block 1",
+    "StartUtc": "2019-10-15T10:00:00Z",
+    "EndUtc": "2019-10-20T10:00:00Z",
+    "Type": "OutOfOrder",
+    "Notes": "Note"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `SpaceId` | string | required | Unique identifier of [Space](#space). |
+| `Name` | string | required | Name of the space block. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `Type` | string [Space block type](#space-block-type) | required | Type of the space block. |
+| `Notes` | string | optional | Note describing the space block. |
+
+### Response
+
+```javascript
+{
+    "SpaceBlockId": "bf1e10b7-8a03-4675-9e27-05fc84312a58"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
+
 ## Update space state
 
 Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.
@@ -540,6 +600,7 @@ Updates state of the specified space. Note that the state is also updated on the
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "SpaceId": "41b3e3a2-3400-4d72-86d4-1e341ccf8977",
     "State": "Inspected"
 }
@@ -549,6 +610,7 @@ Updates state of the specified space. Note that the state is also updated on the
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) to be updated. |
 | `State` | string [Space state](enterprises.md#space-state) | required | New state of the space \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
 
@@ -570,6 +632,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "DepartmentId": null,
     "Name": "Test",
     "Description": "Task description",
@@ -581,6 +644,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 | `Name` | string | required | Name \(or title\) of the task. |
 | `Description` | string | optional | Further decription of the task. |
@@ -604,6 +668,7 @@ Adds a new company to the enterprise.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
     "Name": "Mews Systems",
     "MotherCompanyId": null,
     "Identifier": null,
@@ -619,6 +684,7 @@ Adds a new company to the enterprise.
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Name` | string | required | Name of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
 | `Identifier` | string | optional | Identifier of the company (e.g. legal identifier). |
@@ -627,6 +693,50 @@ Adds a new company to the enterprise.
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company. |
+
+### Response
+
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+
+## Update company
+
+Updates information of the company.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companies/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Name": {
+        "Value": "Sample company name"
+    },
+    "MotherCompanyId": {
+        "Value": "ff649bce-0c4b-4395-9cdd-02039acb7cb3"
+    },
+    "Identifier": null,
+    "TaxIdentifier": null,
+    "AdditionalTaxIdentifier": null,
+    "BillingCode": null,
+    "AccountingCode": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
+| `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
+| `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
+| `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
+| `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
+| `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
 
 ### Response
 
