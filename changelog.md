@@ -1,5 +1,9 @@
 # Changelog
 
+## 15th October 2019 15:00 UTC
+
+* Extended [Get configuration](operations/configuration.md#get-configuration) with [PaymentCardStorage](operations/configuration.md#payment-card-storage).
+
 ## 9th September 2019 15:50 UTC
 
 * Added [Get all bills](operations/finance.md#get-all-bills) operation.
