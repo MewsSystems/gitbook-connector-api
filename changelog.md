@@ -1,5 +1,26 @@
 # Changelog
 
+## 9th October 2019 09:00 UTC
+
+* Added [Update company](operations/enterprises.md#update-company) operation.
+
+## 8th October 2019 09:00 UTC
+
+* Added [Add space block](operations/enterprises.md#add-space-block) operation.
+* Extended [Customer](operations/customers.md#customer) with `BillingCode` and `AccountingCode`.
+
+## 7th October 2019 13:10 UTC
+
+* Extended [Bill](operations/finance.md#bill) with `TaxedUtc`.
+
+## 7th October 2019 10:00 UTC
+
+* Extended [Request body](guidelines.md#body) with `Client`.
+
+## 25th September 2019 08:08 UTC
+
+* Added [Get all companionships](operations/services.md#get-all-companionships) operation.
+
 ## 9th September 2019 15:50 UTC
 
 * Added [Get all bills](operations/finance.md#get-all-bills) operation.
