@@ -51,8 +51,6 @@ Returns all reservations from the specified interval according to the time filte
 | --- | --- | --- | --- |
 | `BusinessSegments` | bool | optional | Whether the response should contain business segmentation. |
 | `Customers` | bool | optional | Whether the response should contain customers of the reservations. |
-| `CustomerAddresses` | bool | optional | Whether the response should contain addresses of customers of the reservations. |
-| `CustomerIdentityDocuments` | bool | optional | Whether the response should contain identity documents of customers of the reservations. |
 | `Items` | bool | optional | Whether the response should contain reservation items. |
 | `Products` | bool | optional | Whether the response should contain products orderable with the reservations. |
 | `Rates` | bool | optional | Whether the response should contain rates and rate groups. |
