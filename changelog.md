@@ -1,5 +1,12 @@
 # Changelog
 
+## 16th October 2019 15:00 UTC
+
+* Update of [Get all reservations](operations/reservations.md#get-all-reservations) operation.
+* [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) will be deprecated in 3 months.
+* [Get all reservations by customers](operations/reservations.md#get-all-reservations-by-customers) will be deprecated in 3 months.
+* [Get all reservations by numbers](operations/reservations.md#get-all-reservations-by-numbers) will be deprecated in 3 months.
+
 ## 9th October 2019 09:00 UTC
 
 * Added [Update company](operations/enterprises.md#update-company) operation.
