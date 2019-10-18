@@ -863,7 +863,7 @@ Adds a new tokenized credit card to the specified customer.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `CreditCardData` | [Credit card data](finance.md#credit-card-data) | required | CreditCard details provided by PCI provider. |
+| `CreditCardData` | [Credit card data](finance.md#credit-card-data) | required | Credit card details provided by PCI provider. |
 
 #### Credit card data
 
