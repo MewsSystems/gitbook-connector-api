@@ -3,6 +3,7 @@
 ## 15th October 2019 16:00 UTC
 
 * Added [Add tokenized credit card](operations/finance.md#add-tokenized-credit-card) operation.
+* Extended [Get configuration](operations/configuration.md#get-configuration) with [PaymentCardStorage](operations/configuration.md#payment-card-storage).
 
 ## 9th October 2019 09:00 UTC
 
