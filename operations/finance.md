@@ -869,9 +869,9 @@ Adds a new tokenized credit card to the specified customer.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| StorageData | string | required | [Key](configuration.md#payment-card-storage) for accessing PCI proxy storage. |
-| ObfuscatedNumber | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
-| Expiration | string | required | Expiration of the credit card in format `yyyy-MM`. |
+| `StorageData` | string | required | [Key](configuration.md#payment-card-storage) for accessing PCI proxy storage. |
+| `ObfuscatedNumber` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
+| `Expiration` | string | required | Expiration of the credit card in format `yyyy-MM`. |
 
 ### Response
 
@@ -883,7 +883,7 @@ Adds a new tokenized credit card to the specified customer.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| CreditCardId | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
 ## Get all preauthorizations by customers
 
