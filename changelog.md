@@ -1,5 +1,9 @@
 # Changelog
 
+## 15th October 2019 16:00 UTC
+
+* Added [Add tokenized credit card](operations/finance.md#add-tokenized-credit-card) operation.
+
 ## 9th October 2019 09:00 UTC
 
 * Added [Update company](operations/enterprises.md#update-company) operation.
