@@ -2,7 +2,7 @@
 
 ## 6th November 2019 14:30 UTC
 
-* Extended [Product]("operations/services.md#product") with `Posting`.
+* Extended [Product](operations/services.md#product) with `Posting`.
 
 ## 15th October 2019 16:00 UTC
 
