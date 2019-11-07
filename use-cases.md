@@ -57,15 +57,15 @@ In case your device is a Key Cutter, you would get a command containing [Key cut
 
 Traditionally, a Point of Sale system (POS) will send totals from the system to a room or reservation located inside the Property Management System (PMS). 
 
-Unlike the example above, charges are not sent to rooms or reservations in Mews but the customer profile inside the PMS that are active and attached to a reservation (checked in). The items that are sent from the POS to Mews are called Orders.
+Unlike the example above, charges are not sent to rooms or reservations in Mews but the customer profile inside the PMS that are active and attached to a reservation (checked in) or profiles that are classified as `Paymaster`. The items that are sent from the POS to Mews are called Orders.
 
 The receipts that have been finalized in the POS can be sent to Mews to allow for end of day balancing. In Mews, these are called Outlets. 
 
 By default, only positive charges are allowed. 
 
-Mews provides a guide for properties to follow before using a Point of Sale integration, which can be viewed [here]([operations/services.md#get-all-services](https://help.mewssystems.com/hc/en-us/articles/360002080037-Point-of-sale-integrations-for-Commander)).  
+Mews provides a guide for properties to follow before using a Point of Sale integration, which can be viewed [here](https://help.mewssystems.com/hc/en-us/articles/360002080037-Point-of-sale-integrations-for-Commander).  
 
-### Initial Setup
+### Initial setup
 
 The integration should use the [Get all services](operations/services.md#get-all-services) endpoint to retrieve all services the property has created in Mews which then could be correctly mapped with similar information in the POS. The `ServiceId` will need to be used in the API call.
 
