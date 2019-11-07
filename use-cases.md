@@ -161,4 +161,4 @@ The integration must first retrieve all configured accounting categories using [
 The integration should call [Get all accounting items](operations/finance.md#get-all-accounting-items) with the accounting item time filter `Consumed` at regular (at least daily) intervals to return all accounting items of the enterprise that have been consumed within the selected time period. The same must be done with all outlet items using [Get all outlet items](operations/finance.md#get-all-outlet-items) with the time filter `Consumed`. For both calls, if the `Currency`
 is specified, the cost of the items will be converted to that currency. When retrieving the accounting items, the extent should include `CreditCardTransactions`  
 
-In order to retrieve all bills and invoices that must be paid and reconciled within the accounting software, the integration should use [Get all bills](operations/finance.md#get-all-bills).
+In order to retrieve all bills and invoices that must be paid and reconciled within the accounting software, the integration should use [Get all closed bills](operations/finance.md#get-all-closed-bills).

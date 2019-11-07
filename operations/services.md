@@ -188,6 +188,7 @@ Returns all products offered together with the specified services.
         {
             "CategoryId": null,
             "Charging": "PerPersonPerTimeUnit",
+            "Posting": "Once",
             "Description": "Nice continental breakfast.",
             "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
             "IsActive": true,
@@ -233,6 +234,7 @@ Returns all products offered together with the specified services.
 | `ShortName` | string | required | Short name of the product. |
 | `Description` | string | optional | Description of the product. |
 | `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
+| `Posting` | string [Product posting](services.md#product-posting) | required | Posting of the product. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 | `Price` | [Currency value](finance.md#currency-value) | required | Price of the product. |
 
@@ -242,6 +244,11 @@ Returns all products offered together with the specified services.
 * `PerTimeUnit`
 * `PerPersonPerTimeUnit`
 * `PerPerson`
+
+#### Product posting
+
+* `Once`
+* `Daily`
 
 ## Get all business segments
 
