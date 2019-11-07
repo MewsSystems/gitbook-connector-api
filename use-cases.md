@@ -71,7 +71,7 @@ The integration should use the [Get all services](operations/services.md#get-all
 
 [Get all spaces](operations/enterprises.md#get-all-spaces) will retrieve the list of `SpaceId` the property has setup in Mews. This endpoint will give the information needed to search for a specific room number in Mews.
 
-Outlets are used for the POS to send a full revenue push to Mews. Using the [Get all outlets](operations/enterprises.md#get-all-outlets) endpoint will retrieve any Outlets that the property has configured in Mews. Outlets should be separately created by the property for both their payments and revenue. 
+Outlets are used for the POS to send a full revenue push to Mews. Using the [Get all outlets](operations/enterprises.md#get-all-outlets) endpoint will retrieve any Outlets that the property has configured in Mews. Outlets should be by the property for each external location and `AccountingCategories` being used to seperate payments and revenue per Outlet.  
 
 In the POS system, accounting categories usually exist such as entree, main, dessert, beverage or alcohol. In order for the revenue to be correctly reported in Mews with these categories, they should be correctly mapped against accounting categories in Mews. The POS integration should use the [Get all account categories](operations/finance.md#get-all-accounting-categories) endpoint to pull a list of all `AccountingCategories` which the property has setup in Mews.
 
