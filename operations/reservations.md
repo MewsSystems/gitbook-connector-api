@@ -584,7 +584,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
-| `CreditCardId` | string | optional | Identifier of credit card belonging to Customer who owns the reservation. |
+| `CreditCardId` | string | optional | Identifier of credit card belonging to [Customer](customers.md#customer) who owns the reservation. |
 
 ### Response
 
