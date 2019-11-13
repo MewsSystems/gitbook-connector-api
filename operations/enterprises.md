@@ -588,7 +588,7 @@ Adds a new space block to the specified space for a defined period of time.
 | --- | --- | --- | --- |
 | `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
 
-## Delete space block
+## Delete space blocks
 
 Removes specified space blocks from the spaces.
 
