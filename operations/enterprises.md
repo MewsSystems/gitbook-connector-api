@@ -602,8 +602,8 @@ Removes specified space blocks from the spaces.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "SpaceBlockIds": [
-    	"bf1e10b7-8a03-4675-9e27-05fc84312a58",
-    	"e8fb6bfb-d64a-4e7c-acfe-ab0400d01183"
+        "bf1e10b7-8a03-4675-9e27-05fc84312a58",
+        "e8fb6bfb-d64a-4e7c-acfe-ab0400d01183"
     ]
 }
 ```
