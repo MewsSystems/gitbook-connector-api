@@ -1,5 +1,9 @@
 # Changelog
 
+## 21st Nonvember 2019 08:30 UTC
+
+* Added [Delete space blocks](operations/enterprises.md#delete-space-blocks) operation.
+
 ## 6th November 2019 14:30 UTC
 
 * Extended [Product](operations/services.md#product) with `Posting`.
