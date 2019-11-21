@@ -594,7 +594,7 @@ Removes specified space blocks from the spaces.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/spaceBlock/delete`
+`[PlatformAddress]/api/connector/v1/spaceBlocks/delete`
 
 ```javascript
 {
