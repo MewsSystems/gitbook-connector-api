@@ -588,6 +588,39 @@ Adds a new space block to the specified space for a defined period of time.
 | --- | --- | --- | --- |
 | `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
 
+## Delete space blocks
+
+Removes specified space blocks from the spaces.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/spaceBlock/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "SpaceBlockIds": [
+        "bf1e10b7-8a03-4675-9e27-05fc84312a58",
+        "e8fb6bfb-d64a-4e7c-acfe-ab0400d01183"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `SpaceBlockId` | array of string | required | Unique identifier of [Space block](enterprises.md#space-block)s to be removed. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Update space state
 
 Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.

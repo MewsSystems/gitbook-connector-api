@@ -23,6 +23,7 @@ This section describes all operations supported by the API:
   * [Add company](enterprises.md#add-company) - adds a new company to the enterprise.
   * [Update company](enterprises.md#update-company) - updates a company.
   * [Add space block](enterprises.md#add-space-block) - adds a new space block to the room.
+  * [Delete space blocks](enterprises.md#delete-space-blocks) - removes space blocks. 
 * [Services](services.md) - operations related to offered services, availability and prices.
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.
