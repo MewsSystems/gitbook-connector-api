@@ -613,7 +613,7 @@ Removes specified space blocks from the spaces.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `SpaceBlockId` | array of string | required | Unique identifier of [Space block](enterprises.md#space-block)s to be removed. |
+| `SpaceBlockIds` | array of string | required | Unique identifier of [Space block](enterprises.md#space-block)s to be removed. |
 
 ### Response
 
