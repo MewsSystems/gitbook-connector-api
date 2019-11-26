@@ -42,10 +42,10 @@ Returns all customers filtered by at least one of these properties: customer ide
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | optional | Identifiers of [Customer](customers.md#customer)s to use as filter. |
-| `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s to use as filter. |
-| `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer) to use as filter. |
-| `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer) to use as filter. |
+| `CustomerIds` | array of string | optional | Identifiers of [Customer](customers.md#customer)s to use as a filter. |
+| `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s to use as a filter. |
+| `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s to use as a filter. |
+| `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s to use as a filter. |
 | `TimeFilter` | string [Customer time filter](customers.md#customer-time-filter) | optional | Time filter of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
