@@ -593,3 +593,66 @@ Attaches the specified file to the customer profile.
 {}
 ```
 
+## Add registration card
+Creates registration card as pdf with received signature and attaches it to the customer profile.
+
+### Request 
+`[PlatformAddress]/api/connector/v1/customers/addRegistrationCard`
+
+```javascript
+{
+    "ReservationId": "71C63D19-2CD5-465D-8FC5-AB0400F650A1",
+    "CustomerId": "A30E2AFA-5752-455C-B2F9-AB0400F64EA1",
+    "Customer": {
+        "Gender": "Male",
+        "FirstName": "John",
+        "LastName": "Doe",
+        "BirthDate": "2000-10-10",
+        "Phone": "888888888",
+        "NationalityCode": "US",
+        "Address": {
+            "Line1": "123 Main St",
+            "City": "Anytown",
+            "PostalCode": "888 88",
+            "CountryCode": "AU",
+            "CountrySubdivisionCode": "AU-SA"
+        },
+        "Passport": {
+            "Number": "987654321",
+            "Issuance": "2015-02-15",
+            "Expiration": "2015-12-12",
+            "IssuingCountryCode": "US"
+        }
+    },
+    "Signature": {
+        "MimeType": "image/png",
+        "Base64Data": "iVBORw0KGgoAAAANSUhE..."
+    }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Customer` | [Customer](customers.md#customer) | required | Details of customer |
+| `Signature` | [Signature](customers.md#signature) | required | Signature encoded in base64string and its MIME type |
+| `ReservationId` | string | required | Unique identifier of reservation. |
+| `CustomerId` | string | required | Unique identifier of customer who created reservation group. |
+
+#### Signature 
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `MimeType` | string | required | MIME type of signature attached. |
+| `Base64Data` | string | required | Signature encoded in base64string. |
+
+#### MimeType
+
+* `png`
+* `jpeg`
+
+### Response
+
+```javascript
+{}
+```
+Response is empty because the registration card is attached to customer profile
