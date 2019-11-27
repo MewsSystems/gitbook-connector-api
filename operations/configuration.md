@@ -32,7 +32,9 @@ Returns configuration of the enterprise and the client.
             "CountryCode": "CZ",
             "Line1": "Anenské nám. 1",
             "Line2": "Ahoj",
-            "PostalCode": "110 00"
+            "PostalCode": "110 00",
+            "Latitude": 50.085180,
+            "Longitude": 14.414926
         },
         "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
         "CoverImageId": null,
@@ -102,6 +104,8 @@ Returns configuration of the enterprise and the client.
 | `PostalCode` | string | optional | Postal code. |
 | `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
+| `Latitude` | number | optional | The latitude (output only, can't be set from API call) |
+| `Longitude` | number | optional | The longtitude (output only, can't be set from API call) |
 
 #### Accepted currency
 
