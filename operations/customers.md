@@ -594,9 +594,11 @@ Attaches the specified file to the customer profile.
 ```
 
 ## Add registration card
+
 Creates registration card as pdf with received signature and attaches it to the customer profile.
 
 ### Request 
+
 `[PlatformAddress]/api/connector/v1/customers/addRegistrationCard`
 
 ```javascript
@@ -626,17 +628,17 @@ Creates registration card as pdf with received signature and attaches it to the 
     },
     "Signature": {
         "MimeType": "image/png",
-        "Base64Data": "iVBORw0KGgoAAAANSUhE..."
+        "Base64Data": "iVBORw0KGgoAAAANSUhEUgAAADwAAAAyCAIAAACPlC9VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABlSURBVGhD7dKxDcAgEARBmqcXusQOXIJZCWk2u+Q1wY99YdBV0FXQVdBV0FXQVdBV0FXQVdBV0FWn0GutOec3/u4U+hWPceq496iCroKugq6CroKugq6CroKugq6CroKuuhC99wN5AwAIQWG9+wAAAABJRU5ErkJggg=="
     }
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Customer` | [Customer](customers.md#customer) | required | Details of customer |
-| `Signature` | [Signature](customers.md#signature) | required | Signature encoded in base64string and its MIME type |
+| `Customer` | [Customer](customer) | required | Details of [Customer](Customer) |
+| `Signature` | [Signature](signature) | required | Signature encoded in base64string and its MIME type |
 | `ReservationId` | string | required | Unique identifier of reservation. |
-| `CustomerId` | string | required | Unique identifier of customer who created reservation group. |
+| `CustomerId` | string | required | Unique identifier of [Customer](Customer) who created reservation group. |
 
 #### Signature 
 
@@ -655,4 +657,3 @@ Creates registration card as pdf with received signature and attaches it to the 
 ```javascript
 {}
 ```
-Response is empty because the registration card is attached to customer profile
