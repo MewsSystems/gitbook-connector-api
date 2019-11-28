@@ -422,7 +422,15 @@ Adds a new customer to the system and returns details of the added customer. If 
     },
     "Passport": null,
     "Visa": null,
-    "DriversLicense": null
+    "DriversLicense": null,
+    "Address": {
+        "Line1": "Astronautů 2",
+        "Line2": "",
+        "City": "Havířov",
+        "PostalCode": "736 01",
+        "CountryCode": "CZ",
+        "CountrySubdivisionCode": null,
+    }
 }
 ```
 
@@ -449,9 +457,20 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
 | `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
+| `Address` | [AddressParameters](configuration.md#addressparameters) | optional | Address of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
+
+#### AddressParameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Line1` | string | optional | First line of the address. |
+| `Line2` | string | optional | Second line of the address. |
+| `City` | string | optional | The city. |
+| `PostalCode` | string | optional | Postal code. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 
 ### Response
 
@@ -517,7 +536,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Passport` | [Document](customers.md#document) | optional | New passport details. |
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
 | `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
-| `Address` | [Address](configuration.md#address) | optional | New address details. |
+| `Address` | [AddressParameters](configuration.md#addressparameters)  | optional | New address details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 

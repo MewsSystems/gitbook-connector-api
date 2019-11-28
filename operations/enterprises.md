@@ -32,11 +32,15 @@ Returns all company profiles of the enterprise, possible filtered by their ident
             "AccountingCode": "",
             "AdditionalTaxIdentifier": "",
             "Address": {
-                "City": "Dortmund",
-                "CountryCode": "DE",
+                "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
                 "Line1": "Rheinlanddamm 207-209",
                 "Line2": "",
+                "City": "Dortmund",
                 "PostalCode": "44137"
+                "CountryCode": "DE",
+                "CountrySubdivisionCode": null,
+                "Latitude": null,
+                "Longitude": null
             },
             "ElectronicInvoiceIdentifier": "",
             "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
@@ -725,7 +729,7 @@ Adds a new company to the enterprise.
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company. |
+| `Address` | [AddressParameters](configuration.md#addressparameters)  | optional | Address of the company. |
 
 ### Response
 
