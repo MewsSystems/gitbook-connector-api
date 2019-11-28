@@ -2,7 +2,7 @@
 
 ## Get all customers
 
-Returns all customers filtered by at least one of these properties: customer identifier, email, first name, last name, time when was customer created or updated.
+Returns all customers filtered by identifiers, emails, names and other filters.
 
 ### Request
 
@@ -32,7 +32,7 @@ Returns all customers filtered by at least one of these properties: customer ide
     "Extent" : {
         "Customers": "true",
         "Documents": "true",
-        "Addresses": "true"
+        "Addresses": "false"
     }
 }
 ```
@@ -42,14 +42,14 @@ Returns all customers filtered by at least one of these properties: customer ide
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | optional | Identifiers of [Customer](customers.md#customer)s to use as a filter. |
-| `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s to use as a filter. |
-| `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s to use as a filter. |
-| `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s to use as a filter. |
+| `CustomerIds` | array of string | optional | Identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
+| `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s. |
+| `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s. |
+| `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
 | `TimeFilter` | string [Customer time filter](customers.md#customer-time-filter) | optional | Time filter of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
-| `Extent` | [Customer extent](customers.md#customer-extent) | optional | Extent of data to be returned. In case no extent is provided all data will be returned. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | optional | Extent of data to be returned. If not specified, no extent is used. |
 
 #### Customer time filter
 
@@ -105,6 +105,7 @@ Returns all customers filtered by at least one of these properties: customer ide
     ],
     "Documents": [
         {
+            "Id": "e8a72a69-c20b-4278-b699-ab0400a32ecc",
             "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
             "Type": "IdentityCard",
             "Number": "123456",
@@ -166,7 +167,8 @@ Returns all customers filtered by at least one of these properties: customer ide
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CustomerId` | string | required | Identification of [Customer](customers.md#customer) who own the document. |
+| `Id` | string | required | Unique identifier of the document. |
+| `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
 | `Type` | string [Document type](customers.md#document-type) | required | Type of the document. |
 | `Number` | string | optional | Number of the document \(e.g. passport number\). |
 | `Expiration` | string | optional | Expiration date in ISO 8601 format. |
