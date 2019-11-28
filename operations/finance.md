@@ -671,7 +671,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 
 ## Get all credit cards 
 
-Returns all credit cards filtered by at least one of these properties: [Customer](customers.md#customer) identifier, [Credit card](finance.md#credit-card) identifier
+Returns all credit cards, possibly filtered by identifiers, [Customer](customers.md#customer)s or other filters.
 
 ### Request
 
@@ -696,7 +696,7 @@ Returns all credit cards filtered by at least one of these properties: [Customer
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreditCardIds` | array of string | optional | Unique identifiers of the [Credit card](finance.md#credit-card)s. |
+| `CreditCardIds` | array of string | optional | Unique identifiers of the [Credit card](finance.md#credit-card)s. Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 
 ### Response
