@@ -729,7 +729,7 @@ Adds a new company to the enterprise.
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `Address` | [AddressParameters](configuration.md#addressparameters)  | optional | Address of the company. |
+| `Address` | [AddressParameters](customers.md#addressparameters)  | optional | Address of the company. |
 
 ### Response
 
