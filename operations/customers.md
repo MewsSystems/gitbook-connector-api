@@ -650,7 +650,7 @@ Creates registration card as pdf with received signature and attaches it to the 
 
 #### MimeType
 
-* `png`
+* `image/png`
 * `jpeg`
 
 #### RegistrationCardCustomer
