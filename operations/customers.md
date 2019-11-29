@@ -614,6 +614,7 @@ Creates registration card as pdf with received signature and attaches it to the 
         "NationalityCode": "US",
         "Address": {
             "Line1": "123 Main St",
+            "Line2": "Address line 2",
             "City": "Anytown",
             "PostalCode": "888 88",
             "CountryCode": "AU",
@@ -635,10 +636,10 @@ Creates registration card as pdf with received signature and attaches it to the 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Customer` | [Customer](customer) | required | Details of [Customer](Customer) |
+| `Customer` | [Customer](customers.md#RegistrationCardCustomer) | required | Details of [Customer](customers.md#RegistrationCardCustomer) |
 | `Signature` | [Signature](signature) | required | Signature encoded in base64string and its MIME type |
 | `ReservationId` | string | required | Unique identifier of reservation. |
-| `CustomerId` | string | required | Unique identifier of [Customer](Customer) who created reservation group. |
+| `CustomerId` | string | required | Unique identifier of [Customer](customers.md#RegistrationCardCustomer) who created reservation group. |
 
 #### Signature 
 
@@ -651,6 +652,35 @@ Creates registration card as pdf with received signature and attaches it to the 
 
 * `png`
 * `jpeg`
+
+#### RegistrationCardCustomer
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `FirstName` | string | optional | New first name. |
+| `LastName` | string | optional | New last name. |
+| `SecondLastName` | string | optional | New second last name. |
+| `Title` | string [Title](customers.md#title) | optional | New title. |
+| `BirthDate` | string | optional | New birth date in ISO 8601 format. |
+| `BithPlace` | string | optional | New birth place. |
+| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
+| `Email` | string | optional | New email address. |
+| `Phone` | string | optional | New phone number. |
+| `LoyaltyCode` | string | optional | Loyalty code of the customer. |
+| `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
+| `CarRegistrationNumber` | string | optional | New registration number of the customer's car. |
+| `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
+| `IdentityCard` | [Document](customers.md#document) | optional | New identity card details. |
+| `Passport` | [Document](customers.md#document) | optional | New passport details. |
+| `Visa` | [Document](customers.md#document) | optional | New visa details. |
+| `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
+| `Address` | [Address](configuration.md#address) | optional | New address details. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
 ### Response
 
