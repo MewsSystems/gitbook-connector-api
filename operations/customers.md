@@ -636,8 +636,11 @@ Creates registration card as pdf with received signature and attaches it to the 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Customer` | [Customer](customers.md#RegistrationCardCustomer) | required | Details of [Customer](customers.md#RegistrationCardCustomer) |
-| `Signature` | [Signature](signature) | required | Signature encoded in base64string and its MIME type |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Customer` | [RegistrationCardCustomer](customers.md#RegistrationCardCustomer) | required | Details of [RegistrationCardCustomer](customers.md#RegistrationCardCustomer) |
+| `Signature` | [Signature](customers.md#Signature) | required | Signature encoded in base64string and its MIME type |
 | `ReservationId` | string | required | Unique identifier of reservation. |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#RegistrationCardCustomer) who created reservation group. |
 
@@ -657,10 +660,6 @@ Creates registration card as pdf with received signature and attaches it to the 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |
 | `SecondLastName` | string | optional | New second last name. |
@@ -679,7 +678,6 @@ Creates registration card as pdf with received signature and attaches it to the 
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
 | `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
 | `Address` | [Address](configuration.md#address) | optional | New address details. |
-| `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
 ### Response
