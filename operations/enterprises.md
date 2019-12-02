@@ -744,6 +744,7 @@ Updates information of the company.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "Id":"7a1e4d67-d6a2-4a4c-a464-ab1100bea786",
     "Name": {
         "Value": "Sample company name"
     },
@@ -770,6 +771,12 @@ Updates information of the company.
 | `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
 | `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
 | `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
+| `Options` | Array of [Company option](enterprises.md#company-options)  | optional | Options of the company. |
+| `InviceDueInterval` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
+| `Contact Person` | string | optional | Contact Person of the company. |
+| `Contact` | string | optional | Contact of the company. |
+| `Notes` | string | optional | Notes of the company. |
+| `Iata` | string | optional | Iata of the company. |
 
 ### Response
 
