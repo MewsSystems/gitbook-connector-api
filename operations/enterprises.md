@@ -726,6 +726,12 @@ Adds a new company to the enterprise.
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company. |
+| `Options` | Array of [Company option](enterprises.md#space-state)  | optional | Options of the company. |
+| `InviceDueInterval` | string | optional | InvoiceDueInterval of the company. |
+| `Contact Person` | string | optional | Contact Person of the company. |
+| `Contact` | string | optional | Contact of the company. |
+| `Notes` | string | optional | Notes of the company. |
+| `Iata` | string | optional | Iata of the company. |
 
 ### Response
 
