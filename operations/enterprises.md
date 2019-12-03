@@ -666,10 +666,11 @@ Adds a new task to the enterprise, optionally to a specified department.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "DepartmentId": null,
     "Name": "Test",
     "Description": "Task description",
-    "DeadlineUtc": "2016-01-01T14:00:00Z"
+    "DeadlineUtc": "2016-01-01T14:00:00Z",
+    "ServiceOrderId": "c73cf884-ae2b-4fba-858c-ab1400b4c8c3",
+    "DepartmentId": "8a0770a7-5178-4b87-8898-ab0400a346ec",
 }
 ```
 
@@ -678,10 +679,11 @@ Adds a new task to the enterprise, optionally to a specified department.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 | `Name` | string | required | Name \(or title\) of the task. |
 | `Description` | string | optional | Further decription of the task. |
 | `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
+| `ServiceOrderId` | string | optional | Unique identifier of the Service Order (for example a [Reservation](reservations.md#reservation)) the task is linked with. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 
 ### Response
 
