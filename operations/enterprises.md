@@ -688,8 +688,14 @@ Adds a new task to the enterprise, optionally to a specified department.
 ### Response
 
 ```javascript
-{}
+{
+    "TaskId": "11bcf947-d629-4781-89f9-ab1800d5aa47"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `TaskId` | string | required | Unique identifier of added task. |
 
 ## Add company
 
