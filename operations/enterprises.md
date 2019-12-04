@@ -755,7 +755,25 @@ Updates information of the company.
     "TaxIdentifier": null,
     "AdditionalTaxIdentifier": null,
     "BillingCode": null,
-    "AccountingCode": null
+    "AccountingCode": null,
+    "Options": {
+        "Value": ["Invoiceable"]
+    },
+    "InvoiceDueInterval": {
+        "Value": "P2DT23H"
+    },
+    "ContactPerson": {
+        "Value": "SamplePerson"
+    },
+    "Contact": {
+        "Value": "ContactInfo"
+    },
+    "Notes": {
+        "Value": "Notes"
+    },
+    "Iata": {
+        "Value": "PAO"
+    },     
 }
 ```
 
