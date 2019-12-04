@@ -710,6 +710,13 @@ Adds a new company to the enterprise.
     "BillingCode": null,
     "AccountingCode": null,
     "Address": null,
+    "Options": ["Invoiceable"],
+    "InvoiceDueInterval": "P2DT23H",
+    "Telephone": "111-222-333",
+    "ContacPerson": "SamplePerson",
+    "Contact": "ContactInfo",
+    "Notes": "Note1",
+    "Iata": "PAO"
 }
 ```
 
@@ -727,7 +734,7 @@ Adds a new company to the enterprise.
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company. |
 | `Options` | Array of [Company option](enterprises.md#company-options)  | optional | Options of the company. |
-| `InvoiceDueInterval` | string | optional | Interval in UTC timezone in ISO 8601 format. |
+| `InvoiceDueInterval` | string | optional | Duration in ISO 8601 format. |
 | `ContactPerson` | string | optional | Contact Person of the company. |
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
