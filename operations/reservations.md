@@ -2,7 +2,7 @@
 
 ## Get all reservations
 
-Returns all reservations possible filtered by identifiers, customers, spaces, rates, business segments, numbers or time filter. One of the filters must be present.
+Returns all reservations possible filtered by identifiers, customers, or other filters. One of the filters must be present.
 
 ### Request
 
@@ -23,16 +23,16 @@ Returns all reservations possible filtered by identifiers, customers, spaces, ra
         "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
     ],
     "SpaceIds": [
-    	"5ee074b1-6c86-48e8-915f-c7aa4702086f"
+        "5ee074b1-6c86-48e8-915f-c7aa4702086f"
     ],
     "RateIds": [
-	"ed4b660b-19d0-434b-9360-a4de2ea42eda"
+        "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     ],
     "BusinessSegmentIds": [
-	"7760b5cb-a666-41bb-9758-76bf5d1df399"
+        "7760b5cb-a666-41bb-9758-76bf5d1df399"
     ],
     "Numbers": [
-	"7781"
+        "7781"
     ],
     "Extent": {
         "Reservations": true
@@ -55,7 +55,7 @@ Returns all reservations possible filtered by identifiers, customers, spaces, ra
 | `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
 | `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
 | `States` | array of string [Reservation state](reservations.md#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. If not specified, `Reservations`, `Groups` and `Customers` is used as the default extent. |
+| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. If not specified, `Reservations`, `ReservationGroups` and `Customers` is used as the default extent. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 #### Reservation time filter
