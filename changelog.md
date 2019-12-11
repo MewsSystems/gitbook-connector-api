@@ -1,11 +1,22 @@
 # Changelog
 
-## 16th October 2019 15:00 UTC
+## 28th Nonvember 2019 08:30 UTC
 
-* Update of [Get all reservations](operations/reservations.md#get-all-reservations) operation.
-* [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) will be deprecated in 3 months.
-* [Get all reservations by customers](operations/reservations.md#get-all-reservations-by-customers) will be deprecated in 3 months.
-* [Get all reservations by numbers](operations/reservations.md#get-all-reservations-by-numbers) will be deprecated in 3 months.
+* Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CreditCardId`.
+* Extended [Update Reservation](operations/reservations.md#update-reservation) parameters with `CreditCardId`.
+
+## 21st Nonvember 2019 08:30 UTC
+
+* Added [Delete space blocks](operations/enterprises.md#delete-space-blocks) operation.
+
+## 6th November 2019 14:30 UTC
+
+* Extended [Product](operations/services.md#product) with `Posting`.
+
+## 15th October 2019 16:00 UTC
+
+* Added [Add tokenized credit card](operations/finance.md#add-tokenized-credit-card) operation.
+* Extended [Get configuration](operations/configuration.md#get-configuration) with [PaymentCardStorage](operations/configuration.md#payment-card-storage).
 
 ## 9th October 2019 09:00 UTC
 
