@@ -1,6 +1,6 @@
 # Webhooks
 
-Whenever integration client is changing its state webhook message could be sent to certain url set in webhook field.
+Whenever integration client is changing its state webhook message is sent to certain webhook url field set on that client. Webhook url is instatiated per integration and responds on action made on property level.
 
 ## Integration Created
 
