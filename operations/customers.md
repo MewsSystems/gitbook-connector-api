@@ -49,7 +49,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `TimeFilter` | string [Customer time filter](customers.md#customer-time-filter) | optional | Time filter of the interval. |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
-| `Extent` | [Customer extent](customers.md#customer-extent) | optional | Extent of data to be returned. If not specified, no extent is used. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. If not specified, no extent is used. |
 
 #### Customer time filter
 
