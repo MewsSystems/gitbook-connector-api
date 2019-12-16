@@ -765,7 +765,7 @@ Updates information of the company.
     "TaxIdentifier": null,
     "AdditionalTaxIdentifier": null,
     "BillingCode": null,
-    "AccountingCode": null,
+    "AccountingCode": null
 }
 ```
 
