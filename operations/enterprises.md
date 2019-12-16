@@ -756,9 +756,6 @@ Updates information of the company.
     "AdditionalTaxIdentifier": null,
     "BillingCode": null,
     "AccountingCode": null,
-    "Options": {
-        "Value": ["Invoiceable"]
-    },
     "InvoiceDueInterval": {
         "Value": "P2DT23H"
     },
@@ -773,7 +770,7 @@ Updates information of the company.
     },
     "Iata": {
         "Value": "PAO"
-    },     
+    }
 }
 ```
 
@@ -789,7 +786,6 @@ Updates information of the company.
 | `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
 | `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
 | `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
-| `Options` | Array of [Company option](enterprises.md#company-options)  | optional | Options of the company. |
 | `InviceDueInterval` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
 | `Contact Person` | string | optional | Contact Person of the company. |
 | `Contact` | string | optional | Contact of the company. |
