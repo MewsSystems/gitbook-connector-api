@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th December 2019 14:00 UTC
+
+* Added [Get all credit cards](finance.md#get-all-credit-cards) operation.
+
 ## 28th Nonvember 2019 08:30 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CreditCardId`.
