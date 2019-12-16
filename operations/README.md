@@ -76,8 +76,7 @@ This section describes all operations supported by the API:
   * [Get all accounting items](finance.md#get-all-accounting-items) - returns all accounting items in an interval.
   * [Get all bills](finance.md#get-all-bills) - returns all bills by filters.
   * [Get all outlet items](finance.md#get-all-outlet-items) - returns all outlet items in an interval.
-  * [Get all credit cards by ids](finance.md#get-all-credit-cards-by-ids) - returns all credit cards by their identifiers.
-  * [Get all credit cards by customers](finance.md#get-all-credit-cards-by-customers) - returns all credit cards of the specified customers.
+  * [Get all credit cards](finance.md#get-all-credit-cards) - returns all credit cards by filters.
   * [Charge credit card](finance.md#charge-credit-card) - charges specified customer credit card.
   * [Get all preauthorizations by customers](finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
   * [Add credit card payment](finance.md#add-credit-card-payment) - adds a new credit card payment.
