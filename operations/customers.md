@@ -42,7 +42,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | optional | Identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
 | `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s. |
 | `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s. |
 | `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
