@@ -20,6 +20,7 @@ This section describes all operations supported by the API:
   * [Get all space blocks](enterprises.md#get-all-space-blocks) - returns space blocks in an interval.
   * [Update space state](enterprises.md#update-space-state) - updates state of a space.
   * [Add task](enterprises.md#add-task) - adds a task to the enterprise.
+  * [Get all tasks](enterprises.md#get-all-tasks) - returns tasks by filters.
   * [Add company](enterprises.md#add-company) - adds a new company to the enterprise.
   * [Update company](enterprises.md#update-company) - updates a company.
   * [Add space block](enterprises.md#add-space-block) - adds a new space block to the room.

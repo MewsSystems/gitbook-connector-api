@@ -689,6 +689,82 @@ Adds a new task to the enterprise, optionally to a specified department.
 {}
 ```
 
+## Get all tasks
+
+Returns all tasks of the enterprise, possibly filtered by state or other filters. At least one of filters must be specified.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/tasks/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "State": "Open",
+    "DepartmentId": "c28cfb42-a963-4195-ad26-ab1b009b6425",
+    "ServiceOrderIds": [
+        "8D70F718-E19C-458D-8DDB-AB1B009B5487"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2019-12-08T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "ClosedUtc": {
+        "StartUtc": "2019-12-08T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "DeadlineUtc": {
+        "StartUtc": "2020-01-01T00:00:00Z",
+        "EndUtc": "2020-01-02T00:00:00Z"
+    },
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `State` | [Task State](enterprises.md#task-state) | optional | If specified, filter by state of task. |
+| `DepartmentId` | string | optional | If specified, filter by [Department](enterprises.md#department). |
+| `ServiceOrderIds` | array of string  | optional | If specified, filter by Service Orders (for example [Reservation](reservations.md#reservation)s). |
+| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by creation time. |
+| `ClosedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by closing time. |
+| `DeadlineUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by deadline time. |
+
+### Task State
+* `Open` 
+* `Closed` 
+
+#### Time Filter
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+
+### Response
+
+```javascript
+{
+    "Tasks": [
+        {
+            "Id": "b166fc93-c75a-438f-93b8-ab1e00a031ae",
+            "DepartmentId": "c28cfb42-a963-4195-ad26-ab1b009b6425",
+            "ServiceOrderId": "8d70f718-e19c-458d-8ddb-ab1b009b5487",
+            "Name": "Test all",
+            "Description": "Task description",
+            "CreatedUtc": "2019-12-09T09:43:14Z",
+            "DeadlineUtc": "2020-01-01T14:00:00Z",
+            "ClosedUtc": null,
+            "State": "Open"
+        }
+    ]
+}
+```
+
 ## Add company
 
 Adds a new company to the enterprise.
