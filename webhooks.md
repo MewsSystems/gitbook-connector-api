@@ -1,10 +1,10 @@
 # Webhooks
 
-Whenever integration client is changing its state webhook message is sent to certain webhook url field set on that client. Webhook url is instatiated per integration and responds on action made on property level.
+Action is triggered everytime when hotel updates the integration.
 
 ## Integration Created
 
-Whenever integration client is created.
+Whenever integration is created.
 
 ## Message
 ```javascript
@@ -26,11 +26,24 @@ Whenever integration client is created.
   }
 }
 ```
+
+| Property | Type |  Description |
+| --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
+| `Data` | object | Webhook object data. |
+| `Enterprise` |[Enterprise](configuration.md#Enterprise)| Commercial chain of the property |
+| `Requestor` | [Requestor](configuration.md#Requestor) |  Person requesting action. |
+| `AccessToken` | string | Access token of the client application. |
+| `CreatedUtc` | string | Creation date and time of the integration. |
+| `IsEnabled` | bool | Integration enabled by default. |
+| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+
 ## Integration Disabled
 
 Whenever integration is disabled.
 
 ## Message
+
 ```javascript
 {
   "Action": "IntegrationDisabled",
@@ -43,12 +56,18 @@ Whenever integration is disabled.
 }
 ```
 
+| Property | Type |  Description |
+| --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
+| `Data` | object | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
 
 ## IntegrationEnabled
 
 Whenever integration is enabled.
 
 ## Message
+
 ```javascript
 {
   "Action": "IntegrationEnabled",
@@ -61,11 +80,18 @@ Whenever integration is enabled.
 }
 ```
 
+| Property | Type |  Description |
+| --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
+| `Data` | object | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+
 ## Integration Deleted
 
 Whenever integration is deleted.
 
 ## Message
+
 ```javascript
 {
   "Action": "IntegrationDeleted",
@@ -79,11 +105,19 @@ Whenever integration is deleted.
 }
 ```
 
+| Property | Type |  Description |
+| --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
+| `Data` | object | Webhook object data. |
+| `DeletedUtc` | string | Deletion date and time of the integration. |
+| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+
 ## Integration Canceled
 
 Whenever integration is canceled.
 
 ## Message
+
 ```javascript
 {
   "Action": "IntegrationCanceled",
@@ -96,11 +130,18 @@ Whenever integration is canceled.
 }
 ```
 
+| Property | Type |  Description |
+| --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
+| `Data` | object | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+
 ## Integration Reinstated
 
 Whenever integration is reinstated after cancellation.
 
 ## Message
+
 ```javascript
 {
   "Action": "IntegrationReinstated",
@@ -112,3 +153,33 @@ Whenever integration is reinstated after cancellation.
   }
 }
 ```
+
+| Property | Type |  Description |
+| --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
+| `Data` | object | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+
+#### Integration client webhook action
+
+* `IntegrationCreated` - customer created within the interval.
+* `IntegrationDisabled` - customer updated or created within the interval.
+* `IntegrationEnabled` - customer updated or created within the interval.
+* `IntegrationDeleted` - customer updated or created within the interval.
+* `IntegrationCanceled` - customer updated or created within the interval.
+* `IntegrationReinstated` - customer updated or created within the interval.
+
+#### Enterprise
+
+| `Id` | string | Unique identifier of the enterprise. |
+| `Name` | string | Name of the enterprise. |
+
+#### Requestor
+
+| `Name` | string | Requestor's name. |
+| `Email` | string | Requestor's email. |
+
+#### Integration
+
+| `Id` | string | Unique identifier of the Integration. |
+| `Name` | string | Name of the intergation. |
