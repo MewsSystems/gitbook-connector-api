@@ -1,5 +1,12 @@
 # Webhooks
 
+* created
+* disabled
+* enabled
+* deleted
+* canceled
+* reinstated
+
 Action is triggered everytime when hotel updates the integration.
 
 ## Integration Created
