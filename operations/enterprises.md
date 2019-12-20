@@ -691,7 +691,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 
 ## Get all tasks
 
-Returns all tasks of the enterprise, possibly filtered by state or other filters. At least one of filters must be specified.
+Returns all tasks of the enterprise, filtered by identifiers, state or other filters. If `TaskIds` is not specified, at least one time filter and one other filter must be provided.
 
 ### Request
 
@@ -702,8 +702,15 @@ Returns all tasks of the enterprise, possibly filtered by state or other filters
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "State": "Open",
-    "DepartmentId": "c28cfb42-a963-4195-ad26-ab1b009b6425",
+    "TaskIds": [
+        "65cf1aac-bef2-4653-9350-ab2600af65af"
+    ],
+    "TaskStates": [
+        "Open"
+    ],
+    "DepartmentIds": [
+        "c28cfb42-a963-4195-ad26-ab1b009b6425"
+    ],
     "ServiceOrderIds": [
         "8D70F718-E19C-458D-8DDB-AB1B009B5487"
     ],
@@ -727,8 +734,9 @@ Returns all tasks of the enterprise, possibly filtered by state or other filters
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `State` | [Task State](enterprises.md#task-state) | optional | If specified, filter by state of task. |
-| `DepartmentId` | string | optional | If specified, filter by [Department](enterprises.md#department). |
+| `TasksIds` | array of string | optional | If specified, filter by task identifiers. |
+| `TaskStates` | array of [Task State](enterprises.md#task-state) | optional | If specified, filter by state of task. |
+| `DepartmentIds` | array of string | optional | If specified, filter by [Department](enterprises.md#department)s. |
 | `ServiceOrderIds` | array of string  | optional | If specified, filter by Service Orders (for example [Reservation](reservations.md#reservation)s). |
 | `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by creation time. |
 | `ClosedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by closing time. |
