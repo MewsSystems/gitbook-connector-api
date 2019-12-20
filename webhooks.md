@@ -34,16 +34,16 @@ Whenever integration is created.
 }
 ```
 
-| Property | Type |  Description |
-| --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
-| `Data` | object | Webhook object data. |
-| `Enterprise` |[Enterprise](configuration.md#Enterprise)| Commercial chain of the property |
-| `Requestor` | [Requestor](configuration.md#Requestor) |  Person requesting action. |
-| `AccessToken` | string | Access token of the client application. |
-| `CreatedUtc` | string | Creation date and time of the integration. |
-| `IsEnabled` | bool | Integration enabled by default. |
-| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action)| required | State of the integration |
+| `Data` | object | required | Webhook object data. |
+| `Enterprise` |[Enterprise](configuration.md#Enterprise)| required | Commercial chain of the property |
+| `Requestor` | [Requestor](configuration.md#Requestor) | required |  Person requesting action. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `CreatedUtc` | string | required | Creation date and time of the integration. |
+| `IsEnabled` | bool | required | Integration enabled by default. |
+| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ## Integration Disabled
 
@@ -63,11 +63,11 @@ Whenever integration is disabled.
 }
 ```
 
-| Property | Type |  Description |
-| --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
-| `Data` | object | Webhook object data. |
-| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | State of the integration |
+| `Data` | object | required | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ## IntegrationEnabled
 
@@ -87,11 +87,11 @@ Whenever integration is enabled.
 }
 ```
 
-| Property | Type |  Description |
-| --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
-| `Data` | object | Webhook object data. |
-| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | State of the integration |
+| `Data` | object | required | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ## Integration Deleted
 
@@ -112,12 +112,12 @@ Whenever integration is deleted.
 }
 ```
 
-| Property | Type |  Description |
-| --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
-| `Data` | object | Webhook object data. |
-| `DeletedUtc` | string | Deletion date and time of the integration. |
-| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | State of the integration |
+| `Data` | object | required |Webhook object data. |
+| `DeletedUtc` | string | required | Deletion date and time of the integration. |
+| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ## Integration Canceled
 
@@ -137,11 +137,11 @@ Whenever integration is canceled.
 }
 ```
 
-| Property | Type |  Description |
-| --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
-| `Data` | object | Webhook object data. |
-| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | State of the integration |
+| `Data` | object | required | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ## Integration Reinstated
 
@@ -161,11 +161,11 @@ Whenever integration is reinstated after cancellation.
 }
 ```
 
-| Property | Type |  Description |
-| --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | State of the integration |
-| `Data` | object | Webhook object data. |
-| `Integration` | [Integration](configuration.md#Integration) | Integration data. |
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | State of the integration |
+| `Data` | object | required | Webhook object data. |
+| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 #### Integration client webhook action
 
@@ -178,15 +178,15 @@ Whenever integration is reinstated after cancellation.
 
 #### Enterprise
 
-| `Id` | string | Unique identifier of the enterprise. |
-| `Name` | string | Name of the enterprise. |
+| `Id` | string | required | Unique identifier of the enterprise. |
+| `Name` | string | required | Name of the enterprise. |
 
 #### Requestor
 
-| `Name` | string | Requestor's name. |
-| `Email` | string | Requestor's email. |
+| `Name` | string | required | Requestor's name. |
+| `Email` | string | required | Requestor's email. |
 
 #### Integration
 
-| `Id` | string | Unique identifier of the Integration. |
-| `Name` | string | Name of the intergation. |
+| `Id` | string | required | Unique identifier of the Integration. |
+| `Name` | string | required | Name of the intergation. |
