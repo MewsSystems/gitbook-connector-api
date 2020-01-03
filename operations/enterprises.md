@@ -449,7 +449,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 ## Get all space blocks
 
-Returns all space blocks \(out of order blocks or house use blocks\) colliding with the specified interval.
+Returns all space blocks \(out of order blocks or house use blocks\) filtered by collision with specified interval or other filters.
 
 ### Request
 
@@ -460,9 +460,18 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "StartUtc": "2016-01-01T00:00:00Z",
-    "EndUtc": "2017-01-01T00:00:00Z",
-    "TimeFilter": "Colliding",
+    "CollidingUtc": {
+        "StartUtc": "2020-01-25T00:00:00Z",
+        "EndUtc": "2020-01-30T00:00:00Z"
+    },
+    "CreatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-15T00:00:00Z",
+        "EndUtc": "2020-01-20T00:00:00Z"
+    },
     "Extent": {
         "Inactive": true
     }
@@ -474,9 +483,9 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `TimeFilter` | string [Space block time filter](#space-block-time-filter) | optional | Time filter of the interval. If not specified, `Colliding` is used. |
+| `CollidingUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter blocks effective during the interval. |
+| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter blocks updated within the interval. |
+| `UpdatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter blocks created within the interval. |
 | `Extent` | [Space block extent](#space-block-extent) | optional | Extent of data to be returned. |
 
 #### Space block extent
@@ -535,12 +544,6 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 
 * `OutOfOrder`
 * `HouseUse`
-
-#### Space block time filter
-
-* `Colliding` - space block with duration within the interval.
-* `Updated` - space block updated within the interval.
-* `Created` - space block created within the interval.
 
 ## Add space block
 
