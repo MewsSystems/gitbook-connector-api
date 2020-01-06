@@ -457,11 +457,11 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
 | `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
-| `Address` | [AddressParameters](customers.md#addressparameters) | optional | Address of the customer. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
-#### AddressParameters
+#### Address parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -536,7 +536,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Passport` | [Document](customers.md#document) | optional | New passport details. |
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
 | `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
-| `Address` | [AddressParameters](customers.md#addressparameters)  | optional | New address details. |
+| `Address` | [Address parameters](customers.md#address-parameters)  | optional | New address details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
