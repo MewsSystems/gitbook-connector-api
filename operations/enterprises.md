@@ -36,10 +36,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Ids` | array of string | optional | If specified, filter [Companies](enterprises.md#company) by identifiers. |
-| `Names` | array of string | optional | If specified, filter [Companies](enterprises.md#company) by names. |
-| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter [Companies](enterprises.md#company) by creation time. |
-| `UpdatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter [Companies](enterprises.md#company) by time of last update. |
+| `Ids` | array of string | optional | Unique identifiers of [Company](enterprises.md#company)s. |
+| `Names` | array of string | optional | Names of [Company](enterprises.md#company)s. |
+| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | Interval of [Company](enterprises.md#company)s creation time. |
+| `UpdatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | Interval of [Company](enterprises.md#company)s last update time. |
 
 #### Time Filter
 
