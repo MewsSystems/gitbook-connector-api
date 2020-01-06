@@ -1124,7 +1124,7 @@ Adds new outlet bills with their items.
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit amount of the item. |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
