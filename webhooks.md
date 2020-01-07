@@ -1,12 +1,12 @@
 # Webhooks
 Currently supported webhooks for operation on integrations. Action is triggered everytime when hotel updates the integration.
 
-* [Integration created](websockets.md#integration-created)
-* [Integration disabled](websockets.md#integration-disabled)
-* [Integration enabled](websockets.md#integration-enabled)
-* [Integration deleted](websockets.md#integration-deleted)
-* [Integration canceled](websockets.md#integration-canceled)
-* [Integration reinstated](websockets.md#integration-reinstated)
+* [Integration created](webhooks.md#integration-created)
+* [Integration disabled](webhooks.md#integration-disabled)
+* [Integration enabled](webhooks.md#integration-enabled)
+* [Integration deleted](webhooks.md#integration-deleted)
+* [Integration canceled](webhooks.md#integration-canceled)
+* [Integration reinstated](webhooks.md#integration-reinstated)
 
 ## Integration Created
 
