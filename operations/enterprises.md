@@ -2,7 +2,7 @@
 
 ## Get all companies
 
-Returns all company profiles of the enterprise, possible filtered by their identifiers.
+Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
 
 ### Request
 
@@ -13,6 +13,21 @@ Returns all company profiles of the enterprise, possible filtered by their ident
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0"
+    "Ids": [
+        "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
+        "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
+    ],
+    "Names": [
+        "AC Company"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2019-12-05T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2019-12-10T00:00:00Z",
+        "EndUtc": "2019-12-17T00:00:00Z"
+    }
 }
 ```
 
@@ -21,7 +36,17 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Ids` | array of string | optional | If specified, returns only companies with the specified identifiers. |
+| `Ids` | array of string | optional | Unique identifiers of [Company](enterprises.md#company)s. |
+| `Names` | array of string | optional | Names of [Company](enterprises.md#company)s. |
+| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | Interval of [Company](enterprises.md#company)s creation date and time. |
+| `UpdatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | Interval of [Company](enterprises.md#company)s last update date and time. |
+
+#### Time Filter
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -82,34 +107,6 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
-
-## Get all companies by name
-
-Returns all company profiles with the specified name.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/companies/getAllByName`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "Name": "AC Company"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `Name` | string | required | Name of the [Company](enterprises.md#company). |
-
-### Response
-
-Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
 
 ## Get all company contracts
 
