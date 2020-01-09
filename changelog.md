@@ -2,7 +2,7 @@
 
 ## 9th January 2020 14:00 UTC
 
-* Extended [Get all companies](enterprises.md#get-all-companies) endpoint with `Ids`, `Names`, `CreatedUtc` and `UpdatedUtc`. 
+* Extended [Get all companies](operations/enterprises.md#get-all-companies) parameters with `Ids`, `Names`, `CreatedUtc` and `UpdatedUtc`. 
 
 ## 12th December 2019 14:00 UTC
 
