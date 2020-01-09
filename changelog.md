@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th January 2020 14:00 UTC
+
+* Extended [Get all companies](enterprises.md#get-all-companies) endpoint with `Ids`, `Names`, `CreatedUtc` and `UpdatedUtc`. 
+
 ## 12th December 2019 14:00 UTC
 
 * Added [Get all credit cards](operations/finance.md#get-all-credit-cards) operation.
