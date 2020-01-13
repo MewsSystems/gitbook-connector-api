@@ -2,12 +2,12 @@
 
 Currently supported webhooks for operation on integrations. Action is triggered everytime when hotel updates the integration.
 
-* [Integration created](webhooks.md#integration-created)
-* [Integration disabled](webhooks.md#integration-disabled)
-* [Integration enabled](webhooks.md#integration-enabled)
-* [Integration deleted](webhooks.md#integration-deleted)
-* [Integration canceled](webhooks.md#integration-canceled)
-* [Integration reinstated](webhooks.md#integration-reinstated)
+* [Integration created](webhooks.md#integration-created) - Whenever integration is created.
+* [Integration disabled](webhooks.md#integration-disabled) - Whenever integration is disabled.
+* [Integration enabled](webhooks.md#integration-enabled) - Whenever integration is enabled.
+* [Integration deleted](webhooks.md#integration-deleted) - Whenever integration is deleted.
+* [Integration canceled](webhooks.md#integration-canceled) - Whenever integration is canceled.
+* [Integration reinstated](webhooks.md#integration-reinstated) - Whenever integration is reinstated.
 
 ## Message
 
@@ -35,15 +35,6 @@ Currently supported webhooks for operation on integrations. Action is triggered 
 | --- | --- | --- | --- |
 | `Action` | [Action](configuration.md#Action)| required | Type of action |
 | `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
-
-#### Action
-
-* `IntegrationCreated` - Whenever integration is created.
-* `IntegrationDisabled` - Whenever integration is disabled.
-* `IntegrationEnabled` - Whenever integration is enabled.
-* `IntegrationDeleted` - Whenever integration is deleted.
-* `IntegrationCanceled` - Whenever integration is canceled.
-* `IntegrationReinstated` - Whenever integration is reinstated.
 
 ### Data
 
