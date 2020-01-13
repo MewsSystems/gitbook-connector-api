@@ -9,10 +9,6 @@ Currently supported webhooks for operation on integrations. Action is triggered 
 * [Integration canceled](webhooks.md#integration-canceled)
 * [Integration reinstated](webhooks.md#integration-reinstated)
 
-## Integration Created
-
-Whenever integration is created.
-
 ## Message
 
 ```javascript
