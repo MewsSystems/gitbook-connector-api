@@ -37,134 +37,17 @@ Whenever integration is created.
 ```
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action)| required | Type of action |
+| `Action` | [Action](configuration.md#Action)| required | Type of action |
 | `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
 
-## Integration Disabled
+#### Action
 
-Whenever integration is disabled.
-
-## Message
-
-```javascript
-{
-  "Action": "IntegrationDisabled",
-  "Data": {
-    "Integration": {
-      "Id": "9e5e84e9-974d-4f16-9662-ab2200f27cb1",
-      "Name": "WebhookTEST"
-    }
-  }
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | Type of action  |
-| `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
-
-## IntegrationEnabled
-
-Whenever integration is enabled.
-
-## Message
-
-```javascript
-{
-  "Action": "IntegrationEnabled",
-  "Data": {
-    "Integration": {
-      "Id": "9e5e84e9-974d-4f16-9662-ab2200f27cb1",
-      "Name": "WebhookTEST"
-    }
-  }
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | Type of action  |
-| `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
-
-## Integration Deleted
-
-Whenever integration is deleted.
-
-## Message
-
-```javascript
-{
-  "Action": "IntegrationDeleted",
-  "Data": {
-    "DeletedUtc": null,
-    "Integration": {
-      "Id": "201e7c8a-9883-4522-95e2-ab2200f3aa4b",
-      "Name": "WebhookTEST"
-    }
-  }
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | Type of action  |
-| `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
-
-## Integration Canceled
-
-Whenever integration is canceled.
-
-## Message
-
-```javascript
-{
-  "Action": "IntegrationCanceled",
-  "Data": {
-    "Integration": {
-      "Id": "3bb50576-79ea-48f8-8d07-ab25009fdfb2",
-      "Name": "WebhookTEST"
-    }
-  }
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | Type of action  |
-| `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
-
-## Integration Reinstated
-
-Whenever integration is reinstated after cancellation.
-
-## Message
-
-```javascript
-{
-  "Action": "IntegrationReinstated",
-  "Data": {
-    "Integration": {
-      "Id": "3bb50576-79ea-48f8-8d07-ab25009fdfb2",
-      "Name": "WebhookTEST"
-    }
-  }
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Action` | [Integration client webhook action](configuration.md#Integration-client-webhook-action) | required | Type of action  |
-| `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
-
-#### Integration client webhook action
-
-* `IntegrationCreated` - customer created within the interval.
-* `IntegrationDisabled` - customer updated or created within the interval.
-* `IntegrationEnabled` - customer updated or created within the interval.
-* `IntegrationDeleted` - customer updated or created within the interval.
-* `IntegrationCanceled` - customer updated or created within the interval.
-* `IntegrationReinstated` - customer updated or created within the interval.
+* `IntegrationCreated` - Whenever integration is created.
+* `IntegrationDisabled` - Whenever integration is disabled.
+* `IntegrationEnabled` - Whenever integration is enabled.
+* `IntegrationDeleted` - Whenever integration is deleted.
+* `IntegrationCanceled` - Whenever integration is canceled.
+* `IntegrationReinstated` - Whenever integration is reinstated.
 
 ### Data
 
@@ -190,23 +73,33 @@ Structure of  data varies depending on type of the [Action](integrations.md#acti
 
 ### Integration disabled data
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ### Integration enabled data
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ### Integration deleted data
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration. |
 | `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ### Integration canceled data
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 ### Integration reinstated data
 
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
 
 #### Enterprise
