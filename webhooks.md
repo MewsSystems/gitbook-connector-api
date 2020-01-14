@@ -2,12 +2,14 @@
 
 Currently supported webhooks for operation on integrations. Action is triggered everytime when hotel updates the integration.
 
-* [Integration created](webhooks.md#integration-created) - Whenever integration is created.
-* [Integration disabled](webhooks.md#integration-disabled) - Whenever integration is disabled.
-* [Integration enabled](webhooks.md#integration-enabled) - Whenever integration is enabled.
-* [Integration deleted](webhooks.md#integration-deleted) - Whenever integration is deleted.
-* [Integration canceled](webhooks.md#integration-canceled) - Whenever integration is canceled.
-* [Integration reinstated](webhooks.md#integration-reinstated) - Whenever integration is reinstated.
+### Webhook actions
+
+* [Integration created](webhooks.md#integration-created-data) - Whenever integration is created.
+* [Integration disabled](webhooks.md#integration-disabled-data) - Whenever integration is disabled.
+* [Integration enabled](webhooks.md#integration-enabled-data) - Whenever integration is enabled.
+* [Integration deleted](webhooks.md#integration-deleted-data) - Whenever integration is deleted.
+* [Integration canceled](webhooks.md#integration-canceled-data) - Whenever integration is canceled.
+* [Integration reinstated](webhooks.md#integration-reinstated-data) - Whenever integration is reinstated.
 
 ## Message
 
@@ -33,61 +35,30 @@ Currently supported webhooks for operation on integrations. Action is triggered 
 ```
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Action` | [Action](configuration.md#Action)| required | Type of action |
-| `Data` | [Data](integrations.md#Data) | required | Webhook object data. |
+| `Action` | string [Webhook action](webhooks.md#Webhook-actions) | required | Type of action |
+| `Data` | object | required | Webhook [Data](webhooks.md#Data). |
 
-### Data
+## Data
 
-Structure of  data varies depending on type of the [Action](integrations.md#action):
+Structure of data varies depending on the [Webhook](webhooks.md#Webhooks) action:
 
-* `IntegrationCreated` - [Integration created data](integrations.md#integration-created-data)
-* `IntegrationDisabled` - [Integration disabled data](integrations.md#integration-disabled-data)
-* `IntegrationEnabled` - [Integration enabled data](integrations.md#integration-enabled-data)
-* `IntegrationDeleted` - [Integration deleted data](integrations.md#integration-deleted-data)
-* `IntegrationCanceled` - [Integration canceled data](integrations.md#integration-canceled-data)
-* `IntegrationReinstated` - [Integration reinstated data](integrations.md#integration-reinstated-data)
+* `IntegrationCreated` - [Integration created data](webhooks.md#integration-created-data)
+* `IntegrationDisabled` - [Integration disabled data](webhooks.md#integration-disabled-data)
+* `IntegrationEnabled` - [Integration enabled data](webhooks.md#integration-enabled-data)
+* `IntegrationDeleted` - [Integration deleted data](webhooks.md#integration-deleted-data)
+* `IntegrationCanceled` - [Integration canceled data](webhooks.md#integration-canceled-data)
+* `IntegrationReinstated` - [Integration reinstated data](webhooks.md#integration-reinstated-data)
 
 ### Integration created data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` |[Enterprise](configuration.md#Enterprise)| required | Commercial chain of the property |
-| `Requestor` | [Requestor](configuration.md#Requestor) | required |  Person requesting action. |
+| `Enterprise` |[Enterprise](webhooks.md#Enterprise)| required | Commercial chain of the property |
+| `Requestor` | [Requestor](webhooks.md#Requestor) | required |  Person requesting action. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreatedUtc` | string | required | Creation date and time of the integration. |
 | `IsEnabled` | bool | required | Integration enabled by default. |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
-
-### Integration disabled data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
-
-### Integration enabled data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
-
-### Integration deleted data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `DeletedUtc` | string | required | Deletion date and time of the integration. |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
-
-### Integration canceled data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
-
-### Integration reinstated data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Integration` | [Integration](configuration.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
 
 #### Enterprise
 
@@ -109,3 +80,34 @@ Structure of  data varies depending on type of the [Action](integrations.md#acti
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the Integration. |
 | `Name` | string | required | Name of the intergation. |
+
+### Integration disabled data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration enabled data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration deleted data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `DeletedUtc` | string | required | Deletion date and time of the integration. |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration canceled data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration reinstated data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
