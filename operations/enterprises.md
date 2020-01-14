@@ -38,10 +38,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Client` | string | required | Name and version of the client application. |
 | `Ids` | array of string | optional | Unique identifiers of [Companies](enterprises.md#company). |
 | `Names` | array of string | optional | Names of [Companies](enterprises.md#company). |
-| `CreatedUtc` | [Time Interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. |
-| `UpdatedUtc` | [Time Interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. |
 
-#### Time Interval
+#### Time interval
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
