@@ -480,9 +480,9 @@ Returns all space blocks \(out of order blocks or house use blocks\) filtered by
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CollidingUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter blocks effective during the interval. |
-| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter blocks updated within the interval. |
-| `UpdatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter blocks created within the interval. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter blocks effective during the interval. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter blocks updated within the interval. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter blocks created within the interval. |
 | `Extent` | [Space block extent](#space-block-extent) | optional | Extent of data to be returned. |
 
 #### Space block extent
