@@ -746,14 +746,14 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
     "Tasks": [
         {
             "Id": "b166fc93-c75a-438f-93b8-ab1e00a031ae",
+            "Name": "Test all",
+            "State": "Open"
+            "Description": "Task description",
             "DepartmentId": "c28cfb42-a963-4195-ad26-ab1b009b6425",
             "ServiceOrderId": "8d70f718-e19c-458d-8ddb-ab1b009b5487",
-            "Name": "Test all",
-            "Description": "Task description",
             "CreatedUtc": "2019-12-09T09:43:14Z",
             "DeadlineUtc": "2020-01-01T14:00:00Z",
             "ClosedUtc": null,
-            "State": "Open"
         }
     ]
 }
