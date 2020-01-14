@@ -688,7 +688,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 
 ## Get all tasks
 
-Returns all tasks of the enterprise, filtered by identifiers, state or other filters. If `TaskIds` is not specified, at least one time filter and one other filter must be provided.
+Returns all tasks of the enterprise, filtered by identifiers or other filters.
 
 ### Request
 
@@ -701,9 +701,6 @@ Returns all tasks of the enterprise, filtered by identifiers, state or other fil
     "Client": "Sample Client 1.0.0",
     "TaskIds": [
         "65cf1aac-bef2-4653-9350-ab2600af65af"
-    ],
-    "TaskStates": [
-        "Open"
     ],
     "DepartmentIds": [
         "c28cfb42-a963-4195-ad26-ab1b009b6425"
@@ -731,24 +728,16 @@ Returns all tasks of the enterprise, filtered by identifiers, state or other fil
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TasksIds` | array of string | optional | If specified, filter by task identifiers. |
-| `TaskStates` | array of [Task State](enterprises.md#task-state) | optional | If specified, filter by state of task. |
-| `DepartmentIds` | array of string | optional | If specified, filter by [Department](enterprises.md#department)s. |
-| `ServiceOrderIds` | array of string  | optional | If specified, filter by Service Orders (for example [Reservation](reservations.md#reservation)s). |
-| `CreatedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by creation time. |
-| `ClosedUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by closing time. |
-| `DeadlineUtc` | [Time Filter](enterprises.md#time-filter) | optional | If specified, filter by deadline time. |
+| `TaskIds` | array of string | optional | If specified, filter by task identifiers. |
+| `DepartmentIds` | array of string | optional | If specified, filter by [Department](enterprises.md#department)s. Another filter must be submitted together with this one.  |
+| `ServiceOrderIds` | array of string  | optional | If specified, filter by Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter by creation time. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter by closing time. |
+| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter by deadline time. |
 
 ### Task State
 * `Open` 
 * `Closed` 
-
-#### Time Filter
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
