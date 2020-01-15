@@ -743,10 +743,6 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of task closing time. |
 | `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of task deadline time. |
 
-### Task State
-* `Open` 
-* `Closed` 
-
 ### Response
 
 ```javascript
@@ -766,6 +762,28 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
     ]
 }
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Tasks` | array of [Task](enterprises.md#task) | required | The filtered tasks. |
+
+#### Task
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the task. |
+| `Name` | string | required | Name \(or title\) of the task. |
+| `State` | [Task state](enterprises.md#task-state) | required | State of the task. |
+| `Description` | string | optional | Further decription of the task. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
+| `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)) the task is linked with. |
+| `CreatedUtc` | string | required | Creation date and time of the task in UTC timezone in ISO 8601 format. |
+| `DeadlineUtc` | string | required | Deadline date and time of the task in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Closing date and time of the task in UTC timezone in ISO 8601 format. |
+
+### Task state
+* `Open` 
+* `Closed` 
 
 ## Add company
 
