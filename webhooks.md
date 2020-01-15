@@ -1,46 +1,38 @@
 # Webhooks
 
-Currently supported webhooks for operation on integrations. Action is triggered everytime when hotel updates the integration.
-
-### Webhook actions
-
-* [Integration created](webhooks.md#integration-created-data) - Whenever integration is created.
-* [Integration disabled](webhooks.md#integration-disabled-data) - Whenever integration is disabled.
-* [Integration enabled](webhooks.md#integration-enabled-data) - Whenever integration is enabled.
-* [Integration deleted](webhooks.md#integration-deleted-data) - Whenever integration is deleted.
-* [Integration canceled](webhooks.md#integration-canceled-data) - Whenever integration is canceled.
-* [Integration reinstated](webhooks.md#integration-reinstated-data) - Whenever integration is reinstated.
+Currently supported webhooks that are triggered everytime when hotel updates the integration.
 
 ## Message
 
 ```javascript
 {
-  "Action": "IntegrationCreated",
-  "Data": {
-    "Enterprise": {
-      "Id": "8865aa96-f62d-4f9b-a912-ab2100f60f42",
-      "Name": "Sample Chain Hotel 1"
-    },
-    "Requestor": null,
-    "AccessToken":"9E5E84E9974D4F169662AB2200F27CB1-00B343A0DDA725CACAC028E38E3EABF",
-    "CreatedUtc": "2019-12-13T14:42:52Z",
-    "IsEnabled": true,
-    "Integration": {
-      "Id": "9e5e84e9-974d-4f16-9662-ab2200f27cb1",
-      "Name": "WebhookTEST"
+    "Action": "IntegrationCreated",
+    "Data": {
+        "Enterprise": {
+            "Id": "8865aa96-f62d-4f9b-a912-ab2100f60f42",
+            "Name": "Sample Chain Hotel 1"
+        },
+        "Requestor": null,
+        "AccessToken":"9E5E84E9974D4F169662AB2200F27CB1-00B343A0DDA725CACAC028E38E3EABF",
+        "CreatedUtc": "2019-12-13T14:42:52Z",
+        "IsEnabled": true,
+        "Integration": {
+          "Id": "9e5e84e9-974d-4f16-9662-ab2200f27cb1",
+          "Name": "WebhookTEST"
+        }
     }
-  }
 }
 
 ```
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Action` | string [Webhook action](webhooks.md#Webhook-actions) | required | Type of action |
-| `Data` | object | required | Webhook [Data](webhooks.md#Data). |
+| `Action` | string [Webhook action](webhooks.md#webhook-action) | required | Type of action. |
+| `Data` | object | required | Webhook [Data](webhooks.md#integration-created-data). |
 
-## Data
+## Webhook action
 
-Structure of data varies depending on the [Webhook](webhooks.md#Webhooks) action:
+Structure of data varies depending on the [Webhook action](webhooks.md#webhook-action):
 
 * `IntegrationCreated` - [Integration created data](webhooks.md#integration-created-data)
 * `IntegrationDisabled` - [Integration disabled data](webhooks.md#integration-disabled-data)
@@ -53,11 +45,11 @@ Structure of data varies depending on the [Webhook](webhooks.md#Webhooks) action
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` |[Enterprise](webhooks.md#Enterprise)| required | Commercial chain of the property |
-| `Requestor` | [Requestor](webhooks.md#Requestor) | required |  Person requesting action. |
+| `Enterprise` |[Enterprise](webhooks.md#Enterprise)| required | Commercial chain of the property. |
+| `Requestor` | [Requestor](webhooks.md#Requestor) | required | Person requesting action. |
 | `AccessToken` | string | required | Access token of the client application. |
-| `CreatedUtc` | string | required | Creation date and time of the integration. |
-| `IsEnabled` | bool | required | Integration enabled by default. |
+| `CreatedUtc` | string | required | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
+| `IsEnabled` | bool | required | Whether integration is enabled. |
 | `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
 
 #### Enterprise
@@ -71,14 +63,14 @@ Structure of data varies depending on the [Webhook](webhooks.md#Webhooks) action
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Name` | string | required | Requestor's name. |
-| `Email` | string | required | Requestor's email. |
+| `Name` | string | required | Name of the requestor. |
+| `Email` | string | required | Email of the requestor. |
 
 #### Integration
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the Integration. |
+| `Id` | string | required | Unique identifier of the integration. |
 | `Name` | string | required | Name of the intergation. |
 
 ### Integration disabled data
@@ -97,7 +89,7 @@ Structure of data varies depending on the [Webhook](webhooks.md#Webhooks) action
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `DeletedUtc` | string | required | Deletion date and time of the integration. |
+| `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
 | `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
 
 ### Integration canceled data
