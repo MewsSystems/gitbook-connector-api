@@ -1093,6 +1093,19 @@ Adds new outlet bills with their items.
                     },
                     "ConsumedUtc": "2017-01-01T00:00:00Z",
                     "AccountingCategoryId": null
+                },
+                {
+                    "ConsumedUtc": "2020-01-15T00:00:00Z",
+                    "Name": "Cash payment",
+                    "Type": "Payment",
+                    "UnitAmount": {
+                        "Currency": "USD",
+                        "NetValue": 15,
+                        "TaxCodes": [
+                            "US-DC-G"
+                        ]
+                    },
+                    "UnitCount": 1
                 }
             ]
         }
