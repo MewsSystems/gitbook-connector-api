@@ -728,12 +728,12 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TaskIds` | array of string | optional | If specified, filter by task identifiers. |
-| `DepartmentIds` | array of string | optional | If specified, filter by [Department](enterprises.md#department)s. Another filter must be submitted together with this one.  |
-| `ServiceOrderIds` | array of string  | optional | If specified, filter by Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter by creation time. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter by closing time. |
-| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter by deadline time. |
+| `TaskIds` | array of string | optional | Unique identifiers of tasks. |
+| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](enterprises.md#department)s. Another filter must be submitted together with this one.  |
+| `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of task creation time. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of task closing time. |
+| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of task deadline time. |
 
 ### Task State
 * `Open` 
