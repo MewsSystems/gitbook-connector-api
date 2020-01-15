@@ -1116,7 +1116,13 @@ Adds a new product order of the specified product to the reservation.
     "ReservationId": "c2e37cec-11a0-4fe7-8467-fbc50b54722f",
     "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f",
     "Count": 1,
-    "UnitCost": null
+    "UnitAmount": {
+        "Currency": "USD",
+        "NetValue": 10,
+        "TaxCodes": [
+            "US-DC-G"
+        ]
+    }
 }
 ```
 
@@ -1128,11 +1134,15 @@ Adds a new product order of the specified product to the reservation.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
 | `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-| `UnitCost` | [Cost](services.md#cost) | optional | Unit cost of the product that overrides the cost defined in Mews. |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews.  |
 
 ### Response
 
 ```javascript
-{}
+{
+    "ItemIds": [
+        "ff81fd7a-29ba-4160-8e22-ab4300f67b23"
+    ]
+}
 ```
 
