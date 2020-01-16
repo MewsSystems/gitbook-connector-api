@@ -1,5 +1,9 @@
 # Changelog
 
+## 15th January 2020 14:00 UTC
+
+* Extended [Add task](operations/enterprises.md#add-task) parameters with `ServiceOrderId`. 
+
 ## 9th January 2020 14:00 UTC
 
 * Extended [Get all companies](operations/enterprises.md#get-all-companies) parameters with `Ids`, `Names`, `CreatedUtc` and `UpdatedUtc`. 
