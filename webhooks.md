@@ -1,6 +1,6 @@
 # Webhooks
 
-Currently supported webhooks that are triggered everytime when hotel updates the integration.
+Partners can be notified about integration changes via webhook calls that are triggered everytime when hotel updates the integration.
 
 ## Message
 
@@ -17,8 +17,8 @@ Currently supported webhooks that are triggered everytime when hotel updates the
         "CreatedUtc": "2019-12-13T14:42:52Z",
         "IsEnabled": true,
         "Integration": {
-          "Id": "9e5e84e9-974d-4f16-9662-ab2200f27cb1",
-          "Name": "WebhookTEST"
+            "Id": "9e5e84e9-974d-4f16-9662-ab2200f27cb1",
+            "Name": "WebhookTEST"
         }
     }
 }
@@ -32,12 +32,12 @@ Currently supported webhooks that are triggered everytime when hotel updates the
 
 ## Webhook action
 
-Structure of data varies depending on the [Webhook action](webhooks.md#webhook-action):
+Structure of data varies depending on the webhook adction:
 
 * `IntegrationCreated` - [Integration created data](webhooks.md#integration-created-data)
-* `IntegrationDisabled` - [Integration disabled data](webhooks.md#integration-disabled-data)
-* `IntegrationEnabled` - [Integration enabled data](webhooks.md#integration-enabled-data)
 * `IntegrationDeleted` - [Integration deleted data](webhooks.md#integration-deleted-data)
+* `IntegrationEnabled` - [Integration enabled data](webhooks.md#integration-enabled-data)
+* `IntegrationDisabled` - [Integration disabled data](webhooks.md#integration-disabled-data)
 * `IntegrationCanceled` - [Integration canceled data](webhooks.md#integration-canceled-data)
 * `IntegrationReinstated` - [Integration reinstated data](webhooks.md#integration-reinstated-data)
 
@@ -73,23 +73,17 @@ Structure of data varies depending on the [Webhook action](webhooks.md#webhook-a
 | `Id` | string | required | Unique identifier of the integration. |
 | `Name` | string | required | Name of the intergation. |
 
-### Integration disabled data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
-
-### Integration enabled data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
-
 ### Integration deleted data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration disabled data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
 
 ### Integration canceled data
