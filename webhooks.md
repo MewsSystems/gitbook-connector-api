@@ -32,7 +32,7 @@ Partners can be notified about integration changes via webhook calls that are tr
 
 ## Webhook action
 
-Structure of data varies depending on the webhook adction:
+Structure of data varies depending on the webhook action:
 
 * `IntegrationCreated` - [Integration created data](webhooks.md#integration-created-data)
 * `IntegrationDeleted` - [Integration deleted data](webhooks.md#integration-deleted-data)
