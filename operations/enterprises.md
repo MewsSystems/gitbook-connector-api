@@ -480,16 +480,16 @@ Returns all space blocks \(out of order blocks or house use blocks\) filtered by
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter blocks effective during the interval. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter blocks updated within the interval. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | If specified, filter blocks created within the interval. |
-| `Extent` | [Space block extent](#space-block-extent) | optional | Extent of data to be returned. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which the space block is active. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of space block creation time. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of last space block update time. |
+| `Extent` | [Space block extent](#space-block-extent) | required | Extent of data to be returned. |
 
 #### Space block extent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
+| `Inactive` | bool | required | Whether the response should contain inactive entities. |
 
 ### Response
 
