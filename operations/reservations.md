@@ -568,7 +568,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `State` | string [Reservation state](reservations.md#reservation-state) | optional | State of the newly created reservation \(either `Optional` or `Confirmed`\). If not specified, `Confirmed` is used. |
+| `State` | string [Reservation state](reservations.md#reservation-state) | optional | State of the newly created reservation \(either `Optional`, `Enquired` or `Confirmed`\). If not specified, `Confirmed` is used. |
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
