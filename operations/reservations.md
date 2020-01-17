@@ -508,7 +508,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
     "Reservations": [
         {
             "Identifier": "1234",
-            "State" : "Optional",
+            "State" : "Confirmed",
             "StartUtc": "2018-01-01T14:00:00Z",
             "EndUtc": "2018-01-02T10:00:00Z",
             "ReleasedUtc": null,
