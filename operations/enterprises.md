@@ -2,7 +2,7 @@
 
 ## Get all companies
 
-Returns all company profiles of the enterprise, possible filtered by their identifiers.
+Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
 
 ### Request
 
@@ -13,6 +13,21 @@ Returns all company profiles of the enterprise, possible filtered by their ident
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0"
+    "Ids": [
+        "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
+        "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
+    ],
+    "Names": [
+        "AC Company"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2019-12-05T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2019-12-10T00:00:00Z",
+        "EndUtc": "2019-12-17T00:00:00Z"
+    }
 }
 ```
 
@@ -21,7 +36,17 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Ids` | array of string | optional | If specified, returns only companies with the specified identifiers. |
+| `Ids` | array of string | optional | Unique identifiers of [Companies](enterprises.md#company). |
+| `Names` | array of string | optional | Names of [Companies](enterprises.md#company). |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. |
+
+#### Time interval
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -82,34 +107,6 @@ Returns all company profiles of the enterprise, possible filtered by their ident
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
-
-## Get all companies by name
-
-Returns all company profiles with the specified name.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/companies/getAllByName`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "Name": "AC Company"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `Name` | string | required | Name of the [Company](enterprises.md#company). |
-
-### Response
-
-Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
 
 ## Get all company contracts
 
@@ -588,6 +585,39 @@ Adds a new space block to the specified space for a defined period of time.
 | --- | --- | --- | --- |
 | `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
 
+## Delete space blocks
+
+Removes specified space blocks from the spaces.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/spaceBlocks/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "SpaceBlockIds": [
+        "bf1e10b7-8a03-4675-9e27-05fc84312a58",
+        "e8fb6bfb-d64a-4e7c-acfe-ab0400d01183"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `SpaceBlockIds` | array of string | required | Unique identifier of [Space block](enterprises.md#space-block)s to be removed. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Update space state
 
 Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.
@@ -633,10 +663,11 @@ Adds a new task to the enterprise, optionally to a specified department.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "DepartmentId": null,
     "Name": "Test",
     "Description": "Task description",
-    "DeadlineUtc": "2016-01-01T14:00:00Z"
+    "DeadlineUtc": "2016-01-01T14:00:00Z",
+    "ServiceOrderId": "c73cf884-ae2b-4fba-858c-ab1400b4c8c3",
+    "DepartmentId": "8a0770a7-5178-4b87-8898-ab0400a346ec",
 }
 ```
 
@@ -645,16 +676,23 @@ Adds a new task to the enterprise, optionally to a specified department.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 | `Name` | string | required | Name \(or title\) of the task. |
 | `Description` | string | optional | Further decription of the task. |
 | `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
+| `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services.md#add-order)) the task is linked with. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 
 ### Response
 
 ```javascript
-{}
+{
+    "TaskId": "11bcf947-d629-4781-89f9-ab1800d5aa47"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `TaskId` | string | required | Unique identifier of added task. |
 
 ## Add company
 

@@ -669,13 +669,13 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes on the bill. |
 
-## Get all credit cards by ids
+## Get all credit cards 
 
-Returns all credit cards with the specified ids.
+Returns all credit cards, possibly filtered by identifiers, [Customer](customers.md#customer)s or other filters.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/creditCards/getAllByIds`
+`[PlatformAddress]/api/connector/v1/creditCards/getAll`
 
 ```javascript
 {
@@ -684,6 +684,9 @@ Returns all credit cards with the specified ids.
     "Client": "Sample Client 1.0.0",
     "CreditCardIds": [
         "f1d94a32-b4be-479b-9e47-a9fcb03d5196"
+    ],
+    "CustomerIds": [
+        "5cbbd97d-5f19-4010-9abf-ab0400a3366a"
     ]
 }
 ```
@@ -693,7 +696,8 @@ Returns all credit cards with the specified ids.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreditCardIds` | array of string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
+| `CreditCardIds` | array of string | optional | Unique identifiers of the [Credit card](finance.md#credit-card)s. Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 
 ### Response
 
@@ -753,40 +757,6 @@ Returns all credit cards with the specified ids.
 #### Credit card type
 
 * `MasterCard`, `Visa`, `Amex`, `Maestro`, `Discover`, `VPay`, ...
-
-## Get all credit cards by customers
-
-Returns all credit cards of specified customers.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/creditCards/getAllByCustomers`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CustomerIds": [
-        "a3c90426-43f2-4b53-8482-446dfc724bd2"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer)s. |
-
-### Response
-
-Same structure as in [Get all credit cards by ids](finance.md#get-all-credit-cards-by-ids) operation.
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| CreditCards | array of [Credit card](finance.md#credit-card)s | required | Credit cards of the specified [Customer](customers.md#customer)s. |
 
 ## Charge credit card
 
@@ -1154,7 +1124,7 @@ Adds new outlet bills with their items.
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitAmount` | [Amount](finance.md#amount-value) | required | Unit amount of the item. |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes of the item. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
