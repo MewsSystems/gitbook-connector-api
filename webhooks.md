@@ -28,7 +28,7 @@ Partners can be notified about integration changes via webhook calls that are tr
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Action` | string [Webhook action](webhooks.md#webhook-action) | required | Type of action. |
-| `Data` | object | required | Webhook [Data](webhooks.md#integration-created-data). |
+| `Data` | object [Data](webhooks.md#integration-created-data) | required | Webhook data. |
 
 ## Webhook action
 
@@ -78,6 +78,12 @@ Structure of data varies depending on the webhook action:
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration enabled data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
 
 ### Integration disabled data
