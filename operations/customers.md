@@ -26,9 +26,14 @@ Returns all customers filtered by identifiers, emails, names and other filters.
     "LastNames": [
         "Doe"
     ],
-    "TimeFilter": "Created",
-    "StartUtc": "2016-01-01T00:00:00Z",
-    "EndUtc": "2016-01-07T00:00:00Z",
+    "CreatedUtc": {
+        "StartUtc": "2019-12-05T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2019-12-10T00:00:00Z",
+        "EndUtc": "2019-12-17T00:00:00Z"
+    }
     "Extent" : {
         "Customers": "true",
         "Documents": "true",
@@ -46,15 +51,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s. |
 | `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s. |
 | `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
-| `TimeFilter` | string [Customer time filter](customers.md#customer-time-filter) | optional | Time filter of the interval. |
-| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Customer](customers.md#customer) creation date and time. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Customer](customers.md#customer) last update date and time. |
 | `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. If not specified, no extent is used. |
-
-#### Customer time filter
-
-* `Created` - customer created within the interval.
-* `Updated` - customer updated or created within the interval.
 
 #### Customer extent
 
