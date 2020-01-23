@@ -1,6 +1,6 @@
 # Webhooks
 
-Partners can be notified about integration changes via webhook calls that are triggered everytime when hotel updates the integration.
+When an action of particular type is performed in the system, a message is sent to the configured webhook, using HTTP POST and JSON body.
 
 ## Message
 
@@ -35,11 +35,11 @@ Partners can be notified about integration changes via webhook calls that are tr
 Structure of data varies depending on the webhook action:
 
 * `IntegrationCreated` - [Integration created data](webhooks.md#integration-created-data)
-* `IntegrationDeleted` - [Integration deleted data](webhooks.md#integration-deleted-data)
 * `IntegrationEnabled` - [Integration enabled data](webhooks.md#integration-enabled-data)
 * `IntegrationDisabled` - [Integration disabled data](webhooks.md#integration-disabled-data)
 * `IntegrationCanceled` - [Integration canceled data](webhooks.md#integration-canceled-data)
 * `IntegrationReinstated` - [Integration reinstated data](webhooks.md#integration-reinstated-data)
+* `IntegrationDeleted` - [Integration deleted data](webhooks.md#integration-deleted-data)
 
 ### Integration created data
 
@@ -73,13 +73,6 @@ Structure of data varies depending on the webhook action:
 | `Id` | string | required | Unique identifier of the integration. |
 | `Name` | string | required | Name of the intergation. |
 
-### Integration deleted data
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
-
 ### Integration enabled data
 
 | Property | Type |  | Description |
@@ -102,4 +95,11 @@ Structure of data varies depending on the webhook action:
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+
+### Integration deleted data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
 | `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
