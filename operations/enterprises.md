@@ -334,29 +334,39 @@ Returns all spaces of an enterprise associated with the connector integration.
     ],
     "SpaceCategories": [
         {
-            "Description": "",
-            "Descriptions": {},
             "Id": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
             "IsActive": true,
-            "ImageIds": [],
             "Name": "Best Room",
             "Names": {
                 "en-US": "Best Room"
             },
-            "Ordering": 0,
             "ShortName": "BR",
             "ShortNames":{
                 "en-US": "BR"
             },
+            "Description": "",
+            "Descriptions": {},
+            "Ordering": 0,
             "UnitCount": 2,
             "ExtraUnitCount": 0
+            "ImageIds": [],
         }
     ],
     "SpaceFeatures": [
         {
-            "Description": null,
             "Id": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
-            "Name": "123"
+            "IsActive": true,
+            "Classification": "AccessibleBathroom",
+            "Name": "Accessible Bathroom"
+            "Names": {
+                "en-US": "Accessible Bathroom"
+            },
+            "ShortName": "AccessBath",
+            "ShortNames": {
+                "en-US": "AccessBath"
+            },
+            "Description": null,
+            "Descriptions": {}
         }
     ],
     "SpaceFeatureAssignments": [
@@ -430,12 +440,37 @@ An object where keys are the [Language](configuration.md#language) codes and val
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the feature. |
+| `IsActive` | bool | required | Whether the space feature is still active. |
+| `Classification` | [Space feature classification](enterprises.md#space-feature-classification) | required | Classification of the feature. |
 | `Name` | string | required | Name of the feature. |
 | `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name \(e.g. code\) of the feature. |
 | `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
 | `Description` | string | optional | Description of the feature. |
 | `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
+
+#### Space feature classification
+
+* `AccessibleBathroom`
+* `AccessibleRoom`
+* `AirConditioning`
+* `Balcony`
+* `DoubleBed`
+* `ElevatorAccess`
+* `EnsuiteRoom`
+* `HighFloor`
+* `Kitchenette`
+* `LowerBed`
+* `OceanView`
+* `PrivateBathroom`
+* `PrivateJacuzzi`
+* `PrivateSauna`
+* `RiverView`
+* `RollawayBed`
+* `SharedBathroom`
+* `TwinBeds`
+* `UpperBed`
+* `SeaView`
 
 #### Space feature assignment
 
