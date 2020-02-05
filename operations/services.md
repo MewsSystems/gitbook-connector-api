@@ -877,7 +877,7 @@ Creates a new order with the specified products and items. Only positive charges
 `[PlatformAddress]/api/connector/v1/orders/add`
 
 ```javascript
-{  
+{
    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382",
     "Client": "Sample Client 1.0.0",
