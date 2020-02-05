@@ -901,7 +901,11 @@ Creates a new order with the specified products and items. Only positive charges
 		            "US-DC-G"
 		        ]
             },
-            "AccountingCategoryId": null
+            "AccountingCategoryId": "90eff5aa-36b4-4689-80c0-ab3a00bb412e",
+            "Category":{ 
+                "Code":"BVRG",
+                "Name":"Beverage"
+            }
         }
     ]
 }
@@ -935,6 +939,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
+| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Secondary way to assign an [Accounting category](finance.md#accounting-category) to the item if the `AccountingCategoryId` is not known. |
 
 #### Amount parameters
 
@@ -944,6 +949,13 @@ Creates a new order with the specified products and items. Only positive charges
 | `NetValue` | decimal | optional | Amount excluding tax. Required for [Net enviroments](configuration.md#pricing). |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rates) | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
+
+#### Accounting category parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Code` | string | optional | Code of the [Accounting category](finance.md#accounting-category), it has priority over `Name`. |
+| `Name` | string | optional | Name of the [Accounting category](finance.md#accounting-category). |
 
 ### Response
 
