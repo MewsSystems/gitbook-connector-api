@@ -1113,16 +1113,16 @@ Adds a new product order of the specified product to the reservation.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "ReservationId": "c2e37cec-11a0-4fe7-8467-fbc50b54722f",
-    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f",
+    "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
+    "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
     "Count": 1,
     "UnitAmount": {
-        "Currency": "USD",
-        "NetValue": 10,
+        "Currency": "GBP",
+        "GrossValue": 10,
         "TaxCodes": [
-            "US-DC-G"
+            "UK-S"
         ]
-    }
+    },
 }
 ```
 

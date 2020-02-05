@@ -877,32 +877,20 @@ Creates a new order with the specified products and items. Only positive charges
 `[PlatformAddress]/api/connector/v1/orders/add`
 
 ```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+{  
+   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382",
     "Client": "Sample Client 1.0.0",
-    "CustomerId": "794dbb77-0a9a-4170-9fa9-62ea4bf2a56e",
-    "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
-    "ConsumptionUtc": "2018-01-01T00:00:00Z",
+    "CustomerId": "407a26f8-dcfc-4e29-b978-ab440117a153",
+    "ServiceId": "d2129910-1da9-4d39-be14-ab3a00c9e70c",
+    "ConsumptionUtc": "2020-02-04T00:00:00Z",
     "ProductOrders": [
         {
-            "ProductId": "80191f0c-89f7-49ac-a150-1f342b29c4cf",
+            "ProductId": "2eb7ad8b-8dfb-4381-aba5-ab58009f2993",
             "Count": 2
         }
     ],
     "Items": [
-        {
-            "Name": "Beer",
-            "UnitCount": 10,
-            "UnitAmount": {
-      		    "Currency": "GBP",
-       		    "GrossValue": 2,
-        	    "TaxCodes": [
-                    "UK-S"
-                ]
-            }
-            "AccountingCategoryId": null
-        },
         {
             "Name": "Beer",
             "UnitCount": 3,
