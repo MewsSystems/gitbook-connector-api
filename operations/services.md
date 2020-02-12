@@ -533,7 +533,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 
 ## Get all restrictions
 
-Returns all restrictions of the default service provided by the enterprise.
+Returns all restrictions of the default service provided by the enterprise filtered by filters.
 
 ### Request
 
@@ -572,7 +572,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space categories](enterprises.md#space-category). |
 | `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which the restriction is active. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which the restriction is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of restriction creation time. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of last restriction update time. |
 
