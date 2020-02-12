@@ -114,8 +114,10 @@ Returns all cashier transactions created within the specified interval.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"    
+    "CreatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    }    
 }
 ```
 
@@ -124,8 +126,7 @@ Returns all cashier transactions created within the specified interval.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `StartUtc` | string | required | Start of the creation interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the creation interval in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | required | Interval of transaction creation time. |
 
 ### Response
 
