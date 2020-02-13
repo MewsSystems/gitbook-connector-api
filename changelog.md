@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th February 2020 11:33 UTC
+
+* Extended [Get all products](operations/services.md#get-all-products) result with `Classifications`.
+
 ## 15th January 2020 14:00 UTC
 
 * Extended [Add task](operations/enterprises.md#add-task) parameters with `ServiceOrderId`. 
