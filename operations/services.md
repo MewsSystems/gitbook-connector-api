@@ -877,8 +877,8 @@ Creates a new order with the specified products and items. Only positive charges
 `[PlatformAddress]/api/connector/v1/orders/add`
 
 ```javascript
-{  
-   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382",
     "Client": "Sample Client 1.0.0",
     "CustomerId": "407a26f8-dcfc-4e29-b978-ab440117a153",
@@ -895,17 +895,13 @@ Creates a new order with the specified products and items. Only positive charges
             "Name": "Beer",
             "UnitCount": 3,
             "UnitAmount": {
-      		    "Currency": "USD",
-		        "NetValue": 7,
-		        "TaxCodes": [
-		            "US-DC-G"
-		        ]
+                "Currency": "USD",
+                "NetValue": 7,
+                "TaxCodes": [
+                    "US-DC-G"
+                ]
             },
-            "AccountingCategoryId": "90eff5aa-36b4-4689-80c0-ab3a00bb412e",
-            "Category":{ 
-                "Code":"BVRG",
-                "Name":"Beverage"
-            }
+            "AccountingCategoryId": "90eff5aa-36b4-4689-80c0-ab3a00bb412e"
         }
     ]
 }
@@ -939,7 +935,6 @@ Creates a new order with the specified products and items. Only positive charges
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
-| `Category` | [Accounting category parameters](services.md#accounting-category-parameters) | optional | Secondary way to assign an [Accounting category](finance.md#accounting-category) to the item if the `AccountingCategoryId` is not known. |
 
 #### Amount parameters
 
@@ -949,13 +944,6 @@ Creates a new order with the specified products and items. Only positive charges
 | `NetValue` | decimal | optional | Amount excluding tax. Required for [Net enviroments](configuration.md#pricing). |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rates) | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
-
-#### Accounting category parameters
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Code` | string | optional | Code of the [Accounting category](finance.md#accounting-category), it has priority over `Name`. |
-| `Name` | string | optional | Name of the [Accounting category](finance.md#accounting-category). |
 
 ### Response
 
