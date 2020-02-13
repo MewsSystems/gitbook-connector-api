@@ -471,6 +471,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 * `TwinBeds`
 * `UpperBed`
 * `SeaView`
+* `...`
 
 #### Space feature assignment
 
