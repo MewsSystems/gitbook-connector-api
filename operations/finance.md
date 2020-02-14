@@ -307,7 +307,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
             "CreditCardId" : null,
             "Type": "ServiceRevenue",
-            "SubType": "CustomItem"
+            "SubType": "CustomItem",
             "Name": "Caramel, Pepper & Chilli Popcorn",
             "Notes": null,
             "ConsumptionUtc": "2016-07-27T12:48:39Z",
@@ -323,7 +323,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                         "Value": 0.42
                     }
                 ],
-            },
+            }
         }
     ],
     "CreditCardTransactions": null
