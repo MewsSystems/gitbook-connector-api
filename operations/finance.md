@@ -322,7 +322,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                         "Code": "UK-S",
                         "Value": 0.42
                     }
-                ],
+                ]
             }
         }
     ],

@@ -400,7 +400,7 @@ Returns all revenue items associated with the specified reservations.
                                "Code":"UK-S",
                                "Value": 3.33
                             }
-                        ],
+                        ]
                     }
                 }
             ]
