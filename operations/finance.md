@@ -454,7 +454,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
         "StartUtc": "2020-02-05T00:00:00Z",
         "EndUtc": "2020-02-10T00:00:00Z"
     },
-    "DueDateUtc": null,
+    "DueUtc": null,
     "PaidUtc": null,
     "Extent": {
         "Items": false
@@ -472,7 +472,7 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
 | `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill was closed. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill was created. |
-| `DueDateUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill is due to be paid. |
+| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill is due to be paid. |
 | `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill was paid. |
 | `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
 
