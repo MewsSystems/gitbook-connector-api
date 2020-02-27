@@ -26,7 +26,21 @@ Returns configuration of the enterprise and the client.
 
 ```javascript
 {
+    "NowUtc": "2018-01-01T14:58:02Z",
     "Enterprise": {
+        "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
+        "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
+        "CreatedUtc": "2015-07-07T13:33:17Z",
+        "Name": "Connector API Hotel",
+        "TimeZoneIdentifier": "Europe/Budapest",
+        "LegalEnvironmentCode": "UK",
+        "DefaultLanguageCode": "en-US",
+        "EditableHistoryInterval": "P0M3DT0H0M0S",
+        "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral",
+        "Email": "charging-api@mews.li",
+        "Phone": "00000 123 456 789",
+        "LogoImageId": null,
+        "CoverImageId": null,
         "Address": {
             "City": "Prague",
             "CountryCode": "CZ",
@@ -34,9 +48,6 @@ Returns configuration of the enterprise and the client.
             "Line2": "Ahoj",
             "PostalCode": "110 00"
         },
-        "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
-        "CoverImageId": null,
-        "CreatedUtc": "2015-07-07T13:33:17Z",
         "Currencies": [
             {
                 "Currency": "GBP",
@@ -49,18 +60,8 @@ Returns configuration of the enterprise and the client.
                 "IsEnabled": true
             }
         ],
-        "DefaultLanguageCode": "en-US",
-        "EditableHistoryInterval": "P0M3DT0H0M0S",
-        "Email": "charging-api@mews.li",
-        "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
-        "LegalEnvironmentCode": "UK",
-        "LogoImageId": null,
-        "Name": "Connector API Hotel",
-        "Phone": "+",
-        "TimeZoneIdentifier": "Europe/Budapest",
-        "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral"
+        "Pricing": "Gross"
     },
-    "NowUtc": "2018-01-01T14:58:02Z",
     "PaymentCardStorage": null
 }
 ```

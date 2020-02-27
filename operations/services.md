@@ -895,29 +895,29 @@ Creates a new order with the specified products and items. Only positive charges
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "AccessToken": "7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382",
     "Client": "Sample Client 1.0.0",
-    "CustomerId": "794dbb77-0a9a-4170-9fa9-62ea4bf2a56e",
-    "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
-    "ConsumptionUtc": "2018-01-01T00:00:00Z",
+    "CustomerId": "407a26f8-dcfc-4e29-b978-ab440117a153",
+    "ServiceId": "d2129910-1da9-4d39-be14-ab3a00c9e70c",
+    "ConsumptionUtc": "2020-02-04T00:00:00Z",
     "ProductOrders": [
         {
-            "ProductId": "80191f0c-89f7-49ac-a150-1f342b29c4cf",
+            "ProductId": "2eb7ad8b-8dfb-4381-aba5-ab58009f2993",
             "Count": 2
         }
     ],
     "Items": [
         {
             "Name": "Beer",
-            "UnitCount": 10,
+            "UnitCount": 3,
             "UnitAmount": {
-      		    "Currency": "GBP",
-       		    "GrossValue": 2,
-        	    "TaxCodes": [
-                    "UK-S"
+                "Currency": "USD",
+                "NetValue": 7,
+                "TaxCodes": [
+                    "US-DC-G"
                 ]
-            }
-            "AccountingCategoryId": null
+            },
+            "AccountingCategoryId": "90eff5aa-36b4-4689-80c0-ab3a00bb412e"
         }
     ]
 }
@@ -949,15 +949,15 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitAmount`\). |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
 #### Amount parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `GrossValue` | decimal | required | Amount including tax. |
-| `NetValue` | number | optional | Net value in case the item is taxed. |
+| `GrossValue` | decimal | optional | Amount including tax. Required for [Gross enviroments](configuration.md#pricing). |
+| `NetValue` | decimal | optional | Amount excluding tax. Required for [Net enviroments](configuration.md#pricing). |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rates) | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
 
