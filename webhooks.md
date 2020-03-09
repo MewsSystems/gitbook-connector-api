@@ -28,9 +28,18 @@ When an action of particular type is performed in the system, a message is sent 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
-| `Data` | object [Data](#integration-created-data) | required | Webhook data. |
+| `Data` | object [Data](#webhook-data) | required | Webhook data. |
 
 ## Webhook action
+
+* `IntegrationCreated`
+* `IntegrationEnabled`
+* `IntegrationDisabled`
+* `IntegrationCanceled`
+* `IntegrationReinstated`
+* `IntegrationDeleted`
+
+## Webhook data
 
 Structure of data varies depending on the webhook action:
 
@@ -45,7 +54,7 @@ Structure of data varies depending on the webhook action:
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` |[Enterprise](#Enterprise)| required | Commercial chain of the property. |
+| `Enterprise` | [Enterprise](#Enterprise) | required | Commercial chain of the property. |
 | `Requestor` | [Requestor](#Requestor) | required | Person requesting action. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreatedUtc` | string | required | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
