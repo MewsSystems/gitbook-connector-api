@@ -27,8 +27,8 @@ When an action of particular type is performed in the system, a message is sent 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Action` | string [Webhook action](webhooks.md#webhook-action) | required | Type of the action. |
-| `Data` | object [Data](webhooks.md#webhook-data) | required | Webhook data. |
+| `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
+| `Data` | object [Data](#webhook-data) | required | Webhook data. |
 
 ## Webhook action
 
@@ -43,23 +43,23 @@ When an action of particular type is performed in the system, a message is sent 
 
 Structure of data varies depending on the webhook action:
 
-* `IntegrationCreated` - [Integration created data](webhooks.md#integration-created-data)
-* `IntegrationEnabled` - [Integration enabled data](webhooks.md#integration-enabled-data)
-* `IntegrationDisabled` - [Integration disabled data](webhooks.md#integration-disabled-data)
-* `IntegrationCanceled` - [Integration canceled data](webhooks.md#integration-canceled-data)
-* `IntegrationReinstated` - [Integration reinstated data](webhooks.md#integration-reinstated-data)
-* `IntegrationDeleted` - [Integration deleted data](webhooks.md#integration-deleted-data)
+* `IntegrationCreated` - [Integration created data](#integration-created-data)
+* `IntegrationEnabled` - [Integration enabled data](#integration-enabled-data)
+* `IntegrationDisabled` - [Integration disabled data](#integration-disabled-data)
+* `IntegrationCanceled` - [Integration canceled data](#integration-canceled-data)
+* `IntegrationReinstated` - [Integration reinstated data](#integration-reinstated-data)
+* `IntegrationDeleted` - [Integration deleted data](#integration-deleted-data)
 
 ### Integration created data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` | [Enterprise](webhooks.md#Enterprise) | required | Commercial chain of the property. |
-| `Requestor` | [Requestor](webhooks.md#Requestor) | required | Person requesting action. |
+| `Enterprise` | [Enterprise](#Enterprise) | required | Commercial chain of the property. |
+| `Requestor` | [Requestor](#Requestor) | required | Person requesting action. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreatedUtc` | string | required | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
 | `IsEnabled` | bool | required | Whether integration is enabled. |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](#Integration) | required | Integration data. |
 
 #### Enterprise
 
@@ -86,29 +86,29 @@ Structure of data varies depending on the webhook action:
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](#Integration) | required | Integration data. |
 
 ### Integration disabled data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](#Integration) | required | Integration data. |
 
 ### Integration canceled data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](#Integration) | required | Integration data. |
 
 ### Integration reinstated data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](#Integration) | required | Integration data. |
 
 ### Integration deleted data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
-| `Integration` | [Integration](webhooks.md#Integration) | required | Integration data. |
+| `Integration` | [Integration](#Integration) | required | Integration data. |
