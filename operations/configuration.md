@@ -108,7 +108,7 @@ Returns configuration of the enterprise and the client.
 | `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude. |
-| `Longitude` | number | optional | The longtitude. |
+| `Longitude` | number | optional | The longitude. |
 
 #### Accepted currency
 
@@ -570,4 +570,3 @@ Returns URLs of the specified images.
 | --- | --- | --- | --- |
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Url` | string | required | URL of the image. |
-
