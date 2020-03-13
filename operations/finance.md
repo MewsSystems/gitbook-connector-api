@@ -470,10 +470,10 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill was closed. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill was created. |
-| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill is due to be paid. |
-| `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which bill was paid. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was closed. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was created. |
+| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) is due to be paid. |
+| `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
 
 #### Bill state
