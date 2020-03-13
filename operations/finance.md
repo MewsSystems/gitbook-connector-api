@@ -430,7 +430,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 ## Get all bills
 
-Returns all bills, possible filtered by customers, identifiers and other filters.
+Returns all bills, possibly filtered by customers, identifiers and other filters.
 
 ### Request
 
