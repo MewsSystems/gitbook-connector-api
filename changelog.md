@@ -4,6 +4,7 @@
 
 * Updated [Update rate price](operations/services.md#update-rate-price) operation to accept only updates for the future for up to 5 years.
 * Extended [Get all bills](operations/finance.md#get-all-bills) parameters with `ClosedUtc`, `CreatedUtc`, `DueDateUtc` and `PaidUtc`.
+* Updated [Add reservations](operations/reservations.md#add-reservations) parameters with `Enquired` state.
 
 ## 13th March 2020 11:35 UTC
 
