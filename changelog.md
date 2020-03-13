@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th March 2020 11:35 UTC
+
+* Extended [Get all reservation items](operations/reservations.md#get-all-reservation-items) with `AccountingStates`.
+
 ## 13th February 2020 11:33 UTC
 
 * Extended [Get all products](operations/services.md#get-all-products) result with `Classifications`.
