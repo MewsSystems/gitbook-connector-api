@@ -448,9 +448,16 @@ Returns all bills, possible filtered by customers, identifiers and other filters
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
     "State": "Open",
-    "TimeFilter": "Created",
-    "StartUtc": null,
-    "EndUtc": null,
+    "ClosedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-10T00:00:00Z"
+    },
+    "CreatedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-10T00:00:00Z"
+    },
+    "DueUtc": null,
+    "PaidUtc": null,
     "Extent": {
         "Items": false
     }
@@ -462,25 +469,19 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
+| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `TimeFilter` | string | optional | [Time filter](finance.md#bill-time-filter) of the interval. |
-| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was closed. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was created. |
+| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) is due to be paid. |
+| `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
 
 #### Bill state
 
 * `Open`
 * `Closed`
-
-#### Bill time filter
-
-* `Created` - bills created in the interval.
-* `Closed` - bills closed in the interval.
-* `Paid` - bills paid in the interval.
-* `DueDate` - bills having a due date in the interval.
 
 #### Bill extent
 
