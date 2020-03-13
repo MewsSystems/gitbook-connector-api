@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th March 2020 11:45 UTC
+
+* Updated [Update rate price](operations/services.md#update-rate-price) operation to accept only restricted updates for the future.
+
 ## 13th March 2020 11:35 UTC
 
 * Extended [Get all reservation items](operations/reservations.md#get-all-reservation-items) with `AccountingStates`.
