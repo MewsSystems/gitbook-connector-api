@@ -354,7 +354,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Notes` | string | optional | Additional notes. |
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
-| `State` | [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
+| `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 
 #### Accounting item type
@@ -1136,4 +1136,3 @@ Adds new outlet bills with their items.
 ```javascript
 {}
 ```
-
