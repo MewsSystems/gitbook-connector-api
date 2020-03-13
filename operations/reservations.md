@@ -349,6 +349,10 @@ Returns all revenue items associated with the specified reservations.
     "Client": "Sample Client 1.0.0",
     "ReservationIds": [
         "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
+    ],
+    "Currency": "EUR",
+    "AccountingStates": [
+        "Closed"
     ]
 }
 ```
@@ -360,6 +364,7 @@ Returns all revenue items associated with the specified reservations.
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | required | Unique identifiers of the [Reservation](reservations.md#reservation)s. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
+| `AccountingStates` | array of string [Accounting state](finance.md#Accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
 
 ### Response
 
@@ -367,9 +372,25 @@ Returns all revenue items associated with the specified reservations.
 {
     "Reservations": [
         {
+            "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
             "Items": [
                 {
+                    "Id": "784a29df-6196-4402-96a0-58695a881239",
+                    "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
+                    "OrderId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+                    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+                    "ProductId": null,
+                    "BillId": null,
+                    "InvoiceId": null,
                     "AccountingCategoryId": "0cf7aa90-736f-43e9-a7dc-787704548d86",
+                    "CreditCardId" : null,
+                    "Type": "ServiceRevenue",
+                    "SubType": "SpaceOrder",
+                    "Name": "Night 3/10/2016",
+                    "Notes": null,
+                    "ConsumptionUtc": "2016-03-10T13:00:00Z",
+                    "ClosedUtc": "2017-02-41T10:41:54Z",
+                    "State": "Closed",
                     "Amount": {
                         "Currency": "GBP",
                         "NetValue": 16.67,
@@ -379,23 +400,10 @@ Returns all revenue items associated with the specified reservations.
                                "Code":"UK-S",
                                "Value": 3.33
                             }
-                        ],
-                    },
-                    "BillId": null,
-                    "ClosedUtc": "2017-02-41T10:41:54Z",
-                    "ConsumptionUtc": "2016-03-10T13:00:00Z",
-                    "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
-                    "Id": "784a29df-6196-4402-96a0-58695a881239",
-                    "InvoiceId": null,
-                    "Name": "Night 3/10/2016",
-                    "Notes": null,
-                    "OrderId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-                    "ProductId": null,
-                    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-                    "Type": "ServiceRevenue"
+                        ]
+                    }
                 }
-            ],
-            "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
+            ]
         }
     ]
 }
