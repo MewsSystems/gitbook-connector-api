@@ -719,6 +719,12 @@ Adds a new company to the enterprise.
     "BillingCode": null,
     "AccountingCode": null,
     "Address": null,
+    "InvoiceDueInterval": "P2DT23H",
+    "Telephone": "111-222-333",
+    "ContacPerson": "SamplePerson",
+    "Contact": "ContactInfo",
+    "Notes": "Note1",
+    "Iata": "PAO"
 }
 ```
 
@@ -734,7 +740,12 @@ Adds a new company to the enterprise.
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `Address` | [Address parameters](customers.md#address-parameters)  | optional | Address of the company. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the company. |
+| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ContactPerson` | string | optional | Contact person of the company. |
+| `Contact` | string | optional | Contact of the company. |
+| `Notes` | string | optional | Notes of the company. |
+| `Iata` | string | optional | Iata of the company. |
 
 ### Response
 
