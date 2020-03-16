@@ -484,9 +484,9 @@ Returns all space blocks \(out of order blocks or house use blocks\) filtered by
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which the space block is active. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of space block creation time. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of last space block update time. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) is active. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) was updated. |
 | `Extent` | [Space block extent](#space-block-extent) | required | Extent of data to be returned. |
 
 #### Space block extent
