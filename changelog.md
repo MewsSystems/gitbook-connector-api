@@ -6,6 +6,7 @@
 * Extended [Update company](operations/enterprises.md#update-company) paremeters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
 * Extended [Get all cashier transactions](operations/finance.md#get-all-cashier-transactions) parameters with `CreatedUtc`.
 * Extended [Get all outlet items](operations/finance.md#get-all-outlet-items) parameters with `ClosedUtc` and `ConsumedUtc`.
+* Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
 
 ## 13th March 2020 11:45 UTC
 
