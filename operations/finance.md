@@ -298,7 +298,22 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 {
     "AccountingItems": [
         {
+            "Id": "89b93f7c-5c63-4de2-bd17-ec5fee5e3120",
+            "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
+            "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "ProductId": null,
+            "BillId": null,
+            "InvoiceId": null,
             "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
+            "CreditCardId" : null,
+            "Type": "ServiceRevenue",
+            "SubType": "CustomItem",
+            "Name": "Caramel, Pepper & Chilli Popcorn",
+            "Notes": null,
+            "ConsumptionUtc": "2016-07-27T12:48:39Z",
+            "ClosedUtc": "2017-02-41T10:41:54Z",
+            "State": "Closed",
             "Amount": {
                 "Currency": "GBP",
                 "NetValue": 2.08,
@@ -308,22 +323,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                         "Code": "UK-S",
                         "Value": 0.42
                     }
-                ],
-            },
-            "BillId": null,
-            "CreditCardId" : null,
-            "ClosedUtc": "2017-02-41T10:41:54Z",
-            "ConsumptionUtc": "2016-07-27T12:48:39Z",
-            "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
-            "Id": "89b93f7c-5c63-4de2-bd17-ec5fee5e3120",
-            "InvoiceId": null,
-            "Name": "Caramel, Pepper & Chilli Popcorn",
-            "Notes": null,
-            "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
-            "ProductId": null,
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "Type": "ServiceRevenue",
-            "SubType": "CustomItem"
+                ]
+            }
         }
     ],
     "CreditCardTransactions": null
@@ -341,20 +342,21 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the item. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) whose account the item belongs to. |
-| `ProductId` | string | optional | Unique identifier of the [Product](services.md#product). |
-| `ServiceId` | string | optional | Unique identifier of the [Service](services.md#service) the item belongs to. |
 | `OrderId` | string | optional | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
+| `ServiceId` | string | optional | Unique identifier of the [Service](services.md#service) the item belongs to. |
+| `ProductId` | string | optional | Unique identifier of the [Product](services.md#product). |
 | `BillId` | string | optional | Unique identifier of the bill the item is assigned to. |
-| `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
-| `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
+| `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
 | `Type` | string [Accounting item type](finance.md#accounting-item-type) | required | Type of the item. |
 | `SubType` | string [Accounting item subtype](finance.md#accounting-item-subtype) | required | subtype of the item. Note that the subtype depends on the `Type` of the item.  |
 | `Name` | string | required | Name of the item. |
 | `Notes` | string | optional | Additional notes. |
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
+| `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 
 #### Accounting item type
 
@@ -429,7 +431,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 ## Get all bills
 
-Returns all bills, possible filtered by customers, identifiers and other filters.
+Returns all bills, possibly filtered by customers, identifiers and other filters.
 
 ### Request
 
@@ -447,9 +449,16 @@ Returns all bills, possible filtered by customers, identifiers and other filters
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
     "State": "Open",
-    "TimeFilter": "Created",
-    "StartUtc": null,
-    "EndUtc": null,
+    "ClosedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-10T00:00:00Z"
+    },
+    "CreatedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-10T00:00:00Z"
+    },
+    "DueUtc": null,
+    "PaidUtc": null,
     "Extent": {
         "Items": false
     }
@@ -461,25 +470,19 @@ Returns all bills, possible filtered by customers, identifiers and other filters
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. |
+| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `TimeFilter` | string | optional | [Time filter](finance.md#bill-time-filter) of the interval. |
-| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was closed. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was created. |
+| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) is due to be paid. |
+| `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
 
 #### Bill state
 
 * `Open`
 * `Closed`
-
-#### Bill time filter
-
-* `Created` - bills created in the interval.
-* `Closed` - bills closed in the interval.
-* `Paid` - bills paid in the interval.
-* `DueDate` - bills having a due date in the interval.
 
 #### Bill extent
 
@@ -1135,4 +1138,3 @@ Adds new outlet bills with their items.
 ```javascript
 {}
 ```
-
