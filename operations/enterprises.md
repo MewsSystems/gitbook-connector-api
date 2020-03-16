@@ -450,7 +450,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 ## Get all space blocks
 
-Returns all space blocks \(out of order blocks or house use blocks\) filtered by collision with specified interval or other filters.
+Returns all space blocks \(out of order blocks or house use blocks\).
 
 ### Request
 
