@@ -1145,5 +1145,5 @@ Adds new outlet bills with their items.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `OutletBillIds` | array of string | required | List of unique identifiers of the added bills. |
+| `OutletBillIds` | array of string | required | List of unique identifiers of the added [Outlet bills](#outlet-bill). |
 
