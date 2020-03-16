@@ -772,7 +772,7 @@ Updates information of the company.
         "Value": "John Snow"
     },
     "Contact": {
-        "Value": "ContactInfo"
+        "Value": "John Snow"
     },
     "Notes": {
         "Value": "Notes"
