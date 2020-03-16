@@ -549,7 +549,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 
 ## Get all restrictions
 
-Returns all restrictions of the default service provided by the enterprise possibly filtered by filters.
+Returns all restrictions of the default service provided by the enterprise.
 
 ### Request
 
