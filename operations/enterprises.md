@@ -718,7 +718,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
         "c28cfb42-a963-4195-ad26-ab1b009b6425"
     ],
     "ServiceOrderIds": [
-        "8D70F718-E19C-458D-8DDB-AB1B009B5487"
+        "8d70f718-e19c-458d-8ddb-ab1b009b5487"
     ],
     "CreatedUtc": {
         "StartUtc": "2019-12-08T00:00:00Z",
