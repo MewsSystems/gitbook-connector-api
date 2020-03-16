@@ -1,11 +1,27 @@
 # Changelog
 
-## 28th Nonvember 2019 08:30 UTC
+## 13th February 2020 11:33 UTC
+
+* Extended [Get all products](operations/services.md#get-all-products) result with `Classifications`.
+
+## 15th January 2020 14:00 UTC
+
+* Extended [Add task](operations/enterprises.md#add-task) parameters with `ServiceOrderId`. 
+
+## 9th January 2020 14:00 UTC
+
+* Extended [Get all companies](operations/enterprises.md#get-all-companies) parameters with `Ids`, `Names`, `CreatedUtc` and `UpdatedUtc`. 
+
+## 12th December 2019 14:00 UTC
+
+* Added [Get all credit cards](operations/finance.md#get-all-credit-cards) operation.
+
+## 28th November 2019 08:30 UTC
 
 * Extended [Add reservations](operations/reservations.md#add-reservations) parameters with `CreditCardId`.
 * Extended [Update Reservation](operations/reservations.md#update-reservation) parameters with `CreditCardId`.
 
-## 21st Nonvember 2019 08:30 UTC
+## 21st November 2019 08:30 UTC
 
 * Added [Delete space blocks](operations/enterprises.md#delete-space-blocks) operation.
 
