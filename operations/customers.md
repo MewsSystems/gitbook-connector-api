@@ -74,7 +74,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
                 "Line2": null,
                 "City": "Christchurch",
                 "PostalCode": "BH23 3PY",
-                "CountryCode": "GB"
+                "CountryCode": "GB",
+                "Latitude": null,
+                "Longitude": null
             },
             "BirthDate": null,
             "BirthPlace": null,
@@ -110,9 +112,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "Number": "123456",
             "Expiration": "2020-01-01",
             "Issuance": "2016-01-01",
-            "IssuingCountryCode": "CZ",
-            "ExpirationUtc": "2020-01-01T12:00:00Z",
-            "IssuanceUtc": "2016-01-01T12:00:00Z"
+            "IssuingCountryCode": "CZ"
         }
     ]
 }
