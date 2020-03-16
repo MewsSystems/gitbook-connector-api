@@ -60,25 +60,41 @@ Some errors may also contain additional information relevant to the error on top
 
 Authentication and tokens that have to be used depending on environment.
 
-### Demo environment
+### Demo environments
 
-This environment is meant to be used during implementation of the client applications.
+These demo environments are meant to be used during implementation of the client applications. To sign into the system, use the following credentials:
 
 * **PlatformAddress** - `https://demo.mews.li`
+* **Email** - `connector-api@mews.li`
+* **Password** - `connector-api`
+
+The above credentials will allow access to both pricing environments.
+  
+There are two pricing environments that enterprises can operating in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
+
+##### Gross Pricing Environment
+
+The authentication below will connect with the demo enterprise that is configured with gross pricing:
+
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D`
 
-The enterprise is based in UK, it accepts `GBP`, `EUR` and `USD` currencies \(any of them may be used\), as a tax rate, either `0.0`, `0.05` or `0.20` can be used. The predefined accounting categories have codes: `FOOD`, `BVG` and `ABVG`. To sign into the system, use the following credentials:
+The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). As a tax rate, either `0.0`, `0.05` or `0.20` can be used.
 
-* **URL** - `https://demo.mews.li`
-* **Email** - `connector-api@mews.li`
-* **Password** - `connector-api`
+##### Net Pricing Environment
+
+The authentication below will connect with the demo enterprise that is configured with net pricing:
+
+* **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
+* **AccessToken** - `7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382`
+
+The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). As a tax rate, either `0.0`, `0.06`, `0.10`, `0.1025`, `0.1495` or `0.18` can be used.
 
 ### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
-* **ClientToken** - Will be provided to you by our integration team. For further information, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
-* **AccessToken** - Depends on the enterprise, should be provided to you by the enterprise admin.
+* **ClientToken** - Unique token per integration. Will be provided to you by our integration team upon certification completion. For further information, please contact [marketplace@mewssystems.com](mailto://marketplace@mewssystems.com).
+* **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 
 ## Datetimes
 
