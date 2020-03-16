@@ -740,7 +740,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TaskIds` | array of string | optional | Unique identifiers of tasks. |
+| `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. |
 | `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
 | `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was created. |
