@@ -571,8 +571,8 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which the outlet item was consumed. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval during which the outlet bill was closed. |
+| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 ### Response
