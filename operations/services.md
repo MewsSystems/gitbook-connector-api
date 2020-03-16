@@ -186,15 +186,28 @@ Returns all products offered together with the specified services.
 {
     "Products": [
         {
-            "CategoryId": null,
-            "Charging": "PerPersonPerTimeUnit",
-            "Posting": "Once",
-            "Description": "Nice continental breakfast.",
             "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "CategoryId": null,
             "IsActive": true,
             "Name": "Breakfast",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "ShortName": "BFST",
+            "Description": "Nice continental breakfast.",
+            "Charging": "PerPersonPerTimeUnit",
+            "Posting": "Once",
+            "Promotions": {
+                "BeforeCheckIn": false,
+                "AfterCheckIn": false,
+                "DuringStay": false,
+                "BeforeCheckOut": false,
+                "AfterCheckOut": false
+            },
+            "Classifications": {
+                "Food": false,
+                "Beverage": false,
+                "Wellness": false,
+                "CityTax": false
+            },
             "Price": {
                 "Currency": "GBP",
                 "NetValue": 7.5,
@@ -205,13 +218,6 @@ Returns all products offered together with the specified services.
                         "Value": 1.50
                     }
                 ],
-            },
-            "Promotions": {
-                "BeforeCheckIn": false,
-                "AfterCheckIn": false,
-                "DuringStay": false,
-                "BeforeCheckOut": false,
-                "AfterCheckOut": false
             }
         }
     ]
@@ -236,6 +242,7 @@ Returns all products offered together with the specified services.
 | `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
 | `Posting` | string [Product posting](services.md#product-posting) | required | Posting of the product. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
+| `Classifications` | [Product classifications](services.md#product-classifications) | required | Classifications of the service. |
 | `Price` | [Currency value](finance.md#currency-value) | required | Price of the product. |
 
 #### Product charging
@@ -249,6 +256,15 @@ Returns all products offered together with the specified services.
 
 * `Once`
 * `Daily`
+
+#### Product classifications
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Food` | boolean | required | Product is classified as food. |
+| `Beverage` | boolean | required | Product is classified as beverage. |
+| `Wellness` | boolean | required | Product is classified as wellness. |
+| `CityTax` | boolean | required | Product is classified as city tax. |
 
 ## Get all business segments
 
@@ -480,7 +496,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price for all space categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`).
+Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price for all space categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
 
 ### Request
 
