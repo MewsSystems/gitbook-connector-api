@@ -3,6 +3,7 @@
 ## 16th March 2020 19:55 UTC
 
 * Extended [Add company](operations/enterprises.md#add-company) parameters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
+* Extended [Update company](operations/enterprises.md#update-company) paremeters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
 
 ## 13th March 2020 11:45 UTC
 
