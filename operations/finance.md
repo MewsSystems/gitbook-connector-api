@@ -558,8 +558,15 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
+    "ConsumedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
+    "ClosedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
+    "Currency": "EUR"
 }
 ```
 
@@ -568,15 +575,9 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | string [Outlet item time filter](finance.md#outlet-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
-
-#### Outlet item time filter
-
-* `Consumed` - items consumed in the interval.
-* `Closed` - items whose bills have been closed in the interval.
 
 ### Response
 
@@ -1136,5 +1137,13 @@ Adds new outlet bills with their items.
 ### Response
 
 ```javascript
-{}
+{
+    "OutletBillIds": [
+        "f2ee1bd2-dd55-4cd3-bab1-ab6800bf0301"
+    ]
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `OutletBillIds` | array of string | required | Array of unique identifiers of the added [Outlet bills](#outlet-bill). |
