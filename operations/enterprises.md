@@ -57,11 +57,15 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "AccountingCode": "",
             "AdditionalTaxIdentifier": "",
             "Address": {
-                "City": "Dortmund",
-                "CountryCode": "DE",
+                "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
                 "Line1": "Rheinlanddamm 207-209",
                 "Line2": "",
+                "City": "Dortmund",
                 "PostalCode": "44137"
+                "CountryCode": "DE",
+                "CountrySubdivisionCode": null,
+                "Latitude": null,
+                "Longitude": null
             },
             "ElectronicInvoiceIdentifier": "",
             "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
@@ -281,7 +285,7 @@ Returns all spaces of an enterprise associated with the connector integration.
     "Client": "Sample Client 1.0.0",
     "Extent": {
         "Spaces": true,
-        "SpaceCategories": true,
+        "SpaceCategories": false,
         "SpaceFeatures": false,
         "Inactive": false
     }
@@ -293,7 +297,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` and `SpaceCategories` is used as the default extent. |
+| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` is used as the default extent. |
 
 #### Space extent
 
@@ -736,7 +740,7 @@ Adds a new company to the enterprise.
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the company. |
 | `InvoiceDueInterval` | string | optional | Duration in ISO 8601 format. |
 | `ContactPerson` | string | optional | Contact Person of the company. |
 | `Contact` | string | optional | Contact of the company. |
