@@ -4,6 +4,7 @@
 
 * Extended [Add company](operations/enterprises.md#add-company) parameters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
 * Extended [Update company](operations/enterprises.md#update-company) paremeters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
+* Extended [Get all cashier transactions](operations/finance.md#get-all-cashier-transactions) parameters with `CreatedUtc`.
 
 ## 13th March 2020 11:45 UTC
 
