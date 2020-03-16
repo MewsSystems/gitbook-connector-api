@@ -796,7 +796,7 @@ Updates information of the company.
 | `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
 | `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `Contact Person` | string | optional | Contact Person of the company. |
+| `ContactPerson` | string | optional | Contact person of the company. |
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
