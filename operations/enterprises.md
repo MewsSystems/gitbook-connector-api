@@ -783,7 +783,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)) the task is linked with. |
 | `CreatedUtc` | string | required | Creation date and time of the task in UTC timezone in ISO 8601 format. |
 | `DeadlineUtc` | string | required | Deadline date and time of the task in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Closing date and time of the task in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the task in UTC timezone in ISO 8601 format. |
 
 ### Task state
 
