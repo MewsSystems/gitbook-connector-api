@@ -9,7 +9,7 @@
 * Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
 * Extended [Get all space blocks](operations/enterprises.md#get-all-space-blocks) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
 * Added [Get all tasks](operations/enterprises.md#get-all-tasks).
-* Added [Get all customers](operations/customers.md#get-all-customers).
+* Extended [Get all customers](operations/customers.md#get-all-customers) with `CustomerIds`, `Emails`, `FirstNames`, `LastNames`, `CreatedUtc`, `UpdatedUtc`, `Extent`.
 
 ## 13th March 2020 11:45 UTC
 
