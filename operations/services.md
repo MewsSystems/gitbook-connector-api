@@ -560,14 +560,24 @@ Returns all restrictions of the default service provided by the enterprise.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "StartUtc": "2016-01-01T00:00:00Z",
-    "EndUtc": "2016-01-07T00:00:00Z",
     "SpaceCategoryIds": [
         "34c29e73-c8db-4e93-b51b-981e42655e03"
     ],
     "RateIds": [
         "ed4b660b-19d0-434b-9360-a4de2ea42eda"
-    ]
+    ],
+    "CollidingUtc": {
+        "StartUtc": "2020-02-15T00:00:00Z",
+        "EndUtc": "2020-02-20T00:00:00Z"
+    },
+    "CreatedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-15T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-15T00:00:00Z"
+    }
 }
 ```
 
@@ -576,16 +586,11 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | [Restriction time filter](services.md#restriction-time-filter) | optional | Time filter of the interval. If not specified, restrictions `Created` within the interval are returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space categories](enterprises.md#space-category). |
 | `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
-
-#### Restriction time filter
-
-* `Applicable` - restrictions whose intervals collide with the specified interval.
-* `Created` - restrictions created within the specified interval.
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was updated. |
 
 ### Response
 
