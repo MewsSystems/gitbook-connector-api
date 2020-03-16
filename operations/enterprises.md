@@ -731,7 +731,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
     "DeadlineUtc": {
         "StartUtc": "2020-01-01T00:00:00Z",
         "EndUtc": "2020-01-02T00:00:00Z"
-    },
+    }
 }
 ```
 
