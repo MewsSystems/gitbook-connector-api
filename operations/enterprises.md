@@ -741,7 +741,7 @@ Adds a new company to the enterprise.
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the company. |
-| `InvoiceDueInterval` | string | optional | Duration in ISO 8601 format. |
+| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `ContactPerson` | string | optional | Contact person of the company. |
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
