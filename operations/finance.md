@@ -126,7 +126,7 @@ Returns all cashier transactions created within the specified interval.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | required | Interval of transaction creation time. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | required | Interval in which the [Transaction](#cashier-transaction) was created. |
 
 ### Response
 
