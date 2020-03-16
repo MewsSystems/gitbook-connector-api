@@ -769,7 +769,7 @@ Updates information of the company.
         "Value": "P2DT23H"
     },
     "ContactPerson": {
-        "Value": "SamplePerson"
+        "Value": "John Snow"
     },
     "Contact": {
         "Value": "ContactInfo"
