@@ -8,6 +8,7 @@
 * Extended [Get all outlet items](operations/finance.md#get-all-outlet-items) parameters with `ClosedUtc` and `ConsumedUtc`.
 * Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
 * Extended [Get all space blocks](operations/enterprises.md#get-all-space-blocks) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
+* Added new operation [Get all tasks](operations/enterprises.md#get-all-tasks).
 
 ## 13th March 2020 11:45 UTC
 
