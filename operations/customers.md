@@ -2,7 +2,7 @@
 
 ## Get all customers
 
-Returns all customers from the specified interval according to the time filter \(e.g. customers created in that interval\).
+Returns all customers filtered by identifiers, emails, names and other filters.
 
 ### Request
 
@@ -13,9 +13,32 @@ Returns all customers from the specified interval according to the time filter \
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "TimeFilter": "Created",
-    "StartUtc": "2016-01-01T00:00:00Z",
-    "EndUtc": "2016-01-07T00:00:00Z"
+    "CustomerIds": [
+        "35d4b117-4e60-44a3-9580-c582117eff98"
+    ],
+    "Emails": [
+        "john@doe.com"
+    ],
+    "FirstNames": [
+        "John",
+        "Jane"
+    ],
+    "LastNames": [
+        "Doe"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2019-12-05T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2019-12-10T00:00:00Z",
+        "EndUtc": "2019-12-17T00:00:00Z"
+    }
+    "Extent" : {
+        "Customers": "true",
+        "Documents": "true",
+        "Addresses": "false"
+    }
 }
 ```
 
@@ -24,14 +47,21 @@ Returns all customers from the specified interval according to the time filter \
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | string [Customer time filter](customers.md#customer-time-filter) | required | Time filter of the interval. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
+| `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s. |
+| `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s. |
+| `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was updated. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. If not specified, no extent is used. |
 
-#### Customer time filter
+#### Customer extent
 
-* `Created` - customer created within the interval.
-* `Updated` - customer updated or created within the interval.
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Customers` | bool | optional | Whether the response should contain information about customers. |
+| `Documents` | bool | optional | Whether the response should contain identity documents of customers. |
+| `Addresses` | bool | optional | Whether the response should contain addresses of customers. |
 
 ### Response
 
@@ -39,7 +69,15 @@ Returns all customers from the specified interval according to the time filter \
 {
     "Customers": [
         {
-            "Address": null,
+            "Address": {
+                "Line1": "Somerford Road Hello House/135",
+                "Line2": null,
+                "City": "Christchurch",
+                "PostalCode": "BH23 3PY",
+                "CountryCode": "GB",
+                "Latitude": null,
+                "Longitude": null
+            },
             "BirthDate": null,
             "BirthPlace": null,
             "CategoryId": null,
@@ -59,13 +97,22 @@ Returns all customers from the specified interval according to the time filter \
             "Notes": "",
             "Options": [],
             "Number": "1",
-            "Passport": null,
             "Phone": "00420123456789",
             "SecondLastName": null,
             "TaxIdentificationNumber": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z",
-            "Visa": null
+        }
+    ],
+    "Documents": [
+        {
+            "Id": "e8a72a69-c20b-4278-b699-ab0400a32ecc",
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "Type": "IdentityCard",
+            "Number": "123456",
+            "Expiration": "2020-01-01",
+            "Issuance": "2016-01-01",
+            "IssuingCountryCode": "CZ"
         }
     ]
 }
@@ -74,6 +121,7 @@ Returns all customers from the specified interval according to the time filter \
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Customers` | array of [Customer](customers.md#customer) | required | The customers. |
+| `Documents` | array of [Document](customers.md#document) | required | The identity documents of customers. |
 
 #### Customer
 
@@ -99,10 +147,6 @@ Returns all customers from the specified interval according to the time filter \
 | `Notes` | string | optional | Internal notes about the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
-| `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
-| `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
-| `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
-| `DriversLicense` | [Document](customers.md#document) | optional | Drivers license  details of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
@@ -122,10 +166,20 @@ Returns all customers from the specified interval according to the time filter \
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the document. |
+| `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
+| `Type` | string [Document type](customers.md#document-type) | required | Type of the document. |
 | `Number` | string | optional | Number of the document \(e.g. passport number\). |
 | `Expiration` | string | optional | Expiration date in ISO 8601 format. |
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
+
+#### Document type
+
+* `Passport`
+* `IdentityCard`
+* `Visa`
+* `DriversLicense`
 
 #### Customer classification
 
@@ -150,96 +204,6 @@ Returns all customers from the specified interval according to the time filter \
 
 * `SendMarketingEmails`
 * ...
-
-## Get all customers by ids
-
-Returns all customers with the specified ids.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/getAllByIds`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CustomerIds": [
-        "35d4b117-4e60-44a3-9580-c582117eff98"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required | Identifiers of [Customer](customers.md#customer)s. |
-
-### Response
-
-Same structure as in [Get all customers](customers.md#get-all-customers) operation.
-
-## Get all customers by emails
-
-Returns all customers with the specified emails.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/getAllByEmails`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "Emails": [
-        "john@doe.com"
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `Emails` | array of string | required | Emails of the [Customer](customers.md#customer)s. |
-
-### Response
-
-Same structure as in [Get all customers](customers.md#get-all-customers) operation.
-
-## Get all customers by name
-
-Returns all customers with the specified first name and last name.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/getAllByName`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "FirstName": "John",
-    "LastName": "Doe"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `FirstName` | string | required | First name of the [Customer](customers.md#customer). |
-| `LastName` | string | required | Last name of the [Customer](customers.md#customer). |
-
-### Response
-
-Same structure as in [Get all customers](customers.md#get-all-customers) operation.
 
 ## Search customers
 
