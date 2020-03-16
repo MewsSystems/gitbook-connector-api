@@ -11,8 +11,7 @@ This section describes all operations supported by the API:
   * [Get language texts](configuration.md#get-language-texts) - returns translations of texts to a specified language.
   * [Get image URLs](configuration.md#get-image-urls) - returns URLs of specified images.
 * [Enterprises](enterprises.md) - operations related to the enterprise and its settings.
-  * [Get all companies](enterprises.md#get-all-companies) - returns company profiles of the enterprise.
-  * [Get all companies by name](enterprises.md#get-all-companies-by-name) - returns company profiles by their name.
+  * [Get all companies](enterprises.md#get-all-companies) - returns company profiles by filters.
   * [Get all company contracts](enterprises.md#get-all-company-contracts) - returns contracts of the enterprise with companies.
   * [Get all departments](enterprises.md#get-all-departments) - returns all departments of the enterprise.
   * [Get all outlets](enterprises.md#get-all-outlets) - returns all outlets of the enterprise.
@@ -76,8 +75,7 @@ This section describes all operations supported by the API:
   * [Get all accounting items](finance.md#get-all-accounting-items) - returns all accounting items in an interval.
   * [Get all bills](finance.md#get-all-bills) - returns all bills by filters.
   * [Get all outlet items](finance.md#get-all-outlet-items) - returns all outlet items in an interval.
-  * [Get all credit cards by ids](finance.md#get-all-credit-cards-by-ids) - returns all credit cards by their identifiers.
-  * [Get all credit cards by customers](finance.md#get-all-credit-cards-by-customers) - returns all credit cards of the specified customers.
+  * [Get all credit cards](finance.md#get-all-credit-cards) - returns all credit cards by filters.
   * [Charge credit card](finance.md#charge-credit-card) - charges specified customer credit card.
   * [Get all preauthorizations by customers](finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
   * [Add credit card payment](finance.md#add-credit-card-payment) - adds a new credit card payment.
