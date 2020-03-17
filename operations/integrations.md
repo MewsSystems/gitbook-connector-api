@@ -46,7 +46,15 @@ Returns all devices in the enterprise.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the device. |
 | `Name` | string | required | Name of the device. |
-| `Type` | string | required | Type of the device \(see [Command data](integrations.md#command-data)\). |
+| `Type` | string | required | [Type](#device-type) of the device. |
+
+### Device type
+
+* `Printer` - [Printer command data](integrations.md#printer-command-data)
+* `PaymentTerminal` - [Payment terminal command data](integrations.md#payment-terminal-command-data)
+* `PassportScanner` - [Passport scanner command data](integrations.md#passport-scanner-command-data)
+* `FiscalMachine` - [Fiscal machine command data](integrations.md#fiscal-machine-command-data)
+* `KeyCutter` - [Key cutter command data](integrations.md#key-cutter-command-data)
 
 ## Get all commands
 
@@ -114,8 +122,8 @@ Returns all commands the are still active from the client application point of v
 | `State` | string [Command state](integrations.md#command-state) | required | State of the command. |
 | `CreatedUtc` | string | required | Creation date and time of the command. |
 | `Creator` | [User](integrations.md#user) | optional | Creator of the command. |
-| `Device` | [Device](integrations.md#device) | required | Device that the command should be executed on. |
-| `Data` | object | [Command data](integrations.md#command-data) | Data of the command depending on `Type` of the [Device](integrations.md#device). |
+| `Device` | [Device](#device) | required | Device that the command should be executed on. |
+| `Data` | object | required | Structure of the object depends on [Device type](#device-type). |
 
 #### Command state
 
@@ -135,14 +143,6 @@ Returns all commands the are still active from the client application point of v
 | `ImageUrl` | string | optional | URL of the profile image. |
 
 ### Command data
-
-Structure of command data varies depending on type of the [Device](integrations.md#device):
-
-* `Printer` - [Printer command data](integrations.md#printer-command-data)
-* `PaymentTerminal` - [Payment Terminal Command data](integrations.md#payment-terminal-command-data)
-* `PassportScanner` - [Passport scanner command data](integrations.md#passport-scanner-command-data)
-* `FiscalMachine` - [Fiscal machine command data](integrations.md#fiscal-machine-command-data)
-* `KeyCutter` - [Key cutter command data](integrations.md#key-cutter-command-data)
 
 #### Printer command data
 
