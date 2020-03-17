@@ -119,7 +119,6 @@ Returns all commands the are still active from the client application point of v
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the command. |
-| `Id` | string | required | Unique identifier of the command. |
 | `State` | string [Command state](integrations.md#command-state) | required | State of the command. |
 | `CreatedUtc` | string | required | Creation date and time of the command. |
 | `Creator` | [User](integrations.md#user) | optional | Creator of the command. |
