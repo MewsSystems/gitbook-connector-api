@@ -2,7 +2,7 @@
 
 ## 17th March 2020 11:30 UTC
 
-* Added [Webhooks](#webhooks).
+* Added [Webhooks](./webhooks.md).
 
 ## 16th March 2020 19:55 UTC
 
