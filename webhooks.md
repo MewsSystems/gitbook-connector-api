@@ -28,24 +28,24 @@ When an action of particular type is performed in the system, a message is sent 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
-| `Data` | object [Data](#integration-created-data) | required | Webhook data. |
+| `Data` | object | required | Structure of the object depends on [Webhook action](#webhook-action). |
 
 ## Webhook action
 
-Structure of data varies depending on the webhook action:
+* `IntegrationCreated` - triggered when a new integration is created ([Integration created data](#integration-created-data))
+* `IntegrationEnabled` - triggered when an integration is enabled ([Integration enabled data](#integration-enabled-data))
+* `IntegrationDisabled` - triggered when an integration is disabled ([Integration disabled data](#integration-disabled-data))
+* `IntegrationCanceled` - triggered when an integration is canceled ([Integration canceled data](#integration-canceled-data))
+* `IntegrationReinstated` - triggered when an integration is reinstated ([Integration reinstated data](#integration-reinstated-data))
+* `IntegrationDeleted` - triggered when an integration is deleted ([Integration deleted data](#integration-deleted-data))
 
-* `IntegrationCreated` - [Integration created data](#integration-created-data)
-* `IntegrationEnabled` - [Integration enabled data](#integration-enabled-data)
-* `IntegrationDisabled` - [Integration disabled data](#integration-disabled-data)
-* `IntegrationCanceled` - [Integration canceled data](#integration-canceled-data)
-* `IntegrationReinstated` - [Integration reinstated data](#integration-reinstated-data)
-* `IntegrationDeleted` - [Integration deleted data](#integration-deleted-data)
+## Webhook data
 
 ### Integration created data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` |[Enterprise](#Enterprise)| required | Commercial chain of the property. |
+| `Enterprise` | [Enterprise](#Enterprise) | required | Commercial chain of the property. |
 | `Requestor` | [Requestor](#Requestor) | required | Person requesting action. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreatedUtc` | string | required | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
