@@ -114,6 +114,8 @@ Returns all commands the are still active from the client application point of v
 | --- | --- | --- | --- |
 | `Commands` | array of [Command](integrations.md#command) | required | The active commands. |
 
+### Command data
+
 #### Command
 
 | Property | Type |  | Description |
