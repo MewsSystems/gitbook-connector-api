@@ -28,27 +28,18 @@ When an action of particular type is performed in the system, a message is sent 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
-| `Data` | object [Data](#webhook-data) | required | Webhook data. |
+| `Data` | object | required | Structure of the object depends on [Webhook action](#webhook-action). |
 
 ## Webhook action
 
-* `IntegrationCreated`
-* `IntegrationEnabled`
-* `IntegrationDisabled`
-* `IntegrationCanceled`
-* `IntegrationReinstated`
-* `IntegrationDeleted`
+* `IntegrationCreated` - triggered when a new integration is created ([Integration created data](#integration-created-data))
+* `IntegrationEnabled` - triggered when an integration is enabled ([Integration enabled data](#integration-enabled-data))
+* `IntegrationDisabled` - triggered when an integration is disabled ([Integration disabled data](#integration-disabled-data))
+* `IntegrationCanceled` - triggered when an integration is canceled ([Integration canceled data](#integration-canceled-data))
+* `IntegrationReinstated` - triggered when an integration is reinstated ([Integration reinstated data](#integration-reinstated-data))
+* `IntegrationDeleted` - triggered when an integration is deleted ([Integration deleted data](#integration-deleted-data))
 
 ## Webhook data
-
-Structure of data varies depending on the webhook action:
-
-* `IntegrationCreated` - [Integration created data](#integration-created-data)
-* `IntegrationEnabled` - [Integration enabled data](#integration-enabled-data)
-* `IntegrationDisabled` - [Integration disabled data](#integration-disabled-data)
-* `IntegrationCanceled` - [Integration canceled data](#integration-canceled-data)
-* `IntegrationReinstated` - [Integration reinstated data](#integration-reinstated-data)
-* `IntegrationDeleted` - [Integration deleted data](#integration-deleted-data)
 
 ### Integration created data
 
