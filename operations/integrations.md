@@ -114,8 +114,6 @@ Returns all commands the are still active from the client application point of v
 | --- | --- | --- | --- |
 | `Commands` | array of [Command](integrations.md#command) | required | The active commands. |
 
-### Command data
-
 #### Command
 
 | Property | Type |  | Description |
@@ -143,6 +141,9 @@ Returns all commands the are still active from the client application point of v
 | `FirstName` | string | optional | First name of the user. |
 | `LastName` | string | required | Last name of the user. |
 | `ImageUrl` | string | optional | URL of the profile image. |
+
+
+### Command data
 
 #### Printer command data
 
