@@ -142,7 +142,6 @@ Returns all commands the are still active from the client application point of v
 | `LastName` | string | required | Last name of the user. |
 | `ImageUrl` | string | optional | URL of the profile image. |
 
-
 ### Command data
 
 #### Printer command data
