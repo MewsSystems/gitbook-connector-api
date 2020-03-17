@@ -1,5 +1,28 @@
 # Changelog
 
+## 16th March 2020 19:55 UTC
+
+* Extended [Add company](operations/enterprises.md#add-company) parameters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
+* Extended [Update company](operations/enterprises.md#update-company) paremeters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
+* Extended [Get all cashier transactions](operations/finance.md#get-all-cashier-transactions) parameters with `CreatedUtc`.
+* Extended [Get all outlet items](operations/finance.md#get-all-outlet-items) parameters with `ClosedUtc` and `ConsumedUtc`.
+* Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
+* Extended [Get all space blocks](operations/enterprises.md#get-all-space-blocks) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
+* Added [Get all tasks](operations/enterprises.md#get-all-tasks).
+* Extended [Get all customers](operations/customers.md#get-all-customers) with `CustomerIds`, `Emails`, `FirstNames`, `LastNames`, `CreatedUtc`, `UpdatedUtc`, `Extent`.
+
+## 13th March 2020 11:45 UTC
+
+* Updated [Update rate price](operations/services.md#update-rate-price) operation to accept only updates for the future for up to 5 years.
+* Extended [Get all bills](operations/finance.md#get-all-bills) parameters with `ClosedUtc`, `CreatedUtc`, `DueDateUtc` and `PaidUtc`.
+* Updated [Add reservations](operations/reservations.md#add-reservations) parameters with `Enquired` state.
+* Added [Address parameters](operations/customers.md#address-parameters).
+* Extended [Address](operations/configuration.md#address) with `Latitude` and `Longitude`.
+
+## 13th March 2020 11:35 UTC
+
+* Extended [Get all reservation items](operations/reservations.md#get-all-reservation-items) with `AccountingStates`.
+
 ## 13th February 2020 11:33 UTC
 
 * Extended [Get all products](operations/services.md#get-all-products) result with `Classifications`.

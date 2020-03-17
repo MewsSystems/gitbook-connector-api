@@ -57,11 +57,15 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "AccountingCode": "",
             "AdditionalTaxIdentifier": "",
             "Address": {
-                "City": "Dortmund",
-                "CountryCode": "DE",
+                "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
                 "Line1": "Rheinlanddamm 207-209",
                 "Line2": "",
+                "City": "Dortmund",
                 "PostalCode": "44137"
+                "CountryCode": "DE",
+                "CountrySubdivisionCode": null,
+                "Latitude": null,
+                "Longitude": null
             },
             "ElectronicInvoiceIdentifier": "",
             "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
@@ -281,7 +285,7 @@ Returns all spaces of an enterprise associated with the connector integration.
     "Client": "Sample Client 1.0.0",
     "Extent": {
         "Spaces": true,
-        "SpaceCategories": true,
+        "SpaceCategories": false,
         "SpaceFeatures": false,
         "Inactive": false
     }
@@ -293,7 +297,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` and `SpaceCategories` is used as the default extent. |
+| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` is used as the default extent. |
 
 #### Space extent
 
@@ -482,7 +486,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 ## Get all space blocks
 
-Returns all space blocks \(out of order blocks or house use blocks\) colliding with the specified interval.
+Returns all space blocks \(out of order blocks or house use blocks\).
 
 ### Request
 
@@ -493,9 +497,18 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "StartUtc": "2016-01-01T00:00:00Z",
-    "EndUtc": "2017-01-01T00:00:00Z",
-    "TimeFilter": "Colliding",
+    "CollidingUtc": {
+        "StartUtc": "2020-01-25T00:00:00Z",
+        "EndUtc": "2020-01-30T00:00:00Z"
+    },
+    "CreatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-15T00:00:00Z",
+        "EndUtc": "2020-01-20T00:00:00Z"
+    },
     "Extent": {
         "Inactive": true
     }
@@ -507,16 +520,16 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `TimeFilter` | string [Space block time filter](#space-block-time-filter) | optional | Time filter of the interval. If not specified, `Colliding` is used. |
-| `Extent` | [Space block extent](#space-block-extent) | optional | Extent of data to be returned. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) is active. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) was updated. |
+| `Extent` | [Space block extent](#space-block-extent) | required | Extent of data to be returned. |
 
 #### Space block extent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Inactive` | bool | optional | Whether the response should contain inactive entities. |
+| `Inactive` | bool | required | Whether the response should contain inactive entities. |
 
 ### Response
 
@@ -568,12 +581,6 @@ Returns all space blocks \(out of order blocks or house use blocks\) colliding w
 
 * `OutOfOrder`
 * `HouseUse`
-
-#### Space block time filter
-
-* `Colliding` - space block with duration within the interval.
-* `Updated` - space block updated within the interval.
-* `Created` - space block created within the interval.
 
 ## Add space block
 
@@ -730,6 +737,98 @@ Adds a new task to the enterprise, optionally to a specified department.
 | --- | --- | --- | --- |
 | `TaskId` | string | required | Unique identifier of added task. |
 
+## Get all tasks
+
+Returns all tasks of the enterprise, filtered by identifiers or other filters.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/tasks/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "TaskIds": [
+        "65cf1aac-bef2-4653-9350-ab2600af65af"
+    ],
+    "DepartmentIds": [
+        "c28cfb42-a963-4195-ad26-ab1b009b6425"
+    ],
+    "ServiceOrderIds": [
+        "8d70f718-e19c-458d-8ddb-ab1b009b5487"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2019-12-08T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "ClosedUtc": {
+        "StartUtc": "2019-12-08T00:00:00Z",
+        "EndUtc": "2019-12-10T00:00:00Z"
+    },
+    "DeadlineUtc": {
+        "StartUtc": "2020-01-01T00:00:00Z",
+        "EndUtc": "2020-01-02T00:00:00Z"
+    }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. |
+| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
+| `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
+| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was created. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was closed. |
+| `DeadlineUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) has a deadline. |
+
+### Response
+
+```javascript
+{
+    "Tasks": [
+        {
+            "Id": "b166fc93-c75a-438f-93b8-ab1e00a031ae",
+            "Name": "Test all",
+            "State": "Open"
+            "Description": "Task description",
+            "DepartmentId": "c28cfb42-a963-4195-ad26-ab1b009b6425",
+            "ServiceOrderId": "8d70f718-e19c-458d-8ddb-ab1b009b5487",
+            "CreatedUtc": "2019-12-09T09:43:14Z",
+            "DeadlineUtc": "2020-01-01T14:00:00Z",
+            "ClosedUtc": null,
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Tasks` | array of [Task](#task) | required | The filtered tasks. |
+
+#### Task
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the task. |
+| `Name` | string | required | Name \(or title\) of the task. |
+| `State` | string [Task state](#task-state) | required | State of the task. |
+| `Description` | string | optional | Further decription of the task. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](#department) the task is addressed to. |
+| `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)) the task is linked with. |
+| `CreatedUtc` | string | required | Creation date and time of the task in UTC timezone in ISO 8601 format. |
+| `DeadlineUtc` | string | required | Deadline date and time of the task in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the task in UTC timezone in ISO 8601 format. |
+
+### Task state
+
+* `Open` 
+* `Closed` 
+
 ## Add company
 
 Adds a new company to the enterprise.
@@ -751,6 +850,12 @@ Adds a new company to the enterprise.
     "BillingCode": null,
     "AccountingCode": null,
     "Address": null,
+    "InvoiceDueInterval": "P2DT23H",
+    "Telephone": "111-222-333",
+    "ContacPerson": "SamplePerson",
+    "Contact": "ContactInfo",
+    "Notes": "Note1",
+    "Iata": "PAO"
 }
 ```
 
@@ -766,7 +871,12 @@ Adds a new company to the enterprise.
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the company. |
+| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ContactPerson` | string | optional | Contact person of the company. |
+| `Contact` | string | optional | Contact of the company. |
+| `Notes` | string | optional | Notes of the company. |
+| `Iata` | string | optional | Iata of the company. |
 
 ### Response
 
@@ -785,6 +895,7 @@ Updates information of the company.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "Id":"7a1e4d67-d6a2-4a4c-a464-ab1100bea786",
     "Name": {
         "Value": "Sample company name"
     },
@@ -795,7 +906,22 @@ Updates information of the company.
     "TaxIdentifier": null,
     "AdditionalTaxIdentifier": null,
     "BillingCode": null,
-    "AccountingCode": null
+    "AccountingCode": null,
+    "InvoiceDueInterval": {
+        "Value": "P2DT23H"
+    },
+    "ContactPerson": {
+        "Value": "John Snow"
+    },
+    "Contact": {
+        "Value": "John Snow"
+    },
+    "Notes": {
+        "Value": "Notes"
+    },
+    "Iata": {
+        "Value": "PAO"
+    }
 }
 ```
 
@@ -811,6 +937,11 @@ Updates information of the company.
 | `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
 | `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
 | `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
+| `InvoiceDueInterval` | [String update value](reservations.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ContactPerson` | [String update value](reservations.md#string-update-value) | optional | Contact person of the company. |
+| `Contact` | [String update value](reservations.md#string-update-value) | optional | Contact of the company. |
+| `Notes` | [String update value](reservations.md#string-update-value) | optional | Notes of the company. |
+| `Iata` | [String update value](reservations.md#string-update-value) | optional | Iata of the company. |
 
 ### Response
 

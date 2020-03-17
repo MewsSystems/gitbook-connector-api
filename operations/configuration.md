@@ -42,11 +42,15 @@ Returns configuration of the enterprise and the client.
         "LogoImageId": null,
         "CoverImageId": null,
         "Address": {
-            "City": "Prague",
-            "CountryCode": "CZ",
+            "Id": "8c2c4371-5d42-40a9-b551-ab0b00d75076",
             "Line1": "Anenské nám. 1",
             "Line2": "Ahoj",
-            "PostalCode": "110 00"
+            "City": "Prague",
+            "PostalCode": "110 00",
+            "CountryCode": "CZ",
+            "CountrySubdivisionCode": null,
+            "Latitude": 50.085180,
+            "Longitude": 14.414926
         },
         "Currencies": [
             {
@@ -97,12 +101,15 @@ Returns configuration of the enterprise and the client.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the address. |
 | `Line1` | string | optional | First line of the address. |
 | `Line2` | string | optional | Second line of the address. |
 | `City` | string | optional | The city. |
 | `PostalCode` | string | optional | Postal code. |
 | `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
+| `Latitude` | number | optional | The latitude. |
+| `Longitude` | number | optional | The longitude. |
 
 #### Accepted currency
 
@@ -564,4 +571,3 @@ Returns URLs of the specified images.
 | --- | --- | --- | --- |
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Url` | string | required | URL of the image. |
-
