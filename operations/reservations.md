@@ -31,7 +31,7 @@ Returns all reservations from the specified interval according to the time filte
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `GroupIds` | array of string | optional | Unique identifiers of [Reservation group](#reservation-group). |
+| `GroupIds` | array of string | optional | Unique identifiers of [Reservation group](#reservation-group)s. |
 | `TimeFilter` | string [Reservation time filter](#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
