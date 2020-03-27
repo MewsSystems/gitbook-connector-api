@@ -344,7 +344,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Extent` | [Rate extent](services.md#rate-extent) | optional | Extent of data to be returned. If not specified, `Rates` and `RateGroups` is used as the default extent. |
+| `Extent` | [Rate extent](services.md#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
 
@@ -1011,7 +1011,7 @@ Returns all companionships based on customers, reservations or reservation group
 | `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
 | `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
 | `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
-| `Extent` | [Companionship extent](services.md#companionship-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. If not specified, only `Companionships` are returned. |
+| `Extent` | [Companionship extent](services.md#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
 
 #### Companionship extent
 
