@@ -336,22 +336,30 @@ Returns all tax environments supported by the API.
     ],
     "TaxRates": [
         {
-            "Code": "UK-L",
-            "TaxationCode": "UK",
-            "Value": 0.04
+            "Code": "AT-S",
+            "TaxationCode": "AT",
+            "Value": 0.21,
+            "Strategy": {
+                "Discriminator": "Relative",
+                "Value": {
+                    "Value": 0.21
+                }
+            }
         },
         {
-            "Code": "UK-R",
-            "TaxationCode": "UK",
-            "Value": 0.05
-        },
-        {
-            "Code": "UK-S",
-            "TaxationCode": "UK",
-            "Value": 0.2
+            "Code": "AT-F",
+            "TaxationCode": "AT",
+            "Value": 0.0,
+            "Strategy": {
+                "Discriminator": "Flat",
+                "Value": {
+                    "Value": 5.0,
+                    "CurrencyCode": "EUR"
+                }
+            }
         }
-    ]
-}
+    }
+]
 ```
 
 | Property | Type |  | Description |
@@ -364,7 +372,7 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required | Code of the tax enivironment. |
+| `Code` | string | required | Code of the tax environment. |
 | `CountryCode` | string | required | ISO 3166-1 alpha-3 code, e.g. `USA` or `GBR`. |
 
 #### Taxations
@@ -372,7 +380,7 @@ Returns all tax environments supported by the API.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the taxation. |
-| `TaxEnvironmentCode` | string | required | Code of the tax enivironment. |
+| `TaxEnvironmentCode` | string | required | Code of the tax environment. |
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
 
@@ -383,7 +391,31 @@ Returns all tax environments supported by the API.
 | `Code` | string | required | Code of the tax rate. |
 | `TaxationCode` | string | required | Code of the taxation. |
 | `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
+| `Strategy` | [Tax Rate Strategy](configuration.md#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
+#### Tax Rate Strategy
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | [Tax Strategy Discriminator](configuration.md#tax-strategy-discriminator)| required | If tax rate is flat or relative. |
+| `Value` | object | required | Based on Tax Strategy Discriminator, e.g. relative or flat. |
+
+#### Flat Tax Strategy
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | number | required | Absolute value of tax. |
+| `CurrencyCode` | string | required | Code of [Currency](configuration.md#currency). |
+
+#### Relative Rate Strategy
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
+
+#### Tax Strategy Discriminator
+* `Relative` 
+* `Flat`
 
 ## Get all languages
 
