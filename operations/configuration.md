@@ -397,7 +397,7 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | [Tax Strategy Discriminator](configuration.md#tax-strategy-discriminator)| required | If tax rate is flat or relative. |
+| `Discriminator` | [Tax Strategy Discriminator](configuration.md#tax-strategy-discriminator) | required | If tax rate is flat or relative. |
 | `Value` | object | required | Based on Tax Strategy Discriminator, e.g. relative or flat. |
 
 #### Flat Tax Strategy
@@ -411,9 +411,10 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
+| `Value` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
 
 #### Tax Strategy Discriminator
+
 * `Relative` 
 * `Flat`
 
