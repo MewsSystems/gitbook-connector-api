@@ -391,21 +391,21 @@ Returns all tax environments supported by the API.
 | `Code` | string | required | Code of the tax rate. |
 | `TaxationCode` | string | required | Code of the taxation. |
 | `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
-| `Strategy` | [Tax Rate Strategy](configuration.md#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
+| `Strategy` | [Tax Rate Strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
 #### Tax Rate Strategy
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | [Tax Strategy Discriminator](configuration.md#tax-strategy-discriminator) | required | If tax rate is flat or relative. |
-| `Value` | object | required | Based on Tax Strategy Discriminator, e.g. relative or flat. |
+| `Discriminator` | [Tax Strategy Discriminator](#tax-strategy-discriminator) | required | If tax rate is flat or relative. |
+| `Value` | object | required | Based on Tax Strategy Discriminator, e.g. [Relative Rate Strategy](#relative-rate-strategy) or [Flat Rate Strategy](#flat-rate-strategy). |
 
-#### Flat Tax Strategy
+#### Flat Rate Strategy
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | number | required | Absolute value of tax. |
-| `CurrencyCode` | string | required | Code of [Currency](configuration.md#currency). |
+| `CurrencyCode` | string | required | Code of [Currency](#currency). |
 
 #### Relative Rate Strategy
 
