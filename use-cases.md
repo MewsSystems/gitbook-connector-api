@@ -189,9 +189,9 @@ An upselling integration pulls information about customers, reservations, produc
 
 ### Data pull
 
-Each Mews property creates a unique set of services and related products based on what they offer to their guests. Upselling integrations pull the relevant product information, (e.g. name, unique identifier, price), and store it in their system for future use. A list of all the services a property offers can be requested using [Get all services](operations/services.md#get-all-services). The response contains a unique identifier which can then be used to pull all related products using [Get all products](operations/services.md#get-all-products). 
+Each Mews property creates a unique set of services and related products based on what they offer to their guests. Upselling integrations pull the relevant product information (e.g. name, unique identifier, price) and store it in their system for future use. A list of all the services a property offers can be requested using [Get all services](operations/services.md#get-all-services). The response contains a unique identifier which can then be used to pull all related products using [Get all products](operations/services.md#get-all-products). 
 
-If the integration is offering room upgrades to guests, it is important to take availability of spaces into account. To map the initial space configuration of the property, use [Get all spaces](operations/enterprises.md#get-all-spaces) with the extent `SpaceCategories` set to true. Space (room) availability is returned per space category (room type) in the response to [Get service availability](operations/services.md#get-service-availability).
+If the integration is offering room upgrades to guests, it is important to take availability of spaces into account. After mapping the configuration of the property in your system, space (room) availability is returned per space category (room type) in the response to [Get service availability](operations/services.md#get-service-availability).
 
 ### Adding items
 Once all of the products, services and related information are correctly stored in the upselling system, the next step is the posting of a selected product into Mews. How this product should be posted into Mews depends on whether it exists as a product in Mews and which type of service it belongs to.
