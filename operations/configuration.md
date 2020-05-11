@@ -358,8 +358,8 @@ Returns all tax environments supported by the API.
                 }
             }
         }
-    }
-]
+    ]
+}
 ```
 
 | Property | Type |  | Description |
