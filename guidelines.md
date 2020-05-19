@@ -34,7 +34,16 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `LanguageCode` | string | optional | Code of the [language](operations/configuration.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
-All operations of the API require `ClientToken` and `AccessToken` to be present in the request. The `ClientToken` serves as an identificator of the client using the API. The `AccessToken` grants the client access to data of an enterprise in the system. For development purposes, use the demo environment. For production usage, the `ClientToken` will be provided to you by our integration team and `AccessToken` by admin of the enterprise. See [Authentication](guidelines.md#authentication) for further details.
+All operations of the API require a `ClientToken` and an `AccessToken` to be present in the request. The `ClientToken` serves as a unique identifier of the integration partner consuming the API. A unique `AccessToken` is generated for each new property using the connection and allows the partner to access the data of that enterprise.
+
+For development and testing of your integration, use the demo environment credentials listed in the [Authentication](guidelines.md#authentication) section below. 
+
+In order to receive credentials for production usage, you will have to successfully complete a certification process. Once certified, our Marketplace team will create your integration profile and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that you configure in the production environment. 
+
+A unique `AccessToken` will automatically be generated for each enterprise requesting to connect their Mews profile to your system. Once the enterprise requests the connection from the Mews Marketplace, the token will automatically be shared with you. Each enterprise will have a different `AccessToken` token and there is no way to simultaneously access multiple properties, even if when in the same Mews chain.
+
+*To keep the data of each property secure, please store these tokens securely and do not share them publicly.* 
+
 
 All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/configuration.md#enterprise) are used.
 
@@ -54,7 +63,7 @@ In case of any error, the returned JSON object describes the error and has the f
 | `Message` | string | required | Description of the error. |
 | `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
 
-Some errors may also contain additional information relevant to the error on top of this two properties. But that depends on the operation and is specifically described in the operation documentation.
+Some errors may also contain additional information relevant to the error on top of these two properties. That depends on the operation and is specifically described in the operation documentation.
 
 ## Authentication
 
@@ -62,15 +71,9 @@ Authentication and tokens that have to be used depending on environment.
 
 ### Demo environments
 
-These demo environments are meant to be used during implementation of the client applications. To sign into the system, use the following credentials:
-
-* **PlatformAddress** - `https://demo.mews.li`
-* **Email** - `connector-api@mews.li`
-* **Password** - `connector-api`
-
-The above credentials will allow access to both pricing environments.
+These demo environments are meant to be used during implementation of the client applications. 
   
-There are two pricing environments that enterprises can operating in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
+There are two pricing environments that enterprises can operate in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
 
 ##### Gross Pricing Environment
 
