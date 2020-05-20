@@ -34,11 +34,11 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `LanguageCode` | string | optional | Code of the [language](operations/configuration.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
-All operations of the API require a `ClientToken` and an `AccessToken` to be present in the request. The `ClientToken` serves as a unique identifier of the integration partner consuming the API. A unique `AccessToken` is generated for each new property using the connection and allows the partner to access the data of that enterprise.
+All operations of the API require a `ClientToken`, an `AccessToken` and `Client` to be present in the request. The `ClientToken` serves as a unique identifier of the integration partner consuming the API. A unique `AccessToken` is generated for each new property using the connection and allows the partner to access the data of that enterprise. As in the description above, `Client` is the name and version of the application you are integrating with Mews. 
 
 For development and testing of your integration, use the demo environment credentials listed in the [Authentication](guidelines.md#authentication) section below. 
 
-In order to receive credentials for production usage, you will have to successfully complete a certification process. Once certified, our Marketplace team will create your integration profile and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that you configure in the production environment. 
+In order to receive credentials for production usage, you will have to successfully complete a certification process. After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that you configure in the production environment. 
 
 A unique `AccessToken` will automatically be generated for each enterprise requesting to connect their Mews profile to your system. Once the enterprise requests the connection from the Mews Marketplace, the token will automatically be shared with you. Each enterprise will have a different `AccessToken` token and there is no way to simultaneously access multiple properties, even if when in the same Mews chain.
 
@@ -67,13 +67,11 @@ Some errors may also contain additional information relevant to the error on top
 
 ## Authentication
 
-Authentication and tokens that have to be used depending on environment.
+Each Mews environment (e.g. develop, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. The credentials required to sign into the system will be provided once you've [registered as a Mews integration partner](https://www.mews.com/mews-marketplace-form). 
 
 ### Demo environments
 
-These demo environments are meant to be used during implementation of the client applications. 
-  
-There are two pricing environments that enterprises can operate in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
+These demo environments are meant to be used during implementation of the client applications. There are two pricing environments that enterprises can operate in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
 
 ##### Gross Pricing Environment
 
