@@ -67,7 +67,7 @@ Some errors may also contain additional information relevant to the error on top
 
 ## Authentication
 
-Each Mews environment (e.g. develop, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. The credentials required to sign into the system will be provided once you've [registered as a Mews integration partner](https://www.mews.com/mews-marketplace-form). 
+Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. The credentials required to sign into the system will be provided once you've [registered as a Mews integration partner](https://www.mews.com/mews-marketplace-form). 
 
 ### Demo environments
 
@@ -119,4 +119,3 @@ As an example, consider minimum and maximum length of the reservation:
 
 * MinLength `P0Y0M1DT0H0M0S`
 * MaxLength `P0Y0M3DT0H0M0S`
-
