@@ -40,7 +40,7 @@ For development and testing of your integration, use the demo environment creden
 
 In order to receive credentials for production usage, you will have to successfully complete a certification process. After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that you configure in the production environment. 
 
-A unique `AccessToken` will automatically be generated for each enterprise requesting to connect their Mews profile to your system. Once the enterprise requests the connection from the Mews Marketplace, the token will automatically be shared with you. Each enterprise will have a different `AccessToken` token and there is no way to simultaneously access multiple properties, even if when in the same Mews chain.
+A unique `AccessToken` will automatically be generated and shared with you for each enterprise requesting to connect their Mews profile to your system.
 
 *To keep the data of each property secure, please store these tokens securely and do not share them publicly.* 
 
@@ -67,7 +67,10 @@ Some errors may also contain additional information relevant to the error on top
 
 ## Authentication
 
-Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. The credentials required to sign into the system will be provided once you've [registered as a Mews integration partner](https://www.mews.com/mews-marketplace-form). 
+Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. To sign into the system, use the following credentials:
+* **PlatformAddress** - https://demo.mews.li
+* **Email** - connector-api@mews.li
+* **Password** - connector-api  
 
 ### Demo environments
 
