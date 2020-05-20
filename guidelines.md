@@ -67,6 +67,8 @@ Some errors may also contain additional information relevant to the error on top
 
 ## Authentication
 
+**The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.**
+
 Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. To sign into the system, use the following credentials:
 * **PlatformAddress** - https://demo.mews.li
 * **Email** - connector-api@mews.li
