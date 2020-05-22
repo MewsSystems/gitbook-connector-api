@@ -53,7 +53,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was updated. |
-| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. If not specified, no extent is used. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 #### Customer extent
 

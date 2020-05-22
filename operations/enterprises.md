@@ -297,7 +297,7 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Extent` | [Space extent](enterprises.md#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` is used as the default extent. |
+| `Extent` | [Space extent](enterprises.md#space-extent) | required | Extent of data to be returned. |
 
 #### Space extent
 
