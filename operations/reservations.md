@@ -39,6 +39,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
     "Numbers": [
         "7781"
     ],
+    "States": [
+        "Started"
+	],
     "Extent": {
         "Reservations": true,
         "ReservationGroups": true,
