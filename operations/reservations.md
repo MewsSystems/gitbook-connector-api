@@ -673,7 +673,7 @@ Updates information about the specified reservation. Note that if any of the fie
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
-| `ReservationUpdates` | array of string [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
+| `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
 
 #### Reservation updates
 | Property | Type |  | Description |
@@ -1116,4 +1116,3 @@ Adds a new product order of the specified product to the reservation.
     ]
 }
 ```
-
