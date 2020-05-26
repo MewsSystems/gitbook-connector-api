@@ -605,6 +605,7 @@ Updates information about the specified reservation. Note that if any of the fie
     "Reason": "Testing",
     "CheckOverbooking": true,
     "CheckRateApplicability": true,
+    "ExcludeProductPrice": true,
     "ReservationUpdates": [
         {
             "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
@@ -671,6 +672,7 @@ Updates information about the specified reservation. Note that if any of the fie
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
+| `ExcludeProductPrice` | bool | required | Specifies whether cost of products asociated with reservation should be taken into account when updating price of reservation via `TimeUnitPrices` parameter. Should be set to `true`. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
