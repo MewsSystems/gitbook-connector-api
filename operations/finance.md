@@ -408,7 +408,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `NetValue` | number | optional | Net value in case the item is taxed. |
 | `GrossValue` | number | optional | Gross value including all taxes. |
-| `TaxValues` | array of [Tax Values](finance.md#tax-value) | optional | The tax values applied. |
+| `TaxValues` | array of [Tax Value](finance.md#tax-value) | optional | The tax values applied. |
 
 #### Tax value
 
