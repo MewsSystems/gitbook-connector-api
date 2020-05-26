@@ -38,7 +38,7 @@ This section describes all operations supported by the API:
   * [Delete restrictions](services.md#delete-restrictions) - removes restrictions.
   * [Add order](services.md#add-order) - adds a new service order.
 * [Reservations](reservations.md) - operations for retrieval and modifications of reservations.
-  * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations in an interval.
+  * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations by filters.
   * [Get all reservation items](reservations.md#get-all-reservation-items) - returns all accounting items of reservations. 
   * [Price reservations](reservations.md#price-reservations) - returns prices of specified reservations.
   * [Add reservations](reservations.md#add-reservations) - adds a new group of reservations.
