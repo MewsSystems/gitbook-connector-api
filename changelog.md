@@ -1,5 +1,12 @@
 # Changelog
 
+## 2nd May 2020 11:30 UTC
+
+* Extended [Add restrictions](operations/services.md#add-restrictions) and [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `ExternalIdentifier`.
+* Extended [Get all reservations](operations/reservations.md#get-all-reservations) parameters with `ReservationIds`, `GroupIds`, `CustomerIds`, `SpaceIds`, `RateIds`, `BusinessSegmentIds` and `Numbers`. 
+* Updated [Get all reservations](operations/reservations.md#get-all-reservations), [Add reservations](operations/reservations.md#add-reservations), [Update reservation](operations/reservations.md#update-reservation), [Confirm reservation](operations/reservations.md#confirm-reservation) and [Cancel reservation](operations/reservations.md#cancel-reservation) by allowing an array of reservations to be specified in each request.
+* Extended [Get all tax environments](operations/configuration.md#get-all-tax-environments) with new `Discriminator` to allow both `Flat` and `Relative` [Tax rate strategy](operations/configuration.md#tax-rate-strategy).
+
 ## 17th March 2020 11:30 UTC
 
 * Added [Webhooks](./webhooks.md).
@@ -7,7 +14,7 @@
 ## 16th March 2020 19:55 UTC
 
 * Extended [Add company](operations/enterprises.md#add-company) parameters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
-* Extended [Update company](operations/enterprises.md#update-company) paremeters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
+* Extended [Update company](operations/enterprises.md#update-company) parameters with `InvoiceDueInterval`, `Telephone`, `ContactPerson`, `Contact`, `Notes` and `Iata`.
 * Extended [Get all cashier transactions](operations/finance.md#get-all-cashier-transactions) parameters with `CreatedUtc`.
 * Extended [Get all outlet items](operations/finance.md#get-all-outlet-items) parameters with `ClosedUtc` and `ConsumedUtc`.
 * Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `CollidingUtc`, `CreatedUtc` and `UpdatedUtc`.
