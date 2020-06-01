@@ -12,6 +12,7 @@ This section describes, how to use the Connector API in order to implement some 
 * [Accounting](use-cases.md#accounting)
 * [Upselling](use-cases.md#upselling)
 * [Housekeeping](use-cases.md#housekeeping)
+* [Customer management](use-cases.md#customer-management)
   
 ## Revenue management
 
