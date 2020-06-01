@@ -42,9 +42,6 @@ In order to receive credentials for production usage, you will have to successfu
 
 A unique `AccessToken` will automatically be generated and shared with you for each enterprise requesting to connect their Mews profile to your system.
 
-*To keep the data of each property secure, please store these tokens securely and do not share them publicly.* 
-
-
 All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/configuration.md#enterprise) are used.
 
 ## Responses
@@ -67,8 +64,6 @@ Some errors may also contain additional information relevant to the error on top
 
 ## Authentication
 
-**The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.**
-
 Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. To sign into the system, use the following credentials:
 * **PlatformAddress** - https://demo.mews.li
 * **Email** - connector-api@mews.li
@@ -77,6 +72,10 @@ Each Mews environment (e.g. demo, production) requires a different set of tokens
 ### Demo environments
 
 These demo environments are meant to be used during implementation of the client applications. There are two pricing environments that enterprises can operate in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
+
+##### Security Policy
+
+**The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.**
 
 ##### Gross Pricing Environment
 
@@ -101,6 +100,11 @@ The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` 
 * **PlatformAddress** - `https://www.mews.li`
 * **ClientToken** - Unique token per integration. Will be provided to you by our integration team upon certification completion. For further information, please contact [marketplace@mewssystems.com](mailto://marketplace@mewssystems.com).
 * **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
+
+##### Security Policy
+
+**To protect the live data of each property, please store your production tokens securely and do not share them publicly.**
+
 
 ## Datetimes
 
