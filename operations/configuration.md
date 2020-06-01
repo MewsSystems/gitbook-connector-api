@@ -384,7 +384,7 @@ Returns all tax environments supported by the API.
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
 
-#### Tax Rates
+#### Tax rates
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -393,30 +393,32 @@ Returns all tax environments supported by the API.
 | `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
 | `Strategy` | [Tax Rate Strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
-#### Tax Rate Strategy
+#### Tax rate strategy
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | [Tax Strategy Discriminator](#tax-strategy-discriminator) | required | If tax rate is flat or relative. |
-| `Value` | object | required | Based on Tax Strategy Discriminator, e.g. [Relative Rate Strategy](#relative-rate-strategy) or [Flat Rate Strategy](#flat-rate-strategy). |
+| `Value` | object | required | Structure of the object depends on [Tax Strategy Discriminator](#tax-strategy-discriminator-data). |
 
-#### Flat Rate Strategy
+#### Tax strategy discriminator
+
+* `Flat` - Used when relevant tax rate is flat (e.g. 5.00 EUR). 
+* `Relative` - Used when relevant tax rate is relative (e.g. 21%)
+
+### Tax strategy discriminator data
+
+#### Flat strategy discriminator data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | number | required | Absolute value of tax. |
 | `CurrencyCode` | string | required | Code of [Currency](#currency). |
 
-#### Relative Rate Strategy
+#### Relative strategy discriminator data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
-
-#### Tax Strategy Discriminator
-
-* `Relative` 
-* `Flat`
 
 ## Get all languages
 
