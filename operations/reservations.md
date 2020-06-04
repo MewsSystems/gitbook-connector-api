@@ -443,15 +443,15 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
         {
             "Identifier": "1234",
             "State" : "Confirmed",
-            "StartUtc": "2018-01-01T14:00:00Z",
-            "EndUtc": "2018-01-02T10:00:00Z",
+            "StartUtc": "2021-01-01T14:00:00Z",
+            "EndUtc": "2021-01-03T10:00:00Z",
             "ReleasedUtc": null,
             "AdultCount": 2,
             "ChildCount": 0,
-            "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
-            "BookerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
+            "CustomerId": "e465c031-fd99-4546-8c70-abcf0029c249",
+            "BookerId": "e465c031-fd99-4546-8c70-abcf0029c249",
             "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
-            "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
+            "RateId": "a39a59fa-3a08-4822-bdd4-ab0b00e3d21f",
             "TravelAgencyId": null,
             "CompanyId": null,
             "Notes": "Test reservation",
@@ -476,10 +476,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             ],
             "ProductOrders": [
                 {
-                    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
+                    "ProductId": "2e9eb3fc-8a77-466a-9cd9-abcf002a2a01"
                 }
-            ],
-            "CreditCardId": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
+            ]
         }
     ]
 }
