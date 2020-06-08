@@ -75,7 +75,7 @@ Returns all services offered by the enterprise.
 | `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
 | `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
-| `Type` | string | [Service type](#services.md#service-type) | required | Type of the service. |
+| `Type` | string | [Service type](services.md#service-type) | required | Type of the service. |
 
 #### Promotions
 
@@ -344,7 +344,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Extent` | [Rate extent](services.md#rate-extent) | optional | Extent of data to be returned. If not specified, `Rates` and `RateGroups` is used as the default extent. |
+| `Extent` | [Rate extent](services.md#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
 
@@ -599,6 +599,7 @@ Returns all restrictions of the default service provided by the enterprise.
    "Restrictions": [  
       {  
          "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+         "ExternalIdentifier": "5678",
          "Conditions": {  
             "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
@@ -630,6 +631,7 @@ Returns all restrictions of the default service provided by the enterprise.
       },
       {  
          "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+         "ExternalIdentifier": "5678",
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": null,
@@ -669,6 +671,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
+| `ExternalIdentifier` | string | optional | External identifier of the restriction. |
 | `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
@@ -728,6 +731,7 @@ Adds new restrictions with the specified conditions.
    "Restrictions": [  
       {  
          "Identifier": "1234",
+         "ExternalIdentifier": "5678",
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
@@ -745,6 +749,7 @@ Adds new restrictions with the specified conditions.
       },
       {  
          "Identifier": "1235",
+         "ExternalIdentifier": "5678",
          "Conditions": {  
             "Type": "Start",
             "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
@@ -774,6 +779,7 @@ Adds new restrictions with the specified conditions.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
+| `ExternalIdentifier` | string | optional | External identifier of the restriction. |
 | `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
@@ -786,6 +792,7 @@ Adds new restrictions with the specified conditions.
          "Identifier": "1234",
          "Restriction": {
             "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+            "ExternalIdentifier": "5678",
             "Conditions": {
                "Type": "Stay",
                "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
@@ -814,6 +821,7 @@ Adds new restrictions with the specified conditions.
          "Identifier": "1235",
          "Restriction": {
             "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+            "ExternalIdentifier": "5678",
             "Conditions": {
                "Type": "Start",
                "ExactRateId": null,
@@ -1011,7 +1019,7 @@ Returns all companionships based on customers, reservations or reservation group
 | `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
 | `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
 | `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
-| `Extent` | [Companionship extent](services.md#companionship-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. If not specified, only `Companionships` are returned. |
+| `Extent` | [Companionship extent](services.md#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
 
 #### Companionship extent
 

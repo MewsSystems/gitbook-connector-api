@@ -6,7 +6,7 @@ This section describes all operations supported by the API:
   * [Get configuration](configuration.md#get-configuration) - returns configuration of the client and enterprise.
   * [Get all countries](configuration.md#get-all-countries) - returns all countries supported by the API.
   * [Get all currencies](configuration.md#get-all-currencies) - returns all currencies supported by the API.
-  * [Get all tax environments](configuration.md#get-all-taxenvironments) - returns all tax environments supported by the API.
+  * [Get all tax environments](configuration.md#get-all-tax-environments) - returns all tax environments supported by the API.
   * [Get all languages](configuration.md#get-all-languages) - returns all languages supported by the API.
   * [Get language texts](configuration.md#get-language-texts) - returns translations of texts to a specified language.
   * [Get image URLs](configuration.md#get-image-urls) - returns URLs of specified images.
@@ -38,7 +38,7 @@ This section describes all operations supported by the API:
   * [Delete restrictions](services.md#delete-restrictions) - removes restrictions.
   * [Add order](services.md#add-order) - adds a new service order.
 * [Reservations](reservations.md) - operations for retrieval and modifications of reservations.
-  * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations in an interval.
+  * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations by filters.
   * [Get all reservation items](reservations.md#get-all-reservation-items) - returns all accounting items of reservations. 
   * [Price reservations](reservations.md#price-reservations) - returns prices of specified reservations.
   * [Add reservations](reservations.md#add-reservations) - adds a new group of reservations.

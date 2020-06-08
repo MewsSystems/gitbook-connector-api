@@ -270,7 +270,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
-| `Extent` | [Accounting item extent](#accounting-item-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. If not specified, `AccountingItems` is used as the default extent. |
+| `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
 
 #### Accounting item time filter
@@ -477,7 +477,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was created. |
 | `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) is due to be paid. |
 | `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was paid. |
-| `Extent` | [Bill extent](finance.md#bill-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. If not specified, no extent is used. |
+| `Extent` | [Bill extent](finance.md#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
 
 #### Bill state
 

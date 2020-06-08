@@ -53,7 +53,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was updated. |
-| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. If not specified, no extent is used. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 #### Customer extent
 
@@ -85,7 +85,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "CreatedUtc": "2016-01-01T00:00:00Z",
             "Email": null,
             "FirstName": "John",
-            "Gender": null,
+            "Gender": "Male",
             "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
             "IdentityCard": null,
             "LanguageCode": null,
@@ -245,7 +245,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
                 "CreatedUtc": "2016-01-01T00:00:00Z",
                 "Email": null,
                 "FirstName": "John",
-                "Gender": null,
+                "Gender": "Male",
                 "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
                 "IdentityCard": null,
                 "LanguageCode": null,
@@ -371,6 +371,7 @@ Adds a new customer to the system and returns details of the added customer. If 
     "LastName": "Doe",
     "SecondLastName": "the Second",
     "Title": "Mister",
+    "Gender": "Male",
     "NationalityCode": "US",
     "BirthDate": "2000-01-01",
     "BirthPlace": "Prague, Czech Republic",
@@ -408,6 +409,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `Title` | string [Title](customers.md#title) | optional | Title prefix of the customer. |
+| `Gender` | string [Gender](customers.md#gender) | optional | Gender of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
@@ -458,6 +460,7 @@ Updates personal information of a customer. Note that if any of the fields is le
     "LastName": "Smith",
     "SecondLastName": "the Second",
     "Title": "Mister",
+    "Gender": "Male",
     "NationalityCode": "US",
     "BirthDate": "2000-01-01",
     "BirthPlace": "Prague, Czech Republic",
@@ -487,6 +490,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `LastName` | string | optional | New last name. |
 | `SecondLastName` | string | optional | New second last name. |
 | `Title` | string [Title](customers.md#title) | optional | New title. |
+| `Gender` | string [Gender](customers.md#gender) | optional | Gender of the customer. |
 | `BirthDate` | string | optional | New birth date in ISO 8601 format. |
 | `BithPlace` | string | optional | New birth place. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |

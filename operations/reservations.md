@@ -2,7 +2,7 @@
 
 ## Get all reservations
 
-Returns all reservations from the specified interval according to the time filter \(e.g. colliding with that interval or created in that interval\).
+Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. 
 
 ### Request
 
@@ -15,6 +15,18 @@ Returns all reservations from the specified interval according to the time filte
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
+    "ReservationIds": [
+        "db6cad34-9a91-448b-bea1-abbe01240d9c"
+    ],
+    "CustomerIds": [
+        "8e1d0ca6-1dde-4be0-8566-aafc01866110"
+    ],
+    "RateIds": [
+        "ed4b660b-19d0-434b-9360-a4de2ea42eda"
+    ],
+    "States": [
+        "Started"
+    ],
     "Extent": {
         "Reservations": true,
         "ReservationGroups": true,
@@ -28,11 +40,18 @@ Returns all reservations from the specified interval according to the time filte
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | string [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
+| `TimeFilter` | string [Reservation time filter](#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `States` | array of string [Reservation state](reservations.md#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | optional | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. If not specified, `Reservations`, `Groups` and `Customers` is used as the default extent. |
+| `ReservationIds` | array of string | optional | Unique identifiers of the requested [Reservation](reservations.md#reservation)s. |
+| `GroupIds` | array of string | optional | Unique identifiers of the requested [Reservation group](reservations.md#reservation-group)s. |
+| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s which own the reservations. |
+| `SpaceIds` | array of string | optional | Unique identifiers of [Space](enterprises.md#space)s assigned to the reservations. |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
+| `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
+| `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
+| `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
+| `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 #### Reservation time filter
@@ -424,15 +443,15 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
         {
             "Identifier": "1234",
             "State" : "Confirmed",
-            "StartUtc": "2018-01-01T14:00:00Z",
-            "EndUtc": "2018-01-02T10:00:00Z",
+            "StartUtc": "2021-01-01T14:00:00Z",
+            "EndUtc": "2021-01-03T10:00:00Z",
             "ReleasedUtc": null,
             "AdultCount": 2,
             "ChildCount": 0,
-            "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
-            "BookerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
+            "CustomerId": "e465c031-fd99-4546-8c70-abcf0029c249",
+            "BookerId": "e465c031-fd99-4546-8c70-abcf0029c249",
             "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
-            "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
+            "RateId": "a39a59fa-3a08-4822-bdd4-ab0b00e3d21f",
             "TravelAgencyId": null,
             "CompanyId": null,
             "Notes": "Test reservation",
@@ -457,10 +476,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             ],
             "ProductOrders": [
                 {
-                    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
+                    "ProductId": "2e9eb3fc-8a77-466a-9cd9-abcf002a2a01"
                 }
-            ],
-            "CreditCardId": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
+            ]
         }
     ]
 }
@@ -560,7 +578,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 
 ## Update reservation
 
-Updates information about a reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
+Updates information about the specified reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
 
 ### Request
 
@@ -571,59 +589,66 @@ Updates information about a reservation. Note that if any of the fields are sent
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
     "Reason": "Testing",
     "CheckOverbooking": true,
     "CheckRateApplicability": true,
-    "StartUtc": {
-        "Value": "2019-10-01T14:00:00Z"
-    },
-    "EndUtc": {
-        "Value": "2019-10-03T10:00:00Z"
-    },
-    "AdultCount": {
-        "Value": 2
-    },
-    "ChildCount": {
-        "Value": 1
-    },
-    "ChannelNumber": null,
-    "RequestedCategoryId": null,
-    "TraveAgencyId": {
-        "Value": null
-    },
-    "CompanyId": {
-        "Value": "73ba34d1-f375-460c-bf2d-8a63e71677a6"
-    },
-    "BusinessSegmentId": null,
-    "RateId": null,
-    "BookerId": {
-        "Value": "92923102-bf91-4a4a-8ee8-9dcb79c9d6de"
-    },
-    "TimeUnitPrices": {
-        "Value": [
-            {
-                "Index": 0,
-                "Amount": {
-                    "Currency": "GBP",
-                    "GrossValue": 20,
-                    "TaxCodes": [ "UK-S" ]
-                }
+    "ReservationUpdates": [
+        {
+            "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
+            "StartUtc": {
+                "Value": "2019-10-01T14:00:00Z"
             },
-            {
-                "Index": 1,
-                "Amount": {
-                    "Currency": "GBP",
-                    "GrossValue": 30,
-                    "TaxCodes": [ "UK-S" ]
-                }
+            "EndUtc": {
+                "Value": "2019-10-03T10:00:00Z"
+            },
+            "AdultCount": {
+                "Value": 2
+            },
+            "ChildCount": {
+                "Value": 1
+            },
+            "ChannelNumber": null,
+            "RequestedCategoryId": null,
+            "TraveAgencyId": {
+                "Value": null
+            },
+            "CompanyId": {
+                "Value": "73ba34d1-f375-460c-bf2d-8a63e71677a6"
+            },
+            "BusinessSegmentId": null,
+            "RateId": null,
+            "BookerId": {
+                "Value": "92923102-bf91-4a4a-8ee8-9dcb79c9d6de"
+            },
+            "TimeUnitPrices": {
+                "Value": [
+                    {
+                        "Index": 0,
+                        "Amount": {
+                            "Currency": "GBP",
+                            "GrossValue": 20,
+                            "TaxCodes": [
+                                "UK-S"
+                            ]
+                        }
+                    },
+                    {
+                        "Index": 1,
+                        "Amount": {
+                            "Currency": "GBP",
+                            "GrossValue": 30,
+                            "TaxCodes": [
+                                "UK-S"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "CreditCardId": {
+                "Value": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
             }
-        ]
-    },
-     "CreditCardId": {
-        "Value": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
-    }
-
+        }
+    ]
 }
 ```
 
@@ -632,10 +657,15 @@ Updates information about a reservation. Note that if any of the fields are sent
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Identifier of the reservation within the transaction. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
+| `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
+
+#### Reservation updates
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
 | `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
 | `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
@@ -687,7 +717,7 @@ Same structure as in [Get all reservations](reservations.md#get-all-reservations
 
 ## Confirm reservation
 
-Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions are met \(the reservation has the `Optional` state\).
+Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met \(the reservations have the `Optional` state\).
 
 ### Request
 
@@ -698,7 +728,9 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
+    "ReservationIds": [
+        "9af9d8b0-43ae-414d-80a8-abc1012a2a59"
+    ]
 }
 ```
 
@@ -707,13 +739,17 @@ Marks a reservation as `Confirmed`. Succeeds only if all confirmation conditions
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to confirm. |
+| `ReservationIds` | array of string | required | Unique identifier of the [Reservation](reservations.md#reservation)s to confirm. |
 | `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 
 ### Response
 
 ```javascript
-{}
+{
+    "ReservationIds": [
+        "9af9d8b0-43ae-414d-80a8-abc1012a2a59"
+    ]
+}
 ```
 
 ## Start reservation
@@ -774,7 +810,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to process. |
 | `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
 | `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
-| `Notes` | string | optional | Notes of the event, required if `AllowOpenBalance` set to `true`. |
+| `Notes` | string | optional | Required if `AllowOpenBalance` set to `true`. Used to provide reason for closing with unbalanced bill. |
 
 ### Response
 
@@ -784,7 +820,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 
 ## Cancel reservation
 
-Cancels a reservation. Succeeds only if the reservation is cancellable.
+Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable.
 
 ### Request
 
@@ -795,7 +831,9 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+    "ReservationIds": [
+        "5ca70705-cbb7-48c4-8cc4-abb900aa278c"
+    ],
     "ChargeCancellationFee": true,
     "Notes": "Cancellation through Connector API"
 }
@@ -806,14 +844,18 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to cancel. |
+| `ReservationIds` | array of string | required | Unique identifiers of the [Reservation](reservations.md#reservation)s to cancel. |
 | `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Addiotional notes describing the cancellation. |
 
 ### Response
 
 ```javascript
-{}
+{  
+    "ReservationIds": [
+        "5ca70705-cbb7-48c4-8cc4-abb900aa278c"
+    ]
+}
 ```
 
 ## Update reservation customer
@@ -1061,4 +1103,3 @@ Adds a new product order of the specified product to the reservation.
     ]
 }
 ```
-
