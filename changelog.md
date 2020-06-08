@@ -1,6 +1,6 @@
 # Changelog
 
-## 2nd May 2020 11:30 UTC
+## 6th June 2020 11:30 UTC
 
 * Extended [Add restrictions](operations/services.md#add-restrictions) and [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `ExternalIdentifier`.
 * Extended [Get all reservations](operations/reservations.md#get-all-reservations) parameters with `ReservationIds`, `GroupIds`, `CustomerIds`, `SpaceIds`, `RateIds`, `BusinessSegmentIds` and `Numbers`. 
