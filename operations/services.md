@@ -398,7 +398,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
-| `ExternalNames` | array | required | External names of the rate for each language-culture code they were     translated to. |
+| `ExternalNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the external name of the rate. |
 
 #### Rate group
 
