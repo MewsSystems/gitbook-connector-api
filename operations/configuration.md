@@ -364,11 +364,11 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `TaxEnvironments` | array of [Tax Environments](configuration.md#tax-environments) | required | The supported tax environments. |
+| `TaxEnvironments` | array of [Tax environments](configuration.md#tax-environments) | required | The supported tax environments. |
 | `Taxations` | array of [Taxations](configuration.md#taxations) | required | The supported taxations. |
-| `TaxRates` | array of [Tax Rates](configuration.md#tax-rates) | required | The supported tax rates. |
+| `TaxRates` | array of [Tax rates](configuration.md#tax-rates) | required | The supported tax rates. |
 
-#### Tax Environments
+#### Tax environments
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -391,30 +391,30 @@ Returns all tax environments supported by the API.
 | `Code` | string | required | Code of the tax rate. |
 | `TaxationCode` | string | required | Code of the taxation. |
 | `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
-| `Strategy` | [Tax Rate Strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
+| `Strategy` | [Tax rate strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
 #### Tax rate strategy
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | [Tax Strategy Discriminator](#tax-strategy-discriminator) | required | If tax rate is flat or relative. |
-| `Value` | object | required | Structure of the object depends on [Tax Strategy Discriminator](#tax-strategy-discriminator-data). |
+| `Discriminator` | string | [Tax rate strategy discriminator](#tax-rate-strategy-discriminator) | required | If tax rate is flat or relative. |
+| `Value` | object | required | Structure of the object depends on [Tax rate strategy discriminator](#tax-rate-strategy-discriminator). |
 
-#### Tax strategy discriminator
+#### Tax rate strategy discriminator
 
-* `Flat` - Used when relevant tax rate is flat (e.g. 5.00 EUR). 
-* `Relative` - Used when relevant tax rate is relative (e.g. 21%)
+* `Flat` - Used with [Flat tax rate strategy data](#flat-tax-rate-strategy-data) (e.g. 5.00 EUR). 
+* `Relative` - Used with [Relative tax rate strategy data](#relative-tax-rate-strategy-data) (e.g. 21%).
 
-### Tax strategy discriminator data
+### Tax rate strategy data
 
-#### Flat strategy discriminator data
+#### Flat tax rate strategy data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Value` | number | required | Absolute value of tax. |
 | `CurrencyCode` | string | required | Code of [Currency](#currency). |
 
-#### Relative strategy discriminator data
+#### Relative tax rate strategy data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
