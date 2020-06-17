@@ -1,17 +1,20 @@
 # Use cases
 
-This section describes, how to use the Connector API in order to implement some of the well-known scenarios. Even if you are integrating different type of system, it may serve as a good starting point for the API usage patterns and practices. The following types of systems are described here:
+This section describes, how to use the Connector API in order to implement some of the well-known scenarios. Even if you are integrating a different type of system, it may serve as a good starting point for the API usage patterns and practices. The following types of systems are described here:
 
-* [Revenue management systems](use-cases.md#revenue-management-systems)
+* [Revenue management](use-cases.md#revenue-management)
 * [Device integrations](use-cases.md#device-integrations)
-* [Point of sale systems](use-cases.md#point-of-sale-systems)
-* [Guest technology systems](use-cases.md#guest-technology-systems)
-* [Reputation management systems](use-cases.md#reputation-management-systems)
-* [Mobile Key Systems](use-cases.md#mobile-key-systems)
-* [Event Management Software](use-cases.md#event-management-software)
-* [Accounting Systems](use-cases.md#accounting-systems)
-
-## Revenue management systems
+* [Point of sale](use-cases.md#point-of-sale)
+* [Guest technology](use-cases.md#guest-technology)
+* [Reputation management](use-cases.md#reputation-management)
+* [Mobile keys](use-cases.md#mobile-keys)
+* [Event management](use-cases.md#event-management)
+* [Accounting](use-cases.md#accounting)
+* [Upselling](use-cases.md#upselling)
+* [Housekeeping](use-cases.md#housekeeping)
+* [Customer management](use-cases.md#customer-management)
+  
+## Revenue management
 
 Revenue management systems obtain information about reservations, revenue and pricing from Mews. And based on the data they may recommend or directly update rate prices, give future revenue estimates, predict occupancy etc. In bigger hotels, there might be more than 50k reservations in a year, so it is necessary to always limit the operations in terms of potential data size, in order to avoid timeouts, network errors etc. A recommended approach, how to implement a RMS client is described below. Following these guidelines should ensure that both our servers and RMS clients are not unnecessarily overutilized.
 
@@ -53,7 +56,7 @@ In case your device is a Fiscal Machine \(no matter whether it is a virtual or a
 
 In case your device is a Key Cutter, you would get a command containing [Key cutter command data](operations/integrations.md#key-cutter-command-data).
 
-## Point of Sale
+## Point of sale
 
 Traditionally, a Point of Sale system (POS) will send totals from the system to a room or reservation located inside the Property Management System (PMS). 
 
@@ -105,7 +108,7 @@ Gratuities should be sent as another item to Mews with possibility of assigning 
 
 Outlets are used in Mews to collect any revenue and payments that are taken outside of Mews to allow for reporting to an external system (such as an accounting software). The POS will need to post all end of day revenue and payments to the Outlets the property has configured in Mews using the [Add outlet bill](operations/finance.md#add-outlet-bills) endpoint. Any outlet items that are sent to Mews will need to have an `AccountingCategoryId` attached to each item. 
 
-## Guest Technology \(PABX &TV\)
+## Guest technology
 
 Guest Technology integrations such as a telephone system are used for staff to identify guests on telephones or TV's and to generate revenue by charging guests for outside phone calls.
 
@@ -127,7 +130,7 @@ Note: The customer classification, `Cashlist` is what customers are classified a
 
 Once the customer to be charged is identified, the items can be posted onto their bill using the [Add order](operations/services.md#add-order) operation.
 
-## Reputation management systems
+## Reputation management
 
 Reputation management systems provide valuable insight to obtain an understanding of performance relating to operation and service strengths and weaknesses. This understanding is captured via post-stay surveys and by monitoring social channels such as Tripadvisor.
 
@@ -139,13 +142,13 @@ After a customer has checked out from a reservation, reputation management syste
 
 Upon a Reputation management system associating feedback with a customer the [Update customer](operations/customers.md#update-customer) operation should be added to the customer profile in Mews. The customer classification type `Previous complaint` is one which should be used when negative feedback has been received. Further to this, keywords from the complaint and a url to the survey or Tripadvisor post can be added to the customer `notes`.
 
-## Mobile Key Systems
+## Mobile keys
 
-Mobile Key solutions require a state of reservation in real time, a key should not be issued to a guest until they have been checked in Mews. To avoid polling for updated reservations, a Reservation Websocket should be used.
+Mobile key solutions require a state of reservation in real time, a key should not be issued to a guest until they have been checked in Mews. To avoid polling for updated reservations, a Reservation Websocket should be used.
 
 After receiving a websocket event, use [Get all reservations by ids](operations/reservations.md#get-all-reservations-by-ids) to retrieve information about the reservation and customer if the websocket event fits your criteria. With this response, you will have information to issue the mobile key to the customer using their contact information in Mews.
 
-## Event management software
+## Event management
 
 An event management integration pushes contracted revenue to the relevant guest’s profile in Mews, pulls live information about rates and availability and allows for the group reservations already pushed into Mews to be managed from the event management software. The sections below contain guidelines regarding the relevant endpoints used.
 
@@ -166,7 +169,7 @@ One of the expected functionalities of an event management integration is to pus
 
 In order to pull data about rates from Mews into the event management integration you can use the [Get all rates](operations/services.md#get-all-rates) and  [Get rate pricing](operations/services.md#get-all-rates) as well as [Get service availability](operations/services.md#get-service-availability).
 
-## Accounting Systems
+## Accounting
 
 Accounting systems are created to record and process accounting transactions for internal and external review and auditing. Accounting systems must include core modules such as accounts payable, accounts receivable, general ledger, and billing. Additional non-core modules could include reconciliation, inventory, a document approval system, expense tracking, reporting and electronic payment processing for added value. 
 
@@ -180,3 +183,60 @@ The integration should call [Get all accounting items](operations/finance.md#get
 is specified, the cost of the items will be converted to that currency. When retrieving the accounting items, the extent should include `CreditCardTransactions`  
 
 In order to retrieve all bills and invoices that must be paid and reconciled within the accounting software, the integration should use [Get all closed bills](operations/finance.md#get-all-closed-bills).
+
+## Upselling
+
+An upselling integration pulls information about customers, reservations, products and services for specified intervals in order to automate upselling of personalised room upgrades, add-ons and experiences to the guests.
+
+### Data pull
+
+Each Mews property creates a unique set of services and related products based on what they offer to their guests. Upselling integrations pull the relevant product information (e.g. name, unique identifier, price) and store it in their system for future use. A list of all the services a property offers can be requested using [Get all services](operations/services.md#get-all-services). The response contains a unique identifier which can then be used to pull all related products using [Get all products](operations/services.md#get-all-products). 
+
+If the integration is offering room upgrades to guests, it is important to take availability of spaces into account. After mapping the configuration of the property in your system, space (room) availability is returned per space category (room type) in the response to [Get service availability](operations/services.md#get-service-availability).
+
+### Adding items
+Once all of the products, services and related information are correctly stored in the upselling system, the next step is the posting of a selected product into Mews. How this product should be posted into Mews depends on whether it exists as a product in Mews and which type of service it belongs to.
+
+If the product is related to a Stay/Accommodation service (e.g. breakfast, extra bed, room upgrade), then it is useful to associate it with a specific reservation. This will lead to the correct overall count of products to be posted based on the total of nights in the reservation. First, the integration should retrieve the specific reservation using [Get all reservations](operations/reservations.md#get-all-reservations). The unique identifiers of the product and the reservation are then used in the [Add reservation product](operations/reservations.md#add-reservation-product) request. 
+
+If the product is created under a non-Stay/Accommodation service it will only be posted once and does not have to be attached to a reservation (e.g. a bottle of champagne, 1-hr massage, pool bar cocktail). In Mews, unlike with a traditional PMS where charges are posted to a room, all charges are posted directly to the guest profile. All guests, both active and checked out, can be retrieved using [Get all customers](operations/customers.md#get-all-customers) which offers numerous filters by email, names and more. To retrieve only the customers still checked in at the property, use the [Search customers](operations/customers.md#search-customers) request. The unique identifier of the chosen customer is then used to add the product to the correct guest profile using [Add order](operations/services.md#add-order).
+
+If the product being posted already exists in Mews, then use [Product order parameters](operations/services.md#product-order-parameters). If the product does not exist in Mews then use the [Item parameters](operations/services.md#item-parameters).
+
+To ensure correct reporting, all revenue items posted into Mews must be associated with their correct accounting category by sending the unique identifier in the Item parameters of the Add order request. Information about all the categories configured at each property are requested using [Get all accounting categories](operations/finance.md#get-all-accounting-categories).
+
+
+## Housekeeping
+
+A housekeeping integration pulls live information about the physical state of a space, allows the housekeeping staff to update it from the housekeeping software and pushes this data back into Mews. The sections below contain guidelines regarding the relevant endpoints used.
+
+### Initial configuration
+
+The integration must first retrieve all the spaces the property has configured in Mews using [Get all spaces](operations/enterprises.md#get-all-spaces). The response contains all relevant information needed to map the space configuration of the property in the external system. 
+
+### Managing spaces 
+
+To ensure all of the information is always synchronized between the two systems, the housekeeping integration monitors and manages any changes to the state of a space. Use the [Space event](websockets.md#space-event) websocket to receive real-time events whenever the [space state](operations/enterprises.md#space-state) is changed. Once a staff member has cleaned or inspected a room, the state can be updated in Mews using [Update space state](operations/enterprises.md#update-space-state).
+
+Information about space blocks can be requested using [Get all space blocks](operations/enterprises.md#get-all-space-blocks). Housekeeping integrations can also manage blocks through [Add space block](operations/enterprises.md#add-space-block) and [Delete space blocks](operations/enterprises.md#delete-space-blocks).
+
+If there is a use case for creating a task directly in Mews, this can be done using the [Add task](operations/enterprises.md#add-task) request. If a task should be assigned to a specific department, the unique identifiers required for this action can be retrieved using [Get all departments](operations/enterprises.md#get-all-departments). A list of existing tasks can be retrieved from Mews Commander using [Get all tasks](operations/enterprises.md#get-all-tasks).
+
+### Additional information
+
+The Mews Commander allows properties to configure when a space will be marked as `Dirty`, upon check-in or check-out, in their Stay service settings. They can also configure a specific housekeeping interval at which, if empty, the space will automatically turn `Dirty`. For example, if the field is set to two days, the space will automatically be changed after two days. Each unit represents a period of 24 hours, with automatic changes occurring between 04:00-05:00. The maximum amount of time for this interval is 7 days, after which the state will automatically change to `Dirty` to adhere to regulations for preventing Legionella.
+
+## Customer management
+
+Customer management integrations pull live information about reservations, customers, products and services for specified intervals. These types of solutions allow properties to manage the entire customer journey, from automating targeted marketing and driving sales to guest communication and engagement.
+
+### Retrieving new and modified reservations
+
+The communication with a customer typically begins the moment a new reservation is created in Mews. Integration partners can listen for newly-created reservations in real time using the websocket [Reservation event](websockets.md#reservation-event). A new event occurs with every change to the [reservation state](operations/reservations.md#reservation-state) meaning partners are informed of any change that should lead to communication from their side (e.g. sending a custom welcome message or a post-stay survey). This websocket event contains the unique identifier of the reservation which can then be used as the filter in the [Get all reservations](operations/reservations.md#get-all-reservations) request to retrieve any required information about the customer and their stay.
+
+If a websocket cannot be configured, reservation information can be requested using [Get all reservations](operations/reservations.md#get-all-reservations) with specified [Reservation states](operations/reservations.md#reservation-state) and [Time filters](operations/reservations.md#reservation-time-filter). For example, using the `Updated` time filter will return all reservations modified during the time interval specified in the request. 
+
+### Offering additional products or services
+
+Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upselling](#upselling) integration use case.
+
