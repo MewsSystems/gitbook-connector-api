@@ -105,7 +105,6 @@ The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` 
 
 **To protect the live data of each property, please store your production tokens securely and do not share them publicly.**
 
-
 ## Datetimes
 
 Some operations of the API accept datetimes in their parameters or return them in their results. The datetimes are represented as `string`s following the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) formatting rules. Moreover they should always be in [UTC](https://en.wikipedia.org/wiki/ISO_8601#UTC) so that it is clear which instant they represent and there is no room for confusion. Putting this all together means that the expected format of datetimes is `YYYY-MM-DDThh:mm:ssZ`. This format is also used in return values.
