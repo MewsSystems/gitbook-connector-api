@@ -366,7 +366,10 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "IsActive": true,
             "IsPublic": true,
             "Name": "Fully Flexible",
-            "ShortName": "FF"
+            "ShortName": "FF",
+            "ExternalNames": {
+                "en-US": "Long Stay Flexible Rate"
+            } 
         }
     ],
     "RateGroups": [
@@ -395,6 +398,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
+| `ExternalNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the external name of the rate. |
 
 #### Rate group
 
