@@ -6,7 +6,7 @@
 * Extended [Get all reservations](operations/reservations.md#get-all-reservations) parameters with `ReservationIds`, `GroupIds`, `CustomerIds`, `SpaceIds`, `RateIds`, `BusinessSegmentIds` and `Numbers`. 
 * Updated [Add reservations](operations/reservations.md#add-reservations), [Update reservation](operations/reservations.md#update-reservation), [Confirm reservation](operations/reservations.md#confirm-reservation) and [Cancel reservation](operations/reservations.md#cancel-reservation) by allowing an array of reservations to be specified in each request.
 * Extended [Get all tax environments](operations/configuration.md#get-all-tax-environments) with new `Discriminator` to allow both `Flat` and `Relative` [Tax rate strategy](operations/configuration.md#tax-rate-strategy).
-* Extents changed from optional to required for [Space extent](enterprises.md#space-extent), [Accounting item extent](#accounting-item-extent), [Bill extent](finance.md#bill-extent), [Rate extent](services.md#rate-extent) and [Companionship extent](services.md#companionship-extent).    
+* Extents changed from optional to required for [Space extent](operations/enterprises.md#space-extent), [Accounting item extent](operations/finance.md#accounting-item-extent), [Bill extent](operations/finance.md#bill-extent), [Rate extent](operations/services.md#rate-extent) and [Companionship extent](operations/services.md#companionship-extent).    
 
 ## 17th March 2020 11:30 UTC
 
