@@ -435,8 +435,8 @@ Returns all resources of an enterprise associated with the connector integration
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
-| `Value` | object | required | Based on the resource data discriminator provides additional data of the resource. Eg. [Space resource data](#space-resource-data)  |
+| `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | If resource is space, object or person. |
+| `Value` | object | required | Based on Resource data discriminator, e.g. [Space resource data](#space-resource-data)  |
 
 #### Resource data discriminator
 
@@ -449,6 +449,16 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `FloorNumber` | string | required | Number of the floor the space is on. |
+
+#### Object resource data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+
+#### Person resource data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 
 ## Update resources
 
@@ -472,10 +482,10 @@ Updates resources.
             "ParentResourceId": null,
             "Data": 
             {
+                "Discriminator": "Space",
                 "Value": {
-                    "Discriminator": "Space",
-                    "Value": {
-                        "FloorNumber": "1"
+                    "FloorNumber": {
+                        "Value": "1"
                     }
                 }
             },
@@ -496,7 +506,6 @@ Updates resources.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ResourceUpdates` | array of [Resource update](#resource-update) | required | Resource updates. |
-| `State` | string [Resource state](#resource-state) | required | New state of the resource \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
 
 #### Resource update
 
@@ -506,7 +515,7 @@ Updates resources.
 | `Name` | [String update value](reservations.md#string-update-value) | optional | New name of the resource \(e.g. room number\). |
 | `ParentResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
 | `Data` | [Resource data update](#resource-data-update) | optional | New additional data of the resource. |
-| `State` | [String update value](reservations.md#string-update-value) | optional | New state of the resource \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+| `State` | [String update value](reservations.md#string-update-value) | optional | New [State](#resource-state) of the resource except \(`OutOfOrder`\). |
 | `StateReason` | [String update value](reservations.md#string-update-value) | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 #### Resource data update
@@ -514,7 +523,7 @@ Updates resources.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
-| `Value` | object | required | Based on the resource data discriminator provides new additional data updates of the resource. Eg. [Space resource data update](#space-resource-data-update) |
+| `Value` | object | required | Based on Resource data discriminator, e.g. [Space resource data update](#space-resource-data-update) |
 
 #### Space resource data update
 
