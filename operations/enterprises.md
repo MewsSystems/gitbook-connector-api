@@ -36,10 +36,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Ids` | array of string | optional | Unique identifiers of [Companies](enterprises.md#company). |
-| `Names` | array of string | optional | Names of [Companies](enterprises.md#company). |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. |
+| `Ids` | array of string | optional | Unique identifiers of [Companies](#company). |
+| `Names` | array of string | optional | Names of [Companies](#company). |
+| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval of [Company](#company) creation date and time. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional | Interval of [Company](#company) last update date and time. |
 
 #### Time interval
 
@@ -94,7 +94,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Companies` | array of [Company](enterprises.md#company) | required | The company profiles of the enterprise. |
+| `Companies` | array of [Company](#company) | required | The company profiles of the enterprise. |
 
 #### Company
 
@@ -152,14 +152,14 @@ Returns all contracts between the enterprise and other companies.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `TravelAgencyContracts` | array of [Travel agency contract](enterprises.md#travel-agency-contract) | required | The travel agency contracts. |
+| `TravelAgencyContracts` | array of [Travel agency contract](#travel-agency-contract) | required | The travel agency contracts. |
 
 #### Travel agency contract
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the contract. |
-| `CompanyId` | string | required | Unique identifier of the contracted [Company](enterprises.md#company). |
+| `CompanyId` | string | required | Unique identifier of the contracted [Company](#company). |
 | `IsActive` | boolean | required | Whether the contract is still active. |
 | `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
 | `Commission` | number | optional | Commission of the travel agency. |
@@ -207,7 +207,7 @@ Returns all departments of an enterprise associated with the connector integrati
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Departments` | array of [Department](enterprises.md#department) | required | The departments of the enterprise. |
+| `Departments` | array of [Department](#department) | required | The departments of the enterprise. |
 
 #### Department
 
@@ -260,7 +260,7 @@ Returns all outlets of an enterprise associated with the connector integration.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Outlets` | array of [Outlet](enterprises.md#outlet) | required | The outlets of the enterprise. |
+| `Outlets` | array of [Outlet](#outlet) | required | The outlets of the enterprise. |
 
 #### Outlet
 
@@ -270,13 +270,13 @@ Returns all outlets of an enterprise associated with the connector integration.
 | `IsActive` | boolean | required | Whether the outlet is still active. |
 | `Name` | string | required | Name of the outlet. |
 
-## Get all spaces
+## Get all resources
 
-Returns all spaces of an enterprise associated with the connector integration.
+Returns all resources of an enterprise associated with the connector integration.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/spaces/getAll`
+`[PlatformAddress]/api/connector/v1/resources/getAll`
 
 ```javascript
 {
@@ -284,9 +284,12 @@ Returns all spaces of an enterprise associated with the connector integration.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "Extent": {
-        "Spaces": true,
-        "SpaceCategories": false,
-        "SpaceFeatures": false,
+        "Resources": true,
+        "ResourceCategories": false,
+        "ResourceCategoryAssignments": false,
+        "ResourceCategoryImageAssignments": false,
+        "ResourceFeatures": false,
+        "ResourceFeatureAssignments": false,
         "Inactive": false
     }
 }
@@ -297,86 +300,104 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Extent` | [Space extent](enterprises.md#space-extent) | required | Extent of data to be returned. |
+| `Extent` | [Resource extent](#resource-extent) | required | Extent of data to be returned. |
 
-#### Space extent
+#### Resource extent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Spaces` | bool | optional | Whether the response should contain spaces. |
-| `SpaceCategories` | bool | optional | Whether the response should contain space categories. |
-| `SpaceFeatures` | bool | optional | Whether the response should contain space features and their assignments. |
+| `Resources` | bool | optional | Whether the response should contain resources. |
+| `ResourceCategories` | bool | optional | Whether the response should contain categories. |
+| `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
+| `ResourceCategoryImageAssignments` | bool | optional | Whether the response should contain assignments of the images to categories. |
+| `ResourceFeatures` | bool | optional | Whether the response should contain resource features. |
+| `ResourceFeatureAssignments` | bool | optional | Whether the response should contain assignments of the resources to features. |
 | `Inactive` | bool | optional | Whether the response should contain inactive entities. |
 
 ### Response
 
 ```javascript
 {
-    "Spaces": [
+    "Resources": [
         {
-            "BuildingNumber": null,
-            "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-            "FloorNumber": "1",
             "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
             "IsActive": true,
-            "Number": "101",
-            "ParentSpaceId": null,
+            "Name": "101",
+            "ParentResourceId": null,
             "State": "Dirty",
-            "Type": "Room"
+            "Descriptions": {},
+            "Data": {
+                "Discriminator": "Space",
+                "Value": {
+                    "FloorNumber": "3"
+                }
+            }
         },
         {
-            "BuildingNumber": null,
-            "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-            "FloorNumber": "1",
             "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
             "IsActive": true,
-            "Number": "102",
-            "ParentSpaceId": null,
+            "Name": "102",
+            "ParentResourceId": null,
             "State": "Inspected",
-            "Type": "Room"
+            "Descriptions": {
+                "en-US": "Resource description"
+            },
+            "Data": {
+                "Discriminator": "Space",
+                "Value": {
+                    "FloorNumber": "3"
+                }
+            }
         }
     ],
-    "SpaceCategories": [
+    "ResourceCategories": [
         {
             "Id": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
+            "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
             "IsActive": true,
-            "Name": "Best Room",
             "Names": {
                 "en-US": "Best Room"
-            },
-            "ShortName": "BR",
             "ShortNames":{
                 "en-US": "BR"
             },
-            "Description": "",
             "Descriptions": {},
             "Ordering": 0,
-            "UnitCount": 2,
-            "ExtraUnitCount": 0
-            "ImageIds": [],
+            "Capacity": 2,
+            "ExtraCapacity": 0
         }
     ],
-    "SpaceFeatures": [
+    "ResourceCategoryAssignments": [
+        {
+            "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+            "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9"
+        }
+    ],
+
+    "ResourceCategoryImageAssignments": [
+        {
+            "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
+            "ImageId": "8cd435e0-f024-44a0-84fd-abe300b8ae1c"
+        }
+    ],
+    "ResourceFeatures": [
         {
             "Id": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
+            "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
             "IsActive": true,
             "Classification": "AccessibleBathroom",
-            "Name": "Accessible Bathroom"
             "Names": {
                 "en-US": "Accessible Bathroom"
             },
-            "ShortName": "AccessBath",
             "ShortNames": {
                 "en-US": "AccessBath"
             },
-            "Description": null,
             "Descriptions": {}
         }
     ],
-    "SpaceFeatureAssignments": [
+    "ResourceFeatureAssignments": [
         {
-            "SpaceFeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
-            "SpaceId": "18019693-c66f-4be8-a893-c3d89fd291cc"
+            "ResourceId": "18019693-c66f-4be8-a893-c3d89fd291cc",
+            "FeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0"
         }
     ]
 }
@@ -384,33 +405,25 @@ Returns all spaces of an enterprise associated with the connector integration.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Spaces` | array of [Space](enterprises.md#space) | required | The spaces of the enterprise. |
-| `SpaceCategories` | array of [Space category](enterprises.md#space-category) | required | Categories of spaces in the enterprise. |
-| `SpaceFeatures` | array of [Space feature](enterprises.md#space-feature) | optional | Features of spaces in the enterprise. |
-| `SpaceFeatureAssignments` | array of [Space feature assignment](enterprises.md#space-feature-assignment) | optional | Assignments of space features to spaces. |
+| `Resources` | array of [Resource](#resource) | required | The resources of the enterprise. |
+| `ResourceCategories` | array of [Resource category](#resource-category) | required | Categories of resources in the enterprise. |
+| `ResourceCategoryAssignments` | array of [Resource feature assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
+| `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
+| `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
+| `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Assignments of resource features to resources. |
 
-#### Space
+#### Resource
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the space. |
-| `IsActive` | bool | required | Whether the space is still active. |
-| `Type` | string [Space type](enterprises.md#space-type) | required | Type of the space. |
-| `Number` | string | required | Number of the space \(e.g. room number\). |
-| `FloorNumber` | string | optional | Number of the floor the space is on. |
-| `BuildingNumber` | string | optional | Number of the building the space is in. |
-| `ParentSpaceId` | string | optional | Identifier of the parent [Space](enterprises.md#space) \(e.g. room of a bed\). |
-| `CategoryId` | string | required | Identifier of the [Space category](enterprises.md#space-category) assigned to the space. |
-| `State` | string [Space state](enterprises.md#space-state) | required | State of the room. |
+| `Id` | string | required | Unique identifier of the resource. |
+| `IsActive` | bool | required | Whether the resource is still active. |
+| `Name` | string | required | Name of the resource \(e.g. room number\). |
+| `ParentResourceId` | string | optional | Identifier of the parent [Resource](#resource) \(e.g. room of a bed\). |
+| `State` | string [Resource state](#resource-state) | required | State of the resource. |
+| `Data` | [Resource data](#resource-data) | required | Additional data of the resource. |
 
-#### Space type
-
-* `Room`
-* `Dorm`
-* `Bed`
-* ...
-
-#### Space state
+#### Resource state
 
 * `Dirty`
 * `Clean`
@@ -418,42 +431,153 @@ Returns all spaces of an enterprise associated with the connector integration.
 * `OutOfService`
 * `OutOfOrder`
 
-#### Space category
+#### Resource data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
+| `Value` | object | required | Based on the resource data discriminator provides additional data of the resource. Eg. [Space resource data](#space-resource-data)  |
+
+#### Resource data discriminator
+* `Space`
+
+#### Space resource data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `FloorNumber` | string | required | Number of the floor the space is on |
+
+## Update resource
+
+Updates resource.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resources/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ResourceUpdates": [
+        {
+            "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+            "Name": {
+                "Value": "0101"
+            },
+            "ParentResourceId": null,
+            "Data": 
+            {
+                "Value": {
+                    "Discriminator": "Space",
+                    "Value": {
+                        "FloorNumber": "1"
+                    }
+                }
+            },
+            "State": {
+                "Value": "Clean"
+            },
+            "StateReason": {
+                "Value": "Sample reason"
+            }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ResourceUpdates` | array of [Resource update](#resource-update) | required | Resource updates. |
+| `State` | string [Resource state](#resource-state) | required | New state of the resource \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+
+#### Resource update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) which is updated. |
+| `Name` | [String update value](#string-update-value) | optional | New name of the resource \(e.g. room number\). |
+| `ParentResourceId` | [String update value](#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
+| `Data` | [Resource data update value](#resource-data-update-value) | optional | New additional data of the resource. |
+| `State` | [String update value](#string-update-value) | optional | New state of the resource \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+| `StateReason` | [String update value](#string-update-value) | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
+
+#### String update value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | string | optional | Value which is to be updated. |
+
+#### Resource data update value
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | [Resource data](#resource-data) | optional | Value which is to be updated. |
+
+
+### Response
+
+```javascript
+{}
+```
+
+#### Resource category
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the category. |
-| `IsActive` | bool | required | Whether the space category is still active. |
-| `Name` | string | required | Name of the category. |
-| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
-| `ShortName` | string | optional | Short name \(e.g. code\) of the category. |
-| `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
-| `Description` | string | optional | Description of the category. |
-| `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
+| `IsActive` | bool | required | Whether the category is still active. |
+| `Type` | string [Resource category type](#resource-category-type) | required | Type of the category. |
+| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
-| `UnitCount` | number | required | Count of units that can be accommodated \(e.g. bed count\). |
-| `ExtraUnitCount` | number | required | Count of extra units that can be accommodated \(e.g. extra bed count\). |
-| `ImageIds` | array of string | required | Unique identifiers of the space category images. |
+| `Capacity` | number | required | Capacity that can be accommodated \(e.g. bed count\). |
+| `ExtraCapacity` | number | required | Extra capacity that can be accommodated \(e.g. extra bed count\). |
+
+#### Resource category type
+
+* `Room`
+* `Dorm`
+* `Bed`
+* ...
+
+#### Resource category assignment
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ResourceId` | string | required | Unique identifier of the resource. |
+| `CategoryId` | string | required | Unique identifier of the category that resource is assigned to. |
+
+#### Resource category image assignment
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryId` | string | required | Unique identifier of the category that image is assigned to. |
+| `ImageId` | string | required | Unique identifier of the image. |
+
 
 #### Localized text
 
 An object where keys are the [Language](configuration.md#language) codes and values texts in respective languages.
 
-#### Space feature
+#### Resource feature
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the feature. |
-| `IsActive` | bool | required | Whether the space feature is still active. |
-| `Classification` | [Space feature classification](enterprises.md#space-feature-classification) | required | Classification of the feature. |
-| `Name` | string | required | Name of the feature. |
-| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
-| `ShortName` | string | optional | Short name \(e.g. code\) of the feature. |
-| `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
-| `Description` | string | optional | Description of the feature. |
-| `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
+| `IsActive` | bool | required | Whether the resource feature is still active. |
+| `Classification` | [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
+| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
 
-#### Space feature classification
+#### Resource feature classification
 
 * `AccessibleBathroom`
 * `AccessibleRoom`
@@ -477,26 +601,32 @@ An object where keys are the [Language](configuration.md#language) codes and val
 * `SeaView`
 * `...`
 
-#### Space feature assignment
+#### Resource feature assignment
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `SpaceId` | string | required | Unique identifier [Space](enterprises.md#space). |
-| `SpaceFeatureId` | string | required | Unique identifier [Space feature](enterprises.md#space-feature). |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
+| `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature). |
 
-## Get all space blocks
+## Get all resource blocks
 
-Returns all space blocks \(out of order blocks or house use blocks\).
+Returns all resource blocks \(out of order blocks or internally used blocks\).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/spaceBlocks/getAll`
+`[PlatformAddress]/api/connector/v1/resourceBlocks/getAll`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ResourceBlockIds": [
+        "c478f1b3-7edb-4ccc-8f07-dd32fae1ca70"
+    ],
+    "AssignedResourceIds": [
+        "b64f088d-49b5-4d5f-9766-2e27c4b75e27"
+    ],
     "CollidingUtc": {
         "StartUtc": "2020-01-25T00:00:00Z",
         "EndUtc": "2020-01-30T00:00:00Z"
@@ -520,12 +650,14 @@ Returns all space blocks \(out of order blocks or house use blocks\).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) is active. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) was created. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Space block](#space-block) was updated. |
-| `Extent` | [Space block extent](#space-block-extent) | required | Extent of data to be returned. |
+| `ResourceBlockIds` | array of string | optional | Unique identifiers of the requested [Resource block](#resource-block)s. |
+| `AssignedResourceIds` | array of string | optional | Unique identifiers of the requested Assigned [Resource](#resource)s. |
+| `CollidingUtc` | [Time interval](#time-interval) | optional | Interval in which the [Resource block](#resource-block) is active. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Resource block](#resource-block) was created. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Resource block](#resource-block) was updated. |
+| `Extent` | [Resource block extent](#resource-block-extent) | required | Extent of data to be returned. |
 
-#### Space block extent
+#### Resource block extent
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -535,19 +667,19 @@ Returns all space blocks \(out of order blocks or house use blocks\).
 
 ```javascript
 {
-    "SpaceBlocks": [
+    "ResourceBlocks": [
         {
-            "AssignedSpaceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+            "AssignedResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
             "CreatedUtc": "2016-03-29T22:02:34Z",
             "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "5ab9d519-2485-4d77-85c4-2a619cbdc4e7",
             "IsActive": true,
             "StartUtc": "2016-01-01T10:00:00Z",
-            "Type": "HouseUse",
+            "Type": "InternalUse",
             "UpdatedUtc": "2016-03-29T22:02:34Z"
         },
         {
-            "AssignedSpaceId": "f7c4b4f5-ac83-4977-a41a-63d27cc6e3e9",
+            "AssignedResourceId": "f7c4b4f5-ac83-4977-a41a-63d27cc6e3e9",
             "CreatedUtc": "2016-03-29T15:14:06Z",
             "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "4d98ad40-a726-409e-8bf3-2c12ff3c0331",
@@ -562,45 +694,50 @@ Returns all space blocks \(out of order blocks or house use blocks\).
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `SpaceBlocks` | array of [Space block](enterprises.md#space-block) | required | The space blocks colliding with the interval. |
+| `ResourceBlocks` | array of [Resource block](#resource-block) | required | The resource blocks colliding with the interval or matching the Id parameters. |
 
-#### Space block
+#### Resource block
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the block. |
-| `AssignedSpaceId` | string | required | Unique identifier of the assigned [Space](enterprises.md#space). |
+| `AssignedResourceId` | string | required | Unique identifier of the assigned [Resource](#resource). |
 | `IsActive` | bool | required | Whether the block is still active. |
-| `Type` | string [Space block type](enterprises.md#space-block-type) | required | Type of the space block. |
+| `Type` | string [Resource block type](#resource-block-type) | required | Type of the resource block. |
 | `StartUtc` | string | required | Start of the block in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the block in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 
-#### Space block type
+#### Resource block type
 
 * `OutOfOrder`
-* `HouseUse`
+* `InternalUse`
 
-## Add space block
+## Add resource block
 
-Adds a new space block to the specified space for a defined period of time.
+Adds a new resource block to the specified resource for a defined period of time.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/spaceBlocks/add`
+`[PlatformAddress]/api/connector/v1/resourceBlocks/add`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "SpaceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
-    "Name": "Space block 1",
-    "StartUtc": "2019-10-15T10:00:00Z",
-    "EndUtc": "2019-10-20T10:00:00Z",
-    "Type": "OutOfOrder",
-    "Notes": "Note"
+    "ResourceBlocks": [
+        {
+            "ResourceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
+            "Name": "Resource block 1",
+            "StartUtc": "2019-10-15T10:00:00Z",
+            "EndUtc": "2019-10-20T10:00:00Z",
+            "Type": "OutOfOrder",
+            "Notes": "Note"
+        }
+    ]
+    
 }
 ```
 
@@ -609,39 +746,50 @@ Adds a new space block to the specified space for a defined period of time.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `SpaceId` | string | required | Unique identifier of [Space](#space). |
-| `Name` | string | required | Name of the space block. |
+| `ResourceId` | string | required | Unique identifier of [Resource](#resource). |
+| `Name` | string | required | Name of the resource block. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `Type` | string [Space block type](#space-block-type) | required | Type of the space block. |
-| `Notes` | string | optional | Note describing the space block. |
+| `Type` | string [Resource block type](#resource-block-type) | required | Type of the resource block. |
+| `Notes` | string | optional | Note describing the resource block. |
 
 ### Response
 
 ```javascript
 {
-    "SpaceBlockId": "bf1e10b7-8a03-4675-9e27-05fc84312a58"
+    "ResourceBlocks": [
+        {
+            "Id": "0913bd1d-69fc-4bcb-82d3-5a40520c8fb0",
+            "Name": "Resource block 1",
+            "StartUtc": "2019-10-15T10:00:00Z",
+            "EndUtc": "2019-10-20T10:00:00Z",
+            "Type": "OutOfOrder",
+            "Notes": "Note",
+            "CreatedUtc": "2016-06-01T15:14:06Z",
+            "UpdatedUtc": "2016-06-01T15:14:06Z"
+        }
+    ]
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `SpaceBlockId` | string | required | Unique identifier of added [Space block](enterprises.md#space-block). |
+| `ResourceBlocks` | array of [Resource block](#resource-block)s | required | Resource blocks added. |
 
-## Delete space blocks
+## Delete resource blocks
 
-Removes specified space blocks from the spaces.
+Removes specified resource blocks from the resources.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/spaceBlocks/delete`
+`[PlatformAddress]/api/connector/v1/resourceBlocks/delete`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "SpaceBlockIds": [
+    "ResourceBlockIds": [
         "bf1e10b7-8a03-4675-9e27-05fc84312a58",
         "e8fb6bfb-d64a-4e7c-acfe-ab0400d01183"
     ]
@@ -653,39 +801,7 @@ Removes specified space blocks from the spaces.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `SpaceBlockIds` | array of string | required | Unique identifier of [Space block](enterprises.md#space-block)s to be removed. |
-
-### Response
-
-```javascript
-{}
-```
-
-## Update space state
-
-Updates state of the specified space. Note that the state is also updated on the child spaces of the specified space. So if e.g. dorm space is set to `Dirty`, ale subspaces \(beds\) are also set to `Dirty`.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/spaces/updateState`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "SpaceId": "41b3e3a2-3400-4d72-86d4-1e341ccf8977",
-    "State": "Inspected"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) to be updated. |
-| `State` | string [Space state](enterprises.md#space-state) | required | New state of the space \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+| `ResourceBlockIds` | array of string | required | Unique identifier of [Resource block](#resource-block)s to be removed. |
 
 ### Response
 
@@ -723,7 +839,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 | `Description` | string | optional | Further decription of the task. |
 | `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
 | `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services.md#add-order)) the task is linked with. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](#department) the task is addressed to. |
 
 ### Response
 
@@ -880,7 +996,7 @@ Adds a new company to the enterprise.
 
 ### Response
 
-Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+Same structure as in [Get all companies](#get-all-companies) operation.
 
 ## Update company
 
@@ -945,4 +1061,4 @@ Updates information of the company.
 
 ### Response
 
-Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
+Same structure as in [Get all companies](#get-all-companies) operation.
