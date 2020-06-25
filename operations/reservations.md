@@ -43,7 +43,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | string [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
+| `TimeFilter` | string [Reservation time filter](#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s from which the reservations are requested. |
@@ -54,8 +54,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
 | `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
 | `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
-| `States` | array of string [Reservation state](reservations.md#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
-| `Extent` | [Reservation extent](reservations.md#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
+| `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
+| `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 #### Reservation time filter
@@ -184,8 +184,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `Resources` | array of [Resource](enterprises.md#resource) | optional | Assigned resources of the reservations. |
 | `ResourceCategories` | array of [Resource category](enterprises.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](enterprises.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
-| `Notes` | array of [Order note](reservations.md#order-note) | optional | Notes of the reservations. | 
-| `QrCodeData` | array of [QrCode data](reservations.md#qrcode-data) | optional | QR code data of the reservations. | 
+| `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
+| `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. | 
 
 #### Reservation
 
@@ -250,9 +250,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the note. |
-| `OrderId` | string | required | Unique identifier of the order or [Reservation](reservations.md#reservation). |
+| `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation). |
 | `Text` | string | required | Value of the note. |
-| `Type` | string [Order note type](reservations.md#order-note-type) | required | Type of the note. |
+| `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
 | `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
 
 #### Order note type
@@ -721,7 +721,7 @@ Updates information about the specified reservation. Note that if any of the fie
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Index` | string | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
-| `Amount` | [Amount](reservations.md#services.md#amount-parameters) | required | Amount of the unit. |
+| `Amount` | [Amount](services.md#amount-parameters) | required | Amount of the unit. |
 
 ### Response
 
