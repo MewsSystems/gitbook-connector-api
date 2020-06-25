@@ -36,10 +36,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Ids` | array of string | optional | Unique identifiers of [Companies](#company). |
-| `Names` | array of string | optional | Names of [Companies](#company). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval of [Company](#company) creation date and time. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional | Interval of [Company](#company) last update date and time. |
+| `Ids` | array of string | optional | Unique identifiers of [Companies](enterprises.md#company). |
+| `Names` | array of string | optional | Names of [Companies](enterprises.md#company). |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. |
 
 #### Time interval
 
@@ -94,7 +94,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Companies` | array of [Company](#company) | required | The company profiles of the enterprise. |
+| `Companies` | array of [Company](enterprises.md#company) | required | The company profiles of the enterprise. |
 
 #### Company
 
@@ -152,14 +152,14 @@ Returns all contracts between the enterprise and other companies.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `TravelAgencyContracts` | array of [Travel agency contract](#travel-agency-contract) | required | The travel agency contracts. |
+| `TravelAgencyContracts` | array of [Travel agency contract](enterprises.md#travel-agency-contract) | required | The travel agency contracts. |
 
 #### Travel agency contract
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the contract. |
-| `CompanyId` | string | required | Unique identifier of the contracted [Company](#company). |
+| `CompanyId` | string | required | Unique identifier of the contracted [Company](enterprises.md#company). |
 | `IsActive` | boolean | required | Whether the contract is still active. |
 | `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
 | `Commission` | number | optional | Commission of the travel agency. |
@@ -207,7 +207,7 @@ Returns all departments of an enterprise associated with the connector integrati
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Departments` | array of [Department](#department) | required | The departments of the enterprise. |
+| `Departments` | array of [Department](enterprises.md#department) | required | The departments of the enterprise. |
 
 #### Department
 
@@ -260,7 +260,7 @@ Returns all outlets of an enterprise associated with the connector integration.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Outlets` | array of [Outlet](#outlet) | required | The outlets of the enterprise. |
+| `Outlets` | array of [Outlet](enterprises.md#outlet) | required | The outlets of the enterprise. |
 
 #### Outlet
 
@@ -410,7 +410,7 @@ Returns all resources of an enterprise associated with the connector integration
 | `ResourceCategoryAssignments` | array of [Resource feature assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
 | `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
-| `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Assignments of resource features to resources. |
+| `ResourceFeatureAssignments` | array of [Resource feature assignment](resource-feature-assignment) | optional | Assignments of resource features to resources. |
 
 #### Resource
 
@@ -544,9 +544,9 @@ Updates resources.
 | `Id` | string | required | Unique identifier of the category. |
 | `IsActive` | bool | required | Whether the category is still active. |
 | `Type` | string [Resource category type](#resource-category-type) | required | Type of the category. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
+| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
 | `Capacity` | number | required | Capacity that can be accommodated \(e.g. bed count\). |
 | `ExtraCapacity` | number | required | Extra capacity that can be accommodated \(e.g. extra bed count\). |
@@ -584,9 +584,9 @@ An object where keys are the [Language](configuration.md#language) codes and val
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | bool | required | Whether the resource feature is still active. |
 | `Classification` | [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
+| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
 
 #### Resource feature classification
 
@@ -663,9 +663,9 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
 | `Client` | string | required | Name and version of the client application. |
 | `ResourceBlockIds` | array of string | optional | Unique identifiers of the requested [Resource block](#resource-block)s. |
 | `AssignedResourceIds` | array of string | optional | Unique identifiers of the requested Assigned [Resource](#resource)s. |
-| `CollidingUtc` | [Time interval](#time-interval) | optional | Interval in which the [Resource block](#resource-block) is active. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Resource block](#resource-block) was created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Resource block](#resource-block) was updated. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) is active. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) was updated. |
 | `Extent` | [Resource block extent](#resource-block-extent) | required | Extent of data to be returned. |
 
 #### Resource block extent
@@ -849,7 +849,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 | `Description` | string | optional | Further decription of the task. |
 | `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
 | `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services.md#add-order)) the task is linked with. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](#department) the task is addressed to. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 
 ### Response
 
@@ -905,12 +905,12 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. |
-| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
+| `TaskIds` | array of string | optional | Unique identifiers of [Task](enterprises.md#task)s. |
+| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](enterprises.md#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was created. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was closed. |
-| `DeadlineUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) has a deadline. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](enterprises.md#task) was created. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](enterprises.md#task) was closed. |
+| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](enterprises.md#task) has a deadline. |
 
 ### Response
 
@@ -934,7 +934,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Tasks` | array of [Task](#task) | required | The filtered tasks. |
+| `Tasks` | array of [Task](enterprises.md#task) | required | The filtered tasks. |
 
 #### Task
 
@@ -942,9 +942,9 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the task. |
 | `Name` | string | required | Name \(or title\) of the task. |
-| `State` | string [Task state](#task-state) | required | State of the task. |
+| `State` | string [Task state](enterprises.md#task-state) | required | State of the task. |
 | `Description` | string | optional | Further decription of the task. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](#department) the task is addressed to. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
 | `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)) the task is linked with. |
 | `CreatedUtc` | string | required | Creation date and time of the task in UTC timezone in ISO 8601 format. |
 | `DeadlineUtc` | string | required | Deadline date and time of the task in UTC timezone in ISO 8601 format. |
@@ -1006,7 +1006,7 @@ Adds a new company to the enterprise.
 
 ### Response
 
-Same structure as in [Get all companies](#get-all-companies) operation.
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
 
 ## Update company
 
@@ -1071,4 +1071,4 @@ Updates information of the company.
 
 ### Response
 
-Same structure as in [Get all companies](#get-all-companies) operation.
+Same structure as in [Get all companies](enterprises.md#get-all-companies) operation.
