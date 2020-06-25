@@ -908,9 +908,9 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. |
 | `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](#task) was created. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](#task) was closed. |
-| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](#task) has a deadline. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was created. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was closed. |
+| `DeadlineUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) has a deadline. |
 
 ### Response
 
