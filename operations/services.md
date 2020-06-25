@@ -63,7 +63,7 @@ Returns all services offered by the enterprise.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Services` | array of [Service](#service) | required | Services offered by the enterprise. |
+| `Services` | array of [Service](services.md#service) | required | Services offered by the enterprise. |
 
 #### Service
 
@@ -74,8 +74,8 @@ Returns all services offered by the enterprise.
 | `Name` | string | required | Name of the service. |
 | `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
 | `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
-| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
-| `Type` | string | [Service type](#service-type) | required | Type of the service. |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
+| `Type` | string | [Service type](services.md#service-type) | required | Type of the service. |
 
 #### Promotions
 
@@ -116,7 +116,7 @@ Returns availability of a reservable service in the specified interval. Note tha
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
@@ -178,7 +178,7 @@ Returns all products offered together with the specified services.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
 
 ### Response
 
@@ -226,23 +226,23 @@ Returns all products offered together with the specified services.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Products` | array of [Product](#product) | required | Products offered with the service. |
+| `Products` | array of [Product](services.md#product) | required | Products offered with the service. |
 
 #### Product
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the product. |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service). |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
 | `IsActive` | boolean | required | Whether the product is still active. |
 | `Name` | string | required | Name of the product. |
 | `ShortName` | string | required | Short name of the product. |
 | `Description` | string | optional | Description of the product. |
-| `Charging` | string [Product charging](#product-charging) | required | Charging of the product. |
-| `Posting` | string [Product posting](#product-posting) | required | Posting of the product. |
-| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
-| `Classifications` | [Product classifications](#product-classifications) | required | Classifications of the service. |
+| `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
+| `Posting` | string [Product posting](services.md#product-posting) | required | Posting of the product. |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
+| `Classifications` | [Product classifications](services.md#product-classifications) | required | Classifications of the service. |
 | `Price` | [Currency value](finance.md#currency-value) | required | Price of the product. |
 
 #### Product charging
@@ -315,7 +315,7 @@ Returns all business segments of the default service provided by the enterprise.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `BusinessSegments` | array of [Business segment](#business-segment) | required | Business segments of the default service. |
+| `BusinessSegments` | array of [Business segment](services.md#business-segment) | required | Business segments of the default service. |
 
 #### Business segment
 
@@ -355,7 +355,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the rates are requested. |
-| `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
+| `Extent` | [Rate extent](services.md#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
 
@@ -397,16 +397,16 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Rates` | array of [Rate](#rate) | required | Rates of the default service. |
-| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups of the default service. |
+| `Rates` | array of [Rate](services.md#rate) | required | Rates of the default service. |
+| `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups of the default service. |
 
 #### Rate
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rate. |
-| `GroupId` | string | required | Unique identifier of [Rate group](#rate-group) where the rate belongs. |
-| `BaseRateId` | string | required | Unique identifier of the base [Rate](#rate). |
+| `GroupId` | string | required | Unique identifier of [Rate group](services.md#rate-group) where the rate belongs. |
+| `BaseRateId` | string | required | Unique identifier of the base [Rate](services.md#rate). |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
@@ -447,7 +447,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `RateId` | string | required | Unique identifier of the [Rate](#rate) whose prices should be returned. |
+| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
@@ -548,8 +548,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `RateId` | string | required | Unique identifier of the base [Rate](#rate) to update. |
-| `PriceUpdates` | array of [Price update](#price-update) | required | Price updates. |
+| `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
+| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
 
 #### Price update
 
@@ -610,7 +610,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the restrictions are requested. |
 | `ResourceCategoryIds` | array of string | optional | Unique identifiers of [Resource categories](enterprises.md#resource-category). |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was updated. |
@@ -689,7 +689,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Restrictions` | array of [Restriction](#restriction) | required | Restrictions of the default service. |
+| `Restrictions` | array of [Restriction](services.md#restriction) | required | Restrictions of the default service. |
 
 #### Restriction
 
@@ -698,22 +698,22 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Id` | string | required | Unique identifier of the restriction. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
-| `Conditions` | string | required | [Conditions](#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
-| `Exceptions` | string | optional | [Exceptions](#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
+| `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
+| `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
 #### Restriction Conditions
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Type` | string | required | [Restriction type](#restriction-type). |
-| `ExactRateId` | string | optional | Unique identifier of the restricted [Exact rate](#rate). |
-| `BaseRateId` | string | optional | Unique identifier of the restricted [Base rate](#rate). |
-| `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](#rate-group). |
+| `Type` | string | required | [Restriction type](services.md#restriction-type). |
+| `ExactRateId` | string | optional | Unique identifier of the restricted [Exact rate](services.md#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the restricted [Base rate](services.md#rate). |
+| `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](services.md#rate-group). |
 | `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](enterprises.md#resource-category). |
 | `ResourceType` | string | optional | Name of the restricted [Resource type](#resource-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](#day) | required | The restricted days of week. |
+| `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
 
 #### Restriction Exceptions
 
@@ -801,15 +801,15 @@ Adds new restrictions with the specified conditions.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) restrictions will be added in. |
-| `Restrictions` | array of [Restriction parameters](#restriction-parameters) | required | Parameters of restrictions. |
+| `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | required | Parameters of restrictions. |
 
 #### Restriction parameters
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
-| `Conditions` | string | required | [Conditions](#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
-| `Exceptions` | string | optional | [Exceptions](#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
+| `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
+| `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
 ### Response
 
@@ -885,14 +885,14 @@ Adds new restrictions with the specified conditions.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Restrictions` | array of [Added restriction](#added-restriction) | required | The added restrictions. |
+| `Restrictions` | array of [Added restriction](services.md#added-restriction) | required | The added restrictions. |
 
 #### Added restriction
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
-| `Restriction` | [Restriction](#restriction) | required | The added restriction. |
+| `Restriction` | [Restriction](services.md#restriction) | required | The added restriction. |
 
 ## Delete restrictions
 
@@ -919,7 +919,7 @@ Removes restrictions from the service.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](#restriction)s. |
+| `RestrictionIds` | array of string | required | Unique identifiers of the [Restriction](services.md#restriction)s. |
 
 ### Response
 
@@ -972,19 +972,19 @@ Creates a new order with the specified products and items. Only positive charges
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer) to be charged. |
-| `ServiceId` | string | required | Identifier of the [Service](#service) to be ordered. |
+| `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
 | `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. |
 | `Notes` | string | optional | Additional notes of the order. |
-| `ProductOrders` | array of [Product order parameters](#product-order-parameters) | optional | Parameters of the ordered products. |
-| `Items` | array of [Item parameters](#item-parameters) | optional | Parameters of the ordered custom items. |
+| `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the ordered products. |
+| `Items` | array of [Item parameters](services.md#item-parameters) | optional | Parameters of the ordered custom items. |
 
 #### Product order parameters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ProductId` | string | required | Unique identifier of the [Product](#product) to be ordered. |
+| `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount](#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
 
 #### Item parameters
 
@@ -992,7 +992,7 @@ Creates a new order with the specified products and items. Only positive charges
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount](#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
+| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
 #### Amount parameters
@@ -1049,7 +1049,7 @@ Returns all companionships based on customers, reservations or reservation group
 | `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
 | `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
 | `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
-| `Extent` | [Companionship extent](#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
+| `Extent` | [Companionship extent](services.md#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
 
 #### Companionship extent
 
@@ -1079,7 +1079,7 @@ Returns all companionships based on customers, reservations or reservation group
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Companionships` | array of [Companionship](#companionship) | required | Companionships. |
+| `Companionships` | array of [Companionship](services.md#companionship) | required | Companionships. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
 | `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
 | `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
@@ -1088,7 +1088,7 @@ Returns all companionships based on customers, reservations or reservation group
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of [Companionship](#Companionship). |
+| `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
 | `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
