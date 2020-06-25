@@ -447,9 +447,9 @@ Returns all resources of an enterprise associated with the connector integration
 | --- | --- | --- | --- |
 | `FloorNumber` | string | required | Number of the floor the space is on |
 
-## Update resource
+## Update resources
 
-Updates resource.
+Updates resources.
 
 ### Request
 
