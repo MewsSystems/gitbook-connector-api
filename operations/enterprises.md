@@ -407,10 +407,10 @@ Returns all resources of an enterprise associated with the connector integration
 | --- | --- | --- | --- |
 | `Resources` | array of [Resource](#resource) | required | The resources of the enterprise. |
 | `ResourceCategories` | array of [Resource category](#resource-category) | required | Categories of resources in the enterprise. |
-| `ResourceCategoryAssignments` | array of [Resource feature assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
+| `ResourceCategoryAssignments` | array of [Resource category assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
 | `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
-| `ResourceFeatureAssignments` | array of [Resource feature assignment](resource-feature-assignment) | optional | Assignments of resource features to resources. |
+| `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Assignments of resource features to resources. |
 
 #### Resource
 
@@ -905,12 +905,12 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TaskIds` | array of string | optional | Unique identifiers of [Task](enterprises.md#task)s. |
-| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](enterprises.md#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
+| `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. |
+| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](enterprises.md#task) was created. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](enterprises.md#task) was closed. |
-| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](enterprises.md#task) has a deadline. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](#task) was created. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](#task) was closed. |
+| `DeadlineUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Task](#task) has a deadline. |
 
 ### Response
 
@@ -934,7 +934,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Tasks` | array of [Task](enterprises.md#task) | required | The filtered tasks. |
+| `Tasks` | array of [Task](#task) | required | The filtered tasks. |
 
 #### Task
 
@@ -942,9 +942,9 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the task. |
 | `Name` | string | required | Name \(or title\) of the task. |
-| `State` | string [Task state](enterprises.md#task-state) | required | State of the task. |
+| `State` | string [Task state](#task-state) | required | State of the task. |
 | `Description` | string | optional | Further decription of the task. |
-| `DepartmentId` | string | optional | Unique identifier of the [Department](enterprises.md#department) the task is addressed to. |
+| `DepartmentId` | string | optional | Unique identifier of the [Department](#department) the task is addressed to. |
 | `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)) the task is linked with. |
 | `CreatedUtc` | string | required | Creation date and time of the task in UTC timezone in ISO 8601 format. |
 | `DeadlineUtc` | string | required | Deadline date and time of the task in UTC timezone in ISO 8601 format. |
@@ -1056,18 +1056,18 @@ Updates information of the company.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Name` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
-| `MotherCompanyId` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
-| `Identifier` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
-| `TaxIdentifier` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
-| `AdditionalTaxIdentifier` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
-| `BillingCode` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
-| `AccountingCode` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
-| `InvoiceDueInterval` | [String update value](reservations.mdreservations.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `ContactPerson` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Contact person of the company. |
-| `Contact` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Contact of the company. |
-| `Notes` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Notes of the company. |
-| `Iata` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Iata of the company. |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
+| `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
+| `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
+| `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
+| `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
+| `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
+| `InvoiceDueInterval` | [String update value](reservations.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ContactPerson` | [String update value](reservations.md#string-update-value) | optional | Contact person of the company. |
+| `Contact` | [String update value](reservations.md#string-update-value) | optional | Contact of the company. |
+| `Notes` | [String update value](reservations.md#string-update-value) | optional | Notes of the company. |
+| `Iata` | [String update value](reservations.md#string-update-value) | optional | Iata of the company. |
 
 ### Response
 
