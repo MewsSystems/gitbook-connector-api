@@ -439,13 +439,16 @@ Returns all resources of an enterprise associated with the connector integration
 | `Value` | object | required | Based on the resource data discriminator provides additional data of the resource. Eg. [Space resource data](#space-resource-data)  |
 
 #### Resource data discriminator
+
 * `Space`
+* `Object`
+* `Person`
 
 #### Space resource data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `FloorNumber` | string | required | Number of the floor the space is on |
+| `FloorNumber` | string | required | Number of the floor the space is on. |
 
 ## Update resources
 
@@ -500,24 +503,24 @@ Updates resources.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ResourceId` | string | required | Unique identifier of the [Resource](#resource) which is updated. |
-| `Name` | [String update value](#string-update-value) | optional | New name of the resource \(e.g. room number\). |
-| `ParentResourceId` | [String update value](#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
-| `Data` | [Resource data update value](#resource-data-update-value) | optional | New additional data of the resource. |
-| `State` | [String update value](#string-update-value) | optional | New state of the resource \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
-| `StateReason` | [String update value](#string-update-value) | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | New name of the resource \(e.g. room number\). |
+| `ParentResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
+| `Data` | [Resource data update](#resource-data-update) | optional | New additional data of the resource. |
+| `State` | [String update value](reservations.md#string-update-value) | optional | New state of the resource \(`Dirty`, `Clean`, `Inspected` or `OutOfService`\). |
+| `StateReason` | [String update value](reservations.md#string-update-value) | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
-#### String update value
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Resource data update value
+#### Resource data update
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | [Resource data](#resource-data) | optional | Value which is to be updated. |
+| `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
+| `Value` | object | required | Based on the resource data discriminator provides new additional data updates of the resource. Eg. [Space resource data update](#space-resource-data-update) |
 
+#### Space resource data update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `FloorNumber` | [String update value](reservations.md#string-update-value) | required | New number of the floor the space is on. |
 
 ### Response
 
@@ -559,7 +562,6 @@ Updates resources.
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the category that image is assigned to. |
 | `ImageId` | string | required | Unique identifier of the image. |
-
 
 #### Localized text
 
@@ -610,7 +612,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 ## Get all resource blocks
 
-Returns all resource blocks \(out of order blocks or internally used blocks\).
+Returns all resource blocks \(out of order blocks or internal use blocks\).
 
 ### Request
 
@@ -736,8 +738,7 @@ Adds a new resource block to the specified resource for a defined period of time
             "Type": "OutOfOrder",
             "Notes": "Note"
         }
-    ]
-    
+    ]   
 }
 ```
 
@@ -1046,18 +1047,18 @@ Updates information of the company.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
-| `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
-| `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
-| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
-| `AdditionalTaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
-| `BillingCode` | [String update value](reservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
-| `AccountingCode` | [String update value](reservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
-| `InvoiceDueInterval` | [String update value](reservations.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `ContactPerson` | [String update value](reservations.md#string-update-value) | optional | Contact person of the company. |
-| `Contact` | [String update value](reservations.md#string-update-value) | optional | Contact of the company. |
-| `Notes` | [String update value](reservations.md#string-update-value) | optional | Notes of the company. |
-| `Iata` | [String update value](reservations.md#string-update-value) | optional | Iata of the company. |
+| `Name` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
+| `MotherCompanyId` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
+| `Identifier` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
+| `TaxIdentifier` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
+| `AdditionalTaxIdentifier` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
+| `BillingCode` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
+| `AccountingCode` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
+| `InvoiceDueInterval` | [String update value](reservations.mdreservations.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ContactPerson` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Contact person of the company. |
+| `Contact` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Contact of the company. |
+| `Notes` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Notes of the company. |
+| `Iata` | [String update value](reservations.mdreservations.md#string-update-value) | optional | Iata of the company. |
 
 ### Response
 
