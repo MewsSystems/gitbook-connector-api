@@ -740,7 +740,6 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 {}
 ```
 
-
 ## Get all outlet items
 
 Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
