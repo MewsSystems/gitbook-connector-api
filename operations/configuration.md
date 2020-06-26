@@ -391,13 +391,13 @@ Returns all tax environments supported by the API.
 | `Code` | string | required | Code of the tax rate. |
 | `TaxationCode` | string | required | Code of the taxation. |
 | `Value` | number | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
-| `Strategy` | [Tax rate strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
+| `Strategy` | object [Tax rate strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
 #### Tax rate strategy
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | string | [Tax rate strategy discriminator](#tax-rate-strategy-discriminator) | required | If tax rate is flat or relative. |
+| `Discriminator` | string [Tax rate strategy discriminator](#tax-rate-strategy-discriminator) | required | If tax rate is flat or relative. |
 | `Value` | object | required | Structure of the object depends on [Tax rate strategy discriminator](#tax-rate-strategy-discriminator). |
 
 #### Tax rate strategy discriminator
