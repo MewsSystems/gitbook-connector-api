@@ -607,6 +607,75 @@ Closes balanced bill so no further modification to it is possible.
 | --- | --- | --- | --- |
 | `Bills` | array of [Bill](finance.md#bill) | required | The closed bill. |
 
+## Get bill PDF
+
+Prints PDF version of closed bill. In case it's not possible to return PDF immediately returns unique event identifier which must be used in retried requests. 
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getPdf`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "BillPrintEventId": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillId` | string | required | Unique identifier of the [Bill](finance.md#bill) to be printed. |
+| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](#bill-print-event) returned by previous operation call. |
+
+### Response
+
+```javascript
+{
+    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "Result": {
+        "Discriminator": "BillPdfFile",
+        "Value": {
+            "Base64Data": "JVBER....."
+        }
+    }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BillId` | string | required | The unique identifier of printed [Bill](finance.md#bill). |
+| `Result` | object [Bill PDF result](#bill-pdf-result) | required | The result of operation. |
+
+#### Bill PDF result
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Bill PDF result discriminator](#bill-pdf-result-discriminator) | required | Determines type of result. |
+| `Value` | object | required | Structure of object depends on [Bill PDF result discriminator](#bill-pdf-result-discriminator) |
+
+#### Bill PDF result discriminator
+
+* `BillPdfFile` - [Bill](finance.md#bill) was successfully printed to PDF, `Value` is [Bill PDF file](#bill-pdf-file). 
+* `BillPrintEvent` - [Bill](finance.md#bill) couldn't be printed at this moment (for example bill haven't been reported to authorities yet), `Value` is [Bill print event](#bill-print-event).
+
+#### Bill PDF file
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Base64Data` | string  | required | BASE64 encoded PDF file. |
+
+#### Bill print event
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BillPrintEventId` | string  | required | Unique identifier of print event. Must be used in retry calls to retrieve the PDF. |
+
 ## Get all outlet items
 
 Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
