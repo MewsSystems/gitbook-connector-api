@@ -448,7 +448,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
     "CustomerIds": [
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
-    "State": "Open",
+    "State": "Closed",
     "ClosedUtc": {
         "StartUtc": "2020-02-05T00:00:00Z",
         "EndUtc": "2020-02-10T00:00:00Z"
@@ -517,7 +517,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Bills` | array of [Bill](finance.md#bill) | required | The closed bills. |
+| `Bills` | array of [Bill](finance.md#bill) | required | The filtered bills. |
 
 #### Bill
 
@@ -544,6 +544,68 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 * `Receipt` - the bill has already been fully paid.
 * `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
+
+## Close bill
+
+Closes balanced bill so no further modification to it is possible.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/close`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+    "FiscalMachineId": null,
+    "Notes": "Bill closing note"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillId` | string | required | Unique identifier of the [Bill](finance.md#bill) to be closed. |
+| `BillCounterId` | string | optional | Unique identifier of the [Counter](enterprise.md#counter) to be used for closing. Default one is used when no value is provided. |
+| `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](integrations.md#device) to be used for closing. Default one is used when no value is provided. |
+| `Notes` | string | optional | Notes to be attached to bill. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+
+### Response
+
+```javascript
+{
+    "Bills": [
+        {
+            "Id": "44eba542-193e-47c7-8077-abd7008eb206",
+            "CustomerId": "7eaf9da6-7229-454a-8cb0-abd700804bd2",
+            "CompanyId": null,
+            "CounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+            "State": "Closed",
+            "Type": "Receipt",
+            "Number": "84",
+            "VariableSymbol": null,
+            "CreatedUtc": "2020-06-11T08:39:32Z",
+            "IssuedUtc": "2020-06-25T08:49:38Z",
+            "TaxedUtc": "2020-06-25",
+            "PaidUtc": null,
+            "DueUtc": null,
+            "Notes": null,
+            "Revenue": [],
+            "Payments": []
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Bills` | array of [Bill](finance.md#bill) | required | The closed bill. |
 
 ## Get all outlet items
 
