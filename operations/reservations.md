@@ -208,7 +208,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
 | `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
-| `AssignedResourceLocked` | bool | required | Whether the reservation is locked in the assigned [Resource](enterprises.md#resource) and cannot be moved. |
+| `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](enterprises.md#resource) and cannot be moved. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](services.md#business-segment). |
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |

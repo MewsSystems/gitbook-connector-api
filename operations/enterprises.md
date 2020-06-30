@@ -516,7 +516,7 @@ Updates resources.
 | `ParentResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
 | `Data` | [Resource data update](#resource-data-update) | optional | New additional data of the resource. |
 | `State` | [String update value](reservations.md#string-update-value) | optional | New [State](#resource-state) of the resource except \(`OutOfOrder`\). |
-| `StateReason` | [String update value](reservations.md#string-update-value) | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
+| `StateReason` | [String update value](reservations.md#string-update-value) | optional | New reason for the state of the resource. |
 
 #### Resource data update
 
@@ -548,8 +548,8 @@ Updates resources.
 | `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
 | `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
-| `Capacity` | number | required | Capacity that can be accommodated \(e.g. bed count\). |
-| `ExtraCapacity` | number | required | Extra capacity that can be accommodated \(e.g. extra bed count\). |
+| `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
+| `ExtraCapacity` | number | required | Extra capacity that can be served \(e.g. extra bed count\). |
 
 #### Resource category type
 
@@ -562,14 +562,14 @@ Updates resources.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ResourceId` | string | required | Unique identifier of the resource. |
-| `CategoryId` | string | required | Unique identifier of the category that resource is assigned to. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category) that Resource is assigned to. |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
 
 #### Resource category image assignment
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the category that image is assigned to. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category) that image is assigned to. |
 | `ImageId` | string | required | Unique identifier of the image. |
 
 #### Localized text
@@ -583,7 +583,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 | `Id` | string | required | Unique identifier of the feature. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | bool | required | Whether the resource feature is still active. |
-| `Classification` | [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
+| `Classification` | string [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
 | `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name. |
 | `ShortNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the short name. |
 | `Descriptions` | [Localized text](enterprises.md#localized-text) | required | All translations of the description. |
@@ -616,7 +616,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) that Resource feature is assigned to. |
 | `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature). |
 
 ## Get all resource blocks
@@ -746,6 +746,14 @@ Adds a new resource block to the specified resource for a defined period of time
             "EndUtc": "2019-10-20T10:00:00Z",
             "Type": "OutOfOrder",
             "Notes": "Note"
+        },
+        {
+            "ResourceId": "f7c4b4f5-ac83-4977-a41a-63d27cc6e3e9",
+            "Name": "Resource block 2",
+            "StartUtc": "2019-10-15T10:00:00Z",
+            "EndUtc": "2019-10-20T10:00:00Z",
+            "Type": "InternalUse",
+            "Notes": "Note"
         }
     ]   
 }
@@ -756,6 +764,12 @@ Adds a new resource block to the specified resource for a defined period of time
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ResourceBlocks` | array of [Resource block parameter](#resource-block-parameter)s | required | Resource block parameters. |
+
+#### Resource block parameter
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 | `ResourceId` | string | required | Unique identifier of [Resource](#resource). |
 | `Name` | string | required | Name of the resource block. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
@@ -770,11 +784,21 @@ Adds a new resource block to the specified resource for a defined period of time
     "ResourceBlocks": [
         {
             "Id": "0913bd1d-69fc-4bcb-82d3-5a40520c8fb0",
+            "AssignedResourceId": "0d71d44e-3d85-4506-9b6f-aab500b69c52",
             "Name": "Resource block 1",
             "StartUtc": "2019-10-15T10:00:00Z",
             "EndUtc": "2019-10-20T10:00:00Z",
             "Type": "OutOfOrder",
-            "Notes": "Note",
+            "CreatedUtc": "2016-06-01T15:14:06Z",
+            "UpdatedUtc": "2016-06-01T15:14:06Z"
+        },
+        {
+            "Id": "4d98ad40-a726-409e-8bf3-2c12ff3c0331",
+            "AssignedResourceId": "f7c4b4f5-ac83-4977-a41a-63d27cc6e3e9",
+            "Name": "Resource block 2",
+            "StartUtc": "2019-10-15T10:00:00Z",
+            "EndUtc": "2019-10-20T10:00:00Z",
+            "Type": "InternalUse",
             "CreatedUtc": "2016-06-01T15:14:06Z",
             "UpdatedUtc": "2016-06-01T15:14:06Z"
         }
