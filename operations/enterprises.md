@@ -562,15 +562,15 @@ Updates resources.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category) that Resource is assigned to. |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) assigned to the Resource category. |
 
 #### Resource category image assignment
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category) that image is assigned to. |
-| `ImageId` | string | required | Unique identifier of the image. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
+| `ImageId` | string | required | Unique identifier of the image assigned to the Resource category. |
 
 #### Localized text
 
@@ -616,8 +616,8 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) that Resource feature is assigned to. |
-| `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature). |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
+| `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature) assigned to the Resource. |
 
 ## Get all resource blocks
 
