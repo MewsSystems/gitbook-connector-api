@@ -591,7 +591,9 @@ Returns all restrictions of the default service provided by the enterprise.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space categories](enterprises.md#space-category). |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns all restrictions that affect given rates (i.e. ones without any [Conditions](#restriction-conditions), ones from same [Rate group](services.md#rate-group) as specified rate or ones inherited from base rate). |
+| `BaseRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restriction which have matching `BaseRateId` set in [Conditions](#restriction-conditions). |
+| `ExactRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restriction which have matching `ExactRateId` set in [Conditions](#restriction-conditions). |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was updated. |
