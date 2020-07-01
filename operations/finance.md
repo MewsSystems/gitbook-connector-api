@@ -468,13 +468,13 @@ Updates specified accounting items. Allows to change to which account or bill th
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AccountingItemUpdates` | array of [Accounting item update](#accounting-item-update)s | required | List of requested updates. |
+| `AccountingItemUpdates` | array of [Accounting item update](#accounting-item-update) | required | List of requested updates. |
 
 #### Accounting item update
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `AccountingItemId` | string | required | Unique identifier of the [accounting item(#accounting-item)]. |
+| `AccountingItemId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
 | `AccountId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the items is assigned to \(or `null` if the assigned account should not be updated\). If defined, valid account identifier must be provided. |
 | `BillId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Bill](#bill) the items is assigned to \(or `null` if the bill assignment should not be updated\). If defined, `null` value can be provided which removes specified item from bill. It's possible to assign item to bill of another account, in that case both `AccountId` and `BillId` must be provided.
 
