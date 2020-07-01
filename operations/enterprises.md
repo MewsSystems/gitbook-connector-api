@@ -372,7 +372,6 @@ Returns all resources of an enterprise associated with the connector integration
             "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9"
         }
     ],
-
     "ResourceCategoryImageAssignments": [
         {
             "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
@@ -405,8 +404,8 @@ Returns all resources of an enterprise associated with the connector integration
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Resources` | array of [Resource](#resource) | required | The resources of the enterprise. |
-| `ResourceCategories` | array of [Resource category](#resource-category) | required | Categories of resources in the enterprise. |
+| `Resources` | array of [Resource](#resource) | optional | The resources of the enterprise. |
+| `ResourceCategories` | array of [Resource category](#resource-category) | optional | Categories of resources in the enterprise. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
 | `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
@@ -462,7 +461,7 @@ Returns all resources of an enterprise associated with the connector integration
 
 ## Update resources
 
-Updates resources.
+Updates details of the resources.
 
 ### Request
 
