@@ -475,8 +475,8 @@ Updates specified accounting items. Allows to change to which account or bill th
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `AccountingItemId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
-| `AccountId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the items is assigned to \(or `null` if the assigned account should not be updated\). If defined, valid account identifier must be provided. |
-| `BillId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Bill](#bill) the items is assigned to \(or `null` if the bill assignment should not be updated\). If defined, `null` value can be provided which removes specified item from bill. It's possible to assign item to bill of another account, in that case both `AccountId` and `BillId` must be provided.
+| `AccountId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the item is assigned to \(or `null` if the assigned account should not be updated\). If defined, valid account identifier must be provided. |
+| `BillId` | [String update value](reservations.md#string-update-value) | required | Unique identifier of the [Bill](#bill) the items is assigned to. It's possible to assign item to bill belonging to another account, in that case both `AccountId` and `BillId` must be provided.
 
 ### Response
 
