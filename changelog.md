@@ -1,5 +1,44 @@
 # Changelog
 
+## 2nd July 2020 11:30 UTC
+
+A month ago we announced the [project Spacetime](https://developers.mews.com/project-spacetime/) whose main objective is to generalize the notion of services and spaces. And later, also the time units. We're pleased to announce that the first phase is now available in the Connector API. We're deprecating lot of things, we're generalizing spaces into resources, we're introducing the possibility to have multiple "visit" services, not just a single one etc. There are no breaking changes in the API, all of the previous endpoints and capabilities are still working and will be working until the end of the deprecation period. However we'd like to ask you to migrate as soon as possible, we're not able to roll out the new possibilities to our clients if you are not ready. If we did that, it would break the connection. Therefore we rely on you and your timely cooperation because we want to give this new opportunity to the hotels as soon as possible. We acknowledge it's a lot of changes, we're prepared to monitor the situation and help you with any questions or concerns, feel free to contact us at integrations@mews.com.
+
+* All "space" fields and entities are now renamed to the "resource". 
+* Added [Resource](operations/enterprises.md#resource) that is replacing the Space. It can have multiple categories through multiple services. Note that Resource does not need to be assigned to any category.
+* Added [Resource category](operations/enterprises.md#resource-category) that is replacing the Space category.
+* Added [Resource category image assignment](operations/enterprises.md#resource-category-image-assignment) that links an image to a category.
+* Added [Resource category assignment](operations/enterprises.md#resource-category-assignment) that links a resource to a category. Note that resource can be assigned only to a single category within the same service.
+* Added [Resource feature](operations/enterprises.md#resource-feature) that is replacing the Space feature and now is within the service context.
+* Added [Resource feature assignment](operations/enterprises.md#resource-feature-assignment) that is replacing the Space feature assignment.
+* Added [Resource block](operations/enterprises.md#resource-block) that is replacing the Space block. Note that a resource without any category can be assigned to a block.
+* Added [Get all resources](operations/enterprises.md#get-all-resources) that is replacing Get all spaces.
+* Added [Update resources](operations/enterprises.md#update-resources).
+* Added [Get all resource blocks](operations/enterprises.md#get-all-resource-blocks) that is replacing Get all space blocks.
+* Added [Add resource blocks](operations/enterprises.md#add-resource-block) that is replacing Add space block.
+* Added [Delete resource blocks](operations/enterprises.md#delete-resource-blocks) that is replacing Delete space blocks.
+* Extended [Get all reservations](operations/reservations.md#get-all-reservations) parameters with required `ServiceIds` and `AssignedResourceIds` that is replacing `SpaceIds`.
+* Extended [Get all reservations](operations/reservations.md#get-all-reservations) response with `Resources`, `ResourceCategories` that is replacing `Spaces`, `SpaceCategories` and `ResourceCategoryAssignments`.
+* Extended [Reservation extent](operations/reservations.md#reservation-extent) with `ResourceCategories`, `ResourceCategoryAssignments` and `Resources` that is replacing the `Spaces`.
+* Extended [Reservation](operations/reservations.md#reservation) with `AssignedResourceId` and `AssignedResourceLocked` that is replacing `AssignedSpaceId` and `AssignedSpaceLocked`.
+* Extended [Update reservation](operations/reservations.md#update-reservation) parameters with `AssignedResourceId` that is replacing Update reservation space.
+* Extended [Search customers](operations/customers.md#search-customers) parameters with `ResourceId` that is replacing `SpaceId`.
+* Extended [Get all business segments](operations/services.md#get-all-business-segments) parameters with required `ServiceIds`.
+* Extended [Get all rates](operations/services.md#get-all-rates) parameters with required `ServiceIds`.
+* Extended [Get all restrictions](operations/services.md#get-all-restrictions) parameters with required `ServiceIds` and `ResourceCategoryIds` that is replacing `SpaceCategoryIds`.
+* Extended [Add restrictions](operations/services.md#get-all-rates) parameters with required `ServiceId`.
+* Extended [Restriction](operations/services.md#restriction) with `ServiceId` and `ResourceCategoryId`, `ResourceCategoryType` that is replacing `SpaceCategoryId`, `SpaceType`.
+* Extended [Restriction conditions](operations/services.md#restriction-conditions) with `ResourceCategoryId`, `ResourceCategoryType` that is replacing `SpaceCategoryId`, `SpaceType`,
+* Extended [Business segment](operations/services.md#business-segment) with `ServiceId`.
+* Extended [Rate](operations/services.md#rate) with `ServiceId`.
+* Extended [Rate group](operations/services.md#rate-group) with `ServiceId`.
+* Renamed `Space category availability` to [Resource category availability](operations/services.md#resource-category-availability).
+* Renamed `Space category pricing` to [Resource category pricing](operations/services.md#resource-category-pricing).
+* Renamed `Space category adjustment` to [Resource category adjustment](operations/services.md#resource-category-adjustment).
+* Removed `Update space state` which is replaced by general Update resources.
+* Removed `Update reservation requested category`. [Update reservation](operations/reservations.md#update-reservation) should be used instead.
+
+
 ## 6th June 2020 11:30 UTC
 
 * Extended [Add restrictions](operations/services.md#add-restrictions) and [Get all restrictions](operations/services.md#get-all-restrictions) parameters with `ExternalIdentifier`.
