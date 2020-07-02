@@ -94,7 +94,7 @@ Returns all services offered by the enterprise.
 
 ## Get service availability
 
-Returns availability of a reservation service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
+Returns availability of a reservable service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
@@ -144,15 +144,15 @@ Returns availability of a reservation service in the specified interval. Note th
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryAvailabilities` | array of [Space category availability](services.md#space-category-availability) | required | Space category availabilities. |
+| `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
 
-#### Space category availability
+#### Resource category availability
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
-| `Availabilities` | array of number | required | Availabilities of the space category in the covered dates. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
+| `Availabilities` | array of number | required | Availabilities of the resource category in the covered dates. |
 
 ## Get all products
 
@@ -278,7 +278,10 @@ Returns all business segments of the default service provided by the enterprise.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ]
 }
 ```
 
@@ -287,6 +290,7 @@ Returns all business segments of the default service provided by the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the business segments are requested. |
 
 ### Response
 
@@ -295,11 +299,13 @@ Returns all business segments of the default service provided by the enterprise.
     "BusinessSegments": [
         {
             "Id": "7760b5cb-a666-41bb-9758-76bf5d1df399",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Business"
         },
         {
             "Id": "54ec08b6-e6fc-48e9-b8ae-02943e0ac693",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Leisure"
         }
@@ -316,6 +322,7 @@ Returns all business segments of the default service provided by the enterprise.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the segment. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the business segment is still active. |
 | `Name` | string | required | Name of the segment. |
 
@@ -332,6 +339,9 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ],
     "Extent": {
         "Rates": true,
         "RateGroups": true
@@ -344,6 +354,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the rates are requested. |
 | `Extent` | [Rate extent](services.md#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
@@ -363,15 +374,20 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "BaseRateId": null,
             "GroupId": "c8b866b3-be2e-4a47-9486-034318e9f393",
             "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "IsPublic": true,
             "Name": "Fully Flexible",
-            "ShortName": "FF"
+            "ShortName": "FF",
+            "ExternalNames": {
+                "en-US": "Long Stay Flexible Rate"
+            } 
         }
     ],
     "RateGroups": [
         {
             "Id": "c8b866b3-be2e-4a47-9486-034318e9f393",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Default"
         }
@@ -391,16 +407,19 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of [Rate group](services.md#rate-group) where the rate belongs. |
 | `BaseRateId` | string | required | Unique identifier of the base [Rate](services.md#rate). |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
+| `ExternalNames` | [Localized text](enterprises.md#localized-text) | required | All translations of the external name of the rate. |
 
 #### Rate group
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the group. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
 
@@ -471,32 +490,32 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
 | `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
-| `CategoryPrices` | array of [Space category pricing](services.md#space-category-pricing) | required | Space category prices. |
-| `CategoryAdjustments` | array of [Space category adjustment](services.md#space-category-adjustment) | required | Space category adjustments. |
+| `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
+| `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
 | `RelativeAdjustment` | decimal | required | Specific amount which shows the difference between this rate and the base rate. |
 | `AbsoluteAdjustment` | decimal | required | Relative amount which shows the difference between this rate and the base rate. |
-| `EmptyUnitAdjustment` | decimal | required | Price adjustment for when the space booked with this rate is not full to capacity. |
-| `ExtraUnitAdjustment` | decimal | required | Price adjustment for when the space booked with this rate exceeds capacity. |
+| `EmptyUnitAdjustment` | decimal | required | Price adjustment for when the resource booked with this rate is not full to capacity. |
+| `ExtraUnitAdjustment` | decimal | required | Price adjustment for when the resource booked with this rate exceeds capacity. |
 
-#### Space category pricing
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
-| `Prices` | array of number | required | Prices of the rate for the space category in the covered dates. |
-
-#### Space category adjustment
+#### Resource category pricing
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryId` | string | required | Unique identifier of the adjustment [Space category](enterprises.md#space-category). |
-| `ParentCategoryId` | string | optional | Unique identifier of the parent [Space category](enterprises.md#space-category) that serves as a base price for the current category. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
+| `Prices` | array of number | required | Prices of the rate for the resource category in the covered dates. |
+
+#### Resource category adjustment
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CategoryId` | string | required | Unique identifier of the adjustment [Resource category](enterprises.md#resource-category). |
+| `ParentCategoryId` | string | optional | Unique identifier of the parent [Resource category](enterprises.md#resource-category) that serves as a base price for the current category. |
 | `RelativeValue` | number | required | Relative value of the adjustment \(e.g. `0.5` represents 50% increase\). |
 | `AbsoluteValue` | number | required | Absolute value of the adjustment \(e.g. `50` represents 50 EUR in case the rate currency is `EUR`\). |
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Space category](enterprises.md#space-category), otherwise updates the base price for all space categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
 
 ### Request
 
@@ -536,7 +555,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `CategoryId` | string | optional | Unique identifier of the [Space category](enterprises.md#space-category) whose prices to update. If not specified, base price is updated. |
+| `CategoryId` | string | optional | Unique identifier of the [Resource category](enterprises.md#resource-category) whose prices to update. If not specified, base price is updated. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
@@ -560,7 +579,10 @@ Returns all restrictions of the default service provided by the enterprise.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "SpaceCategoryIds": [
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ],
+    "ResourceCategoryIds": [
         "34c29e73-c8db-4e93-b51b-981e42655e03"
     ],
     "RateIds": [
@@ -586,7 +608,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `SpaceCategoryIds` | array of string | optional | Unique identifiers of [Space categories](enterprises.md#space-category). |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the restrictions are requested. |
+| `ResourceCategoryIds` | array of string | optional | Unique identifiers of [Resource categories](enterprises.md#resource-category). |
 | `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. |
@@ -599,14 +622,15 @@ Returns all restrictions of the default service provided by the enterprise.
    "Restrictions": [  
       {  
          "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+         "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
          "ExternalIdentifier": "5678",
          "Conditions": {  
             "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
             "BaseRateId": null,
             "RateGroupId": null,
-            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
-            "SpaceType": null,
+            "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "ResourceCategoryType": null,
             "StartUtc": "2018-10-09T00:00:00Z",
             "EndUtc": "2018-10-31T00:00:00Z",
             "Days": [  
@@ -631,14 +655,15 @@ Returns all restrictions of the default service provided by the enterprise.
       },
       {  
          "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+         "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
          "ExternalIdentifier": "5678",
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": null,
             "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
             "RateGroupId": null,
-            "SpaceCategoryId": null,
-            "SpaceType": "Room",
+            "ResourceCategoryId": null,
+            "ResourceCategoryType": "Room",
             "StartUtc": "2018-10-01T00:00:00Z",
             "EndUtc": "2018-10-31T00:00:00Z",
             "Days": [  
@@ -671,6 +696,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
 | `Conditions` | string | required | [Conditions](services.md#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | string | optional | [Exceptions](services.md#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
@@ -680,11 +706,11 @@ Returns all restrictions of the default service provided by the enterprise.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Type` | string | required | [Restriction type](services.md#restriction-type). |
-| `ExactRateId` | string | optional | Unique identifier of the restricted [ExactRate](services.md#rate). |
-| `BaseRateId` | string | optional | Unique identifier of the restricted [BaseRate](services.md#rate). |
-| `RateGroupId` | string | optional | Unique identifier of the restricted [RateGroup](services.md#rate-group). |
-| `SpaceCategoryId` | string | optional | Unique identifier of the restricted [SpaceCategory](enterprises.md#space-category). |
-| `SpaceType` | string | optional | Name of the restricted [Space type](services.md#space-type). |
+| `ExactRateId` | string | optional | Unique identifier of the restricted [Exact rate](services.md#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the restricted [Base rate](services.md#rate). |
+| `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](services.md#rate-group). |
+| `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](enterprises.md#resource-category). |
+| `ResourceType` | string | optional | Name of the restricted [Resource type](#resource-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
@@ -728,6 +754,7 @@ Adds new restrictions with the specified conditions.
 {  
    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+   "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
    "Restrictions": [  
       {  
          "Identifier": "1234",
@@ -735,7 +762,7 @@ Adds new restrictions with the specified conditions.
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
-            "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+            "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
             "Days": [  
                "Friday",
                "Saturday",
@@ -773,6 +800,7 @@ Adds new restrictions with the specified conditions.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) restrictions will be added in. |
 | `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | required | Parameters of restrictions. |
 
 #### Restriction parameters
@@ -792,14 +820,15 @@ Adds new restrictions with the specified conditions.
          "Identifier": "1234",
          "Restriction": {
             "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "ExternalIdentifier": "5678",
             "Conditions": {
                "Type": "Stay",
                "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
                "BaseRateId": null,
                "RateGroupId": null,
-               "SpaceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
-               "SpaceType": null,
+               "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+               "ResourceCategoryType": null,
                "StartUtc": "2018-10-09T00:00:00Z",
                "EndUtc": "2018-10-31T00:00:00Z",
                "Days": [
@@ -821,14 +850,15 @@ Adds new restrictions with the specified conditions.
          "Identifier": "1235",
          "Restriction": {
             "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "ExternalIdentifier": "5678",
             "Conditions": {
                "Type": "Start",
                "ExactRateId": null,
                "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
                "RateGroupId": null,
-               "SpaceCategoryId": null,
-               "SpaceType": "Room",
+               "ResourceCategoryId": null,
+               "ResourceCategoryType": "Room",
                "StartUtc": "2018-10-01T00:00:00Z",
                "EndUtc": "2018-10-31T00:00:00Z",
                "Days": [

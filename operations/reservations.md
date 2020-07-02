@@ -15,6 +15,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2016-01-01T00:00:00Z",
     "EndUtc": "2016-01-07T00:00:00Z",
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ],
     "ReservationIds": [
         "db6cad34-9a91-448b-bea1-abbe01240d9c"
     ],
@@ -43,10 +46,11 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `TimeFilter` | string [Reservation time filter](#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s from which the reservations are requested. |
 | `ReservationIds` | array of string | optional | Unique identifiers of the requested [Reservation](reservations.md#reservation)s. |
 | `GroupIds` | array of string | optional | Unique identifiers of the requested [Reservation group](reservations.md#reservation-group)s. |
 | `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s which own the reservations. |
-| `SpaceIds` | array of string | optional | Unique identifiers of [Space](enterprises.md#space)s assigned to the reservations. |
+| `AssignedResourceIds` | array of string | optional | Unique identifiers of [Resource](enterprises.md#resource)s assigned to the reservations. |
 | `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
 | `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
 | `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
@@ -76,7 +80,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `Reservations` | bool | optional | Whether the response should contain reservations. |
 | `ReservationGroups` | bool | optional | Whether the response should contain groups of the reservations. |
 | `Services` | bool | optional | Whether the response should contain services reserved by the reservations. |
-| `Spaces` | bool | optional | Whether the response should contain spaces and space categories. |
+| `Resources` | bool | optional | Whether the response should contain resources. |
+| `ResourceCategories` | bool | optional | Whether the response should contain resource categories. |
+| `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
 | `Notes` | bool | optional | Whether the response should contain notes. |
 | `QrCodeData` | bool | optional | Whether the response should contain QR code data. |
 | `AccountingStates` | array of string [Accounting state](finance.md#Accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
@@ -127,8 +133,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
     "Reservations": [
         {
             "AdultCount": 2,
-            "AssignedSpaceId": "20e00c32-d561-4008-8609-82d8aa525714",
-            "AssignedSpaceLocked": false,
+            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
+            "AssignedResourceLocked": false,
             "BusinessSegmentId": null,
             "CancelledUtc": null,
             "ChannelNumber": "1337614414",
@@ -157,8 +163,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
         }
     ],
     "Services": null,
-    "SpaceCategories": null,
-    "Spaces": null,
+    "Resources": null,
+    "ResourceCategories": null,
+    "ResourceCategoryAssignments": null,
     "Notes": null
 }
 ```
@@ -174,8 +181,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | Reservation groups that the reservations are members of. |
 | `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The reservations that collide with the specified interval. |
 | `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
-| `SpaceCategories` | array of [Space category](enterprises.md#space-category) | optional | Space categories of the spaces. |
-| `Spaces` | array of [Space](enterprises.md#space) | optional | Assigned spaces of the reservations. |
+| `Resources` | array of [Resource](enterprises.md#resource) | optional | Assigned resources of the reservations. |
+| `ResourceCategories` | array of [Resource category](enterprises.md#resource-category) | optional | Resource categories of the resources. |
+| `ResourceCategoryAssignments` | array of [Resource category assignment](enterprises.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
 | `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. | 
 
@@ -198,9 +206,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
-| `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
-| `AssignedSpaceId` | string | optional | Identifier of the assigned [Space](enterprises.md#space). |
-| `AssignedSpaceLocked` | bool | required | Whether the reservation is locked in the assigned [Space](enterprises.md#space) and cannot be moved. |
+| `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
+| `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
+| `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](enterprises.md#resource) and cannot be moved. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](services.md#business-segment). |
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |
@@ -208,13 +216,13 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AdultCount` | number | required | Count of adults the reservation was booked for. |
 | `ChildCount` | number | required | Count of children the reservation was booked for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will occupy the space. |
+| `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will use the resource. |
 
 #### Reservation state
 
 * `Enquired` - Confirmed neither by the customer nor enterprise.
 * `Requested` - Confirmed by the customer but not by the enterprise \(waitlist\).
-* `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding space for the guest\).
+* `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding resource for the guest\).
 * `Confirmed` - Confirmed by both parties, before check-in.
 * `Started` - Checked in.
 * `Processed` - Checked out.
@@ -510,7 +518,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `ChildCount` | number | required | Count of children the reservation is for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
-| `RequestedCategoryId` | string | required | Identifier of the requested [Space category](enterprises.md#space-category). |
+| `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
@@ -530,8 +538,8 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "Reservation":
             {
                 "AdultCount": 2,
-                "AssignedSpaceId": "16ce4335-2198-408b-8949-9722894a42fb",
-                "AssignedSpaceLocked": false,
+                "AssignedResourceId": "16ce4335-2198-408b-8949-9722894a42fb",
+                "AssignedResourceLocked": false,
                 "BusinessSegmentId": "7760b5cb-a666-41bb-9758-76bf5d1df399",
                 "CancelledUtc": null,
                 "ChannelManager": "",
@@ -607,6 +615,9 @@ Updates information about the specified reservation. Note that if any of the fie
             "ChildCount": {
                 "Value": 1
             },
+             "AssignedResourceId": {
+                "Value": "16ce4335-2198-408b-8949-9722894a42fb"
+            },
             "ChannelNumber": null,
             "RequestedCategoryId": null,
             "TraveAgencyId": {
@@ -670,8 +681,9 @@ Updates information about the specified reservation. Note that if any of the fie
 | `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
 | `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
 | `ChildCount` | [Number update value](reservations.md#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
+| `AssignedResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
 | `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
-| `RequestedCategoryId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the requested [Space category](enterprises.md#space-category) \(or `null` if space category should not be updated). |
+| `RequestedCategoryId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the requested [Resource category](enterprises.md#resource-category) \(or `null` if resource category should not be updated). |
 | `TraveAgencyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
 | `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
 | `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
@@ -709,7 +721,7 @@ Updates information about the specified reservation. Note that if any of the fie
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Index` | string | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
-| `Amount` | [Amount](#services.md#amount-parameters) | required | Amount of the unit. |
+| `Amount` | [Amount](services.md#amount-parameters) | required | Amount of the unit. |
 
 ### Response
 
@@ -919,74 +931,6 @@ Updates reservation interval \(start, end or both\).
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
 | `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially canceled nights. |
-
-### Response
-
-```javascript
-{}
-```
-
-## Update reservation space
-
-Updates reservation allocation to space, e.g. to different room.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/updateSpace`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-    "SpaceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f"
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be reassigned. |
-| `SpaceId` | string | required | Unique identifier of the [Space](enterprises.md#space) where the reservation should be assigned. |
-
-### Response
-
-```javascript
-{}
-```
-
-## Update reservation requested category
-
-Updates reservation category requested by the customer to a different one.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/updateRequestedCategory`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-    "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-    "Reprice": false,
-    "Overbook": true
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to be updated. |
-| `CategoryId` | string | required | Unique identifier of the [Space category](enterprises.md#space-category). |
-| `Reprice` | bool | required | Whether reservation should be repriced according to new category pricing. |
-| `Overbook` | bool | optional | Whether the overbooking is enabled. Default value is `true`. |
 
 ### Response
 
