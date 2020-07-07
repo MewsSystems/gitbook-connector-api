@@ -207,7 +207,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 ## Search customers
 
-Searches for customers that are active at the moment in the enterprise \(e.g. companions of on checked-in reservations or paymasters\).
+Searches for customers that are active at the moment in the enterprise \(e.g. companions of checked-in reservations or paymasters\).
 
 ### Request
 
@@ -228,7 +228,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
-| `SpaceId` | string | optional | Identifier of [Space](enterprises.md#space) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
+| `ResourceId` | string | optional | Identifier of [Resource](enterprises.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
 
 ### Response
 
