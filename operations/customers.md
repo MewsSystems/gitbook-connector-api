@@ -492,7 +492,7 @@ Updates personal information of a customer. Note that if any of the fields is le
     "LegalIdentifiers": {
         "ItDestinationCode": {
             "Value": "7654321"
-        },
+        }
     }
 }
 ```
@@ -522,7 +522,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
 | `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
 | `Address` | [Address parameters](customers.md#address-parameters)  | optional | New address details. |
-| `LegalIdentifiers` | [Legal identifiers update](#legal-identifiers) | optional | Update to legal identifiers. |
+| `LegalIdentifiers` | [Legal identifiers update](#legal-identifiers-update) | optional | New legal identifiers. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 
@@ -530,8 +530,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ItDestinationCode` | [String update value](reservations.md#string-update-value) | optional | Update to Italian destination code. |
-| `ItFiscalCode` | [String update value](reservations.md#string-update-value) | optional | Update to Italian fiscal code. |
+| `ItDestinationCode` | [String update value](reservations.md#string-update-value) | optional | New Italian destination code of customer. |
+| `ItFiscalCode` | [String update value](reservations.md#string-update-value) | optional | New Italian fiscal code of customer. |
 
 ### Response
 

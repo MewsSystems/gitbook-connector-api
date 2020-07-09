@@ -479,22 +479,23 @@ Returns all accounting environments supported by the API.
                     "Code": "ItFiscalCode"
                 }
             ]
-        },
+        }
+    ]
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `AccountingEnvironments` | array of [Accounting Environment](#accounting-environment) | required | The supported accounting environments. |
+| `AccountingEnvironments` | array of [Accounting environment](#accounting-environment) | required | The supported accounting environments. |
 
-#### Accounting Environment
+#### Accounting environment
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the environment. |
 | `EnglishName` | string | required | English name of the environment. |
 | `CustomerLegalIdentifiers` | string | array of [Legal Identifier](#legal-identifier) | Required identifiers for customers. |
-| `CompanyLegalIdentifiers` | string | array of [Legal Identifier](#legal-identifier) | Required identifiers for customers. |
+| `CompanyLegalIdentifiers` | string | array of [Legal Identifier](#legal-identifier) | Required identifiers for companies. |
 
 #### Legal Identifier
 
