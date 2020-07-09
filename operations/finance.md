@@ -593,6 +593,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 {
     "Bills": [
         {
+            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CompanyId": null,
             "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CounterId": null,
@@ -621,6 +622,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the bill. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
 | `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
 | `CompanyId` | string | optional | Unique identifier of the [Company](enterprises.md#company) the bill is issued to. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
@@ -684,6 +686,7 @@ Creates new empty bills assigned to account.
     "Bills": [
         {
             "Id": "177966b7-f3d9-42b7-ba49-abd80057329b",
+            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
             "CompanyId": null,
             "CounterId": null,
