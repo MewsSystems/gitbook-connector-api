@@ -559,8 +559,14 @@ Closes balanced bill so no further modification to it is possible.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "Type": "Receipt",
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
+    "Options": ["DisplayCustomer", "DisplayTaxation"],
+    "TaxedDateUtc" : "2020-07-07",
+    "DueDateUtc" : "2020-07-14",
+    "VariableSymbol" : "5343",
+    "TaxIdentifier" : "446768",
     "Notes": "Bill closing note"
 }
 ```
@@ -571,10 +577,26 @@ Closes balanced bill so no further modification to it is possible.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `BillId` | string | required | Unique identifier of the [Bill](finance.md#bill) to be closed. |
+| `Type` | string [Bill type](#bill-type) | required | Specifies the mode bill should be closed in. |
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](enterprise.md#counter) to be used for closing. Default one is used when no value is provided. |
 | `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](integrations.md#device) to be used for closing. Default one is used when no value is provided. |
+| `Options` | string  | optional  | Options of the bill. |
+| `TaxedDateUtc` | string | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `DueDateUtc` | string | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `VariableSymbol` | string | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `TaxIdentifier` | string | optional | Tax identifier of account to be printed on a bill. |
 | `Notes` | string | optional | Notes to be attached to bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+
+#### Bill type
+
+* `Receipt` - final bill which has to be balanced in order to be closed.
+* `Invoice` - request for payment, not balanced at time of closing.
+
+#### Bill options
+
+* `DisplayCustomer` - display customer information on printed bill.
+* `DisplayTaxation` - display taxation detail on printed bill.
 
 ### Response
 
