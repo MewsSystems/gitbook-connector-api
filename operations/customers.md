@@ -398,9 +398,7 @@ Adds a new customer to the system and returns details of the added customer. If 
         "CountryCode": "CZ",
         "CountrySubdivisionCode": null,
     },
-    "LegalIdentifiers": {
-        "ItDestinationCode": "1234567",
-    }
+    "ItalianDestinationCode": "1234567"
 }
 ```
 
@@ -484,10 +482,8 @@ Updates personal information of a customer. Note that if any of the fields is le
     "Passport": null,
     "Visa": null,
     "DriversLicense": null,
-    "LegalIdentifiers": {
-        "ItDestinationCode": {
-            "Value": "7654321"
-        }
+    "ItalianDestinationCode": {
+        "Value": "7654321"
     }
 }
 ```
