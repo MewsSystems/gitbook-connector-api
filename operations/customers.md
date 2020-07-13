@@ -150,7 +150,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
-| `LegalIdentifiers` | [Legal identifiers](#legal-identifiers) | optional | Identifiers required by accounting environment. |
+| `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
+| `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 
 #### Title
 
@@ -397,9 +398,7 @@ Adds a new customer to the system and returns details of the added customer. If 
         "CountryCode": "CZ",
         "CountrySubdivisionCode": null,
     },
-    "LegalIdentifiers": {
-        "ItDestinationCode": "1234567",
-    }
+    "ItalianDestinationCode": "1234567"
 }
 ```
 
@@ -428,9 +427,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
 | `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the customer. |
-| `LegalIdentifiers` | [Legal identifiers](#legal-identifiers) | optional | Identifiers required by accounting environment. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
+| `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
+| `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 
 #### Address parameters
 
@@ -442,13 +442,6 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `PostalCode` | string | optional | Postal code. |
 | `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
-
-#### Legal identifiers
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ItDestinationCode` | string | optional | Value of Italian destination code. |
-| `ItFiscalCode` | string | optional | Value of Italian fiscal code. |
 
 ### Response
 
@@ -489,10 +482,8 @@ Updates personal information of a customer. Note that if any of the fields is le
     "Passport": null,
     "Visa": null,
     "DriversLicense": null,
-    "LegalIdentifiers": {
-        "ItDestinationCode": {
-            "Value": "7654321"
-        },
+    "ItalianDestinationCode": {
+        "Value": "7654321"
     }
 }
 ```
@@ -522,16 +513,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Visa` | [Document](customers.md#document) | optional | New visa details. |
 | `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
 | `Address` | [Address parameters](customers.md#address-parameters)  | optional | New address details. |
-| `LegalIdentifiers` | [Legal identifiers update](#legal-identifiers) | optional | Update to legal identifiers. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
-
-#### Legal identifiers update
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ItDestinationCode` | [String update value](reservations.md#string-update-value) | optional | Update to Italian destination code. |
-| `ItFiscalCode` | [String update value](reservations.md#string-update-value) | optional | Update to Italian fiscal code. |
+| `ItalianDestinationCode` | [String update value](reservations.md#string-update-value) | optional | New Italian destination code of customer. |
+| `ItalianFiscalCode` | [String update value](reservations.md#string-update-value) | optional | New Italian fiscal code of customer. |
 
 ### Response
 
