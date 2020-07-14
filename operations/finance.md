@@ -451,14 +451,14 @@ Updates specified accounting items. Allows to change to which account or bill th
             "BillId": { 
                 "Value": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a"
             }
-    	},
+        },
         {
             "AccountingItemId": "0a0c3367-8b43-4327-ab2f-abd700e7f64f",
             "AccountId": null,
             "BillId": { 
-                "Value": null
+                "Value": "b9402ab6-07d4-436f-b682-abdd00d077ea"
             }
-    	}
+        }
     ]
 }
 ```
@@ -659,8 +659,8 @@ Creates new empty bills assigned to account.
     "Client": "Sample Client 1.0.0",
     "Bills": [
         {
-            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
-        },
+            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7"
+        }
     ]
 }
 ```
