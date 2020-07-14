@@ -563,8 +563,8 @@ Closes balanced bill so no further modification to it is possible.
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
     "Options": ["DisplayCustomer", "DisplayTaxation"],
-    "TaxedDateUtc" : "2020-07-07",
-    "DueDateUtc" : "2020-07-14",
+    "TaxedDate" : "2020-07-07",
+    "DueDate" : "2020-07-14",
     "VariableSymbol" : "5343",
     "TaxIdentifier" : "446768",
     "Notes": "Bill closing note"
@@ -581,8 +581,8 @@ Closes balanced bill so no further modification to it is possible.
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](enterprise.md#counter) to be used for closing. Default one is used when no value is provided. |
 | `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](integrations.md#device) to be used for closing. Default one is used when no value is provided. |
 | `Options` | string  | optional  | Options of the bill. |
-| `TaxedDateUtc` | string | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `DueDateUtc` | string | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `TaxedDate` | string | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `DueDate` | string | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `VariableSymbol` | string | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `TaxIdentifier` | string | optional | Tax identifier of account to be printed on a bill. |
 | `Notes` | string | optional | Notes to be attached to bill. |
