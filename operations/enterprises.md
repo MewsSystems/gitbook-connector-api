@@ -284,7 +284,7 @@ Returns all counters of an enterprise associated with the connector integration.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `BillCounters` | array of [Counter](#counter) | required | The counters used to count closed [Bill](finance.md#bill)s. |
-| `ProformaCounters` | array of [Counter](#counter) | required | The counters used to count Pro Forma invoices for a [Bill](finance.md#bill)s. |
+| `ProformaCounters` | array of [Counter](#counter) | required | The counters used to count Pro Forma invoices for [Bill](finance.md#bill)s. |
 | `ServiceOrderCounters` | array of [Counter](#counter) | required | The counters used to count service orders (for example a [Reservation](reservations.md#reservation)). |
 | `RegistrationCardCounters` | array of [Counter](#counter) | required | The counters used to count registration cards. |
 

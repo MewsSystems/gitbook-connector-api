@@ -662,7 +662,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 ## Add bill
 
-Creates new empty bills assigned to account.
+Creates new empty bill assigned to account.
 
 ### Request
 
