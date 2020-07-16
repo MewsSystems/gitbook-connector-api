@@ -890,7 +890,7 @@ Prints PDF version of closed bill. In case it's not possible to return PDF immed
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Bill PDF result discriminator](#bill-pdf-result-discriminator) | required | Determines type of result. |
-| `Value` | object | required | Structure of object depends on [Bill PDF result discriminator](#bill-pdf-result-discriminator) |
+| `Value` | object | required | Structure of object depends on [Bill PDF result discriminator](#bill-pdf-result-discriminator). |
 
 #### Bill PDF result discriminator
 
