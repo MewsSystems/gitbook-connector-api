@@ -613,8 +613,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 "DisplayTaxation"
             ],
             "Payments": [],
-            "Revenue": [],
-
+            "Revenue": []
         }
     ]
 }
