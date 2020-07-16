@@ -76,6 +76,9 @@ This section describes all operations supported by the API:
   * [Get bill PDF](finance.md#get-bill-pdf) - returns PDF version of bill.
   * [Charge credit card](finance.md#charge-credit-card) - charges specified customer credit card.
   * [Get all preauthorizations by customers](finance.md#get-all-preauthorizations-by-customers) - returns all preauthorizations of the specified customers.
+  * [Add bill](finance.md#add-bill) - adds a new bill for an account.
+  * [Delete bill](finance.md#delete-bill) - deletes empty bill.
+  * [Update accounting items](finance.md#update-accounting-items) - updates assignment of accounting items.
   * [Add credit card payment](finance.md#add-credit-card-payment) - adds a new credit card payment.
   * [Add tokenized credit card](finance.md#add-tokenized-credit-card) - adds a new tokenized credit card.
   * [Add external payment](finance.md#add-external-payment) - adds a new external payment.
@@ -87,4 +90,3 @@ This section describes all operations supported by the API:
   * [Add printer command](integrations.md#add-printer-command) - adds a new command for a printer to print a document.
   * [Add key cutter command](integrations.md#add-key-cutter-command) - adds a new command for key cutter to cut keys.
   * [Update command](integrations.md#update-command) - updates a command for a device.
-

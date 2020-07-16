@@ -150,6 +150,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
+| `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
+| `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 
 #### Title
 
@@ -207,7 +209,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 ## Search customers
 
-Searches for customers that are active at the moment in the enterprise \(e.g. companions of on checked-in reservations or paymasters\).
+Searches for customers that are active at the moment in the enterprise \(e.g. companions of checked-in reservations or paymasters\).
 
 ### Request
 
@@ -228,7 +230,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
-| `SpaceId` | string | optional | Identifier of [Space](enterprises.md#space) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
+| `ResourceId` | string | optional | Identifier of [Resource](enterprises.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
 
 ### Response
 
@@ -395,7 +397,8 @@ Adds a new customer to the system and returns details of the added customer. If 
         "PostalCode": "736 01",
         "CountryCode": "CZ",
         "CountrySubdivisionCode": null,
-    }
+    },
+    "ItalianDestinationCode": "1234567"
 }
 ```
 
@@ -426,6 +429,8 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
+| `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
+| `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 
 #### Address parameters
 
@@ -476,7 +481,10 @@ Updates personal information of a customer. Note that if any of the fields is le
     },
     "Passport": null,
     "Visa": null,
-    "DriversLicense": null
+    "DriversLicense": null,
+    "ItalianDestinationCode": {
+        "Value": "7654321"
+    }
 }
 ```
 
@@ -507,6 +515,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Address` | [Address parameters](customers.md#address-parameters)  | optional | New address details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
+| `ItalianDestinationCode` | [String update value](reservations.md#string-update-value) | optional | New Italian destination code of customer. |
+| `ItalianFiscalCode` | [String update value](reservations.md#string-update-value) | optional | New Italian fiscal code of customer. |
 
 ### Response
 

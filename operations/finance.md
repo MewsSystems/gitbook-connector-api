@@ -429,6 +429,103 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
+## Update accounting items
+
+Updates specified accounting items. Allows to change to which account or bill the item is assigned to.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/accountingItems/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AccountingItemUpdates": [
+        {
+            "AccountingItemId": "ee425738-8112-446f-b764-abd7007ba880",
+            "AccountId": { 
+                "Value": "a5786a7b-a388-43cc-a838-abd7007b5ff7" 
+            },
+            "BillId": { 
+                "Value": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a"
+            }
+        },
+        {
+            "AccountingItemId": "0a0c3367-8b43-4327-ab2f-abd700e7f64f",
+            "AccountId": null,
+            "BillId": { 
+                "Value": "b9402ab6-07d4-436f-b682-abdd00d077ea"
+            }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AccountingItemUpdates` | array of [Accounting item update](#accounting-item-update) | required | List of requested updates. |
+
+#### Accounting item update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountingItemId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
+| `AccountId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the item is assigned to \(or `null` if the assigned account should not be updated\). If defined, valid account identifier must be provided. |
+| `BillId` | [String update value](reservations.md#string-update-value) | required | Unique identifier of the [Bill](#bill) the items is assigned to. It's possible to assign item to bill belonging to another account, in that case both `AccountId` and `BillId` must be provided.
+
+### Response
+
+```javascript
+{
+    "AccountingItems": [
+        {
+            "Id": "ee425738-8112-446f-b764-abd7007ba880",
+            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+            "OrderId": "5cb9dc38-642d-412a-a7eb-abd7007b9ecb",
+            "ServiceId": "bc69c610-f0f8-4645-8bb3-ab3a00c97c1e",
+            "ProductId": null,
+            "BillId": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a",
+            "InvoiceId": null,
+            "AccountingCategoryId": "13cd6f3a-be61-4ce3-9a19-ab3a00b98f49",
+            "CreditCardId": null,
+            "Type": "ProductRevenue",
+            "SubType": "Surcharge",
+            "Name": "Service / Product",
+            "Notes": null,
+            "ConsumptionUtc": "2020-06-11T07:29:00Z",
+            "ClosedUtc": null,
+            "State": "Open",
+            "Amount": {
+                "Value": 52.8,
+                "Net": 48.0,
+                "Tax": 4.8,
+                "TaxRate": 0.1,
+                "Currency": "USD",
+                "NetValue": 48.0,
+                "GrossValue": 52.8,
+                "TaxValues": [
+                    {
+                        "Code": "US-DC-I",
+                        "Value": 4.8
+                    }
+                ]
+            }
+        }
+    ],
+    "CreditCardTransactions": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The accounting items. |
+| `CreditCardTransactions` | array of [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
+
 ## Get all bills
 
 Returns all bills, possibly filtered by customers, identifiers and other filters.
@@ -496,6 +593,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 {
     "Bills": [
         {
+            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CompanyId": null,
             "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CounterId": null,
@@ -524,6 +622,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the bill. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
 | `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
 | `CompanyId` | string | optional | Unique identifier of the [Company](enterprises.md#company) the bill is issued to. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
@@ -545,9 +644,108 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 * `Receipt` - the bill has already been fully paid.
 * `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
 
+## Add bill
+
+Creates new empty bills assigned to account.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Bills": [
+        {
+            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7"
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Bills` | array of [Bill parameters](#bill-parameters) | required | Information about bills to be created. |
+
+#### Bill parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
+
+
+### Response
+
+```javascript
+{
+    "Bills": [
+        {
+            "Id": "177966b7-f3d9-42b7-ba49-abd80057329b",
+            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+            "CompanyId": null,
+            "CounterId": null,
+            "State": "Open",
+            "Type": "Receipt",
+            "Number": null,
+            "VariableSymbol": null,
+            "CreatedUtc": "2020-06-12T05:17:28Z",
+            "IssuedUtc": null,
+            "TaxedUtc": null,
+            "PaidUtc": null,
+            "DueUtc": null,
+            "Notes": null,
+            "Revenue": [],
+            "Payments": []
+        }
+    ]
+}
+``` 
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Bills` | array of [Bill](#bill) | required | The created bills. |
+
+## Delete bill
+
+Removes selected bills. Bill must be empty, otherwise it's not possible to delete it.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "BillIds": [
+        "177966b7-f3d9-42b7-ba49-abd80057329b"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s to be deleted. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Close bill
 
-Closes balanced bill so no further modification to it is possible.
+Closes a bill so no further modification to it is possible.
 
 ### Request
 
