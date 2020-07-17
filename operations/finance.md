@@ -645,6 +645,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
+| `Options` | [Bill options](#bill-options) | required  | Options of the bill. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
 
