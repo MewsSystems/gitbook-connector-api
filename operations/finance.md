@@ -608,10 +608,13 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
             "PaidUtc": null,
             "DueUtc": null,
             "Notes": "",
-            "Options": [
-                "DisplayCustomer",
-                "DisplayTaxation"
-            ],
+            "Options": {
+                "DisplayCustomer": true,
+                "DisplayTaxation": true,
+                "TrackReceivable": true,
+                "DisplayCid": false,
+                "Rebated": false
+            },
             "Payments": [],
             "Revenue": []
         }
@@ -654,11 +657,13 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Bill options
 
-* `DisplayCustomer` - display customer information on printed bill.
-* `DisplayTaxation` - display taxation detail on printed bill.
-* `TrackReceivable` - tracking of payments is enabled for bill, only applicable for `Invoice`.
-* `DisplayCid` - display CID number on bill, only applicable for `Invoice`.
-* `Rebated` - bill has been rebated.
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `DisplayCustomer` | boolean | required | Display customer information on printed bill. |
+| `DisplayTaxation` | boolean | required | Display taxation detail on printed bill. |
+| `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
+| `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
+| `Rebated` | boolean | required | Bill has been rebated. |
 
 ## Add bill
 
@@ -776,10 +781,10 @@ Closes a bill so no further modification to it is possible.
     "Type": "Receipt",
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
-    "Options": [
-        "DisplayCustomer",
-        "DisplayTaxation"
-    ],
+    "Options": {
+        "DisplayCustomer": { "Value": false },
+        "DisplayTaxation": null
+    },
     "TaxedDate" : "2020-07-07",
     "DueDate" : "2020-07-14",
     "VariableSymbol" : "5343",
@@ -797,13 +802,20 @@ Closes a bill so no further modification to it is possible.
 | `Type` | string [Bill type](#bill-type) | required | Specifies the mode bill should be closed in. |
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](enterprise.md#counter) to be used for closing. Default one is used when no value is provided. |
 | `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](integrations.md#device) to be used for closing. Default one is used when no value is provided. |
-| `Options` | array of string [Bill options](#bill-options) | optional  | Options of the bill, only `DisplayCustomer` and `DisplayTaxation` can be used. If not provided both `DisplayCustomer` and `DisplayTaxation` are set. |
-| `TaxedDate` | string | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `DueDate` | string | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `VariableSymbol` | string | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `TaxIdentifier` | string | optional | Tax identifier of account to be printed on a bill. |
-| `Notes` | string | optional | Notes to be attached to bill. |
+| `Options` | [Bill options parameters](#bill-options-parameters) | optional  | Options of the bill. If not provided both `DisplayCustomer` and `DisplayTaxation` are set by default. |
+| `TaxedDate` | [String update value](reservations.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `DueDate` | [String update value](reservations.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `VariableSymbol` | [String update value](reservations.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identifier of account to be printed on a bill. |
+| `Notes` | [String update value](reservations.md#string-update-value) | optional | Notes to be attached to bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+
+#### Bill options parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `DisplayCustomer` | [Bool update value](reservations.md#bool-update-value) | required | Display customer information on printed bill. |
+| `DisplayTaxation` | [Bool update value](reservations.md#bool-update-value) | required | Display taxation detail on printed bill. |
 
 ### Response
 
@@ -825,10 +837,13 @@ Closes a bill so no further modification to it is possible.
             "PaidUtc": null,
             "DueUtc": null,
             "Notes": null,
-            "Options": [
-                "DisplayCustomer",
-                "DisplayTaxation"
-            ],
+            "Options": {
+                "DisplayCustomer": false,
+                "DisplayTaxation": true,
+                "TrackReceivable": false,
+                "DisplayCid": false,
+                "Rebated": false
+            },
             "Revenue": [],
             "Payments": []
         }
