@@ -257,7 +257,7 @@ Returns all counters of an enterprise associated with the connector integration.
             "IsDefault": true,
             "Value": 1575,
             "Format": "E2018{0:0000}"
-        },
+        }
     ],
     "ProformaCounters": [
         {
