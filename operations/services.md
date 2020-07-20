@@ -191,6 +191,7 @@ Returns all products offered together with the specified services.
             "CategoryId": null,
             "IsActive": true,
             "Name": "Breakfast",
+            "ExternalName": "Breakfast",
             "ShortName": "BFST",
             "Description": "Nice continental breakfast.",
             "Charging": "PerPersonPerTimeUnit",
@@ -236,7 +237,8 @@ Returns all products offered together with the specified services.
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
 | `IsActive` | boolean | required | Whether the product is still active. |
-| `Name` | string | required | Name of the product. |
+| `Name` | string | required | Name of the product.  |
+| `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
 | `ShortName` | string | required | Short name of the product. |
 | `Description` | string | optional | Description of the product. |
 | `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
