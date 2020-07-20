@@ -516,15 +516,13 @@ Updates specified accounting items. Allows to change to which account or bill th
                 ]
             }
         }
-    ],
-    "CreditCardTransactions": null
+    ]
 }
 ```
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The accounting items. |
-| `CreditCardTransactions` | array of [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
+| `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The updated accounting items. |
 
 ## Get all bills
 
@@ -645,7 +643,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
-| `Options` | [Bill options](#bill-options) | required  | Options of the bill. |
+| `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
 
@@ -660,15 +658,15 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `DisplayCustomer` | boolean | required | Display customer information on printed bill. |
-| `DisplayTaxation` | boolean | required | Display taxation detail on printed bill. |
+| `DisplayCustomer` | boolean | required | Display customer information on a bill. |
+| `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 | `Rebated` | boolean | required | Bill has been rebated. |
 
 ## Add bill
 
-Creates new empty bill assigned to account.
+Creates new empty bill assigned to specified account.
 
 ### Request
 
@@ -699,7 +697,6 @@ Creates new empty bill assigned to account.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
-
 
 ### Response
 
@@ -807,7 +804,7 @@ Closes a bill so no further modification to it is possible.
 | `TaxedDate` | [String update value](reservations.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `DueDate` | [String update value](reservations.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `VariableSymbol` | [String update value](reservations.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identifier of account to be printed on a bill. |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
 | `Notes` | [String update value](reservations.md#string-update-value) | optional | Notes to be attached to bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
 
@@ -815,8 +812,8 @@ Closes a bill so no further modification to it is possible.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `DisplayCustomer` | [Bool update value](reservations.md#bool-update-value) | required | Display customer information on printed bill. |
-| `DisplayTaxation` | [Bool update value](reservations.md#bool-update-value) | required | Display taxation detail on printed bill. |
+| `DisplayCustomer` | [Bool update value](reservations.md#bool-update-value) | required | Display customer information on a bill. |
+| `DisplayTaxation` | [Bool update value](reservations.md#bool-update-value) | required | Display taxation detail on a bill. |
 
 ### Response
 
@@ -858,7 +855,7 @@ Closes a bill so no further modification to it is possible.
 
 ## Get bill PDF
 
-Prints PDF version of closed bill. In case it's not possible to return PDF immediately returns unique event identifier which must be used in retried requests. 
+Creates a PDF version of the specified bill. In case it's not possible to return PDF immediately, you must retry the call later while providing the unique event identifier that is returned from the first invocation.
 
 ### Request
 
@@ -880,7 +877,7 @@ Prints PDF version of closed bill. In case it's not possible to return PDF immed
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `BillId` | string | required | Unique identifier of the [Bill](finance.md#bill) to be printed. |
-| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](#bill-print-event) returned by previous operation call. |
+| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](#bill-print-event) returned by previous invocation. |
 
 ### Response
 
@@ -910,8 +907,8 @@ Prints PDF version of closed bill. In case it's not possible to return PDF immed
 
 #### Bill PDF result discriminator
 
-* `BillPdfFile` - [Bill](finance.md#bill) was successfully printed to PDF, `Value` is [Bill PDF file](#bill-pdf-file). 
-* `BillPrintEvent` - [Bill](finance.md#bill) couldn't be printed at this moment (for example bill haven't been reported to authorities yet), `Value` is [Bill print event](#bill-print-event).
+* `BillPdfFile` - PDF version of a [Bill](finance.md#bill) was successfully created, `Value` is [Bill PDF file](#bill-pdf-file).
+* `BillPrintEvent` - PDF version of a [Bill](finance.md#bill) couldn't be created at this moment (for example bill haven't been reported to authorities yet), `Value` is [Bill print event](#bill-print-event).
 
 #### Bill PDF file
 
