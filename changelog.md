@@ -6,7 +6,7 @@
 * Added new operations [Get all counters](operations/enterprises.md#get-all-counters), [Close bill](operations/finance.md#close-bill), [Get bill PDF](operations/finance.md#get-bill-pdf)
 * Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
 * Extended operations [Add customer](operations/customers.md#add-customer) and [Update customer](operations/customers.md#update-customer) with parameter `LegalIdentifiers`.
-* Removed value of [Tax rate](configuration.md#tax-rate).
+* Removed value of [Tax rate](operations/configuration.md#tax-rate).
 * Fixed filtering by `ReservationIds` in [Get all reservations](operations/reservations.md#get-all-reservations) operation.
 
 ## 2nd July 2020 11:30 UTC
