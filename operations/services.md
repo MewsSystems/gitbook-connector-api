@@ -191,6 +191,7 @@ Returns all products offered together with the specified services.
             "CategoryId": null,
             "IsActive": true,
             "Name": "Breakfast",
+            "ExternalName": "Breakfast",
             "ShortName": "BFST",
             "Description": "Nice continental breakfast.",
             "Charging": "PerPersonPerTimeUnit",
@@ -236,7 +237,8 @@ Returns all products offered together with the specified services.
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
 | `IsActive` | boolean | required | Whether the product is still active. |
-| `Name` | string | required | Name of the product. |
+| `Name` | string | required | Name of the product.  |
+| `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
 | `ShortName` | string | required | Short name of the product. |
 | `Description` | string | optional | Description of the product. |
 | `Charging` | string [Product charging](services.md#product-charging) | required | Charging of the product. |
@@ -610,7 +612,9 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the restrictions are requested. |
 | `ResourceCategoryIds` | array of string | optional | Unique identifiers of [Resource categories](enterprises.md#resource-category). |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s. |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns all restrictions that affect given rates (i.e. ones without any [Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate group](services.md#rate-group) of specified rates, or ones inherited from base rates).  |
+| `BaseRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restrictions which have matching `BaseRateId` set in [Conditions](#restriction-conditions). |
+| `ExactRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restrictions which have matching `ExactRateId` set in [Conditions](#restriction-conditions). |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was updated. |

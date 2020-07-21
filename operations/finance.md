@@ -429,6 +429,101 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 
+## Update accounting items
+
+Updates specified accounting items. Allows to change to which account or bill the item is assigned to.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/accountingItems/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AccountingItemUpdates": [
+        {
+            "AccountingItemId": "ee425738-8112-446f-b764-abd7007ba880",
+            "AccountId": { 
+                "Value": "a5786a7b-a388-43cc-a838-abd7007b5ff7" 
+            },
+            "BillId": { 
+                "Value": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a"
+            }
+        },
+        {
+            "AccountingItemId": "0a0c3367-8b43-4327-ab2f-abd700e7f64f",
+            "AccountId": null,
+            "BillId": { 
+                "Value": "b9402ab6-07d4-436f-b682-abdd00d077ea"
+            }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AccountingItemUpdates` | array of [Accounting item update](#accounting-item-update) | required | List of requested updates. |
+
+#### Accounting item update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountingItemId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
+| `AccountId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the item is assigned to \(or `null` if the assigned account should not be updated\). If defined, valid account identifier must be provided. |
+| `BillId` | [String update value](reservations.md#string-update-value) | required | Unique identifier of the [Bill](#bill) the items is assigned to. It's possible to assign item to bill belonging to another account, in that case both `AccountId` and `BillId` must be provided.
+
+### Response
+
+```javascript
+{
+    "AccountingItems": [
+        {
+            "Id": "ee425738-8112-446f-b764-abd7007ba880",
+            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+            "OrderId": "5cb9dc38-642d-412a-a7eb-abd7007b9ecb",
+            "ServiceId": "bc69c610-f0f8-4645-8bb3-ab3a00c97c1e",
+            "ProductId": null,
+            "BillId": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a",
+            "InvoiceId": null,
+            "AccountingCategoryId": "13cd6f3a-be61-4ce3-9a19-ab3a00b98f49",
+            "CreditCardId": null,
+            "Type": "ProductRevenue",
+            "SubType": "Surcharge",
+            "Name": "Service / Product",
+            "Notes": null,
+            "ConsumptionUtc": "2020-06-11T07:29:00Z",
+            "ClosedUtc": null,
+            "State": "Open",
+            "Amount": {
+                "Value": 52.8,
+                "Net": 48.0,
+                "Tax": 4.8,
+                "TaxRate": 0.1,
+                "Currency": "USD",
+                "NetValue": 48.0,
+                "GrossValue": 52.8,
+                "TaxValues": [
+                    {
+                        "Code": "US-DC-I",
+                        "Value": 4.8
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The updated accounting items. |
+
 ## Get all bills
 
 Returns all bills, possibly filtered by customers, identifiers and other filters.
@@ -448,7 +543,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
     "CustomerIds": [
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
-    "State": "Open",
+    "State": "Closed",
     "ClosedUtc": {
         "StartUtc": "2020-02-05T00:00:00Z",
         "EndUtc": "2020-02-10T00:00:00Z"
@@ -496,20 +591,30 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 {
     "Bills": [
         {
-            "CompanyId": null,
-            "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CounterId": null,
-            "DueUtc": null,
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-            "IssuedUtc": "2017-01-31T10:58:06Z",
-            "TaxedUtc": null,
-            "Notes": "",
+            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+            "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+            "CompanyId": null,
+            "CounterId": null,
+            "State": "Closed",
+            "Type": "Invoice",
             "Number": "29",
             "VariableSymbol": null,
+            "CreatedUtc": "2017-01-31T10:48:06Z",
+            "IssuedUtc": "2017-01-31T10:58:06Z",
+            "TaxedUtc": null,
+            "PaidUtc": null,
+            "DueUtc": null,
+            "Notes": "",
+            "Options": {
+                "DisplayCustomer": true,
+                "DisplayTaxation": true,
+                "TrackReceivable": true,
+                "DisplayCid": false,
+                "Rebated": false
+            },
             "Payments": [],
-            "Revenue": [],
-            "State": "Closed",
-            "Type": "Invoice"
+            "Revenue": []
         }
     ]
 }
@@ -517,13 +622,14 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Bills` | array of [Bill](finance.md#bill) | required | The closed bills. |
+| `Bills` | array of [Bill](finance.md#bill) | required | The filtered bills. |
 
 #### Bill
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the bill. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
 | `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
 | `CompanyId` | string | optional | Unique identifier of the [Company](enterprises.md#company) the bill is issued to. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
@@ -531,10 +637,13 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `Type` | string [Bill type](finance.md#bill-type) | required | Type of the bill. |
 | `Number` | string | required | Number of the bill. |
 | `VariableSymbol` | string | optional | Variable symbol of the bill. |
+| `CreatedUtc` | string | required | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
 | `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
 | `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
+| `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
+| `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
 
@@ -544,6 +653,274 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 * `Receipt` - the bill has already been fully paid.
 * `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
+
+#### Bill options
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `DisplayCustomer` | boolean | required | Display customer information on a bill. |
+| `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
+| `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
+| `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
+| `Rebated` | boolean | required | Bill has been rebated. |
+
+## Add bill
+
+Creates new empty bill assigned to specified account.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Bills": [
+        {
+            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7"
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Bills` | array of [Bill parameters](#bill-parameters) | required | Information about bills to be created. |
+
+#### Bill parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
+
+### Response
+
+```javascript
+{
+    "Bills": [
+        {
+            "Id": "177966b7-f3d9-42b7-ba49-abd80057329b",
+            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+            "CompanyId": null,
+            "CounterId": null,
+            "State": "Open",
+            "Type": "Receipt",
+            "Number": null,
+            "VariableSymbol": null,
+            "CreatedUtc": "2020-06-12T05:17:28Z",
+            "IssuedUtc": null,
+            "TaxedUtc": null,
+            "PaidUtc": null,
+            "DueUtc": null,
+            "Notes": null,
+            "Revenue": [],
+            "Payments": []
+        }
+    ]
+}
+``` 
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Bills` | array of [Bill](#bill) | required | The created bills. |
+
+## Delete bill
+
+Removes selected bills. Bill must be empty, otherwise it's not possible to delete it.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "BillIds": [
+        "177966b7-f3d9-42b7-ba49-abd80057329b"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillIds` | array of string | required | Unique identifiers of the [Bill](finance.md#bill)s to be deleted. |
+
+### Response
+
+```javascript
+{}
+```
+
+## Close bill
+
+Closes a bill so no further modification to it is possible.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/close`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "Type": "Receipt",
+    "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+    "FiscalMachineId": null,
+    "Options": {
+        "DisplayCustomer": { "Value": false },
+        "DisplayTaxation": null
+    },
+    "TaxedDate" : "2020-07-07",
+    "DueDate" : "2020-07-14",
+    "VariableSymbol" : "5343",
+    "TaxIdentifier" : "446768",
+    "Notes": "Bill closing note"
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillId` | string | required | Unique identifier of the [Bill](finance.md#bill) to be closed. |
+| `Type` | string [Bill type](#bill-type) | required | Specifies the mode bill should be closed in. |
+| `BillCounterId` | string | optional | Unique identifier of the [Counter](enterprise.md#counter) to be used for closing. Default one is used when no value is provided. |
+| `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](integrations.md#device) to be used for closing. Default one is used when no value is provided. |
+| `Options` | [Bill options parameters](#bill-options-parameters) | optional  | Options of the bill. If not provided both `DisplayCustomer` and `DisplayTaxation` are set by default. |
+| `TaxedDate` | [String update value](reservations.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `DueDate` | [String update value](reservations.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `VariableSymbol` | [String update value](reservations.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `TaxIdentifier` | [String update value](reservations.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
+| `Notes` | [String update value](reservations.md#string-update-value) | optional | Notes to be attached to bill. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+
+#### Bill options parameters
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `DisplayCustomer` | [Bool update value](reservations.md#bool-update-value) | required | Display customer information on a bill. |
+| `DisplayTaxation` | [Bool update value](reservations.md#bool-update-value) | required | Display taxation detail on a bill. |
+
+### Response
+
+```javascript
+{
+    "Bills": [
+        {
+            "Id": "44eba542-193e-47c7-8077-abd7008eb206",
+            "CustomerId": "7eaf9da6-7229-454a-8cb0-abd700804bd2",
+            "CompanyId": null,
+            "CounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+            "State": "Closed",
+            "Type": "Receipt",
+            "Number": "84",
+            "VariableSymbol": null,
+            "CreatedUtc": "2020-06-11T08:39:32Z",
+            "IssuedUtc": "2020-06-25T08:49:38Z",
+            "TaxedUtc": "2020-06-25",
+            "PaidUtc": null,
+            "DueUtc": null,
+            "Notes": null,
+            "Options": {
+                "DisplayCustomer": false,
+                "DisplayTaxation": true,
+                "TrackReceivable": false,
+                "DisplayCid": false,
+                "Rebated": false
+            },
+            "Revenue": [],
+            "Payments": []
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Bills` | array of [Bill](#bill) | required | The closed bill. |
+
+## Get bill PDF
+
+Creates a PDF version of the specified bill. In case it's not possible to return PDF immediately, you must retry the call later while providing the unique event identifier that is returned from the first invocation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getPdf`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "BillPrintEventId": null
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillId` | string | required | Unique identifier of the [Bill](finance.md#bill) to be printed. |
+| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](#bill-print-event) returned by previous invocation. |
+
+### Response
+
+```javascript
+{
+    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "Result": {
+        "Discriminator": "BillPdfFile",
+        "Value": {
+            "Base64Data": "JVBER....."
+        }
+    }
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BillId` | string | required | The unique identifier of printed [Bill](finance.md#bill). |
+| `Result` | object [Bill PDF result](#bill-pdf-result) | required | The result of operation. |
+
+#### Bill PDF result
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Bill PDF result discriminator](#bill-pdf-result-discriminator) | required | Determines type of result. |
+| `Value` | object | required | Structure of object depends on [Bill PDF result discriminator](#bill-pdf-result-discriminator). |
+
+#### Bill PDF result discriminator
+
+* `BillPdfFile` - PDF version of a [Bill](finance.md#bill) was successfully created, `Value` is [Bill PDF file](#bill-pdf-file).
+* `BillPrintEvent` - PDF version of a [Bill](finance.md#bill) couldn't be created at this moment (for example bill haven't been reported to authorities yet), `Value` is [Bill print event](#bill-print-event).
+
+#### Bill PDF file
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Base64Data` | string  | required | BASE64 encoded PDF file. |
+
+#### Bill print event
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `BillPrintEventId` | string  | required | Unique identifier of print event. Must be used in retry calls to retrieve the PDF. |
 
 ## Get all outlet items
 

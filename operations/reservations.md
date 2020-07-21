@@ -54,7 +54,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
 | `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
 | `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
-| `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states are returned. |
+| `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
