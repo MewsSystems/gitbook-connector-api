@@ -2,7 +2,7 @@
 
 ## 21st July 2020 11:30 UTC
 * Added new operation [Get all accounting environments](operations/configuration.md#get-all-accounting-environments).
-* Added new operations [Update accounting items](finance.md#update-accounting-items), [Add bill](finance.md#add-bill) and [Delete bill](finance.md#delete-bill).
+* Added new operations [Update accounting items](operations/finance.md#update-accounting-items), [Add bill](operations/finance.md#add-bill) and [Delete bill](operations/finance.md#delete-bill).
 * Added new operations [Get all counters](operations/enterprises.md#get-all-counters), [Close bill](operations/finance.md#close-bill), [Get bill PDF](operations/finance.md#get-bill-pdf)
 * Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
 * Extended operations [Add customer](operations/customers.md#add-customer) and [Update customer](operations/customers.md#update-customer) with parameter `LegalIdentifiers`.
