@@ -1,5 +1,14 @@
 # Changelog
 
+## 21st July 2020 11:30 UTC
+* Added new operation [Get all accounting environments](operations/configuration.md#get-all-accounting-environments).
+* Added new operations [Update accounting items](finance.md#update-accounting-items), [Add bill](finance.md#add-bill) and [Delete bill](finance.md#delete-bill).
+* Added new operations [Get all counters](operations/enterprises.md#get-all-counters), [Close bill](operations/finance.md#close-bill), [Get bill PDF](operations/finance.md#get-bill-pdf)
+* Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
+* Extended operations [Add customer](operations/customers.md#add-customer) and [Update customer](operations/customers.md#update-customer) with parameter `LegalIdentifiers`.
+* Removed value of [Tax rate](configuration.md#tax-rate).
+* Fixed filtering by `ReservationIds` in [Get all reservations](operations/reservations.md#get-all-reservations) operation.
+
 ## 2nd July 2020 11:30 UTC
 
 A month ago we announced the [project Spacetime](https://developers.mews.com/project-spacetime/) whose main objective is to generalize the notion of services and spaces. And later, also the time units. We're pleased to announce that the first phase is now available in the Connector API. We're deprecating lot of things, we're generalizing spaces into resources, we're introducing the possibility to have multiple "visit" services, not just a single one etc. There are no breaking changes in the API, all of the previous endpoints and capabilities are still working and will be working until the end of the deprecation period. However we'd like to ask you to migrate as soon as possible, we're not able to roll out the new possibilities to our clients if you are not ready. If we did that, it would break the connection. Therefore we rely on you and your timely cooperation because we want to give this new opportunity to the hotels as soon as possible. We acknowledge it's a lot of changes, we're prepared to monitor the situation and help you with any questions or concerns, feel free to contact us at integrations@mews.com.
