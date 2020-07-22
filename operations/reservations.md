@@ -484,7 +484,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             ],
             "ProductOrders": [
                 {
-                    "ProductId": "2e9eb3fc-8a77-466a-9cd9-abcf002a2a01"
+                    "ProductId": "2e9eb3fc-8a77-466a-9cd9-abcf002a2a01",
+                    "StartUtc": "2021-01-02T00:00:00Z",
+                    "EndUtc": "2021-01-03T00:00:00Z"
                 }
             ]
         }
@@ -1018,13 +1020,15 @@ Adds a new product order of the specified product to the reservation.
     "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
     "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
     "Count": 1,
+    "StartUtc": "2021-01-02T00:00:00Z",
+    "EndUtc": "2021-01-03T00:00:00Z",
     "UnitAmount": {
         "Currency": "GBP",
         "GrossValue": 10,
         "TaxCodes": [
             "UK-S"
         ]
-    },
+    }
 }
 ```
 
@@ -1036,6 +1040,8 @@ Adds a new product order of the specified product to the reservation.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
 | `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
+| `StartUtc` | string | required | Product start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | Product end in UTC timezone in ISO 8601 format. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
 
 ### Response

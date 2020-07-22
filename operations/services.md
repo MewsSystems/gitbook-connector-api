@@ -950,7 +950,9 @@ Creates a new order with the specified products and items. Only positive charges
     "ProductOrders": [
         {
             "ProductId": "2eb7ad8b-8dfb-4381-aba5-ab58009f2993",
-            "Count": 2
+            "Count": 2,
+            "StartUtc": "2021-01-02T00:00:00Z",
+            "EndUtc": "2021-01-03T00:00:00Z"
         }
     ],
     "Items": [
@@ -989,6 +991,8 @@ Creates a new order with the specified products and items. Only positive charges
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
+| `StartUtc` | string | required | Product start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | Product end in UTC timezone in ISO 8601 format. |
 
 #### Item parameters
 
