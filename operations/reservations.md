@@ -1040,8 +1040,8 @@ Adds a new product order of the specified product to the reservation.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
 | `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-| `StartUtc` | string | required | Product start in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | Product end in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | required | Product start in UTC timezone in ISO 8601 format e.g. it is not possible to specify for products with charging `Once` and `PerPerson`.. |
+| `EndUtc` | string | required | Product end in UTC timezone in ISO 8601 format e.g. it is not possible to specify for products with charging `Once` and `PerPerson`.. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
 
 ### Response
