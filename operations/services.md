@@ -949,10 +949,10 @@ Creates a new order with the specified products and items. Only positive charges
     "ConsumptionUtc": "2020-02-04T00:00:00Z",
     "ProductOrders": [
         {
-            "EndUtc": "2021-01-03T00:00:00Z",
             "Count": 2,
             "ProductId": "2eb7ad8b-8dfb-4381-aba5-ab58009f2993",
-            "StartUtc": "2021-01-02T00:00:00Z",
+            "EndUtc": "2021-01-03T00:00:00Z",
+            "StartUtc": "2021-01-02T00:00:00Z"
         }
     ],
     "Items": [
