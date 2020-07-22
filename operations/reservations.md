@@ -484,9 +484,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             ],
             "ProductOrders": [
                 {
-                    "EndUtc": "2021-01-03T00:00:00Z"
                     "ProductId": "2e9eb3fc-8a77-466a-9cd9-abcf002a2a01",
                     "StartUtc": "2021-01-02T00:00:00Z",
+                    "EndUtc": "2021-01-03T00:00:00Z"
                 }
             ]
         }
