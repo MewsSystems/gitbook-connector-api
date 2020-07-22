@@ -1022,7 +1022,6 @@ Adds a new product order of the specified product to the reservation.
     "Count": 1,
     "StartUtc": "2021-01-02T00:00:00Z",
     "EndUtc": "2021-01-03T00:00:00Z",
-
     "UnitAmount": {
         "Currency": "GBP",
         "GrossValue": 10,
