@@ -1020,8 +1020,9 @@ Adds a new product order of the specified product to the reservation.
     "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
     "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
     "Count": 1,
-    "EndUtc": "2021-01-03T00:00:00Z",
     "StartUtc": "2021-01-02T00:00:00Z",
+    "EndUtc": "2021-01-03T00:00:00Z",
+
     "UnitAmount": {
         "Currency": "GBP",
         "GrossValue": 10,
