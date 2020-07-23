@@ -1,6 +1,6 @@
 # Changelog
 
-### 23rd July 2020 11:30 UTC
+## 23rd July 2020 11:30 UTC
 * Extended [Product order parameters](operations/services.md#product-order-parameters) with consuption dates.
 
 ## 21st July 2020 11:30 UTC
