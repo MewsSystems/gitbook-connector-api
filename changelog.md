@@ -1,5 +1,8 @@
 # Changelog
 
+### 23rd July 2020 11:30 UTC
+* Extended [Product order parameters](operations/services.md#product-order-parameters) with consuption dates.
+
 ## 21st July 2020 11:30 UTC
 * Added new operations [Update accounting items](operations/finance.md#update-accounting-items), [Add bill](operations/finance.md#add-bill) and [Delete bill](operations/finance.md#delete-bill).
 * Added new operations [Get all counters](operations/enterprises.md#get-all-counters), [Close bill](operations/finance.md#close-bill), [Get bill PDF](operations/finance.md#get-bill-pdf)
