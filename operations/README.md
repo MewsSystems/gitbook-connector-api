@@ -20,7 +20,7 @@ This section describes all operations supported by the API:
   * [Update resources](enterprises.md#update-resources) - updates a resource.
   * [Get all resource blocks](enterprises.md#get-all-resource-blocks) - returns resource blocks in an interval.
   * [Add resource blocks](enterprises.md#add-resource-block) - adds a new block to the resource.
-  * [Delete resource blocks](operations/enterprises.md#delete-resource-blocks) - deletes resource block.
+  * [Delete resource blocks](enterprises.md#delete-resource-blocks) - deletes resource block.
   * [Add task](enterprises.md#add-task) - adds a task to the enterprise.
   * [Get all tasks](enterprises.md#get-all-tasks) - returns tasks by filters.
   * [Add company](enterprises.md#add-company) - adds a new company to the enterprise.
