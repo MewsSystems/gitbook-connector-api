@@ -16,15 +16,15 @@ This section describes all operations supported by the API:
   * [Get all departments](enterprises.md#get-all-departments) - returns all departments of the enterprise.
   * [Get all counters](enterprises.md#get-all-counters) - returns all counters of the enterprise.
   * [Get all outlets](enterprises.md#get-all-outlets) - returns all outlets of the enterprise.
-  * [Get all spaces](enterprises.md#get-all-spaces) - returns spaces in the enterprise together with their configuration.
-  * [Get all space blocks](enterprises.md#get-all-space-blocks) - returns space blocks in an interval.
-  * [Update space state](enterprises.md#update-space-state) - updates state of a space.
+  * [Get all resources](enterprises.md#get-all-resources) - returns all resources of the enterprise.
+  * [Update resources](enterprises.md#update-resources) - updates a resource.
+  * [Get all resource blocks](enterprises.md#get-all-resource-blocks) - returns resource blocks in an interval.
+  * [Add resource blocks](enterprises.md#add-resource-block) - adds a new block to the resource.
+  * [Delete resource blocks](enterprises.md#delete-resource-blocks) - deletes resource block.
   * [Add task](enterprises.md#add-task) - adds a task to the enterprise.
   * [Get all tasks](enterprises.md#get-all-tasks) - returns tasks by filters.
   * [Add company](enterprises.md#add-company) - adds a new company to the enterprise.
   * [Update company](enterprises.md#update-company) - updates a company.
-  * [Add space block](enterprises.md#add-space-block) - adds a new space block to the room.
-  * [Delete space blocks](enterprises.md#delete-space-blocks) - removes space blocks. 
 * [Services](services.md) - operations related to offered services, availability and prices.
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.
@@ -50,8 +50,6 @@ This section describes all operations supported by the API:
   * [Cancel reservation](reservations.md#cancel-reservation) - cancels a reservation.
   * [Update reservation customer](reservations.md#update-reservation-customer) - updates customer of a reservation.
   * [Update reservation interval](reservations.md#update-reservation-interval) - updates start \(arrival\) and end \(departure\) of a reservation.
-  * [Update reservation space](reservations.md#update-reservation-space) - updates assignment of a reservation to another space.
-  * [Update reservation requested category](reservations.md#update-reservation-requested-category) - updates requested space category of a reservation.
   * [Add reservation companion](reservations.md#add-reservation-companion) - adds a new companion to a reservation.
   * [Delete reservation companion](reservations.md#delete-reservation-companion) - deletes a companion from a reservation.
   * [Add reservation product](reservations.md#add-reservation-product) - adds a new product to the reservation.
