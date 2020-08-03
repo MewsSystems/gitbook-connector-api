@@ -144,6 +144,7 @@ Returns all contracts between the enterprise and other companies.
             "CommissionIncluded": null,
             "CompanyId": "04ba69d8-ff17-494f-be27-92422e100aa1",
             "Id": "c172d21a-5595-44ab-8088-014eedd5bbf3",
+            "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
             "IsActive": true
         }
     ]
@@ -159,6 +160,7 @@ Returns all contracts between the enterprise and other companies.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the contract. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the contract is related to. |
 | `CompanyId` | string | required | Unique identifier of the contracted [Company](enterprises.md#company). |
 | `IsActive` | boolean | required | Whether the contract is still active. |
 | `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
