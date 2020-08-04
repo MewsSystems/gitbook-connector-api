@@ -614,7 +614,13 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 "Rebated": false
             },
             "Payments": [],
-            "Revenue": []
+            "Revenue": [],
+            "AssigneeData": {
+                "Discriminator": "BillCustomerData",
+                "Value": {
+                    "ItalianFiscalCode": null
+                }
+            }
         }
     ]
 }
@@ -646,6 +652,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
+| `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
 
 #### Bill type
 
@@ -663,6 +670,29 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 | `Rebated` | boolean | required | Bill has been rebated. |
+
+#### Bill assignee data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Bill assignee data discriminator](#bill-assignee-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Bill assignee data discriminator](#bill-assignee-data-discriminator). |
+
+#### Bill assignee data discriminator
+
+* `BillCustomerData` - Assignee data specific to a customer.
+* `BillCompanyData` - Assignee data specific to a company.
+
+#### Bill customer data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ItalianFiscalCode` | string  | required | Italian fiscal code. |
+
+#### Bill company data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 
 ## Add bill
 
