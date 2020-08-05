@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th August 20202 11:30 UTC
+* Fixed spelling mistake in parameter `TravelAgencyId` in operation [Update reservation](operations/reservations.md#update-reservation).
+* Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
+
 ## 23rd July 2020 11:30 UTC
 * Extended [Product order parameters](operations/services.md#product-order-parameters) with consumption dates.
 
