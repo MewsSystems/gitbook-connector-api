@@ -12,6 +12,10 @@ When an action of particular type is performed in the system, a message is sent 
             "Id": "8865aa96-f62d-4f9b-a912-ab2100f60f42",
             "Name": "Sample Chain Hotel 1"
         },
+        "Service": {
+            "Id": "9745ce3a-8dbb-4cc0-a550-55f9ff67b242",
+            "Name": "Accommodation"
+        },
         "Requestor": null,
         "AccessToken":"9E5E84E9974D4F169662AB2200F27CB1-00B343A0DDA725CACAC028E38E3EABF",
         "CreatedUtc": "2019-12-13T14:42:52Z",
@@ -45,12 +49,13 @@ When an action of particular type is performed in the system, a message is sent 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Enterprise` | [Enterprise](#Enterprise) | required | Commercial chain of the property. |
-| `Requestor` | [Requestor](#Requestor) | required | Person requesting action. |
+| `Enterprise` | [Enterprise](#enterprise) | required | Commercial chain of the property. |
+| `Service` | [Service](#service) | optional | Service the integration is connected to. |
+| `Requestor` | [Requestor](#requestor) | required | Person requesting action. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CreatedUtc` | string | required | Creation date and time of the integration in UTC timezone in ISO 8601 format. |
 | `IsEnabled` | bool | required | Whether integration is enabled. |
-| `Integration` | [Integration](#Integration) | required | Integration data. |
+| `Integration` | [Integration](#integration) | required | Integration data. |
 
 #### Enterprise
 
@@ -58,6 +63,13 @@ When an action of particular type is performed in the system, a message is sent 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `Name` | string | required | Name of the enterprise. |
+
+#### Service
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the service. |
+| `Name` | string | required | Name of the service. |
 
 #### Requestor
 
@@ -77,29 +89,29 @@ When an action of particular type is performed in the system, a message is sent 
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](#Integration) | required | Integration data. |
+| `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration disabled data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](#Integration) | required | Integration data. |
+| `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration canceled data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](#Integration) | required | Integration data. |
+| `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration reinstated data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Integration` | [Integration](#Integration) | required | Integration data. |
+| `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration deleted data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
-| `Integration` | [Integration](#Integration) | required | Integration data. |
+| `Integration` | [Integration](#integration) | required | Integration data. |

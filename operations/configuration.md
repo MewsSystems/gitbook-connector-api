@@ -66,6 +66,22 @@ Returns configuration of the enterprise and the client.
         ],
         "Pricing": "Gross"
     },
+    "Service":
+    {
+        "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+        "IsActive": true,
+        "Name": "Accommodation",
+        "StartTime": "PT14H",
+        "EndTime": "PT12H",
+        "Promotions": {
+            "BeforeCheckIn": false,
+            "AfterCheckIn": false,
+            "DuringStay": false,
+            "BeforeCheckOut": false,
+            "AfterCheckOut": false
+        },
+        "Type": "Reservable"
+    },
     "PaymentCardStorage": null
 }
 ```
@@ -74,6 +90,7 @@ Returns configuration of the enterprise and the client.
 | --- | --- | --- | --- |
 | `NowUtc` | string | required | Current server date and time in UTC timezone in ISO 8601 format. |
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise \(e.g. hotel, hostel\) associated with the access token. |
+| `Service` | [Service](services.md#service) | optional | The reservable service \(e.g. accommodation, parking\) associated with the access token of the service scoped integration. |
 | `PaymentCardStorage` | [PaymentCardStorage](configuration.md#payment-card-storage) | optional | Contains information about payment card storage. |
 
 #### Enterprise

@@ -75,7 +75,7 @@ Returns all services offered by the enterprise.
 | `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
 | `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
-| `Type` | string | [Service type](services.md#service-type) | required | Type of the service. |
+| `Type` | string [Service type](services.md#service-type) | required | Type of the service. |
 
 #### Promotions
 
