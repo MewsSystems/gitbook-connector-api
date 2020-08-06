@@ -86,6 +86,7 @@ Returns all services offered by the enterprise.
 | `DuringStay` | boolean | required | Whether it can be promoted during stay. |
 | `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
+| `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
 
 #### Service type
 
