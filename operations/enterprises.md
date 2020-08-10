@@ -414,7 +414,9 @@ Returns all resources of an enterprise associated with the connector integration
                 "Value": {
                     "FloorNumber": "3"
                 }
-            }
+            },
+            "CreatedUtc": "2016-03-29T15:14:06Z",
+            "UpdatedUtc": "2016-03-29T15:14:06Z"
         },
         {
             "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -430,7 +432,9 @@ Returns all resources of an enterprise associated with the connector integration
                 "Value": {
                     "FloorNumber": "3"
                 }
-            }
+            },
+            "CreatedUtc": "2016-03-29T15:14:06Z",
+            "UpdatedUtc": "2016-03-29T15:14:06Z"
         }
     ],
     "ResourceCategories": [
@@ -451,14 +455,22 @@ Returns all resources of an enterprise associated with the connector integration
     ],
     "ResourceCategoryAssignments": [
         {
+            "Id": "032298ad-b1b8-4936-9420-415a2152304a",
+            "IsActive": true,
             "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-            "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9"
+            "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
+            "CreatedUtc": "2016-03-29T15:14:06Z",
+            "UpdatedUtc": "2016-03-29T15:14:06Z"
         }
     ],
     "ResourceCategoryImageAssignments": [
         {
+            "Id": "f3475243-5962-4fb5-bdfd-958f9c65520e",
+            "IsActive": true,
             "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
-            "ImageId": "8cd435e0-f024-44a0-84fd-abe300b8ae1c"
+            "ImageId": "8cd435e0-f024-44a0-84fd-abe300b8ae1c",
+            "CreatedUtc": "2016-03-29T15:14:06Z",
+            "UpdatedUtc": "2016-03-29T15:14:06Z"
         }
     ],
     "ResourceFeatures": [
@@ -478,8 +490,12 @@ Returns all resources of an enterprise associated with the connector integration
     ],
     "ResourceFeatureAssignments": [
         {
+            "Id": "ca2b5bf9-24f5-4faa-95ef-b65d38598b08",
+            "IsActive": true,
             "ResourceId": "18019693-c66f-4be8-a893-c3d89fd291cc",
-            "FeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0"
+            "FeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
+            "CreatedUtc": "2016-03-29T15:14:06Z",
+            "UpdatedUtc": "2016-03-29T15:14:06Z"
         }
     ]
 }
@@ -504,6 +520,8 @@ Returns all resources of an enterprise associated with the connector integration
 | `ParentResourceId` | string | optional | Identifier of the parent [Resource](#resource) \(e.g. room of a bed\). |
 | `State` | string [Resource state](#resource-state) | required | State of the resource. |
 | `Data` | [Resource data](#resource-data) | required | Additional data of the resource. |
+| `CreatedUtc` | string | required | Creation date and time of the resource in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the resource in UTC timezone in ISO 8601 format. |
 
 #### Resource state
 
@@ -644,15 +662,23 @@ Updates details of the resources.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
 | `ResourceId` | string | required | Unique identifier of the [Resource](#resource) assigned to the Resource category. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
 #### Resource category image assignment
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
 | `ImageId` | string | required | Unique identifier of the image assigned to the Resource category. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
 #### Localized text
 
@@ -698,8 +724,12 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
 | `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
 | `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature) assigned to the Resource. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
 ## Get all resource blocks
 
