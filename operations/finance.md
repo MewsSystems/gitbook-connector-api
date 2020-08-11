@@ -687,7 +687,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `ItalianFiscalCode` | string  | required | Italian fiscal code. |
+| `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
 
 #### Bill company data
 
