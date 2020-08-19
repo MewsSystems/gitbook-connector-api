@@ -614,7 +614,13 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 "Rebated": false
             },
             "Payments": [],
-            "Revenue": []
+            "Revenue": [],
+            "AssigneeData": {
+                "Discriminator": "BillCustomerData",
+                "Value": {
+                    "ItalianFiscalCode": null
+                }
+            }
         }
     ]
 }
@@ -646,6 +652,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
 | `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
+| `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
 
 #### Bill type
 
@@ -663,6 +670,29 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 | `Rebated` | boolean | required | Bill has been rebated. |
+
+#### Bill assignee data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Bill assignee data discriminator](#bill-assignee-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Bill assignee data discriminator](#bill-assignee-data-discriminator). |
+
+#### Bill assignee data discriminator
+
+* `BillCustomerData` - Assignee data specific to a customer.
+* `BillCompanyData` - Assignee data specific to a company.
+
+#### Bill customer data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
+
+#### Bill company data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
 
 ## Add bill
 
@@ -780,14 +810,26 @@ Closes a bill so no further modification to it is possible.
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
     "Options": {
-        "DisplayCustomer": { "Value": false },
+        "DisplayCustomer": {
+            "Value": false
+        },
         "DisplayTaxation": null
     },
-    "TaxedDate" : "2020-07-07",
-    "DueDate" : "2020-07-14",
-    "VariableSymbol" : "5343",
-    "TaxIdentifier" : "446768",
-    "Notes": "Bill closing note"
+    "TaxedDate": {
+        "Value": "2020-07-07"
+    },
+    "DueDate": {
+        "Value": "2020-07-14"
+    },
+    "VariableSymbol": {
+        "Value": "5343"
+    },
+    "TaxIdentifier": {
+        "Value": "446768"
+    },
+    "Notes": {
+        "Value": "Bill closing note"
+    }
 }
 ```
 
@@ -1378,8 +1420,14 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 ### Response
 
 ```javascript
-{}
+{
+    "CreditCardId": "ee2209ce-71c6-4e3a-978f-aac700c82c7b"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
 ## Add external payment
 
@@ -1427,8 +1475,14 @@ Adds a new external payment to a bill of the specified customer. An external pay
 ### Response
 
 ```javascript
-{}
+{
+    "ExternalPaymentId": "4ee05b77-ae21-46e8-8418-ac1c009dfb2b"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ExternalPaymentId` | string | required | Unique identifier of the payment [Accounting item](#accounting-item). |
 
 ## Add outlet bills
 

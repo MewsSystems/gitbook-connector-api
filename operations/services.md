@@ -38,7 +38,8 @@ Returns all services offered by the enterprise.
                 "AfterCheckIn": false,
                 "DuringStay": false,
                 "BeforeCheckOut": false,
-                "AfterCheckOut": false
+                "AfterCheckOut": false,
+                "DuringCheckOut": false
             },
             "Type": "Orderable"
         },
@@ -53,7 +54,8 @@ Returns all services offered by the enterprise.
                 "AfterCheckIn": false,
                 "DuringStay": false,
                 "BeforeCheckOut": false,
-                "AfterCheckOut": false
+                "AfterCheckOut": false,
+                "DuringCheckOut": false
             },
             "Type": "Reservable"
         }
@@ -86,6 +88,7 @@ Returns all services offered by the enterprise.
 | `DuringStay` | boolean | required | Whether it can be promoted during stay. |
 | `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
+| `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
 
 #### Service type
 
@@ -201,7 +204,8 @@ Returns all products offered together with the specified services.
                 "AfterCheckIn": false,
                 "DuringStay": false,
                 "BeforeCheckOut": false,
-                "AfterCheckOut": false
+                "AfterCheckOut": false,
+                "DuringCheckOut": false
             },
             "Classifications": {
                 "Food": false,
