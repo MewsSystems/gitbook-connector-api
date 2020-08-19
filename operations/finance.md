@@ -810,14 +810,26 @@ Closes a bill so no further modification to it is possible.
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
     "Options": {
-        "DisplayCustomer": { "Value": false },
+        "DisplayCustomer": {
+            "Value": false
+        },
         "DisplayTaxation": null
     },
-    "TaxedDate" : "2020-07-07",
-    "DueDate" : "2020-07-14",
-    "VariableSymbol" : "5343",
-    "TaxIdentifier" : "446768",
-    "Notes": "Bill closing note"
+    "TaxedDate": {
+        "Value": "2020-07-07"
+    },
+    "DueDate": {
+        "Value": "2020-07-14"
+    },
+    "VariableSymbol": {
+        "Value": "5343"
+    },
+    "TaxIdentifier": {
+        "Value": "446768"
+    },
+    "Notes": {
+        "Value": "Bill closing note"
+    }
 }
 ```
 
