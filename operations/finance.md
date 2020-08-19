@@ -810,14 +810,26 @@ Closes a bill so no further modification to it is possible.
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
     "Options": {
-        "DisplayCustomer": { "Value": false },
+        "DisplayCustomer": {
+            "Value": false
+        },
         "DisplayTaxation": null
     },
-    "TaxedDate" : "2020-07-07",
-    "DueDate" : "2020-07-14",
-    "VariableSymbol" : "5343",
-    "TaxIdentifier" : "446768",
-    "Notes": "Bill closing note"
+    "TaxedDate": {
+        "Value": "2020-07-07"
+    },
+    "DueDate": {
+        "Value": "2020-07-14"
+    },
+    "VariableSymbol": {
+        "Value": "5343"
+    },
+    "TaxIdentifier": {
+        "Value": "446768"
+    },
+    "Notes": {
+        "Value": "Bill closing note"
+    }
 }
 ```
 
@@ -1408,8 +1420,14 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 ### Response
 
 ```javascript
-{}
+{
+    "CreditCardId": "ee2209ce-71c6-4e3a-978f-aac700c82c7b"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
 ## Add external payment
 
@@ -1457,8 +1475,14 @@ Adds a new external payment to a bill of the specified customer. An external pay
 ### Response
 
 ```javascript
-{}
+{
+    "ExternalPaymentId": "4ee05b77-ae21-46e8-8418-ac1c009dfb2b"
+}
 ```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ExternalPaymentId` | string | required | Unique identifier of the payment [Accounting item](#accounting-item). |
 
 ## Add outlet bills
 
