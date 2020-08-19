@@ -1,6 +1,15 @@
 # Changelog
 
-## 5th August 20202 11:30 UTC
+## 19th August 2020 11:30 UTC
+* Extended [Travel agency contract](operations/enterprises#travel-agency-contract) with `ServiceId`.
+* Extended [Bill](operations/finance.md#bill) object with [Bill assignee data](operations/finance.md#bill-assignee-data).
+* Extended [Promotions](operations/services.md#promotions) object with `DuringCheckOut` property.
+* Extended [Resource](operations/enterprises#resource) with `CreatedUtc` and `UpdatedUtc`.
+* Extended [Resource category assignment](operations/enterprises#resource-category-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
+* Extended [Resource category image assignment](operations/enterprises#resource-category-image-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
+* Extended [Resource feature assignment](operations/enterprises#resource-feature-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
+
+## 5th August 2020 11:30 UTC
 * Fixed spelling mistake in parameter `TravelAgencyId` in operation [Update reservation](operations/reservations.md#update-reservation).
 * Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
 * Extended [Get configuration](operations/configuration.md#get-configuration) response with [Service](operations/services#service).
