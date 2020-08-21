@@ -290,11 +290,11 @@ Returns all rules applied with the reservations.
     ],
     "Extent": 
     {
+        "RuleActions": true,
         "Rates": true,
         "RateGroups": true,
         "ResourceCategories": true,
-        "BusinessSegments": true,
-        "RuleActions": true
+        "BusinessSegments": true
     }
 }
 ```
@@ -304,8 +304,8 @@ Returns all rules applied with the reservations.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
-| `Extent` | [Rule extent](services.md#rule-extent) | required | Extent of data to be returned. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s. |
+| `Extent` | [Rule extent](#rule-extent) | required | Extent of data to be returned. |
 
 #### Rule extent
 
@@ -377,39 +377,39 @@ Returns all rules applied with the reservations.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Rules` | array of [Rule](services.md#rule) | required | Rules applied with reservations. |
-| `RuleActions` | array of [Rule action](services.md#rule-action) | required | Rule actions. |
-| `Rates` | array of [Rate](services.md#rate) | required | Rates. |
-| `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups. |
-| `ResourceCategories` | array of [Resource category](services.md#resource-category) | required | Resource categories. |
-| `BusinessSegments` | array of [business segment](services.md#business-segment) | required | Business segments. |
+| `Rules` | array of [Rule](#rule) | required | Rules applied with reservations. |
+| `RuleActions` | array of [Rule action](#rule-action) | required | Rule actions applied in rules. |
+| `Rates` | array of [Rate](#rate) | required | Rates used for conditions. |
+| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups used for conditions. |
+| `ResourceCategories` | array of [Resource category](#resource-category) | required | Resource categories used for conditions. |
+| `BusinessSegments` | array of [business segment](#business-segment) | required | Business segments used for conditions. |
 
 #### Rule
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rule. |
-| `Conditions` | [Rule conditions](services.md#rule-conditions) | required | Conditions of the rule. |
+| `Conditions` | [Rule conditions](#rule-conditions) | required | Conditions of the rule. |
 
 #### Rule conditions
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `RateId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the rate. |
-| `RateGroupId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the rate group. |
-| `BusinessSegmentId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the business segment. |
-| `ResourceCategoryId` | string  [Rule condition](services.md#rule-condition) | required | Unique identifier of the resource category. |
-| `ResourceCategoryType` | string [Rule condition](services.md#rule-condition) | required | Type of resource category. |
-| `Origin` | string [Rule condition](services.md#rule-condition) | required | [Service order origin](services.md/service-order-origin) of the reservation. |
-| `MinimumTimeUnitCount` | string | required | Minimum of time units. |
-| `MaximumTimeUnitCount` | string | required |Maximum of time units. |
+| `RateId` | [Rule condition](#rule-condition) | required | Condition based on [rate](#rate). |
+| `RateGroupId` | [Rule condition](#rule-condition) | required | Condition based on [rate group](#rate-group). |
+| `BusinessSegmentId` | [Rule condition](#rule-condition) | required | Condition based on [business segment](#business-segment). |
+| `ResourceCategoryId` | [Rule condition](#rule-condition) | required | Condition based on [resource category](enterprises.md#resource-category). |
+| `ResourceCategoryType` | [Rule condition](#rule-condition) | required | Condition based on [resource category type](enterprises.md#resource-category-type). |
+| `Origin` | [Rule condition](#rule-condition) | required | Condition based on [service order origin](#service-order-origin). |
+| `MinimumTimeUnitCount` | string | required | Condition based on minimum amount of time units. |
+| `MaximumTimeUnitCount` | string | required | Condition based on maximum amount of time units. |
 
 ### Rule condition
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | string | required | Value of condition |
-| `ConditionType` | string [Condition type](services.md#condition-type) | required | Type of condition. |
+| `Value` | string | required | Unique identifier of condition or [Service order origin](#service-order-origin) of the reservation. |
+| `ConditionType` | string [Condition type](#condition-type) | required | Type of condition. |
 
 ### Condition type
 
@@ -430,14 +430,14 @@ Returns all rules applied with the reservations.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rule action. |
 | `RuleId` | string | required | Unique identifier of the rule. |
-| `Data` | [RuleActionData](serviced.md#data) | optional | Additional information about action. |
+| `Data` | [RuleActionData](#rule-aciton-data) | optional | Additional information about action. |
 
 ### Rule action data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | string [Rule action discriminator](#service.md#rule-action-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Rule action discriminator](services.md#rule-action-discriminator). |
+| `Discriminator` | string [Rule action discriminator](#rule-action-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Rule action discriminator](#rule-action-discriminator). |
 
 #### Rule action discriminator
 
