@@ -454,13 +454,6 @@ Returns all rules applied with the reservations.
 * `Add` - Adds specified item.
 * `Delete` - Deletes specified item.
 
-
-
-
-
-
-
-
 ## Get all business segments
 
 Returns all business segments of the default service provided by the enterprise.
