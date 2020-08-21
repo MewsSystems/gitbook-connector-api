@@ -560,83 +560,6 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 
-## Update resources
-
-Updates details of the resources.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/resources/update`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ResourceUpdates": [
-        {
-            "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-            "Name": {
-                "Value": "0101"
-            },
-            "ParentResourceId": null,
-            "Data": 
-            {
-                "Discriminator": "Space",
-                "Value": {
-                    "FloorNumber": {
-                        "Value": "1"
-                    }
-                }
-            },
-            "State": {
-                "Value": "Clean"
-            },
-            "StateReason": {
-                "Value": "Sample reason"
-            }
-        }
-    ]
-}
-```
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ResourceUpdates` | array of [Resource update](#resource-update) | required | Resource updates. |
-
-#### Resource update
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) which is updated. |
-| `Name` | [String update value](reservations.md#string-update-value) | optional | New name of the resource \(e.g. room number\). |
-| `ParentResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
-| `Data` | [Resource data update](#resource-data-update) | optional | New additional data of the resource. |
-| `State` | [String update value](reservations.md#string-update-value) | optional | New [State](#resource-state) of the resource except \(`OutOfOrder`\). |
-| `StateReason` | [String update value](reservations.md#string-update-value) | optional | New reason for the state of the resource. |
-
-#### Resource data update
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
-| `Value` | object | required | Based on Resource data discriminator, e.g. [Space resource data update](#space-resource-data-update) |
-
-#### Space resource data update
-
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `FloorNumber` | [String update value](reservations.md#string-update-value) | required | New number of the floor the space is on. |
-
-### Response
-
-```javascript
-{}
-```
-
 #### Resource category
 
 | Property | Type |  | Description |
@@ -730,6 +653,83 @@ An object where keys are the [Language](configuration.md#language) codes and val
 | `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature) assigned to the Resource. |
 | `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
+
+## Update resources
+
+Updates details of the resources.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resources/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ResourceUpdates": [
+        {
+            "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+            "Name": {
+                "Value": "0101"
+            },
+            "ParentResourceId": null,
+            "Data": 
+            {
+                "Discriminator": "Space",
+                "Value": {
+                    "FloorNumber": {
+                        "Value": "1"
+                    }
+                }
+            },
+            "State": {
+                "Value": "Clean"
+            },
+            "StateReason": {
+                "Value": "Sample reason"
+            }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ResourceUpdates` | array of [Resource update](#resource-update) | required | Resource updates. |
+
+#### Resource update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) which is updated. |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | New name of the resource \(e.g. room number\). |
+| `ParentResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
+| `Data` | [Resource data update](#resource-data-update) | optional | New additional data of the resource. |
+| `State` | [String update value](reservations.md#string-update-value) | optional | New [State](#resource-state) of the resource except \(`OutOfOrder`\). |
+| `StateReason` | [String update value](reservations.md#string-update-value) | optional | New reason for the state of the resource. |
+
+#### Resource data update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
+| `Value` | object | required | Based on Resource data discriminator, e.g. [Space resource data update](#space-resource-data-update) |
+
+#### Space resource data update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `FloorNumber` | [String update value](reservations.md#string-update-value) | required | New number of the floor the space is on. |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Get all resource blocks
 
