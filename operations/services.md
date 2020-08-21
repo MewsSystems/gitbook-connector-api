@@ -287,7 +287,15 @@ Returns all rules applied with the reservations.
     "Client": "Sample Client 1.0.0",
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
-    ]
+    ],
+    "Extent": 
+    {
+        "Rates": true,
+        "RateGroups": true,
+        "ResourceCategories": true,
+        "BusinessSegments": true,
+        "RuleActions": true
+    }
 }
 ```
 
