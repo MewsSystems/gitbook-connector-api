@@ -272,10 +272,6 @@ Returns all products offered together with the specified services.
 | `Wellness` | boolean | required | Product is classified as wellness. |
 | `CityTax` | boolean | required | Product is classified as city tax. |
 
-
-
-
-
 ## Get all rules
 
 Returns all rules applied with the reservations.
@@ -347,7 +343,7 @@ Returns all rules applied with the reservations.
                 "Discriminator": "Product",
                 "Value": {
                     "ProductId": "122fd92d-c561-4995-8ebc-ac1c00d1eaa8",
-                    "Action": "Add"
+                    "ActionType": "Add"
                 }
             }
         }
@@ -384,21 +380,21 @@ Returns all rules applied with the reservations.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the product. |
-| `Conditions` | [Rule conditions](services.md#rule-conditions) | required | Promotions of the service. |
+| `Id` | string | required | Unique identifier of the rule. |
+| `Conditions` | [Rule conditions](services.md#rule-conditions) | required | Conditions of the rule. |
 
 #### Rule conditions
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `RateId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the rate. |
-| `RateGroupId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the product. |
-| `BusinessSegmentId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the product. |
-| `ResourceCategoryId` | string  [Rule condition](services.md#rule-condition) | required | Unique identifier of the product. |
-| `ResourceCategoryType` | string | required | Unique identifier of the product. |
-| `Origin` | string | required | Unique identifier of the product. |
-| `MinimumTimeUnitCount` | string | required | Unique identifier of the product. |
-| `MaximumTimeUnitCount` | string | required | Unique identifier of the product. |
+| `RateGroupId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the rate group. |
+| `BusinessSegmentId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the business segment. |
+| `ResourceCategoryId` | string  [Rule condition](services.md#rule-condition) | required | Unique identifier of the resource category. |
+| `ResourceCategoryType` | string [Rule condition](services.md#rule-condition) | required | Type of resource category. |
+| `Origin` | string [Rule condition](services.md#rule-condition) | required | [Service order origin](services.md/service-order-origin) of the reservation. |
+| `MinimumTimeUnitCount` | string | required | Minimum of time units. |
+| `MaximumTimeUnitCount` | string | required |Maximum of time units. |
 
 ### Rule condition
 
@@ -411,6 +407,14 @@ Returns all rules applied with the reservations.
 
 * `Equals`
 * `NotEquals`
+
+### Service order origin
+* `Distributor`
+* `ChannelManager`
+* `Commander`
+* `Import`
+* `Connector`
+* `Navigator`
 
 ### Rule action
 
@@ -431,29 +435,19 @@ Returns all rules applied with the reservations.
 
 * `Product` - Data specific to a product.
 
-
-
-
-#### Product charging
-
-* `Once`
-* `PerTimeUnit`
-* `PerPersonPerTimeUnit`
-* `PerPerson`
-
-#### Product posting
-
-* `Once`
-* `Daily`
-
-#### Product classifications
-
+### Rule action product data
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Food` | boolean | required | Product is classified as food. |
-| `Beverage` | boolean | required | Product is classified as beverage. |
-| `Wellness` | boolean | required | Product is classified as wellness. |
-| `CityTax` | boolean | required | Product is classified as city tax. |
+| `ProductId` | string | required | Unique identifier of product. |
+| `ActionType` | string | required | Unique identifier of product. |
+
+#### Rule action type
+
+* `Add` - Adds specified item.
+* `Delete` - Deletes specified item.
+
+
+
 
 
 
