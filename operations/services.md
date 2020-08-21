@@ -272,6 +272,193 @@ Returns all products offered together with the specified services.
 | `Wellness` | boolean | required | Product is classified as wellness. |
 | `CityTax` | boolean | required | Product is classified as city tax. |
 
+
+
+
+
+## Get all rules
+
+Returns all rules applied with the reservations.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rules/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
+| `Extent` | [Rule extent](services.md#rule-extent) | required | Extent of data to be returned. |
+
+#### Rule extent
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `RuleActions` | bool | optional | Whether the response should contain rule actions. |
+| `Rates` | bool | optional | Whether the response should contain rates. |
+| `RateGroups` | bool | optional | Whether the response should contain rate groups. |
+| `ResourceCategories` | bool | optional | Whether the response should contain rate resource categories. |
+| `BusinessSegments` | bool | optional | Whether the response should contain business segments. |
+
+
+### Response
+
+```javascript
+{
+    "Rules": [
+        {
+            "Id": "13638b12-53f1-4b35-baab-ac1e006ed8cb",
+            "Conditions": {
+                "RateId": {
+                    "Value": "8a13f4e8-0274-4bcc-b2d4-ac1c00d1cd3f",
+                    "ConditionType": "Equals"
+                },
+                "RateGroupId": null,
+                "BusinessSegmentId": null,
+                "ResourceCategoryId": null,
+                "ResourceCategoryType": null,
+                "Origin": {
+                    "Value": "Connector",
+                    "ConditionType": "NotEquals"
+                },
+                "MinimumTimeUnitCount": null,
+                "MaximumTimeUnitCount": null
+            }
+        }
+    ],
+    "RuleActions": [
+        {
+            "Id": "307e75a6-2cc8-4226-a600-ac1e006fbdb9",
+            "RuleId": "13638b12-53f1-4b35-baab-ac1e006ed8cb",
+            "Data": {
+                "Discriminator": "Product",
+                "Value": {
+                    "ProductId": "122fd92d-c561-4995-8ebc-ac1c00d1eaa8",
+                    "Action": "Add"
+                }
+            }
+        }
+    ],
+    "Rates": [
+        {
+            "Id": "8a13f4e8-0274-4bcc-b2d4-ac1c00d1cd3f",
+            "GroupId": "e4a9d8d1-5793-4d35-954e-ac1c00d1eaa8",
+            "ServiceId": "ea80bbca-372f-4550-8e48-ac1c00d1cd20",
+            "BaseRateId": null,
+            "IsActive": true,
+            "IsPublic": true,
+            "Name": "Fully Flexible",
+            "ShortName": "FF",
+            "ExternalNames": {}
+        }
+    ],
+    "RateGroups": [],
+    "ResourceCategories": [],
+    "BusinessSegments": []
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Rules` | array of [Rule](services.md#rule) | required | Rules applied with reservations. |
+| `RuleActions` | array of [Rule action](services.md#rule-action) | required | Rule actions. |
+| `Rates` | array of [Rate](services.md#rate) | required | Rates. |
+| `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups. |
+| `ResourceCategories` | array of [Resource category](services.md#resource-category) | required | Resource categories. |
+| `BusinessSegments` | array of [business segment](services.md#business-segment) | required | Business segments. |
+
+#### Rule
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the product. |
+| `Conditions` | [Rule conditions](services.md#rule-conditions) | required | Promotions of the service. |
+
+#### Rule conditions
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `RateId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the rate. |
+| `RateGroupId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the product. |
+| `BusinessSegmentId` | string [Rule condition](services.md#rule-condition) | required | Unique identifier of the product. |
+| `ResourceCategoryId` | string  [Rule condition](services.md#rule-condition) | required | Unique identifier of the product. |
+| `ResourceCategoryType` | string | required | Unique identifier of the product. |
+| `Origin` | string | required | Unique identifier of the product. |
+| `MinimumTimeUnitCount` | string | required | Unique identifier of the product. |
+| `MaximumTimeUnitCount` | string | required | Unique identifier of the product. |
+
+### Rule condition
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Value` | string | required | Value of condition |
+| `ConditionType` | string [Condition type](services.md#condition-type) | required | Type of condition. |
+
+### Condition type
+
+* `Equals`
+* `NotEquals`
+
+### Rule action
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the rule action. |
+| `RuleId` | string | required | Unique identifier of the rule. |
+| `Data` | [RuleActionData](serviced.md#data) | optional | Additional information about action. |
+
+### Rule action data
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Rule action discriminator](#service.md#rule-action-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Rule action discriminator](services.md#rule-action-discriminator). |
+
+#### Rule action discriminator
+
+* `Product` - Data specific to a product.
+
+
+
+
+#### Product charging
+
+* `Once`
+* `PerTimeUnit`
+* `PerPersonPerTimeUnit`
+* `PerPerson`
+
+#### Product posting
+
+* `Once`
+* `Daily`
+
+#### Product classifications
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Food` | boolean | required | Product is classified as food. |
+| `Beverage` | boolean | required | Product is classified as beverage. |
+| `Wellness` | boolean | required | Product is classified as wellness. |
+| `CityTax` | boolean | required | Product is classified as city tax. |
+
+
+
+
+
 ## Get all business segments
 
 Returns all business segments of the default service provided by the enterprise.
