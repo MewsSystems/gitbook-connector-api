@@ -1514,7 +1514,7 @@ Adds a new alternative payment to a specified customer.
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `Method` | string [Alternative payment method](finance.md#alternative-payment-methods) | required | Payment method to use for the alternative payment. | |
-| `RedirectUrl` | string | required | URL to redirect the customer after completing their payment |
+| `RedirectUrl` | string | required | URL where the customer will be redirected after completing their payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the alternative payment. |
 
 #### Alternative payment methods
@@ -1531,6 +1531,7 @@ Adds a new alternative payment to a specified customer.
         "Value": "https://hooks.stripe.com/redirect/authenticate/src_1H4mKFesPOTH2Elbgzk2TKh?client_secret=src_client_secret_unFR1tjshd9OGDaSSyCeVEbO"
     }
 }
+
 ```
 ## Add outlet bills
 
