@@ -80,6 +80,7 @@ This section describes all operations supported by the API:
   * [Add credit card payment](finance.md#add-credit-card-payment) - adds a new credit card payment.
   * [Add tokenized credit card](finance.md#add-tokenized-credit-card) - adds a new tokenized credit card.
   * [Add external payment](finance.md#add-external-payment) - adds a new external payment.
+  * [Add alternative payment](finance.md#add-alternative-payment) - adds a new alternative payment.
   * [Add outlet bills](finance.md#add-outlet-bills) - adds new outlet bills with items.
 * [Integrations](integrations.md) - operations related to integrations, devices and commands to them.
   * [Get all devices](integrations.md#get-all-devices) - returns all physical devices defined in the enterprise.

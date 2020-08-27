@@ -1531,8 +1531,24 @@ Adds a new alternative payment to a specified customer.
         "Value": "https://hooks.stripe.com/redirect/authenticate/src_1H4mKFesPOTH2Elbgzk2TKh?client_secret=src_client_secret_unFR1tjshd9OGDaSSyCeVEbO"
     }
 }
-
 ```
+
+| Property | Type | Description |
+| --- | --- | --- | --- |
+| `PaymentId` | string | Unique identifier of the created payment |
+| `NextAction` | string  | Unique identifier of the created payment |
+
+#### Alternative payment next action
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Payment next action discriminator](#payment-next-action-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Payment next action discriminator](#payment-next-action-discriminator) . |
+
+#### Payment next action discriminator
+* `RedirectToUrl` - Redirect customer to a URL where they can complete their payment
+
+explanation
 ## Add outlet bills
 
 Adds new outlet bills with their items.
