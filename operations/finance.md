@@ -1548,7 +1548,7 @@ Adds a new alternative payment to a specified customer.
 
 #### Payment next action discriminator
 
-* `RedirectToUrl` - Redirect customer to a URL where they can complete their payment
+* `RedirectToUrl` - Redirect customer to a URL where they can complete their payment.
 
 ## Add outlet bills
 
