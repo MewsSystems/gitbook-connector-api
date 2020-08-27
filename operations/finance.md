@@ -1547,6 +1547,7 @@ Adds a new alternative payment to a specified customer.
 | `Value` | object | required | Structure of object depends on [Payment next action discriminator](#payment-next-action-discriminator) . |
 
 #### Payment next action discriminator
+
 * `RedirectToUrl` - Redirect customer to a URL where they can complete their payment
 
 ## Add outlet bills
