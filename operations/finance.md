@@ -1533,10 +1533,10 @@ Adds a new alternative payment to a specified customer.
 }
 ```
 
-| Property | Type | Description |
+| Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `PaymentId` | string | Unique identifier of the created payment |
-| `NextAction` | string  | Unique identifier of the created payment |
+| `PaymentId` | string | required | Unique identifier of the created payment |
+| `NextAction` | string  | required | Unique identifier of the created payment |
 
 #### Alternative payment next action
 
