@@ -1484,6 +1484,54 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | --- | --- | --- | --- |
 | `ExternalPaymentId` | string | required | Unique identifier of the payment [Accounting item](#accounting-item). |
 
+## Add alternative payment
+
+Adds a new alternative payment to a specified customer.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/addAlternative`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "Method": "Ideal",
+    "RedirectUrl": "https://mews.com",
+    "Amount": { 
+        "Currency": "GBP",
+        "GrossValue": 100
+    },
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `Method` | string [Alternative payment method](finance.md#alternative-payment-methods) | required | Payment method to use for the alternative payment. | |
+| `RedirectUrl` | string | required | URL to redirect the customer after completing their payment |
+| `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the alternative payment. |
+
+#### Alternative payment methods
+
+* `Ideal`
+
+### Response
+
+```javascript
+{
+    "PaymentId": "3ae3976f-8f22-4936-a4e8-abf800bd7278",
+    "NextAction": {
+        "Discriminator": "RedirectToUrl",
+        "Value": "https://hooks.stripe.com/redirect/authenticate/src_1H4mKFesPOTH2Elbgzk2TKh?client_secret=src_client_secret_unFR1tjshd9OGDaSSyCeVEbO"
+    }
+}
+```
 ## Add outlet bills
 
 Adds new outlet bills with their items.
