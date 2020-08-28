@@ -1513,7 +1513,7 @@ Adds a new alternative payment to a specified customer.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `Method` | string [Alternative payment method](finance.md#alternative-payment-methods) | required | Payment method to use for the alternative payment. | |
+| `Method` | string [Alternative payment method](finance.md#alternative-payment-methods) | required | Payment method to use for the alternative payment. |
 | `RedirectUrl` | string | required | URL where the customer will be redirected after completing their payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the alternative payment. |
 
