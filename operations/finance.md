@@ -1537,8 +1537,6 @@ Adds a new alternative payment to a specified customer.
 | --- | --- | --- | --- |
 | `PaymentId` | string | required | Unique identifier of the created payment. |
 | `NextAction` | object [Alternative payment next action](#alternative-payment-next-action) | required | Next action to take in order to complete the payment. |
-
-
 #### Alternative payment next action
 
 | Property | Type |  | Description |
