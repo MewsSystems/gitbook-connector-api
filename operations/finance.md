@@ -1528,7 +1528,7 @@ Adds a new alternative payment to a specified customer.
     "PaymentId": "3ae3976f-8f22-4936-a4e8-abf800bd7278",
     "NextAction": {
         "Discriminator": "RedirectToUrl",
-        "Value": "https://hooks.stripe.com/redirect/authenticate/src_1H4mKFesPOTH2Elbgzk2TKh?client_secret=src_client_secret_unFR1tjshd9OGDaSSyCeVEbO"
+        "Value": "https://sample-payment-gateway.com/redirect/authenticate/unFR1tjshd9OGDaSSyCeVEbO"
     }
 }
 ```
