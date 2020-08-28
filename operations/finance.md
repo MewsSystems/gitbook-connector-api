@@ -1544,7 +1544,7 @@ Adds a new alternative payment to a specified customer.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Payment next action discriminator](#payment-next-action-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Payment next action discriminator](#payment-next-action-discriminator). |
+| `Value` | string | required | String value depending on [Payment next action discriminator](#payment-next-action-discriminator). |
 
 #### Payment next action discriminator
 
