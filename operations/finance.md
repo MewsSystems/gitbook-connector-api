@@ -408,6 +408,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `Canceled`
 * `Pending`
 * `Failed`
+* `Verifying`
 
 #### Currency value
 
