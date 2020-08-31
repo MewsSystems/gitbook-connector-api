@@ -361,7 +361,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
-| `SubState` | string [Accounting item substate](finance.md#Accounting-item-substate) | optional | Substate of the item. Note that the substate depends on the Type of the item. |
+| `SubState` | string [Accounting item substate](finance.md#Accounting-item-substate) | optional | Substate of the item. Note that the substate depends on the `Type` of the item. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 
 #### Accounting item type
