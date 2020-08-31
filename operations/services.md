@@ -395,12 +395,12 @@ Returns all rules applied with the reservations.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `RateId` | [Rule condition](#rule-condition) | required | Condition based on [rate](#rate). |
-| `RateGroupId` | [Rule condition](#rule-condition) | required | Condition based on [rate group](#rate-group). |
-| `BusinessSegmentId` | [Rule condition](#rule-condition) | required | Condition based on [business segment](#business-segment). |
-| `ResourceCategoryId` | [Rule condition](#rule-condition) | required | Condition based on [resource category](enterprises.md#resource-category). |
-| `ResourceCategoryType` | [Rule condition](#rule-condition) | required | Condition based on [resource category type](enterprises.md#resource-category-type). |
-| `Origin` | [Rule condition](#rule-condition) | required | Condition based on [service order origin](#service-order-origin). |
+| `RateId` | [Rule condition](#rule-condition) | required | Condition based on [Rate](#rate). |
+| `RateGroupId` | [Rule condition](#rule-condition) | required | Condition based on [Rate group](#rate-group). |
+| `BusinessSegmentId` | [Rule condition](#rule-condition) | required | Condition based on [Business segment](#business-segment). |
+| `ResourceCategoryId` | [Rule condition](#rule-condition) | required | Condition based on [Resource category](enterprises.md#resource-category). |
+| `ResourceCategoryType` | [Rule condition](#rule-condition) | required | Condition based on [Resource category type](enterprises.md#resource-category-type). |
+| `Origin` | [Rule condition](#rule-condition) | required | Condition based on [Service order origin](#service-order-origin). |
 | `MinimumTimeUnitCount` | string | required | Condition based on minimum amount of time units. |
 | `MaximumTimeUnitCount` | string | required | Condition based on maximum amount of time units. |
 
