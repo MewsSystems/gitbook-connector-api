@@ -270,9 +270,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `ItemIds` | array of string | optional | Unique identifiers of the Accounting items. Required if no other filter is provided. |
+| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified. |
+| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified.  |
+| `ItemIds` | array of string | optional | Unique identifiers of the Accounting items. Required if `StartUtc` and `EndUtc` are not specified. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
