@@ -257,7 +257,10 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
+    "EndUtc": "2017-02-01T00:00:00Z",
+    "ItemIds": [
+        "e654f217-d1b5-46be-a820-e93ba568dfac"
+    ],
 }
 ```
 
@@ -266,6 +269,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ItemIds` | array of string | optional | Unique identifiers of the Payments. Required if no other filter is provided. |
 | `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -314,6 +318,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "ConsumptionUtc": "2016-07-27T12:48:39Z",
             "ClosedUtc": "2017-02-41T10:41:54Z",
             "State": "Closed",
+            "PaymentState": null,
             "Amount": {
                 "Currency": "GBP",
                 "NetValue": 2.08,
@@ -356,6 +361,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
+| `PaymentState` | string [Payment state](finance.md#Payment-states) | required | Payment state of the item. Note that the subtype depends on the Type of the item. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 
 #### Accounting item type
@@ -393,6 +399,13 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `BankCharges`
 * `Cheque`
 * `Other`
+
+##### Payment states
+
+* `Charged`
+* `Canceled`
+* `Pending`
+* `Failed`
 
 #### Currency value
 
