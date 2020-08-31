@@ -381,8 +381,8 @@ Returns all rules applied with the reservations.
 | `RuleActions` | array of [Rule action](#rule-action) | required | Rule actions applied in rules. |
 | `Rates` | array of [Rate](#rate) | required | Rates used for conditions. |
 | `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups used for conditions. |
-| `ResourceCategories` | array of [Resource category](#resource-category) | required | Resource categories used for conditions. |
-| `BusinessSegments` | array of [business segment](#business-segment) | required | Business segments used for conditions. |
+| `ResourceCategories` | array of [Resource category](enterprises.md#resource-category) | required | Resource categories used for conditions. |
+| `BusinessSegments` | array of [Business segment](#business-segment) | required | Business segments used for conditions. |
 
 #### Rule
 
