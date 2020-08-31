@@ -318,7 +318,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "ConsumptionUtc": "2016-07-27T12:48:39Z",
             "ClosedUtc": "2017-02-41T10:41:54Z",
             "State": "Closed",
-            "PaymentState": null,
+            "SubState": null,
             "Amount": {
                 "Currency": "GBP",
                 "NetValue": 2.08,
@@ -361,7 +361,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
-| `PaymentState` | string [Payment state](finance.md#Payment-states) | required | Payment state of the item. Note that the subtype depends on the Type of the item. |
+| `SubState` | string [Accounting item substate](finance.md#Accounting-item-substate) | required | Substate of the item. Note that the substate depends on the Type of the item. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 
 #### Accounting item type
@@ -399,6 +399,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `BankCharges`
 * `Cheque`
 * `Other`
+
+#### Accounting item substate
 
 ##### Payment states
 
