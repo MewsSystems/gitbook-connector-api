@@ -260,7 +260,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
     "EndUtc": "2017-02-01T00:00:00Z",
     "ItemIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
-    ],
+    ]
 }
 ```
 
