@@ -402,7 +402,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 #### Accounting item substate
 
-##### Payment states
+##### Payment substates
 
 * `Charged`
 * `Canceled`
