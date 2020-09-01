@@ -317,7 +317,6 @@ Returns all rules applied with the reservations.
 | `ResourceCategories` | bool | optional | Whether the response should contain rate resource categories. |
 | `BusinessSegments` | bool | optional | Whether the response should contain business segments. |
 
-
 ### Response
 
 ```javascript
@@ -377,12 +376,12 @@ Returns all rules applied with the reservations.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Rules` | array of [Rule](#rule) | required | Rules applied with reservations. |
+| `Rules` | array of [Rule](#rule) | required | Rules used with reservation creations and modifications. |
 | `RuleActions` | array of [Rule action](#rule-action) | required | Rule actions applied in rules. |
-| `Rates` | array of [Rate](#rate) | required | Rates used for conditions. |
-| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups used for conditions. |
-| `ResourceCategories` | array of [Resource category](enterprises.md#resource-category) | required | Resource categories used for conditions. |
-| `BusinessSegments` | array of [Business segment](#business-segment) | required | Business segments used for conditions. |
+| `Rates` | array of [Rate](#rate) | required | Rates used in conditions. |
+| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups used in conditions. |
+| `ResourceCategories` | array of [Resource category](enterprises.md#resource-category) | required | Resource categories used in conditions. |
+| `BusinessSegments` | array of [Business segment](#business-segment) | required | Business segments used in conditions. |
 
 #### Rule
 
@@ -408,8 +407,8 @@ Returns all rules applied with the reservations.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Value` | string | required | Unique identifier of condition or [Service order origin](#service-order-origin) of the reservation. |
 | `ConditionType` | string [Condition type](#condition-type) | required | Type of condition. |
+| `Value` | string | required | Value of the condition depending on the property. E.g. [Service order origin](#service-order-origin) in case of origin condition or unique identifier of a rate in case of rate condition. |
 
 ### Condition type
 
@@ -417,6 +416,7 @@ Returns all rules applied with the reservations.
 * `NotEquals`
 
 ### Service order origin
+
 * `Distributor`
 * `ChannelManager`
 * `Commander`
@@ -444,12 +444,13 @@ Returns all rules applied with the reservations.
 * `Product` - Data specific to a product.
 
 ### Rule action product data
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of product. |
-| `ActionType` | string | required | Unique identifier of product. |
+| `ActionType` | string [Product action type](#product-action-type) | required | Action of rule. |
 
-#### Rule action type
+### Product action type
 
 * `Add` - Adds specified item.
 * `Delete` - Deletes specified item.
