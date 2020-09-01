@@ -1,5 +1,10 @@
 # Changelog
 
+## 1st September 2020 11:30 UTC
+* Added new operation [Get all rules](operations/services.md#rules).
+* Added new operation [Add alternative payment](operations/finance.md#add-alternative-payment).
+* Extended operation [Get all accounting items](operations/finance.md#Get-all-accounting-items) with filter `ItemIds` and response with `SubState`.
+
 ## 19th August 2020 11:30 UTC
 * Extended [Travel agency contract](operations/enterprises#travel-agency-contract) with `ServiceId`.
 * Extended [Bill](operations/finance.md#bill) object with [Bill assignee data](operations/finance.md#bill-assignee-data).
