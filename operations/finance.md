@@ -257,7 +257,10 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z"
+    "EndUtc": "2017-02-01T00:00:00Z",
+    "ItemIds": [
+        "e654f217-d1b5-46be-a820-e93ba568dfac"
+    ]
 }
 ```
 
@@ -267,8 +270,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified. |
+| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified.  |
+| `ItemIds` | array of string | optional | Unique identifiers of the Accounting items. Required if `StartUtc` and `EndUtc` are not specified. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
@@ -314,6 +318,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "ConsumptionUtc": "2016-07-27T12:48:39Z",
             "ClosedUtc": "2017-02-41T10:41:54Z",
             "State": "Closed",
+            "SubState": null,
             "Amount": {
                 "Currency": "GBP",
                 "NetValue": 2.08,
@@ -356,6 +361,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
+| `SubState` | string [Accounting item substate](#Accounting-item-substate) | optional | Substate of the item. Note that the substate depends on the `Type` of the item. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
 
 #### Accounting item type
@@ -393,6 +399,16 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 * `BankCharges`
 * `Cheque`
 * `Other`
+
+#### Accounting item substate
+
+##### Payment substates
+
+* `Pending`
+* `Verifying`
+* `Charged`
+* `Canceled`
+* `Failed`
 
 #### Currency value
 
