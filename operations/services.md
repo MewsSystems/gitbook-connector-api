@@ -399,7 +399,7 @@ Returns all rules applied with the reservations.
 | `BusinessSegmentId` | [Rule condition](#rule-condition) | required | Condition based on [Business segment](#business-segment). |
 | `ResourceCategoryId` | [Rule condition](#rule-condition) | required | Condition based on [Resource category](enterprises.md#resource-category). |
 | `ResourceCategoryType` | [Rule condition](#rule-condition) | required | Condition based on [Resource category type](enterprises.md#resource-category-type). |
-| `Origin` | [Rule condition](#rule-condition) | required | Condition based on [Service order origin](#service-order-origin). |
+| `Origin` | [Rule condition](#rule-condition) | required | Condition based on [Reservation origin](reservations.md#reservation-origin). |
 | `MinimumTimeUnitCount` | string | required | Condition based on minimum amount of time units. |
 | `MaximumTimeUnitCount` | string | required | Condition based on maximum amount of time units. |
 
@@ -408,21 +408,12 @@ Returns all rules applied with the reservations.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ConditionType` | string [Condition type](#condition-type) | required | Type of condition. |
-| `Value` | string | required | Value of the condition depending on the property. E.g. [Service order origin](#service-order-origin) in case of origin condition or unique identifier of a rate in case of rate condition. |
+| `Value` | string | required | Value of the condition depending on the property. E.g. [Reservation origin](reservations.md#reservation-origin) in case of origin condition or unique identifier of a rate in case of rate condition. |
 
 ### Condition type
 
 * `Equals`
 * `NotEquals`
-
-### Service order origin
-
-* `Distributor`
-* `ChannelManager`
-* `Commander`
-* `Import`
-* `Connector`
-* `Navigator`
 
 ### Rule action
 

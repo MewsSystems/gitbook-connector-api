@@ -230,13 +230,12 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 #### Reservation origin
 
-* `ChannelManager`
-* `Connector`
 * `Distributor`
+* `ChannelManager`
+* `Commander`
 * `Import`
-* `ManualEmail`
-* `ManualWebsite`
-* ...       
+* `Connector`
+* `Navigator`
 
 #### Reservation group
 
