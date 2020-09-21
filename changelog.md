@@ -1,5 +1,10 @@
 # Changelog
 
+## 21st September 2020 11:30 UTC
+* Replaced Space websocket event by [Resource event](websockets.md#resource-event)
+* Extended [Reservation event](websockets.md#reservation-event) with `AssignedResourceId`
+* Extended [Price update event](websockets.md#price-update-event) with `ResourceCategoryId`
+
 ## 1st September 2020 11:30 UTC
 * Added new operation [Get all rules](operations/services.md#rules).
 * Added new operation [Add alternative payment](operations/finance.md#add-alternative-payment).
