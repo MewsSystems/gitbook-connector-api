@@ -26,7 +26,7 @@ Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. I
             "EndUtc": "2016-02-22T11:00:00Z"
         },
         {
-            "Type": "Space",
+            "Type": "Resource",
             "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
             "State": "Dirty"
         },
@@ -36,7 +36,7 @@ Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. I
             "StartUtc": "2019-09-07T22:00:00Z",
             "EndUtc": "2019-09-07T22:00:00Z",
             "RateId": "9c6c0556-42bb-409a-86ca-6ca430773b99",
-            "SpaceCategoryId": null
+            "ResourceCategoryId": null
         }
     ]
 }
@@ -52,7 +52,7 @@ Depending on the event `Type`, it is one of the following:
 
 * [Command event](websockets.md#command-event)
 * [Reservation event](websockets.md#reservation-event)
-* [Space event](websockets.md#space-event)
+* [Resource event](websockets.md#resource-event)
 
 #### Command event
 
@@ -75,17 +75,17 @@ If the Connector integration is configured to receive reservation updates, it wi
 | `State` | string [Reservation state](operations/reservations.md#reservation-state) | required | State of the reservation. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Endof the reservation \(departure\) in UTC timezone in ISO 8601 format. |
-| `AssignedSpaceId` | string | optional | Unique identifier of the [operations/enterprises#space](Space) assigned to the reservation. |
+| `AssignedResourceId` | string | optional | Unique identifier of the [Resource](operations/enterprises#resource) assigned to the reservation. |
 
-#### Space event
+#### Resource event
 
-If the Connector integration is configured to receive space updates, it will receive events whenever a space is updated \(created, renamed, state updated\).
+If the Connector integration is configured to receive resource updates, it will receive events whenever a resource is updated \(created, renamed, state updated\).
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Type` | string `Space` | required | Type of the event. |
-| `Id` | string | required | Unique identifier of the [Space](operations/enterprises.md#space). |
-| `State` | string [Space state](operations/enterprises.md#space-state) | required | State of the space. |
+| `Type` | string `Resource` | required | Type of the event. |
+| `Id` | string | required | Unique identifier of the [Resource](operations/enterprises.md#resource). |
+| `State` | string [Resource state](operations/enterprises.md#resource-state) | required | State of the resource. |
 
 #### Price update event
 
@@ -98,4 +98,4 @@ If the Connector integration is configured to receive price updates, it will rec
 | `StartUtc` | string | required | Start of the price update interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the price update interval in UTC timezone in ISO 8601 format. |
 | `RateId` | string | optional | Unique identifier of the [Rate](operations/services.md#rate) assigned to the update price event. |
-| `SpaceCategoryId` | string | optional | Unique identifier of the [Space category](operations/enterprises.md#space-category) assigned to the update price event. |
+| `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](operations/enterprises.md#resource-category) assigned to the update price event. |
