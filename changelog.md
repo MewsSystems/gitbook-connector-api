@@ -1,5 +1,8 @@
 # Changelog
 
+## 24th September 2020 11:30 UTC
+* Extended operations [Add reservations](operations/reservations.md#add-reservations), [Add reservation product](operations/reservations.md#add-reservation-product) and [Add order](operations/services.md#add-order) with possibility to specify consumption date for products charged `Once` and `Per Person`.
+
 ## 21st September 2020 11:30 UTC
 * Replaced Space websocket event by [Resource event](websockets.md#resource-event)
 * Extended [Reservation event](websockets.md#reservation-event) with `AssignedResourceId`
