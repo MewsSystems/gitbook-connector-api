@@ -74,7 +74,7 @@ If the Connector integration is configured to receive reservation updates, it wi
 | `Id` | string | required | Unique identifier of the [Reservation](operations/reservations.md#reservation). |
 | `State` | string [Reservation state](operations/reservations.md#reservation-state) | required | State of the reservation. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | Endof the reservation \(departure\) in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
 | `AssignedResourceId` | string | optional | Unique identifier of the [Resource](operations/enterprises#resource) assigned to the reservation. |
 
 #### Resource event

@@ -1169,8 +1169,8 @@ Creates a new order with the specified products and items. Only positive charges
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
-| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. It is not possible to specify for products with charging `Once` and `PerPerson`. |
-| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. It is not possible to specify for products with charging `Once` and `PerPerson` . |
+| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. |
+| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. |
 
 #### Item parameters
 
