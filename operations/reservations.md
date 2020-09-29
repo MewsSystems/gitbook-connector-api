@@ -102,7 +102,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "CreatedUtc": "2016-01-01T00:00:00Z",
             "Email": null,
             "FirstName": "John",
-            "Gender": null,
+            "Sex": null,
             "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
             "IdentityCard": null,
             "LanguageCode": null,
