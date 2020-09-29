@@ -1,5 +1,8 @@
 # Changelog
 
+## 29th September 2020 11:30 UTC
+* Replaced `Gender` property with `Sex` for operations [Add customer](operations/customers.md#add-customer), [Update customer](operations/customers.md#update-customer), [Get all customers](operations/customers.md#get-all-customer), [Search customers](operations/customers.md#search-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) and all other usages.
+
 ## 24th September 2020 11:30 UTC
 * Extended operations [Add reservations](operations/reservations.md#add-reservations), [Add reservation product](operations/reservations.md#add-reservation-product) and [Add order](operations/services.md#add-order) with possibility to specify consumption date for products charged `Once` and `Per Person`.
 
