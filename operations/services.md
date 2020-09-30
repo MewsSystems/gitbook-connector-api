@@ -892,7 +892,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `BaseRateId` | string | optional | Unique identifier of the restricted [Base rate](services.md#rate). |
 | `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](services.md#rate-group). |
 | `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](enterprises.md#resource-category). |
-| `ResourceType` | string | optional | Name of the restricted [Resource type](#resource-type). |
+| `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](enterprises.md#resource-category-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
 | `Days` | array of string [Day](services.md#day) | required | The restricted days of week. |
