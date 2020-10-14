@@ -6,5 +6,5 @@ you'd like to see instructions for a function that
 is not included below, please submit a detailed request [via our feedback
 page](https://feedback.mews.com/forums/919087-marketplace-app-store-integrations?category_id=353524).
 
-* [Retrieve and apply correct VAT code](additional-functions.md#vat-codes)
+* [Retrieve and apply correct VAT code](vat-codes.md)
 * [Manage restrictions](additional-functions.md#manage-restrictions)
