@@ -1,3 +1,5 @@
+# Additional functions
+
 Just like here at Mews, we know that our partners are continuously developing and improving their solutions for the
 benefit of our mutual clients. In doing so, solutions belonging to a certain category may wish to support additional functions.
 Below is a list of commonly requested functions followed by a suggestion on how to implement it with your solution. If
