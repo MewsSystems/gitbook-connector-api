@@ -1128,9 +1128,7 @@ Creates a new order with the specified products and items. Only positive charges
     "ProductOrders": [
         {
             "ProductId": "2eb7ad8b-8dfb-4381-aba5-ab58009f2993",
-            "Count": 2,
-            "StartUtc": "2021-01-02T00:00:00Z",
-            "EndUtc": "2021-01-03T00:00:00Z"
+            "Count": 2
         }
     ],
     "Items": [
@@ -1157,7 +1155,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer) to be charged. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
-| `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. |
+| `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. Order consumption is one time event, therefore the optional parameters `StartUtc` and `EndUtc` in [Product order parameters](services.md#product-order-parameters) can only have same value as `ConsumptionUtc`. |
 | `Notes` | string | optional | Additional notes of the order. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the ordered products. |
 | `Items` | array of [Item parameters](services.md#item-parameters) | optional | Parameters of the ordered custom items. |
