@@ -1111,7 +1111,7 @@ Removes restrictions from the service.
 
 ## Add order
 
-Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
+Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise. Compared to stay service order ([Reservation](reservations.md#reservation)) which spans certain amount of time, the product order is consumed at one point in time.
 
 ### Request
 
@@ -1155,7 +1155,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer) to be charged. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
-| `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. Order consumption is one time event, therefore the optional parameters `StartUtc` and `EndUtc` in [Product order parameters](services.md#product-order-parameters) can only have same value as `ConsumptionUtc`. |
+| `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. Please note, as order consumption is one-time event, the optional parameters `StartUtc` and `EndUtc` in [Product order parameters](services.md#product-order-parameters) should not be used. |
 | `Notes` | string | optional | Additional notes of the order. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the ordered products. |
 | `Items` | array of [Item parameters](services.md#item-parameters) | optional | Parameters of the ordered custom items. |
@@ -1167,8 +1167,8 @@ Creates a new order with the specified products and items. Only positive charges
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
-| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. |
-| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. |
+| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product). |
+| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product). |
 
 #### Item parameters
 
