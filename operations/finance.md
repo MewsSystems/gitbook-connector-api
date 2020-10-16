@@ -293,7 +293,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 * `Open` - Accounting items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
 * `Closed` - Accounting items which carry a non-zero value and have been closed on a bill or invoice.
-* `Inactive` - Accounting items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed.
+* `Inactive` - Accounting items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
 * `Canceled` - Accounting items which have been canceled, regardless of whether the item is of zero value
 
 ### Response
