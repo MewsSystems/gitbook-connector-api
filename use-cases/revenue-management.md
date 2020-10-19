@@ -29,7 +29,7 @@ When calculating occupancy, it is important to take hierarchy of resources into 
 
 ### Testing your integration
 
-Once your integration is completed, all endpoints should be tested prior to initiating the certification process with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our hoteliers.
+Once your integration is completed, all endpoints should be tested prior to initiating the [certification process](https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our hoteliers.
 
 For help on how to create new reservations, please follow the steps outlined in [this guide](https://help.mews.com/en/articles/4245573-create-a-reservation).
 
