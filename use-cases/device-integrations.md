@@ -24,7 +24,7 @@ To be able to use your device integration, an additional step of configuring the
 
 1. Open the main menu in the top left corner, scroll down and click on **Marketplace**.
 2. Depending on the type of device you are connecting, click on either Facility management (Key cutter integration, Passport scanner integration, Printer integration) or Legal environment (Fiscal machine integration) categories.
-3. Once you've found the correct device, click **See more** followed by **Connect** to generate the new device.
+3. Once you've found the correct device integration, click **See more** followed by **Connect** to generate this device integration.
 4. Complete the required fields for the relevant device and be sure to save the configuration.
 5. Go back to your unique API access token found in the **My subscriptions** section of the Marketplace and click on the **Settings** found on the right side of the integration listing.
 6. On the right side, you will see a drop down menu titled Connected devices. Select your newly created device from that list and click **Save**.
