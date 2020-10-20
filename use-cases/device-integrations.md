@@ -27,7 +27,7 @@ To be able to use your device integration, an additional step of configuring the
 3. Once you've found the correct device integration, click **See more** followed by **Connect** to generate this device integration.
 4. Complete the required fields for the relevant device and be sure to save the configuration.
 5. Go back to your unique API access token found in the **My subscriptions** section of the Marketplace and click on the **Settings** found on the right side of the integration listing.
-6. On the right side, you will see a drop down menu titled Connected devices. Select your newly created device from that list and click **Save**.
+6. Once inside the integration settings page, you will see a drop down menu titled **Connected devices**. Select your newly created device from that list and click **Save**.
 
 This is the same process that will be required when you assist any new mutual client with onboarding and configuration of your solution.
 
