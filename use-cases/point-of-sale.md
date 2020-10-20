@@ -50,4 +50,13 @@ Outlets are used in Mews to collect any revenue and payments that are taken outs
 
 Once your integration is completed, all endpoints should be tested prior to initiating the [certification process](https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our hoteliers.
 
-To check that you've correctly posted an order, you can review the billing tab of the relevant guest profile. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category. All correctly posted orders will be shown in the Revenue section of the report and all bills closed in the outlet (e.g. containing both revenue items and matching payments) will be shown in the Outlet section of the Accounting report. 
+To make sure the integration supports the minimum expected functionality, please test the following operations:
+* Post a charge to the guest bill.
+* Post a % discount to guest bill.
+* Post an absolute discount to guest bill.
+* Post an item with the amount 0 to guest bill.
+* Post an outlet bill correctly.
+* Post an outlet bill with the amount 0.
+* Confirm that a room posting cannot be done for a customer with the [classification](../operations/customers.md#customer-classification) `Paymaster`.
+
+To check that you've correctly posted an order, you can review the billing tab of the relevant guest profile. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category. All correctly posted orders will be shown in the Revenue section of the report and all bills closed in the outlet (e.g. containing both revenue items and matching payments) will be shown in the Outlet section of the Accounting report. An incorrectly posted item will be displayed in the Accounting report under the 'None' accounting category of either section. 
