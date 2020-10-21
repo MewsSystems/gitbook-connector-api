@@ -1111,7 +1111,7 @@ Removes restrictions from the service.
 
 ## Add order
 
-Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise. Compared to stay service order ([Reservation](reservations.md#reservation)) which spans certain amount of time, the product order is consumed at one point in time.
+Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise. Compared to stay service order ([Reservation](reservations.md#reservation)) which is consumer over certain span of time, the product order is consumed at one point in time.
 
 ### Request
 
@@ -1167,8 +1167,8 @@ Creates a new order with the specified products and items. Only positive charges
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
-| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product). |
-| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product). |
+| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](services.md#add-order) operation. |
+| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](services.md#add-order) operation. |
 
 #### Item parameters
 
