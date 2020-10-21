@@ -23,7 +23,7 @@ Rate restrictions can be applied to the following:
 
 Property resources refer to all of the active spaces available at a property and the initial configuration is done at the creation of the property profile in Mews.
 Each individual resource is mapped to a resource category in order to define its intended purpose and availability.
-Integration partners use [Get all resources](../operations/enterprises.md#get-all-resources) to retrieve the list of all resources at a given property. To request all related information, include the desired [resources extent](../operations/enterprises#resource-extent).
+Integration partners use [Get all resources](../operations/enterprises.md#get-all-resources) to retrieve the list of all resources at a given property. To request all related information, include the desired [resources extent](../operations/enterprises.md#resource-extent).
 
 Resource restrictions can be applied to the following:
 
