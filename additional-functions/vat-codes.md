@@ -1,6 +1,6 @@
 ## VAT codes
 
-To ensure correct VAT application, Mews has assigned a unique code to each existing VAT level across all of the legal environments configured in our system.The value assigned to these codes is consistently updated to comply with the latest changes implemented by the relevant authorities of each country. As VAT levels are prone to changes,we do not recommend partners hardcode them.
+To ensure correct VAT application, Mews has assigned a unique code to each existing VAT level across all of the legal environments configured in our system.The value assigned to these codes is consistently updated to comply with the latest changes implemented by the relevant authorities of each country. As VAT levels are prone to changes, we do not recommend partners hardcode them.
 
 The latest list of VAT codes is retrievable using [Get all tax environments](../operations/configuration.md#get-all-tax-environments). As a majority of our partners operate in multiple countries, we've included all codes in the same response. To confirm which set of codes applies to a given property location, first retrieve their local configuration using [Get configuration](../operations/configuration.md#get-configuration). In this response, you will retrieve `TaxEnvironmentCode` (e.g. UK-2020).
 
