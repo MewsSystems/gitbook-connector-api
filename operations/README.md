@@ -28,6 +28,7 @@ This section describes all operations supported by the API:
 * [Services](services.md) - operations related to offered services, availability and prices.
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.
+  * [Update service availability](services.md#update-service-availability) - updates number of available resources in a service.
   * [Get all products](services.md#get-all-products) - returns all products offered together with services.
   * [Get all rules](services.md#get-all-rules) - returns all automatic rules in services.
   * [Get all business segments](services.md#get-all-business-segments) - returns all business segments of a service.
