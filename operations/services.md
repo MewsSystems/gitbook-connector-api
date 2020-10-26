@@ -97,7 +97,7 @@ Returns all services offered by the enterprise.
 
 ## Get service availability
 
-Returns availability of a reservable service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
+Returns availability of a reservable service in the specified interval together with currently applied availability adjustments. Note that response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
@@ -129,11 +129,13 @@ Returns availability of a reservable service in the specified interval. Note tha
 {
     "CategoryAvailabilities": [
         {
-            "Availabilities": [ 6, 6, 6 ],
+            "Availabilities": [ 6, 7, 5 ],
+            "Adjustments ": [ 0, 1, -1 ],
             "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f"
         },
         {
-            "Availabilities": [ 8, 8, 8 ],
+            "Availabilities": [ 7, 7, 7 ],
+            "Adjustments ": [ 1, 0, -1 ],
             "CategoryId": "a0a7a5c5-c4ef-494a-8b34-6cca97629076"
         }
     ],
@@ -155,7 +157,8 @@ Returns availability of a reservable service in the specified interval. Note tha
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
-| `Availabilities` | array of number | required | Availabilities of the resource category in the covered dates. |
+| `Availabilities` | array of number | required | Absolute availabilities of the resource category in the covered dates. |
+| `Adjustments` | array of number | required | Relative availability adjustments set for resource category in the covered dates. |
 
 ## Get all products
 
