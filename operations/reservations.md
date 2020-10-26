@@ -616,8 +616,11 @@ Updates information about the specified reservation. Note that if any of the fie
             "ChildCount": {
                 "Value": 1
             },
-             "AssignedResourceId": {
+            "AssignedResourceId": {
                 "Value": "16ce4335-2198-408b-8949-9722894a42fb"
+            },
+            "AssignedResourceLocked": {
+                "Value": "false"
             },
             "ChannelNumber": null,
             "RequestedCategoryId": null,
@@ -683,6 +686,7 @@ Updates information about the specified reservation. Note that if any of the fie
 | `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
 | `ChildCount` | [Number update value](reservations.md#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
 | `AssignedResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
+| `AssignedResourceLocked` | [Bool update value](reservations.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](enterprises.md#resource). Unlocking and assigning reservation to new [Resource](enterprises.md#resource) can be done in one call. |
 | `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
 | `RequestedCategoryId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the requested [Resource category](enterprises.md#resource-category) \(or `null` if resource category should not be updated). |
 | `TravelAgencyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
