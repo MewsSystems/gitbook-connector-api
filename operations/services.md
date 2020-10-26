@@ -157,6 +157,60 @@ Returns availability of a reservable service in the specified interval. Note tha
 | `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
 | `Availabilities` | array of number | required | Availabilities of the resource category in the covered dates. |
 
+## Update service availability
+
+Updates the number of available resources in [Resource category](enterprises.md#resource-category) by certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/services/updateAvailability`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "AvailabilityUpdates": [
+        {
+            "StartUtc": "2020-10-05T00:00:00Z",
+            "EndUtc": "2020-10-05T00:00:00Z",
+            "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
+            "UnitCountAdjustment": { "Value": 6 }
+        },
+        {
+            "StartUtc": "2020-10-07T00:00:00Z",
+            "EndUtc": "2020-10-08T00:00:00Z",
+            "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
+            "UnitCountAdjustment": { }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) to update. |
+| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required | Availability updates. |
+
+#### Availability update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category) whose availability to update. |
+| `UnitCountAdjustment` | [Number update value](reservations.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Get all products
 
 Returns all products offered together with the specified services.
