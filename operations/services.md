@@ -97,7 +97,7 @@ Returns all services offered by the enterprise.
 
 ## Get service availability
 
-Returns availability of a reservable service in the specified interval together with currently applied availability adjustments. Note that response contains availability for all dates that the specified interval intersects.
+Returns availability of a reservable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
