@@ -1,10 +1,10 @@
 {
-    "plugins": ["scripts"],
+    "plugins": ["custom-js-css"],
     "pluginsConfig": {
-        "scripts": {
-            "files": [
-                "./bot.js"
-            ]
+        "custom-js-css": {
+          "js": [
+            "./bot.js"
+          ]
         }
     }
 }
