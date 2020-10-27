@@ -10,7 +10,7 @@ The [Get all accounting categories](../operations/finance.md#get-all-accounting-
 
 ### Room Status
 
-Guest Technology integrations are required to receive an update to a Reservation State in real time, this is where the [Reservation Websocket](../websockets#reservation-event) should be used to avoid constantly polling for new commands.
+Guest Technology integrations are required to receive an update to a Reservation State in real time, this is where the [Reservation Websocket](../websockets.md#reservation-event) should be used to avoid constantly polling for new commands.
 
 After receiving a Websocket event, use [Get all reservations by ids](../operations/reservations.md#get-all-reservations-by-ids) to retrieve the information about the reservation and customer if the websocket event fits your criteria.
 
