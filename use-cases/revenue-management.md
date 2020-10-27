@@ -24,7 +24,7 @@ To receive data about the rate of the enterprise, there are two relevant operati
 
 To receive information about restrictions, please use [Get all restrictions](../operations/services.md#get-all-restrictions) which returns all restrictions of a service.
 
-RMSs can also add and remove restrictions by calling [Add restrictions](../operations/services#add-restrictions) - adds new restrictions and [Delete restrictions](../operations/services#delete-restrictions) - removes restrictions.
+RMSs can also add and remove restrictions by calling [Add restrictions](../operations/services.md#add-restrictions) - adds new restrictions and [Delete restrictions](../operations/services.md#delete-restrictions) - removes restrictions.
 
 ### Occupancy
 
