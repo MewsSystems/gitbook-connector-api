@@ -10,4 +10,4 @@ If a websocket cannot be configured, reservation information can be requested us
 
 ### Offering additional products or services
 
-Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upselling](../use-cases.md#upselling) integration use case.
+Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upselling](../use-cases/upselling.md) integration use case.
