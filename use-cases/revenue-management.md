@@ -11,9 +11,11 @@ Performed once when setting up the connection, because the RMS needs to obtain h
 * Canceled: Items which have been canceled.
 * Inactive: Items which are free or have amount value 0.
 
-One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in future, the lower the occupancy, so the reservation batch length may increase with the distance to future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This would reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
+One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in future, the lower the occupancy, so the reservation batch length may increase with the distance to future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This will reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
-Sometimes the data obtained through the previous two steps are not sufficient enough for RMS. So additionally, RMS can pull e.g. business segments via [Get all business segments](../operations/services.md#get-all-business-segments) or rates via [Get all rates](../operations/services.md#get-all-rates). Note that it is important to get the reservations and revenue first and the additional data later after that. If done the other way around, it might happen that RMS would receive a reservation with e.g. `RateId` which does not correspond to any rate that was pulled beforehand. Rates, business segments etc. are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to RMS.
+If the data pulled in the previous steps is not sufficient, RMS can pull e.g. business segments via [Get all business segments](../operations/services.md#get-all-business-segments) or rates via [Get all rates](../operations/services.md#get-all-rates). 
+**Note: it is important to get the reservations and revenue first and the additional data later after that.** 
+If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to RMS.
 
 ### Periodic future update
 
@@ -22,6 +24,12 @@ Performed periodically after the connection is set up so that RMS has future res
 ### Rate pricing
 
 To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](../operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](../operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](../operations/services.md#update-rate-price) operation be used. Individual rate, resource category and time span can be chosen.
+
+### Restrictions
+
+To receive information about restrictions, please use [Get all restrictions](../operations/services.md#get-all-restrictions) which returns all restrictions of a service.
+
+RMSs can also add and remove restrictions by calling [Add restrictions](../operations/services.md#add-restrictions) - adds new restrictions and [Delete restrictions](../operations/services.md#delete-restrictions) - removes restrictions.
 
 ### Occupancy
 
