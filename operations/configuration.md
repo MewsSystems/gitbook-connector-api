@@ -317,6 +317,12 @@ Returns all tax environments supported by the API.
 {
     "TaxEnvironments": [
         {
+            "Code": "AU",
+            "CountryCode": "AUS",
+            "ValidityStartUtc": null,
+            "ValidityEndUtc": null
+        },
+        {
             "Code": "AT-2020",
             "CountryCode": "AUT",
             "ValidityStartUtc": "2020-06-30T22:00:00Z",
@@ -336,6 +342,14 @@ Returns all tax environments supported by the API.
         }
     ],
     "Taxations": [
+        {
+            "Code": "AU",
+            "TaxEnvironmentCode": "AU",
+            "Name": "GST",
+            "LocalName": "GST",
+            "ValidityStartUtc": null,
+            "ValidityEndUtc": null
+        },
         {
             "Code": "AT-2020",
             "TaxEnvironmentCode": "AT-2020",
