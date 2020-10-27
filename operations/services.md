@@ -416,6 +416,7 @@ Returns all rules applied with the reservations.
             "ServiceId": "ea80bbca-372f-4550-8e48-ac1c00d1cd20",
             "BaseRateId": null,
             "IsActive": true,
+            "IsEnabled": true,
             "IsPublic": true,
             "Name": "Fully Flexible",
             "ShortName": "FF",
@@ -610,6 +611,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
+            "IsEnabled": true,
             "IsPublic": true,
             "Name": "Fully Flexible",
             "ShortName": "FF",
@@ -643,6 +645,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `BaseRateId` | string | required | Unique identifier of the base [Rate](services.md#rate). |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
+| `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
