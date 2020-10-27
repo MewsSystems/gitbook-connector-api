@@ -589,6 +589,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `BaseRateId` | string | required | Unique identifier of the base [Rate](services.md#rate). |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
+| `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
