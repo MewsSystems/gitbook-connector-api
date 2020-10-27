@@ -10,7 +10,7 @@ The integration must first retrieve all the spaces the property has configured i
 
 To ensure information is always synchronized between the two systems, the housekeeping integration monitors and manages any changes to the state of a space. Use the websocket [Space event](../websockets.md#space-event) to receive real-time events whenever state of the space is changed. Once a staff member has cleaned or inspected a room, the new state can be sent to Mews using [Update space state](../operations/enterprises.md#update-space-state).
 
-Information about space blocks can be requested using [Get all resource blocks](../operations/enterprises#get-all-resource-blocks). Housekeeping integrations can also manage blocks through [Add resource block](../operations/enterprises.md#add-resource-block) and [Delete resource blocks](../operations/enterprises.md#delete-resource-blocks).
+Information about space blocks can be requested using [Get all resource blocks](../operations/enterprises.md#get-all-resource-blocks). Housekeeping integrations can also manage blocks through [Add resource block](../operations/enterprises.md#add-resource-block) and [Delete resource blocks](../operations/enterprises.md#delete-resource-blocks).
 
 If there is a use case for creating a task directly in Mews, this can be done using the [Add task](../operations/enterprises.md#add-task) request. If a task should be assigned to a specific department, the unique identifiers required for this action can be retrieved using [Get all departments](../operations/enterprises.md#get-all-departments). A list of existing tasks can be retrieved from Mews Commander using [Get all tasks](../operations/enterprises.md#get-all-tasks).
 
