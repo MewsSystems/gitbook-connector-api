@@ -317,39 +317,49 @@ Returns all tax environments supported by the API.
 {
     "TaxEnvironments": [
         {
-            "Code": "US-NY-SU",
-            "CountryCode": "USA"
+            "Code": "AT-2020",
+            "CountryCode": "AUT",
+            "ValidityStartUtc": "2020-06-30T22:00:00Z",
+            "ValidityEndUtc": null
         },
         {
-            "Code": "US-MI-DA",
-            "CountryCode": "USA"
+            "Code": "AT-2016",
+            "CountryCode": "AUT",
+            "ValidityStartUtc": "2016-05-01T00:00:00Z",
+            "ValidityEndUtc": "2020-06-30T22:00:00Z"
+        },
+        {
+            "Code": "AT",
+            "CountryCode": "AUT",
+            "ValidityStartUtc": null,
+            "ValidityEndUtc": "2016-05-01T00:00:00Z"
         }
     ],
     "Taxations": [
         {
-            "Code": "US-MI",
-            "TaxEnvironmentCode": "US-MI-DA",
-            "Name": "Florida state tax",
-            "LocalName": "Florida state tax"
+            "Code": "AT-2020",
+            "TaxEnvironmentCode": "AT-2020",
+            "Name": "VAT",
+            "LocalName": "MWST",
+            "ValidityStartUtc": "2020-06-30T22:00:00Z",
+            "ValidityEndUtc": null
         },
         {
-            "Code": "US-MI-DA",
-            "TaxEnvironmentCode": "US-MI-DA",
-            "Name": "Miami-Dade County tax",
-            "LocalName": "Miami-Dade County tax"
+            "Code": "AT-2016",
+            "TaxEnvironmentCode": "AT-2016",
+            "Name": "VAT",
+            "LocalName": "MWST",
+            "ValidityStartUtc": "2016-05-01T00:00:00Z",
+            "ValidityEndUtc": "2020-06-30T22:00:00Z"
         },
         {
-            "Code": "US-MI-BE",
-            "TaxEnvironmentCode": "US-MI-DA",
-            "Name": "Miami Beach tax",
-            "LocalName": "Miami Beach tax"
-        },
-        {
-            "Code": "US-MI-FB",
-            "TaxEnvironmentCode": "US-MI-DA",
-            "Name": "Miami F&B tax",
-            "LocalName": "Miami F&B tax"
-        },
+            "Code": "AT",
+            "TaxEnvironmentCode": "AT",
+            "Name": "VAT",
+            "LocalName": "MWST",
+            "ValidityStartUtc": null,
+            "ValidityEndUtc": "2016-05-01T00:00:00Z"
+        }
     ],
     "TaxRates": [
         {
@@ -389,6 +399,8 @@ Returns all tax environments supported by the API.
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax environment. |
 | `CountryCode` | string | required | ISO 3166-1 alpha-3 code, e.g. `USA` or `GBR`. |
+| `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
+| `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
 #### Taxation
 
@@ -398,6 +410,8 @@ Returns all tax environments supported by the API.
 | `TaxEnvironmentCode` | string | required | Code of the tax environment. |
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
+| `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
+| `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
 #### Tax rate
 
