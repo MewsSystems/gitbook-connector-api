@@ -21,8 +21,8 @@ To ensure correct reporting, all revenue items posted into Mews must be associat
 
 If a product being added to a reservation may require further action from the hotel staff, create reminders and assign responsiblities using [Add task](../operations/enterprises#add-task) to ensure no aspect of the guest experience is forgotten. Learn more about how tasks are created and managed in Mews with [this article](https://intercom.help/mews-systems/en/articles/4245631-create-and-manage-tasks).
 
-### Testing your integration
+### Testing your Upselling integration
 
-Once your integration is completed, all endpoints should be tested prior to initiating the [certification process](https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our hoteliers.
+Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to upselling integrations
 
 Check whether you are correctly managing the stay product postings by reviewing the Items tab of the reservation you have posted it to or review the product column of the [Reservation report](https://intercom.help/mews-systems/en/articles/4245884-reservation-report) which has `Include products` selected in the Options section. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category.  
