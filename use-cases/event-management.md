@@ -14,15 +14,22 @@ When a new reservation is created within the event management software, it needs
 
 One of the expected functionalities of an event management integration is to push items into Mews to the correct customer’s profile. This can be done using the operation [Add order](../operations/services.md#add-order). If the product being posted already exists in Mews, then use [Product order parameters](../operations/services.md#product-order-parameters). If the product does not exist in Mews then use the [Item parameters](../operations/services.md#item-parameters).
 
-To ensure correct reporting, all revenue items posted into Mews using Item parameters must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property are requested using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). You can learn more about how accounting categories are created in [this article](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category).
+To ensure correct reporting, all revenue items posted into Mews using Item parameters must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property are requested using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
 ### Rates and availability
 
-To pull data about rates from Mews into the event management integration use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) as well as [Get service availability](../operations/services.md#get-service-availability). It is also important that integration partners understand how rates are [created](https://help.mews.com/en/articles/4244388-create-a-rate), [updated](https://help.mews.com/en/articles/4244389-update-or-remove-a-rate) and how [rate prices are managed in Mews](https://intercom.help/mews-systems/en/articles/4245964-rate-management).
+To pull data about rates from Mews into the event management integration use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) as well as [Get service availability](../operations/services.md#get-service-availability).
 
 ### Testing your integration
 
-Once your integration is completed, all endpoints should be tested prior to initiating the [certification process](https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our hoteliers.
+Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to Event Management integrations:
 
 If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation, or related customer profile](https://intercom.help/mews-systems/en/articles/4258665-search-in-commander) or using the [Mews Reservation Report](https://help.mews.com/en/articles/4245884-reservation-report). 
 To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category.  
+
+### Additional Help for working with the demo environment
+
+- How to create [accounting categories](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category)
+- How to [create rates](https://help.mews.com/en/articles/4244388-create-a-rate)
+- How to [update rates](https://help.mews.com/en/articles/4244389-update-or-remove-a-rate) 
+- How to [manage rate prices](https://intercom.help/mews-systems/en/articles/4245964-rate-management)
