@@ -105,7 +105,7 @@ The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` 
 
 **To protect the live data of each property, please store your production tokens securely and do not share them publicly.**
 
-### Testing your integration
+## Testing your integration
 
 Once your integration is completed, all operations must be tested prior to initiating the [certification process](https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect). Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](#authentication) section to sign in as an end-user.
 
