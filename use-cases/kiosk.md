@@ -1,18 +1,26 @@
 ## Kiosk
 
-To provide a contactless experience, some properties utilize kiosk integrations to allow guests to self-manage all aspects of their stay. This is one of the most extensive integrations and below is an outline of the endpoints required to enable all operations related to a self-managed check-in, stay and check-out.
+To provide a contactless experience, some properties utilize kiosk integrations to allow guests to self-manage all aspects of their stay. Below is an outline of the endpoints required to enable all operations related to a self-managed check-in, stay and check-out.
 
 ### Initial configuration
 
-To help configure the kiosk for a specific property, the initial pull of information should retrieve the local information about the property (e.g. supported currencies, default language code) using [Get configuration](../operations/configuration.md#get-configuration). To be able to offer multiple languages, partners can retrieve all languages supported by the API using [Get all languages](../operations/configuration.md#get-all-languages). Aside from the [Stay/Accommodation service, Mews properties can configure additional services](https://help.mews.com/en/articles/4244364-understanding-services) which can be retrieved via [Get all services](../operations/services.md#get-all-services). Each service can be considered a grouping of related products that can then be offered to the guest, the full list of which can be requested using [Get all products](operations/services#get-all-products).
+To help configure the kiosk for a specific property, the initial pull of information will provide the local information about the property (e.g. supported currencies, default language code) using [Get configuration](../operations/configuration.md#get-configuration). To be able to offer multiple languages, partners can retrieve all languages supported by the API using [Get all languages](../operations/configuration.md#get-all-languages). Aside from the Stay/Accommodation service, Mews properties can configure additional services which can be retrieved via [Get all services](../operations/services.md#get-all-services). Each service can be considered a grouping of related products that can then be offered to the guest, the full list of which can be requested using [Get all products](operations/services#get-all-products).
 
-### Creating reservations and guest profiles
+### Creating reservations
 
-One of the basic functions of a kiosk is to allow guests to manage their reservations and check-in to the property. In order to confirm that a new reservation can be made, integrations must be able to accurately calculate availability. First, use [Get all resources](../operations/enterprises.md#get-all-resources) to map out the physical configuration of the property. This information is then used to understand and display the names of the resource categories when retrieving availability using [Get service availability](../operations/services.md#get-service-availability). Additional information about resource blocks (e.g. Out of order, internal use) can be retrieved using [Get all resource blocks](../operations/enterprises.md#get-all-resource-blocks). 
+This section is relevant if your kiosk allows guests to create new reservations
+
+In order to confirm that a new reservation can be made, integrations must be able to accurately calculate availability. First, use [Get all resources](../operations/enterprises.md#get-all-resources) to map out the physical configuration of the property. This information is then used to understand and display the names of the resource categories when retrieving availability using [Get service availability](../operations/services.md#get-service-availability). Additional information about resource blocks (e.g. Out of order, internal use) can be retrieved using [Get all resource blocks](../operations/enterprises.md#get-all-resource-blocks). 
 
 Use [Get all rates](../operations/services.md#get-all-rates) to retrieve all the rates configured and at the property and [Get rate pricing](../operations/services.md#get-rate-pricing) to request the related prices. To calculate the price of a reservation with specific requested parameters, use [Price reservations](../operations/reservations.md#price-reservations). This can be used during checkin/out to get the new price of a reservation for a space category udpate or check if a selected/pre-booked product of a reservation should have its price included or not. Rate packages are created in Mews by applying rules that will automatically post specified products when certain rates are selected. The full list of those rules is retrieved using [Get all rules](../operations/services.md#get-all-rules)
 
-If the guest arrives to the property without having made the reservation, the integration should allow them to create a new one using [Add reservations](../operations/reservations.md#add-reservations). As the unique identifier of the customer is required for reservation creation, if they do not have a Mews guest profile already, one must be created using [Add customer](../operations/customers.md#add-customer). If they already have an existing profile but need to update their information (e.g. address, passport, driver license), this is supported using [Update customer](../operations/customers.md#update-customer). In the same manner, integrations can retrieve and filter out specific company profiles via [Get all companies](../operations/enterprises.md#get-all-companies). [Add reservation companion](../operations/reservations.md#add-reservation-companion) is used to relate a guest profile to a specific reservation.
+If your kiosk allows guests to create reservations use [Add reservations](../operations/reservations.md#add-reservations). As the unique identifier of the customer is required for reservation creation.
+
+### Creating and updating guest profiles
+
+If the guests do not have a Mews guest profile already, one must be created using [Add customer](../operations/customers.md#add-customer). 
+
+If they already have an existing profile but need to update their information (e.g. address, passport, driver license), this is supported using [Update customer](../operations/customers.md#update-customer). In the same manner, integrations can retrieve and filter out specific company profiles via [Get all companies](../operations/enterprises.md#get-all-companies). [Add reservation companion](../operations/reservations.md#add-reservation-companion) is used to relate a guest profile to a specific reservation.
 
 ### Retrieving reservations
 
@@ -36,3 +44,10 @@ To check-in a reservation, use [Start reservation](../operations/reservations.md
 
 For an overview of all open revenue and payment items on a guest profile, use [Get customer open items](../operations/customers.md#get-customers-open-items). Another way to retrieve information about the guest folio by specifying their unique identifier in the [Get all bills](../operations/finance.md#get-all-bills) request. Splitting bills or moving items between them is can be done using the [Add bill](../operations/finance.md#add-bill) and [Update accounting items](../operations/finance.md#update-accounting-items) requests. Once the bill is balanced, it can be closed using [Close bill](../operations/finance.md#close-bill) and a PDF version of it can be retrieved using [Get bill PDF](../operations/finance.md#close-bill).
 
+### Testing your integration
+
+Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+
+### Additional Help for working with the demo environment
+
+- How to use [services](https://help.mews.com/en/articles/4244364-understanding-services)
