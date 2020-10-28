@@ -4,9 +4,9 @@ Guest technology integrations such as a telephone system are used for staff to i
 
 ### Setup
 
-The integration should use the [Get all services](../operations/services.md#get-all-services) operation to retrieve all services the property has configured in Mews. Once all services are retrieved, the service which you would like all charges to be sent under would be selected. Alternatively, a field where the `ServiceId` can be entered can be used. To understand how our hoteliers manage these in Mews, please read these helpful articles about [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) and [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product).
+The integration should use the [Get all services](../operations/services.md#get-all-services) operation to retrieve all services the property has configured in Mews. Once all services are retrieved, the service which you would like all charges to be sent under would be selected. Alternatively, a field where the `ServiceId` can be entered can be used.
 
-The [Get all accounting categories](../operations/finance.md#get-all-accounting-categories) operation should be used to retrieve all accounting categories the property has configured in Mews. This is important as a hotel may prefer to have charges for international phone calls reported with a different accounting category than domestic phone calls. You can learn more about how accounting categories are created in [this article](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category).
+The [Get all accounting categories](../operations/finance.md#get-all-accounting-categories) operation should be used to retrieve all accounting categories the property has configured in Mews. This is important as a hotel may prefer to have charges for international phone calls reported with a different accounting category than domestic phone calls.
 
 ### Room Status
 
@@ -22,6 +22,12 @@ Once the unique identifier of the customer to be charged is obtained, the items 
 
 ### Testing your integration
 
-Once your integration is completed, all endpoints should be tested prior to initiating the [certification process](https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our hoteliers.
+Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to Guest technology integrations:
 
 To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
+
+### Additional Help for working with the demo environment
+
+- How to use [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) 
+- How to use [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product)
+- How [accounting categories are created](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category)
