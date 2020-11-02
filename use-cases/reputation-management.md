@@ -1,6 +1,6 @@
 ## Reputation management
 
-Reputation management systems provide valuable insight to obtain an understanding of performance relating to operation and service strengths and weaknesses. This understanding is captured via post-stay surveys and by monitoring social channels such as Tripadvisor.
+Typically, reputation management systems require reservation information, customer profile information, be available to update customer profiles.
 
 ### Retrieving Reservations
 
