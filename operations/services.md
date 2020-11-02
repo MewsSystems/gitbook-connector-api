@@ -97,7 +97,7 @@ Returns all services offered by the enterprise.
 
 ## Get service availability
 
-Returns availability of a reservable service in the specified interval. Note that response contains availability for all dates that the specified interval intersects.
+Returns availability of a reservable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
@@ -129,11 +129,13 @@ Returns availability of a reservable service in the specified interval. Note tha
 {
     "CategoryAvailabilities": [
         {
-            "Availabilities": [ 6, 6, 6 ],
+            "Availabilities": [ 6, 7, 5 ],
+            "Adjustments ": [ 0, 1, -1 ],
             "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f"
         },
         {
-            "Availabilities": [ 8, 8, 8 ],
+            "Availabilities": [ 7, 7, 7 ],
+            "Adjustments ": [ 1, 0, -1 ],
             "CategoryId": "a0a7a5c5-c4ef-494a-8b34-6cca97629076"
         }
     ],
@@ -155,7 +157,62 @@ Returns availability of a reservable service in the specified interval. Note tha
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
-| `Availabilities` | array of number | required | Availabilities of the resource category in the covered dates. |
+| `Availabilities` | array of number | required | Absolute availabilities of the resource category in the covered dates. |
+| `Adjustments` | array of number | required | Relative availability adjustments set for resource category in the covered dates. |
+
+## Update service availability
+
+Updates the number of available resources in [Resource category](enterprises.md#resource-category) by certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/services/updateAvailability`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "AvailabilityUpdates": [
+        {
+            "StartUtc": "2020-10-05T00:00:00Z",
+            "EndUtc": "2020-10-05T00:00:00Z",
+            "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
+            "UnitCountAdjustment": { "Value": 6 }
+        },
+        {
+            "StartUtc": "2020-10-07T00:00:00Z",
+            "EndUtc": "2020-10-08T00:00:00Z",
+            "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
+            "UnitCountAdjustment": { }
+        }
+    ]
+}
+```
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) to update. |
+| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required | Availability updates. |
+
+#### Availability update
+
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category) whose availability to update. |
+| `UnitCountAdjustment` | [Number update value](reservations.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Get all products
 
@@ -362,6 +419,7 @@ Returns all rules applied with the reservations.
             "ServiceId": "ea80bbca-372f-4550-8e48-ac1c00d1cd20",
             "BaseRateId": null,
             "IsActive": true,
+            "IsEnabled": true,
             "IsPublic": true,
             "Name": "Fully Flexible",
             "ShortName": "FF",
@@ -556,6 +614,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
+            "IsEnabled": true,
             "IsPublic": true,
             "Name": "Fully Flexible",
             "ShortName": "FF",
@@ -589,6 +648,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `BaseRateId` | string | required | Unique identifier of the base [Rate](services.md#rate). |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
+| `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
@@ -1111,7 +1171,7 @@ Removes restrictions from the service.
 
 ## Add order
 
-Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise.
+Creates a new order with the specified products and items. Only positive charges are allowed by default, in order to post negative charges \(rebates\), the connector integration has to be configured in Mews to allow it. If the consumption is specified, it has to be in the future or within editable history interval of the enterprise. Compared to stay service order ([Reservation](reservations.md#reservation)) which is consumed over certain span of time, the product order is consumed at one point in time.
 
 ### Request
 
@@ -1128,9 +1188,7 @@ Creates a new order with the specified products and items. Only positive charges
     "ProductOrders": [
         {
             "ProductId": "2eb7ad8b-8dfb-4381-aba5-ab58009f2993",
-            "Count": 2,
-            "StartUtc": "2021-01-02T00:00:00Z",
-            "EndUtc": "2021-01-03T00:00:00Z"
+            "Count": 2
         }
     ],
     "Items": [
@@ -1157,7 +1215,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer) to be charged. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
-| `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. |
+| `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. Please note, as order consumption is one-time event, the optional parameters `StartUtc` and `EndUtc` in [Product order parameters](services.md#product-order-parameters) should not be used. |
 | `Notes` | string | optional | Additional notes of the order. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the ordered products. |
 | `Items` | array of [Item parameters](services.md#item-parameters) | optional | Parameters of the ordered custom items. |
@@ -1169,8 +1227,8 @@ Creates a new order with the specified products and items. Only positive charges
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
 | `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
-| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. |
-| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. |
+| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](services.md#add-order) operation. |
+| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](services.md#add-order) operation. |
 
 #### Item parameters
 
