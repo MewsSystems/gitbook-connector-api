@@ -1,10 +1,10 @@
 ## Point of sale
 
-Traditionally, a Point of Sale system (POS) will send totals from the system to a room or reservation located inside the Property Management System (PMS). 
+In Mews charges are not sent to rooms or reservations but the customer profile that are active and attached to a reservation (checked in) or profiles that are classified as `Paymaster`. 
 
 In Mews, all charges are posted directly to the billing tab of either customer profiles that are active and attached to a reservation (checked in) or profiles that are classified as `Paymaster`. The items that are sent from the POS to Mews are called Orders.
 
-The receipts that have been finalized in the POS can be sent to Mews to allow for end of day balancing. In Mews, these are called Outlets. 
+The receipts that are finalized in the POS can be sent to Mews to allow for end of day balancing. In Mews, these are called Outlets. 
 
 By default, only positive charges are allowed.
 
@@ -24,7 +24,7 @@ Searching for actively checked-in customers is done via the [Search customers](.
 
 Customer profiles with the classification of `Paymaster` can have charges added without needing a reservation attached or checked in. The customer classification, `Cashlist` is used by properties to not allow charges sent to their bill. This is also commonly known as "No Post" in other PMS products.
 
-Note: As room numbers of some hotels consist of numbers, letters, and other characters, this should be supported in your search.
+*Note: Room numbers of some hotels consist of numbers, letters, and other characters.*
 
 ### Charging in-house customers
 
