@@ -1,19 +1,23 @@
 # Changelog
 
 ## 24th September 2020 11:30 UTC
+
 * Extended operations [Add reservations](operations/reservations.md#add-reservations), [Add reservation product](operations/reservations.md#add-reservation-product) and [Add order](operations/services.md#add-order) with possibility to specify consumption date for products charged `Once` and `Per Person`.
 
 ## 21st September 2020 11:30 UTC
+
 * Replaced Space websocket event by [Resource event](websockets.md#resource-event)
 * Extended [Reservation event](websockets.md#reservation-event) with `AssignedResourceId`
 * Extended [Price update event](websockets.md#price-update-event) with `ResourceCategoryId`
 
 ## 1st September 2020 11:30 UTC
+
 * Added new operation [Get all rules](operations/services.md#rules).
 * Added new operation [Add alternative payment](operations/finance.md#add-alternative-payment).
 * Extended operation [Get all accounting items](operations/finance.md#Get-all-accounting-items) with filter `ItemIds` and response with `SubState`.
 
 ## 19th August 2020 11:30 UTC
+
 * Extended [Travel agency contract](operations/enterprises#travel-agency-contract) with `ServiceId`.
 * Extended [Bill](operations/finance.md#bill) object with [Bill assignee data](operations/finance.md#bill-assignee-data).
 * Extended [Promotions](operations/services.md#promotions) object with `DuringCheckOut` property.
@@ -23,15 +27,18 @@
 * Extended [Resource feature assignment](operations/enterprises#resource-feature-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
 
 ## 5th August 2020 11:30 UTC
+
 * Fixed spelling mistake in parameter `TravelAgencyId` in operation [Update reservation](operations/reservations.md#update-reservation).
 * Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
 * Extended [Get configuration](operations/configuration.md#get-configuration) response with [Service](operations/services#service).
 * Extended [Integration created data](webhooks#integration-created-data) with [Service](webhooks#service).
 
 ## 23rd July 2020 11:30 UTC
+
 * Extended [Product order parameters](operations/services.md#product-order-parameters) with consumption dates.
 
 ## 21st July 2020 11:30 UTC
+
 * Added new operations [Update accounting items](operations/finance.md#update-accounting-items), [Add bill](operations/finance.md#add-bill) and [Delete bill](operations/finance.md#delete-bill).
 * Added new operations [Get all counters](operations/enterprises.md#get-all-counters), [Close bill](operations/finance.md#close-bill), [Get bill PDF](operations/finance.md#get-bill-pdf)
 * Extended operations [Get all products](operations/services.md#get-all-products) with property `ExternalName`.
@@ -77,7 +84,6 @@ There are **no breaking changes** in the API, all of the previous endpoints and 
 * Renamed `Space category adjustment` to [Resource category adjustment](operations/services.md#resource-category-adjustment).
 * Removed `Update space state` which is replaced by general Update resources.
 * Removed `Update reservation requested category`. [Update reservation](operations/reservations.md#update-reservation) should be used instead.
-
 
 ## 6th June 2020 11:30 UTC
 
