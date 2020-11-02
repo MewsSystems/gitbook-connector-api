@@ -19,7 +19,7 @@ If the product being posted already exists in Mews, then use [Product order para
 
 To ensure correct reporting, all revenue items posted into Mews must be associated with their correct accounting category by sending the unique identifier in the Item parameters of the Add order request. Information about all the categories configured at each property are requested using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). You can learn more about how accounting categories are created in [this article](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category).
 
-If a product being added to a reservation may require further action from the hotel staff, create reminders and assign responsiblities using [Add task](../operations/enterprises#add-task) to ensure no aspect of the guest experience is forgotten. Learn more about how tasks are created and managed in Mews with [this article](https://intercom.help/mews-systems/en/articles/4245631-create-and-manage-tasks).
+If a product being added to a reservation may require further action from the hotel staff, create reminders and assign responsiblities using [Add task](../operations/enterprises.md#add-task) to ensure no aspect of the guest experience is forgotten. Learn more about how tasks are created and managed in Mews with [this article](https://intercom.help/mews-systems/en/articles/4245631-create-and-manage-tasks).
 
 ### Testing your Upselling integration
 
