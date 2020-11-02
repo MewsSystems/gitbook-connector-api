@@ -14,7 +14,7 @@ Guest technology integrations are required to receive an update to a [reservatio
 
 If the websocket event fits your criteria, after receiving the event, use the ReservationId it contains in the [Get all reservations](../operations/reservations.md#get-all-reservations) request to retrieve all information about the reservation and customer.
 
-Note: The customer classification, `Cashlist` is what customers are classified as if charges should not be sent to their bill. This is also commonly known as ‘No Post’.
+*Note: The customer classification, `Cashlist` is what customers are classified as if charges should not be sent to their bill. This is also commonly known as ‘No Post’.*
 
 ### Charging checked in customers
 

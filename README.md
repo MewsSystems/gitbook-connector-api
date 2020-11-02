@@ -5,4 +5,3 @@ Connector API is a general API for communication between Mews and external appli
 To see scenarios where this API might be used, have a look at the [Use cases](use-cases/README.md) that may guide you through the implementation. Before the actual implementation, get familiar with the [Guidelines](guidelines.md) which describe how to communicate with the API. All operations and functions supported by the API are described in [Operations](operations/), [Websockets](websockets.md) and [Webhooks](webhooks.md) sections. If you are interested in changes and updates of this API, check [Changelog](changelog.md).
 
 If you encounter any issue with the API, have a question or any other other request, please contact [integrations@mewssystems.com](mailto://integrations@mewssystems.com).
-

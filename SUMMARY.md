@@ -1,7 +1,17 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Use cases](use-cases.md)
+* [Use cases](use-cases/README.md)
+  * [Accounting](use-cases/accounting.md)
+  * [Customer management](use-cases/customer-management.md)
+  * [Device integrations](use-cases/device-integrations.md)
+  * [Event management](use-cases/event-management.md)
+  * [Guest technology](use-cases/guest-technology.md)
+  * [Housekeeping](use-cases/housekeeping.md)
+  * [Point of sale](use-cases/point-of-sale.md)
+  * [Reputation management](use-cases/reputation-management.md)
+  * [Revenue management](use-cases/revenue-management.md)
+  * [Upselling](use-cases/upselling.md)
 * [Guidelines](guidelines.md)
 * [Operations](operations/README.md)
   * [Configuration](operations/configuration.md)
