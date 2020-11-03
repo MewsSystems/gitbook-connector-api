@@ -1,5 +1,12 @@
 # Changelog
 
+## 3th November 2020 11:30 UTC
+* Extended response of operation [Get all tax environments](operations/configuration.md#get-all-tax-environments) with validity interval of taxation.
+* Extended response of operation [Get all rates](operations/services.md#get-all-rates) with property `IsEnabled` specifying the rate is currently available to customers.
+* Extended operation [Update reservation](operations/reservations.md#update-reservation) with parameter `AssignedResourceLocked`.
+* Extended operation [Get service availability](operations/services.md#get-service-availability) with list of active availability adjustments.
+* Added operation [Update service availability](operations/services.md#update-service-availability).
+
 ## 29th September 2020 11:30 UTC
 * Replaced `Gender` property with `Sex` for operations [Add customer](operations/customers.md#add-customer), [Update customer](operations/customers.md#update-customer), [Get all customers](operations/customers.md#get-all-customer), [Search customers](operations/customers.md#search-customers) and [Get all reservations](operations/reservations.md#get-all-reservations) and all other usages.
 
