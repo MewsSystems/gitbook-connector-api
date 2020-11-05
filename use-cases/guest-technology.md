@@ -22,7 +22,7 @@ Once the unique identifier of the customer to be charged is obtained, the items 
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to Guest technology integrations:
+Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
 
 To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
 
