@@ -68,4 +68,4 @@ To check that you've correctly posted an order, you can review the billing tab o
 - How to manage [billing items](https://intercom.help/mews-systems/en/articles/4245416-add-move-or-remove-items-from-open-bills). 
 - How to manage [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) 
 - How to manage [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product). 
-- Mews properties' [guide to using a Point of Sale integration](https://help.mewssystems.com/hc/en-us/articles/360002080037-Point-of-sale-integrations-for-Commander)
+- Mews properties' [guide to using a Point of Sale integration](https://help.mews.com/en/articles/4245649-point-of-sale-integrations-for-commander)
