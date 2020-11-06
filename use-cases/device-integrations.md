@@ -35,7 +35,7 @@ To be able to use your device integration, an additional step of configuring the
 2. Depending on the type of device you are connecting, click on either Facility management (Key cutter integration, Passport scanner integration, Printer integration) or Legal environment (Fiscal machine integration) categories.
 3. Once you've found the correct device integration, click **See more** followed by **Connect** to generate this device integration.
 4. Complete the required fields (if any) in the main settings page of the device integration, then click on the device type on the left side of the screen (e.g. Key cutters) and then the "+" button to add and configure the device. Be sure to save all changes. 
-5. Go back to your unique API access token found in the **My subscriptions** section of the Marketplace and click on the **Settings** found on the right side of the integration listing.
+5. Go back to your integration found in the **My subscriptions** section of the Marketplace and click on the **Settings** found on the right side of the integration listing.
 6. Once inside the integration settings page, you will see a drop down menu titled **Connected devices**. Select your newly created device from that list and click **Save**.
 
 This is the same process that will be required when you assist any new mutual client with onboarding and configuration of your solution.
