@@ -23,4 +23,21 @@ For Fiscal Machines \(no matter whether it is a virtual or a physical one\), you
 
 #### Key cutter commands
 
-For Key Cutters you will receive a command containing [Key cutter command data](../operations/integrations.md#key-cutter-command-data).
+In case your device is a Key Cutter, you will get a command containing [Key cutter command data](../operations/integrations.md#key-cutter-command-data).
+
+### Testing your integration
+
+Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to Device integrations:
+
+To be able to use your device integration, an additional step of configuring the device and connecting it to the relevant API access token is required. This is done through the following steps:
+
+1. Open the main menu in the top left corner, scroll down and click on **Marketplace**.
+2. Depending on the type of device you are connecting, click on either Facility management (Key cutter integration, Passport scanner integration, Printer integration) or Legal environment (Fiscal machine integration) categories.
+3. Once you've found the correct device integration, click **See more** followed by **Connect** to generate this device integration.
+4. Complete the required fields (if any) in the main settings page of the device integration, then click on the device type on the left side of the screen (e.g. Key cutters) and then the "+" button to add and configure the device. Be sure to save all changes. 
+5. Go back to your integration found in the **My subscriptions** section of the Marketplace and click on the **Settings** found on the right side of the integration listing.
+6. Once inside the integration settings page, you will see a drop down menu titled **Connected devices**. Select your newly created device from that list and click **Save**.
+
+This is the same process that will be required when you assist any new mutual client with onboarding and configuration of your solution.
+
+For a full overview of device commands and their states, you can check the [device commands queue](https://intercom.help/mews-systems/en/articles/4245952-device-commands-queue) in Mews. If you are returning an unexpected error indicating there is an issue with the Data JSON, please read [this article](https://intercom.help/mews-systems/en/articles/4394724-data-json-incorrect-or-unsupported-device) to understand what this indicates, based on the type of integration you are referring to.
