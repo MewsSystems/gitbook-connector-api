@@ -159,7 +159,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "StartUtc": "2016-02-20T13:00:00Z",
             "State": "Processed",
             "TravelAgencyId": null,
-            "UpdatedUtc": "2016-02-20T14:58:02Z"
+            "UpdatedUtc": "2016-02-20T14:58:02Z",
+            "VoucherId": null
         }
     ],
     "Services": null,
@@ -217,6 +218,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ChildCount` | number | required | Count of children the reservation was booked for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will use the resource. |
+| `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
 
 #### Reservation state
 
