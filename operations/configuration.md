@@ -343,36 +343,22 @@ Returns all tax environments supported by the API.
     ],
     "Taxations": [
         {
-            "Code": "AU",
-            "TaxEnvironmentCode": "AU",
-            "Name": "GST",
-            "LocalName": "GST",
-            "ValidityStartUtc": null,
-            "ValidityEndUtc": null
-        },
-        {
             "Code": "AT-2020",
             "TaxEnvironmentCode": "AT-2020",
             "Name": "VAT",
-            "LocalName": "MWST",
-            "ValidityStartUtc": "2020-06-30T22:00:00Z",
-            "ValidityEndUtc": null
+            "LocalName": "MWST"
         },
         {
             "Code": "AT-2016",
             "TaxEnvironmentCode": "AT-2016",
             "Name": "VAT",
-            "LocalName": "MWST",
-            "ValidityStartUtc": "2016-05-01T00:00:00Z",
-            "ValidityEndUtc": "2020-06-30T22:00:00Z"
+            "LocalName": "MWST"
         },
         {
             "Code": "AT",
             "TaxEnvironmentCode": "AT",
             "Name": "VAT",
-            "LocalName": "MWST",
-            "ValidityStartUtc": null,
-            "ValidityEndUtc": "2016-05-01T00:00:00Z"
+            "LocalName": "MWST"
         }
     ],
     "TaxRates": [
@@ -424,8 +410,6 @@ Returns all tax environments supported by the API.
 | `TaxEnvironmentCode` | string | required | Code of the tax environment. |
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
-| `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
-| `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
 #### Tax rate
 
