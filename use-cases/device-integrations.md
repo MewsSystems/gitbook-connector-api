@@ -19,6 +19,7 @@ If your application reconnects using websockets or was offline for any reason an
 Once your application has successfully processed the device command, you should update the status of the command to “Processed” (or others if the command was not successfully processed) using the [Update command](../operations/integrations.md#update-command) operation. 
 
 ### Types of device commands
+
 Mews currently provides several types of [Command data](../operations/integrations.md#command-data), including printer, payment terminal, passport scanner, fiscal machine, and key cutter command data.
 
 #### Fiscal machine commands
