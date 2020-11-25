@@ -1246,7 +1246,7 @@ Creates a new order with the specified products and items. Only positive charges
 | `GrossValue` | decimal | optional | Amount including tax. Required for [Gross enviroments](configuration.md#pricing). |
 | `NetValue` | decimal | optional | Amount excluding tax. Required for [Net enviroments](configuration.md#pricing). |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `TaxCodes` | array of string [Tax Codes](configuration.md#tax-rate) | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
+| `TaxCodes` | array of string [Tax rate](configuration.md#tax-rate) Codes | required | Tax codes to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
 
 ### Response
 
