@@ -461,19 +461,19 @@ Returns all rules applied with the reservations.
 | `MinimumTimeUnitCount` | string | required | Condition based on minimum amount of time units. |
 | `MaximumTimeUnitCount` | string | required | Condition based on maximum amount of time units. |
 
-### Rule condition
+#### Rule condition
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ConditionType` | string [Condition type](#condition-type) | required | Type of condition. |
 | `Value` | string | required | Value of the condition depending on the property. E.g. [Reservation origin](reservations.md#reservation-origin) in case of origin condition or unique identifier of a rate in case of rate condition. |
 
-### Condition type
+#### Condition type
 
 * `Equals`
 * `NotEquals`
 
-### Rule action
+#### Rule action
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -481,7 +481,7 @@ Returns all rules applied with the reservations.
 | `RuleId` | string | required | Unique identifier of the rule. |
 | `Data` | [RuleActionData](#rule-aciton-data) | optional | Additional information about action. |
 
-### Rule action data
+#### Rule action data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
@@ -492,14 +492,14 @@ Returns all rules applied with the reservations.
 
 * `Product` - Data specific to a product.
 
-### Rule action product data
+#### Rule action product data
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of product. |
 | `ActionType` | string [Product action type](#product-action-type) | required | Action of rule. |
 
-### Product action type
+#### Product action type
 
 * `Add` - Adds specified item.
 * `Delete` - Deletes specified item.
