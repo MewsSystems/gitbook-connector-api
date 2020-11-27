@@ -106,8 +106,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Number`| number | required | Unique number of the company. |
 | `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
-| `AdditionalTaxIdentifier` | string | optional | Additional tax identifer of the company. |
-| `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifer of the company. |
+| `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
+| `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
