@@ -1387,7 +1387,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Customers` | bool | optional | Whether the response should contain main information about vouchers. |
+| `Vouchers` | bool | optional | Whether the response should contain main information about vouchers. |
 | `VoucherCodes` | bool | optional | Whether the response should contain voucher codes used by customers. |
 | `VoucherAssignments` | bool | optional | Whether the response should contain assignments between vouchers and [Rate](#rate)s. |
 | `Companies` | bool | optional | Whether the response should contain detail of related companies. |
