@@ -1,5 +1,8 @@
 # Changelog
 
+## 27th November 2020 11:30 UTC
+* Added operation [Get all vouchers](operations/services.md#get-all-vouchers) and extended  [Reservation](operations/reservations.md#reservation) with property `VoucherId`.
+
 ## 3th November 2020 11:30 UTC
 * Extended response of operation [Get all tax environments](operations/configuration.md#get-all-tax-environments) with validity interval of taxation.
 * Extended response of operation [Get all rates](operations/services.md#get-all-rates) with property `IsEnabled` specifying the rate is currently available to customers.
