@@ -18,7 +18,7 @@ If the data pulled in the previous steps is not sufficient, RMS can pull e.g. bu
 **Note: it is important to get the reservations and revenue first and the additional data later after that.** 
 If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to the RMS.
 
-### Periodic future update
+### Periodic updates and syncinc reservation data
 
 To keep reservations up-to-date and synced across your systems, first cache the reservation data retrieved from the initial reservation data pull. 
 
