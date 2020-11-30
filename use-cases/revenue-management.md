@@ -18,11 +18,13 @@ If the data pulled in the previous steps is not sufficient, RMS can pull e.g. bu
 **Note: it is important to get the reservations and revenue first and the additional data later after that.** 
 If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to the RMS.
 
-### Periodic updates and syncinc reservation data
+### Periodic updates and syncing reservation data
 
 To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull. Then use [WebSockets](../websockets.md) to listen for [Reservation Events](../websockets.md#reservation-event). 
 
 Each time you receive a ReservationId from the Reservation event WebSocket message, retrieve said reservation with [Get all reservations](../operations/reservations.md#get-all-reservations), filtering by the `ReservationIds` obtained from the WebSocket message. 
+
+In case of WebSocket disconnection, use [Get all reservations](../operations/reservations.md#get-all-reservations) to perform a full resync of reservations that have been updated within the time period since the last full reservation data pull. Suggested frequency is 30 minutes for business intelligence solutions. Adjust the frequency of the periodic reservation syncing depending your use case. For example, a mobile key integration would rely more on real-time accuracy of reservation data to provide correct door access to the guest, whereas a 30-minute to one-hour (or longer) interval reservation synce might suffice for a business intelligence solution aimed at providing daily statistical insight to a property's business operations.
 
 ### Rate pricing
 
