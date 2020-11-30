@@ -20,15 +20,15 @@ If done the other way around, there is a possibility that the RMS receives a res
 
 ### Periodic updates and syncinc reservation data
 
-To keep reservations up-to-date and synced across your systems, first cache the reservation data retrieved from the initial reservation data pull. 
+To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull. Then use [WebSockets](../websockets.md) to listen for [Reservation Events](../websockets.md#reservation-event). 
 
-Then use [Websocket],(../websockets.md) [Reservation Events](../websockets.md#reservation-event) to obtain the Ids of reservations that have been updated since the last reservation data pull (e.g. past 10 minutes). Once you have the ReservationId from the WebSocket message, retrieve the relevant reservations with [Get all reservations](../operations/reservations.md#get-all-reservations), filtering by ReservationIds and/or [*Updated* reservation TimeFilter](../operations/reservations.md#reservation-time-filter) in the last 10 minutes (or other similarly short time interval). 
+Each time you receive a ReservationId from the Reservation event WebSocket message, retrieve said reservation with [Get all reservations](../operations/reservations.md#get-all-reservations), filtering by the `ReservationIds` obtained from the WebSocket message. 
 
 ### Rate pricing
 
 To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](../operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](../operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](../operations/services.md#update-rate-price) operation be used. Individual rate, resource category and time span can be chosen.
 
-To avoid heavy consumption of API resources, while keeping rate price data up-to-date in real time, use WebSockets to listen for [Price update events](../websockets.md#price-update-event). Then retrieve information about the relevant rates using [Get rate pricing](../operations/services.md#get-rate-pricing).
+To avoid heavy consumption of API resources, while keeping rate price data up-to-date in real time, use WebSockets to listen for [Price update events](../websockets.md#price-update-event). Then retrieve information about the relevant rates using [Get rate pricing](../operations/services.md#get-rate-pricing), filtering by the relevant Rate Id.
 
 ### Restrictions
 
