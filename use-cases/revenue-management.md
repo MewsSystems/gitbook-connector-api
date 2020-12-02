@@ -8,22 +8,29 @@ Performed once when setting up the connection, because the RMS needs to obtain h
 
 * Open: Items which have not been closed on a specific bill.
 * Closed: Items which have already been closed on a specific bill.
-* Canceled: Items which have been canceled.
-* Inactive: Items which are free or have amount value 0.
+* Canceled: Items which have been canceled, regardless of whether the value was 0.
+* Inactive: Items which are free or have amount value 0, and are not canceled.
 
 One can take advantage of the fact that reservations are usually booked a few weeks or months in advance. The further in future, the lower the occupancy, so the reservation batch length may increase with the distance to future from current date. E.g. weekly batches can be used only for the first three months of the future year when there is higher occupancy. And for the remaining 9 months, monthly batches would be sufficient. This will reduce the operation count from 52 to 21 \(12 weekly batches + 9 monthly batches\).
 
 If the data pulled in the previous steps is not sufficient, RMS can pull e.g. business segments via [Get all business segments](../operations/services.md#get-all-business-segments) or rates via [Get all rates](../operations/services.md#get-all-rates). 
+
 **Note: it is important to get the reservations and revenue first and the additional data later after that.** 
-If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to RMS.
+If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to the RMS.
 
-### Periodic future update
+### Periodic updates and syncing reservation data
 
-Performed periodically after the connection is set up so that RMS has future reservations and revenue up to date. Length of the period is not specified, but it is recommended to update the future data once or twice a day. If you need to get the reservation changeset more frequently, you should use the [Get all reservations](../operations/reservations.md#get-all-reservations) with the [Reservation time filter](../operations/reservations.md#reservation-time-filter) set to `Updated`. That gives you just reservations that were created or updated within the specified interval.
+To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull. Then use [WebSockets](../websockets.md) to listen for [Reservation Events](../websockets.md#reservation-event). 
+
+Each time you receive a ReservationId from the Reservation event WebSocket message, retrieve said reservation with [Get all reservations](../operations/reservations.md#get-all-reservations), filtering by the `ReservationIds` obtained from the WebSocket message. 
+
+In case of WebSocket disconnection, use [Get all reservations](../operations/reservations.md#get-all-reservations) to perform a full resync of reservations that have been updated within the time period since the last full reservation data pull. Suggested frequency is 30 minutes for business intelligence solutions. Adjust the frequency of the periodic reservation syncing depending your use case. For example, a mobile key integration would rely more on real-time accuracy of reservation data to provide correct door access to the guest, whereas a 30-minute to one-hour (or longer) interval reservation synce might suffice for a business intelligence solution aimed at providing daily statistical insight to a property's business operations.
 
 ### Rate pricing
 
 To know the data about the rates of the enterprise, there are two relevant operations. [Get all rates](../operations/services.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions. [Get rate pricing](../operations/services.md#get-rate-pricing) gives you the pricing of specific rate for a specific time period. In order to update rate prices, [Update rate price](../operations/services.md#update-rate-price) operation be used. Individual rate, resource category and time span can be chosen.
+
+To avoid heavy consumption of API resources, while keeping rate price data up-to-date in real time, use WebSockets to listen for [Price update events](../websockets.md#price-update-event). Then retrieve information about the relevant rates using [Get rate pricing](../operations/services.md#get-rate-pricing), filtering by the relevant Rate Id.
 
 ### Restrictions
 
@@ -42,4 +49,6 @@ Once your integration is completed, all endpoints should be tested prior to init
 For help on how to create new reservations, please follow the steps outlined in [this guide](https://help.mews.com/en/articles/4245573-create-a-reservation).
 
 If you'd like to double-check that you are correctly requesting all the reservations you want to retrieve, you can compare the API response to the [Mews Reservation Report](https://help.mews.com/en/articles/4245884-reservation-report). This report can easily be exported in various formats [following these steps](https://help.mews.com/en/articles/4245871-schedule-report-exports).
+
+For testing WebSockets, set up your WebSocket client to start listening for events, then manually trigger an event (e.g. update an element of a reservation) to receive the message.
 
