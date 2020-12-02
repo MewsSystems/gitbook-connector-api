@@ -136,6 +136,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
             "AssignedResourceLocked": false,
             "BusinessSegmentId": null,
+            "CancellationReason": null,
             "CancelledUtc": null,
             "ChannelNumber": "1337614414",
             "ChannelManagerNumber": "01",
@@ -206,6 +207,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
+| `CancellationReason` | string [Cancellation reason](#cancellation-reason) | optional | Reason for cancellation of the reservation. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
 | `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
@@ -238,6 +240,22 @@ Returns all reservations specified by any identifier, customer or other filter. 
 * `Import`
 * `Connector`
 * `Navigator`
+
+#### Cancellation reason
+
+* `Other`
+* `ConfirmationMissed`
+* `BookedElsewhere`
+* `ForceMajeure`
+* `GuestComplaint`
+* `NoShow`
+* `PriceTooHigh`
+* `ServiceNotAvailable`
+* `InputError`
+* `InvalidPayment`
+* `TravelAgency`
+* `RequestedByGuest`
+* `Update`
 
 #### Reservation group
 
