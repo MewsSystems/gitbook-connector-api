@@ -621,6 +621,8 @@ Updates information about the specified reservation. Note that if any of the fie
     "Reason": "Testing",
     "CheckOverbooking": true,
     "CheckRateApplicability": true,
+    "Reprice": true,
+    "ApplyCancelationFee": true,
     "ReservationUpdates": [
         {
             "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
@@ -693,8 +695,10 @@ Updates information about the specified reservation. Note that if any of the fie
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
-| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
-| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
+| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`. |
+| `CheckRateApplicability` | bool | optional | Whether the rate applicability check is checked. Default value is `true`. |
+| `Reprice` | bool | optional | Whether the price should be updated according to updates values. Default value is `true`. |
+| `ApplyCancelationFee` | bool | optional | Whether the cancellation fee should be applied on cancelled nights. Default value is `true`. |
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
 
 #### Reservation updates
