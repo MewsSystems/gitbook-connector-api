@@ -605,9 +605,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
 
-## Update reservation
+## Update reservations
 
-Updates information about the specified reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
+Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
 
 ### Request
 
