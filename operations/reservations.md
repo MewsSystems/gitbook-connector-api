@@ -249,13 +249,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
 * `ForceMajeure`
 * `GuestComplaint`
 * `NoShow`
-* `PriceTooHigh`
 * `ServiceNotAvailable`
 * `InputError`
-* `InvalidPayment`
-* `TravelAgency`
 * `RequestedByGuest`
-* `Update`
 
 #### Reservation group
 
