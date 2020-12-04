@@ -26,6 +26,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
     "LastNames": [
         "Doe"
     ],
+    "LoyaltyCodes": [
+        "LL810213"
+    ],
     "CreatedUtc": {
         "StartUtc": "2019-12-05T00:00:00Z",
         "EndUtc": "2019-12-10T00:00:00Z"
@@ -51,6 +54,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s. |
 | `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s. |
 | `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
+| `LoyaltyCodes` | array of string | optional | Loyalty codes of the [Customer](customers.md#customer)s. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was updated. |
 | `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
