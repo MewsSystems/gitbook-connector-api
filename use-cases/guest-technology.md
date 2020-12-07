@@ -31,3 +31,40 @@ To confirm you are relating any product that is not configured in Mews with the 
 - How to use [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) 
 - How to use [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product)
 - How [accounting categories are created](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category)
+
+//////////////////////
+
+Receiving/listening to events about new check-in/outs:
+
+You can use the WebSockets functionality. Linking a Mobile key use case document (not yet published) - which also utilises websockets to detect reservation events in real time.
+https://mewssystems-my.sharepoint.com/:w:/g/personal/sylvia_tang_mews_com/EYjI-0sLUnRTBG0kI-DCcDkBSndpDBm9v0XVUmrw_mO49w?e=aWAIsu  
+
+Websockets in API documentation: https://mews-systems.gitbook.io/connector-api/websockets
+
+As you may have seen in our Guidelines section, the Client Token will be unique to the integration, and the Access Token is unique to the property. Therefore, the recommended set up is to have a separate instance of a WebSocket client per property (pair of Client & Access Token. 
+
+For processing check-in and check-outs, and the requirement of customer detail such as Phone number:
+The reservations operations and/or the customer operations might be of interest. The specific workflows offered in the Mobile key use case linked above might have some useful suggestions. 
+
+Language code
+can be retrieved as part of the customer profile -  with the customers/getAll or customers/search endpoint 
+
+Amount in PLN
+Could you share more information/context around this? What is the desired result?
+If the purpose is to see current customer billing (folio) balance - the endpoint customers/getOpenItems might be of use:
+https://mews-systems.gitbook.io/connector-api/operations/customers#get-customers-open-items
+
+Call Detail Record 
+There is also other issues
+How you want to get data CDRs (Call Detail Record) from our PBX?
+It can be required if customer want to get invoice. 
+For getting CDRs from the PBX to Mews - orders/add would work well. The property will need to set up the Service (e.g. PBX service), and the integraiton would send the cost of the call + the details of the call (e.g. country code, phone number, call duration, etc), to the customer's billing to be settled later. 
+https://mews-systems.gitbook.io/connector-api/operations/services#add-order
+
+
+How you want to add extra balance to account if customer want to talk more and his account balance has been exhausted?
+For adding extra balance to the account, depending on what sort of payment options a customer you allow the customer to use for adding balance, we do have some different options on adding payment items to a customer billing:
+https://mews-systems.gitbook.io/connector-api/operations/finance
+
+
+
