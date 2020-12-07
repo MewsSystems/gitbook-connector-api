@@ -395,28 +395,34 @@ Returns all tax environments supported by the API.
 
 #### Tax environment
 
+Tax environment represents set of [Taxation](#taxation)s together with optional validity interval.
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required | Code of the tax environment. Corresponds to the `TaxEnvironmentCode` seen in [Get configuration](#get-configuration) and in the [Taxation](#taxation) object.  |
-| `CountryCode` | string | required | ISO 3166-1 alpha-3 code, e.g. `USA` or `GBR`. |
+| `Code` | string | required | Code of the tax environment. |
+| `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
 | `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
 | `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
 #### Taxation
 
+Taxation represents set of [Tax rate](#tax-rate)s within [Tax environment](#tax-environment).
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required | Code of the taxation. Corresponds to the `TaxationCode` seen in the [Tax rate](#tax-rate) object. |
-| `TaxEnvironmentCode` | string | required | Code of the tax environment. Corresponds to the `Code` seen in the [Tax environment](#tax-environment) object and in [Get configuration](#get-configuration)|
+| `Code` | string | required | Code of the taxation. |
+| `TaxEnvironmentCode` | string | required | Code of the [Tax environment](#tax-environment) the taxation is used in. |
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
 
 #### Tax rate
 
+Definition of single tax rate.
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax rate. To be used when posting revenue items which should be accompanied by the tax rate(s) applicable to the nature of the item and the tax environment. |
-| `TaxationCode` | string | required | Code of the taxation. Corresponds to the `Code` seen in the [Taxation](#taxation) object. |
+| `TaxationCode` | string | required | Code of the [Taxation](#taxation) the rate is part of. |
 | `Strategy` | object [Tax rate strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
 #### Tax rate strategy
