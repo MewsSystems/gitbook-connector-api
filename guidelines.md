@@ -51,8 +51,9 @@ The API responds with `Content-Type` set to `application/json` and JSON content.
 * `400 Bad Request` - Error caused by the client app, e.g. in case of malformed request or invalid identifier of a resource. In most cases, such an error signifies a bug in the client app \(consumer of the API\).
 * `401 Unauthorized` - Error caused by usage of invalid access token.
 * `403 Forbidden` - Server error that should be reported to the end user of the client app. Happens for example when the server-side validation fails or when a business-logic check is violated.
+* `429 Too Many Requests` - Error caused by too many requests sent in a given amount of time, please see [Request limits](guidelines.md#request-limits) for more information.
 * `500 Internal Server Error` - Unexpected error of the server. In most cases, such an error signifies a bug on our side. We are logging it and immediately notified when such error happens. If anything like this happens, feel free to directly contact us or raise an issue here on Github.
-* `429 Too Many Requests` - Error caused by too many requests sent in a given amount of time for the same `Client Token`, `Access Token`, or endpoint per `Access Token`. [Request limits](guidelines.md#request-limits) have been reached. Wait 15 minutes before trying again. 
+
 
 In case of any error, the returned JSON object describes the error and has the following properties:
 
@@ -65,15 +66,17 @@ Some errors may also contain additional information relevant to the error on top
 
 ### Request limits
 
+In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
+
 #### Demo environment
-* 2000 requests per `Client Token` within 15 minutes
-* 1000 requests per `Access Token` within 15 minutes
-* 500 requests per endpoint per `Access Token` within 15 minutes
+* 2000 requests per `ClientToken` within 15 minutes
+* 1000 requests per `AccessToken` within 15 minutes
+* 500 requests per endpoint per `AccessToken` within 15 minutes
 
 #### Production environment
-* 3600 requests per `Client Token` within 15 minutes
-* 1600 requests per `Access Token` within 15 minutes
-* 800 requests per endpoint per `Access Token` within 15 minutes
+* 3600 requests per `ClientToken` within 15 minutes
+* 1600 requests per `AccessToken` within 15 minutes
+* 800 requests per endpoint per `AccessToken` within 15 minutes
 
 ## Authentication
 
