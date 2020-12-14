@@ -66,14 +66,14 @@ Some errors may also contain additional information relevant to the error on top
 ### Request limits
 
 #### Demo environment
-* 2000 requests per `Client Token` every 15 minutes
-* 1000 requests per `Access Token` every 15 minutes
-* 500 requests per endpoint per `Access Token` every 15 minutes
+* 2000 requests per `Client Token` within 15 minutes
+* 1000 requests per `Access Token` within 15 minutes
+* 500 requests per endpoint per `Access Token` within 15 minutes
 
 #### Production environment
-* 3600 requests per `Client Token` every 15 minutes
-* 1600 requests per `Access Token` every 15 minutes
-* 800 requests per endpoint per `Access Token` every 15 minutes
+* 3600 requests per `Client Token` within 15 minutes
+* 1600 requests per `Access Token` within 15 minutes
+* 800 requests per endpoint per `Access Token` within 15 minutes
 
 ## Authentication
 
