@@ -54,7 +54,6 @@ The API responds with `Content-Type` set to `application/json` and JSON content.
 * `429 Too Many Requests` - Error caused by too many requests sent in a given amount of time, please see [Request limits](guidelines.md#request-limits) for more information.
 * `500 Internal Server Error` - Unexpected error of the server. In most cases, such an error signifies a bug on our side. We are logging it and immediately notified when such error happens. If anything like this happens, feel free to directly contact us or raise an issue here on Github.
 
-
 In case of any error, the returned JSON object describes the error and has the following properties:
 
 | Property | Type |  | Description |
