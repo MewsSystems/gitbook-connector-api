@@ -51,6 +51,7 @@ The API responds with `Content-Type` set to `application/json` and JSON content.
 * `400 Bad Request` - Error caused by the client app, e.g. in case of malformed request or invalid identifier of a resource. In most cases, such an error signifies a bug in the client app \(consumer of the API\).
 * `401 Unauthorized` - Error caused by usage of invalid access token.
 * `403 Forbidden` - Server error that should be reported to the end user of the client app. Happens for example when the server-side validation fails or when a business-logic check is violated.
+* `429 Too Many Requests` - Error caused by too many requests sent in a given amount of time, please see [Request limits](guidelines.md#request-limits) for more information.
 * `500 Internal Server Error` - Unexpected error of the server. In most cases, such an error signifies a bug on our side. We are logging it and immediately notified when such error happens. If anything like this happens, feel free to directly contact us or raise an issue here on Github.
 
 In case of any error, the returned JSON object describes the error and has the following properties:
@@ -61,6 +62,20 @@ In case of any error, the returned JSON object describes the error and has the f
 | `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
 
 Some errors may also contain additional information relevant to the error on top of these two properties. That depends on the operation and is specifically described in the operation documentation.
+
+### Request limits
+
+In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
+
+#### Demo environment
+* 2000 requests per `ClientToken` within 15 minutes
+* 1000 requests per `AccessToken` within 15 minutes
+* 500 requests per endpoint per `AccessToken` within 15 minutes
+
+#### Production environment
+* 3600 requests per `ClientToken` within 15 minutes
+* 1600 requests per `AccessToken` within 15 minutes
+* 800 requests per endpoint per `AccessToken` within 15 minutes
 
 ## Authentication
 
@@ -84,7 +99,7 @@ The authentication below will connect with the demo enterprise that is configure
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D`
 
-The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). As a tax rate, either `0.0`, `0.05` or `0.20` can be used.
+The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). 
 
 ##### Net Pricing Environment
 
@@ -93,12 +108,12 @@ The authentication below will connect with the demo enterprise that is configure
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382`
 
-The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). As a tax rate, either `0.0`, `0.06`, `0.10`, `0.1025`, `0.1495` or `0.18` can be used.
+The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). 
 
 ### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
-* **ClientToken** - Unique token per integration. Will be provided to you by our integration team upon certification completion. For further information, please contact [marketplace@mewssystems.com](mailto://marketplace@mewssystems.com).
+* **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
 * **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 
 ##### Security Policy
