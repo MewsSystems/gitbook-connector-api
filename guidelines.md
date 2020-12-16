@@ -44,6 +44,20 @@ A unique `AccessToken` will automatically be generated and shared with you for e
 
 All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/configuration.md#enterprise) are used.
 
+### Request limits
+
+In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
+
+#### Demo environment
+* 2000 requests per `ClientToken` within 15 minutes
+* 1000 requests per `AccessToken` within 15 minutes
+* 500 requests per endpoint per `AccessToken` within 15 minutes
+
+#### Production environment
+* 3600 requests per `ClientToken` within 15 minutes
+* 1600 requests per `AccessToken` within 15 minutes
+* 800 requests per endpoint per `AccessToken` within 15 minutes
+
 ## Responses
 
 The API responds with `Content-Type` set to `application/json` and JSON content. In case of success, the HTTP status code is 200 and the content contains result according to the call. In case of error, there are multiple HTTP status codes for different types of errors:
@@ -63,19 +77,6 @@ In case of any error, the returned JSON object describes the error and has the f
 
 Some errors may also contain additional information relevant to the error on top of these two properties. That depends on the operation and is specifically described in the operation documentation.
 
-### Request limits
-
-In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
-
-#### Demo environment
-* 2000 requests per `ClientToken` within 15 minutes
-* 1000 requests per `AccessToken` within 15 minutes
-* 500 requests per endpoint per `AccessToken` within 15 minutes
-
-#### Production environment
-* 3600 requests per `ClientToken` within 15 minutes
-* 1600 requests per `AccessToken` within 15 minutes
-* 800 requests per endpoint per `AccessToken` within 15 minutes
 
 ## Authentication
 
