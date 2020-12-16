@@ -155,7 +155,3 @@ Each enterprise is located in a specific [Tax environment](operations/configurat
 Instead of numeric tax rates such as `0.1`, use [Tax rate codes](operations/configuration.md#tax-rate) such as `AT-S` in order to represent and calculate the correct taxation for each accounting item in Mews. To obtain the applicable codes, first download the enterprise information with [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment, then filter for the applicable [Tax rate codes](operations/configuration.md#tax-rate) from all tax environment information retrieved via [Get all tax environments](operations/configuration.md#get-all-tax-environments). 
 
 Make sure to note the validity intervals as well as any government announcements to anticipate changes to tax rates. Should any changes occur, re-retrieve enterprise and tax environment information to identify the new tax rate codes.
-
-
-
-
