@@ -389,34 +389,40 @@ Returns all tax environments supported by the API.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `TaxEnvironments` | array of [Tax environment](configuration.md#tax-environment) | required | The supported tax environments. |
-| `Taxations` | array of [Taxation](configuration.md#taxation) | required | The supported taxations. |
-| `TaxRates` | array of [Tax rate](configuration.md#tax-rate) | required | The supported tax rates. |
+| `TaxEnvironments` | array of [Tax environment](#tax-environment) | required | The supported tax environments. |
+| `Taxations` | array of [Taxation](#taxation) | required | The supported taxations. |
+| `TaxRates` | array of [Tax rate](#tax-rate) | required | The supported tax rates. |
 
 #### Tax environment
+
+Tax environment represents set of [Taxation](#taxation)s together with optional validity interval.
 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax environment. |
-| `CountryCode` | string | required | ISO 3166-1 alpha-3 code, e.g. `USA` or `GBR`. |
+| `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
 | `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
 | `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
 #### Taxation
 
+Taxation represents set of [Tax rate](#tax-rate)s within [Tax environment](#tax-environment).
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the taxation. |
-| `TaxEnvironmentCode` | string | required | Code of the tax environment. |
+| `TaxEnvironmentCode` | string | required | Code of the [Tax environment](#tax-environment) the taxation is used in. |
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
 
 #### Tax rate
 
+Definition of single tax rate.
+
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
-| `Code` | string | required | Code of the tax rate. |
-| `TaxationCode` | string | required | Code of the taxation. |
+| `Code` | string | required | Code of the tax rate. To be used when posting revenue items which should be accompanied by the tax rate(s) applicable to the nature of the item and the tax environment. |
+| `TaxationCode` | string | required | Code of the [Taxation](#taxation) the rate is part of. |
 | `Strategy` | object [Tax rate strategy](#tax-rate-strategy) | required | Tax strategy type, e.g. relative or flat. |
 
 #### Tax rate strategy
