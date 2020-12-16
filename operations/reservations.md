@@ -241,22 +241,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
 * `Connector`
 * `Navigator`
 
-#### Cancellation reason
-
-* `Other`
-* `ConfirmationMissed`
-* `BookedElsewhere`
-* `ForceMajeure`
-* `GuestComplaint`
-* `NoShow`
-* `PriceTooHigh`
-* `ServiceNotAvailable`
-* `InputError`
-* `InvalidPayment`
-* `TravelAgency`
-* `RequestedByGuest`
-* `Update`
-
 #### Reservation group
 
 | Property | Type |  | Description |
