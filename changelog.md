@@ -1,5 +1,8 @@
 # Changelog
 
+## 16th December 2020 11:30 UTC
+* Added [Request limits](guidelines.md#request-limits) and [Taxations](guidelines#taxations) to [Guidelines](guidelines.md)
+
 ## 27th November 2020 11:30 UTC
 * Added operation [Get all vouchers](operations/services.md#get-all-vouchers) and extended  [Reservation](operations/reservations.md#reservation) with property `VoucherId`.
 
