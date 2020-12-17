@@ -412,7 +412,8 @@ Returns all resources of an enterprise associated with the connector integration
             "Data": {
                 "Discriminator": "Space",
                 "Value": {
-                    "FloorNumber": "3"
+                    "FloorNumber": "3",
+                    "LocationDetails": "A1"
                 }
             },
             "CreatedUtc": "2016-03-29T15:14:06Z",
@@ -430,7 +431,8 @@ Returns all resources of an enterprise associated with the connector integration
             "Data": {
                 "Discriminator": "Space",
                 "Value": {
-                    "FloorNumber": "3"
+                    "FloorNumber": "3",
+                    "LocationDetails": "B2"
                 }
             },
             "CreatedUtc": "2016-03-29T15:14:06Z",
@@ -549,6 +551,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `FloorNumber` | string | required | Number of the floor the space is on. |
+| `LocationDetails` | string | optional | Location details for the space. It can be eg. Building number the space is located in or the Parking area the particular parking space is at. |
 
 #### Object resource data
 
