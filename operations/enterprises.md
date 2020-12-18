@@ -412,7 +412,8 @@ Returns all resources of an enterprise associated with the connector integration
             "Data": {
                 "Discriminator": "Space",
                 "Value": {
-                    "FloorNumber": "3"
+                    "FloorNumber": "3",
+                    "LocationNotes": "A1"
                 }
             },
             "CreatedUtc": "2016-03-29T15:14:06Z",
@@ -430,7 +431,8 @@ Returns all resources of an enterprise associated with the connector integration
             "Data": {
                 "Discriminator": "Space",
                 "Value": {
-                    "FloorNumber": "3"
+                    "FloorNumber": "3",
+                    "LocationNotes": "B2"
                 }
             },
             "CreatedUtc": "2016-03-29T15:14:06Z",
@@ -549,6 +551,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `FloorNumber` | string | required | Number of the floor the space is on. |
+| `LocationNotes` | string | optional | Location notes for the space. It can be eg. Building number the space is located in or the Parking area the particular parking space is at. |
 
 #### Object resource data
 
@@ -680,6 +683,9 @@ Updates details of the resources.
                 "Value": {
                     "FloorNumber": {
                         "Value": "1"
+                    },
+                    "LocationNotes": {
+                        "Value": "A1"
                     }
                 }
             },
@@ -724,6 +730,7 @@ Updates details of the resources.
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `FloorNumber` | [String update value](reservations.md#string-update-value) | required | New number of the floor the space is on. |
+| `LocationNotes` | [String update value](reservations.md#string-update-value) | optional | New location notes for the space. |
 
 ### Response
 
