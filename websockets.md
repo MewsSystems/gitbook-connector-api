@@ -12,7 +12,7 @@ Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. I
 
 `Cookie: ClientToken=[ClientToken]; AccessToken=[AccessToken]`
 
-Authentication is done using same `ClientToken` and `AccessToken` values as in case of standard API operations. These tokens must be send as a cookies together with the connection request. Most websocket client libraries support this. 
+Authentication is done using same `ClientToken` and `AccessToken` values as in case of standard API operations. These tokens must be send as cookies together with the connection request. Most websocket client libraries support this. 
 
 For further details about access tokens, consult the [Authentication](guidelines.md#authentication) section.
 
