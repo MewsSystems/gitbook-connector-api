@@ -4,9 +4,17 @@ For use cases, when polling would be too resource consuming or not enough "real-
 
 ## Endpoint
 
-`[PlatformAddress]/ws/connector?ClientToken=[ClientToken]&AccessToken=[AccessToken]`
+`[PlatformAddress]/ws/connector`
 
-Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. If `[PlatformAddress]` starts with `http://` then `ws://` should be used. If it starts with `https://` then `wss://` should be used. `ClientToken` and `AccessToken` parameter values should be the same as in case of standard API operations. For further details, consult the [Authentication](guidelines.md#authentication) section.
+Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. If `[PlatformAddress]` starts with `http://` then `ws://` should be used. If it starts with `https://` then `wss://` should be used. 
+
+## Authentication
+
+`Cookie: ClientToken=[ClientToken]; AccessToken=[AccessToken]`
+
+Authentication is done using same `ClientToken` and `AccessToken` values as in case of standard API operations. These tokens must be send as a cookies together with the connection request. Most websocket client libraries support this. 
+
+For further details about access tokens, consult the [Authentication](guidelines.md#authentication) section.
 
 ## Message
 
