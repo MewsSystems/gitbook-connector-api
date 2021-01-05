@@ -677,10 +677,10 @@ Updates information about the specified reservations. Note that if any of the fi
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
-| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`. |
-| `CheckRateApplicability` | bool | optional | Whether the rate applicability is checked. If set to `false` it allows to set a restricted rate. Default value is `true`. |
-| `Reprice` | bool | optional | Whether the price should be updated to latest value for date/rate/category combination set in Mews. Default value is `true`. |
-| `ApplyCancellationFee` | bool | optional | Whether the cancellation fee should be applied on cancelled nights. Default value is `true`. |
+| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. If not specified, the overbooking is checked. |
+| `CheckRateApplicability` | bool | optional | Whether the rate applicability is checked. If set to `false` it allows to set a restricted rate. If not specified, the rate applicability is checked. |
+| `Reprice` | bool | optional | Whether the price should be updated to latest value for date/rate/category combination set in Mews. If not specified, the reservation price is updated. |
+| `ApplyCancellationFee` | bool | optional | Whether the cancellation fees should be applied according to rate cancellation policies. If not specified, the cancellation fees are applied. |
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
 
 #### Reservation updates
