@@ -587,9 +587,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
 
-## Update reservation
+## Update reservations
 
-Updates information about the specified reservation. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
+Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
 
 ### Request
 
@@ -603,6 +603,8 @@ Updates information about the specified reservation. Note that if any of the fie
     "Reason": "Testing",
     "CheckOverbooking": true,
     "CheckRateApplicability": true,
+    "Reprice": true,
+    "ApplyCancellationFee": true,
     "ReservationUpdates": [
         {
             "ReservationId": "622605a9-2969-441f-9610-aa720099ae1c",
@@ -675,8 +677,10 @@ Updates information about the specified reservation. Note that if any of the fie
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
-| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
-| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
+| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`. |
+| `CheckRateApplicability` | bool | optional | Whether the rate applicability is checked. If set to `false` it allows to set a restricted rate. Default value is `true`. |
+| `Reprice` | bool | optional | Whether the price should be updated to latest value for date/rate/category combination set in Mews. Default value is `true`. |
+| `ApplyCancellationFee` | bool | optional | Whether the cancellation fee should be applied on cancelled nights. Default value is `true`. |
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
 
 #### Reservation updates
