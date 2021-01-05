@@ -422,9 +422,11 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | Property | Type |  | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `NetValue` | number | optional | Net value in case the item is taxed. In most cases precision depends on [Currency](configuration.md#currency) precision or Tax precision, but can be higher. |
-| `GrossValue` | number | optional | Gross value including all taxes. In most cases precision depends on [Currency](configuration.md#currency) precision or Tax precision, but can be higher. |
+| `NetValue` | number | optional | Net value in case the item is taxed. |
+| `GrossValue` | number | optional | Gross value including all taxes. |
 | `TaxValues` | array of [Tax Value](finance.md#tax-value) | optional | The tax values applied. |
+
+For most amounts, precision of values depends on [Currency](configuration.md#currency) precision or Tax precision, based on [Pricing](configuration.md#pricing) of the enterprise. But in some cases, precision can be higher.
 
 #### Tax value
 
