@@ -121,12 +121,12 @@ Returns all cashier transactions created within the specified interval.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | required | Interval in which the [Transaction](#cashier-transaction) was created. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | required, max length 3 months | Interval in which the [Transaction](#cashier-transaction) was created. |
 
 ### Response
 
@@ -264,15 +264,15 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified. |
-| `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified.  |
-| `ItemIds` | array of string | optional | Unique identifiers of the Accounting items. Required if `StartUtc` and `EndUtc` are not specified. |
+| `StartUtc` | string | optional, max length 1 months | Start of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified. |
+| `EndUtc` | string | optional, max length 1 months | End of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified.  |
+| `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if `StartUtc` and `EndUtc` are not specified. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
@@ -576,18 +576,18 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `BillIds` | array of string | optional | Unique identifiers of the [Bill](finance.md#bill)s. Required if no other filter is provided. |
-| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bill](finance.md#bill)s. Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `State` | string | optional | [Bill state](finance.md#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was closed. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was created. |
-| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) is due to be paid. |
-| `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Bill](#bill) was paid. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
+| `DueUtc` | [Time interval](enterprises.md#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
+| `PaidUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](finance.md#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
 
 #### Bill state
@@ -731,12 +731,12 @@ Creates new empty bill assigned to specified account.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Bills` | array of [Bill parameters](#bill-parameters) | required | Information about bills to be created. |
+| `Bills` | array of [Bill parameters](#bill-parameters) | required, max 1000 items | Information about bills to be created. |
 
 #### Bill parameters
 
@@ -1005,13 +1005,13 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Outlet bill](#outlet-bill) was closed. |
+| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 ### Response
@@ -1131,13 +1131,13 @@ Returns all credit cards, possibly filtered by identifiers, [Customer](customers
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreditCardIds` | array of string | optional | Unique identifiers of the [Credit card](finance.md#credit-card)s. Required if no other filter is provided. |
-| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s. |
+| `CreditCardIds` | array of string | optional, max 1000 items | Unique identifiers of the [Credit card](finance.md#credit-card)s. Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customer](customers.md#customer)s. |
 
 ### Response
 
@@ -1314,12 +1314,12 @@ Returns all preauthorizations of specified customers.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `CustomerIds` | array of string | required, max 1000 items | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
 
