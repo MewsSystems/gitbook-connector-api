@@ -113,6 +113,7 @@ Returns configuration of the enterprise and the client.
 | `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `Pricing` | string | required | [Pricing](configuration.md#pricing) of the enterprise. |
+| `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](configuration.md#currency) precision is used. |
 
 #### Address
 
