@@ -35,14 +35,28 @@ Use properties `CreatedUtc`, `UpdatedUtc`, etc. as per operation description.
 #### Other deprecated properties
 
 Following properties will be removed from output and/or ignored on input:
-* `TaxIdentificationNumber` (replaced by `TaxIdentifier`) on [Company](operations/enterprises.md#company) 
-* `ChannelManagerId` (replaced by `ChannelManagerNumber`), `TimeUnitCost` (replaced by `TimeUnitPrices`), `TraveAgencyId` (replaced by `TravelAgencyId`), `ApplyCancelationFee` (replaced by `ApplyCancellationFee`) on [Reservation](operations/reservations.md#reservation)
-* `Total` (replaced by `TotalAmount`) on [Reservation price](operations/reservations.md#reservation-price)
-* `Gender` (replaced by `Sex`), `CategoryId` (unused), `BirthDateUtc` (replaced by `BirthDate`) on [Customer](operations/customers.md#customer)
-* `Passport`, `IdentityCard`, `Visa`, `DriversLicense` on [Customer](operations/customers.md#customer) replaced by [Document](customers.md#document) object
-* `ExpirationUtc` (replaced by `Expiration`), `IssuanceUtc` (replaced by `Issuance`) on [Document](operations/customers.md#document)
-* `Net`, `Tax`, `TaxRate` on [Currency value](operations/finance.md#currency-value)
-* `UnitCost` replaced by [Amount](operations/finance.md#amount-value)
+
+| Object | Property | Replaced by |
+| --- | --- | --- | 
+| [Company](operations/enterprises.md#company) | `TaxIdentificationNumber` | `TaxIdentifier` | 
+| [Reservation](operations/reservations.md#reservation) | `ChannelManagerId` | `ChannelManagerNumber` |
+| [Reservation](operations/reservations.md#reservation) | `TimeUnitCost` | `TimeUnitPrices` |
+| [Reservation](operations/reservations.md#reservation) | `TraveAgencyId` | `TravelAgencyId` |
+| [Reservation](operations/reservations.md#reservation) | `ApplyCancelationFee` | `ApplyCancellationFee` |
+| [Reservation price](operations/reservations.md#reservation-price) | `Total` | `TotalAmount` |
+| [Customer](operations/customers.md#customer) | `Gender` | `Sex` |
+| [Customer](operations/customers.md#customer) | `BirthDateUtc` | `BirthDate` |
+| [Customer](operations/customers.md#customer) | `CategoryId` | --- |
+| [Customer](operations/customers.md#customer) | `Passport` | [Document](customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `IdentityCard` | [Document](customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `Visa` | [Document](customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `DriversLicense` | [Document](customers.md#document) object in `Documents` part of response |
+| [Document](operations/customers.md#document) | `ExpirationUtc` | `Expiration` |
+| [Document](operations/customers.md#document) | `IssuanceUtc` | `Issuance` |
+| [Currency value](operations/finance.md#currency-value) | `Net` | --- |
+| [Currency value](operations/finance.md#currency-value) | `Tax` | --- |
+| [Currency value](operations/finance.md#currency-value) | `TaxRate` | --- |
+| Whole `UnitCost` object | --- | [Amount](operations/finance.md#amount-value) |
 
 #### Websocket authentication
 
