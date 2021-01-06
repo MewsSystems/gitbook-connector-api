@@ -220,12 +220,12 @@ Returns all commands by their identifiers.
 }
 ```
 
-| Property | Type |  | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CommandIds` | array of string | required | Unique identifiers of [Command](integrations.md#command)s to be returned. |
+| Property | Type |  | Description | Limitation |
+| --- | --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. | |
+| `AccessToken` | string | required | Access token of the client application. | |
+| `Client` | string | required | Name and version of the client application. | |
+| `CommandIds` | array of string | required | Unique identifiers of [Command](integrations.md#command)s to be returned. | 1000 items |
 
 ### Response
 
