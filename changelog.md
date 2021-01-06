@@ -1,6 +1,6 @@
 # Changelog
 
-## 1st April 2021
+## Planned changes for 1st April 2021
 
 ### Deprecated operations
 
