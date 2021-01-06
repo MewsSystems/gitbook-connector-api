@@ -114,14 +114,14 @@ Returns availability of a reservable service in the specified interval including
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. | |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. | 3 months |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. | 3 months |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -233,12 +233,12 @@ Returns all products offered together with the specified services.
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. | 1000 items |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s. |
 
 ### Response
 
@@ -356,13 +356,13 @@ Returns all rules applied with the reservations.
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s. | 1000 items |
-| `Extent` | [Rule extent](#rule-extent) | required | Extent of data to be returned. | |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s. |
+| `Extent` | [Rule extent](#rule-extent) | required | Extent of data to be returned. |
 
 #### Rule extent
 
@@ -523,12 +523,12 @@ Returns all business segments of the default service provided by the enterprise.
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the business segments are requested. | 1000 items |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the business segments are requested. |
 
 ### Response
 
@@ -587,13 +587,13 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the rates are requested. | 1000 items |
-| `Extent` | [Rate extent](services.md#rate-extent) | required | Extent of data to be returned. | |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the rates are requested. |
+| `Extent` | [Rate extent](services.md#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
 
@@ -682,14 +682,14 @@ Returns prices of a rate in the specified interval. Note that response contains 
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. | |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. | 3 months |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. | 3 months |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -843,19 +843,19 @@ Returns all restrictions of the default service provided by the enterprise.
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the restrictions are requested. | 1000 items |
-| `ResourceCategoryIds` | array of string | optional | Unique identifiers of [Resource categories](enterprises.md#resource-category). | 1000 items |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns all restrictions that affect given rates (i.e. ones without any [Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate group](services.md#rate-group) of specified rates, or ones inherited from base rates).  | 1000 items |
-| `BaseRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restrictions which have matching `BaseRateId` set in [Conditions](#restriction-conditions). | 1000 items |
-| `ExactRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restrictions which have matching `ExactRateId` set in [Conditions](#restriction-conditions). | 1000 items |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. | 3 months |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. | 3 months |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was updated. | 3 months |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of the [Service](#service)s from which the restrictions are requested. |
+| `ResourceCategoryIds` | array of string | optional | Unique identifiers of [Resource categories](enterprises.md#resource-category). |
+| `RateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns all restrictions that affect given rates (i.e. ones without any [Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate group](services.md#rate-group) of specified rates, or ones inherited from base rates).  |
+| `BaseRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restrictions which have matching `BaseRateId` set in [Conditions](#restriction-conditions). |
+| `ExactRateIds` | array of string | optional | Unique identifiers of [Rate](#rate)s. Returns only those restrictions which have matching `ExactRateId` set in [Conditions](#restriction-conditions). |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Restriction](#restriction) was updated. |
 
 ### Response
 
@@ -1285,15 +1285,15 @@ Returns all companionships based on customers, reservations or reservation group
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. | 1000 items |
-| `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. | 1000 items |
-| `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. | 1000 items |
-| `Extent` | [Companionship extent](services.md#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. | |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. |
+| `ReservationIds` | array of string | optional | Unique identifiers of [Reservation](reservations.md#reservation)s. |
+| `ReservationGroupIds` | array of string | optional | Unique identifiers of [Reservation group](reservations.md#reservation-group)s. |
+| `Extent` | [Companionship extent](services.md#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
 
 #### Companionship extent
 
@@ -1372,16 +1372,16 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | | 
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ServiceIds` | array of string | required | Unique identifiers of [Service](#service)s where the vouchers belong to. | 1000 items |
-| `VoucherIds` | array of string | optional | Unique identifiers of vouchers. | 1000 items |
-| `VoucherCodeValues` | array of string | optional | Value of voucher codes used by customers. | 1000 items |
-| `Extent` | [Voucher extent](#voucher-extent) | required | Extent of data to be returned. Whether only specific voucher info should be returned or related items as well. | |
-| `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. | |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required | Unique identifiers of [Service](#service)s where the vouchers belong to. |
+| `VoucherIds` | array of string | optional | Unique identifiers of vouchers. |
+| `VoucherCodeValues` | array of string | optional | Value of voucher codes used by customers. |
+| `Extent` | [Voucher extent](#voucher-extent) | required | Extent of data to be returned. Whether only specific voucher info should be returned or related items as well. |
+| `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
 
 #### Voucher extent
 

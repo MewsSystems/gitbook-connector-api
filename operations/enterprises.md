@@ -31,15 +31,15 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `Ids` | array of string | optional | Unique identifiers of [Companies](enterprises.md#company). | 1000 items |
-| `Names` | array of string | optional | Names of [Companies](enterprises.md#company). | 1000 items |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. | 3 months |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. | 3 months |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Ids` | array of string | optional | Unique identifiers of [Companies](enterprises.md#company). |
+| `Names` | array of string | optional | Names of [Companies](enterprises.md#company). |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) creation date and time. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval of [Company](enterprises.md#company) last update date and time. |
 
 #### Time interval
 
@@ -775,17 +775,17 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `ResourceBlockIds` | array of string | optional | Unique identifiers of the requested [Resource block](#resource-block)s. | 1000 items |
-| `AssignedResourceIds` | array of string | optional | Unique identifiers of the requested Assigned [Resource](#resource)s. | 1000 items |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) is active. | 3 months |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) was created. | 3 months |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) was updated. | 3 months |
-| `Extent` | [Resource block extent](#resource-block-extent) | required | Extent of data to be returned. | |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ResourceBlockIds` | array of string | optional | Unique identifiers of the requested [Resource block](#resource-block)s. |
+| `AssignedResourceIds` | array of string | optional | Unique identifiers of the requested Assigned [Resource](#resource)s. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) is active. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which the [Resource block](#resource-block) was updated. |
+| `Extent` | [Resource block extent](#resource-block-extent) | required | Extent of data to be returned. |
 
 #### Resource block extent
 
@@ -1043,17 +1043,17 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 }
 ```
 
-| Property | Type |  | Description | Limitation |
-| --- | --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. | |
-| `AccessToken` | string | required | Access token of the client application. | |
-| `Client` | string | required | Name and version of the client application. | |
-| `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. | 1000 items |
-| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. | 1000 items |
-| `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). | 1000 items |
-| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was created. | 3 months |
-| `ClosedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was closed. | 3 months |
-| `DeadlineUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) has a deadline. | 3 months |
+| Property | Type |  | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `TaskIds` | array of string | optional | Unique identifiers of [Task](#task)s. |
+| `DepartmentIds` | array of string | optional | Unique identifiers of [Department](#department)s. Not possible to be used standalone, needs to be used in combination with other filters. |
+| `ServiceOrderIds` | array of string  | optional | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or [Product order](services#add-order)). |
+| `CreatedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was created. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) was closed. |
+| `DeadlineUtc` | [Time interval](#time-interval) | optional | Interval in which the [Task](#task) has a deadline. |
 
 ### Response
 
