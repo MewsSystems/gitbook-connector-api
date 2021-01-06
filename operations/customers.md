@@ -61,7 +61,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 #### Customer extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Customers` | bool | optional | Whether the response should contain information about customers. |
 | `Documents` | bool | optional | Whether the response should contain identity documents of customers. |
@@ -122,14 +122,14 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Customers` | array of [Customer](customers.md#customer) | required | The customers. |
 | `Documents` | array of [Document](customers.md#document) | required | The identity documents of customers. |
 
 #### Customer
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the customer. |
 | `Number` | string | required | Number of the customer. |
@@ -170,7 +170,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 #### Document
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the document. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
@@ -228,7 +228,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -275,13 +275,13 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
 
 #### Customer search result
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Customer` | [Customer](customers.md#customer) | required | The found customer. |
 | `Reservation` | [Reservation](reservations.md#reservation) | optional | Reservation of the customer in case he currently stays in the enterprise. |
@@ -348,13 +348,13 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Customers` | array of [Customer items](customers.md#customer-items) | required | The customers with their items. |
 
 #### Customer items
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `Items` | array of [Accounting item](finance.md#accounting-item) | required | The open items. |
@@ -406,7 +406,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -438,7 +438,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 
 #### Address parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Line1` | string | optional | First line of the address. |
 | `Line2` | string | optional | Second line of the address. |
@@ -492,7 +492,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -544,7 +544,7 @@ Merges one customer to another. All entities attached to the source customer \(e
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -578,7 +578,7 @@ Attaches the specified file to the customer profile.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |

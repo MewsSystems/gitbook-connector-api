@@ -29,7 +29,7 @@ When an action of particular type is performed in the system, a message is sent 
 
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
 | `Data` | object | required | Structure of the object depends on [Webhook action](#webhook-action). |
@@ -47,7 +47,7 @@ When an action of particular type is performed in the system, a message is sent 
 
 ### Integration created data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Enterprise` | [Enterprise](#enterprise) | required | Commercial chain of the property. |
 | `Service` | [Service](#service) | optional | Service the integration is connected to. |
@@ -59,59 +59,59 @@ When an action of particular type is performed in the system, a message is sent 
 
 #### Enterprise
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `Name` | string | required | Name of the enterprise. |
 
 #### Service
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the service. |
 | `Name` | string | required | Name of the service. |
 
 #### Requestor
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the requestor. |
 | `Email` | string | required | Email of the requestor. |
 
 #### Integration
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the integration. |
 | `Name` | string | required | Name of the intergation. |
 
 ### Integration enabled data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration disabled data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration canceled data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration reinstated data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration deleted data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
 | `Integration` | [Integration](#integration) | required | Integration data. |

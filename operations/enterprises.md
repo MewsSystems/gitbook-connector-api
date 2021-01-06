@@ -43,7 +43,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 
 #### Time interval
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -92,13 +92,13 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Companies` | array of [Company](enterprises.md#company) | required | The company profiles of the enterprise. |
 
 #### Company
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the company. |
 | `Name` | string | required | Name of the company. |
@@ -128,7 +128,7 @@ Returns all contracts between the enterprise and other companies.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -151,13 +151,13 @@ Returns all contracts between the enterprise and other companies.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `TravelAgencyContracts` | array of [Travel agency contract](enterprises.md#travel-agency-contract) | required | The travel agency contracts. |
 
 #### Travel agency contract
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the contract. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the contract is related to. |
@@ -182,7 +182,7 @@ Returns all departments of an enterprise associated with the connector integrati
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -207,13 +207,13 @@ Returns all departments of an enterprise associated with the connector integrati
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Departments` | array of [Department](enterprises.md#department) | required | The departments of the enterprise. |
 
 #### Department
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the department. |
 | `IsActive` | boolean | required | Whether the department is still active. |
@@ -235,7 +235,7 @@ Returns all counters of an enterprise associated with the connector integration.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -283,7 +283,7 @@ Returns all counters of an enterprise associated with the connector integration.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BillCounters` | array of [Counter](#counter) | required | The counters used to count closed [Bill](finance.md#bill)s. |
 | `ProformaCounters` | array of [Counter](#counter) | required | The counters used to count Pro Forma invoices for [Bill](finance.md#bill)s. |
@@ -292,7 +292,7 @@ Returns all counters of an enterprise associated with the connector integration.
 
 #### Counter
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the counter. |
 | `Name` | string | required | Name of the counter. |
@@ -316,7 +316,7 @@ Returns all outlets of an enterprise associated with the connector integration.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -341,13 +341,13 @@ Returns all outlets of an enterprise associated with the connector integration.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Outlets` | array of [Outlet](enterprises.md#outlet) | required | The outlets of the enterprise. |
 
 #### Outlet
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the outlet. |
 | `IsActive` | boolean | required | Whether the outlet is still active. |
@@ -378,7 +378,7 @@ Returns all resources of an enterprise associated with the connector integration
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -387,7 +387,7 @@ Returns all resources of an enterprise associated with the connector integration
 
 #### Resource extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Resources` | bool | optional | Whether the response should contain resources. |
 | `ResourceCategories` | bool | optional | Whether the response should contain categories. |
@@ -503,7 +503,7 @@ Returns all resources of an enterprise associated with the connector integration
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Resources` | array of [Resource](#resource) | optional | The resources of the enterprise. |
 | `ResourceCategories` | array of [Resource category](#resource-category) | optional | Categories of resources in the enterprise. |
@@ -514,7 +514,7 @@ Returns all resources of an enterprise associated with the connector integration
 
 #### Resource
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the resource. |
 | `IsActive` | bool | required | Whether the resource is still active. |
@@ -535,7 +535,7 @@ Returns all resources of an enterprise associated with the connector integration
 
 #### Resource data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | If resource is space, object or person. |
 | `Value` | object | required | Based on Resource data discriminator, e.g. [Space resource data](#space-resource-data)  |
@@ -548,24 +548,24 @@ Returns all resources of an enterprise associated with the connector integration
 
 #### Space resource data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `FloorNumber` | string | required | Number of the floor the space is on. |
 | `LocationNotes` | string | optional | Location notes for the space. It can be eg. Building number the space is located in or the Parking area the particular parking space is at. |
 
 #### Object resource data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 
 #### Person resource data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 
 #### Resource category
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the category. |
 | `IsActive` | bool | required | Whether the category is still active. |
@@ -586,7 +586,7 @@ Returns all resources of an enterprise associated with the connector integration
 
 #### Resource category assignment
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the assignment. |
 | `IsActive` | bool | required | Whether the assignment is still active. |
@@ -597,7 +597,7 @@ Returns all resources of an enterprise associated with the connector integration
 
 #### Resource category image assignment
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the assignment. |
 | `IsActive` | bool | required | Whether the assignment is still active. |
@@ -612,7 +612,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 #### Resource feature
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the feature. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
@@ -648,7 +648,7 @@ An object where keys are the [Language](configuration.md#language) codes and val
 
 #### Resource feature assignment
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the assignment. |
 | `IsActive` | bool | required | Whether the assignment is still active. |
@@ -700,7 +700,7 @@ Updates details of the resources.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -709,7 +709,7 @@ Updates details of the resources.
 
 #### Resource update
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ResourceId` | string | required | Unique identifier of the [Resource](#resource) which is updated. |
 | `Name` | [String update value](reservations.md#string-update-value) | optional | New name of the resource \(e.g. room number\). |
@@ -720,14 +720,14 @@ Updates details of the resources.
 
 #### Resource data update
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Resource data discriminator](#resource-data-discriminator) | required | Defines the type of the resource. |
 | `Value` | object | required | Based on Resource data discriminator, e.g. [Space resource data update](#space-resource-data-update) |
 
 #### Space resource data update
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `FloorNumber` | [String update value](reservations.md#string-update-value) | required | New number of the floor the space is on. |
 | `LocationNotes` | [String update value](reservations.md#string-update-value) | optional | New location notes for the space. |
@@ -789,7 +789,7 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
 
 #### Resource block extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Inactive` | bool | required | Whether the response should contain inactive entities. |
 
@@ -822,13 +822,13 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ResourceBlocks` | array of [Resource block](#resource-block) | required | The resource blocks colliding with the interval or matching the Id parameters. |
 
 #### Resource block
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the block. |
 | `AssignedResourceId` | string | required | Unique identifier of the assigned [Resource](#resource). |
@@ -878,7 +878,7 @@ Adds a new resource block to the specified resource for a defined period of time
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -887,7 +887,7 @@ Adds a new resource block to the specified resource for a defined period of time
 
 #### Resource block parameter
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ResourceId` | string | required | Unique identifier of [Resource](#resource). |
 | `Name` | string | required | Name of the resource block. |
@@ -925,7 +925,7 @@ Adds a new resource block to the specified resource for a defined period of time
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ResourceBlocks` | array of [Resource block](#resource-block)s | required | Resource blocks added. |
 
@@ -949,7 +949,7 @@ Removes specified resource blocks from the resources.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -983,7 +983,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1002,7 +1002,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `TaskId` | string | required | Unique identifier of added task. |
 
@@ -1075,13 +1075,13 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Tasks` | array of [Task](#task) | required | The filtered tasks. |
 
 #### Task
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the task. |
 | `Name` | string | required | Name \(or title\) of the task. |
@@ -1128,7 +1128,7 @@ Adds a new company to the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1194,7 +1194,7 @@ Updates information of the company.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |

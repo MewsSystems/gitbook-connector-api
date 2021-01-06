@@ -16,7 +16,7 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -41,13 +41,13 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ExchangeRates` | array of [Exchange rate](finance.md#exchange-rate) | required | The available exchange rates. |
 
 #### Exchange rate
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `SourceCurrency` | string | required | ISO-4217 code of the source [Currency](configuration.md#currency). |
 | `TargetCurrency` | string | required | ISO-4217 code of the target [Currency](configuration.md#currency). |
@@ -69,7 +69,7 @@ Returns all cashiers in the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -89,13 +89,13 @@ Returns all cashiers in the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Cashiers` | array of [Cashier](finance.md#cashier) | required | Cashiers in the enterprise. |
 
 #### Cashier
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the cashier. |
 | `IsActive` | boolean | required | Whether the cashier is still active. |
@@ -149,13 +149,13 @@ Returns all cashier transactions created within the specified interval.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CashierTransactions` | array of [Cashier transaction](finance.md#cashier-transaction) | required | Cashier transactions created in the interval. |
 
 #### Cashier transaction
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the transaction. |
 | `CashierId` | string | required | Unique identifier of the [Cashier](finance.md#cashier). |
@@ -181,7 +181,7 @@ Returns all accounting categories of the enterprise associated with the connecto
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -218,13 +218,13 @@ Returns all accounting categories of the enterprise associated with the connecto
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AccountingCategories` | array of [Accounting category](finance.md#accounting-category) | required | Accounting categories of the enterprise. |
 
 #### Accounting category
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the category. |
 | `IsActive` | boolean | required | Whether the accounting category is still active. |
@@ -284,7 +284,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 #### Accounting item extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AccountingItems` | bool | optional | Whether the response should contain [Accounting item](#accounting-item)s. |
 | `CreditCardTransactions` | bool | optional | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the accounting items. |
@@ -336,14 +336,14 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AccountingItems` | array of [Accounting item](finance.md#accounting-item) | optional | The accounting items. |
 | `CreditCardTransactions` | array of [Credit card transaction](finance.md#credit-card-transaction) | optional | The credit card payment transactions. |
 
 #### Accounting item
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the item. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) whose account the item belongs to. |
@@ -408,14 +408,14 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 #### Currency value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `Value` | number | optional | Amount in the currency. |
 
 #### Amount Value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `NetValue` | number | optional | Net value in case the item is taxed. |
@@ -424,14 +424,14 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 #### Tax value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | number | required | Code corresponding to tax type. |
 | `Value` | number | required | Amount of tax applied. |
 
 #### Credit card transaction
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the credit card transaction. |
 | `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
@@ -475,7 +475,7 @@ Updates specified accounting items. Allows to change to which account or bill th
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -484,7 +484,7 @@ Updates specified accounting items. Allows to change to which account or bill th
 
 #### Accounting item update
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AccountingItemId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
 | `AccountId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the item is assigned to \(or `null` if the assigned account should not be updated\). If defined, valid account identifier must be provided. |
@@ -532,7 +532,7 @@ Updates specified accounting items. Allows to change to which account or bill th
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The updated accounting items. |
 
@@ -593,7 +593,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 
 #### Bill extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Items` | bool | required | Whether the response should contain payments and revenue items. |
 
@@ -638,13 +638,13 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Bills` | array of [Bill](finance.md#bill) | required | The filtered bills. |
 
 #### Bill
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the bill. |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
@@ -675,7 +675,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Bill options
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `DisplayCustomer` | boolean | required | Display customer information on a bill. |
 | `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
@@ -685,7 +685,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Bill assignee data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Bill assignee data discriminator](#bill-assignee-data-discriminator) | required | Determines type of value. |
 | `Value` | object | required | Structure of object depends on [Bill assignee data discriminator](#bill-assignee-data-discriminator). |
@@ -697,13 +697,13 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Bill customer data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
 
 #### Bill company data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 
 ## Add bill
@@ -736,7 +736,7 @@ Creates new empty bill assigned to specified account.
 
 #### Bill parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
 
@@ -768,7 +768,7 @@ Creates new empty bill assigned to specified account.
 }
 ``` 
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Bills` | array of [Bill](#bill) | required | The created bills. |
 
@@ -791,7 +791,7 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -845,7 +845,7 @@ Closes a bill so no further modification to it is possible.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -864,7 +864,7 @@ Closes a bill so no further modification to it is possible.
 
 #### Bill options parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `DisplayCustomer` | [Bool update value](reservations.md#bool-update-value) | required | Display customer information on a bill. |
 | `DisplayTaxation` | [Bool update value](reservations.md#bool-update-value) | required | Display taxation detail on a bill. |
@@ -903,7 +903,7 @@ Closes a bill so no further modification to it is possible.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Bills` | array of [Bill](#bill) | required | The closed bill. |
 
@@ -925,7 +925,7 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -947,14 +947,14 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BillId` | string | required | The unique identifier of printed [Bill](finance.md#bill). |
 | `Result` | object [Bill PDF result](#bill-pdf-result) | required | The result of operation. |
 
 #### Bill PDF result
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Bill PDF result discriminator](#bill-pdf-result-discriminator) | required | Determines type of result. |
 | `Value` | object | required | Structure of object depends on [Bill PDF result discriminator](#bill-pdf-result-discriminator). |
@@ -966,13 +966,13 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 
 #### Bill PDF file
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Base64Data` | string  | required | BASE64 encoded PDF file. |
 
 #### Bill print event
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BillPrintEventId` | string  | required | Unique identifier of print event. Must be used in retry calls to retrieve the PDF. |
 
@@ -1069,14 +1069,14 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `OutletItems` | array of [Outlet item](finance.md#outlet-item) | required | The outlet items. |
 | `OutletBills` | array of [Outlet bill](finance.md#outlet-bill) | required | The outlet bills of the items. |
 
 #### Outlet item
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the item. |
 | `BillId` | string | required | Unique identifier of the [Outlet bill](finance.md#outlet-bill) the item belongs to. |
@@ -1097,7 +1097,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 
 #### Outlet bill
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the bill. |
 | `OutletId` | string | required | Unique identifier of the [Outlet](enterprises.md#outlet) where the bill was issued. |
@@ -1156,13 +1156,13 @@ Returns all credit cards, possibly filtered by identifiers, [Customer](customers
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | CreditCards | array of [Credit card](finance.md#credit-card)s | required | The credit cards. |
 
 #### Credit card
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the credit card. |
 | `CustomerId` | string | required | Unique identifier of the credit card [owner](customers.md#customer). |
@@ -1218,7 +1218,7 @@ Creates payment for specified customer credit card and charges the credit card v
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1237,7 +1237,7 @@ Creates payment for specified customer credit card and charges the credit card v
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | PaymentId | string | required | Unique identifier of the payment [Accounting item](finance.md#accounting-item). |
 
@@ -1263,7 +1263,7 @@ Adds a new tokenized credit card to the specified customer.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1273,7 +1273,7 @@ Adds a new tokenized credit card to the specified customer.
 
 #### Credit card data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `StorageData` | string | required | [Key](configuration.md#payment-card-storage) for accessing PCI proxy storage. |
 | `ObfuscatedNumber` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
@@ -1287,7 +1287,7 @@ Adds a new tokenized credit card to the specified customer.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
@@ -1356,13 +1356,13 @@ Returns all preauthorizations of specified customers.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | Preauthorizations | array of [Preauthorization](finance.md#preauthorization) | required | Preauthorizations of the specified [Customers](customers.md#customer). |
 
 #### Preauthorization
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the preauthorization. |
 | `CreditCardId` | string | required | Unique identifier of the credit card. |
@@ -1407,7 +1407,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1422,7 +1422,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 
 #### Credit card parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string | required | Type of the credit card, one of: `Visa`, `MasterCard`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `EnRoute`, `Maestro`, `UnionPay`. |
 | `Number` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. It is possible to provide even more obfuscated number or just last four digits. **Never provide full credit card number**. For example `411111******1111`. |
@@ -1437,7 +1437,7 @@ Adds a new credit card payment to a bill of the specified customer. Note that th
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](finance.md#credit-card). |
 
@@ -1464,7 +1464,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1492,7 +1492,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ExternalPaymentId` | string | required | Unique identifier of the payment [Accounting item](#accounting-item). |
 
@@ -1519,7 +1519,7 @@ Adds a new alternative payment to a specified customer.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1545,13 +1545,13 @@ Adds a new alternative payment to a specified customer.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `PaymentId` | string | required | Unique identifier of the created payment. |
 | `NextAction` | object [Alternative payment next action](#alternative-payment-next-action) | required | Next action to take in order to complete the payment. |
 #### Alternative payment next action
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Payment next action discriminator](#payment-next-action-discriminator) | required | Determines type of value. |
 | `Value` | string | required | String value depending on [Payment next action discriminator](#payment-next-action-discriminator). |
@@ -1612,7 +1612,7 @@ Adds new outlet bills with their items.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1621,7 +1621,7 @@ Adds new outlet bills with their items.
 
 #### Outlet bill parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `OutletId` | string | required | Unique identifier of the [Outlet](enterprises.md#outlet) where the bill was issued. |
 | `Number` | string | required | Number of the bill. |
@@ -1631,7 +1631,7 @@ Adds new outlet bills with their items.
 
 #### Outlet item parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string [Outlet item type](finance.md#outlet-item-type) | optional | Type of the item. |
 | `Name` | string | required | Name of the item. |
@@ -1651,6 +1651,6 @@ Adds new outlet bills with their items.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `OutletBillIds` | array of string | required | Array of unique identifiers of the added [Outlet bills](#outlet-bill). |

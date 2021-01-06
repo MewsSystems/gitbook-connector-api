@@ -70,7 +70,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 #### Reservation extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BusinessSegments` | bool | optional | Whether the response should contain business segmentation. |
 | `Customers` | bool | optional | Whether the response should contain customers of the reservations. |
@@ -171,7 +171,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BusinessSegments` | array of [Business segment](services.md#business-segment) | optional | Business segments of the reservations. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that are members of the reservations. |
@@ -190,7 +190,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 #### Reservation
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the reservation. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that is reserved. |
@@ -241,14 +241,14 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 #### Reservation group
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
 
 #### Order note
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the note. |
 | `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation). |
@@ -264,7 +264,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 #### QrCode data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | required | Reservation data for QR code generation. |
@@ -344,13 +344,13 @@ Returns all revenue items associated with the specified reservations.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Reservations` | array of [Reservation items](reservations.md#reservation-items) | required | The reservations with their items. |
 
 #### Reservation items
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `Items` | array of [Accounting item](finance.md#accounting-item) | required | The items associated with the reservation. |
@@ -389,7 +389,7 @@ Returns prices of reservations with the specified parameters.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -420,13 +420,13 @@ Returns prices of reservations with the specified parameters.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ReservationPrices` | array of [Reservation price](reservations.md#reservation-price) | required | The reservation prices. |
 
 #### Reservation price
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Total` | [Currency value](finance.md#currency-value) | required | Total price of the reservation. |
@@ -495,7 +495,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -510,7 +510,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 
 #### Reservation parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `State` | string [Reservation state](reservations.md#reservation-state) | optional | State of the newly created reservation \(either `Optional`, `Enquired` or `Confirmed`\). If not specified, `Confirmed` is used. |
@@ -576,13 +576,13 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Reservations` | array of [Added reservation](reservations.md#added-reservation) | required | The added reservations. |
 
 #### Added reservation
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation](reservations.md#reservation) | required | The added reservation. |
@@ -684,7 +684,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required, max 1000 items | Array of properties to be updated in each reservation specified. |
 
 #### Reservation updates
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
@@ -705,31 +705,31 @@ Updates information about the specified reservations. Note that if any of the fi
 
 #### String update value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | string | optional | Value which is to be updated. |
 
 #### Number update value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | number | optional | Value which is to be updated. |
 
 #### Bool update value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | bool | optional | Value which is to be updated. |
 
 #### Time unit amount update value
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | required | Value which is to be updated. |
 
 #### Time unit amount parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Index` | string | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
 | `Amount` | [Amount](services.md#amount-parameters) | required | Amount of the unit. |
@@ -757,7 +757,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -792,7 +792,7 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -825,7 +825,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -862,7 +862,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -899,7 +899,7 @@ Updates customer of a reservation.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -933,7 +933,7 @@ Updates reservation interval \(start, end or both\).
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -967,7 +967,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -999,7 +999,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1041,7 +1041,7 @@ Adds a new product order of the specified product to the reservation.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |

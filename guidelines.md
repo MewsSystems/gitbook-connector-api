@@ -26,7 +26,7 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -56,7 +56,7 @@ The API responds with `Content-Type` set to `application/json` and JSON content.
 
 In case of any error, the returned JSON object describes the error and has the following properties:
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Message` | string | required | Description of the error. |
 | `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |

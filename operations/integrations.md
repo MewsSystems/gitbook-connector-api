@@ -16,7 +16,7 @@ Returns all devices in the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -36,13 +36,13 @@ Returns all devices in the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Devices` | array of [Device](integrations.md#device) | required | The devices. |
 
 #### Device
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the device. |
 | `Name` | string | required | Name of the device. |
@@ -72,7 +72,7 @@ Returns all commands the are still active from the client application point of v
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -110,13 +110,13 @@ Returns all commands the are still active from the client application point of v
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Commands` | array of [Command](integrations.md#command) | required | The active commands. |
 
 #### Command
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the command. |
 | `State` | string [Command state](integrations.md#command-state) | required | State of the command. |
@@ -136,7 +136,7 @@ Returns all commands the are still active from the client application point of v
 
 #### User
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `FirstName` | string | optional | First name of the user. |
 | `LastName` | string | required | Last name of the user. |
@@ -146,7 +146,7 @@ Returns all commands the are still active from the client application point of v
 
 #### Printer command data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CopyCount` | number | required | Number of copies to be printed. |
 | `FileType` | string | required | MIME type of the file to be printed \(e.g. `application/pdf`\). |
@@ -157,7 +157,7 @@ Returns all commands the are still active from the client application point of v
 
 #### Payment terminal command data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `PaymentTerminalId` | string | required | Identifier of the payment terminal. |
 | `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
@@ -167,7 +167,7 @@ Returns all commands the are still active from the client application point of v
 
 #### Passport scanner command data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `PassportScannerId` | string | optional | Identifier of the passport scanner. |
 | `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) who should be processed. |
@@ -175,7 +175,7 @@ Returns all commands the are still active from the client application point of v
 
 #### Fiscal machine command data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `FiscalMachineId` | string | optional | Identifier of the fiscal machine. |
 | `FiscalMachineData` | string | optional | Custom JSON data. |
@@ -185,7 +185,7 @@ Returns all commands the are still active from the client application point of v
 
 #### Key cutter command data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `KeyCutterId` | string | optional | Identifier of the key cutter. |
 | `KeyCutterData` | string | optional | Custom JSON data. |
@@ -250,7 +250,7 @@ Adds a new printer command representing printing of the specified document on a 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -267,7 +267,7 @@ Adds a new printer command representing printing of the specified document on a 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CommandId` | string | required | Unique identifier of the created [Command](integrations.md#command). |
 
@@ -290,7 +290,7 @@ Adds a new key cutter command representing cutting of a key for the specified re
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -307,7 +307,7 @@ Adds a new key cutter command representing cutting of a key for the specified re
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CommandId` | string | required | Unique identifier of the created [Command](integrations.md#command). |
 
@@ -329,7 +329,7 @@ Updates state of a command.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
