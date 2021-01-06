@@ -64,7 +64,8 @@ Returns configuration of the enterprise and the client.
                 "IsEnabled": true
             }
         ],
-        "Pricing": "Gross"
+        "Pricing": "Gross",
+        "TaxPrecision": null
     },
     "Service":
     {
