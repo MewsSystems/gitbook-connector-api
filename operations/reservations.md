@@ -38,22 +38,22 @@ Returns all reservations specified by any identifier, customer or other filter. 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Reservation time filter](#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Service](services.md#service)s from which the reservations are requested. |
-| `ReservationIds` | array of string | optional | Unique identifiers of the requested [Reservation](reservations.md#reservation)s. |
-| `GroupIds` | array of string | optional | Unique identifiers of the requested [Reservation group](reservations.md#reservation-group)s. |
-| `CustomerIds` | array of string | optional | Unique identifiers of the [Customer](customers.md#customer)s which own the reservations. |
-| `AssignedResourceIds` | array of string | optional | Unique identifiers of [Resource](enterprises.md#resource)s assigned to the reservations. |
-| `RateIds` | array of string | optional | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
-| `BusinessSegmentIds` | array of string | optional | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
-| `Numbers` | array of string | optional | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
+| `StartUtc` | string | required, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service)s from which the reservations are requested. |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservation](reservations.md#reservation)s. |
+| `GroupIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservation group](reservations.md#reservation-group)s. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customer](customers.md#customer)s which own the reservations. |
+| `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource](enterprises.md#resource)s assigned to the reservations. |
+| `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rate](services.md#rate)s assigned to the reservations. |
+| `BusinessSegmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Business segment](services.md#business-segment)s assigned to the reservations. |
+| `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservation](reservations.md#reservation)s. |
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
@@ -292,12 +292,12 @@ Returns all revenue items associated with the specified reservations.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | required | Unique identifiers of the [Reservation](reservations.md#reservation)s. |
+| `ReservationIds` | array of string | required, max 1000 items | Unique identifiers of the [Reservation](reservations.md#reservation)s. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `AccountingStates` | array of string [Accounting state](finance.md#Accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
 
@@ -671,7 +671,7 @@ Updates information about the specified reservations. Note that if any of the fi
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -681,7 +681,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `CheckRateApplicability` | bool | optional | Whether the rate applicability is checked. If set to `false` it allows to set a restricted rate. If not specified, the rate applicability is checked. |
 | `Reprice` | bool | optional | Whether the price should be updated to latest value for date/rate/category combination set in Mews. If not specified, the reservation price is updated. |
 | `ApplyCancellationFee` | bool | optional | Whether the cancellation fees should be applied according to rate cancellation policies. If not specified, the cancellation fees are applied. |
-| `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required | Array of properties to be updated in each reservation specified. |
+| `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required, max 1000 items | Array of properties to be updated in each reservation specified. |
 
 #### Reservation updates
 | Property | Type |  | Description |

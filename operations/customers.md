@@ -45,18 +45,18 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | optional | Unique identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
-| `Emails` | array of string | optional | Emails of the [Customer](customers.md#customer)s. |
-| `FirstNames` | array of string | optional | First names of the [Customer](customers.md#customer)s. |
-| `LastNames` | array of string | optional | Last names of the [Customer](customers.md#customer)s. |
-| `LoyaltyCodes` | array of string | optional | Loyalty codes of the [Customer](customers.md#customer)s. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was created. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional | Interval in which [Customer](customers.md#customer) was updated. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
+| `Emails` | array of string | optional, max 1000 items | Emails of the [Customer](customers.md#customer)s. |
+| `FirstNames` | array of string | optional, max 1000 items | First names of the [Customer](customers.md#customer)s. |
+| `LastNames` | array of string | optional, max 1000 items | Last names of the [Customer](customers.md#customer)s. |
+| `LoyaltyCodes` | array of string | optional, max 1000 items | Loyalty codes of the [Customer](customers.md#customer)s. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was updated. |
 | `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 #### Customer extent
@@ -305,12 +305,12 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required | Unique identifiers of the [Customer](customers.md#customer)s. |
+| `CustomerIds` | array of string | required, max 1000 items | Unique identifiers of the [Customer](customers.md#customer)s. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 ### Response
