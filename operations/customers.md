@@ -45,7 +45,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 }
 ```
 
-| Property | Type | Contract | Description | 
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
