@@ -197,7 +197,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to update. |
-| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required | Availability updates. |
+| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required, max 1000 items | Availability updates. |
 
 #### Availability update
 
@@ -789,7 +789,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
-| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
+| `PriceUpdates` | array of [Price update](services.md#price-update) | required, max 1000 items | Price updates. |
 
 #### Price update
 
