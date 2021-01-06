@@ -373,42 +373,39 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 #### Accounting item subtype
 
-##### Revenue subtypes
+* Revenue subtypes
+  * `CancellationFee`
+  * `Rebate`
+  * `Deposit`
+  * `ExchangeRateDifference`
+  * `CustomItem`
+  * `Surcharge`
+  * `SurchargeDiscount`
+  * `SpaceOrder`
+  * `ProductOrder`
+  * `Other`
 
-* `CancellationFee`
-* `Rebate`
-* `Deposit`
-* `ExchangeRateDifference`
-* `CustomItem`
-* `Surcharge`
-* `SurchargeDiscount`
-* `SpaceOrder`
-* `ProductOrder`
-* `Other`
-
-##### Payment subtypes
-
-* `CreditCard`
-* `Invoice`
-* `Cash`
-* `Unspecified`
-* `BadDebts`
-* `WireTransfer`
-* `ExchangeRateDifference`
-* `ExchangeRoundingDifference`
-* `BankCharges`
-* `Cheque`
-* `Other`
+* Payment subtypes
+  * `CreditCard`
+  * `Invoice`
+  * `Cash`
+  * `Unspecified`
+  * `BadDebts`
+  * `WireTransfer`
+  * `ExchangeRateDifference`
+  * `ExchangeRoundingDifference`
+  * `BankCharges`
+  * `Cheque`
+  * `Other`
 
 #### Accounting item substate
 
-##### Payment substates
-
-* `Pending`
-* `Verifying`
-* `Charged`
-* `Canceled`
-* `Failed`
+* Payment substates
+  * `Pending`
+  * `Verifying`
+  * `Charged`
+  * `Canceled`
+  * `Failed`
 
 #### Currency value
 
