@@ -60,6 +60,12 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 6th January 20201 11:30 UTC
+* Specified limitations on operation parameters (generally 1000 items in collection and maximum time filter length of 3 months).
+* Changed the [websocket](websockets.md) authentication method to use cookies instead of URL query parameters.
+* Extended [Space resource data](operations/enterprises.md#space-resource-data) with `LocationNotes`.
+* Extended [Space resource data update](operations/enterprises.md#space-resource-data-update) with `LocationNotes`.
+
 ## 16th December 2020 11:30 UTC
 * Extended operation [Get all customers](operations/customers.md#get-all-customers) with property `LoyaltyCodes`.
 
