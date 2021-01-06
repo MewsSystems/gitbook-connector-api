@@ -57,7 +57,7 @@ For further details about access tokens, consult the [Authentication](guidelines
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Events` | array of [Event](websockets.md#event) | required | The events that happened during the connection. |
 
@@ -73,7 +73,7 @@ Depending on the event `Type`, it is one of the following:
 
 If the Connector integration is configured to handle commands for some devices, it will receive events whenever a command is updated \(created, updated\).
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string `DeviceCommand` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Command](operations/integrations.md#command). |
@@ -83,7 +83,7 @@ If the Connector integration is configured to handle commands for some devices, 
 
 If the Connector integration is configured to receive reservation updates, it will receive events whenever a reservation is updated \(created, updated, canceled etc\).
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string `Reservation` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Reservation](operations/reservations.md#reservation). |
@@ -96,7 +96,7 @@ If the Connector integration is configured to receive reservation updates, it wi
 
 If the Connector integration is configured to receive resource updates, it will receive events whenever a resource is updated \(created, renamed, state updated\).
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string `Resource` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Resource](operations/enterprises.md#resource). |
@@ -106,7 +106,7 @@ If the Connector integration is configured to receive resource updates, it will 
 
 If the Connector integration is configured to receive price updates, it will receive events whenever a rate price is updated \(created\). Events are related to rate base price update, price adjustment and category adjustment.
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string `PriceUpdate` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the update event. |

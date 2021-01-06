@@ -16,7 +16,7 @@ Returns all services offered by the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -63,13 +63,13 @@ Returns all services offered by the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Services` | array of [Service](services.md#service) | required | Services offered by the enterprise. |
 
 #### Service
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the service. |
 | `IsActive` | boolean | required | Whether the service is still active. |
@@ -81,7 +81,7 @@ Returns all services offered by the enterprise.
 
 #### Promotions
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
 | `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
@@ -147,14 +147,14 @@ Returns availability of a reservable service in the specified interval including
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
 
 #### Resource category availability
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
 | `Availabilities` | array of number | required | Absolute availabilities of the resource category in the covered dates. |
@@ -191,7 +191,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -201,7 +201,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
 
 #### Availability update
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
@@ -286,13 +286,13 @@ Returns all products offered together with the specified services.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Products` | array of [Product](services.md#product) | required | Products offered with the service. |
 
 #### Product
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the product. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
@@ -322,7 +322,7 @@ Returns all products offered together with the specified services.
 
 #### Product classifications
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Food` | boolean | required | Product is classified as food. |
 | `Beverage` | boolean | required | Product is classified as beverage. |
@@ -366,7 +366,7 @@ Returns all rules applied with the reservations.
 
 #### Rule extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `RuleActions` | bool | optional | Whether the response should contain rule actions. |
 | `Rates` | bool | optional | Whether the response should contain rates. |
@@ -432,7 +432,7 @@ Returns all rules applied with the reservations.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Rules` | array of [Rule](#rule) | required | Rules used with reservation creations and modifications. |
 | `RuleActions` | array of [Rule action](#rule-action) | required | Rule actions applied in rules. |
@@ -443,14 +443,14 @@ Returns all rules applied with the reservations.
 
 #### Rule
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rule. |
 | `Conditions` | [Rule conditions](#rule-conditions) | required | Conditions of the rule. |
 
 #### Rule conditions
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `RateId` | [Rule condition](#rule-condition) | required | Condition based on [Rate](#rate). |
 | `RateGroupId` | [Rule condition](#rule-condition) | required | Condition based on [Rate group](#rate-group). |
@@ -463,7 +463,7 @@ Returns all rules applied with the reservations.
 
 #### Rule condition
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ConditionType` | string [Condition type](#condition-type) | required | Type of condition. |
 | `Value` | string | required | Value of the condition depending on the property. E.g. [Reservation origin](reservations.md#reservation-origin) in case of origin condition or unique identifier of a rate in case of rate condition. |
@@ -475,7 +475,7 @@ Returns all rules applied with the reservations.
 
 #### Rule action
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rule action. |
 | `RuleId` | string | required | Unique identifier of the rule. |
@@ -483,7 +483,7 @@ Returns all rules applied with the reservations.
 
 #### Rule action data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Rule action discriminator](#rule-action-discriminator) | required | Determines type of value. |
 | `Value` | object | required | Structure of object depends on [Rule action discriminator](#rule-action-discriminator). |
@@ -494,7 +494,7 @@ Returns all rules applied with the reservations.
 
 #### Rule action product data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of product. |
 | `ActionType` | string [Product action type](#product-action-type) | required | Action of rule. |
@@ -523,7 +523,7 @@ Returns all business segments of the default service provided by the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -551,13 +551,13 @@ Returns all business segments of the default service provided by the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `BusinessSegments` | array of [Business segment](services.md#business-segment) | required | Business segments of the default service. |
 
 #### Business segment
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the segment. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
@@ -597,7 +597,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 #### Rate extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
@@ -634,14 +634,14 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Rates` | array of [Rate](services.md#rate) | required | Rates of the default service. |
 | `RateGroups` | array of [Rate group](services.md#rate-group) | required | Rate groups of the default service. |
 
 #### Rate
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of [Rate group](services.md#rate-group) where the rate belongs. |
@@ -656,7 +656,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 #### Rate group
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the group. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
@@ -725,7 +725,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
@@ -739,14 +739,14 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 #### Resource category pricing
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category). |
 | `Prices` | array of number | required | Prices of the rate for the resource category in the covered dates. |
 
 #### Resource category adjustment
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | required | Unique identifier of the adjustment [Resource category](enterprises.md#resource-category). |
 | `ParentCategoryId` | string | optional | Unique identifier of the parent [Resource category](enterprises.md#resource-category) that serves as a base price for the current category. |
@@ -783,7 +783,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -793,7 +793,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 
 #### Price update
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](enterprises.md#resource-category) whose prices to update. If not specified, base price is updated. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
@@ -929,13 +929,13 @@ Returns all restrictions of the default service provided by the enterprise.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Restrictions` | array of [Restriction](services.md#restriction) | required | Restrictions of the default service. |
 
 #### Restriction
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the restriction. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
@@ -945,7 +945,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 #### Restriction Conditions
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Type` | string | required | [Restriction type](services.md#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted [Exact rate](services.md#rate). |
@@ -959,7 +959,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 #### Restriction Exceptions
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
@@ -1037,7 +1037,7 @@ Adds new restrictions with the specified conditions.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1046,7 +1046,7 @@ Adds new restrictions with the specified conditions.
 | `Restrictions` | array of [Restriction parameters](services.md#restriction-parameters) | required | Parameters of restrictions. |
 
 #### Restriction parameters
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
@@ -1125,13 +1125,13 @@ Adds new restrictions with the specified conditions.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Restrictions` | array of [Added restriction](services.md#added-restriction) | required | The added restrictions. |
 
 #### Added restriction
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `Restriction` | [Restriction](services.md#restriction) | required | The added restriction. |
@@ -1156,7 +1156,7 @@ Removes restrictions from the service.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1208,7 +1208,7 @@ Creates a new order with the specified products and items. Only positive charges
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -1222,7 +1222,7 @@ Creates a new order with the specified products and items. Only positive charges
 
 #### Product order parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
@@ -1232,7 +1232,7 @@ Creates a new order with the specified products and items. Only positive charges
 
 #### Item parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
@@ -1241,7 +1241,7 @@ Creates a new order with the specified products and items. Only positive charges
 
 #### Amount parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `GrossValue` | decimal | optional | Amount including tax. Required for [Gross enviroments](configuration.md#pricing). |
 | `NetValue` | decimal | optional | Amount excluding tax. Required for [Net enviroments](configuration.md#pricing). |
@@ -1256,7 +1256,7 @@ Creates a new order with the specified products and items. Only positive charges
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `OrderId` | string | required | Unique identifier of the created order. |
 
@@ -1297,7 +1297,7 @@ Returns all companionships based on customers, reservations or reservation group
 
 #### Companionship extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Customers` | bool | optional | Whether the response should contain customers. |
 | `Reservations` | bool | optional | Whether the response should contain reservations. |
@@ -1321,7 +1321,7 @@ Returns all companionships based on customers, reservations or reservation group
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Companionships` | array of [Companionship](services.md#companionship) | required | Companionships. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
@@ -1330,7 +1330,7 @@ Returns all companionships based on customers, reservations or reservation group
 
 #### Companionship
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of [Companionship](services.md#Companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
@@ -1385,7 +1385,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 #### Voucher extent
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Vouchers` | bool | optional | Whether the response should contain main information about vouchers. |
 | `VoucherCodes` | bool | optional | Whether the response should contain voucher codes used by customers. |
@@ -1449,7 +1449,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Vouchers` | array of [Voucher](#voucher) | optional | Main information about voucher. |
 | `VoucherCodes` | array of [Voucher code](#voucher-code) | optional | Information about voucher codes used by customers. |
@@ -1459,7 +1459,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 #### Voucher
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of voucher. |
 | `ServiceId` | string | required | Unique identifier of [Service](#service) the voucher belongs to. |
@@ -1472,7 +1472,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 #### Voucher code
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `VoucherId` | string | required | Unique identifier of [Voucher](#voucher) the code belongs to. |
 | `Value` | string | required | Value of voucher code used by customers. |
@@ -1484,7 +1484,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 #### Voucher assignment
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `VoucherId` | string | required | Unique identifier of [Voucher](#voucher). |
 | `RateId` | string | required | Unique identifier of [Rate](#rate) the voucher is assigned with. |

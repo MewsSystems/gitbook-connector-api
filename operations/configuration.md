@@ -16,7 +16,7 @@ Returns configuration of the enterprise and the client.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -86,7 +86,7 @@ Returns configuration of the enterprise and the client.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `NowUtc` | string | required | Current server date and time in UTC timezone in ISO 8601 format. |
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise \(e.g. hotel, hostel\) associated with the access token. |
@@ -95,7 +95,7 @@ Returns configuration of the enterprise and the client.
 
 #### Enterprise
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is. |
@@ -116,7 +116,7 @@ Returns configuration of the enterprise and the client.
 
 #### Address
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the address. |
 | `Line1` | string | optional | First line of the address. |
@@ -130,7 +130,7 @@ Returns configuration of the enterprise and the client.
 
 #### Accepted currency
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `IsDefault` | bool | required | Whether the currency is a default accounting currency. |
@@ -143,7 +143,7 @@ Returns configuration of the enterprise and the client.
 
 #### Payment card storage
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `PublicKey` | string | required | Key for accessing PCI proxy storage. |
 
@@ -163,7 +163,7 @@ Returns all countries supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -210,7 +210,7 @@ Returns all countries supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Countries` | array of [Country](configuration.md#country) | required | The supported countries. |
 | `CountrySubdivisions` | array of [Country subdivision](configuration.md#country-subdivision) | required | The supported country subdivisions. |
@@ -218,14 +218,14 @@ Returns all countries supported by the API.
 
 #### Country
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | ISO 3166-1 alpha-2 code, e.g. `US` or `GB`. |
 | `EnglishName` | string | required | English name of the country. |
 
 #### Country subdivision
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | ISO 3166-2 code of the administrative division, e.g `AU-QLD`. |
 | `CountryCode` | string | required | ISO 3166-1 code of the [Country](#country). |
@@ -233,7 +233,7 @@ Returns all countries supported by the API.
 
 #### Country alliance
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the alliance, e.g `EU`, `SCHENGEN`, `SCHENGEN-VISA`. |
 | `EnglishName` | string | required | English name of the alliance. |
@@ -255,7 +255,7 @@ Returns all currencies supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -278,13 +278,13 @@ Returns all currencies supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currencies` | array of [Currency](configuration.md#currency) | required | The supported currencies. |
 
 #### Currency
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
 | `Precision` | number | required | Precision of the currency \(count of decimal places\). |
@@ -305,7 +305,7 @@ Returns all tax environments supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -387,7 +387,7 @@ Returns all tax environments supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `TaxEnvironments` | array of [Tax environment](#tax-environment) | required | The supported tax environments. |
 | `Taxations` | array of [Taxation](#taxation) | required | The supported taxations. |
@@ -397,7 +397,7 @@ Returns all tax environments supported by the API.
 
 Tax environment represents set of [Taxation](#taxation)s together with optional validity interval.
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax environment. |
 | `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
@@ -408,7 +408,7 @@ Tax environment represents set of [Taxation](#taxation)s together with optional 
 
 Taxation represents set of [Tax rate](#tax-rate)s within [Tax environment](#tax-environment).
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the taxation. |
 | `TaxEnvironmentCode` | string | required | Code of the [Tax environment](#tax-environment) the taxation is used in. |
@@ -419,7 +419,7 @@ Taxation represents set of [Tax rate](#tax-rate)s within [Tax environment](#tax-
 
 Definition of single tax rate.
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax rate. To be used when posting revenue items which should be accompanied by the tax rate(s) applicable to the nature of the item and the tax environment. |
 | `TaxationCode` | string | required | Code of the [Taxation](#taxation) the rate is part of. |
@@ -427,7 +427,7 @@ Definition of single tax rate.
 
 #### Tax rate strategy
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Discriminator` | string [Tax rate strategy discriminator](#tax-rate-strategy-discriminator) | required | If tax rate is flat or relative. |
 | `Value` | object | required | Structure of the object depends on [Tax rate strategy discriminator](#tax-rate-strategy-discriminator). |
@@ -441,14 +441,14 @@ Definition of single tax rate.
 
 #### Flat tax rate strategy data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | number | required | Absolute value of tax. |
 | `CurrencyCode` | string | required | Code of [Currency](#currency). |
 
 #### Relative tax rate strategy data
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
 
@@ -468,7 +468,7 @@ Returns all languages supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -495,13 +495,13 @@ Returns all languages supported by the API.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Languages` | array of [Language](configuration.md#language) | required | The supported languages. |
 
 #### Language
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Language-culture code of the language. |
 | `FallbackLanguageCode` | string | optional | Language-culture code of the fallback language. |
@@ -529,7 +529,7 @@ Returns translations of texts in the specified languages.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -557,13 +557,13 @@ Returns translations of texts in the specified languages.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `LanguageTexts` | array of [Language texts](configuration.md#language-texts) | required | Texts in the specified languages. |
 
 #### Language texts
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `LanguageCode` | string | required | Language-culture code of the [Language](configuration.md#language). |
 | `Texts` | number | required | Texts in the specified language by their keys. |
@@ -592,7 +592,7 @@ Returns URLs of the specified images.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
@@ -601,7 +601,7 @@ Returns URLs of the specified images.
 
 #### Image parameters
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Width` | number | required | Desired width of the image. |
@@ -628,13 +628,13 @@ Returns URLs of the specified images.
 }
 ```
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ImageUrls` | array of [Image URL](configuration.md#image-url) | required | URLs of the images. |
 
 #### Image URL
 
-| Property | Type |  | Description |
+| Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Url` | string | required | URL of the image. |
