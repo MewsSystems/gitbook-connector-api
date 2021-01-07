@@ -426,7 +426,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `GrossValue` | number | optional | Gross value including all taxes. |
 | `TaxValues` | array of [Tax Value](finance.md#tax-value) | optional | The tax values applied. |
 
-For most amounts, precision of values depends on [Currency](configuration.md#currency) precision or Tax precision, based on [Pricing](configuration.md#pricing) of the enterprise. But in some cases, precision can be higher.
+For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](configuration.md#entreprise) or [Currency](configuration.md#currency) precision. But in some cases, precision can be higher.
 
 #### Tax value
 
