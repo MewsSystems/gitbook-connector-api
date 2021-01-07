@@ -2,7 +2,7 @@
 
 Solutions such as door locks, mobile keys, and building management systems require a state of reservation and resources in real time.
 
-In the example of a door lock and/or mobile key integration, a key maye not be issued to a guest until their reservation has been checked-in in Mews. To avoid polling for updated reservations, a [Reservation Websocket](../websockets.md#reservation-event) should be used. 
+In the example of a door lock and/or mobile key integration, a key may not be issued to a guest until their reservation has been checked-in in Mews. To avoid polling for updated reservations, a [Reservation Websocket](../websockets.md#reservation-event) should be used. 
 
 ### Initial set up
 
