@@ -44,6 +44,20 @@ A unique `AccessToken` will automatically be generated and shared with you for e
 
 All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](operations/configuration.md#enterprise) are used.
 
+### Request limits
+
+In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
+
+#### Demo environment
+* 2000 requests per `ClientToken` within 15 minutes
+* 1000 requests per `AccessToken` within 15 minutes
+* 500 requests per endpoint per `AccessToken` within 15 minutes
+
+#### Production environment
+* 3600 requests per `ClientToken` within 15 minutes
+* 1600 requests per `AccessToken` within 15 minutes
+* 800 requests per endpoint per `AccessToken` within 15 minutes
+
 ## Responses
 
 The API responds with `Content-Type` set to `application/json` and JSON content. In case of success, the HTTP status code is 200 and the content contains result according to the call. In case of error, there are multiple HTTP status codes for different types of errors:
@@ -63,19 +77,6 @@ In case of any error, the returned JSON object describes the error and has the f
 
 Some errors may also contain additional information relevant to the error on top of these two properties. That depends on the operation and is specifically described in the operation documentation.
 
-### Request limits
-
-In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
-
-#### Demo environment
-* 2000 requests per `ClientToken` within 15 minutes
-* 1000 requests per `AccessToken` within 15 minutes
-* 500 requests per endpoint per `AccessToken` within 15 minutes
-
-#### Production environment
-* 3600 requests per `ClientToken` within 15 minutes
-* 1600 requests per `AccessToken` within 15 minutes
-* 800 requests per endpoint per `AccessToken` within 15 minutes
 
 ## Authentication
 
@@ -99,7 +100,7 @@ The authentication below will connect with the demo enterprise that is configure
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D`
 
-The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). 
+The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](guidelines.md#taxations) for proper usage of the relevant [Tax rate codes](operations/configuration.md#tax-rate)
 
 ##### Net Pricing Environment
 
@@ -108,7 +109,7 @@ The authentication below will connect with the demo enterprise that is configure
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382`
 
-The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). 
+The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](guidelines.md#taxations) for proper usage of the relevant [Tax rate codes](operations/configuration.md#tax-rate)
 
 ### Production environment
 
@@ -146,3 +147,11 @@ As an example, consider minimum and maximum length of the reservation:
 
 * MinLength `P0Y0M1DT0H0M0S`
 * MaxLength `P0Y0M3DT0H0M0S`
+
+## Taxations
+
+Each enterprise is located in a specific [Tax environment](operations/configuration.md#tax-environment) that offers a list of applicable [Taxations](operations/configuration.md#taxation). The numeric value of the taxations are represented by [Tax rate codes](operations/configuration.md#tax-rate) that are accepted within the tax environment. 
+
+Instead of numeric tax rates such as `0.1`, use [Tax rate codes](operations/configuration.md#tax-rate) such as `AT-S` in order to represent and calculate the correct taxation for each accounting item in Mews. To obtain the applicable codes, first download the enterprise information with [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment, then filter for the applicable [Tax rate codes](operations/configuration.md#tax-rate) from all tax environment information retrieved via [Get all tax environments](operations/configuration.md#get-all-tax-environments). 
+
+Make sure to note the validity intervals as well as any government announcements to anticipate changes to tax rates. Should any changes occur, re-retrieve enterprise and tax environment information to identify the new tax rate codes.

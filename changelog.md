@@ -61,6 +61,7 @@ Following properties to be removed from output and/or ignored on input:
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
 ## 16th December 2020 11:30 UTC
+* Added [Request limits](guidelines.md#request-limits) and [Taxations](guidelines#taxations) to [Guidelines](guidelines.md)
 * Extended operation [Get all customers](operations/customers.md#get-all-customers) with property `LoyaltyCodes`.
 
 ## 27th November 2020 11:30 UTC
