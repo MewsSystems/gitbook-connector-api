@@ -34,7 +34,7 @@ Outlets are used for the POS to send a full revenue push to Mews. Using the [Get
 
 #### Accounting categories
 
-In the POS system, accounting categories usually exist such as entree, main, dessert, beverage, or alcohol. In order for the revenue to be reported in Mews under the correct categories, use [Get all account categories](../operations/finance.md#get-all-accounting-categories) to retrieve a list of all `AccountingCategories` which the property has configured in Mews, and then map them against the product offerings or services that have been configured in the POS system. 
+In the POS system, accounting categories usually exist for revenue items (e.g. entree, main, dessert, beverage, or alcohol) and payment items (credit card, cash, voucher, invoice, etc). In order for the revenue and payments to be reported in Mews under the correct categories, use [Get all account categories](../operations/finance.md#get-all-accounting-categories) to retrieve a list of all `AccountingCategories` which the property has configured in Mews, and then map them against the product offerings/services and accepted payment types that have been configured in the POS system. 
 
 ### Searching customers
 
@@ -69,6 +69,8 @@ Gratuities should be sent as another item to Mews and can be posted under a diff
 ### Outlets bills
 
 Outlets are used in Mews to record any revenue and payments that have been taken outside of Mews. This allows for the centralization and reporting of accounting data to an external system (such as an accounting software) from Mews. The POS system will need to use the [Add outlet bill](../operations/finance.md#add-outlet-bills) endpoint to post all end-of-day revenue and payments to the Outlet(s) the property has configured in Mews. Any outlet items that are sent to Mews will need to have an `AccountingCategoryId` attached to the item. You can make use of `Number` to record the associated ticket or receipt number from the POS system.
+
+In an Outlet bill, items of the [Payment](../operations/finance#outlet-item-type) type are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
 
 ### Testing your integration
 
