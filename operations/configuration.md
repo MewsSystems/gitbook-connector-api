@@ -344,7 +344,48 @@ Returns all tax environments supported by the API.
             "ValidityStartUtc": null,
             "ValidityEndUtc": "2016-05-01T00:00:00Z"
         }
-    ],
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `TaxEnvironments` | array of [Tax environment](#tax-environment) | required | The supported tax environments. |
+
+#### Tax environment
+
+Tax environment represents set of [Taxation](#taxation)s together with optional validity interval.
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Code` | string | required | Code of the tax environment. |
+| `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
+| `TaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are used by this environment. |
+| `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
+| `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/taxations/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0"
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+
+### Response
+
+```javascript
+{
     "Taxations": [
         {
             "Code": "AT-2020",
@@ -369,12 +410,25 @@ Returns all tax environments supported by the API.
     ],
     "TaxRates": [
         {
-            "Code": "AT-S",
+            "Code": "AT-2020-21%",
             "TaxationCode": "AT",
             "Strategy": {
                 "Discriminator": "Relative",
                 "Value": {
                     "Value": 0.21
+                }
+            }
+        },       
+        {
+            "Code": "AT-2020-Extra-10%",
+            "TaxationCode": "AT-2020-Extra-10%",
+            "Strategy": {
+                "Discriminator": "Dependent",
+                "Value": {
+                    "BaseTaxationCodes": [
+                        "AT-2020"
+                    ],
+                    "Value": 0.1
                 }
             }
         },
@@ -388,19 +442,6 @@ Returns all tax environments supported by the API.
                     "CurrencyCode": "EUR"
                 }
             }
-        },
-        {
-            "Code": "AT-2020-Extra-10%",
-            "TaxationCode": "AT-2020-Extra-10%",
-            "Strategy": {
-                "Discriminator": "Dependent",
-                "Value": {
-                    "BaseTaxationCodes": [
-                        "AT-2020"
-                    ],
-                    "Value": 0.1
-                }
-            }
         }
     ]
 }
@@ -408,21 +449,8 @@ Returns all tax environments supported by the API.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `TaxEnvironments` | array of [Tax environment](#tax-environment) | required | The supported tax environments. |
 | `Taxations` | array of [Taxation](#taxation) | required | The supported taxations. |
 | `TaxRates` | array of [Tax rate](#tax-rate) | required | The supported tax rates. |
-
-#### Tax environment
-
-Tax environment represents set of [Taxation](#taxation)s together with optional validity interval.
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Code` | string | required | Code of the tax environment. |
-| `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
-| `TaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are used by this environment. |
-| `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
-| `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
 #### Taxation
 
