@@ -429,13 +429,14 @@ Definition of single tax rate.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Discriminator` | string [Tax rate strategy discriminator](#tax-rate-strategy-discriminator) | required | If tax rate is flat or relative. |
+| `Discriminator` | string [Tax rate strategy discriminator](#tax-rate-strategy-discriminator) | required | If tax rate is flat, relative or dependent. |
 | `Value` | object | required | Structure of the object depends on [Tax rate strategy discriminator](#tax-rate-strategy-discriminator). |
 
 #### Tax rate strategy discriminator
 
 * `Flat` - Used with [Flat tax rate strategy data](#flat-tax-rate-strategy-data) (e.g. 5.00 EUR). 
-* `Relative` - Used with [Relative tax rate strategy data](#relative-tax-rate-strategy-data) (e.g. 21%).
+* `Relative` - Used with [Relative tax rate strategy data](#relative-tax-rate-strategy-data) (e.g. 21%). Relative tax is calculated only from net base value.
+* `Dependent` - Used with [Dependent tax rate strategy data](#dependent-tax-rate-strategy-data) (e.g. 10%). Dependent tax is calculated from net base value and all taxes it depends on.
 
 ### Tax rate strategy data
 
@@ -451,6 +452,13 @@ Definition of single tax rate.
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | decimal | required | Tax rate, e.g. `0.21` in case of 21% tax rate. |
+
+#### Dependent tax rate strategy data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | decimal | required | Tax rate, e.g. `0.1` in case of 10% tax rate. |
+| `BaseTaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are included in the base of calculation. |
 
 ## Get all languages
 
