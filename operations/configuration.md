@@ -433,7 +433,7 @@ Tax environment represents set of [Taxation](#taxation)s together with optional 
             }
         },
         {
-            "Code": "AT-F",
+            "Code": "AT-5-EUR",
             "TaxationCode": "AT",
             "Strategy": {
                 "Discriminator": "Flat",
