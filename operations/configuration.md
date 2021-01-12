@@ -318,7 +318,7 @@ Returns all tax environments supported by the API.
     "TaxEnvironments": [
         {
             "Code": "AT-2020",
-            "CountryCode": "AUT",
+            "CountryCode": "AT",
             "TaxationCodes": [
                 "AT-2020",
                 "AT-2020-Extra"
@@ -328,7 +328,7 @@ Returns all tax environments supported by the API.
         },
         {
             "Code": "AT-2016",
-            "CountryCode": "AUT",
+            "CountryCode": "AT",
             "TaxationCodes": [
                 "AT-2016"
             ]
@@ -337,7 +337,7 @@ Returns all tax environments supported by the API.
         },
         {
             "Code": "AT",
-            "CountryCode": "AUT",
+            "CountryCode": "AT",
             "TaxationCodes": [
                 "AT"
             ],
