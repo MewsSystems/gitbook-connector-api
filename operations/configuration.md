@@ -322,7 +322,7 @@ Returns all tax environments supported by the API.
             "TaxationCodes": [
                 "AT-2020",
                 "AT-2020-Extra"
-            ]
+            ],
             "ValidityStartUtc": "2020-06-30T22:00:00Z",
             "ValidityEndUtc": null
         },
