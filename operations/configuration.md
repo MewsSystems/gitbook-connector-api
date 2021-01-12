@@ -317,26 +317,30 @@ Returns all tax environments supported by the API.
 {
     "TaxEnvironments": [
         {
-            "Code": "AU",
-            "CountryCode": "AUS",
-            "ValidityStartUtc": null,
-            "ValidityEndUtc": null
-        },
-        {
             "Code": "AT-2020",
             "CountryCode": "AUT",
+            "TaxationCodes": [
+                "AT-2020",
+                "AT-2020-Extra"
+            ]
             "ValidityStartUtc": "2020-06-30T22:00:00Z",
             "ValidityEndUtc": null
         },
         {
             "Code": "AT-2016",
             "CountryCode": "AUT",
+            "TaxationCodes": [
+                "AT-2016"
+            ]
             "ValidityStartUtc": "2016-05-01T00:00:00Z",
             "ValidityEndUtc": "2020-06-30T22:00:00Z"
         },
         {
             "Code": "AT",
             "CountryCode": "AUT",
+            "TaxationCodes": [
+                "AT"
+            ],
             "ValidityStartUtc": null,
             "ValidityEndUtc": "2016-05-01T00:00:00Z"
         }
@@ -344,19 +348,21 @@ Returns all tax environments supported by the API.
     "Taxations": [
         {
             "Code": "AT-2020",
-            "TaxEnvironmentCode": "AT-2020",
             "Name": "VAT",
             "LocalName": "MWST"
         },
         {
+            "Code": "AT-2020-Extra",
+            "Name": "Extra tax on top of VAT",
+            "LocalName": "Extra tax on top of MWST"
+        },
+        {
             "Code": "AT-2016",
-            "TaxEnvironmentCode": "AT-2016",
             "Name": "VAT",
             "LocalName": "MWST"
         },
         {
             "Code": "AT",
-            "TaxEnvironmentCode": "AT",
             "Name": "VAT",
             "LocalName": "MWST"
         }
@@ -382,6 +388,19 @@ Returns all tax environments supported by the API.
                     "CurrencyCode": "EUR"
                 }
             }
+        },
+        {
+            "Code": "AT-2020-Extra-10%",
+            "TaxationCode": "AT-2020-Extra-10%",
+            "Strategy": {
+                "Discriminator": "Dependent",
+                "Value": {
+                    "BaseTaxationCodes": [
+                        "AT-2020"
+                    ],
+                    "Value": 0.1
+                }
+            }
         }
     ]
 }
@@ -401,6 +420,7 @@ Tax environment represents set of [Taxation](#taxation)s together with optional 
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax environment. |
 | `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
+| `TaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are used by this environment. |
 | `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
 | `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
@@ -411,7 +431,6 @@ Taxation represents set of [Tax rate](#tax-rate)s within [Tax environment](#tax-
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the taxation. |
-| `TaxEnvironmentCode` | string | required | Code of the [Tax environment](#tax-environment) the taxation is used in. |
 | `Name` | string | required | Name of the taxation. |
 | `LocalName` | string | required | Local name of the taxation. |
 
@@ -457,8 +476,8 @@ Definition of single tax rate.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Value` | decimal | required | Tax rate, e.g. `0.1` in case of 10% tax rate. |
 | `BaseTaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are included in the base of calculation. |
+| `Value` | decimal | required | Tax rate, e.g. `0.1` in case of 10% tax rate. |
 
 ## Get all languages
 
