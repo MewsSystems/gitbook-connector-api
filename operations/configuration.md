@@ -318,7 +318,7 @@ Returns all tax environments supported by the API.
     "TaxEnvironments": [
         {
             "Code": "AT-2020",
-            "CountryCode": "AT",
+            "CountryCode": "AUT",
             "TaxationCodes": [
                 "AT-2020",
                 "AT-2020-Extra"
@@ -328,7 +328,7 @@ Returns all tax environments supported by the API.
         },
         {
             "Code": "AT-2016",
-            "CountryCode": "AT",
+            "CountryCode": "AUT",
             "TaxationCodes": [
                 "AT-2016"
             ]
@@ -337,7 +337,7 @@ Returns all tax environments supported by the API.
         },
         {
             "Code": "AT",
-            "CountryCode": "AT",
+            "CountryCode": "AUT",
             "TaxationCodes": [
                 "AT"
             ],
@@ -360,7 +360,7 @@ Tax environment represents set of [Taxation](#taxation)s together with optional 
 | --- | --- | --- | --- |
 | `Code` | string | required | Code of the tax environment. |
 | `CountryCode` | string | required | ISO 3166-1 alpha-3 code of associated country, e.g. `USA` or `GBR`. |
-| `TaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are used by this environment. |
+| `TaxationCodes` | array of string | required | Codes of the [taxation](#taxation)s that are used by this environment. |
 | `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
 | `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
@@ -504,7 +504,7 @@ Definition of single tax rate.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `BaseTaxationCodes` | array of [Taxation](#taxation) codes | required | Codes of the taxations that are included in the base of calculation. |
+| `BaseTaxationCodes` | array of string | required | Codes of the [taxation](#taxation)s that are included in the base of calculation. |
 | `Value` | decimal | required | Tax rate, e.g. `0.1` in case of 10% tax rate. |
 
 ## Get all languages
