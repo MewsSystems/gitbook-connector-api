@@ -178,6 +178,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
         {
             "StartUtc": "2020-10-05T00:00:00Z",
             "EndUtc": "2020-10-05T00:00:00Z",
+            "AvailabilityBlockId": "23e85a44-d95a-4dcf-9f36-acb000b10abe",
             "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
             "UnitCountAdjustment": { "Value": 6 }
         },
@@ -205,6 +206,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
 | --- | --- | --- | --- |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](reservations.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
 
@@ -212,6 +214,141 @@ Updates the number of available resources in [Resource category](enterprises.md#
 
 ```javascript
 {}
+```
+
+
+
+
+## Add availability blocks
+
+Adds availbility blocks which can allocate `unit availability adjustments` from [update availability](#update-service-availability) which are then removed from public availability. also it can group the reservation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/availabilityBlocks/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AvailabilityBlocks": [
+        {
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-10-05T00:00:00Z",
+            "EndUtc": "2020-10-06T00:00:00Z",
+            "ReleasedUtc": "2020-10-04T00:00:00Z",
+        },
+        {
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-11-05T00:00:00Z",
+            "EndUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": "2020-11-04T00:00:00Z",
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AvailabilityBlocks` | array of [avabilability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks. |
+
+#### Availability block parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) to add. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | required | Date when the block allocated `unit count adjustment` will not reduce public availability in UTC timezone in ISO 8601 format. |
+
+### Response
+
+```javascript
+{
+    "AvailabilityBlocks": [
+        {
+            "Id": "e5a4654a4a94-86da-4f96-9efc-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-10-05T00:00:00Z",
+            "EndUtc": "2020-10-06T00:00:00Z",
+            "ReleasedUtc": "2020-10-04T00:00:00Z",
+        },
+        {
+            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-11-05T00:00:00Z",
+            "EndUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": "2020-11-04T00:00:00Z",
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AvailabilityBlocks` | array of [Availability blocks](#availability-block) | required | Availability blocks. |
+
+#### Availability block
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the availabilty block. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) to add. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | required | Date when the block allocated `unit count adjustment` will not reduce public availability in UTC timezone in ISO 8601 format. |
+
+
+
+## Delete availability blocks
+
+Delete availbility blocks.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/availabilityBlocks/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AvailabilityBlocks": [
+        {
+            "Id":"e5a4654a4a94-86da-4f96-9efc-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+        },
+        {
+            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AvailabilityBlocks` | array of [avabilability block delete parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks. |
+
+#### Availability block delete parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the availabilty block. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service). |
+
+### Response
+
+```javascript
+{
+}
 ```
 
 ## Get all products
