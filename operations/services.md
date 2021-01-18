@@ -216,9 +216,6 @@ Updates the number of available resources in [Resource category](enterprises.md#
 {}
 ```
 
-
-
-
 ## Add availability blocks
 
 Adds availbility blocks which can allocate `unit availability adjustments` from [update availability](#update-service-availability) which are then removed from public availability. also it can group the reservation.
