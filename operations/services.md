@@ -300,7 +300,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | `ReleasedUtc` | string | required | Date when the [Availability update](#availability-update)s linked to the block will not reduce public availability in UTC timezone in ISO 8601 format. |
 ## Delete availability blocks
 
-Delete availbility blocks.
+Delete availability blocks. Only block with no active [Availability update](#availability-update)s and [Reservation](#reservation)s can be deleted
 
 ### Request
 
