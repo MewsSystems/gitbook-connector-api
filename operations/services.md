@@ -342,9 +342,7 @@ Delete availability blocks. Only block with no active [Availability update](#ava
 ### Response
 
 ```javascript
-{
-}
-```
+{}
 
 ## Get all products
 
