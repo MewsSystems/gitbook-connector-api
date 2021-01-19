@@ -251,7 +251,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AvailabilityBlocks` | array of [avabilability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks. |
+| `AvailabilityBlocks` | array of [Availability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks. |
 
 #### Availability block parameters
 
