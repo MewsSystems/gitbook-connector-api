@@ -257,7 +257,7 @@ Adds availability blocks which are used to group related [Availability update](#
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service) to add. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) to assign block to. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | Date when the block allocated `unit count adjustment` will not reduce public availability in UTC timezone in ISO 8601 format. |
