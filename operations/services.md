@@ -298,9 +298,6 @@ Adds availability blocks which are used to group related [Availability update](#
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | Date when the [Availability update](#availability-update)s linked to the block will not reduce public availability in UTC timezone in ISO 8601 format. |
-
-
-
 ## Delete availability blocks
 
 Delete availbility blocks.
