@@ -293,7 +293,7 @@ Adds availability blocks which are used to group related [Availability update](#
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the availabilty block. |
+| `Id` | string | required | Unique identifier of the availability block. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to add. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
