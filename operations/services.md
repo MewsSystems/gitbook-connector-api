@@ -335,7 +335,7 @@ Delete availability blocks. Only block with no active [Availability update](#ava
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the availabilty block. |
+| `Id` | string | required | Unique identifier of the availability block. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service). |
 
 ### Response
