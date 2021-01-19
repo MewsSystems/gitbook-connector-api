@@ -329,7 +329,7 @@ Delete availability blocks. Only block with no active [Availability update](#ava
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AvailabilityBlocks` | array of [avabilability block delete parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks. |
+| `AvailabilityBlocks` | array of [Availability block delete parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks to be deleted. |
 
 #### Availability block delete parameters
 
