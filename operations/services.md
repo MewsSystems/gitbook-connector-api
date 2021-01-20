@@ -97,7 +97,7 @@ Returns all services offered by the enterprise.
 
 ## Add availability blocks
 
-Adds availability blocks which are used to group related [Availability update](#availability-update)s. This makes limiting public availability easier and more organized. After creation it can be referenced from [Update availability](#update-service-availability) operation using `AvailabilityBlockId` parameter. They can also be used to group [Reservation](reservations.md#reservation)s.
+Adds availability blocks which are used to group related [Availability update](#availability-update)s. This makes limiting public availability easier and more organized.
 
 ### Request
 
@@ -180,7 +180,7 @@ Adds availability blocks which are used to group related [Availability update](#
 
 ## Delete availability blocks
 
-Delete availability blocks. Only block with no active [Availability update](#availability-update)s and [Reservation](#reservation)s can be deleted
+Delete availability blocks.
 
 ### Request
 
