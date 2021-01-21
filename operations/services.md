@@ -95,6 +95,122 @@ Returns all services offered by the enterprise.
 * `Reservable`
 * `Orderable`
 
+## Add availability blocks
+
+Adds availability blocks which are used to group related [Availability update](#availability-update)s. This makes limiting public availability easier and more organized.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/availabilityBlocks/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AvailabilityBlocks": [
+        {
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-10-05T00:00:00Z",
+            "EndUtc": "2020-10-06T00:00:00Z",
+            "ReleasedUtc": "2020-10-04T00:00:00Z",
+        },
+        {
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-11-05T00:00:00Z",
+            "EndUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": "2020-11-04T00:00:00Z",
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AvailabilityBlocks` | array of [Availability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks to be added. |
+
+#### Availability block parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) to assign block to. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
+
+### Response
+
+```javascript
+{
+    "AvailabilityBlocks": [
+        {
+            "Id": "e5a4654a4a94-86da-4f96-9efc-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-10-05T00:00:00Z",
+            "EndUtc": "2020-10-06T00:00:00Z",
+            "ReleasedUtc": "2020-10-04T00:00:00Z",
+        },
+        {
+            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "StartUtc": "2020-11-05T00:00:00Z",
+            "EndUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": "2020-11-04T00:00:00Z",
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AvailabilityBlocks` | array of [Availability blocks](#availability-block) | required | Availability blocks. |
+
+#### Availability block
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the availability block. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) the block is assigned to. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
+
+## Delete availability blocks
+
+Delete availability blocks.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/availabilityBlocks/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AvailabilityBlockIds": [
+        "e5a4654a4a94-86da-4f96-9efc-bd26d8db",
+        "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AvailabilityBlockIds` | array of string | required, max 1000 items | Unique identifier of the Availability block to delete. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Get service availability
 
 Returns availability of a reservable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
@@ -178,6 +294,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
         {
             "StartUtc": "2020-10-05T00:00:00Z",
             "EndUtc": "2020-10-05T00:00:00Z",
+            "AvailabilityBlockId": "23e85a44-d95a-4dcf-9f36-acb000b10abe",
             "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
             "UnitCountAdjustment": { "Value": 6 }
         },
@@ -197,7 +314,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to update. |
-| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required | Availability updates. |
+| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required, max 1000 items | Availability updates. |
 
 #### Availability update
 
@@ -205,6 +322,7 @@ Updates the number of available resources in [Resource category](enterprises.md#
 | --- | --- | --- | --- |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](reservations.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
 
@@ -789,7 +907,7 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the base [Rate](services.md#rate) to update. |
-| `PriceUpdates` | array of [Price update](services.md#price-update) | required | Price updates. |
+| `PriceUpdates` | array of [Price update](services.md#price-update) | required, max 1000 items | Price updates. |
 
 #### Price update
 

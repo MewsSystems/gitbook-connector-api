@@ -67,6 +67,7 @@ Changed [Websocket authentication](websockets.md#authentication) from being pass
 * Extended [Space resource data update](operations/enterprises.md#space-resource-data-update) with `LocationNotes`.
 
 ## 16th December 2020 11:30 UTC
+* Added [Request limits](guidelines.md#request-limits) and [Taxations](guidelines#taxations) to [Guidelines](guidelines.md)
 * Extended operation [Get all customers](operations/customers.md#get-all-customers) with property `LoyaltyCodes`.
 
 ## 27th November 2020 11:30 UTC
