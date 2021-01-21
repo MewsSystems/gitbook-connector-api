@@ -366,6 +366,11 @@ Tax environment represents set of [Taxation](#taxation)s together with optional 
 | `ValidityStartUtc` | string | optional | If specified, marks the start of the validity interval in UTC timezone in ISO 8601 format. |
 | `ValidityEndUtc` | string | optional | If specified, marks the end of the validity interval in UTC timezone in ISO 8601 format. |
 
+## Get all taxations
+
+Returns all taxations supported in tax environments.
+
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/taxations/getAll`

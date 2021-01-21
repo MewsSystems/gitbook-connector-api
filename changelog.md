@@ -60,6 +60,12 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 21st January 2021 11:30 UTC
+* Added [Add availability blocks](operations/services.md#add-availability-blocks), [Delete availability blocks](operations/services.md#delete-availability-blocks).
+* Extended [Update service availability](operations/services.md#update-service-availability) with `AvailabilityBlockId`.
+* Split [Get all tax environments](configuration.md#get-all-tax-environments) and [Get all taxations](configuration.md#get-all-taxations).
+* Extended [Tax Rate](configuration.md#tax-rate) discriminator with `Dependent`.
+
 ## 6th January 20201 11:30 UTC
 * Specified limitations on operation parameters (generally 1000 items in collection and maximum time filter length of 3 months).
 * Changed the [websocket](websockets.md) authentication method to use cookies instead of URL query parameters.
