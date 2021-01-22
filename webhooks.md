@@ -102,12 +102,36 @@ When an action of particular type is performed in the system, a message is sent 
 
 ### Event
 
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Event discriminator](#event-discriminator) | required | Determines type of event. |
+| `Value` | object | required | Structure of object depends on [Event discriminator](#event-discriminator). |
+
+#### Event discriminator
+
+* `ServiceOrderUpdated` - Service order (for example a [Reservation](reservations.md#reservation)) was updated. The value is [Entity updated data](#entity-updated-data).
+* `IntegrationCreated` - (TODO....) The value is [Integration created data](#integration-created-data)
+
+#### Entity updated data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string  | required | Unique identifier of updated entity. |
+
+#### Integration created data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string  | required | Unique identifier of created integration. |
+| `Requestor` | [Requestor](#requestor) | required | Person requesting action. |
+| `AccessToken` | string | required | Access token of the client application. |
+
 ### Entities
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Latest state of [Reservation](reservations.md#reservation) related to [Event](#event)s. |
-| `Enterprises` | array of [Enterprise](configuration.md#enterprise) | optional | Latest state of [Enterprise](configuration.md#enterprise) related to [Event](#event)s. |
+| `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Latest state of [Reservation](reservations.md#reservation)s related to [Event](#event)s. |
+| `Enterprises` | array of [Enterprise](configuration.md#enterprise) | optional | Latest state of [Enterprise](configuration.md#enterprise)s related to [Event](#event)s. |
 | `Integrations` | array of [Integration](TODO) | optional | Latest state of [Integration](TODO)s related to [Event](#event)s. |
 
 
