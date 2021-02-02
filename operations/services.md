@@ -135,9 +135,9 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](#availability-block)s. |
-| `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service)s to which [Availability block](#availability-block)s are assigned. |
+| `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service)s to which [Availability block](#availability-block)s are assigned. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s are active. |
-| `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s. from external systems |
+| `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservation](reservations.md#reservation)s) are returned. |
 
 ### Availability block extent
@@ -153,7 +153,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 ```javascript
 {
     "AvailabilityBlocks": [
-        {{
+        {
             "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
@@ -189,6 +189,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "BusinessSegmentId": null,
             "CompanyId": null,
             "TravelAgencyId": null,
+            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "CreditCardId": null,
             "AdultCount": 2,
@@ -197,8 +198,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "BookerId": null,
             "CompanionIds": [],
             "CancellationReason": null,
-            "VoucherId": null,
-            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
+            "VoucherId": null
         }
     ],
     "Availabilities": [
@@ -228,7 +228,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) the block is assigned to. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
+| `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 
 #### Availability update

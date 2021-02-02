@@ -161,7 +161,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "TravelAgencyId": null,
             "UpdatedUtc": "2016-02-20T14:58:02Z",
             "VoucherId": null,
-            "AvailabilityBlockId": null,
+            "AvailabilityBlockId": null
         }
     ],
     "Services": null,
