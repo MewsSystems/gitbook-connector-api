@@ -183,7 +183,6 @@ This is a new format of webhook message which will be extended in future to carr
 #### Event discriminator
 
 * `ServiceOrderUpdated` - Service order (for example a [Reservation](reservations.md#reservation)) was updated. The value is [Entity updated data](#entity-updated-data).
-* `IntegrationCreated` - (TODO....) The value is [Integration created data](#integration-created-data)
 
 #### Entity updated data
 
