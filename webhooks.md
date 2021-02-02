@@ -2,7 +2,7 @@
 
 When an action of particular type is performed in the system, a message is sent to the configured webhook, using HTTP POST and JSON body.
 
-## Integration Message
+## Integration message
 
 This is currently used format of webhooks, it carries only events about changes of integration state, will be deprecated in future.
 
@@ -154,12 +154,12 @@ This is a new format of webhook message which will be extended in future to carr
                 "BusinessSegmentId": null,
                 "CompanyId": null,
                 "TravelAgencyId": null,
+                "AvailabilityBlockId": null,
                 "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
                 "AdultCount": 2,
                 "ChildCount": 0,
                 "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-                "VoucherId": null,
-                "AvailabilityBlockId": null
+                "VoucherId": null
             }
         ]
     }
@@ -170,7 +170,7 @@ This is a new format of webhook message which will be extended in future to carr
 | --- | --- | --- | --- |
 | `EnterpriseId` | string | required | Unique identifier of [Enterprise](configuration.md#enterprise) where events belong to. |
 | `IntegrationId` | string | required | Unique identifier of [Integration](#integration) which events are connected to. |
-| `Events` | array of [Event](#event) | required | List of events that happened since last run. |
+| `Events` | array of [Event](#event) | required | List of events that happened in Mews since last webhook call. |
 | `Entities` | [Entities](#entities) | required | Collection of entities related to [Event](#event)s. |
 
 ### Event
@@ -188,7 +188,7 @@ This is a new format of webhook message which will be extended in future to carr
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Id` | string  | required | Unique identifier of updated entity. |
+| `Id` | string | required | Unique identifier of updated entity. |
 
 ### Entities
 
