@@ -34,7 +34,19 @@ Outlets are used for the POS to send a full revenue push to Mews. Using the [Get
 
 #### Accounting categories
 
-In the POS system, accounting categories usually exist for revenue items (e.g. entree, main, dessert, beverage, or alcohol) and payment items (credit card, cash, voucher, invoice, etc). In order for the revenue and payments to be reported in Mews under the correct categories, use [Get all account categories](../operations/finance.md#get-all-accounting-categories) to retrieve a list of all `AccountingCategories` which the property has configured in Mews, and then map them against the product offerings/services and accepted payment types that have been configured in the POS system. 
+In the Mews PMS, accounting categories usually exist and are linked to accounting items such as revenue items (e.g. entree, main, dessert, beverage, or alcohol) and payment items (credit card, cash, voucher, invoice, etc). Such types of accounting items in the POS should also be associated with an accounting category configured in Mews, to ensure accurate posting with the correct accounting category in Mews. 
+
+First, use [Get all account categories](../operations/finance.md#get-all-accounting-categories) to retrieve a list of all `AccountingCategories` which the property has configured in Mews, and then map them against the product offerings/services and accepted payment types that have been configured in the POS system. 
+
+##### Example of Service and Outlet mapping to the point of sale
+
+| POS Revenue/Payment | Mews Accounting Category |
+| --- | --- |
+| Champagne | Resto Beverage Alcoholic |
+| Salad | Restaurant Food | 
+| Cash | Cash |
+| Credit card | Credit card |
+
 
 ### Searching customers
 
