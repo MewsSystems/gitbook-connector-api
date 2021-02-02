@@ -38,11 +38,12 @@ In the Mews PMS, accounting categories usually exist and are linked to accountin
 
 First, use [Get all account categories](../operations/finance.md#get-all-accounting-categories) to retrieve a list of all `AccountingCategories` which the property has configured in Mews, and then map them against the product offerings/services and accepted payment types that have been configured in the POS system. 
 
-##### Example of Service and Outlet mapping to the point of sale
+##### Example of POS revenue items and payment types mapping to Mews accounting categories
 
 | POS Revenue/Payment | Mews Accounting Category |
 | --- | --- |
 | Champagne | Resto Beverage Alcoholic |
+| Orange juice | Resto Beverage Non-Alcoholic | 
 | Salad | Restaurant Food | 
 | Cash | Cash |
 | Credit card | Credit card |
