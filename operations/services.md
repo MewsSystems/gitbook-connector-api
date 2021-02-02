@@ -95,6 +95,152 @@ Returns all services offered by the enterprise.
 * `Reservable`
 * `Orderable`
 
+## Get all availability blocks
+
+Returns all availability blocks filtered by services, unique identifiers and other filters.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/availabilityBlocks/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AvailabilityBlockIds": [
+        "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
+    ],
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ],
+    "CollidingUtc" : {
+        "StartUtc": "2020-11-05T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
+    "ExternalIdentifiers": [
+        "Block-0001"
+    ],
+    "Extent": {
+        "AvailabilityBlocks": true,
+        "Availabilities": true,
+        "ServiceOrders": false
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](#availability-block)s. |
+| `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service)s to which [Availability block](#availability-block)s are assigned. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s are active. |
+| `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s. from external systems |
+| `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservation](reservations.md#reservation)s) are returned. |
+
+### Availability block extent
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AvailabilityBlocks` | bool | optional | Whether the response should contain the general availability blocks. |
+| `Availabilities` | bool | optional | Whether the response should contain individual availability updates related to availability blocks. |
+| `ServiceOrders` | bool | optional | Whether the response should contain reservations related to availability blocks. |
+
+### Response
+
+```javascript
+{
+    "AvailabilityBlocks": [
+        {{
+            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "StartUtc": "2020-11-05T00:00:00Z",
+            "EndUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": "2020-11-04T00:00:00Z",
+            "ExternalIdentifier": "Block-0001"
+        }
+    ],
+    "ServiceOrders": [
+        {
+            "Id": "5281b551-bd90-4def-b211-acbd00d3ac8c",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "GroupId": "edad92db-0b60-4b91-a090-acbd00d3ac75",
+            "Number": "61",
+            "ChannelNumber": "68845CDD-1340-49B5-9071-ACBD00B1D091",
+            "ChannelManagerNumber": null,
+            "ChannelManagerGroupNumber": null,
+            "ChannelManager": null,
+            "State": "Confirmed",
+            "Origin": "Connector",
+            "CreatedUtc": "2020-11-05T12:50:40Z",
+            "UpdatedUtc": "2020-11-06T07:59:19Z",
+            "CancelledUtc": null,
+            "StartUtc": "2020-11-05T00:00:00Z",
+            "EndUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": null,
+            "RequestedCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
+            "AssignedSpaceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
+            "AssignedResourceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
+            "AssignedSpaceLocked": false,
+            "AssignedResourceLocked": false,
+            "BusinessSegmentId": null,
+            "CompanyId": null,
+            "TravelAgencyId": null,
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "CreditCardId": null,
+            "AdultCount": 2,
+            "ChildCount": 0,
+            "CustomerId": "c2730cbc-53ca-440d-8b30-ac87008b30af",
+            "BookerId": null,
+            "CompanionIds": [],
+            "CancellationReason": null,
+            "VoucherId": null,
+            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
+        }
+    ],
+    "Availabilities": [
+        {
+            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ResourceCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
+            "StartUtc": "2020-11-05T23:00:00Z",
+            "EndUtc": "2020-11-06T23:00:00Z",
+            "UnitCount": 6
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
+| `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservation](reservations.md#reservation)s) linked to availability blocks. |
+| `Availabilities` | array of [Availability update](#availability-update) | optional | Availability updates of availability blocks. |
+
+#### Availability block
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the availability block. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) the block is assigned to. |
+| `RateId` | string | required | Unique identifier of the [Rate](#rate) the block is assigned to. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
+
+#### Availability update
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block) whose availability is updated. |
+| `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](enterprises.md#resource-category) whose availability is updated. |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `UnitCount` | string | required | Adjustment value applied on the interval. |
+
 ## Add availability blocks
 
 Adds availability blocks which are used to group related [Availability update](#availability-update)s. This makes limiting public availability easier and more organized.
@@ -160,18 +306,6 @@ Adds availability blocks which are used to group related [Availability update](#
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | array of [Availability blocks](#availability-block) | required | Availability blocks. |
-
-#### Availability block
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the availability block. |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service) the block is assigned to. |
-| `RateId` | string | required | Unique identifier of the [Rate](#rate) the block is assigned to. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
-| `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 
 ## Delete availability blocks
 

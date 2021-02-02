@@ -160,7 +160,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "State": "Processed",
             "TravelAgencyId": null,
             "UpdatedUtc": "2016-02-20T14:58:02Z",
-            "VoucherId": null
+            "VoucherId": null,
+            "AvailabilityBlockId": null,
         }
     ],
     "Services": null,
@@ -219,6 +220,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will use the resource. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 
 #### Reservation state
 
@@ -489,7 +491,8 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                     "StartUtc": "2021-01-02T00:00:00Z",
                     "EndUtc": "2021-01-03T00:00:00Z"
                 }
-            ]
+            ],
+            "AvailabilityBlockId": null
         }
     ]
 }
@@ -502,9 +505,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
-| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specifed, this field is ignored. If not specified, the group name is automatically created. |
+| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specified, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
-| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
+| `SendConfirmationEmail` | bool | optional | Whether the confirmation email is sent. Default value is `true`. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 
@@ -530,6 +533,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 | `CreditCardId` | string | optional | Identifier of [Credit card](finance.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 
 ### Response
 
@@ -665,6 +669,9 @@ Updates information about the specified reservations. Note that if any of the fi
             },
             "CreditCardId": {
                 "Value": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
+            },
+            "AvailabilityBlockId": {
+                "Value": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
             }
         }
     ]
@@ -702,6 +709,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `BookerId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
 | `CreditCardId` | [String update value](reservations.md#string-update-value) | optional | Identifier of [Credit card](finance.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation.  \(or `null` if the credit card should not be updated). |
+| `AvailabilityBlockId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 
 #### String update value
 
