@@ -217,7 +217,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
 | `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservation](reservations.md#reservation)s) linked to availability blocks. |
-| `Availabilities` | array of [Availability update](#availability-update) | optional | Availability updates of availability blocks. |
+| `Availabilities` | array of [Availability block adjustment](#availability-block-adjustment) | optional | Availability adjustments of availability blocks. |
 
 #### Availability block
 
@@ -231,7 +231,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 
-#### Availability update
+#### Availability block adjustment
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
