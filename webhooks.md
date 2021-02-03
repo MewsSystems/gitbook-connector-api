@@ -148,6 +148,7 @@ This is a new format of webhook message which will be extended in future to carr
                 "CancelledUtc": null,
                 "StartUtc": "2016-02-20T13:00:00Z",
                 "EndUtc": "2016-02-22T11:00:00Z",
+                "ReleasedUtc": null,
                 "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
                 "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
                 "AssignedResourceLocked": false,
@@ -156,10 +157,10 @@ This is a new format of webhook message which will be extended in future to carr
                 "TravelAgencyId": null,
                 "AvailabilityBlockId": null,
                 "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+                "VoucherId": null,
                 "AdultCount": 2,
                 "ChildCount": 0,
-                "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-                "VoucherId": null
+                "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
             }
         ]
     }
