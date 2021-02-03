@@ -209,7 +209,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
-| `ReleasedUtc` | string | optional | Date when the optional reservation \(departure\) is released in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
 | `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
 | `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](enterprises.md#resource) and cannot be moved. |
