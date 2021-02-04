@@ -170,7 +170,7 @@ This is a new format of webhook message which will be extended in future to carr
 | --- | --- | --- | --- |
 | `EnterpriseId` | string | required | Unique identifier of [Enterprise](configuration.md#enterprise) where events belong to. |
 | `IntegrationId` | string | required | Unique identifier of [Integration](#integration) which events are connected to. |
-| `Events` | array of [Event](#event) | required | List of events that happened in Mews since last webhook call. |
+| `Events` | array of [Event](#event) | required | The events that occurred in Mews. |
 | `Entities` | [Entities](#entities) | required | Collection of entities related to [Event](#event)s. |
 
 ### Event
