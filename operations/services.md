@@ -123,7 +123,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     ],
     "Extent": {
         "AvailabilityBlocks": true,
-        "Availabilities": true,
+        "Adjustments": true,
         "ServiceOrders": false
     }
 }
@@ -145,7 +145,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | bool | optional | Whether the response should contain the general availability blocks. |
-| `Availabilities` | bool | optional | Whether the response should contain individual availability updates related to availability blocks. |
+| `Adjustments` | bool | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
 | `ServiceOrders` | bool | optional | Whether the response should contain reservations related to availability blocks. |
 
 ### Response
@@ -201,7 +201,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "VoucherId": null
         }
     ],
-    "Availabilities": [
+    "Adjustments": [
         {
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ResourceCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
@@ -217,7 +217,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
 | `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservation](reservations.md#reservation)s) linked to availability blocks. |
-| `Availabilities` | array of [Availability block adjustment](#availability-block-adjustment) | optional | Availability adjustments of availability blocks. |
+| `Adjustments` | array of [Availability block adjustment](#availability-block-adjustment) | optional | Availability adjustments of availability blocks. |
 
 #### Availability block
 
