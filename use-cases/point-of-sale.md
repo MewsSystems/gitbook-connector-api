@@ -18,6 +18,7 @@ An Outlet is used to represent the point of sale, under which items are recorded
 The integration should use the [Get all services](../operations/services.md#get-all-services) endpoint to retrieve all services the property has created in Mews, which then could be correctly mapped with similar information in the POS. The `ServiceId` will need to be used in the API call. Point of sale systems should use non-Stay/Accommodation services and their relevant products.
 
 #### Outlets
+
 Outlets are used for the POS to send a full revenue push to Mews. Using the [Get all outlets](../operations/enterprises.md#get-all-outlets) endpoint will retrieve any Outlets that the property has configured in Mews. Outlets should be created by the property for each external location as well as different `AccountingCategories` that should be used to seperate payments and revenue per Outlet.
 
 ##### Example of Service and Outlet mapping to the point of sale
