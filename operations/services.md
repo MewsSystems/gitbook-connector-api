@@ -182,23 +182,18 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": null,
             "RequestedCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
-            "AssignedSpaceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
             "AssignedResourceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
-            "AssignedSpaceLocked": false,
             "AssignedResourceLocked": false,
             "BusinessSegmentId": null,
             "CompanyId": null,
             "TravelAgencyId": null,
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "CreditCardId": null,
+            "VoucherId": null,
             "AdultCount": 2,
             "ChildCount": 0,
             "CustomerId": "c2730cbc-53ca-440d-8b30-ac87008b30af",
-            "BookerId": null,
-            "CompanionIds": [],
-            "CancellationReason": null,
-            "VoucherId": null
+            "CompanionIds": []
         }
     ],
     "Availabilities": [
