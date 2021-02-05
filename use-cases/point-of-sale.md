@@ -15,7 +15,7 @@ A Service is used to represent the point of sale, under which items are recorded
 An Outlet is used to represent the point of sale, under which items are recorded when posting *Outlet bills*.
 
 #### Services
-The integration should use the [Get all services](../operations/services.md#get-all-services) endpoint to retrieve all services the property has created in Mews, which then could be correctly mapped with similar information in the POS. The `ServiceId` will need to be used in the API call. Point of sale systems should use non-Stay/Accommodation services and their relevant products.
+The integration should use the [Get all services](../operations/services.md#get-all-services) endpoint to retrieve all services the property has created in Mews, which then could be correctly mapped with similar information in the POS. The `ServiceId` will need to be used in the API call. Point of sale systems should use services of the `Orderable` [service type](../operations/services.md#service-type) and their relevant products (if any).
 
 #### Outlets
 
@@ -74,7 +74,7 @@ Example: One salad of €10.00 divided between two people are sent as two separa
 
 ### Rebates
 
-Rebates (or cancelled items) will need to be allowed by the property and can be applied to both Orders and Outlet bills. The POS system should use the applicable endpoint - [add order](../operations/services.md#add-order) or [Add outlet bill](../operations/finance.md#add-outlet-bills) - to post a rebate or cancelled item.
+Rebates (or cancelled items) will need to be allowed by the property and can be applied to both Orders and Outlet bills. The POS system should use the applicable endpoint - [Add order](../operations/services.md#add-order) or [Add outlet bill](../operations/finance.md#add-outlet-bills) - to post a rebate or cancelled item.
 
 ### Gratuities
 
@@ -84,7 +84,7 @@ Gratuities should be sent as another item to Mews and can be posted under a diff
 
 Outlets are used in Mews to record any revenue and payments that have been taken outside of Mews. This allows for the centralization and reporting of accounting data to an external system (such as an accounting software) from Mews. The POS system will need to use the [Add outlet bill](../operations/finance.md#add-outlet-bills) endpoint to post all end-of-day revenue and payments to the Outlet(s) the property has configured in Mews. Any outlet items that are sent to Mews will need to have an `AccountingCategoryId` attached to the item. You can make use of `Number` to record the associated ticket or receipt number from the POS system.
 
-In an Outlet bill, items of the [Payment](../operations/finance#outlet-item-type) type are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
+In an outlet bill, items of the [payment](../operations/finance#outlet-item-type) type are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
 
 ### Testing your integration
 
