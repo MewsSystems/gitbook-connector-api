@@ -27,6 +27,7 @@ This section describes all operations supported by the API:
   * [Update company](enterprises.md#update-company) - updates a company.
 * [Services](services.md) - operations related to offered services, availability and prices.
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
+  * [Get all availability blocks](services.md#get-all-availability-blocks) - returns all availability blocks by filters.
   * [Add availability blocks](services.md#add-availability-blocks) - adds new availability blocks.
   * [Delete availability blocks](services.md#delete-availability-blocks) - delete existing availability blocks.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.

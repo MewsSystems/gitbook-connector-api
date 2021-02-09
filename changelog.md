@@ -1,6 +1,6 @@
 # Changelog
 
-## Planned changes for 1st April 2021
+## Highlight of deprecated operations in Q1 2021
 
 ### Deprecated operations
 
@@ -35,8 +35,8 @@ Use properties `CreatedUtc`, `UpdatedUtc`, etc. as per operation description.
 Following properties to be removed from output and/or ignored on input:
 
 | Object | Property | Replaced by |
-| --- | --- | --- | 
-| [Company](operations/enterprises.md#company) | `TaxIdentificationNumber` | `TaxIdentifier` | 
+| --- | --- | --- |
+| [Company](operations/enterprises.md#company) | `TaxIdentificationNumber` | `TaxIdentifier` |
 | [Reservation](operations/reservations.md#reservation) | `ChannelManagerId` | `ChannelManagerNumber` |
 | [Reservation](operations/reservations.md#reservation) | `TimeUnitCost` | `TimeUnitPrices` |
 | [Reservation](operations/reservations.md#reservation) | `TraveAgencyId` | `TravelAgencyId` |
@@ -139,7 +139,9 @@ Changed [Websocket authentication](websockets.md#authentication) from being pass
 
 A month ago we announced the [project Spacetime](https://developers.mews.com/project-spacetime/) whose main objective is to generalize the notion of services and spaces. And later, also the time units. We're pleased to announce that the first phase is now available in the Connector API. We are generalizing spaces into resources, we're introducing the possibility to have multiple "visit" services, not just a single one. The resources might be offered via multiple services which also means that a few entities like rates, restrictions or resource features are no longer defined on enterprise level, they're defined on service level and apply only to specified service.
 
-There are **no breaking changes** in the API, all of the previous endpoints and capabilities are still working and will be working until the end of the deprecation period. However we'd like to ask you to update your clients as soon as possible, we're not able to roll out the new possibilities to our clients if you are not ready. Therefore we rely on you and your timely cooperation because we want to give this new opportunity to the hotels as soon as we can. We acknowledge it's a lot of changes, we're prepared to monitor the situation and help you with any questions or concerns, feel free to contact us at integrations@mews.com.
+**There are no immediate breaking changes in the API, all of the previous endpoints and capabilities are still working and will be working until the end of the deprecation period which is scheduled for 15 Jan 2021**. 
+
+However we'd like to ask you to update your clients as soon as possible, we're not able to roll out the new possibilities to our clients if you are not ready. Therefore we rely on you and your timely cooperation because we want to give this new opportunity to the hotels as soon as we can. We acknowledge it's a lot of changes, we're prepared to monitor the situation and help you with any questions or concerns, feel free to contact us at integrations@mews.com.
 
 * Added [Resource](operations/enterprises.md#resource) that is replacing the Space. It can have multiple categories through multiple services. Note that Resource does not need to be assigned to any category.
 * Added [Resource category](operations/enterprises.md#resource-category) that is replacing the Space category.

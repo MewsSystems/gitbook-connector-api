@@ -132,35 +132,37 @@ Returns all reservations specified by any identifier, customer or other filter. 
     ],
     "Reservations": [
         {
-            "AdultCount": 2,
+            "Id": "bfee2c44-1f84-4326-a862-5289598f6e2d",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+            "Number": "52",
+            "ChannelManager": "",
+            "ChannelManagerGroupNumber": null,
+            "ChannelManagerNumber": null,
+            "ChannelNumber": null,
+            "State": "Processed",
+            "Origin": "Connector",
+            "CreatedUtc": "2016-02-20T14:58:02Z",
+            "UpdatedUtc": "2016-02-20T14:58:02Z",
+            "CancelledUtc": null,
+            "StartUtc": "2016-02-20T13:00:00Z",
+            "EndUtc": "2016-02-22T11:00:00Z",
+            "ReleasedUtc": null,
+            "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
             "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
             "AssignedResourceLocked": false,
             "BusinessSegmentId": null,
-            "CancelledUtc": null,
-            "ChannelNumber": "1337614414",
-            "ChannelManagerNumber": "01",
-            "ChannelManagerGroupNumber": "JX8PA2",
-            "ChannelManager": "AvailPro",
-            "ChildCount": 0,
-            "CompanionIds": [
-                "35d4b117-4e60-44a3-9580-c582117eff98"
-            ],
             "CompanyId": null,
-            "CreatedUtc": "2016-02-20T14:58:02Z",
-            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-            "EndUtc": "2016-02-22T11:00:00Z",
-            "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
-            "Id": "bfee2c44-1f84-4326-a862-5289598f6e2d",
-            "Number": "52",
-            "Origin": "Manual",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "StartUtc": "2016-02-20T13:00:00Z",
-            "State": "Processed",
             "TravelAgencyId": null,
-            "UpdatedUtc": "2016-02-20T14:58:02Z",
-            "VoucherId": null
+            "AvailabilityBlockId": null,
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "VoucherId": null,
+            "AdultCount": 2,
+            "ChildCount": 0,
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "CompanionIds": [
+                "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
+            ]
         }
     ],
     "Services": null,
@@ -204,21 +206,23 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
+| `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
-| `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
 | `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
 | `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](enterprises.md#resource) and cannot be moved. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](services.md#business-segment). |
 | `CompanyId` | string | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made. |
 | `TravelAgencyId` | string | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
+| `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
 | `AdultCount` | number | required | Count of adults the reservation was booked for. |
 | `ChildCount` | number | required | Count of children the reservation was booked for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will use the resource. |
-| `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
 
 #### Reservation state
 
@@ -489,7 +493,8 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                     "StartUtc": "2021-01-02T00:00:00Z",
                     "EndUtc": "2021-01-03T00:00:00Z"
                 }
-            ]
+            ],
+            "AvailabilityBlockId": null
         }
     ]
 }
@@ -502,9 +507,9 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the [Reservation group](reservations.md#reservation-group) where the reservations are added. If not specified, a new group is created. |
-| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specifed, this field is ignored. If not specified, the group name is automatically created. |
+| `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specified, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
-| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
+| `SendConfirmationEmail` | bool | optional | Whether the confirmation email is sent. Default value is `true`. |
 | `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 
@@ -530,6 +535,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 | `CreditCardId` | string | optional | Identifier of [Credit card](finance.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 
 ### Response
 
@@ -540,36 +546,37 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "Identifier": "1234",
             "Reservation":
             {
-                "AdultCount": 2,
-                "AssignedResourceId": "16ce4335-2198-408b-8949-9722894a42fb",
-                "AssignedResourceLocked": false,
-                "BusinessSegmentId": "7760b5cb-a666-41bb-9758-76bf5d1df399",
-                "CancelledUtc": null,
+                "Id": "bfee2c44-1f84-4326-a862-5289598f6e2d",
+                "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+                "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+                "Number": "52",
                 "ChannelManager": "",
                 "ChannelManagerGroupNumber": null,
                 "ChannelManagerNumber": null,
                 "ChannelNumber": null,
+                "State": "Processed",
+                "Origin": "Connector",
+                "CreatedUtc": "2016-02-20T14:58:02Z",
+                "UpdatedUtc": "2016-02-20T14:58:02Z",
+                "CancelledUtc": null,
+                "StartUtc": "2016-02-20T13:00:00Z",
+                "EndUtc": "2016-02-22T11:00:00Z",
+                "ReleasedUtc": null,
+                "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+                "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
+                "AssignedResourceLocked": false,
+                "BusinessSegmentId": null,
+                "CompanyId": null,
+                "TravelAgencyId": null,
+                "AvailabilityBlockId": null,
+                "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+                "VoucherId": null,
+                "AdultCount": 2,
                 "ChildCount": 0,
+                "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
                 "CompanionIds": [
                     "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
-                ],
-                "CompanyId": null,
-                "CreditCardId": "5d802a8f-3238-42b2-94be-ab0300ab2b6c",
-                "CreatedUtc": "2017-08-03T13:32:35Z",
-                "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
-                "EndUtc": "2018-01-02T09:00:00Z",
-                "GroupId": "4c79d393-53e1-45fd-bd24-2b0a36b4b3e6",
-                "Id": "cfdfb9a1-b613-4cc1-b6c1-dfbb574c0f0e",
-                "Number": "870",
-                "Origin": "Manual",
-                "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
-                "ReleasedUtc": null,
-                "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
-                "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-                "StartUtc": "2018-01-01T14:00:00Z",
-                "State": "Confirmed",
-                "TravelAgencyId": null,
-                "UpdatedUtc": "2017-08-03T13:32:35Z"
+                ]
             }
         }
     ]
@@ -665,6 +672,9 @@ Updates information about the specified reservations. Note that if any of the fi
             },
             "CreditCardId": {
                 "Value": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
+            },
+            "AvailabilityBlockId": {
+                "Value": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
             }
         }
     ]
@@ -702,6 +712,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `BookerId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
 | `CreditCardId` | [String update value](reservations.md#string-update-value) | optional | Identifier of [Credit card](finance.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation.  \(or `null` if the credit card should not be updated). |
+| `AvailabilityBlockId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 
 #### String update value
 
