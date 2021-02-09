@@ -70,11 +70,13 @@ Once the customer profile to be charged is identified, the items can be posted o
 
 If the POS supports split payments, e.g. one salad divided between two people, it must be sent to Mews as separate transactions with the product `Count` or item `UnitCount` rounded up to the nearest whole number. 
 
-Example: One salad of €10.00 divided between two people are sent as two separate orders, each with 1 salad at a price of €5.00.
+*Example: One salad of €10.00 divided between two people are sent as two separate orders, each with 1 salad at a price of €5.00.*
 
-### Rebates
+### Full or partial rebates
 
-Rebates (or cancelled items) will need to be allowed by the property and can be applied to both orders and outlet bills. The POS system should use the applicable endpoint - [Add order](../operations/services.md#add-order) or [Add outlet bill](../operations/finance.md#add-outlet-bills) - to post a rebate or cancelled item. Such items should be sent through with *negative* values, in order to balance out the previously posted amount.
+Rebates (or cancelled items) will need to be allowed by the property and can be applied to both orders and outlet bills. It is not allowed to directly cancel or modify the originally posted item. Therefore, the POS system should use the applicable endpoint - [Add order](../operations/services.md#add-order) or [Add outlet bill](../operations/finance.md#add-outlet-bills) - to post a rebate or cancelled item. Such items should be sent through with *negative* values, in order to balance out the previously posted amount.
+
+*Example: One salad of €10.00 has been sent to Mews. To rebate this item, send through one salad of -€10.00. If partial rebate of 50%, send through one salad of -€5.00.
 
 ### Gratuities
 
