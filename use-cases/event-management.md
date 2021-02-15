@@ -8,26 +8,30 @@ To automate the onboarding of a new property as much as possible, use any combin
 
 ### Rates and availability
 
-To pull data about rates and availability from Mews into the event management integration, use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) as well as [Get service availability](../operations/services.md#get-service-availability).
+Use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) to pull data about rates offered in the enterprise. Use [Get service availability](../operations/services.md#get-service-availability) to pull category availability and related adjustments from Mews into the event management integration.
 
 ### Availability blocks
 
-
+Availability blocks (also known as group blocks) are used for reserving a certain portion of category availability in Mews for a specific group of reservations, as well as the subsequent management of reservations that are created in Mews for such groups. 
 
 #### Creating availability blocks
 
-first get service availability and existing service availability adjustments
+First call [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object with the relevant parameters. Note the `AvailabilityBlockId`, which is used as the unique identifier throughout the Mews system. 
 
-add availability block
-Use [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object. you can use ExternalIdentifier to identify it. 
+Then call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into the system. Send a negative value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in [Availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. 
 
-then call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into the system. If you wish to reserve 10 units of availability, send -10 in the adjustment.
+*Example: if you wish to reserve 10 units of availability, send -10 in the `UnitCountAdjustment`.*
 
 #### Adding reservations to an availability block
+
+reservations will consume the availability that was reserved from update service availability instead of from the overall availability
 
 Include `AvailabilityBlockId` in the [reservations parameters](../operations/reservations..#reservation-parameters) when you [add reservations](../operations/reservations.md#add-reservations) into an existing group block.
 
 Or, add place an existing reservation into an availability block with [Update reservations](../operations/reservations.md#update-reservations)
+
+
+any caveats about overbooking?
 
 #### Managing availability blocks
 
