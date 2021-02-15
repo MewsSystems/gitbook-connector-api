@@ -1,6 +1,42 @@
 ## Event management
 
-An event management integration pushes contracted revenue to the relevant guest’s profile in Mews, pulls live information about rates and availability and allows for the group reservations already pushed into Mews to be managed from the event management software. The sections below contain guidelines regarding the relevant endpoints used.
+An event management integration can pull live information about rates and availability, create availability blocks, affect property inventory, push contracted revenue to the relevant guest’s profile in Mews, and allow users to manage the group reservations (already pushed into Mews) from the event management software. The sections below contain guidelines regarding the relevant endpoints used.
+
+### Enterprise information
+
+To automate the onboarding of a new property as much as possible, use any combination of the [Configuration](../operations/configuration.md) operation or [Enterprise](../operations/enterprises.md) to pull information about a property, including but not limited to resources configuration, applicable tax rates, services and products, company profiles.
+
+### Rates and availability
+
+To pull data about rates and availability from Mews into the event management integration, use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) as well as [Get service availability](../operations/services.md#get-service-availability).
+
+### Availability blocks
+
+
+
+#### Creating availability blocks
+
+first get service availability and existing service availability adjustments
+
+add availability block
+Use [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object. you can use ExternalIdentifier to identify it. 
+
+then call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into the system. If you wish to reserve 10 units of availability, send -10 in the adjustment.
+
+#### Adding reservations to an availability block
+
+Include `AvailabilityBlockId` in the [reservations parameters](../operations/reservations..#reservation-parameters) when you [add reservations](../operations/reservations.md#add-reservations) into an existing group block.
+
+Or, add place an existing reservation into an availability block with [Update reservations](../operations/reservations.md#update-reservations)
+
+#### Managing availability blocks
+
+
+Use [Delete availability blocks](../operations/services.md#delete-availability-blocks) to remove the block object.
+
+Use [Get availability blocks](../operations/services.md#add-availability-blocks)
+
+
 
 ### Managing customers
 
@@ -16,9 +52,6 @@ One of the expected functionalities of an event management integration is to pus
 
 To ensure correct reporting, all revenue items posted into Mews using Item parameters must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property are requested using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
-### Rates and availability
-
-To pull data about rates from Mews into the event management integration use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) as well as [Get service availability](../operations/services.md#get-service-availability).
 
 ### Testing your integration
 
