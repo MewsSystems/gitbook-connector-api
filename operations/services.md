@@ -1579,6 +1579,314 @@ Returns all companionships based on customers, reservations or reservation group
 | `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
 
+## Get all resource access tokens
+
+Returns all resource access tokens based on resource access tokens, reservations or interval. One of them must be specified in the request.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resourceAccessTokens/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ],
+    "ResourceAccessTokenIds": [
+        "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D"
+    ],
+    "ReservationIds ": [
+        "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D"
+    ],
+    "CollidingUtc": {
+        "StartUtc": "2020-02-15T00:00:00Z",
+        "EndUtc": "2020-02-20T00:00:00Z"
+    },
+    "ActivityStates": [
+        "Active"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Service](#service)s where the resource access tokens belong to. |
+| `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access token](#resource-access-token)s. Required if no other filter is provided. |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation](reservations.md#reservation)s. Required if no other filter is provided. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is active. Required if no other filter is provided. |
+| `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
+
+### Response
+
+```javascript
+{
+    "ResourceAccessTokens": [
+        {
+            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "ServiceOrderId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
+            "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
+            "Type": "PinCode",
+            "Value": "resource access token value",
+            "SerialNumber": null,
+            "ValidityStartUtc": "2020-10-09T22:00:00Z",
+            "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "Permissions":
+            {
+                "Bed": true,
+                "Room": false,
+                "Floor": false,
+                "Building": false
+            },
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ResourceAccessTokens` | array of [Resource access token](#resource-access-token) | required | Resource access tokens. |
+
+#### Resource access token
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of [Resource access token](#resource-access-token). |
+| `ServiceOrderId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
+| `CompanionshipId` | string | optional | Unique identifier of [Companionship](services.md#companionship). |
+| `ResourceId` | string | optional | Unique identifier of [Resource category](enterprises.md#resource-category). |
+| `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value and serial number. |
+| `Value` | string | required | Value of resource access token |
+| `SerialNumber` | string | optional | Serial number of [Resource access token type](#resource-access-token-type). |
+| `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
+| `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
+| `Permissions` | [Resource access token permissions](#resource-access-token-permissions) | required | Specify permissions of [Resource access token](#resource-access-token). |
+
+#### Resource access token type
+
+* `PinCode`
+* `RfidTag`
+
+#### Resource access token permissions
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Bed` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to bed. |
+| `Room` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to room. |
+| `Floor` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to floor. |
+| `Building` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to building. |
+
+## Add resource access tokens
+
+Adds new resource access tokens with the specified data.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resourceAccessTokens/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ResourceAccessTokenParameters": [
+        {
+            "ServiceOrderId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
+            "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
+            "Type": "PinCode",
+            "Value": "resource access token value",
+            "SerialNumber": null,
+            "ValidityStartUtc": "2020-10-09T22:00:00Z",
+            "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "Permissions":
+            {
+                "Bed": { "Value": true },
+                "Room": { "Value": false },
+                "Floor": { "Value": false },
+                "Building": { "Value": false }
+            },
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ResourceAccessTokenParameters` | Array of [Resource access token parameter](#resource-access-token-parameter) | required | Name and version of the client application. |
+
+#### Resource access token parameter
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ServiceOrderId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
+| `CompanionshipId` | string | optional | Unique identifier of [Companionship](services.md#companionship). |
+| `ResourceId` | string | optional | Unique identifier of [Resource category](enterprises.md#resource-category). |
+| `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value and serial number. |
+| `Value` | string | required | Value of resource access token |
+| `SerialNumber` | string | optional | Serial number of [Resource access token type](#resource-access-token-type). |
+| `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
+| `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
+| `Permissions` | [Resource access token permission parameter](#resource-access-token-permission-parameter) | required | Specify permissions of [Resource access token](#resource-access-token). |
+
+#### Resource access token permission parameter
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Bed` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to bed. |
+| `Room` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to room. |
+| `Floor` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to floor. |
+| `Building` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to building. |
+
+### Response
+
+```javascript
+{
+    "ResourceAccessTokens": [
+        {
+            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "ServiceOrderId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
+            "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
+            "Type": "PinCode",
+            "Value": "resource access token value",
+            "SerialNumber": null,
+            "ValidityStartUtc": "2020-10-09T22:00:00Z",
+            "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "Permissions":
+            {
+                "Bed": true,
+                "Room": false,
+                "Floor": false,
+                "Building": false
+            },
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ResourceAccessTokens` | array of [Resource access token](#resource-access-token) | required | Resource access tokens. |
+
+## Update resource access tokens
+
+Updates the .
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resourceAccessTokens/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ResourceAccessTokenUpdates": [
+        {
+            "ResourceAccessTokenId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "ValidityStartUtc": { "Value": "2020-10-09T22:00:00Z" },
+            "ValidityEndUtc": { "Value": "2020-10-10T22:00:00Z" },
+            "Permissions":
+            {
+                "Bed": { "Value": true },
+                "Room": { "Value": false },
+                "Floor": { "Value": false },
+                "Building": { "Value": false }
+            },
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ResourceAccessTokenUpdates` | Array of [Resource access token update](#resource-access-token-update) | required | Name and version of the client application. |
+
+#### Resource access token update
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ResourceAccessTokenId` | [String update value](reservations.md#string-update-value) | required | Unique identifier of [Resource access token](#resource-access-token). |
+| `ValidityStartUtc` | [String update value](reservations.md#string-update-value) | optional | Marks the start of interval in which the resource access token can be used. |
+| `ValidityEndUtc` | [String update value](reservations.md#string-update-value) | optional | Marks the end of interval in which the resource access token can be used. |
+| `Permissions` | [Resource access token permission parameter](#resource-access-token-permission-parameter) | optional | Specify permissions of [Resource access token](#resource-access-token). |
+
+### Response
+
+```javascript
+{
+    "ResourceAccessTokens": [
+        {
+            "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "ServiceOrderId": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
+            "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
+            "Type": "PinCode",
+            "Value": "resource access token value",
+            "SerialNumber": null,
+            "ValidityStartUtc": "2020-10-09T22:00:00Z",
+            "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "Permissions":
+            {
+                "Bed": true,
+                "Room": false,
+                "Floor": false,
+                "Building": false
+            },
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ResourceAccessTokens` | array of [Resource access token](#resource-access-token) | required | Resource access tokens. |
+
+
+## Delete resource access tokens
+
+Delete specified resource access tokens .
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resourceAccessTokens/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Ids": [
+        "35d4b117-4e60-44a3-9580-c582117eff98"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Ids` | Array of string | required | Unique identifiers of [Resource access token](#resource-access-token). |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Get all vouchers
 
 Returns all rate vouchers filtered by [Service](#service), voucher code or voucher identifier.
