@@ -1618,7 +1618,7 @@ Returns all resource access tokens based on resource access tokens, reservations
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Service](#service)s where the resource access tokens belong to. |
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access token](#resource-access-token)s. Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | optional, max 1000 items | Uique identifiers of service orders (for example [Reservation](reservations.md#reservation)). Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example [Reservation](reservations.md#reservation)). Required if no other filter is provided. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
 
@@ -1728,7 +1728,7 @@ Adds new resource access tokens with the specified data.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ServiceOrderId` | string | required | Uique identifier of a service order (for example [Reservation](reservations.md#reservation)). |
+| `ServiceOrderId` | string | required | Unique identifier of a service order (for example [Reservation](reservations.md#reservation)). |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](services.md#companionship). |
 | `ResourceId` | string | optional | Unique identifier of [Resource](enterprises.md#resource). |
 | `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
