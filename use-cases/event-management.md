@@ -10,35 +10,39 @@ To automate the onboarding of a new property as much as possible, use any combin
 
 Use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) to pull data about rates offered in the enterprise. Use [Get service availability](../operations/services.md#get-service-availability) to pull category availability and related adjustments from Mews into the event management integration.
 
-### Availability blocks
+### Managing group reservations with availability blocks
 
 Availability blocks (also known as group blocks) are used for reserving a certain portion of category availability in Mews for a specific group of reservations, as well as the subsequent management of reservations that are created in Mews for such groups. 
 
 #### Creating availability blocks
 
-First call [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object with the relevant parameters. Note the `AvailabilityBlockId`, which is used as the unique identifier throughout the Mews system. 
+First call [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object with the relevant parameters. Note the `AvailabilityBlockId`, which is used as the unique identifier throughout Mews. 
 
-Then call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into the system. Send a negative value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in [Availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. 
+Then call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into Mews. Send a negative value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in the [availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. 
 
-*Example: if you wish to reserve 10 units of availability, send -10 in the `UnitCountAdjustment`.*
-
-#### Adding reservations to an availability block
-
-reservations will consume the availability that was reserved from update service availability instead of from the overall availability
-
-Include `AvailabilityBlockId` in the [reservations parameters](../operations/reservations..#reservation-parameters) when you [add reservations](../operations/reservations.md#add-reservations) into an existing group block.
-
-Or, add place an existing reservation into an availability block with [Update reservations](../operations/reservations.md#update-reservations)
-
-
-any caveats about overbooking?
+*Example: If you wish to reserve 10 units of availability, send -10 in the `UnitCountAdjustment` parameter.*
 
 #### Managing availability blocks
 
+Call [Get availability blocks](../operations/services.md#add-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of Reservation Webhook events to receive real-time notification of all reservation events ??????????????????
 
-Use [Delete availability blocks](../operations/services.md#delete-availability-blocks) to remove the block object.
+It is possible to [Delete availability blocks](../operations/services.md#delete-availability-blocks) to remove the availability block. ?????????? any criteria/business checks? should be beneath the endpoint probably?????????????
 
-Use [Get availability blocks](../operations/services.md#add-availability-blocks)
+#### Adding reservations to an availability block
+
+When a new reservation is created within the event management software, it needs to be synced with Mews. This can be pushed into Mews using the [Add reservations](../operations/reservations.md#add-reservations) operation. To ensure that the reservations consume availability reserved for the availability block, instead of from the property's overall availability, include `AvailabilityBlockId` in the [reservations parameters](../operations/reservations..#reservation-parameters) when you [add reservations](../operations/reservations.md#add-reservations) into an existing group block.
+
+It is also possible to place an existing reservation into an availability block with the [Update reservations](../operations/reservations.md#update-reservations) by including `AvailabilityBlockId` in the [reservations parameters](../operations/reservations..#reservation-parameters).
+
+
+????????? any caveats about overbooking?
+
+????????????? currently can't disassociate reservations from an availability block? sending blank in reservations/update didn't do the trick
+
+#### Managing reservations
+
+In order to ensure that the property can further manage individual companions to the group reservation via the integration, use the [Add reservation companion](../operations/reservations.md#add-reservation-companion) or [Delete reservation companion](../operations/reservations.md#delete-reservation-companion). 
+
 
 
 
@@ -46,9 +50,7 @@ Use [Get availability blocks](../operations/services.md#add-availability-blocks)
 
 In Mews, billing is managed at the customer’s profile level instead of being charged to a specific room. In order to be able to send the charges to the correct customer, they must have a profile in Mews. A new customer can be added using the [Add customer](../operations/customers.md#add-customer) operation and any information can be updated using the [Update customer](../operations/customers.md#update-customer) one. In order to retrieve a list of all customer profiles created within a certain interval, use the [Get all customers](../operations/customers.md#get-all-customers) operation.
 
-### New group reservation 
 
-When a new reservation is created within the event management software, it needs to be synced with Mews. This can be pushed into Mews using the [Add reservations](../operations/reservations.md#add-reservations) operation. In order to ensure that the property can further manage individual companions to the group reservation via the integration, use the [Add reservation companion](../operations/reservations.md#add-reservation-companion) or [Delete reservation companion](../operations/reservations.md#delete-reservation-companion). 
 
 ### Adding items
 
@@ -70,3 +72,4 @@ To confirm you are relating any product that is not configured in Mews with the 
 - How to [create rates](https://help.mews.com/en/articles/4244388-create-a-rate)
 - How to [update rates](https://help.mews.com/en/articles/4244389-update-or-remove-a-rate) 
 - How to [manage rate prices](https://intercom.help/mews-systems/en/articles/4245964-rate-management)
+- Managing [companions](https://help.mews.com/en/articles/4397097-add-a-companion-to-the-reservation) in a reservation
