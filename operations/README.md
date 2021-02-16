@@ -37,6 +37,10 @@ This section describes all operations supported by the API:
   * [Get all business segments](services.md#get-all-business-segments) - returns all business segments of a service.
   * [Get all rates](services.md#get-all-rates) - returns all rates of a service.
   * [Get all companionships](services.md#get-all-companionships) - returns all companionships by filter.
+  * [Get all resource access tokens](services.md#get-all-resource-access-tokens) - returns all resource access tokens by filter.
+  * [Add resource access tokens](services.md#Add-resource-access-tokens) - add new resource access tokens.
+  * [Update resource access tokens](services.md#update-resource-access-tokens) - update multiple resource access tokens.
+  * [Delete resource access tokens](services.md#delete-resource-access-tokens) - delete existing resource access tokens.
   * [Get rate pricing](services.md#get-rate-pricing) - returns prices of a rate in an interval.
   * [Update rate price](services.md#update-rate-price) - updates prices of a rate.
   * [Get all restrictions](services.md#get-all-restrictions) - returns all restrictions of a service.

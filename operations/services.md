@@ -1596,10 +1596,10 @@ Returns all resource access tokens based on resource access tokens, reservations
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
     "ResourceAccessTokenIds": [
-        "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D"
+        "90eff5aa-36b4-4689-80c0-ab3a00bb412e"
     ],
-    "ReservationIds ": [
-        "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D"
+    "ServiceOrderIds ": [
+        "65eff5aa-36b4-4689-80c0-ab3a00bb412e"
     ],
     "CollidingUtc": {
         "StartUtc": "2020-02-15T00:00:00Z",
@@ -1618,8 +1618,8 @@ Returns all resource access tokens based on resource access tokens, reservations
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Service](#service)s where the resource access tokens belong to. |
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access token](#resource-access-token)s. Required if no other filter is provided. |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation](reservations.md#reservation)s. Required if no other filter is provided. |
-| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is active. Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | optional, max 1000 items | Uique identifiers of service orders (for example [Reservation](reservations.md#reservation)). Required if no other filter is provided. |
+| `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
 
 ### Response
@@ -1633,7 +1633,7 @@ Returns all resource access tokens based on resource access tokens, reservations
             "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
             "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
             "Type": "PinCode",
-            "Value": "resource access token value",
+            "Value": "1234#",
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
@@ -1658,10 +1658,10 @@ Returns all resource access tokens based on resource access tokens, reservations
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of [Resource access token](#resource-access-token). |
-| `ServiceOrderId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ServiceOrderId` | string | required | Unique identifier of a service order (for example [Reservation](reservations.md#reservation)). |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](services.md#companionship). |
-| `ResourceId` | string | optional | Unique identifier of [Resource category](enterprises.md#resource-category). |
-| `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value and serial number. |
+| `ResourceId` | string | optional | Unique identifier of [Resource](enterprises.md#resource). |
+| `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
 | `Value` | string | required | Value of resource access token |
 | `SerialNumber` | string | optional | Serial number of [Resource access token type](#resource-access-token-type). |
 | `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
@@ -1677,10 +1677,10 @@ Returns all resource access tokens based on resource access tokens, reservations
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Bed` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to bed. |
-| `Room` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to room. |
-| `Floor` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to floor. |
-| `Building` | bool | required | Specify whether [Resource access token](#resource-access-token) has permission to building. |
+| `Bed` | bool | required | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
+| `Room` | bool | required | Specify whether [Resource access token](#resource-access-token) grants permission to access room. |
+| `Floor` | bool | required | Specify whether [Resource access token](#resource-access-token) grants permission to access floor. |
+| `Building` | bool | required | Specify whether [Resource access token](#resource-access-token) grants permission to access building. |
 
 ## Add resource access tokens
 
@@ -1701,7 +1701,7 @@ Adds new resource access tokens with the specified data.
             "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
             "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
             "Type": "PinCode",
-            "Value": "resource access token value",
+            "Value": "1234#",
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
@@ -1722,16 +1722,16 @@ Adds new resource access tokens with the specified data.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ResourceAccessTokenParameters` | Array of [Resource access token parameter](#resource-access-token-parameter) | required | Name and version of the client application. |
+| `ResourceAccessTokenParameters` | Array of [Resource access token parameter](#resource-access-token-parameter) | required | Parameters of [Resource access token](#resource-access-token). |
 
 #### Resource access token parameter
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ServiceOrderId` | string | required | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ServiceOrderId` | string | required | Uique identifier of a service order (for example [Reservation](reservations.md#reservation)). |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](services.md#companionship). |
-| `ResourceId` | string | optional | Unique identifier of [Resource category](enterprises.md#resource-category). |
-| `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value and serial number. |
+| `ResourceId` | string | optional | Unique identifier of [Resource](enterprises.md#resource). |
+| `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
 | `Value` | string | required | Value of resource access token |
 | `SerialNumber` | string | optional | Serial number of [Resource access token type](#resource-access-token-type). |
 | `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
@@ -1741,10 +1741,10 @@ Adds new resource access tokens with the specified data.
 #### Resource access token permission parameter
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Bed` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to bed. |
-| `Room` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to room. |
-| `Floor` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to floor. |
-| `Building` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) has permission to building. |
+| `Bed` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
+| `Room` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access room. |
+| `Floor` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access floor. |
+| `Building` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access building. |
 
 ### Response
 
@@ -1757,7 +1757,7 @@ Adds new resource access tokens with the specified data.
             "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
             "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
             "Type": "PinCode",
-            "Value": "resource access token value",
+            "Value": "1234#",
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
@@ -1779,7 +1779,7 @@ Adds new resource access tokens with the specified data.
 
 ## Update resource access tokens
 
-Updates the .
+Updates the [Resource access token](#resource-access-token) validity interval and [permissions](#resource-access-token-permission-parameter) that it's grants.
 
 ### Request
 
@@ -1812,7 +1812,7 @@ Updates the .
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ResourceAccessTokenUpdates` | Array of [Resource access token update](#resource-access-token-update) | required | Name and version of the client application. |
+| `ResourceAccessTokenUpdates` | Array of [Resource access token update](#resource-access-token-update) | required | Parameters of [Resource access token](#resource-access-token). |
 
 #### Resource access token update
 
@@ -1834,7 +1834,7 @@ Updates the .
             "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
             "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
             "Type": "PinCode",
-            "Value": "resource access token value",
+            "Value": "1234#",
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
@@ -1857,7 +1857,7 @@ Updates the .
 
 ## Delete resource access tokens
 
-Delete specified resource access tokens .
+Delete specified resource access tokens.
 
 ### Request
 
