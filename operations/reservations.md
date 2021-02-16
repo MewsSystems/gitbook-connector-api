@@ -820,6 +820,15 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 
 Marks a reservation as `Processed` \(= checked out\). Succeeds only if all processing conditions are met \(the reservation has the `Started` state, balance of all reservation members is zero etc\).
 
+### Conditions
+
+- Reservation has already been checked in.
+- Reservation hasn't been checked out previously.
+- Reservation can't be checked out sooner than last day of planned stay.
+- The companion profiles of reservation are complete.
+- If `AllowOpenBalance` set to `false`, all bills have to be closable (items on bills are either paid by current customer, or set to be paid by other customer). With `CloseBills` option set to `true` they can be automatically closed, when set to `false` they must be closed manually.
+- If `AllowOpenBalance` set to `true`, `Notes` must be filled in.
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/process`
