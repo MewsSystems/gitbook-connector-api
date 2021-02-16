@@ -275,7 +275,7 @@ Returns all counters of an enterprise associated with the connector integration.
             "Id": "1162d7d5-a52f-4077-b2b4-4ec2476e6e19",
             "Name": "Default",
             "IsDefault": true,
-            "Value": 171,
+            "Value": 911,
             "Format": ""
         }
     ],
