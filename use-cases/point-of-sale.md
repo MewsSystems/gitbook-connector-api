@@ -2,28 +2,28 @@
 
 In Mews charges are not sent to rooms or reservations but to the customer profile that are active and attached to a reservation (checked-in) or profiles that are classified as `Paymaster`. 
 
-In Mews, all charges are posted directly to the billing tab of either customer profiles that are active and attached to a reservation (checked-in) or profiles that are classified as `Paymaster`. The items that are sent from the POS to Mews are called *Orders*.
+In Mews, all charges are posted directly to the billing tab of either customer profiles that are active and attached to a reservation (checked-in) or profiles that are classified as `Paymaster`. The items that are sent from the POS to Mews are called *orders*.
 
-The receipts that are finalized in the POS system can be sent to Mews to allow for end-of-day balancing (sometimes referred to as revenue push or revenue sync). In Mews, these are called *[Outlet bills](#outlet-bills)*. 
+The receipts that are finalized in the POS system can be sent to Mews to allow for end-of-day balancing (sometimes referred to as revenue push or revenue sync). In Mews, these are called *[outlet bills](#outlet-bills)*. 
 
 
 ### Initial setup
 
 There are two concepts in Mews that are used to represent the point of sale or revenue center that exists in a property - `Services` and `Outlets`. A user can configure the names of both to match the actual name of the restaurant/bar/spa/etc for ease of recognition on Mews reports. Both already exist in the [Demo environment](../guidelines.md#demo-environments) for testing purposes.
 
-A Service is used to represent the point of sale, under which items are recorded when posting *Orders*. 
-An Outlet is used to represent the point of sale, under which items are recorded when posting *Outlet bills*.
+A Service is used to represent the point of sale, under which items are recorded when posting *orders*. 
+An Outlet is used to represent the point of sale, under which items are recorded when posting *outlet bills*.
 
 #### Services
 The integration should use the [Get all services](../operations/services.md#get-all-services) endpoint to retrieve all services the property has created in Mews, which then could be correctly mapped with similar information in the POS. The `ServiceId` will need to be used in the API call. Point of sale systems should use services of the `Orderable` [service type](../operations/services.md#service-type) and their relevant products (if any).
 
 #### Outlets
 
-Outlets are used for the POS to send a full revenue push to Mews. Using the [Get all outlets](../operations/enterprises.md#get-all-outlets) endpoint will retrieve any Outlets that the property has configured in Mews. Outlets should be created by the property for each external location as well as different `AccountingCategories` that should be used to seperate payments and revenue per Outlet.
+Outlets are used for the POS to send a full revenue push to Mews. Using the [Get all outlets](../operations/enterprises.md#get-all-outlets) endpoint will retrieve any outlets that the property has configured in Mews. Outlets should be created by the property for each external location as well as different `AccountingCategories` that should be used to seperate payments and revenue per outlet.
 
 ##### Example of Service and Outlet mapping to the point of sale
 
-| Point of sale | Service | Outlet | 
+| Point of sale | Mews Service | Mews Outlet | 
 | --- | --- | --- |
 | Mai Tai Restaurant | Mai Tai Restaurant | Mai Tai Restaurant |
 | Room Service | Room Service | Room Service |
@@ -58,7 +58,7 @@ In-house customers are those who are listed as Companions of a checked-in reserv
 
 You can post charges to customer profiles with the classification of `Paymaster` regardless of whether it is attached to a checked-in reservation. The customer classification, `Cashlist` is used by properties to not allow charges sent to their bill. This is also commonly known as "No Post" in other PMS products.
 
-Note that having a `Cashlist` customer [classification](../operations/customers.md#customer-classification) does not automatically prevent Orders from being posted to the customer's billing. The POS system can decide whether to recognise this classification on a customer profile and prevent users from sending room charges from the POS system.
+Note that having a `Cashlist` customer [classification](../operations/customers.md#customer-classification) does not automatically prevent orders from being posted to the customer's billing. The POS system can decide whether to recognise this classification on a customer profile and prevent users from sending room charges from the POS system.
 
 *Note: Room numbers of some hotels consist of numbers, letters, and other characters.*
 
@@ -70,11 +70,13 @@ Once the customer profile to be charged is identified, the items can be posted o
 
 If the POS supports split payments, e.g. one salad divided between two people, it must be sent to Mews as separate transactions with the product `Count` or item `UnitCount` rounded up to the nearest whole number. 
 
-Example: One salad of €10.00 divided between two people are sent as two separate Orders, each with 1 salad at a price of €5.00.
+*Example: One salad of €10.00 divided between two people are sent as two separate orders, each with 1 salad at a price of €5.00.*
 
-### Rebates
+### Full or partial rebates
 
-Rebates (or cancelled items) will need to be allowed by the property and can be applied to both Orders and Outlet bills. The POS system should use the applicable endpoint - [Add order](../operations/services.md#add-order) or [Add outlet bill](../operations/finance.md#add-outlet-bills) - to post a rebate or cancelled item.
+Rebates (or cancelled items) will need to be allowed by the property and can be applied to both orders and outlet bills. It is not allowed to directly cancel or modify the originally posted item. Therefore, the POS system should use the applicable endpoint - [Add order](../operations/services.md#add-order) or [Add outlet bill](../operations/finance.md#add-outlet-bills) - to post a rebate or cancelled item. Such items should be sent through with *negative* values, in order to balance out the previously posted amount.
+
+*Example: One salad of €10.00 has been sent to Mews. To rebate this item, send through one salad of -€10.00. If partial rebate of 50%, send through one salad of -€5.00.
 
 ### Gratuities
 
@@ -82,7 +84,7 @@ Gratuities should be sent as another item to Mews and can be posted under a diff
 
 ### Outlets bills
 
-Outlets are used in Mews to record any revenue and payments that have been taken outside of Mews. This allows for the centralization and reporting of accounting data to an external system (such as an accounting software) from Mews. The POS system will need to use the [Add outlet bill](../operations/finance.md#add-outlet-bills) endpoint to post all end-of-day revenue and payments to the Outlet(s) the property has configured in Mews. Any outlet items that are sent to Mews will need to have an `AccountingCategoryId` attached to the item. You can make use of `Number` to record the associated ticket or receipt number from the POS system.
+Outlets are used in Mews to record any revenue and payments that have been taken outside of Mews. This allows for the centralization and reporting of accounting data to an external system (such as an accounting software) from Mews. The POS system will need to use the [Add outlet bill](../operations/finance.md#add-outlet-bills) endpoint to post all end-of-day revenue and payments to the outlet(s) the property has configured in Mews. Any outlet items that are sent to Mews will need to have an `AccountingCategoryId` attached to the item. You can make use of `Number` to record the associated ticket or receipt number from the POS system.
 
 In an outlet bill, items of the [payment](../operations/finance#outlet-item-type) type are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
 
@@ -100,7 +102,7 @@ To make sure the integration supports the minimum expected functionality, please
 * Post an outlet bill with the amount 0.
 * Confirm that a room posting cannot be done for a customer with the [classification](../operations/customers.md#customer-classification) `Paymaster`.
 
-To check that you have correctly posted an order, you can review the billing tab of the relevant guest profile. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews Accounting Report. If done correctly, the product you have posted will appear under the relevant accounting category. All correctly posted Orders will be shown in the Revenue section of the report. All Outlet bills (e.g. containing both revenue items and matching payments) will be shown in the Outlet section of the Accounting report. An incorrectly posted item (without an associated accounting category) will be displayed in the Accounting report under the 'None' accounting category of either section. 
+To check that you have correctly posted an order, you can review the billing tab of the relevant guest profile. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews Accounting Report. If done correctly, the product you have posted will appear under the relevant accounting category. All correctly posted orders will be shown in the Revenue section of the report. All outlet bills (e.g. containing both revenue items and matching payments) will be shown in the `Outlet` section of the Accounting report. An incorrectly posted item (without an associated accounting category) will be displayed in the Accounting report under the 'None' accounting category of either section. 
 
 ### Additional Help for working with the demo environment
 
@@ -110,5 +112,6 @@ To check that you have correctly posted an order, you can review the billing tab
 - Where to see [companions of a reservation](https://help.mews.com/en/articles/4397097-add-a-companion-to-the-reservation)
 - How to manage [billing items](https://intercom.help/mews-systems/en/articles/4245416-add-move-or-remove-items-from-open-bills). 
 - How to manage [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) 
+- How to set up [outlets](https://help.mews.com/en/articles/4244313-set-up-outlets)
 - How to manage [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product). 
 - Mews properties' [guide to using a Point of Sale integration](https://help.mews.com/en/articles/4245649-point-of-sale-integrations-for-commander)
