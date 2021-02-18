@@ -270,6 +270,15 @@ Returns all counters of an enterprise associated with the connector integration.
             "Format": ""
         }
     ],
+    "BillPreviewCounters": [
+        {
+            "Id": "1162d7d5-a52f-4077-b2b4-4ec2476e6e19",
+            "Name": "Default",
+            "IsDefault": true,
+            "Value": 911,
+            "Format": ""
+        }
+    ],
     "ServiceOrderCounters": [
         {
             "Id": "a9fd7868-1ed0-4e96-8dd9-580708c200ea",
@@ -287,6 +296,7 @@ Returns all counters of an enterprise associated with the connector integration.
 | --- | --- | --- | --- |
 | `BillCounters` | array of [Counter](#counter) | required | The counters used to count closed [Bill](finance.md#bill)s. |
 | `ProformaCounters` | array of [Counter](#counter) | required | The counters used to count Pro Forma invoices for [Bill](finance.md#bill)s. |
+| `BillPreviewCounters` | array of [Counter](#counter) | required | The counters used to count bill previews for [Bill](finance.md#bill)s. |
 | `ServiceOrderCounters` | array of [Counter](#counter) | required | The counters used to count service orders (for example a [Reservation](reservations.md#reservation)). |
 | `RegistrationCardCounters` | array of [Counter](#counter) | required | The counters used to count registration cards. |
 
