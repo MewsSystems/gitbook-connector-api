@@ -1592,13 +1592,10 @@ Returns all resource access tokens based on resource access tokens, reservations
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "ServiceIds": [
-        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
-    ],
     "ResourceAccessTokenIds": [
         "90eff5aa-36b4-4689-80c0-ab3a00bb412e"
     ],
-    "ServiceOrderIds ": [
+    "ServiceOrderIds": [
         "65eff5aa-36b4-4689-80c0-ab3a00bb412e"
     ],
     "CollidingUtc": {
@@ -1616,7 +1613,6 @@ Returns all resource access tokens based on resource access tokens, reservations
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Service](#service)s where the resource access tokens belong to. |
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access token](#resource-access-token)s. Required if no other filter is provided. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example [Reservation](reservations.md#reservation)). Required if no other filter is provided. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
@@ -1643,7 +1639,7 @@ Returns all resource access tokens based on resource access tokens, reservations
                 "Room": false,
                 "Floor": false,
                 "Building": false
-            },
+            }
         }
     ]
 }
@@ -1711,7 +1707,7 @@ Adds new resource access tokens with the specified data.
                 "Room": { "Value": false },
                 "Floor": { "Value": false },
                 "Building": { "Value": false }
-            },
+            }
         }
     ]
 }
@@ -1739,6 +1735,7 @@ Adds new resource access tokens with the specified data.
 | `Permissions` | [Resource access token permission parameter](#resource-access-token-permission-parameter) | required | Specify permissions of [Resource access token](#resource-access-token). |
 
 #### Resource access token permission parameter
+
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Bed` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
@@ -1767,7 +1764,7 @@ Adds new resource access tokens with the specified data.
                 "Room": false,
                 "Floor": false,
                 "Building": false
-            },
+            }
         }
     ]
 }
@@ -1801,7 +1798,7 @@ Updates the [Resource access token](#resource-access-token) validity interval an
                 "Room": { "Value": false },
                 "Floor": { "Value": false },
                 "Building": { "Value": false }
-            },
+            }
         }
     ]
 }
@@ -1844,7 +1841,7 @@ Updates the [Resource access token](#resource-access-token) validity interval an
                 "Room": false,
                 "Floor": false,
                 "Building": false
-            },
+            }
         }
     ]
 }
