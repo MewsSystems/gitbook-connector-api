@@ -1718,7 +1718,7 @@ Adds new resource access tokens with the specified data.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ResourceAccessTokenParameters` | Array of [Resource access token parameter](#resource-access-token-parameter) | required | Parameters of [Resource access token](#resource-access-token). |
+| `ResourceAccessTokenParameters` | Array of [Resource access token parameter](#resource-access-token-parameter) | required, max 1000 items | Parameters of [Resource access token](#resource-access-token). |
 
 #### Resource access token parameter
 
@@ -1738,10 +1738,10 @@ Adds new resource access tokens with the specified data.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Bed` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
-| `Room` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access room. |
-| `Floor` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access floor. |
-| `Building` | [Bool update value](reservations.md#bool-update-value) | required | Specify whether [Resource access token](#resource-access-token) grants permission to access building. |
+| `Bed` | [Bool update value](reservations.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
+| `Room` | [Bool update value](reservations.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access room. |
+| `Floor` | [Bool update value](reservations.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access floor. |
+| `Building` | [Bool update value](reservations.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access building. |
 
 ### Response
 
@@ -1776,7 +1776,7 @@ Adds new resource access tokens with the specified data.
 
 ## Update resource access tokens
 
-Updates the [Resource access token](#resource-access-token) validity interval and [permissions](#resource-access-token-permission-parameter) that it's grants.
+Updates the [Resource access token](#resource-access-token) validity interval and [permissions](#resource-access-token-permission-parameter) that its grants.
 
 ### Request
 
