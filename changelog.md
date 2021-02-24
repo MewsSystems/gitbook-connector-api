@@ -1,6 +1,8 @@
 # Changelog
 
-## Highlight of deprecated operations in Q1 2021
+## Operations we are planning to deprecate in 2021
+
+These are the operations that we will deprecate in 2021. While we are not yet enforcing these changes, and are yet to finalise a date for these deprecations, we strongly advise you to review these and if you are using them in your API calls, to update them accordingly.
 
 ### Deprecated operations
 
