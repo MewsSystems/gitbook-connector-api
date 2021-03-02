@@ -825,7 +825,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 - Reservation has already been checked in.
 - Reservation isn't alredy in `Processed` state.
 - Reservation can't be checked out sooner than last day of planned stay.
-- The companion profiles of reservation are complete.
+- The companion profiles of reservation are complete (details can be found in error message).
 - If `AllowOpenBalance` set to `false`, all bills have to be closable (items on bills are either paid by current customer, or set to be paid by other customer). With `CloseBills` option set to `true` they can be automatically closed, when set to `false` they must be closed manually.
 - If `AllowOpenBalance` set to `true`, `Notes` must be filled in.
 
