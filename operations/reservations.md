@@ -159,10 +159,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "VoucherId": null,
             "AdultCount": 2,
             "ChildCount": 0,
-            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-            "CompanionIds": [
-                "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
-            ]
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
         }
     ],
     "Services": null,
@@ -222,7 +219,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AdultCount` | number | required | Count of adults the reservation was booked for. |
 | `ChildCount` | number | required | Count of children the reservation was booked for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will use the resource. |
 
 #### Reservation state
 
