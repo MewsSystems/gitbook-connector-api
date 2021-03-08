@@ -159,10 +159,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "VoucherId": null,
             "AdultCount": 2,
             "ChildCount": 0,
-            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-            "CompanionIds": [
-                "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
-            ]
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
         }
     ],
     "Services": null,
