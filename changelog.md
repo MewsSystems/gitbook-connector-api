@@ -43,6 +43,7 @@ Following properties to be removed from output and/or ignored on input:
 | [Reservation](operations/reservations.md#reservation) | `TimeUnitCost` | `TimeUnitPrices` |
 | [Reservation](operations/reservations.md#reservation) | `TraveAgencyId` | `TravelAgencyId` |
 | [Reservation](operations/reservations.md#reservation) | `ApplyCancelationFee` | `ApplyCancellationFee` |
+| [Reservation](operations/reservations.md#reservation) | `CompanionIds` | Operation [Get all companionships](operations/services.md#get-all-companionships) |
 | [Reservation price](operations/reservations.md#reservation-price) | `Total` | `TotalAmount` |
 | [Customer](operations/customers.md#customer) | `Gender` | `Sex` |
 | [Customer](operations/customers.md#customer) | `BirthDateUtc` | `BirthDate` |
