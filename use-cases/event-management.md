@@ -36,6 +36,7 @@ It is also possible to place an existing reservation into an availability block 
 
 
 ????????? any caveats about overbooking?
+- can't go over the availability carved out via update service availability
 
 ????????????? currently can't disassociate reservations from an availability block? sending blank in reservations/update didn't do the trick
 
