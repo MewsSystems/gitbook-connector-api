@@ -134,13 +134,13 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](#availability-block)s. |
+| `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability block](#availability-block)s. |
 | `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service)s to which [Availability block](#availability-block)s are assigned. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s are active. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservation](reservations.md#reservation)s) are returned. |
 
-### Availability block extent
+#### Availability block extent
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
@@ -300,7 +300,7 @@ Adds availability blocks which are used to group related [Availability update](#
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `AvailabilityBlocks` | array of [Availability blocks](#availability-block) | required | Availability blocks. |
+| `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
 
 ## Delete availability blocks
 
