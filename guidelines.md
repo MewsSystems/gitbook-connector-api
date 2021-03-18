@@ -116,7 +116,7 @@ The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` 
 ### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
-* **WebSocketAddress** - `https://www.mews.li`
+* **WebSocketAddress** - `wss://www.mews.li`
 * **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
 * **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 
