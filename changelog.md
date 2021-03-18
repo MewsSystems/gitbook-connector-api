@@ -43,6 +43,7 @@ Following properties to be removed from output and/or ignored on input:
 | [Reservation](operations/reservations.md#reservation) | `TimeUnitCost` | `TimeUnitPrices` |
 | [Reservation](operations/reservations.md#reservation) | `TraveAgencyId` | `TravelAgencyId` |
 | [Reservation](operations/reservations.md#reservation) | `ApplyCancelationFee` | `ApplyCancellationFee` |
+| [Reservation](operations/reservations.md#reservation) | `CompanionIds` | Operation [Get all companionships](operations/services.md#get-all-companionships) |
 | [Reservation price](operations/reservations.md#reservation-price) | `Total` | `TotalAmount` |
 | [Customer](operations/customers.md#customer) | `Gender` | `Sex` |
 | [Customer](operations/customers.md#customer) | `BirthDateUtc` | `BirthDate` |
@@ -62,7 +63,10 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
-## 22nd Frebruary 2021 11:30 UTC
+## 3rd March 2021 12:30 UTC
+* Removed obsolete property `CompanionIds` from [Reservation](operations/reservations.md#reservation) surpassed by operation [Get all companionships](operations/services.md#get-all-companionships).
+
+## 22nd February 2021 11:30 UTC
 * Added [Get all resource access tokens](operations/services.md#get-all-resource-access-tokens), [Add resource access tokens](operations/services.md#add-resource-access-tokens), [Update resource access tokens](operations/services.md#update-resource-access-tokens), [Delete resource access tokens](operations/services.md#delete-resource-access-tokens).
 
 ## 21st January 2021 11:30 UTC

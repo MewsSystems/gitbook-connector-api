@@ -65,6 +65,7 @@ The API responds with `Content-Type` set to `application/json` and JSON content.
 * `400 Bad Request` - Error caused by the client app, e.g. in case of malformed request or invalid identifier of a resource. In most cases, such an error signifies a bug in the client app \(consumer of the API\).
 * `401 Unauthorized` - Error caused by usage of invalid access token.
 * `403 Forbidden` - Server error that should be reported to the end user of the client app. Happens for example when the server-side validation fails or when a business-logic check is violated.
+* `408 Request Timeout` - Error caused by heavy requests that takes too long to process (in magnitude of tens of seconds). To get around this send/request data in smaller batches.
 * `429 Too Many Requests` - Error caused by too many requests sent in a given amount of time, please see [Request limits](guidelines.md#request-limits) for more information.
 * `500 Internal Server Error` - Unexpected error of the server. In most cases, such an error signifies a bug on our side. We are logging it and immediately notified when such error happens. If anything like this happens, feel free to directly contact us or raise an issue here on Github.
 
@@ -81,9 +82,10 @@ Some errors may also contain additional information relevant to the error on top
 ## Authentication
 
 Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. To sign into the system, use the following credentials:
-* **PlatformAddress** - https://demo.mews.li
+* **PlatformAddress** - `https://api.mews-demo.com`
+* **WebSocketAddress** - `wss://ws.mews-demo.com`
 * **Email** - connector-api@mews.li
-* **Password** - connector-API-2021 
+* **Password** - connector-API-2021
 
 ### Demo environments
 
@@ -114,6 +116,7 @@ The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` 
 ### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
+* **WebSocketAddress** - `wss://www.mews.li`
 * **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
 * **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 

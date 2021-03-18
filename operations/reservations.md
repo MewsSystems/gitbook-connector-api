@@ -159,10 +159,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "VoucherId": null,
             "AdultCount": 2,
             "ChildCount": 0,
-            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-            "CompanionIds": [
-                "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
-            ]
+            "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
         }
     ],
     "Services": null,
@@ -222,7 +219,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AdultCount` | number | required | Count of adults the reservation was booked for. |
 | `ChildCount` | number | required | Count of children the reservation was booked for. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `CompanionIds` | array of string | required | Unique identifiers of [Customer](customers.md#customer)s that will use the resource. |
 
 #### Reservation state
 
@@ -819,6 +815,15 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 ## Process reservation
 
 Marks a reservation as `Processed` \(= checked out\). Succeeds only if all processing conditions are met \(the reservation has the `Started` state, balance of all reservation members is zero etc\).
+
+### Conditions
+
+- Reservation has already been checked in.
+- Reservation isn't alredy in `Processed` state.
+- Reservation can't be checked out sooner than last day of planned stay.
+- The companion profiles of reservation are complete (details can be found in error message).
+- If `AllowOpenBalance` set to `false`, all bills have to be closable (items on bills are either paid by current customer, or set to be paid by other customer). With `CloseBills` option set to `true` they can be automatically closed, when set to `false` they must be closed manually.
+- If `AllowOpenBalance` set to `true`, `Notes` must be filled in.
 
 ### Request
 
