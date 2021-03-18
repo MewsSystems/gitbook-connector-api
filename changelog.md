@@ -65,7 +65,7 @@ Changed [Websocket authentication](websockets.md#authentication) from being pass
 
 ## 18th March 2021 8:20 UTC
 * Platform demo environment URL changed to `https://api.mews-demo.com`.
-* Web socket platform demo environment URL changed to `https://ws.mews-demo.com`.
+* Web socket platform demo environment URL changed to `wss://ws.mews-demo.com`.
 
 ## 3rd March 2021 12:30 UTC
 * Removed obsolete property `CompanionIds` from [Reservation](operations/reservations.md#reservation) surpassed by operation [Get all companionships](operations/services.md#get-all-companionships).
