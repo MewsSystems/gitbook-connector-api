@@ -4,9 +4,9 @@ For use cases, when polling would be too resource consuming or not enough "real-
 
 ## Endpoint
 
-`[PlatformAddress]/ws/connector`
+`ws.mews-demo.com/ws/connector`
 
-Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. If `[PlatformAddress]` starts with `http://` then `ws://` should be used. If it starts with `https://` then `wss://` should be used. 
+Note that protocol of the `[WebSocketPlatformAddress]` should be changed to `ws(s)://`. If `[WebSocketPlatformAddress]` starts with `http://` then `ws://` should be used. If it starts with `https://` then `wss://` should be used. 
 
 ## Authentication
 

@@ -82,9 +82,10 @@ Some errors may also contain additional information relevant to the error on top
 ## Authentication
 
 Each Mews environment (e.g. demo, production) requires a different set of tokens. Please use the tokens below to connect to the Mews Demo environments. To sign into the system, use the following credentials:
-* **PlatformAddress** - https://demo.mews.li
+* **PlatformAddress** - `https://api.mews-demo.com`
+* **WebSocketPlatformAddress** - `https://ws.mews-demo.com`
 * **Email** - connector-api@mews.li
-* **Password** - connector-API-2021 
+* **Password** - connector-API-2021
 
 ### Demo environments
 
@@ -115,6 +116,7 @@ The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` 
 ### Production environment
 
 * **PlatformAddress** - `https://www.mews.li`
+* **WebSocketPlatformAddress** - `https://www.mews.li`
 * **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
 * **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 
