@@ -1245,7 +1245,7 @@ Creates payment for specified customer credit card and charges the credit card v
 
 ## Add tokenized credit card
 
-Adds a new tokenized credit card to the specified customer. To be able to use this operation permission to charge online credit cards has to be granted to your integration client.
+Adds a new tokenized credit card to the specified customer. To be able to use this operation special permission has to be granted during certification.
 
 ### Request
 
