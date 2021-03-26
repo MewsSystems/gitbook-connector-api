@@ -64,7 +64,7 @@ It is also possible to place an existing reservation in Mews into an availabilit
 If applicable, you can attach a company to a reservation when calling [Add reservations](./operations/reservations.md#add-reservations) or [Update reservations](../operations/reservations.md#update-reservations).
 
 **Note:** 
-It is currently not possible to exceed the availability block capacity (the inventory allocated to an availability block through the [Update service availability](../operations/services.md#update-service-availability) operation. Should there be a need to accommodate more reservations in an availability block, you must first update the adjustments to increase the allocated inventory in that block.
+It is currently not possible to exceed the availability block capacity (the inventory allocated to an availability block through the [Update service availability](../operations/services.md#update-service-availability) operation. However, it is possible to add reservations with arrival or departure date times that extend beyond the [interval in a given availability block](../operations/services.md#availability-block-parameters). Should there be a need to accommodate more reservations in an availability block, you must first update the adjustments to increase the allocated inventory in that block.
 
 #### Managing reservations and customers
 
