@@ -19,8 +19,7 @@ In Mews, billing is managed at the customer profile level, instead of being char
 
 Use a Paymaster customer profile to centrally manage the related order charges and billing. If the relevant customer profile does not already exist in Mews, first call [Add customer](../operations/customers.md#add-customer) to create a [Paymaster](../operations/customers.md#customer-classification) account. Should any information change in the future, you can use the [Update customer](../operations/customers.md#update-customer) to update the account details. Should you need to retrieve a list of all customer profiles created within a certain interval, use the [Get all customers](../operations/customers.md#get-all-customers) operation.
 
-
-#### Adding revenut and payment items
+#### Adding revenue and payment items
 
 One of the expected functionalities of an event management integration is being able to push items to the correct customer profile in Mews. This can be done using the operation [Add order](../operations/services.md#add-order). If the product item that is being posted already exists in Mews, use [Product order parameters](../operations/services.md#product-order-parameters). If the product does not exist in Mews then use the [Item parameters](../operations/services.md#item-parameters) to post custom items. 
 
@@ -30,7 +29,8 @@ To ensure correct reporting, all revenue items posted into Mews using Item param
 
 In case payment was taken outside of Mews or directly on the event management platform, use any of the methods described in the [Finance](../operations/finance.md) section to record the payment items in Mews, so that all accounting items are centralised in Mews for further reporting and/or exporting to the property's accounting system. 
 
-**Further automation possibilities**
+#### Further automation possibilities
+
 Call [Get customer open itmes](../operations/customers.md#get-customers-open-items) to review the revenue and payment items that have already been posted to a customer profile. You can then further automate the management of billing/invoicing by creating a specific bill via [Add bill](../operations/finance.md#add-bill) for a certain groups of revenue and payment items. Use [Update accounting items](../operations/finance.md#update-accounting-items) to redirect said items to the relevant bill and then use [Close bill](../operations/finance.md#close-bill) to finalise the financial document. 
 
 
