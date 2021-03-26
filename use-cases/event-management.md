@@ -10,8 +10,7 @@ To automate the onboarding of a new property as much as possible, use any combin
 
 Use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) to pull data about rates offered in the enterprise. Use [Get service availability](../operations/services.md#get-service-availability) to pull category availability and related adjustments from Mews into the event management integration.
 
-ADJUSTMENTS NOT LINKED TO AVAILABILITY BLOCK OR ADJUSTMENTS THAT HAVE ALREADY
-*Note that the `Availabilities` array refers to the inventory that is available to the general public, and therefore does not include inventory that has been reserved for the availability block. 
+*Note that the `Availabilities` array refers to the inventory that is available to the general public, and therefore does not include inventory that has been reserved for the availability block. The array of adjustments displayed are those not associated with an availability block.*
 
 ### Managing billing
 
