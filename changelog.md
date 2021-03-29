@@ -63,6 +63,9 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 29th March 2021 8:20 UTC
+* Added new type `ResourceUpdated` of webhook [Event](webhooks.md#event).
+
 ## 18th March 2021 8:20 UTC
 * For demo environment, platform URL changed to `https://api.mews-demo.com`.
 * For demo environment, web socket URL changed to `wss://ws.mews-demo.com`.
