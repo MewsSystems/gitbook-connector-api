@@ -241,6 +241,15 @@ Returns all accounting categories of the enterprise associated with the connecto
 * `Accommodation`
 * `FoodAndBeverage`
 * `Taxes`
+* `Payments`
+* `ExternalRevenue`
+* `SundryIncome`
+* `Wellness`
+* `Sport`
+* `Technology`
+* `Facilities`
+* `Events`
+* `Tourism`
 * ...
 
 ## Get all accounting items
