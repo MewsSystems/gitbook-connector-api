@@ -250,6 +250,7 @@ Returns all accounting categories of the enterprise associated with the connecto
 * `Facilities`
 * `Events`
 * `Tourism`
+* ...
 
 ## Get all accounting items
 
