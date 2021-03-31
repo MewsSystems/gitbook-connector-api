@@ -14,7 +14,7 @@ Use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pric
 
 ### Managing billing
 
-In Mews, billing is managed at the customer profile level, instead of being charged to a specific room or reservation. If applicable, create a new company via [Add company](../operations/enterprises.md#add-company) or find an existing company via [Get all companies](../operations/enterprises.md#get-all-companies) and attach the company to both the reservation(s) and the customer bill(s) for more accurate billing and reporting.
+In Mews, billing is managed at the customer profile level, instead of being charged to a specific room or reservation. If applicable, create a new company via [Add company](../operations/enterprises.md#add-company) or find an existing company via [Get all companies](../operations/enterprises.md#get-all-companies) and attach the company to both the reservation(s) and the customer bill(s) for more accurate billing and reporting. 
 
 Use a Paymaster customer profile to centrally manage the related order charges and billing. If the relevant customer profile does not already exist in Mews, first call [Add customer](../operations/customers.md#add-customer) to create a [Paymaster](../operations/customers.md#customer-classification) account. Should any information change in the future, you can use the [Update customer](../operations/customers.md#update-customer) to update the account details. Should you need to retrieve a list of all customer profiles created within a certain interval, use the [Get all customers](../operations/customers.md#get-all-customers) operation.
 
@@ -31,6 +31,8 @@ In case payment was taken outside of Mews or directly on the event management pl
 #### Further automation possibilities
 
 Call [Get customer open itmes](../operations/customers.md#get-customers-open-items) to review the revenue and payment items that have already been posted to a customer profile. You can then further automate the management of billing/invoicing by creating a specific bill via [Add bill](../operations/finance.md#add-bill) for a certain group of revenue and payment items. Use [Update accounting items](../operations/finance.md#update-accounting-items) to redirect said items to the relevant bill and then use [Close bill](../operations/finance.md#close-bill) to finalise the financial document. 
+
+*Note that currently, attaching a company to a bill must be done manually in Mews PMS. If being able to do the same via API is important to your solution, please consider addiing your vote to [this feature request](https://feedback.mews.com/forums/932131-mews-open-api/suggestions/43041963-attach-company-id-to-bills)*
 
 
 ### Managing group reservations with availability blocks
