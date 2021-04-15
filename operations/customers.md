@@ -106,6 +106,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "TaxIdentificationNumber": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z",
+            "CompanyId": "cb7d4a2f-10e0-4163-a176-ad03007efa8a"
         }
     ],
     "Documents": [
