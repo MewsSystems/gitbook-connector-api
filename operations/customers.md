@@ -156,6 +156,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
+| `CompanyId` | string | optional | Unique identifier of the company. |
 
 #### Title
 
