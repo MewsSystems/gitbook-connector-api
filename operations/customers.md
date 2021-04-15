@@ -106,6 +106,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "TaxIdentificationNumber": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z",
+            "CompanyId": "cb7d4a2f-10e0-4163-a176-ad03007efa8a"
         }
     ],
     "Documents": [
@@ -156,6 +157,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
+| `CompanyId` | string | optional | Unique identifier of [Company](enterprises.md#company) the customer is associated with. |
 
 #### Title
 
