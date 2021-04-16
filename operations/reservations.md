@@ -490,7 +490,8 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                     "EndUtc": "2021-01-03T00:00:00Z"
                 }
             ],
-            "AvailabilityBlockId": null
+            "AvailabilityBlockId": null,
+            "VoucherCode": "SpringSale2021"
         }
     ]
 }
@@ -532,6 +533,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 | `CreditCardId` | string | optional | Identifier of [Credit card](finance.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
+| `VoucherCode` | string | optional | Voucher code value belonging to specified [Rate](services.md#rate) which should be applied to this reservation. |
 
 ### Response
 
