@@ -43,7 +43,7 @@ Availability blocks are used for reserving a certain portion of category availab
 
 First call [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object with the relevant parameters. Note the `AvailabilityBlockId`, which is used as the unique identifier throughout Mews. 
 
-#### Allocating inventory (capacity?) to the availability block
+#### Allocating inventory to the availability block
 
 Now that you have created an availability block object, you can allocate capacity for different dates and resource categories (i.e. create room night blocks). Call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into Mews. Send a *negative* value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in the [availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. 
 
