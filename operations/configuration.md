@@ -586,7 +586,7 @@ Returns translations of texts in the specified languages.
         "en-US",
         "cs-CZ"
     ],
-    "Scope": ""
+    "Scope": "Distributor"
 }
 ```
 
@@ -596,7 +596,13 @@ Returns translations of texts in the specified languages.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `LangaugeCodes` | array of string | required | Language-culture codes of the [Language](configuration.md#language)s whose texts to return. |
-| `Scope` | string | required | Scope of texts to return. |
+| `Scope` | string | required | [Scope of texts](configuration.md#scope-of-text) to return. |
+
+#### Scope of text
+
+* `Navigator` - placeholder text TO BE UPDATED.
+* `Distributor` - placeholder text TO BE UPDATED.
+* `Operator` - placeholder text TO BE UPDATED.
 
 ### Response
 
