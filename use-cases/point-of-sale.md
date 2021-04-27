@@ -100,7 +100,7 @@ To make sure the integration supports the minimum expected functionality, please
 * Post an item with the amount 0 to guest bill.
 * Post an outlet bill correctly with revenue items and payment items.
 * Post an outlet bill with the amount 0.
-* Confirm that a room posting cannot be done for a customer with the [classification](../operations/customers.md#customer-classification) `Paymaster`.
+* Confirm that a room posting cannot be done for a customer with the [classification](../operations/customers.md#customer-classification) `Cashlist`.
 
 To check that you have correctly posted an order, you can review the billing tab of the relevant guest profile. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews Accounting Report. If done correctly, the product you have posted will appear under the relevant accounting category. All correctly posted orders will be shown in the Revenue section of the report. All outlet bills (e.g. containing both revenue items and matching payments) will be shown in the `Outlet` section of the Accounting report. An incorrectly posted item (without an associated accounting category) will be displayed in the Accounting report under the 'None' accounting category of either section. 
 
