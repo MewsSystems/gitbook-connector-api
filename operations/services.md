@@ -157,6 +157,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "BookerId": "c2730cbc-53ca-440d-8b30-ac87008b30af",
             "StartUtc": "2020-11-05T00:00:00Z",
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
@@ -221,6 +222,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Id` | string | required | Unique identifier of the availability block. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) the block is assigned to. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) the block is assigned to. |
+| `BookerId` | string | required | Unique identifier of the [Customer](customers.md#customer) the block is assigned to. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
@@ -275,6 +277,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | --- | --- | --- | --- |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to assign block to. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) to assign block to. |
+| `BookerId` | string | required | Unique identifier of the [Customer](customers.md#customer) to assign block to. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
@@ -289,6 +292,7 @@ Adds availability blocks which are used to group related [Availability update](#
             "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "BookerId": "c2730cbc-53ca-440d-8b30-ac87008b30af",
             "StartUtc": "2020-11-05T00:00:00Z",
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
