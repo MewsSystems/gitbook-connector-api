@@ -1,5 +1,9 @@
 # Environments
 
+Each enterprise in Mews falls into one of two pricing environments - Gross or Net.
+* Gross pricing environments are legal environments in which taxes are *included* in the pricing that is offered to a customer, such as Germany, UK, Australia.
+* Net pricing environments are legal environments in which taxes are *excluded* in the pricing that is offered to a customer, such as in the US.
+
 ## Demo environments
 
 These demo environments are meant to be used during implementation of the client applications. There are two pricing environments that enterprises can operate in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
@@ -22,7 +26,9 @@ These demo environments are meant to be used during implementation of the client
 
 ### Gross Pricing Environment
 
-The authentication below will connect with the demo enterprise that is configured with Gross Pricing. Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo enterprise.
+The authentication below will connect with the demo enterprise that is configured with Gross Pricing. This demo enterprise is based in the `United Kingdom` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate)
+
+Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo enterprise.
 
 **Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
@@ -40,12 +46,11 @@ The authentication below will connect with the demo enterprise that is configure
 * **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
 * **AccessToken** - `39E301DD5A1C4A569087AD20015F60DD-50DC28896E9090CCA0995C9BBD90351`
 
-
-The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate)
-
 ### Net Pricing Environment
 
-The authentication below will connect with the demo enterprise that is configured with Net Pricing. Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo enterprise.
+The authentication below will connect with the demo enterprise that is configured with Net Pricing. This enterprise is based in the `United States - Washington DC` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate).
+
+Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo enterprise.
 
 **Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
@@ -62,8 +67,6 @@ The authentication below will connect with the demo enterprise that is configure
 **Integration: `Connector API Test Client 4`**
 * **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
 * **AccessToken** - `BFD4298010F54B069F3DAD20015D53EA-D5561FADFBA4EFC8EA4C179C6BC461F`
-
-The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate)
 
 ## Production environment
 
