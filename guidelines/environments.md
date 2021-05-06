@@ -22,19 +22,46 @@ These demo environments are meant to be used during implementation of the client
 
 ### Gross Pricing Environment
 
-The authentication below will connect with the demo enterprise that is configured with gross pricing:
+The authentication below will connect with the demo enterprise that is configured with Gross Pricing. Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo enterprise.
 
+**Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D`
 
+**Integration: `Connector API Test Client 2`**
+* **ClientToken** - `E916C341431C4D28A866AD200152DBD3-A046EB5583FFBE94DE1172237763712`
+* **AccessToken** - `CC150C355D6A4048A220AD20015483AB-B6D09C0C84B09538077CB8FFBB907B4`
+
+**Integration: `Connector API Test Client 3`**
+* **ClientToken** - `2CC71B0660F345019882AD200155B4FE-4A1FC9080A4DD2A404734003674F77E`
+* **AccessToken** - `5F56B9903A834F199E28AD20015E58CA-5C6A1A00550634911534AD6A098E8B7`
+
+**Integration: `Connector API Test Client 4`**
+* **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
+* **AccessToken** - `39E301DD5A1C4A569087AD20015F60DD-50DC28896E9090CCA0995C9BBD90351`
+
+
 The enterprise is based in the United Kingdom, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate)
 
-#### Net Pricing Environment
+### Net Pricing Environment
 
-The authentication below will connect with the demo enterprise that is configured with net pricing:
+The authentication below will connect with the demo enterprise that is configured with Net Pricing. Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo enterprise.
 
+**Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
 * **AccessToken** - `7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382`
+
+**Integration: `Connector API Test Client 2`**
+* **ClientToken** - `E916C341431C4D28A866AD200152DBD3-A046EB5583FFBE94DE1172237763712`
+* **AccessToken** - `1AEFA58C55E74D65BDC7AD2001564C12-66633E0B736F523379B9E5966165A55`
+
+**Integration: `Connector API Test Client 3`**
+* **ClientToken** - `2CC71B0660F345019882AD200155B4FE-4A1FC9080A4DD2A404734003674F77E`
+* **AccessToken** - `682C235379B64D909941AD2001577525-BFC60A026081F1350FAA99CAB9F7510`
+
+**Integration: `Connector API Test Client 4`**
+* **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
+* **AccessToken** - `BFD4298010F54B069F3DAD20015D53EA-D5561FADFBA4EFC8EA4C179C6BC461F`
 
 The enterprise is based in the United States, it accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate)
 
