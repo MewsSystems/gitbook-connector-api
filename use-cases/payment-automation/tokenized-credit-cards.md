@@ -1,12 +1,12 @@
-## Payment automation
-
-### Using Mews' integrated payment gateway for credit card payments
+## Using Mews' integrated payment gateway for credit card payments
 
 If your solution interacts with customers and the user interface involves the collection and storage of credit card details in a secure manner against the customer's profile in Mews, use [Add tokenized credit card](../operations/finance#add-tokenized-credit-card), and then [Charge credit card](../operations/finance#charge-credit-card) operations to take a payment. 
 
 The former mimics the result of a user manually [adding a credit card](https://help.mews.com/en/articles/4245466-add-a-new-payment-card) in Mews. The latter mimics the result of a user [taking a card payment via the payment gateway](https://intercom.help/mews-systems/en/articles/4245460-take-a-payment) built into Mews.
 
 Read more about [PCI Compliance at Mews](https://help.mews.com/en/articles/4245459-pci-compliance).
+
+### Adding a tokenized credit card
 
 #### 1. Retrieve PublicKey
 
@@ -29,7 +29,7 @@ The credit card will now be visible in the customer profile in Mews, under the *
 
 **Note:** While customer profiles are shared across all properties in a chain, credit card details are not. 
 
-#### Charge the tokenized credit card
+### Charging the tokenized credit card
 
 Now that you have the `CreditCardid`, you can use the [Charge credit card](../operations/finance#charge-credit-card) endpoint to charge the customer. 
 
