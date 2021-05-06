@@ -6,6 +6,8 @@ If your solution interacts with customers and the user interface involves the co
 
 The former mimics the result of a user manually [adding a credit card](https://help.mews.com/en/articles/4245466-add-a-new-payment-card) in Mews. The latter mimics the result of a user [taking a card payment via the payment gateway](https://intercom.help/mews-systems/en/articles/4245460-take-a-payment) built into Mews.
 
+Read more about [PCI Compliance at Mews](https://help.mews.com/en/articles/4245459-pci-compliance).
+
 #### 1. Retrieve PublicKey
 
 As an integration partner, you will not need to set up your own PCI Proxy account. Rather, when automating payments via the Connector API, you should work with Mews' own account. To do so, call [Get configuration](../operations/configuration#get-configuration) to obtain the `PublicKey` value, found within the [payment card storage](../operations/configuration#payment-card-storage) object. This value will be used as the `merchantId` with PCI Proxy.
@@ -21,7 +23,11 @@ Refer to the PCI Proxy documentation on [collecting and storing cards](https://d
 
 #### 3. Add the tokenized credit card to a customer profile in Mews
 
-Add the tokenized credit card to a customer profile in Mews by calling [Add tokenized credit card](../operations/finance#add-tokenized-credit-card). Enter the `transactionId` and obfuscated credit card details in the [credit card data](../operations/finance#credit-card-data) object. Take note of the `CreditCardId`. The credit card 
+Add the tokenized credit card to a customer profile in Mews by calling [Add tokenized credit card](../operations/finance#add-tokenized-credit-card). Enter the `transactionId` and obfuscated credit card details in the [credit card data](../operations/finance#credit-card-data) object. Take note of the `CreditCardId` in the API response.
+
+The credit card will now be visible in the customer profile in Mews, under the *Payments tab* > *Credit cards* section. 
+
+**Note:** While customer profiles are shared across all properties in a chain, credit card details are not. 
 
 #### Charge the tokenized credit card
 
