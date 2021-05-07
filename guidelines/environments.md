@@ -13,7 +13,7 @@ The below addresses should be used for testing and development of the client app
 
 Use the below logins for accessing the demo enterprises ([Gross Pricing Environment](#gross-pricing-environment) and [Net Pricing Environment](#net-pricing-environment)).
 
-* **Demo URL** - `https://app.mews-demo.com`
+* **MewsWebApplicationAddress** - `https://app.mews-demo.com`
 * **Email** - connector-api@mews.li
 * **Password** - connector-API-2021
 
@@ -73,8 +73,8 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 
 ## Production environment
 
+* **MewsWebApplicationAddress** - `https://www.mews.li`
 * **PlatformAddress** - `https://www.mews.li`
-* **ApiAddress** - `https://www.mews.li`
 * **WebSocketAddress** - `wss://www.mews.li`
 * **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
 * **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
