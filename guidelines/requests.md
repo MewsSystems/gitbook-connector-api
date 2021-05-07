@@ -47,6 +47,6 @@ A unique `AccessToken` will automatically be generated and shared with you for e
 
 ## Request limits
 
-In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations and avoid the need of polling. However if you have any suggestion or use case that requires higher limits, please contact us at marketplace@mews.com.
+In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations, and avoid the need of polling. However, if you have any suggestion or use cases that require higher limits, please contact us at marketplace@mews.com.
 
-The particular limits are dependent on [Environments](environments.md) and therefore listed as part of environment description.
+The particular limits are dependent on the [Environments](environments.md), and therefore are listed as part of the environment description.
