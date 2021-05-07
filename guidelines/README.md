@@ -2,7 +2,7 @@
 
 This part describes guidelines for general usage of the Connector API and serves as a quick-start guide to kickstart your integration development.
 
-To begin with, Mews operates several environments. In the beginning of development process you'll be interested in [Demo environment](environments.md#demo-environment). To get yourself familiar with the system and types of data we provide, you can login into the web platform using the email and password provided and check out the Mews features.
+To begin with, Mews operates several environments. At the beginning of your development process, you'll be interested in the [Demo environment](environments.md#demo-environment). To get yourself familiar with the system and types of data we provide, you can login into the web platform using the email and password provided and check out the Mews features.
 
 Alternatively, you can start using the API right away using the demo tokens. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method. Below is an example request which will return basic configuration of one of the testing hotels:
 
@@ -47,8 +47,8 @@ If the [response](responses.md) looks something like this, you've successfully m
 }
 ```
 
-There are several [serialization](serialization.md) patterns that you should get familiar with in order to use the API correctly, for example we work with times in UTC so you should be aware of the timezone the hotel is in (as can be seen on example above) as well as any daylight saving time changes, and adjust accordingly.
+There are several [serialization](serialization.md) patterns that you should get familiar with in order to use the API correctly. For example, we work with times in UTC so you should be aware of the timezone the hotel is in (as can be seen on example above) as well as any daylight saving time changes, and adjust accordingly.
 
 If you receive some error, check the [response codes](responses.md#response-codes) and the message specified in [response details](responses.md#response-details) to figure out what went wrong.
 
-One of possible reasons is that multiple developers using same demo credentials can exhaust our [request limits](requests.md#request-limits). To get around this we have a process of [certification](certification.md) during which you can get your private set of credentials.
+Note that if you encounter a 429 error with one of the testing demo credentials, it may be that multiple developers are using same demo credentials and have exhausted our [request limits](requests.md#request-limits). To minimize the impact this may possibly have on your development efforts, we provide multiple sets of tokens for the testing hotels that you may use in Demo. 
