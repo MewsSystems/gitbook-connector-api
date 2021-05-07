@@ -30,5 +30,3 @@ Read more about [what you can expect during the certification process](https://h
 
 For more information about the integration partner journey, as well as any related marketing or commercial topics, please refer to the [Integration Partner FAQs](https://help.mews.com/en/collections/2558045-integration-partner-faqs) section in the [Mews Help Center](https://help.mews.com/en/). 
 
-https://help.mews.com/en/collections/2558045-integration-partner-faqs#connector-api-partners
-
