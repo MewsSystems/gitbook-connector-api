@@ -6,11 +6,14 @@ There are two pricing environments in which enterprises can operate - Gross or N
 
 ## Demo environments
 
-These demo environments are meant to be used during implementation of the client applications. There are two pricing environments that enterprises can operate in, Gross Pricing Environment (totals displayed include VAT/Tax) and Net Pricing Environment (totals displayed do not include VAT/Tax). 
+The below addresses should be used for testing and development of the client applications.
 
-* **PlatformAddress** - `https://app.mews-demo.com`
-* **ApiAddress** - `https://api.mews-demo.com`
+* **PlatformAddress** - `https://api.mews-demo.com`
 * **WebSocketAddress** - `wss://ws.mews-demo.com`
+
+Use the below logins for accessing the demo enterprises ([Gross Pricing Environment](#gross-pricing-environment) and [Net Pricing Environment](#net-pricing-environment)).
+
+* **Demo URL** - `https://app.mews-demo.com`
 * **Email** - connector-api@mews.li
 * **Password** - connector-API-2021
 
