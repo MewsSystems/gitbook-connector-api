@@ -33,14 +33,14 @@ As an example, consider minimum and maximum length of the reservation:
 }
 ```
 
-To update a value of a property we're using structure called `Update value` which allows us to distinguish if you want to set a new value, keep the old one or completely remove it (if the property is nullable).
+To update or remove a value of a property, we use the structure called `Update value`, which allows us to distinguish if you want to set a new value, keep the old one or completely remove it (if the property is nullable).
 
-Therefore there is no need to resend unchanged values. This also reduces possibility of concurrency errors - resending all values (of which only few has actually changed) might overwrite another changes done by other user or partner.
+Therefore, there is no need to resend unchanged values. This also reduces the possibility of concurrency errors - resending all values (of which only few has actually changed) might overwrite other changes done by other users or integration partner.
 
 Example usages: 
-* To keep a current property value do not send the `Update value` object at all.
-* To set a new property value provide it as `Value` parameter of `Update value` object.
-* To remove a old value send a `null` inside `Value` parameter of `Update value` object.
+* To keep a current property value, do *not* send the `Update value` object at all.
+* To set a new property value, provide it as a `Value` parameter of `Update value` object.
+* To remove an old value, send `null` inside the `Value` parameter of `Update value` object.
 
 ```javascript
 {
@@ -57,9 +57,9 @@ Example usages:
 
 ## Coproducts
 
-To model that structure of some general object can change based on the particular type we're using `Coproducts` (also called `Discriminated unions`, `Sum types` or `Or types`).
+To model the structure of some general object, the characteristic of which can differ based on the specified type, we use `Coproducts` (also called `Discriminated unions`, `Sum types` or `Or types`).
 
-For example take a look at bookable [Resource](../operations/enterprises.md#resource). We currently support just spaces (rooms, beds in hotels), but we strive to include other types of resources like objects or persons soon. That means that basic properties like `Id` or `Name` can be shared across the different resource subtypes, but others like `FloorNumber` only make sense in context of spaces. These specific fields are stored in coproduct object (in this example named `Data`) which stores the type of information in `Discriminator` property and the values as part of `Value` property.
+For example, take a look at bookable [Resource](../operations/enterprises.md#resource)s. We currently support just one subtype - spaces (rooms, beds in hotels). Looking forward, we strive to include other types of resources like objects or persons soon. This means that basic properties such as `Id` or `Name` can be shared across the different resource subtypes, but others such as `FloorNumber` only make sense in context of spaces. These specific fields are stored in the coproduct object (in this example named `Data`) which stores the type of information in the `Discriminator` property and the values as part of the `Value` property.
 
 ```javascript
 {
