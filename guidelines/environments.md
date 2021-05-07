@@ -1,8 +1,8 @@
 # Environments
 
-Each enterprise in Mews falls into one of two pricing environments - Gross or Net.
-* Gross pricing environments are legal environments in which taxes are *included* in the pricing that is offered to a customer, such as Germany, UK, Australia.
-* Net pricing environments are legal environments in which taxes are *excluded* in the pricing that is offered to a customer, such as in the US.
+There are two pricing environments in which enterprises can operate - Gross or Net.
+* Gross Pricing Environments are environments in which taxes are *included* in the pricing that is offered to a customer, such as Germany, UK, Australia.
+* Net Pricing Environments are environments in which taxes are *excluded* in the pricing that is offered to a customer, such as in the US.
 
 ## Demo environments
 
