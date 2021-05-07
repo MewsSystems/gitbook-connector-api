@@ -49,6 +49,6 @@ If the [response](responses.md) looks something like this, you've successfully m
 
 There are several [serialization](serialization.md) patterns that you should get familiar with in order to use the API correctly, for example we work with times in UTC so you should be aware of the timezone the hotel is in (as can be seen on example above) as well as any daylight saving time changes, and adjust accordingly.
 
-If you receive some error, check the [response codes](responses.md#response-codes) to figure out what went wrong.
+If you receive some error, check the [response codes](responses.md#response-codes) and the message specified in [response details](responses.md#response-details) to figure out what went wrong.
 
 One of possible reasons is that multiple developers using same demo credentials can exhaust our [request limits](requests.md#request-limits). To get around this we have a process of [certification](certification.md) during which you can get your private set of credentials.
