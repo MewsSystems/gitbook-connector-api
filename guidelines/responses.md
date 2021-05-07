@@ -22,4 +22,4 @@ In case of any error, the returned JSON object describes the error and has the f
 | `Message` | string | required | Description of the error. |
 | `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
 
-Some errors may also contain additional information relevant to the error on top of these two properties. That depends on the operation and is specifically described in the operation documentation.
+Some errors may also contain additional information relevant to the error on top of these two properties. This depends on the operation. 
