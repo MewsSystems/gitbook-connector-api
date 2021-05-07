@@ -22,3 +22,29 @@ As an example, consider minimum and maximum length of the reservation:
 
 * MinLength `P0Y0M1DT0H0M0S`
 * MaxLength `P0Y0M3DT0H0M0S`
+
+## Coproducts
+
+To model that structure of some general object can change based on the particular type we're using `Coproducts` (also called `Discriminated unions`, `Sum types` or `Or types`).
+
+For example take a look at bookable [Resource](../operations/enterprises.md#resource). We currently support just spaces (rooms, beds in hotels), but we strive to include other types of resources like objects or persons soon. That means that basic properties like `Id` or `Name` can be shared across the different resource subtypes, but others like `FloorNumber` only make sense in context of spaces. These specific fields are stored in coproduct object (in this example named `Data`) which stores the type of information in `Discriminator` property and the values as part of `Value` property.
+
+```javascript
+{
+    "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+    "IsActive": true,
+    "Name": "101",
+    "ParentResourceId": null,
+    "State": "Dirty",
+    "Descriptions": {},
+    "Data": {
+        "Discriminator": "Space",
+        "Value": {
+            "FloorNumber": "3",
+            "LocationNotes": "A1"
+        }
+    },
+    "CreatedUtc": "2016-03-29T15:14:06Z",
+    "UpdatedUtc": "2016-03-29T15:14:06Z"
+}
+```
