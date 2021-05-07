@@ -23,6 +23,38 @@ As an example, consider minimum and maximum length of the reservation:
 * MinLength `P0Y0M1DT0H0M0S`
 * MaxLength `P0Y0M3DT0H0M0S`
 
+## Update values
+
+```javascript
+{
+    "UpdateValue": {
+        "Value": "SampleValue"
+    }
+}
+```
+
+To update a value of a property we're using structure called `Update value` which allows us to distinguish if you want to set a new value, keep the old one or completely remove it (if the property is nullable).
+
+Therefore there is no need to resend unchanged values. This also reduces possibility of concurrency errors - resending all values (of which only few has actually changed) might overwrite another changes done by other user or partner.
+
+Example usages: 
+* To keep a current property value do not send the `Update value` object at all.
+* To set a new property value provide it as `Value` parameter of `Update value` object.
+* To remove a old value send a `null` inside `Value` parameter of `Update value` object.
+
+```javascript
+{
+    "PropertyWithoutChange": null,
+    "PropertyWithNewValue": {
+        "Value": "NewValue"
+    },
+    "PropertyWithDeletedValue": {
+        "Value": null
+    }
+}
+
+```
+
 ## Coproducts
 
 To model that structure of some general object can change based on the particular type we're using `Coproducts` (also called `Discriminated unions`, `Sum types` or `Or types`).
