@@ -18,11 +18,11 @@ In Mews, billing is managed at the customer profile level, instead of being char
 
 Use a [Paymaster](../operations/customers.md#customer-classification) customer profile to centrally manage charges and billing related to the company/event. This also allows any additional orders (e.g. F&B spending) to be added via the POS system, if needed. If the relevant customer profile does not already exist in Mews, first call [Add customer](../operations/customers.md#add-customer) to create a profile. 
 
-**Note:** Make sure that only active [Paymaster](../operations/customers.md#customer-classification) profiles exist in Mews.
+***Mews tip:*** Make sure that only active [Paymaster](../operations/customers.md#customer-classification) profiles exist in Mews.
 
 In order to keep data clean in the Mews PMS, only mark a profile with the [Paymaster](../operations/customers.md#customer-classification) classification when the event management system starts posting charges to the customer profile. Use the [Update customer](../operations/customers.md#update-customer) operation to mark the profile as a [Paymaster](../operations/customers.md#customer-classification) account. 
 
-Similar to the concept of *fake rooms* in traditional property management systems that are removed at the end of an event, remove the [Paymaster](../operations/customers.md#customer-classification) classification from the customer profile once the relevant event has concluded (e.g. event ended, all billing settled, and/or event cancelled). Use the [Update customer](../operations/customers.md#update-customer) operation to remove the [Paymaster](../operations/customers.md#customer-classification) classification. Refer to the [Update values](../guidelines.md/serialization.md#update-values) section on how to change or remove a value. 
+Similar to the concept of *fake rooms* (in traditional property management systems) that are deleted at the end of an event, remove the [Paymaster](../operations/customers.md#customer-classification) classification from the customer profile once the relevant event has concluded (e.g. event ended, all billing settled, and/or event cancelled). Use the [Update customer](../operations/customers.md#update-customer) operation to remove the [Paymaster](../operations/customers.md#customer-classification) classification. Refer to the [Update values](../guidelines.md/serialization.md#update-values) section on how to change or remove a value. 
 
 You can also use the [Update customer](../operations/customers.md#update-customer) to amend other customer profile details. Should you need to retrieve a list of all customer profiles created within a certain interval, use the [Get all customers](../operations/customers.md#get-all-customers) operation with the relevant time filters.
 
@@ -72,7 +72,8 @@ It is also possible to place an existing reservation in Mews into an availabilit
 
 If applicable, you can attach a company to a reservation when calling [Add reservations](./operations/reservations.md#add-reservations) or [Update reservations](../operations/reservations.md#update-reservations).
 
-**Note:** 
+***Note:*** 
+
 It is currently not possible to exceed the availability block capacity (the inventory allocated to an availability block through the [Update service availability](../operations/services.md#update-service-availability) operation. However, it is possible to add reservations with arrival or departure date times that extend beyond the [interval in a given availability block](../operations/services.md#availability-block-parameters). Should there be a need to accommodate more reservations in an availability block, you must first update the adjustments to increase the allocated inventory in that block.
 
 #### Managing reservations and customers
@@ -84,7 +85,7 @@ To ensure that the property can further manage individual companions to the grou
 
 Call [Get all availability blocks](../operations/services.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks for Reservation events](../webhooks.md#general-message) to automatically receive information of reservation creation and/or changes. Note the `AvailabilityBlockId` in the [`ServiceOrders`](../webhooks.md#entities) object to record pickup for the relevant availability block in your system and in Mews. When a reservation no longer belongs to the `AvailabilityBlock`, follow the format described in [Update reservation](../operations/reservations#update-reservations) to remove the `AvailabilityBlockId`.
 
-**Note:**
+***Note:***
 
 It is possible to remove the availability block from Mews by calling [Delete availability blocks](../operations/services.md#delete-availability-blocks). However, please note that deleting the availability block does not automatically remove the `AvailabilityBlockId` that has previously been attached to reservation(s). 
 
