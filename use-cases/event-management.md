@@ -52,7 +52,7 @@ First call [Add availability blocks](../operations/services.md#add-availability-
 
 #### Allocating inventory to the availability block
 
-Now that you have created an availability block object, you can allocate capacity for different dates and resource categories (i.e. create room night blocks). Call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into Mews. Send a *negative* value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in the [availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. 
+Now that you have created an availability block object, you can allocate capacity for different dates and resource categories (i.e. create room night blocks). Call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into Mews. Send a *negative* value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in the [availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. The availability adjustments must fall within the `StartUtc` and `EndUtc` of the availability block.
 
 - *Example: If you wish to reserve 10 units of availability for certain date(s), send -10 in the `UnitCountAdjustment` parameter.*
 
@@ -84,9 +84,7 @@ To ensure that the property can further manage individual companions to the grou
 
 Call [Get all availability blocks](../operations/services.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks for Reservation events](../webhooks.md#general-message) to automatically receive information of reservation creation and/or changes. Note the `AvailabilityBlockId` in the [`ServiceOrders`](../webhooks.md#entities) object to record pickup for the relevant availability block in your system and in Mews. When a reservation no longer belongs to the `AvailabilityBlock`, follow the format described in [Update reservation](../operations/reservations#update-reservations) to remove the `AvailabilityBlockId`.
 
-***Note:***
-
-It is possible to remove the availability block from Mews by calling [Delete availability blocks](../operations/services.md#delete-availability-blocks). However, please note that deleting the availability block does not automatically remove the `AvailabilityBlockId` that has previously been attached to reservation(s). 
+When an availability block is no longer needed in Mews, remove it from Mews by calling [Delete availability blocks](../operations/services.md#delete-availability-blocks). The availability adjustments associated with the availability block will automatically be removed. Note that is it not possible to delete an availability block containing active reservations.
 
 ### Testing your integration
 
