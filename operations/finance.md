@@ -241,6 +241,15 @@ Returns all accounting categories of the enterprise associated with the connecto
 * `Accommodation`
 * `FoodAndBeverage`
 * `Taxes`
+* `Payments`
+* `ExternalRevenue`
+* `SundryIncome`
+* `Wellness`
+* `Sport`
+* `Technology`
+* `Facilities`
+* `Events`
+* `Tourism`
 * ...
 
 ## Get all accounting items
@@ -1381,7 +1390,9 @@ Returns all preauthorizations of specified customers.
 
 ## Add credit card payment
 
-Adds a new credit card payment to a bill of the specified customer. Note that the payment is added to open bill of the customer, either to the specified one or the default one. So the bill has to be later settled in Mews. So e.g. payment terminal integration should use this operation to post payments taken through the terminal.
+Adds a new credit card payment to a bill of the specified customer. Note that the payment is added to open bill of the customer, either to the specified one or the default one. This operation only serves to record a credit card payment that has already been taken outside of Mews or Mews' payment terminal, and does not actually charge the customer's credit card. 
+
+The bill can then be closed manually by a Mews user, or automatically via API with the [Close bill](finance.md#close-bill) operation. 
 
 ### Request
 

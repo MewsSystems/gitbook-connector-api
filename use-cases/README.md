@@ -10,5 +10,6 @@ This section describes, how to use the Connector API in order to implement well-
 * [Event management](event-management.md)
 * [Accounting](accounting.md)
 * [Upselling](upselling.md)
+* [Kiosk](kiosk.md)
 * [Housekeeping](housekeeping.md)
 * [Customer management](customer-management.md)

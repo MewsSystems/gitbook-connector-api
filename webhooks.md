@@ -132,7 +132,13 @@ This is a new format of webhook message which will be extended in future to carr
             "Value": {
                 "Id": "bfee2c44-1f84-4326-a862-5289598f6e2d"
             }
-        }
+        },
+        {
+            "Discriminator": "ResourceUpdated",
+            "Value": {
+                "Id": "7cccbdc6-73cf-4cd4-8056-6fd00f4d9699"
+            }
+        },
     ],
     "Entities": {
         "ServiceOrders": [
@@ -162,6 +168,25 @@ This is a new format of webhook message which will be extended in future to carr
                 "ChildCount": 0,
                 "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
             }
+        ],
+        "Resources": [
+            {
+                "Id": "7cccbdc6-73cf-4cd4-8056-6fd00f4d9699",
+                "IsActive": true,
+                "ParentResourceId": null,
+                "Name": "210",
+                "State": "Dirty",
+                "Descriptions": {},
+                "CreatedUtc": "2018-09-24T07:56:56Z",
+                "UpdatedUtc": "2021-03-26T03:56:37Z",
+                "Data": {
+                    "Discriminator": "Space",
+                    "Value": {
+                        "FloorNumber": "2",
+                        "LocationNotes": ""
+                    }
+                }
+            }
         ]
     }
 }
@@ -183,7 +208,8 @@ This is a new format of webhook message which will be extended in future to carr
 
 #### Event discriminator
 
-* `ServiceOrderUpdated` - Service order (for example a [Reservation](reservations.md#reservation)) was updated. The value is [Entity updated data](#entity-updated-data).
+* `ServiceOrderUpdated` - Service order (for example a [Reservation](operations/reservations.md#reservation)) was updated. The value is [Entity updated data](#entity-updated-data).
+* `ResourceUpdated` - [Resource](operations/enterprises.md#resource) (for example a room) was updated. The value is [Entity updated data](#entity-updated-data).
 
 #### Entity updated data
 
@@ -195,4 +221,5 @@ This is a new format of webhook message which will be extended in future to carr
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Latest state of [Reservation](reservations.md#reservation)s related to [Event](#event)s. |
+| `ServiceOrders` | array of [Reservation](operations/reservations.md#reservation) | optional | Latest state of [Reservation](operations/reservations.md#reservation)s related to [Event](#event)s. |
+| `Resources` | array of [Resource](operations/enterprises.md#resource) | optional | Latest state of [Resource](operations/enterprises.md#resource)s related to [Event](#event)s. |
