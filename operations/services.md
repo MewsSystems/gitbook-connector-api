@@ -304,7 +304,7 @@ Adds availability blocks which are used to group related [Availability update](#
 
 ## Delete availability blocks
 
-Delete availability blocks.
+Delete availability blocks. Note that an availability block containing active reservations (reservations which are not `Canceled`) cannot be deleted.
 
 ### Request
 
@@ -402,7 +402,7 @@ Returns availability of a reservable service in the specified interval including
 
 ## Update service availability
 
-Updates the number of available resources in [Resource category](enterprises.md#resource-category) by certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+Updates the number of available resources in [Resource category](enterprises.md#resource-category) by a certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
 
 ### Request
 
