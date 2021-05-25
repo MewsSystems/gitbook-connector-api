@@ -19,7 +19,13 @@ Refer to the PCI Proxy documentation on [collecting and storing cards](https://d
 2. [Create payment form](https://docs.pci-proxy.com/collect-and-store-cards/capture-iframes#1-setup-secure-fields) to collect card number and CVV.
 3. [Retrieve a Transaction ID](https://docs.pci-proxy.com/collect-and-store-cards/capture-iframes#3-retrieve-a-transaction-id) using the `merchantId`. Take note of the `transactionId` in the response, which looks like a series of numbers (e.g. `201028230732590232`).
 
-[Step 4 - Obtain tokens](https://docs.pci-proxy.com/collect-and-store-cards/capture-iframes#4-obtain-tokens) is done by Mews’ backend. No action is required by the integration partner in this step.  
+[Step 4 - Obtain tokens](https://docs.pci-proxy.com/collect-and-store-cards/capture-iframes#4-obtain-tokens) is done by Mews’ backend. No action is required by the integration partner in this step.
+
+**Note:** 
+
+Though not required by PCI Proxy, credit card expiration date is listed as a mandatory parameter on the [Add tokenized credit card](../operations/finance#add-tokenized-credit-card) so that it can be displayed within the customer profile in Mews. This can be also used and an additional validation method for the property to know if there is an expired card on file.
+
+To handle this, we recommend that the payment form includes a field for guests to input their credit card expiration date, which needs not be sent to PCI Proxy, and only needs to be included in the [Add tokenized credit card](../operations/finance#add-tokenized-credit-card) API request. 
 
 #### 3. Add the tokenized credit card to a customer profile in Mews
 
