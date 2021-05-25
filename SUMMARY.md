@@ -12,6 +12,8 @@
   * [Reputation management](use-cases/reputation-management.md)
   * [Revenue management](use-cases/revenue-management.md)
   * [Upselling](use-cases/upselling.md)
+  * Payment automation
+     * [Using Mews' integrated payment gateway for credit card payments](/use-cases/payment-automation/tokenized-credit-cards.md)
 * [Guidelines](guidelines.md)
 * [Operations](operations/README.md)
   * [Configuration](operations/configuration.md)
