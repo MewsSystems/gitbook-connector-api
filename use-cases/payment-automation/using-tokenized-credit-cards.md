@@ -1,4 +1,4 @@
-## Using Mews' integrated payment gateway for credit card payments
+## Using tokenized credit cards
 
 If your solution interacts with customers and the user interface involves the collection and storage of credit card details in a secure manner against the customer's profile in Mews, use [Add tokenized credit card](../operations/finance#add-tokenized-credit-card), and then [Charge credit card](../operations/finance#charge-credit-card) operations to take a payment. 
 
