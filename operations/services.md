@@ -114,6 +114,14 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
+    "CreatedUtc" : {
+        "StartUtc": "2020-11-04T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
+    "UpdatedUtc" : {
+        "StartUtc": "2020-11-04T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
     "CollidingUtc" : {
         "StartUtc": "2020-11-05T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
@@ -136,6 +144,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Client` | string | required | Name and version of the client application. |
 | `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability block](#availability-block)s. |
 | `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service)s to which [Availability block](#availability-block)s are assigned. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s were created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s were updated. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s are active. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservation](reservations.md#reservation)s) are returned. |
