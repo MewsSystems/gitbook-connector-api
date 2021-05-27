@@ -8,6 +8,7 @@
   * [Event management](use-cases/event-management.md)
   * [Guest technology](use-cases/guest-technology.md)
   * [Housekeeping](use-cases/housekeeping.md)
+  * [Kiosk](use-cases/kiosk.md)
   * [Point of sale](use-cases/point-of-sale.md)
   * [Reputation management](use-cases/reputation-management.md)
   * [Revenue management](use-cases/revenue-management.md)
