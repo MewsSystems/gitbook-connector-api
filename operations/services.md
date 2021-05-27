@@ -115,11 +115,11 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
     "CreatedUtc" : {
-        "StartUtc": "2020-11-05T00:00:00Z",
+        "StartUtc": "2020-11-04T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
     },
     "UpdatedUtc" : {
-        "StartUtc": "2020-11-05T00:00:00Z",
+        "StartUtc": "2020-11-04T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
     },
     "CollidingUtc" : {
