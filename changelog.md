@@ -63,6 +63,9 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 27th May 2021 10:50 UTC
+* Extended [Get all availability blocks](operations/services.md#get-all-availability-blocks) parameters with `CreatedUtc` and `UpdatedUtc`.
+
 ## 29th March 2021 8:20 UTC
 * Added new type `ResourceUpdated` of webhook [Event](webhooks.md#event).
 
