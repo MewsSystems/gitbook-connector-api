@@ -299,8 +299,8 @@ Adds availability blocks which are used to group related [Availability update](#
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
-| `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations.  |
-| `ReservationPurpose` | string | optional | The reason of the block.  |
+| `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations. |
+| `ReservationPurpose` | string | optional | The reason of the block. |
 | `Notes` | string | optional | Additional notes of the block. |
 
 ### Response
