@@ -293,7 +293,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | --- | --- | --- | --- |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to assign block to. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) to assign block to. |
-| `VoucherCode` | string | optional | Voucher code value providing access to specified private [Rate](services.md#rate). |
+| `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](services.md#rate). |
 | `Name` | string | optional | The name of the block. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
