@@ -263,10 +263,18 @@ Adds availability blocks which are used to group related [Availability update](#
         {
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "Name": "Mr. Smith's block"
+            "VoucherCode": null,
             "StartUtc": "2020-11-05T00:00:00Z",
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
-            "ExternalIdentifier": "Block-0001"
+            "ExternalIdentifier": "Block-0001",
+            "Budget": {  
+               "Value": 500,
+               "Currency": "EUR"
+            }
+            "ReservationPurpose": null,
+            "Notes": null,
         }
     ]
 }
@@ -285,10 +293,15 @@ Adds availability blocks which are used to group related [Availability update](#
 | --- | --- | --- | --- |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to assign block to. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) to assign block to. |
+| `Name` | string | optional | The name of the block. |
+| `VoucherCode` | string | optional | Information about voucher code used by customer. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
+| `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations.  |
+| `ReservationPurpose` | string | optional | The reason of the block.  |
+| `Notes` | string | optional | Additional notes of the block. |
 
 ### Response
 
