@@ -1485,7 +1485,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the external card payment. |
-| `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. |
+| `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment.*Except for the properties based in the French Legal Environmen. Unspecified is considerer as fraud |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
