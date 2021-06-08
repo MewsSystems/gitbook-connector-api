@@ -1513,6 +1513,8 @@ Adds a new external payment to a bill of the specified customer. An external pay
 
 Adds a new alternative payment to a specified customer.
 
+**Pre-requisites:** The property must have the relevant type of alternative payment method enabled in their Mews subscriptions in order to accept such payments in their Mews environment. Please ask the property to confirm. 
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/payments/addAlternative`
