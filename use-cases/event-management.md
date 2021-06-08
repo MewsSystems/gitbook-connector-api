@@ -38,7 +38,7 @@ In case payment was taken outside of Mews or directly on the event management pl
 
 #### Further automation possibilities
 
-Call [Get customer open itmes](../operations/customers.md#get-customers-open-items) to review the revenue and payment items that have already been posted to a customer profile. You can then further automate the management of billing/invoicing by creating a specific bill via [Add bill](../operations/finance.md#add-bill) for a certain group of revenue and payment items. Use [Update accounting items](../operations/finance.md#update-accounting-items) to redirect said items to the relevant bill and then use [Close bill](../operations/finance.md#close-bill) to finalise the financial document. 
+Call [Get customer open items](../operations/customers.md#get-customers-open-items) to review the revenue and payment items that have already been posted to a customer profile. You can then further automate the management of billing/invoicing by creating a specific bill via [Add bill](../operations/finance.md#add-bill) for a certain group of revenue and payment items. Use [Update accounting items](../operations/finance.md#update-accounting-items) to redirect said items to the relevant bill and then use [Close bill](../operations/finance.md#close-bill) to finalise the financial document. 
 
 *Note that currently, attaching a company to a bill must be done manually in Mews PMS. If being able to do the same via API is important to your solution, please consider addiing your vote to [this feature request](https://feedback.mews.com/forums/932131-mews-open-api/suggestions/43041963-attach-company-id-to-bills)*
 
@@ -48,11 +48,11 @@ Availability blocks are used for reserving a certain portion of category availab
 
 #### Creating availability blocks
 
-First call [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object with the relevant parameters. Note the `AvailabilityBlockId`, which is used as the unique identifier throughout Mews. There is no expectation to create availability blocks and allocate inventory in Mews straight away for events in the early stages (e.g. tentative) of a sales cycle. It is up to the integration partner to decide at which stage of an event order to block inventory in Mews.
+First call [Add availability blocks](../operations/services.md#add-availability-blocks) to add a new block object with the relevant parameters. Note the `AvailabilityBlockId`, which is used as the unique identifier throughout Mews. There is no expectation to create availability blocks and allocate inventory in Mews straight away for events in the early stages (e.g. tentative) of a sales cycle. It is up to the integration partner to decide at which stage of an event order to create an availability block and start allocating inventory in Mews.
 
 #### Allocating inventory to the availability block
 
-Now that you have created an availability block object, you can allocate capacity for different dates and resource categories (i.e. create room night blocks). Call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into Mews. Send a *negative* value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in the [availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. 
+Now that you have created an availability block object, you can allocate capacity for different dates and resource categories (i.e. create room night blocks). Call [Update service availability](../operations/services.md#update-service-availability) to push availability adjustments into Mews. Send a *negative* value for the `UnitCountAdjustment` parameter and include the aforementioned `AvailabilityBlockId` in the [availability update](../operations/services.md#availability-update) parameter to reserve units of availability for the availability block you have just created. The availability adjustments must fall within the `StartUtc` and `EndUtc` of the availability block.
 
 - *Example: If you wish to reserve 10 units of availability for certain date(s), send -10 in the `UnitCountAdjustment` parameter.*
 
@@ -84,9 +84,7 @@ To ensure that the property can further manage individual companions to the grou
 
 Call [Get all availability blocks](../operations/services.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks for Reservation events](../webhooks.md#general-message) to automatically receive information of reservation creation and/or changes. Note the `AvailabilityBlockId` in the [`ServiceOrders`](../webhooks.md#entities) object to record pickup for the relevant availability block in your system and in Mews. When a reservation no longer belongs to the `AvailabilityBlock`, follow the format described in [Update reservation](../operations/reservations#update-reservations) to remove the `AvailabilityBlockId`.
 
-***Note:***
-
-It is possible to remove the availability block from Mews by calling [Delete availability blocks](../operations/services.md#delete-availability-blocks). However, please note that deleting the availability block does not automatically remove the `AvailabilityBlockId` that has previously been attached to reservation(s). 
+When an availability block is no longer needed in Mews, remove it from Mews by calling [Delete availability blocks](../operations/services.md#delete-availability-blocks). The availability adjustments associated with the availability block will automatically be removed. Note that is it not possible to delete an availability block containing active reservations.
 
 ### Testing your integration
 
