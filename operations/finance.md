@@ -1486,6 +1486,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the external card payment. |
 | `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. |
+| `ExternalIdentifier` | string | optional | Identifier of the external payment accepted as a pre-payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
@@ -1496,6 +1497,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 * `Invoice`
 * `WireTransfer`
 * `Bacs`
+* `CrossSettlement`
 
 ### Response
 
