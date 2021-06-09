@@ -1472,6 +1472,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
         "Currency": "GBP",
         "GrossValue": 100
     },
+    "ExternalIdentifier": "b06de5e4-7137-47ec-8a49-3303131b02c0",
     "Type": "Cash",
     "AccountingCategoryId": null,
 }
