@@ -265,8 +265,14 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "StartUtc": "2017-01-01T00:00:00Z",
-    "EndUtc": "2017-02-01T00:00:00Z",
+    "ConsumedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
+    "ClosedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
     "ItemIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
     ]
@@ -278,9 +284,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TimeFilter` | string [Accounting item time filter](finance.md#accounting-item-time-filter) | optional | Time filter of the interval. If not specified, items `Consumed` in the interval are returned. |
-| `StartUtc` | string | optional, max length 1 months | Start of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified. |
-| `EndUtc` | string | optional, max length 1 months | End of the interval in UTC timezone in ISO 8601 format. Required if `ItemIds` are not specified.  |
+| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Outlet bill](#outlet-bill) was closed. Required if no other filter is provided. |
 | `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if `StartUtc` and `EndUtc` are not specified. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
