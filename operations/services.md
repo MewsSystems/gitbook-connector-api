@@ -99,17 +99,17 @@ Returns all services offered by the enterprise.
 | `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
 | `TimeUnit` | [Time unit](#time-unit) | required | Time unit of the service. |
 
-Time unit represents a fixed and finite time interval - a minute, a day, a month, etc. A Time unit defines the operable periods for the bookable service. We currently only support Day unit.
-We are thinking of the daily time unit as the physical time unit that starts on the midnight and ends on the midnight next day.
+Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service. We currently only support the Day unit.
+We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day.
 
 Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
-`StartOffset` and `EndOffset` are definining the service default start and end of the service (so the service orders).
-`OccupancyStartOffset` and `OccupancyEndOffset` are definining the times where the space is considered occupied in Mews. 
+`StartOffset` and `EndOffset` define the default start and end of the service (so, the service orders).
+`OccupancyStartOffset` and `OccupancyEndOffset` define the time where the space is considered occupied in Mews. 
 
-Positive end offsets of the daily time unit defines the nightly service as depicted on the diagram below.
+Positive end offsets of the daily time unit define the nightly service as depicted in the diagram below.
 ![](../.gitbook/assets/timeunits-connector-night.png)
 
-Negative or zero end offset of the daily time unit defines the daily service as depicted on the picture below.
+Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
 #### Time unit
