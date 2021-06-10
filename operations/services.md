@@ -99,7 +99,20 @@ Returns all services offered by the enterprise.
 | `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
 | `TimeUnit` | [Time unit](#time-unit) | required | Time unit of the service. |
 
-##### Time unit
+Time unit represents a fixed and finite time interval - a minute, a day, a month, etc. A Time unit defines the operable periods for the bookable service. We currently only support Day unit.
+We are thinking of the daily time unit as the physical time unit that starts on the midnight and ends on the midnight next day.
+
+Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
+`StartOffset` and `EndOffset` are definining the service default start and end of the service (so the service orders).
+`OccupancyStartOffset` and `OccupancyEndOffset` are definining the times where the space is considered occupied in Mews. 
+
+Positive end offsets of the daily time unit defines the nightly service as depicted on the diagram below.
+![](../.gitbook/assets/timeunits-connector-night.png)
+
+Negative or zero end offset of the daily time unit defines the daily service as depicted on the picture below.
+![](../.gitbook/assets/timeunits-connector-day.png)
+
+#### Time unit
 
 * `Day`
 * ...
@@ -123,22 +136,7 @@ Returns all services offered by the enterprise.
 
 ### Offsets and time units details
 
-Time unit represents a fixed and finite time interval - a minute, a day, a month, etc. A Time unit defines the operable periods for the bookable service. We currently only support Day unit.
-We are thinking of the daily time unit as the physical time unit that starts on the midnight and ends on the midnight next day.
 
-Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
-`StartOffset` and `EndOffset` are definining the service default start and end of the service (so the service orders).
-`OccupancyStartOffset` and `OccupancyEndOffset` are definining the times where the space is considered occupied in Mews. 
-
-The end offset can be negative or zero which defines the daily service charged per day when the positive end offset defines the nightly service charged per night.
-
-The relation between the offsets and time unit start and end is decribed in the diagram below.
-
-#### Service charged per night
-![](../.gitbook/assets/timeunits-connector-night.png)
-
-#### Service charged per day
-![](../.gitbook/assets/timeunits-connector-day.png)
 
 ## Get all availability blocks
 
