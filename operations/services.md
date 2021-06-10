@@ -134,10 +134,6 @@ Negative or zero end offset of the daily time unit defines the daily service as 
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 | `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
 
-### Offsets and time units details
-
-
-
 ## Get all availability blocks
 
 Returns all availability blocks filtered by services, unique identifiers and other filters.
