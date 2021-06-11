@@ -284,9 +284,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Outlet bill](#outlet-bill) was closed. Required if no other filter is provided. |
-| `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if `StartUtc` and `EndUtc` are not specified. |
+| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the accounting item was consumed. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the accounting item was closed. Required if no other filter is provided. |
+| `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if `ConsumedUtc` or `ClosedUtc` are not specified. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
@@ -1492,7 +1492,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the external card payment. |
 | `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. |
-| `ExternalIdentifier` | string | optional | Identifier of the external payment accepted as a pre-payment. |
+| `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
