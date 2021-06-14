@@ -28,36 +28,37 @@ Returns all services offered by the enterprise.
 {
     "Services": [
         {
-            "EndTime": null,
             "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
             "IsActive": true,
             "Name": "Restaurant",
-            "StartTime": null,
-            "Promotions": {
-                "BeforeCheckIn": false,
-                "AfterCheckIn": false,
-                "DuringStay": false,
-                "BeforeCheckOut": false,
-                "AfterCheckOut": false,
-                "DuringCheckOut": false
-            },
-            "Type": "Orderable"
+            "Data": {
+                "Discriminator": "Additional",
+                "Value": {
+                    "Promotions": {
+                        "BeforeCheckIn": false,
+                        "AfterCheckIn": false,
+                        "DuringStay": false,
+                        "BeforeCheckOut": false,
+                        "AfterCheckOut": false,
+                        "DuringCheckOut": false
+                    }
+                }
+            }
         },
         {
-            "EndTime": "PT12H",
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Accommodation",
-            "StartTime": "PT14H",
-            "Promotions": {
-                "BeforeCheckIn": false,
-                "AfterCheckIn": false,
-                "DuringStay": false,
-                "BeforeCheckOut": false,
-                "AfterCheckOut": false,
-                "DuringCheckOut": false
-            },
-            "Type": "Reservable"
+            "Data": {
+                "Discriminator": "Bookable",
+                "Value": {
+                    "StartOffset": "P0M0DT15H0M0S",
+                    "EndOffset": "P0M0DT12H0M0S",
+                    "OccupancyStartOffset": "P0M0DT15H0M0S",
+                    "OccupancyEndOffset": "P0M0DT12H0M0S",
+                    "TimeUnit": "Day"
+                }
+            }
         }
     ]
 }
@@ -74,12 +75,55 @@ Returns all services offered by the enterprise.
 | `Id` | string | required | Unique identifier of the service. |
 | `IsActive` | boolean | required | Whether the service is still active. |
 | `Name` | string | required | Name of the service. |
-| `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
-| `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
-| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
-| `Type` | string [Service type](services.md#service-type) | required | Type of the service. |
+| `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
 
-#### Promotions
+#### Service data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Service data discriminator](#service-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Service data discriminator](#service-data-discriminator). |
+
+#### Service data discriminator
+
+* `Bookable` - Data specific to a bookable service.
+* `Additional` - Data specific to an additional service.
+
+#### Bookable service data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `StartOffset` | string | required | Offset from the start of the time unit defining the default start of the service orders in ISO 8601 duration format. |
+| `EndOffset` | string | required | Offset from the end of the time unit defining the default end of the service orders in ISO 8601 duration format. |
+| `OccupancyStartOffset` | string | required | Offset from the start of the time unit defining the occupancy start of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
+| `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
+| `TimeUnit` | [Time unit](#time-unit) | required | Time unit of the service. |
+
+Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service. We currently only support the Day unit.
+We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day.
+
+Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
+`StartOffset` and `EndOffset` define the default start and end of the service (so, the service orders).
+`OccupancyStartOffset` and `OccupancyEndOffset` define the time where the space is considered occupied in Mews. 
+
+Positive end offsets of the daily time unit define the nightly service as depicted in the diagram below.
+![](../.gitbook/assets/timeunits-connector-night.png)
+
+Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
+![](../.gitbook/assets/timeunits-connector-day.png)
+
+#### Time unit
+
+* `Day`
+* ...
+
+#### Additional service data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
+
+##### Promotions
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
@@ -89,11 +133,6 @@ Returns all services offered by the enterprise.
 | `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 | `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
-
-#### Service type
-
-* `Reservable`
-* `Orderable`
 
 ## Get all availability blocks
 
@@ -366,7 +405,7 @@ Delete availability blocks. Note that an availability block containing active re
 
 ## Get service availability
 
-Returns availability of a reservable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
+Returns availability of a bookable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
