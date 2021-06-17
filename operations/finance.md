@@ -284,8 +284,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the accounting item was consumed. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the accounting item was closed. Required if no other filter is provided. |
+| `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the accounting item was consumed. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the accounting item was closed. Required if no other filter is provided. |
 | `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if `ConsumedUtc` or `ClosedUtc` are not specified. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
