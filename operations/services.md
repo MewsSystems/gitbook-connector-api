@@ -28,36 +28,37 @@ Returns all services offered by the enterprise.
 {
     "Services": [
         {
-            "EndTime": null,
             "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
             "IsActive": true,
             "Name": "Restaurant",
-            "StartTime": null,
-            "Promotions": {
-                "BeforeCheckIn": false,
-                "AfterCheckIn": false,
-                "DuringStay": false,
-                "BeforeCheckOut": false,
-                "AfterCheckOut": false,
-                "DuringCheckOut": false
-            },
-            "Type": "Orderable"
+            "Data": {
+                "Discriminator": "Additional",
+                "Value": {
+                    "Promotions": {
+                        "BeforeCheckIn": false,
+                        "AfterCheckIn": false,
+                        "DuringStay": false,
+                        "BeforeCheckOut": false,
+                        "AfterCheckOut": false,
+                        "DuringCheckOut": false
+                    }
+                }
+            }
         },
         {
-            "EndTime": "PT12H",
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Accommodation",
-            "StartTime": "PT14H",
-            "Promotions": {
-                "BeforeCheckIn": false,
-                "AfterCheckIn": false,
-                "DuringStay": false,
-                "BeforeCheckOut": false,
-                "AfterCheckOut": false,
-                "DuringCheckOut": false
-            },
-            "Type": "Reservable"
+            "Data": {
+                "Discriminator": "Bookable",
+                "Value": {
+                    "StartOffset": "P0M0DT15H0M0S",
+                    "EndOffset": "P0M0DT12H0M0S",
+                    "OccupancyStartOffset": "P0M0DT15H0M0S",
+                    "OccupancyEndOffset": "P0M0DT12H0M0S",
+                    "TimeUnit": "Day"
+                }
+            }
         }
     ]
 }
@@ -74,12 +75,55 @@ Returns all services offered by the enterprise.
 | `Id` | string | required | Unique identifier of the service. |
 | `IsActive` | boolean | required | Whether the service is still active. |
 | `Name` | string | required | Name of the service. |
-| `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
-| `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
-| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
-| `Type` | string [Service type](services.md#service-type) | required | Type of the service. |
+| `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
 
-#### Promotions
+#### Service data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Service data discriminator](#service-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Service data discriminator](#service-data-discriminator). |
+
+#### Service data discriminator
+
+* `Bookable` - Data specific to a bookable service.
+* `Additional` - Data specific to an additional service.
+
+#### Bookable service data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `StartOffset` | string | required | Offset from the start of the time unit defining the default start of the service orders in ISO 8601 duration format. |
+| `EndOffset` | string | required | Offset from the end of the time unit defining the default end of the service orders in ISO 8601 duration format. |
+| `OccupancyStartOffset` | string | required | Offset from the start of the time unit defining the occupancy start of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
+| `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
+| `TimeUnit` | [Time unit](#time-unit) | required | Time unit of the service. |
+
+Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service. We currently only support the Day unit.
+We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day.
+
+Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
+`StartOffset` and `EndOffset` define the default start and end of the service (so, the service orders).
+`OccupancyStartOffset` and `OccupancyEndOffset` define the time where the space is considered occupied in Mews. 
+
+Positive end offsets of the daily time unit define the nightly service as depicted in the diagram below.
+![](../.gitbook/assets/timeunits-connector-night.png)
+
+Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
+![](../.gitbook/assets/timeunits-connector-day.png)
+
+#### Time unit
+
+* `Day`
+* ...
+
+#### Additional service data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
+
+##### Promotions
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
@@ -89,11 +133,6 @@ Returns all services offered by the enterprise.
 | `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 | `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
-
-#### Service type
-
-* `Reservable`
-* `Orderable`
 
 ## Get all availability blocks
 
@@ -114,6 +153,14 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
+    "CreatedUtc" : {
+        "StartUtc": "2020-11-04T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
+    "UpdatedUtc" : {
+        "StartUtc": "2020-11-04T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
     "CollidingUtc" : {
         "StartUtc": "2020-11-05T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
@@ -136,6 +183,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Client` | string | required | Name and version of the client application. |
 | `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability block](#availability-block)s. |
 | `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service)s to which [Availability block](#availability-block)s are assigned. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s were created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s were updated. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s are active. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservation](reservations.md#reservation)s) are returned. |
@@ -253,10 +302,18 @@ Adds availability blocks which are used to group related [Availability update](#
         {
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "VoucherCode": null,
+            "Name": "Mr. Smith's block"
             "StartUtc": "2020-11-05T00:00:00Z",
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
-            "ExternalIdentifier": "Block-0001"
+            "ExternalIdentifier": "Block-0001",
+            "Budget": {  
+               "Value": 500,
+               "Currency": "EUR"
+            }
+            "ReservationPurpose": null,
+            "Notes": null,
         }
     ]
 }
@@ -275,10 +332,15 @@ Adds availability blocks which are used to group related [Availability update](#
 | --- | --- | --- | --- |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) to assign block to. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) to assign block to. |
+| `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](services.md#rate). |
+| `Name` | string | optional | The name of the block. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
+| `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations. |
+| `ReservationPurpose` | string [Reservation purpose](#reservation-purpose) | optional | The purpose of the block. |
+| `Notes` | string | optional | Additional notes of the block. |
 
 ### Response
 
@@ -302,9 +364,15 @@ Adds availability blocks which are used to group related [Availability update](#
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
 
+### Reservation purpose
+
+* Leisure
+* Business
+* Student
+
 ## Delete availability blocks
 
-Delete availability blocks.
+Delete availability blocks. Note that an availability block containing active reservations (reservations which are not `Canceled`) cannot be deleted.
 
 ### Request
 
@@ -337,7 +405,7 @@ Delete availability blocks.
 
 ## Get service availability
 
-Returns availability of a reservable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
+Returns availability of a bookable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
 
 ### Request
 
@@ -402,7 +470,7 @@ Returns availability of a reservable service in the specified interval including
 
 ## Update service availability
 
-Updates the number of available resources in [Resource category](enterprises.md#resource-category) by certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+Updates the number of available resources in [Resource category](enterprises.md#resource-category) by a certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
 
 ### Request
 

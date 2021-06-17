@@ -35,7 +35,7 @@ RMSs can also add and remove restrictions by calling [Add restrictions](../opera
 
 ### Occupancy
 
-When calculating occupancy, it is important to take hierarchy of resources into account. For example if there is a reservation for whole dorm, it occupies the dorm but also all child resources in the hierarchy \(the beds\). And vice versa, if there is a bed reservation, it occupies the bed but also all parent resources \(the dorm\). We consider a resource occupied if there is a reservation colliding with interval 18:00 to 24:00 on that day. So e.g. reservation from 14:00 to 16:00 is not calculated towards occupancy.
+When calculating occupancy, it is important to take hierarchy of resources into account. For example if there is a reservation for whole dorm, it occupies the dorm but also all child resources in the hierarchy \(the beds\). And vice versa, if there is a bed reservation, it occupies the bed but also all parent resources \(the dorm\).
 
 ### Testing your integration
 

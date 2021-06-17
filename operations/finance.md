@@ -1390,7 +1390,9 @@ Returns all preauthorizations of specified customers.
 
 ## Add credit card payment
 
-Adds a new credit card payment to a bill of the specified customer. Note that the payment is added to open bill of the customer, either to the specified one or the default one. So the bill has to be later settled in Mews. So e.g. payment terminal integration should use this operation to post payments taken through the terminal.
+Adds a new credit card payment to a bill of the specified customer. Note that the payment is added to open bill of the customer, either to the specified one or the default one. This operation only serves to record a credit card payment that has already been taken outside of Mews or Mews' payment terminal, and does not actually charge the customer's credit card. 
+
+The bill can then be closed manually by a Mews user, or automatically via API with the [Close bill](finance.md#close-bill) operation. 
 
 ### Request
 
@@ -1483,7 +1485,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](finance.md#amount-value) | required | Amount of the external card payment. |
-| `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. |
+| `Type` | string [External payment type](finance.md#external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
@@ -1510,6 +1512,8 @@ Adds a new external payment to a bill of the specified customer. An external pay
 ## Add alternative payment
 
 Adds a new alternative payment to a specified customer.
+
+**Pre-requisites:** The property must have the relevant type of alternative payment method enabled in their Mews subscriptions in order to accept such payments in their Mews environment. Please ask the property to confirm. 
 
 ### Request
 
