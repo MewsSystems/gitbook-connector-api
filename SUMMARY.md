@@ -13,7 +13,7 @@
   * [Reputation management](use-cases/reputation-management.md)
   * [Revenue management](use-cases/revenue-management.md)
   * [Upselling](use-cases/upselling.md)
-  * Payment automation
+  * [Payment automation](/use-cases/payment-automation)
      * [Using tokenized credit cards](/use-cases/payment-automation/using-tokenized-credit-cards.md)
 * [Guidelines](guidelines/README.md)
   * [Requests](guidelines/requests.md)
