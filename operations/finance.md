@@ -291,11 +291,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
 
-#### Accounting item time filter
-
-* `Consumed` - items consumed in the interval.
-* `Closed` - items whose bills have been closed in the interval.
-
 #### Accounting item extent
 
 | Property | Type | Contract | Description |
