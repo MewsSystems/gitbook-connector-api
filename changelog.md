@@ -63,6 +63,11 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 21st June 2021 8:20 UTC
+
+* Extended [Get all accounting items](operations/finance.md#get-all-accounting-items) parameters  with `ClosedUtc` and `ConsumedUtc`.
+* Extended [Add external payment](operations/finance.md#add-external-payment) parameters with `CrossSettlement` type and `ExternalIdentifier` key.
+
 ## 29th March 2021 8:20 UTC
 * Added new type `ResourceUpdated` of webhook [Event](webhooks.md#event).
 
