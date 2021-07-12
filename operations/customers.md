@@ -36,7 +36,10 @@ Returns all customers filtered by identifiers, emails, names and other filters.
     "UpdatedUtc": {
         "StartUtc": "2019-12-10T00:00:00Z",
         "EndUtc": "2019-12-17T00:00:00Z"
-    }
+    },
+    "ActivityStates": [
+        "Active"
+    ],
     "Extent" : {
         "Customers": "true",
         "Documents": "true",
@@ -57,6 +60,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `LoyaltyCodes` | array of string | optional, max 1000 items | Loyalty codes of the [Customer](customers.md#customer)s. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was updated. |
+| `DeletedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
+| `ActivityStates` | array of string [Activity state](services.md#activity-state) | optional | Whether return only active, only deleted or both records. |
 | `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 #### Customer extent
@@ -595,4 +600,3 @@ Attaches the specified file to the customer profile.
 ```javascript
 {}
 ```
-
