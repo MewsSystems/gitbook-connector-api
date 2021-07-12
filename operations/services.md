@@ -2012,7 +2012,7 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 * `Active` - active records (the validity might be restricted by another parameter i.e. interval).
 * `Deleted`- deleted records.
-* `All`- both all and deleted records.
+* `All`- both active and deleted records.
 
 ### Response
 
