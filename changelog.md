@@ -63,6 +63,14 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 21st June 2021 11:30 UTC
+* Added [Get Deleted Customers](operations/customers.md#get-all-customers) filtering with `DeletedUtc`.
+* Filtering by `DeletedUtc` is only enabled when [Activity States](operations/customers.md#activity-state) field is provided as `Deleted` or `All`.
+
+## 21st June 2021 8:20 UTC
+* Extended [Get all accounting items](operations/finance.md#get-all-accounting-items) parameters  with `ClosedUtc` and `ConsumedUtc`.
+* Extended [Add external payment](operations/finance.md#add-external-payment) parameters with `CrossSettlement` type and `ExternalIdentifier` key.
+
 ## 27th May 2021 10:50 UTC
 * Extended [Get all availability blocks](operations/services.md#get-all-availability-blocks) parameters with `CreatedUtc` and `UpdatedUtc`.
 
