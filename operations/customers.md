@@ -248,7 +248,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
 | `ResourceId` | string | optional | Identifier of [Resource](enterprises.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
-| `Extent` | [Customer extent](customers.md#customer-extent) | optional | Extent of data to be returned. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 ### Response
 
