@@ -19,7 +19,7 @@ Cookie: ClientToken=E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 
-For further details about access tokens, consult the [Authentication](guidelines.md#authentication) section.
+For further details about access tokens, consult the [Authentication](guidelines/requests.md#authentication) section.
 
 ## Message
 
