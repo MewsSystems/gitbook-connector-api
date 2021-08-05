@@ -68,9 +68,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Customers` | bool | optional | Whether the response should contain information about customers. If not specified, the default value applied is `true`.|
-| `Documents` | bool | optional | Whether the response should contain identity documents of customers. If not specified, the default value applied is `true`.|
-| `Addresses` | bool | optional | Whether the response should contain addresses of customers. If not specified, the default value applied is `true`.|
+| `Customers` | bool | optional | Whether the response should contain information about customers. |
+| `Documents` | bool | optional | Whether the response should contain identity documents of customers. |
+| `Addresses` | bool | optional | Whether the response should contain addresses of customers. |
 
 ### Response
 
