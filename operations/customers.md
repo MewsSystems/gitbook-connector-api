@@ -68,9 +68,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Customers` | bool | optional | Whether the response should contain information about customers. |
-| `Documents` | bool | optional | Whether the response should contain identity documents of customers. |
-| `Addresses` | bool | optional | Whether the response should contain addresses of customers. |
+| `Customers` | bool | required | Whether the response should contain information about customers. |
+| `Documents` | bool | required | Whether the response should contain identity documents of customers. |
+| `Addresses` | bool | required | Whether the response should contain addresses of customers. |
 
 ### Response
 
@@ -231,7 +231,13 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "Name": "Smith"
+    "Name": "Smith",
+    "ResourceId": null,
+    "Extent": {
+        "Customers": true,
+        "Documents": false,
+        "Addresses": false
+    }
 }
 ```
 
@@ -242,6 +248,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
 | `ResourceId` | string | optional | Identifier of [Resource](enterprises.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 ### Response
 
