@@ -10,11 +10,13 @@ Note that tax environments are subject to change depending on the local governme
 
 The integration should use the following endpoints to retrieve a property’s tax codes.  
 
-* [configuration/get](../operations/configuration.md#get-configuration) to retrieve `TaxEnvironmentsCode` that applies to the relevant property.
+* [configuration/get](../operations/configuration.md#get-configuration) to retrieve `TaxEnvironmentsCode` that applies to the relevant property.This is needed for [taxEnvironments/getAll](../operations/configuration.md#get-all-tax-environments).
 
-* [taxEnvironments/getAll](../operations/configuration.md#get-all-tax-environments) to retrieve all `TaxationCodes` within the relevant tax environment of the property. 
+* [taxEnvironments/getAll](../operations/configuration.md#get-all-tax-environments) to retrieve all `TaxationCodes` within the relevant tax environment of the property. This is needed for [taxations/getAll](../operations/configuration.md#get-all-taxations).
 
-* [taxations/getAll](../operations/configuration.md#get-all-taxations) to retrieve the specific TaxRatesCodes and their `Value`
+* [taxations/getAll](../operations/configuration.md#get-all-taxations) to retrieve the individual TaxRatesCodes and their `Value`. 
+
+
 
 ## Tax exempt items
 
@@ -30,3 +32,7 @@ Multi-tax environments have instances in which a combination of taxes is applied
     US-MA-EXCISE-0.75%" 
 ]
 ```
+
+## Validation
+
+To understand for which time period the specific `TaxRatesCodes` are valid, you would need to review the [taxEnvironments/getAll response](../operations/configuration#response-3). 
