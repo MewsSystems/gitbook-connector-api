@@ -303,7 +303,7 @@ Adds availability blocks which are used to group related [Availability update](#
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherCode": null,
-            "Name": "Mr. Smith's block"
+            "Name": "Mr. Smith's block",
             "StartUtc": "2020-11-05T00:00:00Z",
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
@@ -311,7 +311,7 @@ Adds availability blocks which are used to group related [Availability update](#
             "Budget": {  
                "Value": 500,
                "Currency": "EUR"
-            }
+            },
             "ReservationPurpose": null,
             "Notes": null,
         }
