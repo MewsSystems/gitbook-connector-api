@@ -402,11 +402,11 @@ Updates information about the specified [Availability block](#availability-block
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
-| `Name` | [String update value](reservations.md#string-update-value) | optional | The name of the block \(or `null` if the start time should not be updated\). |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | required | Start of the interval in UTC timezone in ISO 8601 format \(or `null` if the start time should not be updated\). |
 | `EndUtc` | [String update value](reservations.md#string-update-value) | required | End of the interval in UTC timezone in ISO 8601 format \(or `null` if the end time should not be updated\). |
 | `ReleasedUtc` | [String update value](reservations.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
-| `ExternalIdentifier` | [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the released time should not be updated\). |
+| `ExternalIdentifier` | [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
 
 ### Response
 
