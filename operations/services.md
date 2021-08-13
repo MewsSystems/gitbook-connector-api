@@ -411,7 +411,7 @@ Updates information about the specified [Availability block](#availability-block
 ### Response
 
 ```javascript
-    {}
+{}
 ```
 
 ### Reservation purpose
