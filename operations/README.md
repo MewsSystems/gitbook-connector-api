@@ -29,6 +29,7 @@ This section describes all operations supported by the API:
   * [Get all services](services.md#get-all-services) - returns all services offered by the enterprise.
   * [Get all availability blocks](services.md#get-all-availability-blocks) - returns all availability blocks by filters.
   * [Add availability blocks](services.md#add-availability-blocks) - adds new availability blocks.
+  * [Update availability blocks](services.md#update-availability-blocks) - updates availability blocks.
   * [Delete availability blocks](services.md#delete-availability-blocks) - delete existing availability blocks.
   * [Get service availability](services.md#get-service-availability) - returns availability of a service in an interval.
   * [Update service availability](services.md#update-service-availability) - updates number of available resources in a service.
