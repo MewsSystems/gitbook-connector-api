@@ -364,6 +364,12 @@ Adds availability blocks which are used to group related [Availability update](#
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
 
+### Reservation purpose
+
+* Leisure
+* Business
+* Student
+
 ## Update availability blocks
 
 Updates information about the specified [Availability block](#availability-block).
@@ -413,12 +419,6 @@ Updates information about the specified [Availability block](#availability-block
 ```javascript
 {}
 ```
-
-### Reservation purpose
-
-* Leisure
-* Business
-* Student
 
 ## Delete availability blocks
 
