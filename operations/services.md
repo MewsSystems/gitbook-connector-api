@@ -303,7 +303,7 @@ Adds availability blocks which are used to group related [Availability update](#
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherCode": null,
-            "Name": "Mr. Smith's block"
+            "Name": "Mr. Smith's block",
             "StartUtc": "2020-11-05T00:00:00Z",
             "EndUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
@@ -311,7 +311,7 @@ Adds availability blocks which are used to group related [Availability update](#
             "Budget": {  
                "Value": 500,
                "Currency": "EUR"
-            }
+            },
             "ReservationPurpose": null,
             "Notes": null,
         }
@@ -369,6 +369,56 @@ Adds availability blocks which are used to group related [Availability update](#
 * Leisure
 * Business
 * Student
+
+## Update availability blocks
+
+Updates information about the specified [Availability block](#availability-block).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/availabilityBlocks/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AvailabilityBlocks": [
+        {
+            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "Name": {"Value": "Mr. John Snow block"},
+            "StartUtc":{"Value": "2021-07-05T00:00:00Z"},
+            "EndUtc":{"Value": "2021-07-15T00:00:00Z"},
+            "ReleasedUtc":{"Value": "2021-07-04T00:00:00Z"},
+            "ExternalIdentifier": {"Value": "123456798"}
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AvailabilityBlocks` | array of [Availability block update parameters](#availability-block-update-parameters) | required, max 1000 items | Availability blocks to be updated. |
+
+#### Availability block update parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
+| `StartUtc` | [String update value](reservations.md#string-update-value) | required | Start of the interval in UTC timezone in ISO 8601 format \(or `null` if the start time should not be updated\). |
+| `EndUtc` | [String update value](reservations.md#string-update-value) | required | End of the interval in UTC timezone in ISO 8601 format \(or `null` if the end time should not be updated\). |
+| `ReleasedUtc` | [String update value](reservations.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
+| `ExternalIdentifier` | [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Delete availability blocks
 
@@ -2012,7 +2062,6 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 * `Active` - active records (the validity might be restricted by another parameter i.e. interval).
 * `Deleted`- deleted records.
-* `All`- both active and deleted records.
 
 ### Response
 
