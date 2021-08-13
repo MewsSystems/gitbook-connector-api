@@ -63,6 +63,10 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 13th August 2021 10:20 UTC
+
+* Added [Update availability blocks](operations/services.md#update-availability-blocks) operation.
+
 ## 21st June 2021 8:20 UTC
 
 * Extended [Get all accounting items](operations/finance.md#get-all-accounting-items) parameters  with `ClosedUtc` and `ConsumedUtc`.
