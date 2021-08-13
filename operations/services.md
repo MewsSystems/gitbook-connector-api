@@ -382,10 +382,9 @@ Updates information about the specified [Availability block](#availability-block
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "Name": {"Value": "Mr. John Snow block"},
             "StartUtc":{"Value": "2021-07-05T00:00:00Z"},
-            "EndUtc":{"Value": "2021-07-05T00:00:00Z"},
-            "ReleasedUtc":{"Value": "2021-07-05T00:00:00Z"},
+            "EndUtc":{"Value": "2021-07-15T00:00:00Z"},
+            "ReleasedUtc":{"Value": "2021-07-04T00:00:00Z"},
             "ExternalIdentifier": {"Value": "123456798"}
-
         }
     ]
 }
@@ -403,11 +402,11 @@ Updates information about the specified [Availability block](#availability-block
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
-| `Name` | string | optional | The name of the block. |
-| `StartUtc` | [String update value](reservations.md#string-update-value) | required | Start of the interval in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated\) |
-| `EndUtc` | [String update value](reservations.md#string-update-value) | required | End of the interval in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated\) |
-| `ReleasedUtc` | [String update value](reservations.md#string-update-value) | required | The moment when the block and its availability is released. \(or `null` if the released time should not be updated\) |
-| `ExternalIdentifier` | [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system. \(or `null` if the released time should not be updated\) |
+| `Name` | [String update value](reservations.md#string-update-value) | optional | The name of the block \(or `null` if the start time should not be updated\). |
+| `StartUtc` | [String update value](reservations.md#string-update-value) | required | Start of the interval in UTC timezone in ISO 8601 format \(or `null` if the start time should not be updated\). |
+| `EndUtc` | [String update value](reservations.md#string-update-value) | required | End of the interval in UTC timezone in ISO 8601 format \(or `null` if the end time should not be updated\). |
+| `ReleasedUtc` | [String update value](reservations.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
+| `ExternalIdentifier` | [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the released time should not be updated\). |
 
 ### Response
 
