@@ -6,6 +6,10 @@ The workflow mimics the result of a user manually [adding a credit card](https:/
 
 Read more about [PCI Compliance at Mews](https://mews.force.com/s/article/pci-compliance?language=en_US).
 
+## Retrieving tokenized credit cards
+
+To see if a user's credit card is already attached to their customer profile, call [Get all credit cards] to search for credit cards by the `CreditCardId` or `CustomerId`. The credit cards tokenized via Mews' PCI Proxy are can be identified by the `"Kind"` [parameter](../operations/finance#credit-card-kind), with the corresponding value being `"Gateway"`.
+
 ## Adding a tokenized credit card
 
 ### 1. Retrieve PublicKey
@@ -36,13 +40,10 @@ Add the tokenized credit card to a customer profile in Mews by calling [Add toke
 
 The credit card will now be visible in the customer profile in Mews, under the *Payments tab* > *Credit cards* section. 
 
-**Note:** While customer profiles are shared across all properties in a chain, credit card details are not. 
+*Note:* While customer profiles are shared across all properties in a chain, credit card details are not. 
 
 ## Charging the tokenized credit card
 
 Now that you have the `CreditCardid`, you can use the [Charge credit card](../operations/finance#charge-credit-card) endpoint to charge the customer. 
 
-**Note:** The [Charge credit card](../operations/finance#charge-credit-card) operation actually charges the customer's credit card, whereas the [Add credit card payment](../operations/finance#add-credit-card-payment) operation does NOT. The latter simply records a credit card payment in Mews and does not trigger any additional action beyond Mews - suitable for when the customer's credit card has already been charged from your solution.
-
-
-
+*Note:* The [Charge credit card](../operations/finance#charge-credit-card) operation actually charges the customer's credit card, whereas the [Add credit card payment](../operations/finance#add-credit-card-payment) operation does NOT. The latter simply records a credit card payment in Mews and does not trigger any additional action beyond Mews - suitable for when the customer's credit card has already been charged from your solution.
