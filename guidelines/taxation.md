@@ -13,7 +13,7 @@ Mews expects its integration partners to send the correct tax codes in combinati
 
 Depending on the local government's ruling, tax environments can be subject to change ((e.g. Covid tax reductions)) from time to time. It is expected that integration partners act independently and pull updated information from Mews. In turn, Mews will keep the legal environment and tax codes up to date. 
 
-## Implementation of Tax codes 
+## Implementation of tax codes 
 
 The integration should use the following endpoints to retrieve a property’s tax codes.  
 
