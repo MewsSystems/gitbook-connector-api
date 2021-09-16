@@ -36,6 +36,7 @@ Multi-tax environments have instances in which a combination of taxes is applied
     "US-MA-S", 
     "US-MA-EXCISE-0.75%" 
 ]
+
 ## Validation
 
 To understand for which time period a set of tax codes are valid in a given tax environment, please review the the validity time stamps for the relevant tax environment in [Get all tax environments](../operations/configuration#response-3). 
