@@ -31,7 +31,7 @@ Tax exempt items should include the tax code value `null`. This will lead to Mew
 
 ## Multi-tax environment
 
-Multi-tax environments have instances in which a combination of taxes is applied. In those cases, Mews does not use a single composite tax code but expects that all relevant tax codes are forwarded.  
+Multi-tax environments have instances in which a combination of taxes is applied. In those cases, Mews does not use a single composite tax code but expects all tax codes that apply to the accounting item to be sent to Mews.  
 
 ```javascript
 "TaxCodes": [ 
