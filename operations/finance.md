@@ -280,11 +280,11 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
     "Extent": {
         "OrderItems": true,
         "PaymentItems": true,
-        "CreditCardTransactions": false,
+        "CreditCardTransactions": false
     },
     "States": [
         "Open"
-    ],
+    ]
 }
 ```
 
@@ -414,7 +414,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the item. |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
-| `OrderId` | string | optional | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
+| `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](#bill) the item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#accounting-category) the item belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
@@ -445,11 +445,11 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
-| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
-| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
-| `Fee` | [Amount](#amount-value) | optional | Fee of the transaction. |
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
+| `Fee` | [Amount](#amount-value) | optional | Fee of the transaction. |
+| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
 
 #### Amount Value
 
@@ -508,11 +508,11 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 
 #### Payment item state
 
-  * `Pending`
-  * `Verifying`
   * `Charged`
   * `Canceled`
+  * `Pending`
   * `Failed`
+  * `Verifying`
 
 #### Payment item data
 
