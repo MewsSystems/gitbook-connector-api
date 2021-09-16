@@ -17,11 +17,11 @@ Depending on the local government's ruling, tax environments can be subject to c
 
 The integration partner should use the following endpoints to correctly retrieve the set of tax codes applicable to a property.  
 
-* [configuration/get](../operations/configuration.md#get-configuration) to retrieve `TaxEnvironmentsCode` that applies to the relevant property.This is needed for [taxEnvironments/getAll](../operations/configuration.md#get-all-tax-environments).
+1. Call [Get configuration](../operations/configuration.md#get-configuration) to retrieve that `TaxEnvironmentCode` that applies to the relevant property. Note this information for the subsequent API call.
 
-* [taxEnvironments/getAll](../operations/configuration.md#get-all-tax-environments) to retrieve all `TaxationCodes` within the relevant tax environment of the property. This is needed for [taxations/getAll](../operations/configuration.md#get-all-taxations).
+2. Call [Get all tax environments](../operations/configuration.md#get-all-tax-environments) and use the `TaxEnvironmentCode` retrieved earlier to find the corresponding list of `TaxationCodes`. The list of `TaxationCodes` is needed to obtain for the relevant taxation information for each code in the subsequent API call. 
 
-* [taxations/getAll](../operations/configuration.md#get-all-taxations) to retrieve the individual TaxRatesCodes and their `Value`. 
+3. Call [Get all taxations](../operations/configuration.md#get-all-taxations) to retrieve the individual tax `Codes`, their names, and values. 
 
 
 
