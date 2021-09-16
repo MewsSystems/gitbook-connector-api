@@ -15,7 +15,7 @@ Depending on the local government's ruling, tax environments can be subject to c
 
 ## Implementation of tax codes 
 
-The integration should use the following endpoints to retrieve a property’s tax codes.  
+The integration partner should use the following endpoints to correctly retrieve the set of tax codes applicable to a property.  
 
 * [configuration/get](../operations/configuration.md#get-configuration) to retrieve `TaxEnvironmentsCode` that applies to the relevant property.This is needed for [taxEnvironments/getAll](../operations/configuration.md#get-all-tax-environments).
 
