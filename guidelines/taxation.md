@@ -35,11 +35,9 @@ Multi-tax environments have instances in which a combination of taxes is applied
 
 ```javascript
 "TaxCodes": [ 
-    "US-MA-S, 
-    US-MA-EXCISE-0.75%" 
+    "US-MA-S", 
+    "US-MA-EXCISE-0.75%" 
 ]
-```
-
 ## Validation
 
 To understand for which time period the specific `TaxRatesCodes` are valid, you would need to review the [taxEnvironments/getAll response](../operations/configuration#response-3). 
