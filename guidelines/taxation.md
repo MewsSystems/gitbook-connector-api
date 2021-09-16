@@ -2,9 +2,16 @@
 
 ## Legal environments and Tax codes
 
-Each legal environment includes a different set of hard coded tax codes in Mews. Tax codes are used to allow Mews to integrate items’ amounts and tax breakdowns in relation to the received net/gross amounts accurately. If no tax codes are used, then Mews will not calculate the tax breakdown. It expected from integrations to forward the correct tax codes in combination with net or gross amounts.  
 
-Note that tax environments are subject to change depending on the local government’s ruling. It is expected that integration partners act independently and pull updated information from Mews. In turn, Mews will keep the legal environment and tax codes up to date. 
+Each property (enterprise) in Mews is created with a legal and tax environment corresponding to the region in which it is located. This cannot be changed once the property has been created in Mews' database. 
+
+Each tax environment contains its own set of hard-coded tax codes that are applicable for accounting items generated in the property with that legal environment. The tax codes allow Mews to record and calculate accurately and consistently the tax information associated with each accounting item (if tax should be applied). If no tax codes are used, then Mews will not calculate the tax breakdown. 
+
+It is important to note the following when handling taxable items:
+
+Mews expects its integration partners to send the correct tax codes in combination with net or gross amounts for items that are taxed.
+
+Depending on the local government's ruling, tax environments can be subject to change ((e.g. Covid tax reductions)) from time to time. It is expected that integration partners act independently and pull updated information from Mews. In turn, Mews will keep the legal environment and tax codes up to date. 
 
 ## Implementation of Tax codes 
 
