@@ -327,10 +327,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "BillId": null,
             "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
             "Amount": {
-                "Value": 1600.00,
-                "Net": 1523.81,
-                "Tax": 76.19,
-                "TaxRate": 0.05,
                 "Currency": "GBP",
                 "NetValue": 1523.81,
                 "GrossValue": 1600.00,
@@ -367,10 +363,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "BillId": null,
             "AccountingCategoryId": "b89345c1-2814-4750-808d-aa7900ee464a",
             "Amount": {
-                "Value": 850.00,
-                "Net": 850.00,
-                "Tax": 0.0,
-                "TaxRate": null,
                 "Currency": "GBP",
                 "NetValue": 850.00,
                 "GrossValue": 850.00,
