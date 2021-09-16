@@ -22,7 +22,6 @@ The integration partner should use the following endpoints to correctly retrieve
 
 3. Call [Get all taxations](../operations/configuration.md#get-all-taxations) to retrieve the individual tax `Codes`, their names, and values. 
 
-
 ## Tax exempt items
 
 Tax-exempt items should be sent with `TaxCode` value `null`. Mews in turn not calculate any taxation amount for the item. Legal environments in which no actual 0% tax rate exists do not have a corresponding 0% tax code in Mews.
