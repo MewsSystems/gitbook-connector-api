@@ -1,6 +1,6 @@
 # Taxation
 
-## Legal environments and Tax codes
+## Legal environments, tax environments, and tax codes in Mews
 
 
 Each property (enterprise) in Mews is created with a legal and tax environment corresponding to the region in which it is located. This cannot be changed once the property has been created in Mews' database. 
