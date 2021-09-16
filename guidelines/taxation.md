@@ -2,7 +2,6 @@
 
 ## Legal environments, tax environments, and tax codes in Mews
 
-
 Each property (enterprise) in Mews is created with a legal and tax environment corresponding to the region in which it is located. This cannot be changed once the property has been created in Mews' database. 
 
 Each tax environment contains its own set of hard-coded tax codes that are applicable for accounting items generated in the property with that legal environment. The tax codes allow Mews to record and calculate accurately and consistently the tax information associated with each accounting item (if tax should be applied). If no tax codes are used, then Mews will not calculate the tax breakdown. 
