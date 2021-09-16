@@ -27,7 +27,7 @@ The integration partner should use the following endpoints to correctly retrieve
 
 ## Tax exempt items
 
-Tax exempt items should include the tax code value `null`. This will lead to Mews not including any tax breakdown. Legal environments in which no actual 0% tax rate exists do not have a 0% tax code in Mews.  
+Tax-exempt items should be sent with `TaxCode` value `null`. Mews in turn not calculate any taxation amount for the item. Legal environments in which no actual 0% tax rate exists do not have a corresponding 0% tax code in Mews.
 
 ## Multi-tax environment
 
