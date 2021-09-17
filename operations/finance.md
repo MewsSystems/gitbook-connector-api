@@ -306,7 +306,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | --- | --- | --- | --- |
 | `OrderItems` | bool | optional | Whether the response should contain [Order item](#order-item)s. |
 | `PaymentItems` | bool | optional | Whether the response should contain [Payment item](#payment-item)s. |
-| `CreditCardTransactions` | bool | optional | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the accounting items. |
+| `CreditCardTransactions` | bool | optional | Whether the response should contain extended information about [Credit card transaction](#credit-card-transaction)s of the payment items. |
 
 #### Accounting item state
 
