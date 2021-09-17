@@ -1585,8 +1585,8 @@ Creates a new order with the specified products and items. Only positive charges
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ProductId` | string | required | Unique identifier of the [Product](services.md#product) to be ordered. |
-| `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
+| `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. The number sent must be a positive integer.|
+| `UnitAmount` | [Amount](services.md#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. Can be a positive or negative value. |
 | `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](services.md#add-order) operation. |
 | `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservation](reservations.md#add-reservation) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](services.md#add-order) operation. |
 
@@ -1595,8 +1595,8 @@ Creates a new order with the specified products and items. Only positive charges
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Name` | string | required | Name of the item. |
-| `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
+| `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. The number sent must be a positive integer.|
+| `UnitAmount` | [Amount](services.md#amount-parameters) | required | Unit amount, e.g. amount for one beer. Can be a positive or negative value. Note that total amount of the item is therefore `UnitAmount` times `UnitCount`. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](finance.md#accounting-category) to be assigned to the item. |
 
 #### Amount parameters
