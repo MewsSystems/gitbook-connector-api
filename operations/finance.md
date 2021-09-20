@@ -304,9 +304,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `OrderItems` | bool | optional | Whether the response should contain [Order item](#order-item)s. |
-| `PaymentItems` | bool | optional | Whether the response should contain [Payment item](#payment-item)s. |
-| `CreditCardTransactions` | bool | optional | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the accounting items. |
+| `OrderItems` | bool | required | Whether the response should contain [Order item](#order-item)s (consumed items such as nights or products). |
+| `PaymentItems` | bool | required | Whether the response should contain [Payment item](#payment-item)s (such as cash, credit card payments or invoices). |
+| `CreditCardTransactions` | bool | required | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the payment items. |
 
 #### Accounting item state
 
@@ -396,8 +396,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `OrderItems` | array of [Order item](#order-item) | optional | The accounting items. |
-| `PaymentItems` | array of [Payment item](#payment-item) | optional | The accounting items. |
+| `OrderItems` | array of [Order item](#order-item) | optional | The order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](#payment-item) | optional | The payment items (such as cash, credit card payments or invoices). |
 | `CreditCardTransactions` | array of [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
 
 #### Order item
