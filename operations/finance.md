@@ -159,7 +159,7 @@ Returns all cashier transactions created within the specified interval.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the transaction. |
 | `CashierId` | string | required | Unique identifier of the [Cashier](finance.md#cashier). |
-| `PaymentId` | string | optional | Unique identifier of the corresponding payment [Accounting item](finance.md#accounting-item). |
+| `PaymentId` | string | optional | Unique identifier of the corresponding payment [Payment item](finance.md#payment-item). |
 | `CreatedUtc` | string | required | Creation date and time of the transaction. |
 | `Number` | string | required | Number of the transaction. |
 | `Notes` | string | optional | Additional notes of the transaction. |
@@ -561,19 +561,12 @@ Updates specified accounting items. Allows to change to which account or bill th
     "Client": "Sample Client 1.0.0",
     "AccountingItemUpdates": [
         {
-            "AccountingItemId": "ee425738-8112-446f-b764-abd7007ba880",
-            "AccountId": { 
-                "Value": "a5786a7b-a388-43cc-a838-abd7007b5ff7" 
+            "AccountingItemId": "6c2897de-620a-4f48-af1e-ada8004202bd",
+            "AccountId": {
+                "Value": "182a56ee-037d-4da5-b6f8-ada8006e7d5c"
             },
-            "BillId": { 
-                "Value": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a"
-            }
-        },
-        {
-            "AccountingItemId": "0a0c3367-8b43-4327-ab2f-abd700e7f64f",
-            "AccountId": null,
-            "BillId": { 
-                "Value": "b9402ab6-07d4-436f-b682-abdd00d077ea"
+            "BillId": {
+                "Value": "9e3791dc-95c7-439a-aa8a-ada8007de0ca"
             }
         }
     ]
@@ -599,47 +592,51 @@ Updates specified accounting items. Allows to change to which account or bill th
 
 ```javascript
 {
-    "AccountingItems": [
+    "OrderItems": [
         {
-            "Id": "ee425738-8112-446f-b764-abd7007ba880",
-            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
-            "OrderId": "5cb9dc38-642d-412a-a7eb-abd7007b9ecb",
-            "ServiceId": "bc69c610-f0f8-4645-8bb3-ab3a00c97c1e",
-            "ProductId": null,
-            "BillId": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a",
-            "InvoiceId": null,
-            "AccountingCategoryId": "13cd6f3a-be61-4ce3-9a19-ab3a00b98f49",
-            "CreditCardId": null,
-            "Type": "ProductRevenue",
-            "SubType": "Surcharge",
-            "Name": "Service / Product",
-            "Notes": null,
-            "ConsumptionUtc": "2020-06-11T07:29:00Z",
-            "ClosedUtc": null,
-            "State": "Open",
+            "Id": "6c2897de-620a-4f48-af1e-ada8004202bd",
+            "AccountId": "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
+            "OrderId": "f9090129-fb49-46d2-9dc5-ad9d015d43b9",
+            "BillId": "9e3791dc-95c7-439a-aa8a-ada8007de0ca",
+            "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
             "Amount": {
-                "Value": 52.8,
-                "Net": 48.0,
-                "Tax": 4.8,
-                "TaxRate": 0.1,
-                "Currency": "USD",
-                "NetValue": 48.0,
-                "GrossValue": 52.8,
+                "Currency": "GBP",
+                "NetValue": 95.24,
+                "GrossValue": 100.00,
                 "TaxValues": [
                     {
-                        "Code": "US-DC-I",
-                        "Value": 4.8
+                        "Code": "UK-2020-R",
+                        "Value": 4.76
                     }
-                ]
+                ],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": "UK-2020-R",
+                            "NetValue": 95.24,
+                            "TaxValue": 4.76
+                        }
+                    ]
+                }
+            },
+            "RevenueType": "Additional",
+            "ConsumedUtc": "2021-09-19T04:00:20Z",
+            "ClosedUtc": null,
+            "AccountingState": "Open",
+            "Data": {
+                "Discriminator": "CancellationFee",
+                "Value": null
             }
         }
-    ]
+    ],
+    "PaymentItems": [],
 }
 ```
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The updated accounting items. |
+| `OrderItems` | array of [Order item](#order-item) | optional | Updated order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](#payment-item) | optional | Updated payment items (such as cash, credit card payments or invoices). |
 
 ## Get all bills
 
@@ -730,8 +727,8 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 "DisplayCid": false,
                 "Rebated": false
             },
-            "Payments": [],
-            "Revenue": [],
+            "OrderItems": [],
+            "PaymentItems": [],
             "AssigneeData": {
                 "Discriminator": "BillCustomerData",
                 "Value": {
@@ -767,8 +764,8 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
-| `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
-| `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
+| `OrderItems` | array of [Order item](#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
+| `PaymentItems` | array of [Payment item](#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -866,8 +863,8 @@ Creates new empty bill assigned to specified account.
             "PaidUtc": null,
             "DueUtc": null,
             "Notes": null,
-            "Revenue": [],
-            "Payments": []
+            "OrderItems": [],
+            "PaymentItems": []
         }
     ]
 }
@@ -1001,8 +998,8 @@ Closes a bill so no further modification to it is possible.
                 "DisplayCid": false,
                 "Rebated": false
             },
-            "Revenue": [],
-            "Payments": []
+            "OrderItems": [],
+            "PaymentItems": []
         }
     ]
 }
@@ -1344,7 +1341,7 @@ Creates payment for specified customer credit card and charges the credit card v
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| PaymentId | string | required | Unique identifier of the payment [Accounting item](finance.md#accounting-item). |
+| PaymentId | string | required | Unique identifier of the [Payment item](finance.md#payment-item). |
 
 ## Add tokenized credit card
 
@@ -1604,7 +1601,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ExternalPaymentId` | string | required | Unique identifier of the payment [Accounting item](#accounting-item). |
+| `ExternalPaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
 
 ## Add alternative payment
 

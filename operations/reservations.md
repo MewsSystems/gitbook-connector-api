@@ -120,7 +120,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "Visa": null
         }
     ],
-    "Items": null,
+    "OrderItems": null,
     "Products": null,
     "RateGroups": null,
     "Rates": null,
@@ -174,7 +174,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | --- | --- | --- | --- |
 | `BusinessSegments` | array of [Business segment](services.md#business-segment) | optional | Business segments of the reservations. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that are members of the reservations. |
-| `Items` | array of [Accounting item](finance.md#accounting-item) | optional | Revenue items of the reservations. |
+| `OrderItems` | array of [Order item](finance.md#order-item) | optional | The items associated with the reservation. |
 | `Products` | array of [Product](services.md#product) | optional | Products orderable with reservations. |
 | `RateGroups` | array of [Rate group](services.md#rate-group) | optional | Rate groups of the reservation rates. |
 | `Rates` | array of [Rate](services.md#rate) | optional | Rates of the reservations. |
@@ -308,34 +308,42 @@ Returns all revenue items associated with the specified reservations.
     "Reservations": [
         {
             "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-            "Items": [
+            "OrderItems": [
                 {
                     "Id": "784a29df-6196-4402-96a0-58695a881239",
-                    "CustomerId": "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a",
+                    "AccountId": "d73a087a-00c7-40cf-9372-314d0296334d",
                     "OrderId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-                    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-                    "ProductId": null,
-                    "BillId": null,
-                    "InvoiceId": null,
+                    "BillId": "7fdc2957-bc08-44d3-ba2a-1c1760a84894",
                     "AccountingCategoryId": "0cf7aa90-736f-43e9-a7dc-787704548d86",
-                    "CreditCardId" : null,
-                    "Type": "ServiceRevenue",
-                    "SubType": "SpaceOrder",
-                    "Name": "Night 3/10/2016",
-                    "Notes": null,
-                    "ConsumptionUtc": "2016-03-10T13:00:00Z",
-                    "ClosedUtc": "2017-02-41T10:41:54Z",
-                    "State": "Closed",
                     "Amount": {
-                        "Currency": "GBP",
-                        "NetValue": 16.67,
-                        "GrossValue": 20
+                        "Currency": "EUR",
+                        "NetValue": 19.38,
+                        "GrossValue": 23.26,
                         "TaxValues": [
                             {
-                               "Code":"UK-S",
-                               "Value": 3.33
+                                "Code": "UK-S",
+                                "Value": 3.88
                             }
-                        ]
+                        ],
+                        "Breakdown": {
+                            "Items": [
+                                {
+                                    "TaxRateCode": "UK-S",
+                                    "NetValue": 19.38,
+                                    "TaxValue": 3.88
+                                }
+                            ]
+                        }
+                    },
+                    "RevenueType": "Service",
+                    "ConsumedUtc": "2016-03-10T13:00:00Z",
+                    "ClosedUtc": "2016-04-06T06:41:44Z",
+                    "AccountingState": "Closed",
+                    "Data": {
+                        "Discriminator": "ProductOrder",
+                        "Value": {
+                            "ProductId": "a3f4e006-b3e4-4485-8a00-ad11015ac494"
+                        }
                     }
                 }
             ]
@@ -353,7 +361,7 @@ Returns all revenue items associated with the specified reservations.
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
-| `Items` | array of [Accounting item](finance.md#accounting-item) | required | The items associated with the reservation. |
+| `OrderItems` | array of [Order item](finance.md#order-item) | required | The items associated with the reservation. |
 
 ## Price reservations
 
