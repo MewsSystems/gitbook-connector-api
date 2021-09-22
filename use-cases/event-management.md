@@ -40,7 +40,7 @@ In case payment was taken outside of Mews or directly on the event management pl
 
 Call [Get customer open items](../operations/customers.md#get-customers-open-items) to review the revenue and payment items that have already been posted to a customer profile. You can then further automate the management of billing/invoicing by creating a specific bill via [Add bill](../operations/finance.md#add-bill) for a certain group of revenue and payment items. Use [Update accounting items](../operations/finance.md#update-accounting-items) to redirect said items to the relevant bill and then use [Close bill](../operations/finance.md#close-bill) to finalise the financial document. 
 
-*Note that currently, attaching a company to a bill must be done manually in Mews PMS. If being able to do the same via API is important to your solution, please consider addiing your vote to [this feature request](https://feedback.mews.com/forums/932131-mews-open-api/suggestions/43041963-attach-company-id-to-bills)*
+*Note that currently, attaching a company to a bill must be done manually in Mews PMS. If being able to do the same via API is important to your solution, please consider adding your vote to [this feature request](https://feedback.mews.com/forums/932131-mews-open-api/suggestions/43041963-attach-company-id-to-bills)*
 
 ### Managing group reservations with availability blocks
 
