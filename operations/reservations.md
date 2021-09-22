@@ -174,7 +174,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | --- | --- | --- | --- |
 | `BusinessSegments` | array of [Business segment](services.md#business-segment) | optional | Business segments of the reservations. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that are members of the reservations. |
-| `OrderItems` | array of [Order item](finance.md#order-item) | optional | The items associated with the reservation. |
+| `OrderItems` | array of [Order item](finance.md#order-item) | optional | Revenue items of the reservations. |
 | `Products` | array of [Product](services.md#product) | optional | Products orderable with reservations. |
 | `RateGroups` | array of [Rate group](services.md#rate-group) | optional | Rate groups of the reservation rates. |
 | `Rates` | array of [Rate](services.md#rate) | optional | Rates of the reservations. |
