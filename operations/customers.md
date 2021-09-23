@@ -334,7 +334,8 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
     "Customers": [
         {
             "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
-            "Items": [
+            "OrderItems": [],
+            "PaymentItems": [
                 {
                     "AccountingCategoryId": "12345678-7e6f-4131-af21-402cec59b8b9",
                     "Amount": {
@@ -371,7 +372,8 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `Items` | array of [Accounting item](finance.md#accounting-item) | required | The open items. |
+| `OrderItems` | array of [Order item](finance.md#order-item) | required | The open order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](finance.md#payment-item) | required | The open payment items (such as cash, credit card payments or invoices). |
 
 ## Add customer
 
