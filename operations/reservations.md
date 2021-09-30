@@ -44,8 +44,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TimeFilter` | string [Reservation time filter](#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations `Colliding` with the interval are returned. |
-| `StartUtc` | string | required, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the `TimeFilter` or `States` search parameter.|
+| `EndUtc` | string | optional, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the `TimeFilter` or `States` search parameter.|
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service)s from which the reservations are requested. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservation](reservations.md#reservation)s. |
 | `GroupIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservation group](reservations.md#reservation-group)s. |
