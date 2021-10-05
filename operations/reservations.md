@@ -441,7 +441,7 @@ Returns prices of reservations with the specified parameters.
 
 ## Add reservations
 
-Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group.
+Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group. Note that all reservations linked to an availability block must belong to the same reservation group.
 
 ### Request
 
