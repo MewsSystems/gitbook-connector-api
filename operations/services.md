@@ -136,6 +136,8 @@ Negative or zero end offsets of the daily time unit define the daily service as 
 
 ## Get all availability blocks
 
+> This feature is being actively developed, features and behavior of this operation might change on short notice.
+
 Returns all availability blocks filtered by services, unique identifiers and other filters.
 
 ### Request
@@ -165,6 +167,9 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         "StartUtc": "2020-11-05T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
     },
+    "States": [
+        "Confirmed"
+    ],
     "ExternalIdentifiers": [
         "Block-0001"
     ],
@@ -186,8 +191,14 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s were created. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s were updated. |
 | `CollidingUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Availability block](#availability-block)s are active. |
+| `States` | array of string [Availability block state](#availability-block-state) | optional | States the availability blocks should be in. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservation](reservations.md#reservation)s) are returned. |
+
+#### Availability block state
+
+* Confirmed
+* Optional
 
 #### Availability block extent
 
@@ -206,10 +217,22 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "StartUtc": "2020-11-05T00:00:00Z",
-            "EndUtc": "2020-11-06T00:00:00Z",
-            "ReleasedUtc": "2020-11-04T00:00:00Z",
+            "VoucherId": null,
+            "BookerId": null,
+            "Budget": {
+                "Currency": "USD",
+                "Value": 48.0
+            },
+            "State": "Confirmed",
+            "ReservationPurpose": "Leisure",
+            "CreatedUtc": "2021-10-11T13:32:32Z",
+            "UpdatedUtc": "2021-10-11T13:32:32Z",
+            "StartUtc": "2021-10-14T00:00:00Z",
+            "EndUtc": "2021-10-17T00:00:00Z",
+            "ReleasedUtc": "2021-10-13T00:00:00Z",
             "ExternalIdentifier": "Block-0001"
+            "Name": "Wedding group",
+            "Notes": "Have a nice stay"
         }
     ],
     "ServiceOrders": [
@@ -270,10 +293,19 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Id` | string | required | Unique identifier of the availability block. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) the block is assigned to. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) the block is assigned to. |
+| `VoucherId` | string | optional | Unique identifier of the [Voucher](#voucher) used to access specified private [Rate](#rate). |
+| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
+| `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations in the block. |
+| `State` | string [Availability block state](#availability-block-state) | required | State the availability block. |
+| `ReservationPurpose` | string [Reservation purpose](#reservation-purpose) | optional | The purpose of the block. |
+| `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
+| `Name` | string | optional | The name of the block in Mews. |
+| `Notes` | string | optional | Additional notes of the block. |
 
 #### Availability block adjustment
 
@@ -286,6 +318,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `UnitCount` | string | required | Adjustment value applied on the interval. |
 
 ## Add availability blocks
+
+> This feature is being actively developed, features and behavior of this operation might change on short notice.
 
 Adds availability blocks which are used to group related [Availability update](#availability-update)s. This makes limiting public availability easier and more organized.
 
@@ -371,6 +405,8 @@ Adds availability blocks which are used to group related [Availability update](#
 * Student
 
 ## Update availability blocks
+
+> This feature is being actively developed, features and behavior of this operation might change on short notice.
 
 Updates information about the specified [Availability block](#availability-block).
 
