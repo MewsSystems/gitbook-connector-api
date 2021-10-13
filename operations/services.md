@@ -197,8 +197,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 
 #### Availability block state
 
-* Confirmed
-* Optional
+* `Confirmed` - Availability can be adjusted and reservations can be added to this block.
+* `Optional` - Availability can be adjusted, but no reservation can be assigned to this block.
 
 #### Availability block extent
 
