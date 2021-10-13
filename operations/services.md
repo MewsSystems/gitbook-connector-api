@@ -296,7 +296,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](#voucher) used to access specified private [Rate](#rate). |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
 | `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations in the block. |
-| `State` | string [Availability block state](#availability-block-state) | required | State the availability block. |
+| `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 | `ReservationPurpose` | string [Reservation purpose](#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
