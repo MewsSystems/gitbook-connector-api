@@ -334,29 +334,46 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
     "Customers": [
         {
             "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
-            "Items": [
+            "OrderItems": [
                 {
-                    "AccountingCategoryId": "12345678-7e6f-4131-af21-402cec59b8b9",
-                    "Amount": {
-                        "Currency": "EUR",
-                        "NetValue": null,
-                        "GrossValue": -100,
-                        "TaxValues": []
-                    },
+                    "Id": "35820535-b988-4d6f-80cf-ecb19cdc3e58",
+                    "AccountId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
+                    "OrderId": "6645113e-72cc-4f99-ab77-e4452911bf20",
                     "BillId": null,
+                    "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
+                    "Amount": {
+                        "Currency": "GBP",
+                        "NetValue": -5.00,
+                        "GrossValue": -5.00,
+                        "TaxValues": [
+                            {
+                                "Code": "UK-Z",
+                                "Value": 0.0
+                            }
+                        ],
+                        "Breakdown": {
+                            "Items": [
+                                {
+                                    "TaxRateCode": "UK-Z",
+                                    "NetValue": -5.00,
+                                    "TaxValue": 0.0
+                                }
+                            ]
+                        }
+                    },
+                    "RevenueType": "Additional",
+                    "ConsumedUtc": "2017-04-04T15:13:39Z",
                     "ClosedUtc": null,
-                    "ConsumptionUtc": "2016-05-25T15:56:54Z",
-                    "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
-                    "Id": "79aa7645-fe3a-4e9e-9311-e11df4686fca",
-                    "InvoiceId": null,
-                    "Name": "Cash Payment EUR",
-                    "Notes": null,
-                    "OrderId": null,
-                    "ProductId": null,
-                    "ServiceId": null,
-                    "Type": "Payment"
+                    "AccountingState": "Open",
+                    "Data": {
+                        "Discriminator": "Rebate",
+                        "Value": {
+                            "RebatedItemId": null
+                        }
+                    }
                 }
-            ]
+            ],
+            "PaymentItems": []
         }
     ]
 }
@@ -371,7 +388,8 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `Items` | array of [Accounting item](finance.md#accounting-item) | required | The open items. |
+| `OrderItems` | array of [Order item](finance.md#order-item) | required | The open order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](finance.md#payment-item) | required | The open payment items (such as cash, credit card payments or invoices). |
 
 ## Add customer
 

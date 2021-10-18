@@ -159,7 +159,7 @@ Returns all cashier transactions created within the specified interval.
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the transaction. |
 | `CashierId` | string | required | Unique identifier of the [Cashier](finance.md#cashier). |
-| `PaymentId` | string | optional | Unique identifier of the corresponding payment [Accounting item](finance.md#accounting-item). |
+| `PaymentId` | string | optional | Unique identifier of the corresponding payment [Payment item](finance.md#payment-item). |
 | `CreatedUtc` | string | required | Creation date and time of the transaction. |
 | `Number` | string | required | Number of the transaction. |
 | `Notes` | string | optional | Additional notes of the transaction. |
@@ -254,7 +254,7 @@ Returns all accounting categories of the enterprise associated with the connecto
 
 ## Get all accounting items
 
-Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
+Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency. Accounting items are split into [Order item](#order-item)s (consumed items such as nights or products) and [Payment item](#payment-item)s (such as cash, credit card payments or invoices).
 
 ### Request
 
@@ -274,7 +274,16 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
         "EndUtc": "2020-01-10T00:00:00Z"
     },
     "ItemIds": [
-        "e654f217-d1b5-46be-a820-e93ba568dfac"
+        "cb643cb7-8b6e-48a6-b67e-ad4c0041f550",
+        "44ca12b8-f009-455e-be91-ad4c013fcbc5"
+    ],
+    "Extent": {
+        "OrderItems": true,
+        "PaymentItems": true,
+        "CreditCardTransactions": false
+    },
+    "States": [
+        "Open"
     ]
 }
 ```
@@ -295,8 +304,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `AccountingItems` | bool | optional | Whether the response should contain [Accounting item](#accounting-item)s. |
-| `CreditCardTransactions` | bool | optional | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the accounting items. |
+| `OrderItems` | bool | required | Whether the response should contain [Order item](#order-item)s (consumed items such as nights or products). |
+| `PaymentItems` | bool | required | Whether the response should contain [Payment item](#payment-item)s (such as cash, credit card payments or invoices). |
+| `CreditCardTransactions` | bool | required | Whether the response should contain [Credit card transaction](#credit-card-transaction)s of the payment items. |
 
 #### Accounting item state
 
@@ -309,35 +319,74 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 ```javascript
 {
-    "AccountingItems": [
+    "OrderItems": [
         {
-            "Id": "89b93f7c-5c63-4de2-bd17-ec5fee5e3120",
-            "CustomerId": "2a1a4315-7e6f-4131-af21-402cec59b8b9",
-            "OrderId": "810b8c3a-d358-4378-84a9-534c830016fc",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "ProductId": null,
+            "Id": "cb643cb7-8b6e-48a6-b67e-ad4c0041f550",
+            "AccountId": "77673c9d-0e31-4e90-9228-ad4b00a9fcdc",
+            "OrderId": "1103b431-998a-4b78-84de-ad4b00a9fd99",
             "BillId": null,
-            "InvoiceId": null,
-            "AccountingCategoryId": "4ac8ce68-5732-4f1d-bf0d-e557072c926f",
-            "CreditCardId" : null,
-            "Type": "ServiceRevenue",
-            "SubType": "CustomItem",
-            "Name": "Caramel, Pepper & Chilli Popcorn",
-            "Notes": null,
-            "ConsumptionUtc": "2016-07-27T12:48:39Z",
-            "ClosedUtc": "2017-02-41T10:41:54Z",
-            "State": "Closed",
-            "SubState": null,
+            "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
             "Amount": {
                 "Currency": "GBP",
-                "NetValue": 2.08,
-                "GrossValue": 2.5,
+                "NetValue": 1523.81,
+                "GrossValue": 1600.00,
                 "TaxValues": [
                     {
-                        "Code": "UK-S",
-                        "Value": 0.42
+                        "Code": "UK-2020-R",
+                        "Value": 76.19
                     }
-                ]
+                ],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": "UK-2020-R",
+                            "NetValue": 1523.81,
+                            "TaxValue": 76.19
+                        }
+                    ]
+                }
+            },
+            "RevenueType": "Additional",
+            "ConsumedUtc": "2021-06-19T04:00:08Z",
+            "ClosedUtc": null,
+            "AccountingState": "Open",
+            "Data": {
+                "Discriminator": "CancellationFee",
+                "Value": null
+            }
+        }
+    ],
+    "PaymentItems": [
+        {
+            "Id": "44ca12b8-f009-455e-be91-ad4c013fcbc5",
+            "AccountId": "5da55e5c-18e5-48d8-9a0e-ac0600704c5c",
+            "BillId": null,
+            "AccountingCategoryId": "b89345c1-2814-4750-808d-aa7900ee464a",
+            "Amount": {
+                "Currency": "GBP",
+                "NetValue": 850.00,
+                "GrossValue": 850.00,
+                "TaxValues": [],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": null,
+                            "NetValue": 850.00,
+                            "TaxValue": 0.0
+                        }
+                    ]
+                }
+            },
+            "Notes": "NORMAL0140",
+            "ConsumedUtc": "2021-06-19T19:24:20Z",
+            "ClosedUtc": null,
+            "AccountingState": "Open",
+            "State": "Charged",
+            "Data": {
+                "Discriminator": "Invoice",
+                "Value": {
+                    "InvoiceId": "3c818013-d9de-47e9-bb2c-ad4c013f9ad3"
+                }
             }
         }
     ],
@@ -347,80 +396,52 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `AccountingItems` | array of [Accounting item](finance.md#accounting-item) | optional | The accounting items. |
-| `CreditCardTransactions` | array of [Credit card transaction](finance.md#credit-card-transaction) | optional | The credit card payment transactions. |
+| `OrderItems` | array of [Order item](#order-item) | optional | The order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](#payment-item) | optional | The payment items (such as cash, credit card payments or invoices). |
+| `CreditCardTransactions` | array of [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
 
-#### Accounting item
+#### Order item
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the item. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) whose account the item belongs to. |
-| `OrderId` | string | optional | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
-| `ServiceId` | string | optional | Unique identifier of the [Service](services.md#service) the item belongs to. |
-| `ProductId` | string | optional | Unique identifier of the [Product](services.md#product). |
-| `BillId` | string | optional | Unique identifier of the bill the item is assigned to. |
-| `InvoiceId` | string | optional | Unique identifier of the invoiced [Bill](finance.md#bill) the item is receivable for. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](finance.md#accounting-category) the item belongs to. |
-| `CreditCardId` | string | optional | Unique identifier of the [Credit card](finance.md#credit-card) the item is associated to. |
-| `Type` | string [Accounting item type](finance.md#accounting-item-type) | required | Type of the item. |
-| `SubType` | string [Accounting item subtype](finance.md#accounting-item-subtype) | required | subtype of the item. Note that the subtype depends on the `Type` of the item.  |
-| `Name` | string | required | Name of the item. |
-| `Notes` | string | optional | Additional notes. |
-| `ConsumptionUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
+| `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](#bill) the item is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#accounting-category) the item belongs to. |
+| `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
+| `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
+| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
-| `State` | string [Accounting state](reservations.md#Accounting-item-state) | required | State of the accounting item. |
-| `SubState` | string [Accounting item substate](#Accounting-item-substate) | optional | Substate of the item. Note that the substate depends on the `Type` of the item. |
-| `Amount` | [Amount value](finance.md#amount-value) | required | Item's amout, negative amount represents either rebate or a payment. |
+| `AccountingState` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
+| `Data` | object [Order item data](#order-item-data) | required | Additional data specific to particular order item. |
 
-#### Accounting item type
-
-* `ServiceRevenue`
-* `ProductRevenue`
-* `AdditionalRevenue`
-* `Payment`
-
-#### Accounting item subtype
-
-* Revenue subtypes
-  * `CancellationFee`
-  * `Rebate`
-  * `Deposit`
-  * `ExchangeRateDifference`
-  * `CustomItem`
-  * `Surcharge`
-  * `SurchargeDiscount`
-  * `SpaceOrder`
-  * `ProductOrder`
-  * `Other`
-* Payment subtypes
-  * `CreditCard`
-  * `Invoice`
-  * `Cash`
-  * `Unspecified`
-  * `BadDebts`
-  * `WireTransfer`
-  * `ExchangeRateDifference`
-  * `ExchangeRoundingDifference`
-  * `BankCharges`
-  * `Cheque`
-  * `Other`
-
-#### Accounting item substate
-
-* Payment substates
-  * `Pending`
-  * `Verifying`
-  * `Charged`
-  * `Canceled`
-  * `Failed`
-
-#### Currency value
+#### Payment item
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `Value` | number | optional | Amount in the currency. |
+| `Id` | string | required | Unique identifier of the item. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](#bill) the item is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](#accounting-category) the item belongs to. |
+| `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
+| `Notes` | string | optional | Additional notes. |
+| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
+| `AccountingState` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
+| `State` | string [Payment item state](#payment-item-state) | required | Payment state of the item. |
+| `Data` | object [Payment item data](#payment-item-data) | required | Additional data specific to particular payment item. |
+
+#### Credit card transaction
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
+| `SettlementId` | string | optional | Identifier of the settlement. |
+| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
+| `Fee` | [Amount](#amount-value) | optional | Fee of the transaction. |
+| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
 
 #### Amount Value
 
@@ -440,17 +461,90 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 | `Code` | number | required | Code corresponding to tax type. |
 | `Value` | number | required | Amount of tax applied. |
 
-#### Credit card transaction
+#### Revenue type
+
+* `Service`
+* `Product`
+* `Additional`
+
+#### Order item data
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of the credit card transaction. |
-| `PaymentId` | string | required | Unique identifier of the [Accounting item](#accounting-item). |
-| `ChargedAmount` | [Amount](finance.md#amount-value) | required | Charged amount of the transaction. |
-| `SettledAmount` | [Amount](finance.md#amount-value) | optional | Settled amount of the transaction. |
-| `Fee` | [Amount](finance.md#amount-value) | optional | Fee of the transaction. |
-| `SettlementId` | string | optional | Identifier of the settlement. |
-| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
+| `Discriminator` | string [Order item data discriminator](#order-item-data-discriminator) | required | Type of the order item (e.g. `ProductOrder`). |
+| `Value` | object | optional | Based on order item discriminator, e.g. [Product order item data](#product-order-item-data) or `null` for types without any additional data.  |
+
+#### Order item data discriminator
+
+  * `CancellationFee` - no additional data.
+  * `Rebate` - [Rebate order item data](#rebate-order-item-data).
+  * `Deposit` - no additional data.
+  * `ExchangeRateDifference` - no additional data.
+  * `CustomItem` - no additional data.
+  * `Surcharge` - no additional data.
+  * `SurchargeDiscount` - no additional data.
+  * `ProductOrder` - [Product order item data](#product-order-item-data).
+  * `Other` - no additional data.
+
+#### Product order item data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ProductId` | string | required | Unique identifier of the [Product](services.md#product). |
+
+#### Rebate order item data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `RebatedItemId` | string | required | Unique identifier of [Order item](#order-item) which has been rebated by current item. |
+
+#### Payment item state
+
+  * `Charged`
+  * `Canceled`
+  * `Pending`
+  * `Failed`
+  * `Verifying`
+
+#### Payment item data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Discriminator` | string [Payment item data discriminator](#payment-item-data-discriminator) | required | Type of the payment item (e.g. `CreditCard`). |
+| `Value` | object | optional | Based on order item discriminator, e.g. [Credit card payment item data](#credit-card-payment-item-data) or `null` for types without any additional data.  |
+
+#### Payment item data discriminator
+
+  * `CreditCard` - [Credit card payment item data](#credit-card-payment-item-data).
+  * `Invoice` - [Invoice payment item data](#invoice-payment-item-data).
+  * `Cash` - no additional data.
+  * `Unspecified` - no additional data.
+  * `BadDebts` - no additional data.
+  * `WireTransfer` - no additional data.
+  * `ExchangeRateDifference` - no additional data.
+  * `ExchangeRoundingDifference` - no additional data.
+  * `BankCharges` - no additional data.
+  * `Cheque` - no additional data.
+  * `Other` - no additional data.
+
+#### Credit card payment item data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](#credit-card). |
+
+#### Invoice payment item data
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](#bill). |
+
+#### Currency value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
+| `Value` | number | optional | Amount in the currency. |
 
 ## Update accounting items
 
@@ -467,19 +561,12 @@ Updates specified accounting items. Allows to change to which account or bill th
     "Client": "Sample Client 1.0.0",
     "AccountingItemUpdates": [
         {
-            "AccountingItemId": "ee425738-8112-446f-b764-abd7007ba880",
-            "AccountId": { 
-                "Value": "a5786a7b-a388-43cc-a838-abd7007b5ff7" 
+            "AccountingItemId": "6c2897de-620a-4f48-af1e-ada8004202bd",
+            "AccountId": {
+                "Value": "182a56ee-037d-4da5-b6f8-ada8006e7d5c"
             },
-            "BillId": { 
-                "Value": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a"
-            }
-        },
-        {
-            "AccountingItemId": "0a0c3367-8b43-4327-ab2f-abd700e7f64f",
-            "AccountId": null,
-            "BillId": { 
-                "Value": "b9402ab6-07d4-436f-b682-abdd00d077ea"
+            "BillId": {
+                "Value": "9e3791dc-95c7-439a-aa8a-ada8007de0ca"
             }
         }
     ]
@@ -505,47 +592,51 @@ Updates specified accounting items. Allows to change to which account or bill th
 
 ```javascript
 {
-    "AccountingItems": [
+    "OrderItems": [
         {
-            "Id": "ee425738-8112-446f-b764-abd7007ba880",
-            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
-            "OrderId": "5cb9dc38-642d-412a-a7eb-abd7007b9ecb",
-            "ServiceId": "bc69c610-f0f8-4645-8bb3-ab3a00c97c1e",
-            "ProductId": null,
-            "BillId": "30b4b0c2-5e9c-4247-91d3-abd8005e2a0a",
-            "InvoiceId": null,
-            "AccountingCategoryId": "13cd6f3a-be61-4ce3-9a19-ab3a00b98f49",
-            "CreditCardId": null,
-            "Type": "ProductRevenue",
-            "SubType": "Surcharge",
-            "Name": "Service / Product",
-            "Notes": null,
-            "ConsumptionUtc": "2020-06-11T07:29:00Z",
-            "ClosedUtc": null,
-            "State": "Open",
+            "Id": "6c2897de-620a-4f48-af1e-ada8004202bd",
+            "AccountId": "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
+            "OrderId": "f9090129-fb49-46d2-9dc5-ad9d015d43b9",
+            "BillId": "9e3791dc-95c7-439a-aa8a-ada8007de0ca",
+            "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
             "Amount": {
-                "Value": 52.8,
-                "Net": 48.0,
-                "Tax": 4.8,
-                "TaxRate": 0.1,
-                "Currency": "USD",
-                "NetValue": 48.0,
-                "GrossValue": 52.8,
+                "Currency": "GBP",
+                "NetValue": 95.24,
+                "GrossValue": 100.00,
                 "TaxValues": [
                     {
-                        "Code": "US-DC-I",
-                        "Value": 4.8
+                        "Code": "UK-2020-R",
+                        "Value": 4.76
                     }
-                ]
+                ],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": "UK-2020-R",
+                            "NetValue": 95.24,
+                            "TaxValue": 4.76
+                        }
+                    ]
+                }
+            },
+            "RevenueType": "Additional",
+            "ConsumedUtc": "2021-09-19T04:00:20Z",
+            "ClosedUtc": null,
+            "AccountingState": "Open",
+            "Data": {
+                "Discriminator": "CancellationFee",
+                "Value": null
             }
         }
-    ]
+    ],
+    "PaymentItems": [],
 }
 ```
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `AccountingItems` | array of [Accounting item](#accounting-item) | optional | The updated accounting items. |
+| `OrderItems` | array of [Order item](#order-item) | optional | Updated order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](#payment-item) | optional | Updated payment items (such as cash, credit card payments or invoices). |
 
 ## Get all bills
 
@@ -636,8 +727,8 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 "DisplayCid": false,
                 "Rebated": false
             },
-            "Payments": [],
-            "Revenue": [],
+            "OrderItems": [],
+            "PaymentItems": [],
             "AssigneeData": {
                 "Discriminator": "BillCustomerData",
                 "Value": {
@@ -673,8 +764,8 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
-| `Revenue` | array of [Accounting item](finance.md#accounting-item) | required | The revenue items on the bill. |
-| `Payments` | array of [Accounting item](finance.md#accounting-item) | required | The payments on the bill. |
+| `OrderItems` | array of [Order item](#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
+| `PaymentItems` | array of [Payment item](#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -772,8 +863,8 @@ Creates new empty bill assigned to specified account.
             "PaidUtc": null,
             "DueUtc": null,
             "Notes": null,
-            "Revenue": [],
-            "Payments": []
+            "OrderItems": [],
+            "PaymentItems": []
         }
     ]
 }
@@ -907,8 +998,8 @@ Closes a bill so no further modification to it is possible.
                 "DisplayCid": false,
                 "Rebated": false
             },
-            "Revenue": [],
-            "Payments": []
+            "OrderItems": [],
+            "PaymentItems": []
         }
     ]
 }
@@ -1250,7 +1341,7 @@ Creates payment for specified customer credit card and charges the credit card v
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| PaymentId | string | required | Unique identifier of the payment [Accounting item](finance.md#accounting-item). |
+| PaymentId | string | required | Unique identifier of the [Payment item](finance.md#payment-item). |
 
 ## Add tokenized credit card
 
@@ -1510,7 +1601,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `ExternalPaymentId` | string | required | Unique identifier of the payment [Accounting item](#accounting-item). |
+| `ExternalPaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
 
 ## Add alternative payment
 
