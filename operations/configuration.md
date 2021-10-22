@@ -2,7 +2,7 @@
 
 ## Get configuration
 
-Returns configuration of the enterprise and the client.
+Returns configuration of the enterprise and the client. Lorem ipsum lorem ispusm
 
 ### Request
 
