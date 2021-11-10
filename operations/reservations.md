@@ -143,7 +143,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "State": "Processed",
             "Origin": "Connector",
             "OriginDetail": null,
-            "ReservationPurpose": "Student",
+            "Purpose": "Student",
             "CreatedUtc": "2016-02-20T14:58:02Z",
             "UpdatedUtc": "2016-02-20T14:58:02Z",
             "CancelledUtc": null,
