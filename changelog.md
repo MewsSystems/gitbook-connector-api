@@ -166,7 +166,7 @@ A month ago we announced the [project Spacetime](https://developers.mews.com/pro
 
 **There are no immediate breaking changes in the API, all of the previous endpoints and capabilities are still working and will be working until the end of the deprecation period which is scheduled for 15 Jan 2021**. 
 
-However we'd like to ask you to update your clients as soon as possible, we're not able to roll out the new possibilities to our clients if you are not ready. Therefore we rely on you and your timely cooperation because we want to give this new opportunity to the hotels as soon as we can. We acknowledge it's a lot of changes, we're prepared to monitor the situation and help you with any questions or concerns, feel free to contact us at integrations@mews.com.
+However we'd like to ask you to update your clients as soon as possible, we're not able to roll out the new possibilities to our clients if you are not ready. Therefore we rely on you and your timely cooperation because we want to give this new opportunity to the hotels as soon as we can. We acknowledge it's a lot of changes, we're prepared to monitor the situation and help you with any questions or concerns, feel free to contact us at partnersuccess@mews.com.
 
 * Added [Resource](operations/enterprises.md#resource) that is replacing the Space. It can have multiple categories through multiple services. Note that Resource does not need to be assigned to any category.
 * Added [Resource category](operations/enterprises.md#resource-category) that is replacing the Space category.
