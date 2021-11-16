@@ -142,6 +142,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "ChannelNumber": null,
             "State": "Processed",
             "Origin": "Connector",
+            "OriginDetail": null,
+            "Purpose": "Student",
             "CreatedUtc": "2016-02-20T14:58:02Z",
             "UpdatedUtc": "2016-02-20T14:58:02Z",
             "CancelledUtc": null,
@@ -201,6 +203,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
 | `State` | string [Reservation state](reservations.md#reservation-state) | required | State of the reservation. |
 | `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
+| `OriginDetail`| string | optional | Details about the reservation [origin](#reservation-origin). |
+| `Purpose` | string [Reservation purpose](#reservation-purpose) | optional | Purpose of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
@@ -238,6 +242,13 @@ Returns all reservations specified by any identifier, customer or other filter. 
 * `Import`
 * `Connector`
 * `Navigator`
+
+#### Reservation purpose
+
+* `Leisure`
+* `Business`
+* `Student`
+* ...
 
 #### Reservation group
 
