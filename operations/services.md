@@ -136,7 +136,7 @@ Negative or zero end offsets of the daily time unit define the daily service as 
 
 ## Get all availability blocks
 
-> This feature is being actively developed, features and behavior of this operation might change on short notice.
+> This feature is being actively developed, features and behavior of this operation might change at short notice.
 
 Returns all availability blocks filtered by services, unique identifiers and other filters.
 
