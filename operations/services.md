@@ -199,9 +199,9 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 
 * `Confirmed` - The block deducts availability and can have reservations assigned.
 * `Optional` - The block deducts availability and cannot have reservations assigned.
-* `Inquired` - The block does not deduct availability and cannot have reservations assigned.
-* `Released` - The block deducts availability, but only for reservations assigned to the block before release. Remaining availability is returned back to general availability.
-* `Canceled` - The block does not deduct availability and cannot have reservations assigned.
+* `Inquired` - The block does not deduct availability and cannot have reservations assigned \(waitlist\).
+* `Released` - The block deducts availability, but only for reservations assigned to the block before release. Remaining availability is returned back to general availability \(waitlist\).
+* `Canceled` - The block does not deduct availability and cannot have reservations assigned \(waitlist\). 
 
 #### Availability block extent
 
