@@ -351,6 +351,7 @@ Adds availability blocks which are used to group related [Availability update](#
             },
             "ReservationPurpose": null,
             "Notes": null,
+            "State": "Confirmed"
         }
     ]
 }
@@ -378,6 +379,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations. |
 | `ReservationPurpose` | string [Reservation purpose](#reservation-purpose) | optional | The purpose of the block. |
 | `Notes` | string | optional | Additional notes of the block. |
+| `State` | string [Availability block state](#availability-block-state) | optional | State of the availability block. |
 
 ### Response
 
