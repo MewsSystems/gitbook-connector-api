@@ -142,6 +142,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "ChannelNumber": null,
             "State": "Processed",
             "Origin": "Connector",
+            "OriginDetail": null,
+            "Purpose": "Student",
             "CreatedUtc": "2016-02-20T14:58:02Z",
             "UpdatedUtc": "2016-02-20T14:58:02Z",
             "CancelledUtc": null,
@@ -201,6 +203,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
 | `State` | string [Reservation state](reservations.md#reservation-state) | required | State of the reservation. |
 | `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
+| `OriginDetail`| string | optional | Details about the reservation [origin](#reservation-origin). |
+| `Purpose` | string [Reservation purpose](#reservation-purpose) | optional | Purpose of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
@@ -238,6 +242,13 @@ Returns all reservations specified by any identifier, customer or other filter. 
 * `Import`
 * `Connector`
 * `Navigator`
+
+#### Reservation purpose
+
+* `Leisure`
+* `Business`
+* `Student`
+* ...
 
 #### Reservation group
 
@@ -441,7 +452,7 @@ Returns prices of reservations with the specified parameters.
 
 ## Add reservations
 
-Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group.
+Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group. Note that all reservations linked to an availability block must belong to the same reservation group.
 
 ### Request
 
@@ -515,8 +526,10 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specified, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `SendConfirmationEmail` | bool | optional | Whether the confirmation email is sent. Default value is `true`. |
-| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
-| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
+| `CheckRateApplicability ` | bool | optional | Indicates whether the system will check and prevent a booking being made using a restricted rate, e.g. a private rate. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
+| `CheckOverbooking` | bool | optional | Indicates whether the system will check and prevent a booking being made in the case of an overbooking, i.e. where there is an insufficient number of resources available to meet the request<sup>\*1</sup>. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
+
+<sup>\*1</sup> Note that the calculation for whether there is sufficient resources or not depends on both the requested resource category and the setting configured for *Availability calculation strategy* - see [Bookable Service Settings](https://help.mews.com/s/article/set-up-a-bookable-service?language=en_US).
 
 #### Reservation parameters
 
@@ -693,11 +706,13 @@ Updates information about the specified reservations. Note that if any of the fi
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
-| `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. If not specified, the overbooking is checked. |
-| `CheckRateApplicability` | bool | optional | Whether the rate applicability is checked. If set to `false` it allows to set a restricted rate. If not specified, the rate applicability is checked. |
+| `CheckRateApplicability ` | bool | optional | Indicates whether the system will check and prevent a booking being made using a restricted rate, e.g. a private rate. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
+| `CheckOverbooking` | bool | optional | Indicates whether the system will check and prevent a booking being made in the case of an overbooking, i.e. where there is an insufficient number of resources available to meet the request<sup>\*1</sup>. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
 | `Reprice` | bool | optional | Whether the price should be updated to latest value for date/rate/category combination set in Mews. If not specified, the reservation price is updated. |
 | `ApplyCancellationFee` | bool | optional | Whether the cancellation fees should be applied according to rate cancellation policies. If not specified, the cancellation fees are applied. |
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required, max 1000 items | Array of properties to be updated in each reservation specified. |
+
+<sup>\*1</sup> Note that the calculation for whether there is sufficient resources or not depends on both the requested resource category and the setting configured for *Availability calculation strategy* - see [Bookable Service Settings](https://help.mews.com/s/article/set-up-a-bookable-service?language=en_US).
 
 #### Reservation updates
 | Property | Type | Contract | Description |
