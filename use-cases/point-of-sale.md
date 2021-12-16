@@ -4,12 +4,12 @@ In Mews charges are not sent to rooms or reservations but to the customer profil
 
 In Mews, all charges are posted directly to the billing tab of either customer profiles that are active and attached to a reservation (checked-in) or profiles that are classified as `Paymaster`. The items that are sent from the POS to Mews are called *orders*.
 
-The receipts that are finalized in the POS system can be sent to Mews to allow for end-of-day balancing (sometimes referred to as revenue push or revenue sync). In Mews, these are called *[outlet bills](#outlet-bills)*. 
+The receipts that are finalized in the POS system can be sent to Mews to allow for end-of-day balancing (sometimes referred to as revenue push or revenue sync). In Mews, these are called *[outlet bills](#outlet-bill)*. 
 
 
 ### Initial setup
 
-There are two concepts in Mews that are used to represent the point of sale or revenue center that exists in a property - `Services` and `Outlets`. A user can configure the names of both to match the actual name of the restaurant/bar/spa/etc for ease of recognition on Mews reports. Both already exist in the [Demo environment](../guidelines.md#demo-environments) for testing purposes.
+There are two concepts in Mews that are used to represent the point of sale or revenue center that exists in a property - `Services` and `Outlets`. A user can configure the names of both to match the actual name of the restaurant/bar/spa/etc for ease of recognition on Mews reports. Both already exist in the [Demo environment](../guidelines/environments.md) for testing purposes.
 
 A Service is used to represent the point of sale, under which items are recorded when posting *orders*. 
 An Outlet is used to represent the point of sale, under which items are recorded when posting *outlet bills*.
@@ -86,11 +86,11 @@ Gratuities should be sent as another item to Mews and can be posted under a diff
 
 Outlets are used in Mews to record any revenue and payments that have been taken outside of Mews. This allows for the centralization and reporting of accounting data to an external system (such as an accounting software) from Mews. The POS system will need to use the [Add outlet bill](../operations/finance.md#add-outlet-bills) endpoint to post all end-of-day revenue and payments to the outlet(s) the property has configured in Mews. Any outlet items that are sent to Mews will need to have an `AccountingCategoryId` attached to the item. You can make use of `Number` to record the associated ticket or receipt number from the POS system.
 
-In an outlet bill, items of the [payment](../operations/finance#outlet-item-type) type are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
+In an outlet bill, items of the [payment type](../operations/finance.md#outlet-item-type) are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 
 To make sure the integration supports the minimum expected functionality, please test the following operations. Ignore any items that are not supported by your solution or required by the property.
 * Post a charge to the guest bill (in-house customer or Paymaster).
@@ -106,12 +106,12 @@ To check that you have correctly posted an order, you can review the billing tab
 
 ### Additional Help for working with the demo environment
 
-- Full list of [Mews Glossary and Concepts](https://help.mews.com/en/articles/4476514-mews-glossary-for-connector-api-partners)
-- How to view the [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report)
-- How do [customer profiles](https://help.mews.com/en/articles/4245538-create-a-customer-profile) work in Mews 
-- Where to see [companions of a reservation](https://help.mews.com/en/articles/4397097-add-a-companion-to-the-reservation)
-- How to manage [billing items](https://intercom.help/mews-systems/en/articles/4245416-add-move-or-remove-items-from-open-bills). 
-- How to manage [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) 
-- How to set up [outlets](https://help.mews.com/en/articles/4244313-set-up-outlets)
-- How to manage [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product). 
-- Mews properties' [guide to using a Point of Sale integration](https://help.mews.com/en/articles/4245649-point-of-sale-integrations-for-commander)
+- [Mews glossary and concepts](https://help.mews.com/s/article/mews-glossary-for-connector-api-partners?language=en_US)
+- [How to view the Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US)
+- [How do customer profiles work in Mews](https://help.mews.com/s/article/create-a-customer-profile?language=en_US)
+- [How to add a companion to a reservation](https://help.mews.com/s/article/how-to-add-a-companion-to-a-reservation?language=en_US)
+- [How to manage billing items](https://help.mews.com/s/article/add-move-or-remove-items-from-open-bills?language=en_US)
+- [How to manage services](https://help.mews.com/s/article/understanding-services?language=en_US)
+- [How to set up outlets](https://help.mews.com/s/article/set-up-outlets?language=en_US)- 
+- [How to manage products](https://help.mews.com/s/article/create-or-delete-a-product?language=en_US)
+- [Guide to Point of Sale integration](https://help.mews.com/s/article/point-of-sale-integrations-for-mews-operations?language=en_US)
