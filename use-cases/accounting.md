@@ -26,7 +26,7 @@ Before assisting any new client with connecting to your accounting integration, 
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 
 
 ### Additional Help for working with the demo environment
