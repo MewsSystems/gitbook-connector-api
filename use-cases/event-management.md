@@ -90,19 +90,19 @@ When an availability block is no longer needed in Mews, remove it from Mews by c
 
 Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to Event Management integrations:
 
-If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation, or related customer profile](https://intercom.help/mews-systems/en/articles/4258665-search-in-commander) or using the [Mews Reservation Report](https://help.mews.com/en/articles/4245884-reservation-report). 
-To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category.  
+If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation, or related customer profile](https://help.mews.com/s/article/search-in-mews-operations?language=en_US) or using the [Mews Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US).
+To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  
 
 ### Additional Help for working with the demo environment
 
-- [Availability blocks and reporting in Mews](https://help.mews.com/en/articles/4851790-what-are-availability-blocks)
-- How to create [accounting categories](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category)
-- How to [create rates](https://help.mews.com/en/articles/4244388-create-a-rate)
-- How to [update rates](https://help.mews.com/en/articles/4244389-update-or-remove-a-rate) 
-- How to [manage rate prices](https://intercom.help/mews-systems/en/articles/4245964-rate-management)
-- Managing [companions](https://help.mews.com/en/articles/4397097-add-a-companion-to-the-reservation) in a reservation
-- How to manage [group billing](https://help.mews.com/en/articles/4510052-group-billing-how-to-move-bill-items)
-- Manually [add, move, or remove items from open bills](https://help.mews.com/en/articles/4245416-add-move-or-remove-items-from-open-bills)
-- Finding [bills and invoices assigned to a company](https://help.mews.com/en/articles/4399166-how-to-find-bills-and-invoices-assigned-to-a-company)
-- Manually create [Paymaster accounts](https://help.mews.com/en/articles/4245471-create-a-paymaster)
-- Manually create [company profiles](https://help.mews.com/en/articles/4245536-create-a-company-profile)
+- [Availability blocks and reporting in Mews](https://help.mews.com/s/article/Availability-block-report?language=en_US)
+- [How to create an accounting category](https://help.mews.com/s/article/create-an-accounting-category?language=en_US)
+- [How to create rates](https://help.mews.com/s/article/create-a-rate?language=en_US)
+- [How to update rates](https://help.mews.com/s/article/update-or-remove-a-rate?language=en_US)
+- [How to manage rate prices](https://help.mews.com/s/article/rate-management?language=en_US) 
+- [Managing companions in a reservation](https://help.mews.com/s/article/how-to-add-a-companion-to-a-reservation?language=en_US)
+- [How to manage group billing](https://help.mews.com/s/article/group-billing-how-to-move-bill-items?language=en_US)
+- [Manually add, move, or remove items from open bills](https://help.mews.com/s/article/new-billing-procedure-add-move-or-remove-items-from-open-bills?language=en_US) 
+- [Finding bills and invoices assigned to a company](https://help.mews.com/s/article/how-to-find-bills-and-invoices-assigned-to-a-company?language=en_US)
+- [Create a Paymaster account](https://help.mews.com/s/article/create-a-paymaster?language=en_US)
+- [Create a company profile](https://help.mews.com/s/article/create-a-company-profile?language=en_US)
