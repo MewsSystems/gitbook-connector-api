@@ -18,5 +18,5 @@ Ensure you follow our general [guidelines](../guidelines) for testing integratio
 
 ### Additional Help for working with the demo environment
 
-- How to [create a reservation](https://help.mews.com/en/articles/4245573-create-a-reservation) 
-- How to [check in a reservation](https://help.mews.com/en/articles/4245570-check-in-a-reservation) 
+- [How to create a reservation](https://help.mews.com/s/article/create-a-reservation?language=en_US)
+- [How to check in a reservation](https://help.mews.com/s/article/check-in-a-reservation?language=en_US)
