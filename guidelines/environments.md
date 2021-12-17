@@ -73,7 +73,7 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 
 ## Production environment
 
-* **MewsWebApplicationAddress** - `https://www.mews.li`
+* **MewsWebApplicationAddress** - https://app.mews.com/`
 * **PlatformAddress** - `https://api.mews.com`
 * **WebSocketAddress** - `wss://ws.mews.com`
 * **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
