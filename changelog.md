@@ -48,10 +48,10 @@ Following properties to be removed from output and/or ignored on input:
 | [Customer](operations/customers.md#customer) | `Gender` | `Sex` |
 | [Customer](operations/customers.md#customer) | `BirthDateUtc` | `BirthDate` |
 | [Customer](operations/customers.md#customer) | `CategoryId` | --- |
-| [Customer](operations/customers.md#customer) | `Passport` | [Document](customers.md#document) object in `Documents` part of response |
-| [Customer](operations/customers.md#customer) | `IdentityCard` | [Document](customers.md#document) object in `Documents` part of response |
-| [Customer](operations/customers.md#customer) | `Visa` | [Document](customers.md#document) object in `Documents` part of response |
-| [Customer](operations/customers.md#customer) | `DriversLicense` | [Document](customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `Passport` | [Document](operations/customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `IdentityCard` | [Document](operations/customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `Visa` | [Document](operations/customers.md#document) object in `Documents` part of response |
+| [Customer](operations/customers.md#customer) | `DriversLicense` | [Document](operations/customers.md#document) object in `Documents` part of response |
 | [Document](operations/customers.md#document) | `ExpirationUtc` | `Expiration` |
 | [Document](operations/customers.md#document) | `IssuanceUtc` | `Issuance` |
 | [Currency value](operations/finance.md#currency-value) | `Net` | --- |
