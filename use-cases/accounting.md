@@ -4,9 +4,9 @@ Accounting systems are created to record and process accounting transactions for
 
 ### Initial configuration
 
-The integration must first retrieve all configured accounting categories using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories) which returns all ids and codes required to ensure revenue, payments and costs are correctly assigned to their designated accounting categories. Accounting categories should be created by the property in cooperation with their accountant and following [these instructions](https://help.mews.com/en/articles/4244319-create-an-accounting-category). 
+The integration must first retrieve all configured accounting categories using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories) which returns all ids and codes required to ensure revenue, payments and costs are correctly assigned to their designated accounting categories. Accounting categories should be created by the property in cooperation with their accountant and following [these instructions](https://help.mews.com/s/article/create-an-accounting-category?language=en_US). 
 
-To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. Mews properties configure their Editable History Window via their [Accounting configurations](https://help.mews.com/en/articles/4245522-what-is-the-accounting-configuration) to determine how long after a bill or invoice has been closed can it be amended. Accounting integrations retrieve this information from `EditableHistoryInterval` using [Get configuration](../operations/configuration.md#get-configuration). If debtor tracking is to be done in the external system instead of Mews, the property must have the Accounting configuration option "Receivable tracking enabled" unchecked.
+To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. Mews properties configure their Editable History Window via their [Accounting configurations](https://help.mews.com/s/article/what-is-the-accounting-configuration?language=en_US) to determine how long after a bill or invoice has been closed can it be amended. Accounting integrations retrieve this information from `EditableHistoryInterval` using [Get configuration](../operations/configuration.md#get-configuration). If debtor tracking is to be done in the external system instead of Mews, the property must have the Accounting configuration option "Receivable tracking enabled" unchecked.
 
 ### Periodic update
 
@@ -15,10 +15,10 @@ The integration should call [Get all accounting items](../operations/finance.md#
 It's important to understand that in Mews, accounting items are posted directly to the guest profile instead of being attached to a specific reservation. Products created under the Stay/Accommodation service are used to create stay packages, while products related to any other service are used for all other postings. If the integration uses [Get all accounting items](../operations/finance.md#get-all-accounting-items), only Stay/Accommodation products can be related back to a specific reservation by matching their `OrderId` with the unique identifier of the relevant reservation. If products are created under any other service configured at the property, they are not related to the reservation. In order to retrieve a complete list of revenue items of a specific reservation, partners can use [Get all reservation items](../operations/reservations.md#get-all-reservation-items). 
 
 Accounting items will always be assigned one of the four following [states](../operations/finance.md#accounting-item-state):
-* Open: Items that have been posted to the guest profile and remain on a bill that has not been closed yet.
-* Closed: Items that were assigned to a bill that has already been paid or an already issued invoice.
-* Inactive: Items that have the value of 0 and have no impact on the overall total.
-* Canceled: Items that were posted to the guest profile but have since been canceled.
+* **Open**: Items that have been posted to the guest profile and remain on a bill that has not been closed yet.
+* **Closed**: Items that were assigned to a bill that has already been paid or an already issued invoice.
+* **Inactive**: Items that have the value of 0 and have no impact on the overall total.
+* **Canceled**: Items that were posted to the guest profile but have since been canceled.
 
 When testing the integration, you can cross-check whether you are correctly requesting all of the accounting information via the API by matching your data with the Mews Accounting Report. For reconciliation of all bills and invoices, you can use the Bills and invoice report. You can easily create export schedules to a specific target and in desired format for both of these reports. 
 
@@ -26,13 +26,13 @@ Before assisting any new client with connecting to your accounting integration, 
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 
 
 ### Additional Help for working with the demo environment
 
-- How to manage the [Stay/Accommodation service](https://help.mews.com/en/articles/4244328-set-up-your-stay-service)
-- How to view the [Accounting report](https://help.mews.com/en/articles/4245918-accounting-report)
-- How to view the [Bills and invoice report](https://help.mews.com/en/articles/4245921-bills-and-invoices-report)
-- How to [create export schedules](https://help.mews.com/en/articles/4245871-schedule-report-exports)
-- How [accounting integrations are connected](https://help.mews.com/en/articles/4399271-how-can-i-connect-my-accounting-integration)
+- [How to set up a Stay/Accommodation service](https://help.mews.com/s/article/set-up-a-bookable-service?language=en_US)
+- [How to view the Accounting report](https://help.mews.com/s/article/accounting-report?language=en_US)
+- [How to view the Bills and invoice report](https://help.mews.com/s/article/bills-and-invoices-report?language=en_US)
+- [How to schedule report exports](https://help.mews.com/s/article/schedule-report-exports?language=en_US)
+- [How to connect my accounting integration](https://help.mews.com/s/article/how-can-i-connect-my-accounting-integration?language=en_US)

@@ -39,7 +39,7 @@ For a more detailed use case on door locks and mobile keys, refer to the Access 
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to Device integrations:
+Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to Device integrations:
 
 To be able to use your integration, an additional step of configuring the device and connecting it to the relevant integration (and therefore the API access token) is required. This is done through the following steps:
 
@@ -52,4 +52,4 @@ To be able to use your integration, an additional step of configuring the device
 
 This is the same process that will be required when you assist any mutual customer with onboarding and configuration of your solution.
 
-For a full overview of device commands and their states, you can check the [device commands queue](https://intercom.help/mews-systems/en/articles/4245952-device-commands-queue) in Mews. If you are returning an unexpected error indicating there is an issue with the Data JSON, please read [this article](https://intercom.help/mews-systems/en/articles/4394724-data-json-incorrect-or-unsupported-device) to understand what this indicates, based on the type of integration you are referring to.
+For a full overview of device commands and their states, you can check the [device commands queue](https://help.mews.com/s/article/device-commands-queue?language=en_US) in Mews. If you are returning an unexpected error indicating there is an issue with the Data JSON, please read [this article](https://help.mews.com/s/article/data-json-incorrect-or-unsupported-device?language=en_US) to understand what this indicates, based on the type of integration you are referring to.

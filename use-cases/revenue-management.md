@@ -39,11 +39,9 @@ When calculating occupancy, it is important to take hierarchy of resources into 
 
 ### Testing your integration
 
-Once your integration is completed, all endpoints should be tested prior to initiating the certification process.(https://intercom.help/mews-systems/en/articles/4497819-connector-api-certification-what-to-expect) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [Authentication](../guidelines.md#authentication) section to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our mutual customers.
+Once your integration is completed, all endpoints should be tested prior to initiating the [Certification process](https://help.mews.com/s/article/connector-api-certification-what-to-expect?language=en_US) with the Mews Marketplace team. Testing your solution is done directly in the Connector API demo. You should use the credentials found in the [guidelines](../guidelines) to sign in as an end-user. This allows you to fully understand how both systems will be used by the property and gives you additional information to ensure you provide a seamless and efficient onboarding experience for our mutual customers.
 
-For help on how to create new reservations, please follow the steps outlined in [this guide](https://help.mews.com/en/articles/4245573-create-a-reservation).
-
-If you'd like to double-check that you are correctly requesting all the reservations you want to retrieve, you can compare the API response to the [Mews Reservation Report](https://help.mews.com/en/articles/4245884-reservation-report). This report can easily be exported in various formats [following these steps](https://help.mews.com/en/articles/4245871-schedule-report-exports).
+For help on how to create new reservations, please follow the steps outlined in [this guide](https://help.mews.com/s/article/create-a-reservation?language=en_US). If you'd like to double-check that you are correctly requesting all the reservations you want to retrieve, you can compare the API response to the Mews [Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US). This report can easily be exported in various formats [following these steps](https://help.mews.com/s/article/schedule-report-exports?language=en_US).
 
 For testing WebSockets, set up your WebSocket client to start listening for events, then manually trigger an event (e.g. update an element of a reservation) to receive the message.
 

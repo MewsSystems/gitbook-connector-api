@@ -22,12 +22,12 @@ Once the unique identifier of the customer to be charged is obtained, the items 
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 
-To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://intercom.help/mews-systems/en/articles/4245918-accounting-report). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
+To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
 
 ### Additional Help for working with the demo environment
 
-- How to use [services](https://intercom.help/mews-systems/en/articles/4244364-understanding-services) 
-- How to use [products](https://intercom.help/mews-systems/en/articles/4244370-create-or-delete-a-product)
-- How [accounting categories are created](https://intercom.help/mews-systems/en/articles/4244319-create-an-accounting-category)
+- [How to use services](https://help.mews.com/s/article/understanding-services?language=en_US)
+- [How to use products](https://help.mews.com/s/article/create-or-delete-a-product?language=en_US)
+- [How to create an accounting category](https://help.mews.com/s/article/create-an-accounting-category?language=en_US)
