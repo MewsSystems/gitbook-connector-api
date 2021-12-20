@@ -10,13 +10,13 @@ If a websocket cannot be configured, reservation information can be requested us
 
 ### Offering additional products or services
 
-Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upselling](../use-cases.md#upselling) integration use case.
+Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upselling](../use-cases/upselling.md) integration use case.
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to POS integrations:
+Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to POS integrations:
 
 ### Additional Help for working with the demo environment
 
-- How to [create a reservation](https://help.mews.com/en/articles/4245573-create-a-reservation) 
-- How to [check in a reservation](https://help.mews.com/en/articles/4245570-check-in-a-reservation) 
+- [How to create a reservation](https://help.mews.com/s/article/create-a-reservation?language=en_US)
+- [How to check in a reservation](https://help.mews.com/s/article/check-in-a-reservation?language=en_US)

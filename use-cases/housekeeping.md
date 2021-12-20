@@ -20,11 +20,11 @@ Mews allows properties to configure when a space will be marked as `Dirty`, upon
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations. In addition to this, and specific to housekeeping integrations
+Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to housekeeping integrations
 
-Using the demo credentials, you can run the [housekeeping report](https://help.mews.com/en/articles/4245937-space-status-report) to cross-check whether the integration is working correctly.
+Using the demo credentials, you can run the [housekeeping report](https://help.mews.com/s/article/space-status-report?language=en_US) to cross-check whether the integration is working correctly.
 
 ### Additional Help for working with the demo environment
 
-- Learn more about the type of [resource blocks](https://intercom.help/mews-systems/en/articles/4374262-house-use-out-of-service-and-out-of-order) available in Mews
-- How to manage [Stay service settings](https://intercom.help/mews-systems/en/articles/4244328-set-up-your-stay-service)
+- [Out-of-service and out-of-order](https://help.mews.com/s/article/what-are-house-use-out-of-service-and-out-of-order-features?language=en_US)
+- [How to set up a stay service](https://help.mews.com/s/article/set-up-a-bookable-service?language=en_US)
