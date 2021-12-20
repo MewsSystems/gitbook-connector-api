@@ -16,7 +16,7 @@ While we have a full list of API [operations](../operations) you can freely choo
 
 ## Testing your integration
 
-Once your integration is developed, make sure that you have tested your integration against relevant use cases, acceptance criteria, and/or customer's needs. This should be done directly in the aforementioned demo environment. It is the integration partner's responsibility to ensure the quality and accuracy of data exchanged between the third-party system and Mews - e.g.  data is sent correctly to Mews, and the desired set of data is pulled successfully from Mews, the number of API requests used are within the request limits for the [Demo or Production environment](../environments.md ). Note that the features and functionality seen in the Demo environment mirrors that in the Production environment. 
+Once your integration is developed, make sure that you have tested your integration against relevant use cases, acceptance criteria, and/or customer's needs. This should be done directly in the aforementioned demo environment. It is the integration partner's responsibility to ensure the quality and accuracy of data exchanged between the third-party system and Mews - e.g.  data is sent correctly to Mews, and the desired set of data is pulled successfully from Mews, the number of API requests used are within the request limits for the [Demo or Production environment](environments.md). Note that the features and functionality seen in the Demo environment mirrors that in the Production environment. 
 
 ## Certifying your integration
 
@@ -24,9 +24,8 @@ Once you have finished building and testing your integration, submit the [certif
 
 The certification process aims to confirm that the integration's API requests are accurate according to Connector API specifications but does not question any processes on the partner side. Evaluation of the integration for certification will be based on the information provided in the [certification form](https://mews.typeform.com/to/ehTUz7) regarding selected endpoints and their purpose of use. The type of integration and the suggested implementation flow outlined in the [use cases](../use-cases) will be used as a general baseline as part of the evaluation. 
 
-Read more about [what you can expect during the certification process](https://help.mews.com/en/articles/4497819-connector-api-certification-what-to-expect)
+Read more about [what you can expect during the certification process](https://help.mews.com/s/article/connector-api-certification-what-to-expect?language=en_US)
 
 ## Frequently Asked Questions
 
-For more information about the integration partner journey, as well as any related marketing or commercial topics, please refer to the [Integration Partner FAQs](https://help.mews.com/en/collections/2558045-integration-partner-faqs) section in the [Mews Help Center](https://help.mews.com/en/). 
-
+For more information about the integration partner journey, as well as any related marketing or commercial topics, please refer to the [Mews Help Center](https://help.mews.com/s/?language=en_US).
