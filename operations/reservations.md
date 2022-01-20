@@ -159,8 +159,16 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "AvailabilityBlockId": null,
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherId": null,
-            "AdultCount": 2,
-            "ChildCount": 0,
+            "PersonCounts": [
+                {
+                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                    "Count": 2
+                },
+                {
+                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                    "Count": 1
+                }
+            ],
             "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
         }
     ],
@@ -195,14 +203,14 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the reservation. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that is reserved. |
-| `GroupId` | string | required | Unique identifier of the [Reservation group](reservations.md#reservation-group). |
+| `GroupId` | string | required | Unique identifier of the [Reservation group](#reservation-group). |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
 | `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
 | `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel manager that transferred the reservation from Channel to Mews. |
 | `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
-| `State` | string [Reservation state](reservations.md#reservation-state) | required | State of the reservation. |
-| `Origin` | string [Reservation origin](reservations.md#reservation-origin) | required | Origin of the reservation. |
+| `State` | string [Reservation state](#reservation-state) | required | State of the reservation. |
+| `Origin` | string [Reservation origin](#reservation-origin) | required | Origin of the reservation. |
 | `OriginDetail`| string | optional | Details about the reservation [origin](#reservation-origin). |
 | `Purpose` | string [Reservation purpose](#reservation-purpose) | optional | Purpose of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
@@ -220,8 +228,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
-| `AdultCount` | number | required | Count of adults the reservation was booked for. |
-| `ChildCount` | number | required | Count of children the reservation was booked for. |
+| `PersonCounts` | Array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation was booked for. At least one person must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 
 #### Reservation state
@@ -266,6 +273,13 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `Text` | string | required | Value of the note. |
 | `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
 | `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
+
+#### Age category person count
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AgeCategoryId` | string | required | Unique identifier of the age category. |
+| `Count` | int | required | Number of person of a given age category. |
 
 #### Order note type
 
@@ -393,8 +407,16 @@ Returns prices of reservations with the specified parameters.
             "Identifier": "1234",
             "StartUtc": "2018-01-01T14:00:00Z",
             "EndUtc": "2018-01-02T10:00:00Z",
-            "AdultCount": 2,
-            "ChildCount": 0,
+            "PersonCounts": [
+                {
+                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                    "Count": 2
+                },
+                {
+                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                    "Count": 1
+                }
+            ],
             "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
             "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
             "Notes": "Test reservation",
@@ -474,8 +496,16 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "StartUtc": "2021-01-01T14:00:00Z",
             "EndUtc": "2021-01-03T10:00:00Z",
             "ReleasedUtc": null,
-            "AdultCount": 2,
-            "ChildCount": 0,
+            "PersonCounts": [
+                {
+                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                    "Count": 2
+                },
+                {
+                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                    "Count": 1
+                }
+            ],
             "CustomerId": "e465c031-fd99-4546-8c70-abcf0029c249",
             "BookerId": "e465c031-fd99-4546-8c70-abcf0029c249",
             "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
@@ -538,8 +568,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
-| `AdultCount` | number | required | Count of adults the reservation is for. |
-| `ChildCount` | number | required | Count of children the reservation is for. |
+| `PersonCounts` | Array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation is for. At least one person must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
@@ -588,8 +617,16 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                 "AvailabilityBlockId": null,
                 "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
                 "VoucherId": null,
-                "AdultCount": 2,
-                "ChildCount": 0,
+                "PersonCounts": [
+                    {
+                        "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                        "Count": 2
+                    },
+                    {
+                        "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                        "Count": 1
+                    }
+                ],
                 "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
                 "CompanionIds": [
                     "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
@@ -638,11 +675,17 @@ Updates information about the specified reservations. Note that if any of the fi
             "EndUtc": {
                 "Value": "2019-10-03T10:00:00Z"
             },
-            "AdultCount": {
-                "Value": 2
-            },
-            "ChildCount": {
-                "Value": 1
+            "PersonCounts": {
+                "Value": [
+                    {
+                        "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                        "Count": 2
+                    },
+                     {
+                        "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                        "Count": 2
+                    }
+                ]
             },
             "AssignedResourceId": {
                 "Value": "16ce4335-2198-408b-8949-9722894a42fb"
@@ -716,15 +759,14 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
 | `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
-| `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
-| `ChildCount` | [Number update value](reservations.md#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
+| `PersonCounts` | Array of [Person counts update value](#person-counts-update-value) | optional | Number of people per age category the reservation is for. \(or `null` if the person counts should not be updated). |
 | `AssignedResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
 | `AssignedResourceLocked` | [Bool update value](reservations.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](enterprises.md#resource). Unlocking and assigning reservation to new [Resource](enterprises.md#resource) can be done in one call. |
 | `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
 | `RequestedCategoryId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the requested [Resource category](enterprises.md#resource-category) \(or `null` if resource category should not be updated). |
 | `TravelAgencyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
 | `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Company](enterprises.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
-| `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated).|
+| `BusinessSegmentId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Business segment](services.md#business-segment) \(or `null` if the business segment should not be updated). |
 | `RateId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the reservation [Rate](services.md#rate) \(or `null` if the rate should not be updated). |
 | `BookerId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
@@ -753,7 +795,13 @@ Updates information about the specified reservations. Note that if any of the fi
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Value` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | required | Value which is to be updated. |
+| `Value` | array of [Time unit amount parameters](#time-unit-amount-parameters) | required | Value which is to be updated. |
+
+#### Person counts update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | array of [Age category person count](#age-category-person-count) | required | Value which is to be updated. |
 
 #### Time unit amount parameters
 
@@ -764,7 +812,7 @@ Updates information about the specified reservations. Note that if any of the fi
 
 ### Response
 
-Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.
+Same structure as in [Get all reservations](#get-all-reservations) operation.
 
 ## Confirm reservation
 
