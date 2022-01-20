@@ -279,7 +279,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AgeCategoryId` | string | required | Unique identifier of the age category. |
-| `Count` | int | required | Number of person of a given age category. |
+| `Count` | number | required | Number of persons of a given age category. Only positive value is accepted. |
 
 #### Order note type
 
