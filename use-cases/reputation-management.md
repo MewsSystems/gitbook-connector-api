@@ -12,4 +12,4 @@ Upon a Reputation management system associating feedback with a customer the [Up
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+Ensure you follow our general [guidelines](../guidelines) for testing integrations.

@@ -4,7 +4,7 @@ To provide a contactless experience, some properties utilize kiosk integrations 
 
 ### Initial configuration
 
-To help configure the kiosk for a specific property, the initial pull of information will provide the local information about the property (e.g. supported currencies, default language code) using [Get configuration](../operations/configuration.md#get-configuration). To be able to offer multiple languages, partners can retrieve all languages supported by the API using [Get all languages](../operations/configuration.md#get-all-languages). Aside from the Stay/Accommodation service, Mews properties can configure additional services which can be retrieved via [Get all services](../operations/services.md#get-all-services). Each service can be considered a grouping of related products that can then be offered to the guest, the full list of which can be requested using [Get all products](operations/services.md#get-all-products).
+To help configure the kiosk for a specific property, the initial pull of information will provide the local information about the property (e.g. supported currencies, default language code) using [Get configuration](../operations/configuration.md#get-configuration). To be able to offer multiple languages, partners can retrieve all languages supported by the API using [Get all languages](../operations/configuration.md#get-all-languages). Aside from the Stay/Accommodation service, Mews properties can configure additional services which can be retrieved via [Get all services](../operations/services.md#get-all-services). Each service can be considered a grouping of related products that can then be offered to the guest, the full list of which can be requested using [Get all products](../operations/services.md#get-all-products).
 
 ### Creating reservations
 
@@ -46,8 +46,8 @@ For an overview of all open revenue and payment items on a guest profile, use [G
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines.md) for testing integrations.
+Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 
 ### Additional Help for working with the demo environment
 
-- How to use [services](https://help.mews.com/en/articles/4244364-understanding-services)
+- [How to use services](https://help.mews.com/s/article/understanding-services?language=en_US)
