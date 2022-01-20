@@ -228,7 +228,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
-| `PersonCounts` | array of [Age category person count](#age-category-person-count) | required | Number of persons per age category the reservation was booked for. At least one category with valid count must be provided. |
+| `PersonCounts` | array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 
 #### Reservation state
@@ -279,7 +279,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AgeCategoryId` | string | required | Unique identifier of the age category. |
-| `Count` | number | required | Number of persons of a given age category. Only positive value is accepted. |
+| `Count` | number | required | Number of people of a given age category. Only positive value is accepted. |
 
 #### Order note type
 
@@ -556,7 +556,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `GroupName` | string | optional | Name of the [Reservation group](reservations.md#reservation-group) which the reservations are added to. If `GroupId` is specified, this field is ignored. If not specified, the group name is automatically created. |
 | `Reservations` | array of [Reservation parameters](reservations.md#reservation-parameters) | required | Parameters of the new reservations. |
 | `SendConfirmationEmail` | bool | optional | Whether the confirmation email is sent. Default value is `true`. |
-| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`.  |
+| `CheckRateApplicability ` | bool | optional | Whether the rate applicability check is checked. Default value is `true`. |
 | `CheckOverbooking` | bool | optional | Whether reservation overbooking is checked. Default value is `true`.  |
 
 #### Reservation parameters
@@ -568,7 +568,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
-| `PersonCounts` | Array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation is for. At least one person must be provided. |
+| `PersonCounts` | array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation is for. At least one category with valid count must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
@@ -759,7 +759,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
 | `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
-| `PersonCounts` | Array of [Person counts update value](#person-counts-update-value) | optional | Number of people per age category the reservation is for. \(or `null` if the person counts should not be updated). |
+| `PersonCounts` | array of [Person counts update value](#person-counts-update-value) | optional | Number of people per age category the reservation is for. \(or `null` if the person counts should not be updated). |
 | `AssignedResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
 | `AssignedResourceLocked` | [Bool update value](reservations.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](enterprises.md#resource). Unlocking and assigning reservation to new [Resource](enterprises.md#resource) can be done in one call. |
 | `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
