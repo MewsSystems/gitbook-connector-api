@@ -228,7 +228,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
-| `PersonCounts` | array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
+| `PersonCounts` | array of [AgeCategory assignment](#agecategory-assignment) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 
 #### Reservation state
@@ -274,7 +274,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
 | `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
 
-#### Age category person count
+#### AgeCategory assignment
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
@@ -570,7 +570,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
-| `PersonCounts` | array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation is for. At least one category with valid count must be provided. |
+| `PersonCounts` | array of [AgeCategory assignment](#agecategory-assignment) | required | Number of people per age category the reservation is for. At least one category with valid count must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](enterprises.md#resource-category). |
@@ -805,7 +805,7 @@ Updates information about the specified reservations. Note that if any of the fi
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Value` | array of [Age category person count](#age-category-person-count) | required | Value which is to be updated. |
+| `Value` | array of [AgeCategory assignment](#agecategory-assignment) | required | Value which is to be updated. |
 
 #### Time unit amount parameters
 
