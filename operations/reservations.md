@@ -228,7 +228,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
-| `PersonCounts` | Array of [Age category person count](#age-category-person-count) | required | Number of people per age category the reservation was booked for. At least one person must be provided. |
+| `PersonCounts` | array of [Age category person count](#age-category-person-count) | required | Number of persons per age category the reservation was booked for. At least one category with valid count must be provided. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 
 #### Reservation state
