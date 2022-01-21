@@ -2195,9 +2195,9 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 | `VoucherId` | string | required | Unique identifier of [Voucher](#voucher). |
 | `RateId` | string | required | Unique identifier of [Rate](#rate) the voucher is assigned with. |
 
-## Get all vouchers
+## Get all age categories 
 
-Returns all rate vouchers filtered by [Service](#service), voucher code or voucher identifier.
+Returns all age categories filtered by [Service](#service).
 
 ### Request
 
@@ -2229,8 +2229,8 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Id` | string | required | Unique identifier of voucher. |
-| `ServiceId` | string | required | Unique identifier of [Service](#service) the voucher belongs to. |
+| `Id` | string | required | Unique identifier of age category. |
+| `ServiceId` | string | required | Unique identifier of [Service](#service) the age category belongs to. |
 | `From` | number | optional | Minimal age for the age category.  |
 | `To` | number | optional | Maximal age for the age category. |
 | `Names` | string | required | Dictionary where key is language-culture code and value is name of the age category for given language. |
