@@ -1174,7 +1174,7 @@ Updates information of the company.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "CompanyId":"7a1e4d67-d6a2-4a4c-a464-ab1100bea786",
+    "CompanyId": "7a1e4d67-d6a2-4a4c-a464-ab1100bea786",
     "Name": {
         "Value": "Sample company name"
     },
@@ -1209,6 +1209,7 @@ Updates information of the company.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `CompanyId` | string | required | Unique identifier of the [Company](enterprises.md#company). |
 | `Name` | [String update value](reservations.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
 | `MotherCompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
 | `Identifier` | [String update value](reservations.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
