@@ -63,6 +63,10 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 22nd November 2021 11:20 UTC
+
+* Extended [Availability block parameters](operations/services.md#availability-block-parameters) with `State`.
+
 ## 13th August 2021 10:20 UTC
 
 * Added [Update availability blocks](operations/services.md#update-availability-blocks) operation.
