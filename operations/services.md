@@ -1101,8 +1101,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
-| `FirstTimeUnit` | [TimeUnit](services.md#time-unit) | required | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](services.md#time-unit) | required | Last TimeUnit of the interval. |
+| `FirstTimeUnit` | [TimeUnit](#time-unit) | required | First TimeUnit of the interval. |
+| `LastTimeUnit` | [TimeUnit](#time-unit) | required | Last TimeUnit of the interval. |
 
 ### Response
 
@@ -1217,8 +1217,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](enterprises.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `FirstTimeUnit` | [TimeUnit](services.md#time-unit) | required | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](services.md#time-unit) | required | Last TimeUnit of the interval. |
+| `FirstTimeUnit` | [TimeUnit](#time-unit) | required | First TimeUnit of the interval. |
+| `LastTimeUnit` | [TimeUnit](#time-unit) | required | Last TimeUnit of the interval. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
