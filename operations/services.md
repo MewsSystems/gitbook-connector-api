@@ -99,8 +99,10 @@ Returns all services offered by the enterprise.
 | `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
 | `TimeUnit` | [Time unit period](#time-unit-period) | required | Time unit period of the service. |
 
+
+#### Time unit start and end
 Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service.
-We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day. The monthly time unit is time unit that starts at mightnight of the first day of the month and ends at midnight of the first day of the following month.
+We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day. A monthly time unit is a time unit that starts at midnight on the first day of the month and ends at midnight on the first day of the following month.
 
 
 Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
@@ -112,6 +114,9 @@ Positive end offsets of the daily time unit define the nightly service as depict
 
 Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
 ![](../.gitbook/assets/timeunits-connector-day.png)
+
+#### Time unit interval length restrictions
+Interval length is allowed for up to 100 time units, but no more than 2 years.
 
 #### Time unit period
 
@@ -1074,7 +1079,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 ## Get rate pricing
 
-Returns prices of a rate in the specified interval. Note that response contains prices for all dates that the specified interval intersects. So e.g. interval `1st Jan 13:00 - 1st Jan 14:00` will result in one price for `1st Jan`. Interval `1st Jan 23:00 - 2nd Jan 01:00` will result in two prices for `1st Jan` and `2nd Jan`. Interval length is allowed for up to 100 time units, but no more than 2 years.
+Returns prices of a rate in the specified interval. Note that response contains prices for all dates that the specified interval intersects. So e.g. interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`. Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. Other time part of interval than [time unit start](#time-unit-start-and-end) is not supported. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
 
 ### Request
 
@@ -1101,8 +1106,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
-| `FirstTimeUnit` | [TimeUnit](#time-unit) | required | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](#time-unit) | required | Last TimeUnit of the interval. |
+| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | First TimeUnit of the interval. |
+| `LastTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | Last TimeUnit of the interval. |
 
 ### Response
 
@@ -1168,7 +1173,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`, future updates are allowed for up to 100 time units, but no more than 2 years.
+Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
 
 ### Request
 
@@ -1217,8 +1222,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](enterprises.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `FirstTimeUnit` | [TimeUnit](#time-unit) | required | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](#time-unit) | required | Last TimeUnit of the interval. |
+| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | First TimeUnit of the interval. |
+| `LastTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | Last TimeUnit of the interval. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
