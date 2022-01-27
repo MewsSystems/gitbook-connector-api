@@ -116,7 +116,7 @@ Negative or zero end offsets of the daily time unit define the daily service as 
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
 #### Time unit interval length restrictions
-Interval length is allowed for up to 100 time units, but no more than 2 years.
+Interval length created between FirstTimeUnit StartUtc and LastTimeUnit StartUtc is allowed for up to 100 time units, but no more than 2 years.
 
 #### Time unit period
 
@@ -1106,8 +1106,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
-| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | Last TimeUnit of the interval. |
+| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | First TimeUnit of the interval. |
+| `LastTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | Last TimeUnit of the interval. |
 
 ### Response
 
@@ -1222,8 +1222,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](enterprises.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](#time-unit) | required, [max length](#time-unit-interval-length-restrictions) | Last TimeUnit of the interval. |
+| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | First TimeUnit of the interval. |
+| `LastTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | Last TimeUnit of the interval. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
