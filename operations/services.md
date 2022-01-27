@@ -1079,7 +1079,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 ## Get rate pricing
 
-Returns prices of a rate in the specified interval. Note that response contains prices for all dates that the specified interval intersects. So e.g. interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`. Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. Other time part of interval than [time unit start](#time-unit-start-and-end) is not supported. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
+Returns prices of a rate in the specified interval. Note that response contains prices for all time units that the specified interval intersects. So e.g. interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`. Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. Other time part of interval than [time unit start](#time-unit-start-and-end) is not supported. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
 
 ### Request
 
@@ -1173,7 +1173,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
+Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined per time unit (i.e. daily), so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all time units that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
 
 ### Request
 
