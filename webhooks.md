@@ -4,7 +4,7 @@ When an action of particular type is performed in the system, a message is sent 
 
 ## Integration message
 
-This is currently used format of webhooks, it carries only events about changes of integration state, will be deprecated in future.
+This is currently used format of webhooks, it carries only events about changes of integration state, will be deprecated in future.   
 
 ```javascript
 {
