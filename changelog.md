@@ -65,7 +65,7 @@ Changed [Websocket authentication](websockets.md#authentication) from being pass
 
 ## 27th January 2022 13:00 UTC
 
-* Extended [Accounting item parameters](operations/finance.md#get-all-accounting-items) with `RebateItemIds`.
+* Extended [Accounting item parameters](operations/finance.md#get-all-accounting-items) with `RebatedItemIds`.
 
 ## 22nd November 2021 11:20 UTC
 
