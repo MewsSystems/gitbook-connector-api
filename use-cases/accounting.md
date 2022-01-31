@@ -30,7 +30,7 @@ Ensure you follow our general [guidelines](../guidelines) for testing integratio
 
 ### Get and query rebated items
 
-You can use the API to find out if an accounting item is rebated. First use [Get all bills](../operations/finance.md#get-all-bills) to get a list of the order items on the bill. For each [order item](../operations/finance.md#order-item), examine the order item data to identify those items which are Rebates and if so, what is the [Rebated item ID](../operations/finance.md#rebate-order-item-data). You can then call [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the Rebated item ID to return the details of the accounting item with that ID.
+You can use the API to find out if an accounting item is rebated. First use [Get all bills](../operations/finance.md#get-all-bills) to get a list of the order items on the bill. For each [order item](../operations/finance.md#order-item), examine the order item data to identify those items which are Rebates and if so, what is the [Rebated item ID](../operations/finance.md#rebate-order-item-data). You can then call [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the Rebated item ID to return the details of the accounting item with that ID. This will give you more info on the original item that was rebated.
 
 Notes:
 1. You cannot use these operations to find out if an entire Bill has been rebated, only individual items in the Bill; all rebates are on an individual basis.
