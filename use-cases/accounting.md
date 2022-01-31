@@ -34,7 +34,7 @@ You can use the API to find out if an accounting item is rebated. First use [Get
 
 Notes:
 1. You cannot use these operations to find out if an entire Bill has been rebated, only individual items in the Bill; all rebates are on an individual basis.
-2. You can find out what items have been rebated on a Bill by taking the Rebated item IDs from [Get all bills](../operations/finance.md#get-all-bills) and using them to call [Get all accounting items](../operations/finance.md#get-all-accounting-items).
+2. You can find out what items have been rebated on a Bill by taking the item IDs from [Get all bills](../operations/finance.md#get-all-bills) and using them as `RebatedOrderItemIds` filter when calling [Get all accounting items](../operations/finance.md#get-all-accounting-items). If there is an item with `RebatedOrderItemId` matching an `ID` of the original item, then that given original item has been rebated.
 3. If [Get all accounting items](../operations/finance.md#get-all-accounting-items) returns an empty collection, this means there are no Rebated items corresponding to the given Rebated item IDs.
 
 ### Additional Help for working with the demo environment
