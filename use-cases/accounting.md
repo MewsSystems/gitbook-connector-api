@@ -28,6 +28,14 @@ Before assisting any new client with connecting to your accounting integration, 
 
 Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 
+### Get and query rebated items
+
+To know if an item is rebated, you'd need to use the [bills/getAll](../operations/finance.md#get-all-bills) endpoint where you would get a list of the [order items](../operations/finance.md#order-item) on that bill and for each order item you'd get an ID for the property [RebatedItemId](../operations/finance.md#rebate-order-item-data) if the order item is rebated, then you can call [accountingItems/getAll](../operations/finance.md#get-all-accounting-items) and make sure to send the 'RebatedItemId' you recieved in the previous step in the [request](../operations/finance.md#request-4) of [accountingItems/getAll](../operations/finance.md#get-all-accounting-items).
+
+Notes:
+1. You cant get the info whether the whole bill has been rebated.
+2. If  you want to know what's been rebated on a bill, you need to use the IDs from (bills/getAll RebatedItemId) endpoint through next endpoint (accountItems/getAll). 
+3. Empty items collection returned from [accountingItems/getAll] means the RebatedItemIds sent in the request are not IDs for rebated items.
 
 ### Additional Help for working with the demo environment
 
