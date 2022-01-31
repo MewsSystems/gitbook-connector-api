@@ -30,12 +30,12 @@ Ensure you follow our general [guidelines](../guidelines) for testing integratio
 
 ### Get and query rebated items
 
-To know if an item is rebated, you'd need to use the [bills/getAll](../operations/finance.md#get-all-bills) endpoint where you would get a list of the [order items](../operations/finance.md#order-item) on that bill and for each order item you'd get an ID for the property [RebatedItemId](../operations/finance.md#rebate-order-item-data) if the order item is rebated, then you can call [accountingItems/getAll](../operations/finance.md#get-all-accounting-items) and make sure to send the 'RebatedItemId' you recieved in the previous step in the [request](../operations/finance.md#request-4) of [accountingItems/getAll](../operations/finance.md#get-all-accounting-items).
+You can use the API to find out if an accounting item is rebated. First use [Get all bills](../operations/finance.md#get-all-bills) to get a list of the order items on the bill. For each [order item](../operations/finance.md#order-item), examine the order item data to identify those items which are Rebates and if so, what is the [Rebated item ID](../operations/finance.md#rebate-order-item-data). You can then call [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the Rebated item ID to return the details of the accounting item with that ID.
 
 Notes:
-1. You cant get the info whether the whole bill has been rebated.
-2. If  you want to know what's been rebated on a bill, you need to use the IDs from (bills/getAll RebatedItemId) endpoint through next endpoint (accountItems/getAll). 
-3. Empty items collection returned from [accountingItems/getAll] means the RebatedItemIds sent in the request are not IDs for rebated items.
+1. You cannot use these operations to find out if an entire Bill has been rebated, only individual items in the Bill; all rebates are on an individual basis.
+2. You can find out what items have been rebated on a Bill by taking the Rebated item IDs from [Get all bills](../operations/finance.md#get-all-bills) and using them to call [Get all accounting items](../operations/finance.md#get-all-accounting-items).
+3. If [Get all accounting items](../operations/finance.md#get-all-accounting-items) returns an empty collection, this means there are no Rebated items corresponding to the given Rebated item IDs.
 
 ### Additional Help for working with the demo environment
 
