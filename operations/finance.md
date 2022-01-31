@@ -295,8 +295,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Client` | string | required | Name and version of the client application. |
 | `ConsumedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the accounting item was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the accounting item was closed. Required if no other filter is provided. |
-| `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if `RebatedItemIds` or `ConsumedUtc` or `ClosedUtc` are not specified. |
-| `RebatedItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items we are finding rebates for. Required if `ItemIds` or `ConsumedUtc` or `ClosedUtc` are not specified. |
+| `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if no other filter is provided. |
+| `RebatedItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items we are finding rebates for. Required if no other filter is provided. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 | `Extent` | [Accounting item extent](#accounting-item-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the accounting items, credit card transactions should be also returned. |
 | `States` | array of string [Accounting state](reservations.md#Accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
