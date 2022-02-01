@@ -32,7 +32,7 @@ Ensure you follow our general [guidelines](../guidelines) for testing integratio
 
 #### For a given order item, how can I tell if it has been rebated?
 
-To find out if an individual order item has been rebated, use [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the `RebatedItemIds` filter parameter set to the value of the item ID for that order item. If the operation returns any items, these are rebate items relating to the original order item. If no items are returned, then the original order item has not been rebated. You can also search for rebates against multiple order items, by including all of the `ItemIds` in the `RebatedItemIds` filter parameter.
+To find out if an individual order item has been rebated, use [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the `RebatedItemIds` filter parameter set to the value of the item ID for that order item. If the operation returns any items, these are rebate items relating to the original order item. If no items are returned, then the original order item has not been rebated. You can also search for rebates against multiple order items, by including all of the item IDs in the `RebatedItemIds` filter parameter.
 
 #### For a given rebate item, how can I find the original order item that has been rebated?
 
