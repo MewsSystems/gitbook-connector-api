@@ -36,7 +36,7 @@ To find out if an individual order item has been rebated, use [Get all accountin
 
 #### For a given rebate item, how can I find the original order item that has been rebated?
 
-If an accounting item is a rebate item, then the ID for the original order item which is rebated will be stored in the item data. Specifically, an order item with Data Discriminator set to "Rebate" will have Data Value set to the `RebatedItemId`. You can then use [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the `ItemIds` filter parameter set to this ID to fetch the details about the item. Note that a rebate item can rebate another rebate item, so it may be necessary to recursively call Get all accounting items to find the original order item in the chain.
+If an accounting item is a rebate item, then the ID for the original order item which is rebated will be stored in the item data. Specifically, an order item with Data Discriminator set to "Rebate" will have Data Value set to the `RebatedItemId`. You can then use [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the `ItemIds` filter parameter set to this ID to fetch the details about the item. Note that a rebate item can rebate another rebate item, so it may be necessary to recursively call [Get all accounting items](../operations/finance.md#get-all-accounting-items) to find the original order item in the chain.
 
 #### How can I tell if an entire Bill has been rebated
 
