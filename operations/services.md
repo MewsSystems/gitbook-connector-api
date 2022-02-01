@@ -99,11 +99,10 @@ Returns all services offered by the enterprise.
 | `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
 | `TimeUnit` | [Time unit period](#time-unit-period) | required | Time unit period of the service. |
 
+#### Time unit
 
-#### Time unit start and end
 Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service.
 We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day. A monthly time unit is a time unit that starts at midnight on the first day of the month and ends at midnight on the first day of the following month.
-
 
 Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
 `StartOffset` and `EndOffset` define the default start and end of the service (so, the service orders).
@@ -115,7 +114,12 @@ Positive end offsets of the daily time unit define the nightly service as depict
 Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `StartUtc` | string | required | Base start of the TimeUnit in UTC timezone in ISO 8601 format. |
+
 #### Time unit interval length restrictions
+
 Interval length created between FirstTimeUnit StartUtc and LastTimeUnit StartUtc is allowed for up to 100 time units, but no more than 2 years.
 
 #### Time unit period
@@ -123,12 +127,6 @@ Interval length created between FirstTimeUnit StartUtc and LastTimeUnit StartUtc
 * `Day`
 * `Month`
 * ...
-
-#### Time unit
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `StartUtc` | string | required | Base start of the TimeUnit in UTC timezone in ISO 8601 format. |
 
 #### Additional service data
 
@@ -1092,10 +1090,10 @@ Returns prices of a rate in the specified interval. Note that response contains 
     "Client": "Sample Client 1.0.0",
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
     "FirstTimeUnit": {
-        "StartUtc": "2017-01-01T00:00:00.000Z"
+        "StartUtc": "2022-01-01T23:00:00.000Z"
     },
     "LastTimeUnit": {
-        "StartUtc": "2017-01-03T00:00:00.000Z"
+        "StartUtc": "2022-01-03T23:00:00.000Z"
     }
 }
 ```
@@ -1136,9 +1134,20 @@ Returns prices of a rate in the specified interval. Note that response contains 
         }
     ],
     "DatesUtc": [
-        "2016-12-31T23:00:00Z",
-        "2017-01-01T23:00:00Z",
-        "2017-01-02T23:00:00Z"
+        "2022-01-01T23:00:00Z",
+        "2022-01-02T23:00:00Z",
+        "2022-01-03T23:00:00Z"
+    ],
+    "TimeUnits": [
+        {
+            "StartUtc": "2022-01-01T23:00:00Z"
+        },
+        {
+            "StartUtc": "2022-01-02T23:00:00Z"
+        },
+        {
+            "StartUtc": "2022-01-03T23:00:00Z"
+        }
     ]
 }
 ```
@@ -1147,6 +1156,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
+| `TimeUnits` | array of [TimeUnit](#time-unit) | required | Covered time units in UTC timezone |
 | `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
