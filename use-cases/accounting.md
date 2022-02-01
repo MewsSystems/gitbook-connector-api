@@ -32,11 +32,11 @@ Ensure you follow our general [guidelines](../guidelines) for testing integratio
 
 #### For a given order item, how can I tell if it has been rebated?
 
-To find out if an individual order item has been rebated, use Get all accounting items with the Rebated item IDs filter parameter set to the value of the item ID for that order item. If the operation returns any items, these are rebate items relating to the original order item. If no items are returned, then the original order item has not been rebated. You can also search for rebates against multiple order items, by including all of the item IDs in the Rebated item IDs filter parameter.
+To find out if an individual order item has been rebated, use [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the `RebatedItemIds` filter parameter set to the value of the item ID for that order item. If the operation returns any items, these are rebate items relating to the original order item. If no items are returned, then the original order item has not been rebated. You can also search for rebates against multiple order items, by including all of the `ItemIds` in the `RebatedItemIds` filter parameter.
 
 #### For a given rebate item, how can I find the original order item that has been rebated?
 
-If an accounting item is a rebate item, then the ID for the original order item which is rebated will be stored in the item data. Specifically, an order item with Data Discriminator set to "Rebate" will have Data Value set to the rebated item ID. You can then use Get all accounting items with the Item IDs filter parameter set to this ID to fetch the details about the item. Note that a rebate item can rebate another rebate item, so it may be necessary to recursively call Get all accounting items to find the original order item in the chain.
+If an accounting item is a rebate item, then the ID for the original order item which is rebated will be stored in the item data. Specifically, an order item with Data Discriminator set to "Rebate" will have Data Value set to the `RebatedItemId`. You can then use [Get all accounting items](../operations/finance.md#get-all-accounting-items) with the `ItemIds` filter parameter set to this ID to fetch the details about the item. Note that a rebate item can rebate another rebate item, so it may be necessary to recursively call Get all accounting items to find the original order item in the chain.
 
 #### How can I tell if an entire Bill has been rebated
 
@@ -44,7 +44,7 @@ Rebates are on an individual item-by-item basis, so if every individual order it
 
 #### For a given bill, how can I tell if any order items on the bill have been rebated?
 
-First use Get all bills to get a list of the order items on the bill. Then search for rebates against any of these order items, as described above.
+First use [Get all bills](../operations/finance.md#get-all-bills) to get a list of the order items on the bill. Then search for rebates against any of these order items, as described above.
 
 ### Additional Help for working with the demo environment
 
