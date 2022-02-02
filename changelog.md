@@ -58,7 +58,7 @@ Following properties to be removed from output and/or ignored on input:
 | [Currency value](operations/finance.md#currency-value) | `Tax` | --- |
 | [Currency value](operations/finance.md#currency-value) | `TaxRate` | --- |
 | Whole `UnitCost` object | --- | [Amount](operations/finance.md#amount-value) |
-| [Bill options](operations/finance.md#bill-options) | `Rebated` | --- |
+| [Bill options](operations/finance.md#bill-options) | `Rebated` | [Working with rebates](use-cases/accounting.md#working-with-rebates) |
 
 ### Websocket authentication
 
