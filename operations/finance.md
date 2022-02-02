@@ -725,8 +725,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 "DisplayCustomer": true,
                 "DisplayTaxation": true,
                 "TrackReceivable": true,
-                "DisplayCid": false,
-                "Rebated": false
+                "DisplayCid": false
             },
             "OrderItems": [],
             "PaymentItems": [],
@@ -784,7 +783,6 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
-| `Rebated` | boolean | required | Bill has been rebated. |
 
 #### Bill assignee data
 
@@ -996,8 +994,7 @@ Closes a bill so no further modification to it is possible.
                 "DisplayCustomer": false,
                 "DisplayTaxation": true,
                 "TrackReceivable": false,
-                "DisplayCid": false,
-                "Rebated": false
+                "DisplayCid": false
             },
             "OrderItems": [],
             "PaymentItems": []
