@@ -56,7 +56,7 @@ Returns all services offered by the enterprise.
                     "EndOffset": "P0M0DT12H0M0S",
                     "OccupancyStartOffset": "P0M0DT15H0M0S",
                     "OccupancyEndOffset": "P0M0DT12H0M0S",
-                    "TimeUnit": "Day"
+                    "TimeUnitPeriod": "Day"
                 }
             }
         }
@@ -97,7 +97,7 @@ Returns all services offered by the enterprise.
 | `EndOffset` | string | required | Offset from the end of the time unit defining the default end of the service orders in ISO 8601 duration format. |
 | `OccupancyStartOffset` | string | required | Offset from the start of the time unit defining the occupancy start of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
 | `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
-| `TimeUnit` | [Time unit period](#time-unit-period) | required | Time unit period of the service. |
+| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | Time unit period of the service. |
 
 #### Time unit
 
