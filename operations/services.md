@@ -2194,3 +2194,81 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 | --- | --- | --- | --- |
 | `VoucherId` | string | required | Unique identifier of [Voucher](#voucher). |
 | `RateId` | string | required | Unique identifier of [Rate](#rate) the voucher is assigned with. |
+
+
+#### Get all age categories
+
+Returns all age categories filtered by [Service](#service).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/ageCategories/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ServiceIds": [
+        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ],
+    "AgeCategoryIds": [
+        "fe568bbd-1ecb-4bb2-bf77-96c3698de20d"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Service](#service)s where the age category belong to. |
+| `AgeCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Age categories](#age-category). |
+
+### Response
+
+```javascript
+{
+    "AgeCategories": [
+        {
+            "Id": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+            "ServiceId": "b74b7bf6-1a9e-413c-b65a-ae1600c60c48",
+            "MinimalAge": null,
+            "MaximalAge": null,
+            "Names": {
+                "cs-CZ": "Dospělí",
+                "da-DK": "Voksne",
+                "de-CH": "Erwachsene",
+                "de-DE": "Erwachsene",
+                "el-GR": "Ενήλικοι",
+                "en-GB": "Adults"
+            }
+        },
+        {
+            "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "MinimalAge": 0,
+            "MaximalAge": 18,
+            "Names": {
+                "cs-CZ": "Děti",
+                "da-DK": "Børn",
+                "de-CH": "Kinder",
+                "de-DE": "Kinder",
+                "el-GR": "Παιδιά",
+                "en-GB": "Children"
+            }
+        }
+    ]
+}
+```
+
+#### Age category
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of age category. |
+| `ServiceId` | string | required | Unique identifier of [Service](#service) the age category belongs to. |
+| `MinimalAge` | number | optional | Minimal age for the age category.  |
+| `MaximalAge` | number | optional | Maximal age for the age category. |
+| `Names` | string | required | Dictionary where key is language-culture code and value is name of the age category for given language. |
