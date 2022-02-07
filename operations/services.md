@@ -2271,4 +2271,4 @@ Returns all age categories filtered by [Service](#service).
 | `ServiceId` | string | required | Unique identifier of [Service](#service) the age category belongs to. |
 | `MinimalAge` | number | optional | Minimal age for the age category. |
 | `MaximalAge` | number | optional | Maximal age for the age category. |
-| `Names` | string | required | Dictionary where key is language-culture code and value is name of the age category for given language. |
+| `Names` | [Localized text](enterprises.md#localized-text) | required | All translations of the name of the age category. |
