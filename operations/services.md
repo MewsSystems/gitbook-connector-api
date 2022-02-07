@@ -2195,7 +2195,6 @@ Returns all rate vouchers filtered by [Service](#service), voucher code or vouch
 | `VoucherId` | string | required | Unique identifier of [Voucher](#voucher). |
 | `RateId` | string | required | Unique identifier of [Rate](#rate) the voucher is assigned with. |
 
-
 #### Get all age categories
 
 Returns all age categories filtered by [Service](#service).
