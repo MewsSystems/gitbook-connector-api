@@ -49,7 +49,7 @@ This section describes all operations supported by the API:
   * [Delete restrictions](services.md#delete-restrictions) - removes restrictions.
   * [Add order](services.md#add-order) - adds a new service order.
   * [Get all vouchers](services.md#get-all-vouchers) - returns all rate vouchers by filters.
-  * [Get all age categories](services.md#get-all-age-categories) - returns all age categories filters.
+  * [Get all age categories](services.md#get-all-age-categories) - returns all age categories by filters.
 * [Reservations](reservations.md) - operations for retrieval and modifications of reservations.
   * [Get all reservations](reservations.md#get-all-reservations) - returns all reservations by filters.
   * [Get all reservation items](reservations.md#get-all-reservation-items) - returns all accounting items of reservations. 
