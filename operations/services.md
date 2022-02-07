@@ -2212,7 +2212,8 @@ Returns all age categories filtered by [Service](#service).
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
     "AgeCategoryIds": [
-        "fe568bbd-1ecb-4bb2-bf77-96c3698de20d"
+        "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
+        "ab58c939-be30-4a60-8f75-ae1600c60c9f"
     ]
 }
 ```
