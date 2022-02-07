@@ -2232,7 +2232,7 @@ Returns all age categories filtered by [Service](#service).
     "AgeCategories": [
         {
             "Id": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
-            "ServiceId": "b74b7bf6-1a9e-413c-b65a-ae1600c60c48",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "MinimalAge": null,
             "MaximalAge": null,
             "Names": {
