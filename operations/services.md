@@ -1136,7 +1136,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `TimeUnitStartsUtc` | array of string | required | Covered time units starts in UTC timezone. |
+| `TimeUnitStartsUtc` | array of string | required | Covered time unit starts in the UTC timezone in ISO 8601 format. |
 | `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
