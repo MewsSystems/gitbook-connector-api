@@ -114,13 +114,9 @@ Positive end offsets of the daily time unit define the nightly service as depict
 Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `StartUtc` | string | required | Base start of the TimeUnit in UTC timezone in ISO 8601 format. |
-
 #### Time unit interval length restrictions
 
-Interval length created between FirstTimeUnit StartUtc and LastTimeUnit StartUtc is allowed for up to 100 time units, but no more than 2 years.
+Interval length created between FirstTimeUnitStartUtc and LastTimeUnitStartUtc is allowed for up to 100 time units, but no more than 2 years.
 
 #### Time unit period
 
@@ -1077,7 +1073,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 ## Get rate pricing
 
-Returns prices of a rate in the specified interval. Note that response contains prices for all time units that the specified interval intersects. So e.g. interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`. Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. Other time part of interval than [time unit start](#time-unit) is not supported. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
+Returns prices of a rate in the specified interval. Note that response contains prices for all time units that the specified interval intersects. So e.g. interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`. Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. Other time part of interval than [time unit start](#time-unit) is not supported. [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies.
 
 ### Request
 
@@ -1089,12 +1085,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-    "FirstTimeUnit": {
-        "StartUtc": "2022-01-01T23:00:00.000Z"
-    },
-    "LastTimeUnit": {
-        "StartUtc": "2022-01-03T23:00:00.000Z"
-    }
+    "FirstTimeUnitStartUtc": "2022-01-01T23:00:00.000Z",
+    "LastTimeUnitStartUtc": "2022-01-03T23:00:00.000Z"
 }
 ```
 
@@ -1104,8 +1096,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](services.md#rate) whose prices should be returned. |
-| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | Last TimeUnit of the interval. |
+| `FirstTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | Start of the time unit interval in UTC timezone in ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | End of the time unit interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -1133,21 +1125,10 @@ Returns prices of a rate in the specified interval. Note that response contains 
             "Prices": [ 20, 20, 20 ]
         }
     ],
-    "DatesUtc": [
-        "2022-01-01T23:00:00Z",
-        "2022-01-02T23:00:00Z",
+    "TimeUnitStartsUtc": [
+        "2022-01-01T23:00:00Z"
+        "2022-01-02T23:00:00Z"
         "2022-01-03T23:00:00Z"
-    ],
-    "TimeUnits": [
-        {
-            "StartUtc": "2022-01-01T23:00:00Z"
-        },
-        {
-            "StartUtc": "2022-01-02T23:00:00Z"
-        },
-        {
-            "StartUtc": "2022-01-03T23:00:00Z"
-        }
     ]
 }
 ```
@@ -1155,8 +1136,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
-| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
-| `TimeUnits` | array of [TimeUnit](#time-unit) | required | Covered time units in UTC timezone. |
+| `TimeUnitStartsUtc` | array of string | required | Covered time units starts in UTC timezone. |
 | `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
@@ -1183,7 +1163,7 @@ Returns prices of a rate in the specified interval. Note that response contains 
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined per time unit (i.e. daily), so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all time units that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`. Time unit max length [restrictions](#time-unit-interval-length-restrictions) applies.
+Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](enterprises.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined per time unit (i.e. daily), so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all time units that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`. [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies.
 
 ### Request
 
@@ -1197,22 +1177,14 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
     "PriceUpdates": [
         {
-            "FirstTimeUnit": {
-                "StartUtc": "2016-09-01T00:00:00Z"
-            },
-            "LastTimeUnit": {
-                "StartUtc": "2016-09-02T00:00:00Z"
-            },
+            "FirstTimeUnitStartUtc": "2022-01-01T23:00:00.000Z",
+            "LastTimeUnitStartUtc": "2022-01-03T23:00:00.000Z",
             "Value": 111
         },
         {
             "CategoryId": "e3aa3117-dff0-46b7-b49a-2c0391e70ff9",
-            "FirstTimeUnit": {
-                "StartUtc": "2016-09-04T00:00:00Z"
-            }
-            "LastTimeUnit": {
-                "StartUtc": "2016-09-05T00:00:00Z"
-            },
+            "FirstTimeUnitStartUtc": "2022-01-04T23:00:00.000Z",
+            "LastTimeUnitStartUtc": "2022-01-05T23:00:00.000Z",
             "Value": 222
         }
     ]
@@ -1232,8 +1204,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](enterprises.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `FirstTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | First TimeUnit of the interval. |
-| `LastTimeUnit` | [TimeUnit](#time-unit) | required, Time unit interval [max length](#time-unit-interval-length-restrictions) applies. | Last TimeUnit of the interval. |
+| `FirstTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | Start of the time unit interval in UTC timezone in ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | End of the time unit interval in UTC timezone in ISO 8601 format. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
