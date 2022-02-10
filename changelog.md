@@ -64,6 +64,21 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 8th February 2022 10:22 UTC
+
+* Extended [Time unit period](operations/services.md#time-unit-period) with Month.
+* Added [Time unit](operations/services.md#time-unit).
+* Extended [Get rate pricing](operations/services.md#get-rate-pricing) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
+* Extended [Get rate pricing](operations/services.md#get-rate-pricing) return value with TimeUnitStartsUtc
+* Removed DatesUtc from [Get rate pricing](operations/services.md#get-rate-pricing) return value
+* Extended [Update rate price](operations/services.md#update-rate-price) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
+* Removed TimeUnit from [Bookable service data](operations/services.md#bookable-service-data)
+* Added TimeUnitPeriod to [Bookable service data](operations/services.md#bookable-service-data)
+
+## 7th February 2022 10:22 UTC
+
+* Added [Get all age categories](operations/services.md#get-all-age-categories) operation.
+
 ## 22nd November 2021 11:20 UTC
 
 * Extended [Availability block parameters](operations/services.md#availability-block-parameters) with `State`.
