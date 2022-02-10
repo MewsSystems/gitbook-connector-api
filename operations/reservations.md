@@ -725,7 +725,7 @@ Updates information about the specified reservations. Note that if any of the fi
                         "Count": 2
                     }
                 ]
-            }
+            },
             "CreditCardId": {
                 "Value": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
             },
