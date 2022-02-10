@@ -229,7 +229,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `PersonCounts` | array of [Age category](./services.md#age-category) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
+| `PersonCounts` | array of [Age category](./services.md#age-category) | required | Number of people per age category the reservation was booked for. |
 
 #### Reservation state
 
@@ -286,13 +286,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | --- | --- | --- | --- |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | required | Reservation data for QR code generation. |
-
-#### Age category parameters
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `AgeCategoryId` | string | required | Unique identifier of the [Age category](./services.md#age-category). |
-| `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
 
 ## Get all reservation items
 
@@ -582,10 +575,17 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `TimeUnitAmount` | [Amount](services.md#amount-parameters) | optional | Amount of each night of the reservation. |
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](services.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
-| `PersonCounts` | array of [Age category parameters](#age-category-parmeters) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
+| `PersonCounts` | array of [Age category parameters](#age-category-parameters) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
 | `CreditCardId` | string | optional | Identifier of [Credit card](finance.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](services.md#availability-block) the reservation is assigned to. |
 | `VoucherCode` | string | optional | Voucher code value providing access to specified private [Rate](services.md#rate) applied to this reservation. |
+
+#### Age category parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `AgeCategoryId` | string | required | Unique identifier of the [Age category](./services.md#age-category). |
+| `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
 
 ### Response
 
