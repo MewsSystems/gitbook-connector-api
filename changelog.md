@@ -64,6 +64,11 @@ Following properties to be removed from output and/or ignored on input:
 
 Changed [Websocket authentication](websockets.md#authentication) from being passed via URL query parameters to cookies.
 
+## 11th February 2022 10:22 UTC
+
+* Deprecated `AdultCount` and `ChildCount` from [Reservation](operations/reservations.md#reservation) and [Reservation parameters](operations/reservations.md#reservation-parameters) and [Reservation updates](operations/reservations.md#reservation-updates).
+* Added [Age category parameters](operations/reservations.md#age-category-parameters) replacing `AdultCount` and `ChildCount` for [Reservation](operations/reservations.md#reservation) and [Reservation parameters](operations/reservations.md#reservation-parameters) and [Reservation updates](operations/reservations.md#reservation-updates). 
+
 ## 8th February 2022 10:22 UTC
 
 * Extended [Time unit period](operations/services.md#time-unit-period) with Month.
