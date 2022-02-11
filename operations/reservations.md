@@ -229,7 +229,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateId` | string | required | Identifier of the reservation [Rate](services.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](services.md#voucher) that has been used to create reservation. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `PersonCounts` | array of [Age category](./services.md#age-category) | required | Number of people per age category the reservation was booked for. |
+| `PersonCounts` | array of [Age category](services.md#age-category) | required | Number of people per age category the reservation was booked for. |
 
 #### Reservation state
 
