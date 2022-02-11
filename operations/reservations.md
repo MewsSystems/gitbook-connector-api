@@ -584,7 +584,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `AgeCategoryId` | string | required | Unique identifier of the [Age category](./services.md#age-category). |
+| `AgeCategoryId` | string | required | Unique identifier of the [Age category](services.md#age-category). |
 | `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
 
 ### Response
