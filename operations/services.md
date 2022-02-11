@@ -272,8 +272,6 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherId": null,
-            "AdultCount": 2,
-            "ChildCount": 0,
             "CustomerId": "c2730cbc-53ca-440d-8b30-ac87008b30af",
             "CompanionIds": []
         }
