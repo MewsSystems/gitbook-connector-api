@@ -489,8 +489,6 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
             "StartUtc": "2021-01-01T14:00:00Z",
             "EndUtc": "2021-01-03T10:00:00Z",
             "ReleasedUtc": null,
-            "AdultCount": 2,
-            "ChildCount": 0,
             "CustomerId": "e465c031-fd99-4546-8c70-abcf0029c249",
             "BookerId": "e465c031-fd99-4546-8c70-abcf0029c249",
             "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
@@ -621,8 +619,6 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
                 "AvailabilityBlockId": null,
                 "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
                 "VoucherId": null,
-                "AdultCount": 2,
-                "ChildCount": 0,
                 "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
                 "CompanionIds": [
                     "b22bf671-ccdf-40aa-a7e6-b20a4f91d79a"
@@ -758,8 +754,6 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation). |
 | `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
 | `EndUtc` | [String update value](reservations.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
-| `AdultCount` | [Number update value](reservations.md#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
-| `ChildCount` | [Number update value](reservations.md#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
 | `AssignedResourceId` | [String update value](reservations.md#string-update-value) | optional | Identifier of the assigned [Resource](enterprises.md#resource). |
 | `AssignedResourceLocked` | [Bool update value](reservations.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](enterprises.md#resource). Unlocking and assigning reservation to new [Resource](enterprises.md#resource) can be done in one call. |
 | `ChannelNumber` | [String update value](reservations.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
@@ -1037,7 +1031,7 @@ Updates reservation interval \(start, end or both\).
 
 ## Add reservation companion
 
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion \(count of current companions is less than `AdultCount + ChildCount`\).
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion.
 
 ### Request
 
