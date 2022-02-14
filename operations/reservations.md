@@ -805,12 +805,6 @@ Updates information about the specified reservations. Note that if any of the fi
 | --- | --- | --- | --- |
 | `Value` | array of [Age category parameters](#age-category-parameters) | required | Value which is to be updated. |
 
-#### Reservation purpose update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | [Reservation purpose](#reservation-purpose) | required | Value which is to be updated. |
-
 ### Response
 
 Same structure as in [Get all reservations](reservations.md#get-all-reservations) operation.

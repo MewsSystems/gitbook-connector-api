@@ -305,7 +305,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
 | `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations in the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
-| `ReservationPurpose` | string [Reservation purpose](reservations.md/#reservation-purpose) | optional | The purpose of the block. |
+| `ReservationPurpose` | string [Reservation purpose](#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
@@ -382,7 +382,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations. |
-| `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
+| `ReservationPurpose` | string [Reservation purpose](reservation-purpose) | optional | The purpose of the block. |
 | `Notes` | string | optional | Additional notes of the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 
@@ -407,6 +407,12 @@ Adds availability blocks which are used to group related [Availability update](#
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
+
+### Reservation purpose
+
+* Leisure
+* Business
+* Student
 
 ## Update availability blocks
 
@@ -459,7 +465,7 @@ Updates information about the specified [Availability block](#availability-block
             "Budget": {
                 "Value": {
                     "Value": 600,
-                    "Currency": "Eur"
+                    "Currency": "EUR"
                 }
             }
         }
@@ -485,7 +491,7 @@ Updates information about the specified [Availability block](#availability-block
 | `ReleasedUtc` | [String update value](reservations.md#string-update-value) | optional | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
 | `ExternalIdentifier` | string [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
 | `State` | string [Availability block state update value](#availability-block-state-update-value) | optional | State of the availability block \(or `null` if the state should not be updated\). |
-| `ReservationPurpose` | string [Reservation purpose update value](reservations.md/#reservation-purpose-update-value) | optional | Purpose of the reservation \(or `null` if the purpose should not be updated\). |
+| `ReservationPurpose` | string [Reservation purpose update value](#reservation-purpose-update-value) | optional | Purpose of the reservation \(or `null` if the purpose should not be updated\). |
 | `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Company](enterprises.md#company) the block is assigned to \(or `null` if the company should not be updated\). |
 | `BookerId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Customer](customers.md#customer) the block is assigned to \(or `null` if the booker should not be updated\). |
 | `Notes` | [String update value](reservations.md#string-update-value) | optional | Additional notes of the block \(or `null` if the notes should not be updated\). |
@@ -496,6 +502,12 @@ Updates information about the specified [Availability block](#availability-block
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | [Availability block state](#availability-block-state) | required | Value which is to be updated. |
+
+#### Reservation purpose update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | [Reservation purpose](#reservation-purpose) | required | Value which is to be updated. |
 
 ### Response
 
