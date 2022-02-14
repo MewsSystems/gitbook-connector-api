@@ -432,11 +432,42 @@ Updates information about the specified [Availability block](#availability-block
     "AvailabilityBlocks": [
         {
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "Name": {"Value": "Mr. John Snow block"},
-            "StartUtc":{"Value": "2021-07-05T00:00:00Z"},
-            "EndUtc":{"Value": "2021-07-15T00:00:00Z"},
-            "ReleasedUtc":{"Value": "2021-07-04T00:00:00Z"},
-            "ExternalIdentifier": {"Value": "123456798"}
+            "Name": {
+                "Value": "Mr. John Snow block"
+            },
+            "StartUtc": {
+                "Value": "2021-07-05T00:00:00Z"
+            },
+            "EndUtc": {
+                "Value": "2021-07-15T00:00:00Z"
+            },
+            "ReleasedUtc": {
+                "Value": "2021-07-04T00:00:00Z"
+            },
+            "ExternalIdentifier": {
+                "Value": "123456798"
+            },
+            "State": {
+                "Value": "Optional"
+            },
+            "ReservationPurpose": {
+                "Value": "Business"
+            },
+            "CompanyId": {
+                "Value": "fd55fce6-900b-4dfd-a033-ae3800f7b6c4"
+            },
+            "BookerId": {
+                "Value": "9208a2d6-06cb-41a4-9dcf-ae3500c97c7f"
+            },
+            "Notes": {
+                "Value": "Additional notes."
+            },
+            "Budget": {
+                "Value": {
+                    "Value": 600,
+                    "Currency": "EUR"
+                }
+            }
         }
     ]
 }
@@ -455,10 +486,28 @@ Updates information about the specified [Availability block](#availability-block
 | --- | --- | --- | --- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
 | `Name` | [String update value](reservations.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
-| `StartUtc` | [String update value](reservations.md#string-update-value) | required | Start of the interval in UTC timezone in ISO 8601 format \(or `null` if the start time should not be updated\). |
-| `EndUtc` | [String update value](reservations.md#string-update-value) | required | End of the interval in UTC timezone in ISO 8601 format \(or `null` if the end time should not be updated\). |
-| `ReleasedUtc` | [String update value](reservations.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
-| `ExternalIdentifier` | [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
+| `StartUtc` | [String update value](reservations.md#string-update-value) | optional | Start of the interval in UTC timezone in ISO 8601 format \(or `null` if the start time should not be updated\). |
+| `EndUtc` | [String update value](reservations.md#string-update-value) | optional | End of the interval in UTC timezone in ISO 8601 format \(or `null` if the end time should not be updated\). |
+| `ReleasedUtc` | [String update value](reservations.md#string-update-value) | optional | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
+| `ExternalIdentifier` | string [String update value](reservations.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
+| `State` | string [Availability block state update value](#availability-block-state-update-value) | optional | State of the availability block \(or `null` if the state should not be updated\). |
+| `ReservationPurpose` | string [Reservation purpose update value](#reservation-purpose-update-value) | optional | Purpose of the reservation \(or `null` if the purpose should not be updated\). |
+| `CompanyId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Company](enterprises.md#company) the block is assigned to \(or `null` if the company should not be updated\). |
+| `BookerId` | [String update value](reservations.md#string-update-value) | optional | Unique identifier of the [Customer](customers.md#customer) the block is assigned to \(or `null` if the booker should not be updated\). |
+| `Notes` | [String update value](reservations.md#string-update-value) | optional | Additional notes of the block \(or `null` if the notes should not be updated\). |
+| `Budget` | [Currency update value](finance.md#currency-update-value) | optional | The tentative budget for the total price of reservations \(or `null` if the budget should not be updated\). |
+
+#### Availability block state update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | [Availability block state](#availability-block-state) | required | Value which is to be updated. |
+
+#### Reservation purpose update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | [Reservation purpose](#reservation-purpose) | required | Value which is to be updated. |
 
 ### Response
 
