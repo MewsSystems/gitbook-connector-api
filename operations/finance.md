@@ -547,6 +547,12 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 | `Currency` | string | required | ISO-4217 code of the [Currency](configuration.md#currency). |
 | `Value` | number | optional | Amount in the currency. |
 
+#### Currency update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | [Currency value](#currency-value) | required | Value which is to be updated. |
+
 ## Update accounting items
 
 Updates specified accounting items. Allows to change to which account or bill the item is assigned to.
