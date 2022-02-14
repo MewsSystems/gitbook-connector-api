@@ -382,7 +382,7 @@ Adds availability blocks which are used to group related [Availability update](#
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Budget` | [Currency value](finance.md#currency-value) | optional | The tentative budget for the total price of reservations. |
-| `ReservationPurpose` | string [Reservation purpose](reservation-purpose) | optional | The purpose of the block. |
+| `ReservationPurpose` | string [Reservation purpose](#reservation-purpose) | optional | The purpose of the block. |
 | `Notes` | string | optional | Additional notes of the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 
