@@ -19,7 +19,7 @@ Use the below logins for accessing the demo enterprises ([Gross Pricing Environm
 
 ### Security Policy
 
-**The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.**
+> **The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.**
 
 ### Request limits
 
@@ -29,7 +29,7 @@ Use the below logins for accessing the demo enterprises ([Gross Pricing Environm
 
 ### Gross Pricing Environment
 
-The authentication below will connect with the demo enterprise that is configured with Gross Pricing. This demo enterprise is based in the `United Kingdom` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate)
+The authentication below will connect with the demo enterprise that is configured with Gross Pricing. This demo enterprise is based in the `United Kingdom` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/taxations.md#tax-rate)
 
 Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo enterprise.
 
@@ -51,7 +51,7 @@ Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo en
 
 ### Net Pricing Environment
 
-The authentication below will connect with the demo enterprise that is configured with Net Pricing. This enterprise is based in the `United States - Washington DC` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/configuration.md#tax-rate).
+The authentication below will connect with the demo enterprise that is configured with Net Pricing. This enterprise is based in the `United States - Washington DC` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/taxations.md#tax-rate).
 
 Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo enterprise.
 
@@ -81,7 +81,7 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 
 ### Security Policy
 
-**To protect the live data of each property, please store your production tokens securely and do not share them publicly.**
+> **To protect the live data of each property, please store your production tokens securely and do not share them publicly.**
 
 ### Request limits
 
@@ -91,8 +91,8 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 
 ## Taxations
 
-Each enterprise is located in a specific [Tax environment](../operations/configuration.md#tax-environment) that offers a list of applicable [Taxations](../operations/configuration.md#taxation). The numeric value of the taxations are represented by [Tax rate codes](../operations/configuration.md#tax-rate) that are accepted within the tax environment. 
+Each enterprise is located in a specific [Tax environment](../operations/taxenvironments.md#tax-environment) that offers a list of applicable [Taxations](../operations/taxations.md#taxation). The numeric value of the taxations are represented by [Tax rate codes](../operations/taxations.md#tax-rate) that are accepted within the tax environment. 
 
-Instead of numeric tax rates such as `0.1`, use [Tax rate codes](../operations/configuration.md#tax-rate) such as `AT-S` in order to represent and calculate the correct taxation for each accounting item in Mews. To obtain the applicable codes, first download the enterprise information with [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment, then filter for the applicable [Tax rate codes](../operations/configuration.md#tax-rate) from all tax environment information retrieved via [Get all tax environments](../operations/configuration.md#get-all-tax-environments). 
+Instead of numeric tax rates such as `0.1`, use [Tax rate codes](../operations/taxations.md#tax-rate) such as `AT-S` in order to represent and calculate the correct taxation for each accounting item in Mews. To obtain the applicable codes, first download the enterprise information with [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment, then filter for the applicable [Tax rate codes](../operations/taxations.md#tax-rate) from all tax environment information retrieved via [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments). 
 
 Make sure to note the validity intervals as well as any government announcements to anticipate changes to tax rates. Should any changes occur, re-retrieve enterprise and tax environment information to identify the new tax rate codes.
