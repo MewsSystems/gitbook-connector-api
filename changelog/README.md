@@ -2,8 +2,11 @@
 
 ## 11th February 2022 11:20 UTC
 
-* Re-structured entire Connector API documentation to split operations by domain entities (e.g. countries, outletbills, products) rather than 'themes'
-* Added new page so you can still view API operations ordered by [themes](../themes/README.md)
+* Re-structured entire API documentation to split operations by domain entities (e.g. countries, outletbills, products) rather than 'themes'
+* API operations can still be viewed by theme on the new [Operations](../operations/README.md) home page, which now also provides a summary of each operation
+* Changelog split by year to reduce page length, and [Deprecations](../deprecations/README.md) separated into its own page
+* Link to Swagger/OpenAPI definition added to [home page](../README.md)
+* Re-wording of [Point of Sale](../use-cases/point-of-sale.md) use case to improve clarity
 
 | Changelog by year |
 | :-- |
