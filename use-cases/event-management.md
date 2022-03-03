@@ -4,17 +4,17 @@ An event management integration can pull live information about rates and availa
 
 ### Enterprise information
 
-To automate the onboarding of a new property as much as possible, use any combination of [Configuration](../themes/README.md#configuration) operations and [Enterprise](../themes/README.md#enterprises) operations to pull information about a property, including but not limited to resources configuration, applicable tax rates, services and products, company profiles.
+To automate the onboarding of a new property as much as possible, use any combination of the [Configuration](../operations/configuration.md) operation or [Enterprise](../operations/enterprises.md) to pull information about a property, including but not limited to resources configuration, applicable tax rates, services and products, company profiles.
 
 ### Rates and availability
 
-Use [Get all rates](../operations/rates.md#get-all-rates) and  [Get rate pricing](../operations/rates.md#get-all-rates) to pull data about rates offered in the enterprise. Use [Get service availability](../operations/services.md#get-service-availability) to pull category availability and related adjustments from Mews into the event management integration.
+Use [Get all rates](../operations/services.md#get-all-rates) and  [Get rate pricing](../operations/services.md#get-all-rates) to pull data about rates offered in the enterprise. Use [Get service availability](../operations/services.md#get-service-availability) to pull category availability and related adjustments from Mews into the event management integration.
 
 *Note that the `Availabilities` array refers to the inventory that is available to the general public, and therefore does not include inventory that has been reserved for the availability block. The array of adjustments displayed are those not associated with an availability block.*
 
 ### Managing billing
 
-In Mews, billing is managed at the customer profile level, instead of being charged to a specific room or reservation. If applicable, create a new company via [Add company](../operations/companies.md#add-company) or find an existing company via [Get all companies](../operations/companies.md#get-all-companies) and attach the company to both the reservation(s) and the customer bill(s) for more accurate billing and reporting. 
+In Mews, billing is managed at the customer profile level, instead of being charged to a specific room or reservation. If applicable, create a new company via [Add company](../operations/enterprises.md#add-company) or find an existing company via [Get all companies](../operations/enterprises.md#get-all-companies) and attach the company to both the reservation(s) and the customer bill(s) for more accurate billing and reporting. 
 
 Use a [Paymaster](../operations/customers.md#customer-classification) customer profile to centrally manage charges and billing related to the company/event. This also allows any additional orders (e.g. F&B spending) to be added via the POS system, if needed. If the relevant customer profile does not already exist in Mews, first call [Add customer](../operations/customers.md#add-customer) to create a profile. 
 
@@ -28,11 +28,11 @@ You can also use the [Update customer](../operations/customers.md#update-custome
 
 #### Adding revenue and payment items
 
-One of the expected functionalities of an event management integration is being able to push items to the correct customer profile in Mews. This can be done using the operation [Add order](../operations/orders.md#add-order). If the product item that is being posted already exists in Mews, use [Product order parameters](../operations/orders.md#product-order-parameters). If the product does not exist in Mews then use the [Item parameters](../operations/orders.md#item-parameters) to post custom items. 
+One of the expected functionalities of an event management integration is being able to push items to the correct customer profile in Mews. This can be done using the operation [Add order](../operations/services.md#add-order). If the product item that is being posted already exists in Mews, use [Product order parameters](../operations/services.md#product-order-parameters). If the product does not exist in Mews then use the [Item parameters](../operations/services.md#item-parameters) to post custom items. 
 
 Note that in order to use [Product order parameters](../operations/services.md#product-order-parameters), the property must first set up products under a [Bookable](../operations/services.md#service-data) service. Then, you will need to retrieve the products by calling [Get all products](../operations/services.md#get-all-products).
 
-To ensure correct reporting, all revenue items posted into Mews using [Item parameters](../operations/orders.md#item-parameters) must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property can be retrieved using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
+To ensure correct reporting, all revenue items posted into Mews using [Item parameters](../operations/services.md#item-parameters) must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property can be retrieved using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
 In case payment was taken outside of Mews or directly on the event management platform, use any of the methods described in the [Finance](../operations/finance.md) section to record the payment items in Mews, so that all accounting items are centralised in Mews for further reporting and/or exporting to the property's accounting system. 
 
@@ -73,7 +73,7 @@ If applicable, you can attach a company to a reservation when calling [Add reser
 
 ***Note:*** 
 
-It is currently not possible to exceed the availability block capacity (the inventory allocated to an availability block through the [Update service availability](../operations/services.md#update-service-availability) operation. However, it is possible to add reservations with arrival or departure date times that extend beyond the [interval in a given availability block](../operations/availabilityblocks.md#availability-block-parameters). Should there be a need to accommodate more reservations in an availability block, you must first update the adjustments to increase the allocated inventory in that block.
+It is currently not possible to exceed the availability block capacity (the inventory allocated to an availability block through the [Update service availability](../operations/services.md#update-service-availability) operation. However, it is possible to add reservations with arrival or departure date times that extend beyond the [interval in a given availability block](../operations/services.md#availability-block-parameters). Should there be a need to accommodate more reservations in an availability block, you must first update the adjustments to increase the allocated inventory in that block.
 
 #### Managing reservations and customers
 
@@ -82,9 +82,9 @@ To ensure that the property can further manage individual companions to the grou
 
 #### Managing availability block inventory and pickup
 
-Call [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks for Reservation events](../webhooks/README.md#general-message) to automatically receive information of reservation creation and/or changes. Note the `AvailabilityBlockId` in the [`ServiceOrders`](../webhooks/README.md#entities) object to record pickup for the relevant availability block in your system and in Mews. When a reservation no longer belongs to the `AvailabilityBlock`, follow the format described in [Update reservation](../operations/reservations.md#update-reservations) to remove the `AvailabilityBlockId`.
+Call [Get all availability blocks](../operations/services.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks for Reservation events](../webhooks.md#general-message) to automatically receive information of reservation creation and/or changes. Note the `AvailabilityBlockId` in the [`ServiceOrders`](../webhooks.md#entities) object to record pickup for the relevant availability block in your system and in Mews. When a reservation no longer belongs to the `AvailabilityBlock`, follow the format described in [Update reservation](../operations/reservations.md#update-reservations) to remove the `AvailabilityBlockId`.
 
-When an availability block is no longer needed in Mews, remove it from Mews by calling [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks). The availability adjustments associated with the availability block will automatically be removed. Note that is it not possible to delete an availability block containing active reservations.
+When an availability block is no longer needed in Mews, remove it from Mews by calling [Delete availability blocks](../operations/services.md#delete-availability-blocks). The availability adjustments associated with the availability block will automatically be removed. Note that is it not possible to delete an availability block containing active reservations.
 
 ### Testing your integration
 
