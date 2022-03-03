@@ -1,3 +1,9 @@
+# [ACTION REQUIRED]
+
+We have changed the URLs for our API. The old URLs with `mews.li` are no longer operational, instead you should be using:
+* `api.mews.com` for the endpoints
+* `ws.mews.com` for websockets
+
 # Introduction
 
 Connector API is a general API for communication between Mews and external applications or systems. The API is typically consumed by other cloud services that work with data of hotels in Mews \(e.g. revenue management systems, cloud POS systems\). It can also be used by applications that are running on site in the hotel and mediate communication between Mews and local devices \(e.g. POS systems, printers and other physical devices, kiosks etc\).
