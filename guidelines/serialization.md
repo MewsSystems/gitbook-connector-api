@@ -70,7 +70,7 @@ Example usages:
 
 To model the structure of some general object, the characteristic of which can differ based on the specified type, we use `Coproducts` (also called `Discriminated unions`, `Sum types` or `Or types`).
 
-For example, take a look at bookable [Resources](../operations/resources.md#resource). We currently support just one subtype - spaces (rooms, beds in hotels). Looking forward, we strive to include other types of resources like objects or persons soon. This means that basic properties such as `Id` or `Name` can be shared across the different resource subtypes, but others such as `FloorNumber` only make sense in context of spaces. These specific fields are stored in the coproduct object (in this example named `Data`) which stores the type of information in the `Discriminator` property and the values as part of the `Value` property.
+For example, take a look at bookable [Resource](../operations/enterprises.md#resource)s. We currently support just one subtype - spaces (rooms, beds in hotels). Looking forward, we strive to include other types of resources like objects or persons soon. This means that basic properties such as `Id` or `Name` can be shared across the different resource subtypes, but others such as `FloorNumber` only make sense in context of spaces. These specific fields are stored in the coproduct object (in this example named `Data`) which stores the type of information in the `Discriminator` property and the values as part of the `Value` property.
 
 ```javascript
 {

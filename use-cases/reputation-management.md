@@ -4,7 +4,7 @@ Typically, reputation management systems require reservation information, custom
 
 ### Retrieving Reservations
 
-After a customer has checked out from a reservation, reputation management systems often send a survey through to a customer's email. The integration partner can request all checked-out reservations for a given period using [Get all reservations](../operations/reservations.md#get-all-reservations) with State set to `Processed`. For optimal API usage, ensure cascading time periods with short time frames (e.g. request every 4 hours for the previous 4 hour period). To receive real-time notifications that a reservation has been checked-out, partners should configure a [reservation event websocket](../websockets/README.md#reservation-event).
+After a customer has checked out from a reservation, reputation management systems often send a survey through to a customer's email. The integration partner can request all checked-out reservations for a given period using [Get all reservations](../operations/reservations.md#get-all-reservations) with State set to `Processed`. For optimal API usage, ensure cascading time periods with short time frames (e.g. request every 4 hours for the previous 4 hour period). To receive real-time notifications that a reservation has been checked-out, partners should configure a [reservation event websocket](../websockets.md#reservation-event).
 
 ### Updating Customer Profile
 

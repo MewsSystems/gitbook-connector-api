@@ -28,7 +28,7 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `LanguageCode` | string | optional | Code of the [language](../operations/languages.md#language). |
+| `LanguageCode` | string | optional | Code of the [language](../operations/configuration.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
 All operations of the API require a `ClientToken`, an `AccessToken` and `Client` to be present in the request. Those are used to [authenticate](#authentication) incoming requests.

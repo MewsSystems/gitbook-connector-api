@@ -49,32 +49,25 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of [Customers](#customer). Required if no other filter is provided. |
-| `Emails` | array of string | optional, max 1000 items | Emails of the [Customers](#customer). |
-| `FirstNames` | array of string | optional, max 1000 items | First names of the [Customers](#customer). |
-| `LastNames` | array of string | optional, max 1000 items | Last names of the [Customers](#customer). |
-| `LoyaltyCodes` | array of string | optional, max 1000 items | Loyalty codes of the [Customers](#customer). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was updated. |
-| `DeletedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
-| `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | optional | Whether return only active, only deleted or both records. |
-| `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer)s. Required if no other filter is provided. |
+| `Emails` | array of string | optional, max 1000 items | Emails of the [Customer](customers.md#customer)s. |
+| `FirstNames` | array of string | optional, max 1000 items | First names of the [Customer](customers.md#customer)s. |
+| `LastNames` | array of string | optional, max 1000 items | Last names of the [Customer](customers.md#customer)s. |
+| `LoyaltyCodes` | array of string | optional, max 1000 items | Loyalty codes of the [Customer](customers.md#customer)s. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was created. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was updated. |
+| `DeletedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which [Customer](customers.md#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
+| `ActivityStates` | array of string [Activity state](services.md#activity-state) | optional | Whether return only active, only deleted or both records. |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 #### Customer extent
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `Customers` | bool | required | Whether the response should contain information about customers. |
 | `Documents` | bool | required | Whether the response should contain identity documents of customers. |
 | `Addresses` | bool | required | Whether the response should contain addresses of customers. |
@@ -136,22 +129,22 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Customers` | array of [Customer](#customer) | required | The customers. |
-| `Documents` | array of [Document](#document) | required | The identity documents of customers. |
+| --- | --- | --- | --- |
+| `Customers` | array of [Customer](customers.md#customer) | required | The customers. |
+| `Documents` | array of [Document](customers.md#document) | required | The identity documents of customers. |
 
 #### Customer
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the customer. |
 | `Number` | string | required | Number of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
-| `Title` | string [Title](#title) | optional | Title prefix of the customer. |
-| `Sex` | string [Sex](#sex) | optional | Sex of the customer. |
-| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `Title` | string [Title](customers.md#title) | optional | Title prefix of the customer. |
+| `Sex` | string [Sex](customers.md#Sex) | optional | Sex of the customer. |
+| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `LanguageCode` | string | optional | Language and culture code of the customers preferred language. E.g. `en-US` or `fr-FR`. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
@@ -162,14 +155,14 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `AccountingCode` | string | optional | Accounting code of the customer. |
 | `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
-| `Classifications` | array of [Customer classification](#customer-classification) | required | Classifications of the customer. |
-| `Options` | array of [Customer option](#customer-option) | required | Options of the customer. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
-| `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
+| `CompanyId` | string | optional | Unique identifier of [Company](enterprises.md#company) the customer is associated with. |
 
 #### Title
 
@@ -185,14 +178,14 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 #### Document
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the document. |
-| `CustomerId` | string | required | Identifier of the [Customer](#customer). |
-| `Type` | string [Document type](#document-type) | required | Type of the document. |
+| `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
+| `Type` | string [Document type](customers.md#document-type) | required | Type of the document. |
 | `Number` | string | optional | Number of the document \(e.g. passport number\). |
 | `Expiration` | string | optional | Expiration date in ISO 8601 format. |
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
-| `IssuingCountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `IssuingCountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 
 #### Document type
 
@@ -249,13 +242,13 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
-| `ResourceId` | string | optional | Identifier of [Resource](resources.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
-| `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
+| `ResourceId` | string | optional | Identifier of [Resource](enterprises.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
+| `Extent` | [Customer extent](customers.md#customer-extent) | required | Extent of data to be returned. |
 
 ### Response
 
@@ -297,14 +290,14 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Customers` | array of [Customer search result](#customer-search-result) | required | The customer search results. |
+| --- | --- | --- | --- |
+| `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
 
 #### Customer search result
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Customer` | [Customer](#customer) | required | The found customer. |
+| --- | --- | --- | --- |
+| `Customer` | [Customer](customers.md#customer) | required | The found customer. |
 | `Reservation` | [Reservation](reservations.md#reservation) | optional | Reservation of the customer in case he currently stays in the enterprise. |
 
 ## Get customers open items
@@ -327,12 +320,12 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required, max 1000 items | Unique identifiers of the [Customers](#customer). |
-| `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `CustomerIds` | array of string | required, max 1000 items | Unique identifiers of the [Customer](customers.md#customer)s. |
+| `Currency` | string | optional | ISO-4217 code of the [Currency](configuration.md#currency) the item costs should be converted to. |
 
 ### Response
 
@@ -387,16 +380,16 @@ Returns all open items of the specified customers, i.e. all unpaid items and all
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Customers` | array of [Customer items](#customer-items) | required | The customers with their items. |
+| --- | --- | --- | --- |
+| `Customers` | array of [Customer items](customers.md#customer-items) | required | The customers with their items. |
 
 #### Customer items
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `CustomerId` | string | required | Unique identifier of the [Customer](#customer). |
-| `OrderItems` | array of [Order item](orders.md#order-item) | required | The open order items (consumed items such as nights or products). |
-| `PaymentItems` | array of [Payment item](orders.md#payment-item) | required | The open payment items (such as cash, credit card payments or invoices). |
+| --- | --- | --- | --- |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `OrderItems` | array of [Order item](finance.md#order-item) | required | The open order items (consumed items such as nights or products). |
+| `PaymentItems` | array of [Payment item](finance.md#payment-item) | required | The open payment items (such as cash, credit card payments or invoices). |
 
 ## Add customer
 
@@ -446,7 +439,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
@@ -454,9 +447,9 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
-| `Title` | string [Title](#title) | optional | Title prefix of the customer. |
-| `Sex` | string [Sex](#Sex) | optional | Sex of the customer. |
-| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `Title` | string [Title](customers.md#title) | optional | Title prefix of the customer. |
+| `Sex` | string [Sex](customers.md#Sex) | optional | Sex of the customer. |
+| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Email` | string | optional | Email address of the customer. |
@@ -465,30 +458,30 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Notes` | string | optional | Internal notes about the customer. |
 | `CarRegistrationNumber` | string | optional | Registration number of the customer's car. |
 | `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
-| `IdentityCard` | [Document](#document) | optional | Identity card details of the customer. |
-| `Passport` | [Document](#document) | optional | Passport details of the customer. |
-| `Visa` | [Document](#document) | optional | Visa details of the customer. |
-| `DriversLicense` | [Document](#document) | optional | Drivers license details of the customer. |
-| `Address` | [Address parameters](#address-parameters) | optional | Address of the customer. |
-| `Classifications` | array of [Customer classification](#customer-classification) | optional | Classifications of the customer. |
-| `Options` | array of [Customer option](#customer-option) | optional | Options of the customer. |
+| `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
+| `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
+| `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
+| `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the customer. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 
 #### Address parameters
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `Line1` | string | optional | First line of the address. |
 | `Line2` | string | optional | Second line of the address. |
 | `City` | string | optional | The city. |
 | `PostalCode` | string | optional | Postal code. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the [Countryconfiguration.md#country). |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 
 ### Response
 
-The created [Customer](#customer) or an existing [Customer](#customer) with the specified email.
+The created [Customer](customers.md#customer) or an existing [Customer](customers.md#customer) with the specified email.
 
 ## Update customer
 
@@ -532,44 +525,38 @@ Updates personal information of a customer. Note that if any of the fields is le
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](#customer). |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |
 | `SecondLastName` | string | optional | New second last name. |
-| `Title` | string [Title](#title) | optional | New title. |
-| `Sex` | string [Sex](#sex) | optional | Sex of the customer. |
+| `Title` | string [Title](customers.md#title) | optional | New title. |
+| `Sex` | string [Sex](customers.md#Sex) | optional | Sex of the customer. |
 | `BirthDate` | string | optional | New birth date in ISO 8601 format. |
 | `BithPlace` | string | optional | New birth place. |
-| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](configuration.md#country). |
 | `Email` | string | optional | New email address. |
 | `Phone` | string | optional | New phone number. |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
 | `CarRegistrationNumber` | string | optional | New registration number of the customer's car. |
 | `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
-| `IdentityCard` | [Document](#document) | optional | New identity card details. |
-| `Passport` | [Document](#document) | optional | New passport details. |
-| `Visa` | [Document](#document) | optional | New visa details. |
-| `DriversLicense` | [Document](#document) | optional | New drivers license details. |
-| `Address` | [Address parameters](#address-parameters)  | optional | New address details. |
-| `Classifications` | array of [Customer classification](#customer-classification) | optional | New classifications of the customer. |
-| `Options` | array of [Customer option](#customer-option) | optional | Options of the customer. |
-| `ItalianDestinationCode` | [String update value](#string-update-value) | optional | New Italian destination code of customer. |
-| `ItalianFiscalCode` | [String update value](#string-update-value) | optional | New Italian fiscal code of customer. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
+| `IdentityCard` | [Document](customers.md#document) | optional | New identity card details. |
+| `Passport` | [Document](customers.md#document) | optional | New passport details. |
+| `Visa` | [Document](customers.md#document) | optional | New visa details. |
+| `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
+| `Address` | [Address parameters](customers.md#address-parameters)  | optional | New address details. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
+| `ItalianDestinationCode` | [String update value](reservations.md#string-update-value) | optional | New Italian destination code of customer. |
+| `ItalianFiscalCode` | [String update value](reservations.md#string-update-value) | optional | New Italian fiscal code of customer. |
 
 ### Response
 
-The updated [Customer](#customer).
+The updated [Customer](customers.md#customer).
 
 ## Merge customers
 
@@ -590,12 +577,12 @@ Merges one customer to another. All entities attached to the source customer \(e
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `SourceCustomerId` | string | required | Unique identifier of the source [Customer](#customer). |
-| `TargetCustomerId` | string | required | Unique identifier of the target [Customer](#customer). |
+| `SourceCustomerId` | string | required | Unique identifier of the source [Customer](customers.md#customer). |
+| `TargetCustomerId` | string | required | Unique identifier of the target [Customer](customers.md#customer). |
 
 ### Response
 
@@ -624,11 +611,11 @@ Attaches the specified file to the customer profile.
 ```
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](#customer). |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `Name` | string | required | Name of the file. |
 | `Type` | string | required | MIME type of the file \(e.g. `application/pdf`\). |
 | `Data` | string | required | Base64-encoded data of the file. |
