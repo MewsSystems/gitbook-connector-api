@@ -6,6 +6,8 @@ We have changed the URLs for our API. The old URLs with `mews.li` are no longer 
 * `api.mews.com` for the endpoints
 * `ws.mews.com` for websockets
 
+For more details see our [guidelines](guidelines/environments.md#production-environment).
+
 ## Operations we are planning to deprecate in 2021
 
 These are the operations that we will deprecate in 2021. While we are not yet enforcing these changes, and are yet to finalise a date for these deprecations, we strongly advise you to review these and if you are using them in your API calls, to update them accordingly.
