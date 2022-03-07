@@ -159,8 +159,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "AvailabilityBlockId": null,
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherId": null,
-            "AdultCount": 2,
-            "ChildCount": 0,
             "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
             "PersonCounts": [
                 {
