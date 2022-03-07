@@ -9,23 +9,23 @@
 
 ## 11th February 2022 10:22 UTC
 
-* Deprecated `AdultCount` and `ChildCount` from [Reservation](operations/reservations.md#reservation) and [Reservation parameters](operations/reservations.md#reservation-parameters) and [Reservation updates](operations/reservations.md#reservation-updates).
-* Added [Age category parameters](operations/reservations.md#age-category-parameters) replacing `AdultCount` and `ChildCount` for [Reservation](operations/reservations.md#reservation) and [Reservation parameters](operations/reservations.md#reservation-parameters) and [Reservation updates](operations/reservations.md#reservation-updates). 
+* Deprecated `AdultCount` and `ChildCount` from [Reservation](../operations/reservations.md#reservation) and [Reservation parameters](../operations/reservations.md#reservation-parameters) and [Reservation updates](operations/reservations.md#reservation-updates).
+* Added [Age category parameters](../operations/reservations.md#age-category-parameters) replacing `AdultCount` and `ChildCount` for [Reservation](../operations/reservations.md#reservation) and [Reservation parameters](operations/reservations.md#reservation-parameters) and [Reservation updates](../operations/reservations.md#reservation-updates). 
 
 ## 8th February 2022 10:22 UTC
 
-* Extended [Time unit period](operations/services.md#time-unit-period) with Month.
-* Added [Time unit](operations/services.md#time-unit).
-* Extended [Get rate pricing](operations/services.md#get-rate-pricing) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
-* Extended [Get rate pricing](operations/services.md#get-rate-pricing) return value with TimeUnitStartsUtc
-* Removed DatesUtc from [Get rate pricing](operations/services.md#get-rate-pricing) return value
-* Extended [Update rate price](operations/services.md#update-rate-price) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
-* Removed TimeUnit from [Bookable service data](operations/services.md#bookable-service-data)
-* Added TimeUnitPeriod to [Bookable service data](operations/services.md#bookable-service-data)
+* Extended [Time unit period](../operations/services.md#time-unit-period) with Month.
+* Added [Time unit](../operations/services.md#time-unit).
+* Extended [Get rate pricing](../operations/services.md#get-rate-pricing) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
+* Extended [Get rate pricing](../operations/services.md#get-rate-pricing) return value with TimeUnitStartsUtc
+* Removed DatesUtc from [Get rate pricing](../operations/services.md#get-rate-pricing) return value
+* Extended [Update rate price](../operations/services.md#update-rate-price) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
+* Removed TimeUnit from [Bookable service data](../operations/services.md#bookable-service-data)
+* Added TimeUnitPeriod to [Bookable service data](../operations/services.md#bookable-service-data)
 
 ## 7th February 2022 10:22 UTC
 
-* Added [Get all age categories](operations/services.md#get-all-age-categories) operation.
+* Added [Get all age categories](../operations/agecategories.md#get-all-age-categories) operation.
 
 | Changelog by year |
 | :-- |
