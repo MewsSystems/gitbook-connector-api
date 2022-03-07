@@ -581,7 +581,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 #### Age category parameters
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `AgeCategoryId` | string | required | Unique identifier of the [Age category](agecategories.md#age-category). |
 | `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
 
