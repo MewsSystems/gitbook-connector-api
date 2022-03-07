@@ -1,3 +1,11 @@
+# ACTION REQUIRED!
+
+We have changed the URLs for our API. The old URLs with `mews.li` are no longer operational, instead you should be using:
+* `api.mews.com` for the endpoints
+* `ws.mews.com` for websockets
+
+For more details see our [guidelines](guidelines/environments.md#production-environment).
+
 # Introduction
 
 Welcome to the __Mews Connector API__. This is a general-purpose API that enables partners of Mews to access data and services in __Mews Operations__.
