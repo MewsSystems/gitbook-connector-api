@@ -1,9 +1,11 @@
 # Changelog
 
-## 11th February 2022 11:20 UTC
+## 7th March 2022 11:20 UTC
 
-* Re-structured entire Connector API documentation to split operations by domain entities (e.g. countries, outletbills, products) rather than 'themes'
-* Added new page so you can still view API operations ordered by [themes](../themes/README.md)
+* Re-structured documentation pages for API operations so split by domain entities (e.g. countries, outletbills, products) rather than 'themes'
+* Re-structured documentation pages for Changelog to split into year entries; deprecations split off into its own page
+* Some minor additional changes to documentation pages, e.g. webhooks and websockets now in separate directories
+* Added reference to Swagger/OpenAPI definition to home page
 
 ## 11th February 2022 10:22 UTC
 
