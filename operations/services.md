@@ -1122,6 +1122,8 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 Returns prices of a rate in the specified interval. Note that response contains prices for all time units that the specified interval intersects. So e.g. interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`. Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. Other time part of interval than [time unit start](#time-unit) is not supported. [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies.
 
+The price in the response is dependent on the enterprise's [pricing](configuration.md#pricing) setting. If the enterprise is set in a Gross pricing environment, then the price returned is the gross price (inclusive of tax). If the enterprise is set in a Net pricing environment, the price returned is the net price (excluding tax).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/getPricing`
