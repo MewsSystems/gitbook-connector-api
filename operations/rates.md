@@ -113,8 +113,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-    "StartUtc":"2017-01-01T00:00:00.000Z",
-    "EndUtc":"2017-01-03T00:00:00.000Z"
+    "FirstTimeUnitStartUtc": "2022-01-01T23:00:00.000Z",
+    "LastTimeUnitStartUtc": "2022-01-03T23:00:00.000Z"
 }
 ```
 
@@ -124,8 +124,8 @@ Returns prices of a rate in the specified interval. Note that response contains 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) whose prices should be returned. |
-| `StartUtc` | string | required, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | Start of the time unit interval in UTC timezone in ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | End of the time unit interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -205,14 +205,14 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
     "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
     "PriceUpdates": [
         {
-            "StartUtc": "2016-09-01T00:00:00Z",
-            "EndUtc": "2016-09-02T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2022-01-01T23:00:00.000Z",
+            "LastTimeUnitStartUtc": "2022-01-03T23:00:00.000Z",
             "Value": 111
         },
         {
             "CategoryId": "e3aa3117-dff0-46b7-b49a-2c0391e70ff9",
-            "StartUtc": "2016-09-04T00:00:00Z",
-            "EndUtc": "2016-09-05T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2022-01-04T23:00:00.000Z",
+            "LastTimeUnitStartUtc": "2022-01-05T23:00:00.000Z",
             "Value": 222
         }
     ]
@@ -232,8 +232,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | Start of the time unit interval in UTC timezone in ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | End of the time unit interval in UTC timezone in ISO 8601 format. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
