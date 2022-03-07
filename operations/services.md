@@ -56,7 +56,7 @@ Returns all services offered by the enterprise.
                     "EndOffset": "P0M0DT12H0M0S",
                     "OccupancyStartOffset": "P0M0DT15H0M0S",
                     "OccupancyEndOffset": "P0M0DT12H0M0S",
-                    "TimeUnit": "Day"
+                    "TimeUnitPeriod": "Day"
                 }
             }
         }
@@ -97,10 +97,12 @@ Returns all services offered by the enterprise.
 | `EndOffset` | string | required | Offset from the end of the time unit defining the default end of the service orders in ISO 8601 duration format. |
 | `OccupancyStartOffset` | string | required | Offset from the start of the time unit defining the occupancy start of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
 | `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
-| `TimeUnit` | [Time unit](#time-unit) | required | Time unit of the service. |
+| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | Time unit period of the service. |
 
-Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service. We currently only support the Day unit.
-We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day.
+#### Time unit
+
+Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service.
+We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day. A monthly time unit is a time unit that starts at midnight on the first day of the month and ends at midnight on the first day of the following month.
 
 Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
 `StartOffset` and `EndOffset` define the default start and end of the service (so, the service orders).
@@ -112,9 +114,14 @@ Positive end offsets of the daily time unit define the nightly service as depict
 Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
-#### Time unit
+#### Time unit interval length restrictions
+
+Interval length created between FirstTimeUnitStartUtc and LastTimeUnitStartUtc is allowed for up to 100 time units, but no more than 2 years.
+
+#### Time unit period
 
 * `Day`
+* `Month`
 * ...
 
 #### Additional service data
