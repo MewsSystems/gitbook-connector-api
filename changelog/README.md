@@ -2,10 +2,10 @@
 
 ## 7th March 2022 11:20 UTC
 
-* Re-structured documentation pages for API operations so split by domain entities (e.g. countries, outletbills, products) rather than 'themes'
-* Re-structured documentation pages for Changelog to split into year entries; deprecations split off into its own page
-* Some minor additional changes to documentation pages, e.g. webhooks and websockets now in separate directories
-* Added reference to Swagger/OpenAPI definition to home page
+* Re-structured documentation pages for API operations so pages are organised by domain entity (e.g. [countries](../operations/countries.md), [outletbills](../operations/outletbills.md), [products](../operations/products.md)) rather than theme (e.g. configuration, reservations, finance)
+* Re-structured documentation pages for Changelog so organised by year; [deprecations](../deprecations/README.md) split off into its own page
+* Some minor additional changes to documentation pages, e.g. [webhooks](../webhooks/README.md) and [websockets](../websockets/README.md) now in separate directories
+* Added reference to Swagger/OpenAPI definition on [home page](../README.md)
 
 ## 11th February 2022 10:22 UTC
 
@@ -26,6 +26,12 @@
 ## 7th February 2022 10:22 UTC
 
 * Added [Get all age categories](../operations/agecategories.md#get-all-age-categories) operation.
+
+## 2nd February 2022 10:22 UTC
+
+* Extended the request parameters for [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) to add new filter parameter `Rebated item IDs`
+* Extended the [Accounting use case](../use-cases/accounting.md) to include new section [Working with rebates](../use-cases/accounting.md#working-with-rebates)
+* Deprecated `Rebated` property from [Bill options](../operations/bills.md#bill-options) object
 
 | Changelog by year |
 | :-- |
