@@ -18,8 +18,8 @@ Cookie: ClientToken=E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D
 
 Note: There can't be any spaces around `=` in the Cookie value as this would prevent successful WebSocket connection.
 
-| Name | Type |  | Description |
-| --- | --- | --- | --- |
+| Name | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 
@@ -60,7 +60,7 @@ For further details about access tokens, consult the [Authentication](../guideli
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Events` | array of [Event](#event) | required | The events that happened during the connection. |
 
 ### Event
@@ -76,7 +76,7 @@ Depending on the event `Type`, it is one of the following:
 If the Connector integration is configured to handle commands for some devices, it will receive events whenever a command is updated \(created, updated\).
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Type` | string `DeviceCommand` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Command](../operations/commands.md#command). |
 | `State` | string [Command state](../operations/commands.md#command-state) | required | State of the command. |
@@ -86,7 +86,7 @@ If the Connector integration is configured to handle commands for some devices, 
 If the Connector integration is configured to receive reservation updates, it will receive events whenever a reservation is updated \(created, updated, canceled etc\).
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Type` | string `Reservation` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Reservation](../operations/reservations.md#reservation). |
 | `State` | string [Reservation state](../operations/reservations.md#reservation-state) | required | State of the reservation. |
@@ -99,7 +99,7 @@ If the Connector integration is configured to receive reservation updates, it wi
 If the Connector integration is configured to receive resource updates, it will receive events whenever a resource is updated \(created, renamed, state updated\).
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Type` | string `Resource` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the [Resource](../operations/resources.md#resource). |
 | `State` | string [Resource state](../operations/resources.md#resource-state) | required | State of the resource. |
@@ -109,7 +109,7 @@ If the Connector integration is configured to receive resource updates, it will 
 If the Connector integration is configured to receive price updates, it will receive events whenever a rate price is updated \(created\). Events are related to rate base price update, price adjustment and category adjustment.
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Type` | string `PriceUpdate` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the update event. |
 | `StartUtc` | string | required | Start of the price update interval in UTC timezone in ISO 8601 format. |
