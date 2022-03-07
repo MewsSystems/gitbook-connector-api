@@ -93,25 +93,26 @@ Returns all services offered by the enterprise.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `StartOffset` | string | required | Offset from the start of the time unit defining the default start of the service orders in ISO 8601 duration format. |
-| `EndOffset` | string | required | Offset from the end of the time unit defining the default end of the service orders in ISO 8601 duration format. |
-| `OccupancyStartOffset` | string | required | Offset from the start of the time unit defining the occupancy start of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
-| `OccupancyEndOffset` | string | required | Offset from the end of the time unit defining the occupancy end of the service in ISO 8601 duration format that is considered regarding the availability and reporting. |
-| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | Time unit period of the service. |
+| `StartOffset` | string | required | Offset from the start of the [time unit](#time-unit) which defines the default start of the service; expressed in ISO 8601 duration format. |
+| `EndOffset` | string | required | Offset from the end of the [time unit](#time-unit) which defines the default end of the service; expressed in ISO 8601 duration format. |
+| `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](#time-unit) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
+| `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](#time-unit) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
+| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | The length of time or period represented by a [time unit](#time-unit), for which the service can be booked. |
 
 #### Time unit
 
-Time units represent a fixed, finite time interval: a minute, a day, a month, etc. A Time unit defines the operable periods for a bookable service.
-We think of the daily time unit as the physical time unit that starts at midnight and ends at midnight the following day. A monthly time unit is a time unit that starts at midnight on the first day of the month and ends at midnight on the first day of the following month.
+Bookable Services are booked in terms of integer multiples of standard `time units`. The length of a time unit depends on the particular service and is given by `time unit period`, which can be obtained through [Get all services](#get-all-services). For example, a service with a time unit period of "Day" can be booked in multiples of days. This is equivalent to booking a hotel room stay for a specified number of days or a specified number of nights.
 
-Start offsets are anchored to the start of the time unit and end offsets are anchored to the end of the time unit.
-`StartOffset` and `EndOffset` define the default start and end of the service (so, the service orders).
-`OccupancyStartOffset` and `OccupancyEndOffset` define the time where the space is considered occupied in Mews. 
+A monthly time unit, i.e. a time unit with time unit period of "Month", starts at midnight on the first day of the month and ends at midnight on the first day of the following month.
 
-Positive end offsets of the daily time unit define the nightly service as depicted in the diagram below.
+The service is not assumed to start at the beginning of a time unit, e.g. 00:00 midnight for a "Day", nor end at the end of a time unit, e.g. the following midnight. Instead we define `StartOffset` as the offset from the beginning of the time unit at which the service starts, and `EndOffset` as the offset from the end of the time unit at which the service actually ends - see the illustrations below. Similarly, `OccupancyStartOffset` and `OccupancyEndOffset` define the offsets for which the service is considered occupied.
+
+A positive value for `EndOffset` is normal for a nightly stay and implies that the service ends on the following morning. A negative value for `EndOffset` can be used to specify a daytime service that ends before the end of the day.
+
+#### Figure 1: Illustration of a nightly service
 ![](../.gitbook/assets/timeunits-connector-night.png)
 
-Negative or zero end offsets of the daily time unit define the daily service as depicted on the picture below.
+#### Figure 2: Illustration of a daytime service
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
 #### Time unit interval length restrictions
