@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Themes](themes/README.md)
 * [Use cases](use-cases/README.md)
   * [Accounting](use-cases/accounting.md)
   * [Customer management](use-cases/customer-management.md)
@@ -15,7 +14,7 @@
   * [Revenue management](use-cases/revenue-management.md)
   * [Upselling](use-cases/upselling.md)
   * [Payment automation](/use-cases/payment-automation)
-     * [Using tokenized credit cards](/use-cases/payment-automation/using-tokenized-credit-cards.md)
+    * [Using tokenized credit cards](/use-cases/payment-automation/using-tokenized-credit-cards.md)
 * [Guidelines](guidelines/README.md)
   * [Requests](guidelines/requests.md)
   * [Responses](guidelines/responses.md)
@@ -25,6 +24,7 @@
 * [Operations](operations/README.md)
   * [Accounting categories](operations/accountingcategories.md)
   * [Accounting items](operations/accountingitems.md)
+  * [Age categories](operations/agecategories.md)
   * [Availability blocks](operations/availabilityblocks.md)
   * [Bills](operations/bills.md)
   * [Business segments](operations/businesssegments.md)
@@ -61,7 +61,6 @@
   * [Rules](operations/rules.md)
   * [Services](operations/services.md)
   * [Tasks](operations/tasks.md)
-  * [Taxations](operations/taxations.md)
   * [Tax environments](operations/taxenvironments.md)
   * [Vouchers](operations/vouchers.md)
 * [Websockets](websockets/README.md)
