@@ -42,7 +42,7 @@ It is currently supported, but will be deprecated in future - see [Deprecations]
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
 | `Data` | object | required | Structure of the object depends on [Webhook action](#webhook-action). |
 
@@ -60,7 +60,7 @@ It is currently supported, but will be deprecated in future - see [Deprecations]
 ### Integration created data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Enterprise` | [Enterprise](#enterprise) | required | Commercial chain of the property. |
 | `Service` | [Service](#service) | optional | Service the integration is connected to. |
 | `Requestor` | [Requestor](#requestor) | required | Person requesting action. |
@@ -72,59 +72,59 @@ It is currently supported, but will be deprecated in future - see [Deprecations]
 #### Enterprise
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `Name` | string | required | Name of the enterprise. |
 
 #### Service
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the service. |
 | `Name` | string | required | Name of the service. |
 
 #### Requestor
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Name` | string | required | Name of the requestor. |
 | `Email` | string | required | Email of the requestor. |
 
 #### Integration
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the integration. |
 | `Name` | string | required | Name of the intergation. |
 
 ### Integration enabled data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration disabled data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration canceled data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration reinstated data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration deleted data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
@@ -205,7 +205,7 @@ This is a newer format of webhook message which will be extended in future to ca
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `EnterpriseId` | string | required | Unique identifier of [Enterprise](../operations/configuration.md#enterprise) where events belong to. |
 | `IntegrationId` | string | required | Unique identifier of [Integration](#integration) which events are connected to. |
 | `Events` | array of [Event](#event) | required | The events that occurred in Mews. |
@@ -214,7 +214,7 @@ This is a newer format of webhook message which will be extended in future to ca
 ### Event
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Event discriminator](#event-discriminator) | required | Determines type of event. |
 | `Value` | object | required | Structure of object depends on [Event discriminator](#event-discriminator). |
 
@@ -226,12 +226,12 @@ This is a newer format of webhook message which will be extended in future to ca
 #### Entity updated data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of updated entity. |
 
 ### Entities
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `ServiceOrders` | array of [Reservation](../operations/reservations.md#reservation) | optional | Latest state of [Reservations](../operations/reservations.md#reservation) related to [Events](#event). |
 | `Resources` | array of [Resource](../operations/resources.md#resource) | optional | Latest state of [Resources](../operations/resources.md#resource) related to [Events](#event). |
