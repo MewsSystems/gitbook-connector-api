@@ -229,7 +229,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateId` | string | required | Identifier of the reservation [Rate](rates.md#rate). |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create reservation. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
-| `PersonCounts` | array of [Age category](services.md#age-category) | required | Number of people per age category the reservation was booked for. |
+| `PersonCounts` | array of [Age category](agecategories.md#age-category) | required | Number of people per age category the reservation was booked for. |
 
 #### Reservation state
 
@@ -667,12 +667,6 @@ Updates information about the specified reservations. Note that if any of the fi
             "EndUtc": {
                 "Value": "2019-10-03T10:00:00Z"
             },
-            "AdultCount": {
-                "Value": 2
-            },
-            "ChildCount": {
-                "Value": 1
-            },
             "AssignedResourceId": {
                 "Value": "16ce4335-2198-408b-8949-9722894a42fb"
             },
@@ -716,6 +710,18 @@ Updates information about the specified reservations. Note that if any of the fi
                     }
                 ]
             },
+            "PersonCounts": {
+                "Value": [
+                    {
+                        "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                        "Count": 2
+                    },
+                        {
+                        "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                        "Count": 2
+                    }
+                ]
+            },            
             "CreditCardId": {
                 "Value": "5d802a8f-3238-42b2-94be-ab0300ab2b6c"
             },
@@ -747,8 +753,6 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
 | `StartUtc` | [String update value](#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
 | `EndUtc` | [String update value](#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
-| `AdultCount` | [Number update value](#number-update-value) | optional | Count of adults the reservation is for. \(or `null` if the adult count should not be updated). |
-| `ChildCount` | [Number update value](#number-update-value) | optional | Count of children the reservation is for. \(or `null` if the child count should not be updated). |
 | `AssignedResourceId` | [String update value](#string-update-value) | optional | Identifier of the assigned [Resource](resources.md#resource). |
 | `AssignedResourceLocked` | [Bool update value](#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](resources.md#resource). Unlocking and assigning reservation to new [Resource](resources.md#resource) can be done in one call. |
 | `ChannelNumber` | [String update value](#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
@@ -759,6 +763,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `RateId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Rate](rates.md#rate) \(or `null` if the rate should not be updated). |
 | `BookerId` | [String update value](#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
+| `PersonCounts` | array of [Person counts update value](#person-counts-update-value) | optional | Number of people per age category the reservation is for. Is supplied the person counts will be replaced. \(or `null` if the person counts should not be updated). |
 | `CreditCardId` | [String update value](#string-update-value) | optional | Identifier of [Credit card](creditcards.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation.  \(or `null` if the credit card should not be updated). |
 | `AvailabilityBlockId` | [String update value](#string-update-value) | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
 
@@ -792,6 +797,12 @@ Updates information about the specified reservations. Note that if any of the fi
 | :-- | :-- | :-- | :-- |
 | `Index` | string | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
 | `Amount` | [Amount parameters](orders.md#amount-parameters) | required | Amount of the unit. |
+
+#### Person counts update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | array of [Age category parameters](#age-category-parameters) | required | Value which is to be updated. |
 
 ### Response
 
