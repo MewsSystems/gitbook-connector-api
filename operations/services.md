@@ -115,10 +115,6 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 #### Figure 2: Illustration of a daytime service
 ![](../.gitbook/assets/timeunits-connector-day.png)
 
-#### Time unit interval length restrictions
-
-Interval length created between FirstTimeUnitStartUtc and LastTimeUnitStartUtc is allowed for up to 100 time units, but no more than 2 years.
-
 #### Time unit period
 
 * `Day`
