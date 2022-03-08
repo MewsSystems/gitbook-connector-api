@@ -62,6 +62,7 @@
   * [Services](operations/services.md)
   * [Tasks](operations/tasks.md)
   * [Tax environments](operations/taxenvironments.md)
+  * [Taxations](operations/taxations.md)
   * [Vouchers](operations/vouchers.md)
 * [Websockets](websockets/README.md)
 * [Webhooks](webhooks/README.md)
