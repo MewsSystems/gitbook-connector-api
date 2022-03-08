@@ -101,7 +101,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 ## Get rate pricing
 
-Returns prices of a rate in the specified interval. Note that the response contains prices for all time units that the specified interval intersects. So, for example, an interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`, while Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan`. The time component must coincide with the start of a [time unit](#time-unit). [Time unit interval length restrictions](services.md#time-unit-interval-length-restrictions) apply.
+Returns prices for a given rate for a specified time interval. Prices will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`, while Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ is 100 time units or 2 years, whichever is the shorter amount of time.
 
 The price in the response is dependent on the enterprise's [pricing](configuration.md#pricing) setting. If the enterprise is set to a Gross pricing environment, then the price returned is the gross price (inclusive of tax). If the enterprise is set to a Net pricing environment, the price returned is the net price (excluding tax).
 
@@ -126,8 +126,8 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) whose prices should be returned. |
-| `FirstTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | Start of the time unit interval in UTC timezone in ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | End of the time unit interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
 
 ### Response
 
@@ -148,7 +148,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
             "ParentCategoryId": "34c29e73-c8db-4e93-b51b-981e42655e03",
             "RelativeValue": 0
         }
-    ]
+    ],
     "CategoryPrices": [
         {
             "CategoryId": "e3aa3117-dff0-46b7-b49a-2c0391e70ff9",
@@ -166,8 +166,8 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
-| `BasePrices` | array of number | required | Base prices of the rate in the covered dates. |
+| `DatesUtc` | array of string | required | Set of all dates covered by the time interval; expressed in UTC timezone ISO 8601 format. |
+| `BasePrices` | array of number | required | Base prices of the rates for each time unit covered by the time interval. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
 | `RelativeAdjustment` | decimal | required | Specific amount which shows the difference between this rate and the base rate. |
@@ -193,7 +193,9 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 
 ## Update rate price
 
-Updates price of a rate in the specified intervals. If the `CategoryId` is specified, updates price of the corresponding [Resource category](resources.md#resource-category), otherwise updates the base price for all resource categories. Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It's not allowed to update past prices outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+Updates the prices for a given rate. You can make multiple price updates with one API call, and for each one specify the time interval for which the update applies, the price value and the applicable [resource category](resources.md#resource-category). The price will be updated for all service [time units](services.md#time-unit) that the specified time interval intersects. The price is per time unit, e.g. per day or per month. If the resource category `CategoryId` is not specified, the updated price will apply to the base price for all resource categories.
+
+Note that prices are defined daily, so when the server receives the UTC interval, it first converts it to the enterprise timezone and updates the price on all dates that the interval intersects. Only root rates can be updated (the rates that have no base rate, that have `BaseRateId` set to `null`). It is not permitted to update historical prices older than specified by `EditableHistoryInterval`. Future prices may be updated up to 5 years in the future. The __maximum size of time interval__ is 100 time units or 2 years, whichever is the shorter amount of time.
 
 ### Request
 
@@ -234,8 +236,8 @@ Updates price of a rate in the specified intervals. If the `CategoryId` is speci
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `FirstTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | Start of the time unit interval in UTC timezone in ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required, [Time unit interval length restrictions](#time-unit-interval-length-restrictions) applies. | End of the time unit interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response
