@@ -365,7 +365,7 @@ Returns all outlets of an enterprise associated with the connector integration.
 
 ## Get all resources
 
-Returns all resources of an enterprise associated with the connector integration.
+Returns all resources of an enterprise associated with the connector integration. Note that when any of the extents is set to `true`, the response contains the entities that are associated to a resource. If the extent is not associated to a resource (e.g. resource category not assigned to any resource), this information is not returned. 
 
 ### Request
 

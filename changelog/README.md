@@ -1,3 +1,11 @@
+# ACTION REQUIRED!
+
+We have changed the URLs for our API. The old URLs with `mews.li` are no longer operational, instead you should be using:
+* `api.mews.com` for the endpoints
+* `ws.mews.com` for websockets
+
+For more details, see [Environments](guidelines/environments.md).
+
 # Changelog
 
 ## 7th March 2022 11:20 UTC

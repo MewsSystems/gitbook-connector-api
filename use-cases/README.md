@@ -9,7 +9,6 @@ The following types of system are described here:
 * [Point of sale](point-of-sale.md)
 * [Guest technology](guest-technology.md)
 * [Reputation management](reputation-management.md)
-* [Mobile keys](mobile-keys.md)
 * [Event management](event-management.md)
 * [Accounting](accounting.md)
 * [Upselling](upselling.md)

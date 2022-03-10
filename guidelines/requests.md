@@ -3,11 +3,11 @@
 The API accepts only `HTTP POST` requests with `Content-Type` set to `application/json` and JSON content depending on the operation to be performed. All operations follow this address pattern:
 
 ```text
-[ApiAddress]/api/connector/v1/[Resource]/[Operation]
+[PlatformAddress]/api/connector/v1/[Resource]/[Operation]
 ```
 
-* **ApiAddress** - Base address of the MEWS API, depends on environment \(testing, staging, production\).
-* **PlatformAddress** - Address of the MEWS web application, depends on environment \(testing, staging, production\).
+* **PlatformAddress** - Base address of the MEWS API, depends on environment \(testing, staging, production\).
+* **MewsWebApplicationAddress** - Address of the MEWS web application, depends on environment \(testing, staging, production\).
 * **Resource** - Logical group of operations, in most cases identifies target of the operations.
 * **Operation** - Name of the operation to be performed.
 
