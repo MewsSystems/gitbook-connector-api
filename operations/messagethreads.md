@@ -63,7 +63,7 @@ Returns all message threads created by the integration.
 
 ## Add message thread
 
-Creates a message thread on behalf of an original sender of the message to the integration.
+Creates a [Message thread](#message-thread) on behalf of an original sender of the message to the integration.
 
 ### Request
 
