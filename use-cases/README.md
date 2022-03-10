@@ -1,6 +1,8 @@
 # Use cases
 
-This section describes, how to use the Connector API in order to implement well-known scenarios. Even if you are integrating a different type of system, serves as a good starting point for the API usage patterns and practices. The following types of systems are described here:
+This section describes how to use the __Mews Connector API__ in order to implement well-known scenarios.
+Even if you are integrating a different type of system, it serves as a good starting point for API usage patterns and practices.
+The following types of system are described here:
 
 * [Revenue management](revenue-management.md)
 * [Device integrations](device-integrations.md)

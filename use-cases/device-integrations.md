@@ -1,6 +1,6 @@
 ## Device integrations
 
-In order to communicate with devices on the local hotel network, such as printers, lock systems, PBX, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands. When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed. Of course, as many of the actions with devices should happen in real time, you should in most of the cases use this in combination with [Websockets](../websockets.md) to avoid polling for new commands. Whenever a relevant command is created, you would receive a notification about such an event through the opened websocket.
+In order to communicate with devices on the local hotel network, such as printers, lock systems, PBX, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands. When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed. Of course, as many of the actions with devices should happen in real time, you should in most of the cases use this in combination with [Websockets](../websockets/README.md) to avoid polling for new commands. Whenever a relevant command is created, you would receive a notification about such an event through the opened websocket.
 
 ### Adding a new device 
 
@@ -14,26 +14,26 @@ See the **Testing your integration** section on how to create the devices and li
 
 First, subscribe your application to receive device command events by connecting to the Websockets endpoint. Once the websocket connection has been established, your application will receive notification of all newly created device commands in real time.  
 
-Once you are notified of a new or updated [Command event](../websockets.md#command-event), retrieve the command into your application using [Get all commands by ids](../operations/integrations.md#get-all-commands-by-ids). 
+Once you are notified of a new or updated [Command event](../websockets/README.md#command-event), retrieve the command into your application using [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids). 
 
-If your application reconnects using websockets or was offline for any reason and length of time, you should use the [Get all commands](../operations/integrations.md#get-all-commands) operation to retrieve all pending commands that were in the queue while your application was offline. This is to ensure that no commands in the queue remain unprocessed.  
+If your application reconnects using websockets or was offline for any reason and length of time, you should use the [Get all commands](../operations/commands.md#get-all-commands) operation to retrieve all pending commands that were in the queue while your application was offline. This is to ensure that no commands in the queue remain unprocessed.  
 
 ### Processing commands 
 
-Once your application has successfully processed the device command, you should update the status of the command to “Processed” (or others if the command was not successfully processed) using the [Update command](../operations/integrations.md#update-command) operation. 
+Once your application has successfully processed the device command, you should update the status of the command to “Processed” (or others if the command was not successfully processed) using the [Update command](../operations/commands.md#update-command) operation. 
 
 ### Types of device commands
 
-Mews currently provides several types of [Command data](../operations/integrations.md#command-data), including printer, payment terminal, passport scanner, fiscal machine, and key cutter command data.
+Mews currently provides several types of [Command data](../operations/commands.md#command-data), including printer, payment terminal, passport scanner, fiscal machine, and key cutter command data.
 
 #### Fiscal machine commands
 
-For Fiscal Machines (whether a virtual or a physical one), you will receive a command containing [Fiscal machine command data](../operations/integrations.md#fiscal-machine-command-data). That includes all data of the related [Bill](../operations/finance.md#bill) including all the payments and revenue items in a form of [Accounting item](../operations/finance.md#accounting-item). 
+For Fiscal Machines (whether a virtual or a physical one), you will receive a command containing [Fiscal machine command data](../operations/commands.md#fiscal-machine-command-data). That includes all data of the related [Bill](../operations/bills.md#bill) including all the payments and revenue items in a form of [Accounting item](../operations/accountingitems.md#accounting-item). 
 *NB: Currently, there is no way to send fiscal codes generated by the fiscal machine back to Mews.*
 
 #### Key cutter commands
 
-In case your device is a Key Cutter, you will get a command containing [Key cutter command data](../operations/integrations.md#key-cutter-command-data). You can then use this set of information to encode a physical key card. If your solution includes both physical keys and mobile/other forms of keys, you can also use the same set of information to send the key or door code to the guest.  
+In case your device is a Key Cutter, you will get a command containing [Key cutter command data](../operations/commands.md#key-cutter-command-data). You can then use this set of information to encode a physical key card. If your solution includes both physical keys and mobile/other forms of keys, you can also use the same set of information to send the key or door code to the guest.  
 
 For a more detailed use case on door locks and mobile keys, refer to the Access control use case.
 
