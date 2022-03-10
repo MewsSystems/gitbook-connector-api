@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Returns all messages from the message thread that was created by the integration.
+Returns all messages from the [Message thread](messagethreads.md#message-thread) that was created by the integration.
 
 ### Request
 
@@ -60,7 +60,7 @@ Returns all messages from the message thread that was created by the integration
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the message. |
-| `ThreadId` | string | required | Unique identifier of the thread of which is the message part. |
+| `ThreadId` | string | required | Unique identifier of the [Message thread](messagethreads.md#message-thread) of which is the message part. |
 | `Text` | string | required | Text of the message. |
 | `Sender` | [Sender](#sender) | required | Specifies the sender of the message. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | required, max length 1 month | Interval in which the [Message](#message) was added to the thread (created). |
@@ -78,7 +78,7 @@ Returns all messages from the message thread that was created by the integration
 
 ## Add message
 
-Creates a message thread on behalf of an original sender of the message to the integration.
+Adds a message to the [Message thread](messagethreads.md#message-thread) that was created by the integration.
 
 ### Request
 
@@ -104,7 +104,7 @@ Creates a message thread on behalf of an original sender of the message to the i
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Messages` | array of [Message](#added-message)s | required | Message to be added to the given thread. |
+| `Messages` | array of [Message](#added-message)s | required | Message to be added to the given [Message thread](messagethreads.md#message-thread). |
 
 ### Response
 
@@ -130,22 +130,20 @@ Creates a message thread on behalf of an original sender of the message to the i
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Messages` | array of [AddedMessage](#added-messages)s | required | The created message threads. |
-
-#### Message
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Identifier` | string | optional | Identifier of the created message for exteral usage. |
-| `MessageThreadId` | string | required | Unique identifier of the thread of which is the message part. |
-
+| `Messages` | array of [Added message](#added-messages)s | required | Collection of created messages. |
 
 #### Added Message
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
-| `Identifier` | string | optional | Identifier of a message to help externally handle created messages. |
-| `Message` | [Message](#message) | required | Message that was created. |
+| `Identifier` | string | optional | Identifier of the created message. |
+| `Message` | string | [Message](#message) | Message that was added to the [Message thread](messagethreads.md#message-thread). |
 
-| `MessageThreadId` | string | required | Unique identifier of the thread of which is the message part. |
-diff --git a/operations/messagethreads.md b/operations/messagethreads.md
+
+#### Message parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Text` | string | required | Text of the message. |
+| `ThreadId` | string | required | Unique identifier of the [Message thread](messagethreads.md#message-thread) to which the message should be added. |
+| `Identifier` | string | optional | Identifier of the message to be created. |
