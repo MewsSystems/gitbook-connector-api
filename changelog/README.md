@@ -4,7 +4,7 @@ We have changed the URLs for our API. The old URLs with `mews.li` are no longer 
 * `api.mews.com` for the endpoints
 * `ws.mews.com` for websockets
 
-For more details, see [Environments](guidelines/environments.md).
+For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
