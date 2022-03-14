@@ -39,10 +39,9 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
         {
             "Id": "4bfe4675-98a9-4428-9ea9-ae5300dbaa93",
             "ThreadId": "8d02142f-31cf-4115-90bf-ae5200c7a1ba",
-            "Text": "Message from user number 2",
+            "Text": "Text of the message",
             "Sender": {
-                "Discriminator": "Application",
-                "Value": null
+                "Discriminator": "Application"
             },
             "CreatedUtc": "2022-03-09T13:19:46Z"
         }
