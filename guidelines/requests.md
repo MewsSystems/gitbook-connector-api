@@ -3,11 +3,11 @@
 The API accepts only `HTTP POST` requests with `Content-Type` set to `application/json` and JSON content depending on the operation to be performed. All operations follow this address pattern:
 
 ```text
-[ApiAddress]/api/connector/v1/[Resource]/[Operation]
+[PlatformAddress]/api/connector/v1/[Resource]/[Operation]
 ```
 
-* **ApiAddress** - Base address of the MEWS API, depends on environment \(testing, staging, production\).
-* **PlatformAddress** - Address of the MEWS web application, depends on environment \(testing, staging, production\).
+* **PlatformAddress** - Base address of the MEWS API, depends on environment \(testing, staging, production\).
+* **MewsWebApplicationAddress** - Address of the MEWS web application, depends on environment \(testing, staging, production\).
 * **Resource** - Logical group of operations, in most cases identifies target of the operations.
 * **Operation** - Name of the operation to be performed.
 
@@ -28,7 +28,7 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `LanguageCode` | string | optional | Code of the [language](../operations/configuration.md#language). |
+| `LanguageCode` | string | optional | Code of the [language](../operations/languages.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
 All operations of the API require a `ClientToken`, an `AccessToken` and `Client` to be present in the request. Those are used to [authenticate](#authentication) incoming requests.

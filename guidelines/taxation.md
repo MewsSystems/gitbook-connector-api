@@ -18,9 +18,9 @@ The integration partner should use the following endpoints to correctly retrieve
 
 1. Call [Get configuration](../operations/configuration.md#get-configuration) to retrieve that `TaxEnvironmentCode` that applies to the relevant property. Note this information for the subsequent API call.
 
-2. Call [Get all tax environments](../operations/configuration.md#get-all-tax-environments) and use the `TaxEnvironmentCode` retrieved earlier to find the corresponding list of `TaxationCodes`. The list of `TaxationCodes` is needed to obtain for the relevant taxation information for each code in the subsequent API call. 
+2. Call [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments) and use the `TaxEnvironmentCode` retrieved earlier to find the corresponding list of `TaxationCodes`. The list of `TaxationCodes` is needed to obtain for the relevant taxation information for each code in the subsequent API call. 
 
-3. Call [Get all taxations](../operations/configuration.md#get-all-taxations) to retrieve the individual tax `Codes`, their names, and values. 
+3. Call [Get all taxations](../operations/taxations.md#get-all-taxations) to retrieve the individual tax `Codes`, their names, and values. 
 
 ## Tax exempt items
 
@@ -39,4 +39,4 @@ Multi-tax environments have instances in which a combination of taxes is applied
 
 ## Validation
 
-To understand for which time period a set of tax codes are valid in a given tax environment, please review the `ValidityStartUtc` and `ValidityEndUtc` in [Get all tax environments](../operations/configuration#response-3). 
+To understand for which time period a set of tax codes are valid in a given tax environment, please review the `ValidityStartUtc` and `ValidityEndUtc` in [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments). 

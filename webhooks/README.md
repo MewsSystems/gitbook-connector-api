@@ -1,10 +1,20 @@
 # Webhooks
 
-When an action of particular type is performed in the system, a message is sent to the configured webhook, using HTTP POST and JSON body.
+Webhooks provides another way to communicate with Mews.
+A webhook is a web address that a client application registers with the Mews API to receive event-based messages.
+It is also known as a web callback, because Mews is 'calling back' the client application.
+In other words, rather than make a request to the Mews API and wait for a response, you can register for Mews to contact you when an event occurs.
+For example, you may want to receive notifications when a check-in event occurs.
+See also [websockets](../websockets/).
+
+Like normal requests to API endpoints in the __Mews Connector API__, the webhook message will be made as a request using HTTP POST and with the details of the message in the JSON body. 
 
 ## Integration message
 
-This is currently used format of webhooks, it carries only events about changes of integration state, will be deprecated in future.
+This is an older form of webhook, which only supports events related to changes in integration state.
+It is currently supported, but will be deprecated in future - see [Deprecations](../deprecations/).
+
+### Request body
 
 ```javascript
 {
@@ -32,7 +42,7 @@ This is currently used format of webhooks, it carries only events about changes 
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Action` | string [Webhook action](#webhook-action) | required | Type of the action. |
 | `Data` | object | required | Structure of the object depends on [Webhook action](#webhook-action). |
 
@@ -50,7 +60,7 @@ This is currently used format of webhooks, it carries only events about changes 
 ### Integration created data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Enterprise` | [Enterprise](#enterprise) | required | Commercial chain of the property. |
 | `Service` | [Service](#service) | optional | Service the integration is connected to. |
 | `Requestor` | [Requestor](#requestor) | required | Person requesting action. |
@@ -62,65 +72,67 @@ This is currently used format of webhooks, it carries only events about changes 
 #### Enterprise
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `Name` | string | required | Name of the enterprise. |
 
 #### Service
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the service. |
 | `Name` | string | required | Name of the service. |
 
 #### Requestor
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Name` | string | required | Name of the requestor. |
 | `Email` | string | required | Email of the requestor. |
 
 #### Integration
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the integration. |
 | `Name` | string | required | Name of the intergation. |
 
 ### Integration enabled data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration disabled data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration canceled data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration reinstated data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ### Integration deleted data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
 | `Integration` | [Integration](#integration) | required | Integration data. |
 
 ## General message
 
-This is a new format of webhook message which will be extended in future to carry events about different entities in Mews.
+This is a newer format of webhook message which will be extended in future to carry events about different entities in Mews.
+
+### Request body
 
 ```javascript
 {
@@ -193,33 +205,33 @@ This is a new format of webhook message which will be extended in future to carr
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `EnterpriseId` | string | required | Unique identifier of [Enterprise](configuration.md#enterprise) where events belong to. |
+| :-- | :-- | :-- | :-- |
+| `EnterpriseId` | string | required | Unique identifier of [Enterprise](../operations/configuration.md#enterprise) where events belong to. |
 | `IntegrationId` | string | required | Unique identifier of [Integration](#integration) which events are connected to. |
 | `Events` | array of [Event](#event) | required | The events that occurred in Mews. |
-| `Entities` | [Entities](#entities) | required | Collection of entities related to [Event](#event)s. |
+| `Entities` | [Entities](#entities) | required | Collection of entities related to [Events](#event). |
 
 ### Event
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Event discriminator](#event-discriminator) | required | Determines type of event. |
 | `Value` | object | required | Structure of object depends on [Event discriminator](#event-discriminator). |
 
 #### Event discriminator
 
-* `ServiceOrderUpdated` - Service order (for example a [Reservation](operations/reservations.md#reservation)) was updated. The value is [Entity updated data](#entity-updated-data).
-* `ResourceUpdated` - [Resource](operations/enterprises.md#resource) (for example a room) was updated. The value is [Entity updated data](#entity-updated-data).
+* `ServiceOrderUpdated` - Service order (for example a [Reservation](../operations/reservations.md#reservation)) was updated. The value is [Entity updated data](#entity-updated-data).
+* `ResourceUpdated` - [Resource](../operations/resources.md#resource) (for example a room) was updated. The value is [Entity updated data](#entity-updated-data).
 
 #### Entity updated data
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of updated entity. |
 
 ### Entities
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `ServiceOrders` | array of [Reservation](operations/reservations.md#reservation) | optional | Latest state of [Reservation](operations/reservations.md#reservation)s related to [Event](#event)s. |
-| `Resources` | array of [Resource](operations/enterprises.md#resource) | optional | Latest state of [Resource](operations/enterprises.md#resource)s related to [Event](#event)s. |
+| :-- | :-- | :-- | :-- |
+| `ServiceOrders` | array of [Reservation](../operations/reservations.md#reservation) | optional | Latest state of [Reservations](../operations/reservations.md#reservation) related to [Events](#event). |
+| `Resources` | array of [Resource](../operations/resources.md#resource) | optional | Latest state of [Resources](../operations/resources.md#resource) related to [Events](#event). |
