@@ -74,7 +74,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 * `Enterprise`
 * `Application`
 
-## Add message
+## Add messages
 
 Adds messages to the [Message threads](messagethreads.md#message-thread) that were created by the application.
 
