@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Returns all messages from the [Message thread](messagethreads.md#message-thread) that was created by the integration.
+Returns all messages from the [Message thread](messagethreads.md#message-thread) that was created by the application.
 
 ### Request
 
@@ -28,7 +28,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [MessageThread](#message-thread)s from where to return messages. |
+| `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](#message-thread) from where to return messages. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Message thread](#message-thread) was created. |
 
 ### Response
@@ -136,7 +136,7 @@ Adds messages to the [Message threads](messagethreads.md#message-thread) that we
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Messages` | array of [Added message](#added-messages)s | required | Collection of created messages. |
+| `Messages` | array of [Added messages](#added-messages) | required | Collection of created messages. |
 
 #### Added Message
 

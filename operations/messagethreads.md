@@ -2,7 +2,7 @@
 
 ## Get all message threads
 
-Returns all message threads created by the integration.
+Returns all message threads created by the application.
 
 ### Request
 
@@ -25,7 +25,7 @@ Returns all message threads created by the integration.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [MessageThreads](#message-thread). Required if no other filter is provided. |
+| `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [Message threads](#message-thread). Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
 
@@ -107,4 +107,4 @@ Creates a [Message thread](#message-thread) on behalf of a customer \(original s
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `MessageThreads` | array of [MessageThread](#mesage-threads)s | required | The created message threads. |
+| `MessageThreads` | array of [Message threads](#message-thread) | required | The created message threads. |
