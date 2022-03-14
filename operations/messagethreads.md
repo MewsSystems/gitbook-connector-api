@@ -2,7 +2,7 @@
 
 ## Get all message threads
 
-Returns all message threads created by the application.
+Returns all message threads created by the client application.
 
 ### Request
 
@@ -26,8 +26,15 @@ Returns all message threads created by the application.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [Message threads](#message-thread). Required if no other filter is provided. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
+
+#### Time interval
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -55,7 +62,7 @@ Returns all message threads created by the application.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the message thread. |
-| `OriginalSender` | string | required | Original sender of the message on behalf of whom is the message sent. |
+| `OriginalSender` | string | required | The sender of the original message in the thread. |
 | `Subject` | string | required | Subject of the message thread. |
 | `CreatedUtc` | string | required | Creation date and time of the message thread in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the message thread in UTC timezone in ISO 8601 format. |
@@ -84,7 +91,7 @@ Creates a [Message thread](#message-thread) on behalf of a customer \(original s
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `OriginalSender` | string | required | Original sender of the message on behalf of whom is the message sent. |
+| `OriginalSender` | string | required | The sender of the original message in the thread. |
 | `Subject` | string | required | Subject of the message thread. |
 
 ### Response
