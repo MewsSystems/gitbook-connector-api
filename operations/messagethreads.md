@@ -21,12 +21,13 @@ Returns all message threads created by the integration.
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. |
+| `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [MessageThreads](#message-thread). Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
 
 
 ### Response
@@ -47,23 +48,23 @@ Returns all message threads created by the integration.
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `MessageThreads` | array of [Message thread](#message-threads) | required | The message threads that were created by the integration. |
+| :-- | :-- | :-- | :-- |
+| `MessageThreads` | array of [Message threads](#message-thread) | required | The message threads that were created by the application. |
 
 #### Message thread
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the message thread. |
-| `OriginalSender` | string | required | Original sender of the message on behalf of whom is the message sent to enterprise. |
+| `OriginalSender` | string | required | Original sender of the message on behalf of whom is the message sent. |
 | `Subject` | string | required | Subject of the message thread. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. |
-| `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. |
-| `IsResolved` | bool | optional | Whether [Message thread](#message-thread) is resolved. |
+| `CreatedUtc` | string | required | Creation date and time of the message thread in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the message thread in UTC timezone in ISO 8601 format. |
+| `IsResolved` | bool | required | Whether [Message thread](#message-thread) is resolved. |
 
 ## Add message thread
 
-Creates a [Message thread](#message-thread) on behalf of an original sender of the message to the integration.
+Creates a [Message thread](#message-thread) on behalf of a customer \(original sender of the message\).
 
 ### Request
 
@@ -80,11 +81,11 @@ Creates a [Message thread](#message-thread) on behalf of an original sender of t
 ```
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `OriginalSender` | string | required | Original sender of the message on behalf of whom is the message sent to enterprise. |
+| `OriginalSender` | string | required | Original sender of the message on behalf of whom is the message sent. |
 | `Subject` | string | required | Subject of the message thread. |
 
 ### Response
@@ -105,5 +106,5 @@ Creates a [Message thread](#message-thread) on behalf of an original sender of t
 ``` 
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `MessageThreads` | array of [MessageThread](#mesage-threads)s | required | The created message threads. |
