@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Returns all messages from the [Message thread](messagethreads.md#message-thread) that was created by the application.
+Returns all messages from the [Message thread](messagethreads.md#message-thread) that was created by the client application.
 
 ### Request
 
@@ -29,7 +29,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](#message-thread) from where to return messages. |
-| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Message thread](#message-thread) was created. |
+| `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
 
 ### Response
 
@@ -38,7 +38,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
     "Messages": [
         {
             "Id": "4bfe4675-98a9-4428-9ea9-ae5300dbaa93",
-            "ThreadId": "8d02142f-31cf-4115-90bf-ae5200c7a1ba",
+            "MessageThreadId": "8d02142f-31cf-4115-90bf-ae5200c7a1ba",
             "Text": "Text of the message",
             "Sender": {
                 "Discriminator": "Application"
@@ -58,7 +58,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the message. |
-| `ThreadId` | string | required | Unique identifier of the [Message thread](messagethreads.md#message-thread) of which is the message part. |
+| `MessageThreadId` | string | required | Unique identifier of the [Message thread](messagethreads.md#message-thread) of which is the message part. |
 | `Text` | string | required | Text of the message. |
 | `Sender` | [Sender](#sender) | required | Specifies the sender of the message. |
 | `CreatedUtc` | string | required | Creation date and time of the message in UTC timezone in ISO 8601 format. |
@@ -135,7 +135,7 @@ Adds messages to the [Message threads](messagethreads.md#message-thread) that we
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Messages` | array of [Added messages](#added-messages) | required | Collection of created messages. |
+| `Messages` | array of [Added messages](#added-message) | required | Collection of created messages. |
 
 #### Added Message
 

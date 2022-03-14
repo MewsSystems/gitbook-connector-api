@@ -29,7 +29,6 @@ Returns all message threads created by the application.
 | `CreatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](enterprises.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
 
-
 ### Response
 
 ```javascript
@@ -49,7 +48,7 @@ Returns all message threads created by the application.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `MessageThreads` | array of [Message threads](#message-thread) | required | The message threads that were created by the application. |
+| `MessageThreads` | array of [Message threads](#message-thread) | required | The filtered message threads. |
 
 #### Message thread
 
