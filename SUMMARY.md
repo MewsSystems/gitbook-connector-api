@@ -21,6 +21,7 @@
   * [Environments](guidelines/environments.md)
   * [Serialization](guidelines/serialization.md)
   * [Certification](guidelines/certification.md)
+  * [Taxation](guidelines/taxation.md)
 * [Operations](operations/README.md)
   * [Accounting categories](operations/accountingcategories.md)
   * [Accounting items](operations/accountingitems.md)
