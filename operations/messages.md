@@ -76,7 +76,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 
 ## Add messages
 
-Adds messages to the [Message threads](messagethreads.md#message-thread) that was created by the client application.
+Adds one or more messages to [Message threads](messagethreads.md#message-thread) that was created by the client application.
 
 ### Request
 
