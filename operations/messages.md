@@ -28,7 +28,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](#message-thread) from where to return messages. |
+| `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](messagethreads.md#message-thread) from where to return messages. |
 | `CreatedUtc` | [Time interval](messagethreads.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
 
 ### Response
