@@ -82,6 +82,15 @@ This section describes all operations supported by the API, organised here by th
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 
+## Messages
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all message threads](messagethreads.md#get-all-message-threads) | Get all message threads that you have created |
+| [Add message thread](messagethreads.md#add-message-thread) | Creates a new message thread on behalf of the specified customer |
+| [Get all messages](messages.md#get-all-messages) | Get all messages belonging to the specified message threads |
+| [Add messages](messages.md#add-messages) | Add the specified messages to the specified message threads |
+
 ## Reservations
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
