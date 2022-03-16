@@ -2,7 +2,7 @@
 
 ## Get all message threads
 
-Returns all message threads created by the client application.
+Get all message threads that you have created, filtered by time interval and/or specific message thread IDs.
 
 ### Request
 
@@ -70,7 +70,7 @@ Returns all message threads created by the client application.
 
 ## Add message thread
 
-Creates a [Message thread](#message-thread) on behalf of a customer \(original sender of the message\).
+Creates a new [Message thread](#message-thread) on behalf of the specified customer, i.e. the sender of the original message in the message thread.
 
 ### Request
 
