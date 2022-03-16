@@ -8,6 +8,13 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 16th March 2022 08:20 UTC
+
+* Added operation [Get all message threads](operations/messagethreads.md#get-all-message-threads) to retrieve message threads.
+* Added operation [Add message thread](operations/messagethreads.md#add-message-thread) to add message thread.
+* Added operation [Get all messages](operations/messages.md#get-all-messages) to retrieve messages.
+* Added operation [Add messages](operations/messages.md#add-messages) to add messages.
+
 ## 7th March 2022 11:20 UTC
 
 * Re-structured documentation pages for API operations so pages are organised by domain entity (e.g. [countries](../operations/countries.md), [outletbills](../operations/outletbills.md), [products](../operations/products.md)) rather than theme (e.g. configuration, reservations, finance)
