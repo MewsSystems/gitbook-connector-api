@@ -46,8 +46,7 @@ Get all message threads that you have created, filtered by time interval and/or 
             "OriginalSender": "John Doe",
             "Subject": "Example subject",
             "CreatedUtc": "2022-03-07T16:09:45Z",
-            "UpdatedUtc": "2022-03-07T16:09:45Z",
-            "IsResolved": false
+            "UpdatedUtc": "2022-03-07T16:09:45Z"
         }
     ]
 }
@@ -66,7 +65,6 @@ Get all message threads that you have created, filtered by time interval and/or 
 | `Subject` | string | required | Subject of the message thread. |
 | `CreatedUtc` | string | required | Creation date and time of the message thread in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the message thread in UTC timezone in ISO 8601 format. |
-| `IsResolved` | bool | required | Whether [Message thread](#message-thread) is resolved. |
 
 ## Add message thread
 
