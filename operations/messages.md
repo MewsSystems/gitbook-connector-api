@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Returns all messages from the [Message thread](messagethreads.md#message-thread) that was created by the client application.
+Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created.
 
 ### Request
 
@@ -58,16 +58,16 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the message. |
-| `MessageThreadId` | string | required | Unique identifier of the [Message thread](messagethreads.md#message-thread) of which is the message part. |
+| `MessageThreadId` | string | required | Unique identifier of the [Message thread](messagethreads.md#message-thread) which the message belongs to. |
 | `Text` | string | required | Text of the message. |
-| `Sender` | [Sender](#sender) | required | Specifies the sender of the message. |
+| `Sender` | [Sender](#sender) | required | The sender of the message. |
 | `CreatedUtc` | string | required | Creation date and time of the message in UTC timezone in ISO 8601 format. |
 
 #### Sender
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Sender discriminator](#sender-discriminator) | required | If the message was created by enterprise or application. |
+| `Discriminator` | string [Sender discriminator](#sender-discriminator) | required | The source of the message, either the enterprise or the client application. |
 
 #### Sender discriminator
 
@@ -76,7 +76,7 @@ Returns all messages from the [Message thread](messagethreads.md#message-thread)
 
 ## Add messages
 
-Adds one or more messages to [Message threads](messagethreads.md#message-thread) that was created by the client application.
+Add the specified messages to the specified [Message threads](messagethreads.md#message-thread). You can only add messages to message threads that you have created.
 
 ### Request
 
