@@ -71,8 +71,8 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 
 #### Sender discriminator
 
-* `Enterprise`
-* `Application`
+* `Enterprise` - the message was created by an employee of the enterprise
+* `Application` - the message was created by the third party application
 
 ## Add messages
 
