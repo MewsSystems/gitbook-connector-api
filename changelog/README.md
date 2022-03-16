@@ -10,10 +10,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 ## 16th March 2022 08:20 UTC
 
-* Added operation [Get all message threads](operations/messagethreads.md#get-all-message-threads) to retrieve message threads.
-* Added operation [Add message thread](operations/messagethreads.md#add-message-thread) to add message thread.
-* Added operation [Get all messages](operations/messages.md#get-all-messages) to retrieve messages.
-* Added operation [Add messages](operations/messages.md#add-messages) to add messages.
+* Added operation [Get all message threads](../operations/messagethreads.md#get-all-message-threads) to retrieve message threads.
+* Added operation [Add message thread](../operations/messagethreads.md#add-message-thread) to add message thread.
+* Added operation [Get all messages](../operations/messages.md#get-all-messages) to retrieve messages.
+* Added operation [Add messages](../operations/messages.md#add-messages) to add messages.
 
 ## 7th March 2022 11:20 UTC
 
