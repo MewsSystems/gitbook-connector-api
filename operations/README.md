@@ -86,10 +86,10 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all message threads](messagethreads.md#get-all-message-threads) | Returns all message threads created by the client application |
-| [Add message thread](messagethreads.md#add-message-thread) | Creates a message thread on behalf of a customer \(original sender of the message\) |
-| [Get all messages](messages.md#get-all-messages) | Returns all messages from the message thread that was created by the client application. |
-| [Add messages](messages.md#add-messages) | Adds messages to the message thread that was created by the client application. |
+| [Get all message threads](messagethreads.md#get-all-message-threads) | Get all message threads that you have created |
+| [Add message thread](messagethreads.md#add-message-thread) | Creates a new message thread on behalf of the specified customer |
+| [Get all messages](messages.md#get-all-messages) | Get all messages belonging to the specified message threads |
+| [Add messages](messages.md#add-messages) | Add the specified messages to the specified message threads |
 
 ## Reservations
 
