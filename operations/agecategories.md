@@ -48,9 +48,7 @@ Returns all age categories filtered by [Service](services.md#service).
                 "de-DE": "Erwachsene",
                 "el-GR": "Ενήλικοι",
                 "en-GB": "Adults"
-            },
-            "Classification": "Adult",
-            "IsDefault": true
+            }
         },
         {
             "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
@@ -64,9 +62,7 @@ Returns all age categories filtered by [Service](services.md#service).
                 "de-DE": "Kinder",
                 "el-GR": "Παιδιά",
                 "en-GB": "Children"
-            },
-            "Classification": "Children",
-            "IsDefault": false
+            }
         }
     ]
 }
@@ -81,10 +77,3 @@ Returns all age categories filtered by [Service](services.md#service).
 | `MinimalAge` | number | optional | Minimal age for the age category. |
 | `MaximalAge` | number | optional | Maximal age for the age category. |
 | `Names` | [Localized text](resources.md#localized-text) | required | All translations of the name of the age category. |
-| `Classification` | string  [Age category classification](#age-category-classification) | required | Classification of the age category. |
-| `IsDefault` | bool | requied | Whether the age category is default. |
-
-#### Age category classification
-
-* `Adult`
-* `Children`
