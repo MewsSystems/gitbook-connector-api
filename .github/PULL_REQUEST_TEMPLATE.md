@@ -4,6 +4,10 @@
 * Added/Extended operations....
 ```
 
+#### Follow style guide
+
+[Style guide](https://app.getguru.com/card/c98GRexi/Style-Guide-for-Mews-Open-API-Documentation)
+
 #### Check during review
 
 - [ ] JSON example extended.
