@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 24th March 2022 14:00 UTC
+
+* Extended operations [Get all services](operations/services.md#get-all-services) and [Get all products](operations/products.md#get-all-products) with `Options` property.
+
 ## 16th March 2022 08:20 UTC
 
 * Added operation [Get all message threads](../operations/messagethreads.md#get-all-message-threads) to retrieve message threads.
