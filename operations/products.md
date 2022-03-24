@@ -42,6 +42,9 @@ Returns all products offered together with the specified services.
             "Description": "Nice continental breakfast.",
             "Charging": "PerPersonPerTimeUnit",
             "Posting": "Once",
+            "Options": {
+                "BillAsPackage": false
+            },
             "Promotions": {
                 "BeforeCheckIn": false,
                 "AfterCheckIn": false,
@@ -90,6 +93,7 @@ Returns all products offered together with the specified services.
 | `Description` | string | optional | Description of the product. |
 | `Charging` | string [Product charging](#product-charging) | required | Charging of the product. |
 | `Posting` | string [Product posting](#product-posting) | required | Posting of the product. |
+| `Options` | [Product options](#product-options) | required | Options of the product. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 | `Classifications` | [Product classifications](#product-classifications) | required | Classifications of the service. |
 | `Price` | [Currency value](accountingitems.md#currency-value) | required | Price of the product. |
@@ -105,6 +109,12 @@ Returns all products offered together with the specified services.
 
 * `Once`
 * `Daily`
+
+#### Product options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillAsPackage` | boolean | required | Product should be displayed as part of a package. |
 
 #### Product classifications
 
