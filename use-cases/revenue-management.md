@@ -10,8 +10,9 @@ One can take advantage of the fact that reservations are usually booked a few we
 
 If the data pulled in the previous steps is not sufficient, RMS can pull e.g. business segments via [Get all business segments](../operations/businesssegments.md#get-all-business-segments) or rates via [Get all rates](../operations/rates.md#get-all-rates). 
 
-> **Note: it is important to get the reservations and revenue first and the additional data later after that.**<br/>
-> If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation right before the reservation gets pulled to the RMS.
+### Fetching data in the right order
+It is important to get the reservations and revenue first and the additional data afterwards.
+If done the other way around, there is a possibility that the RMS receives a reservation with a `RateId` which does not correspond to any rate that was pulled beforehand. Rates and business segments are dynamic and hotel employees could create a new one and assign it to a reservation just before the reservation gets pulled to the RMS.
 
 ### Periodic updates and syncing reservation data
 
