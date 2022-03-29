@@ -46,6 +46,8 @@
   * [Exchange rates](operations/exchangerates.md)
   * [Images](operations/images.md)
   * [Languages](operations/languages.md)
+  * [Messages](operations/messages.md)
+  * [Message threads](operations/messagethreads.md)
   * [Orders](operations/orders.md)
   * [Outlet bills](operations/outletbills.md)
   * [Outlet items](operations/outletitems.md)
