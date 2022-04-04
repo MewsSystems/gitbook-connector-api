@@ -4,6 +4,7 @@ In order to communicate with devices on the local hotel network, such as printer
 When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed.
 Of course, as many of the actions with devices happen in real time, you should in many cases use this in combination with [WebSockets](../websockets/README.md) to avoid polling for new commands.
 Whenever a relevant command is created, you will receive a notification about such an event via the configured WebSocket.
+For more information on choosing the right option, see [Ways to communicate](../guidelines/communicate.md).
 
 ### Adding a new device 
 
