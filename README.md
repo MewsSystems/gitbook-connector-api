@@ -10,12 +10,15 @@ For more details, see [Environments](guidelines/environments.md).
 
 Welcome to the __Mews Connector API__. This is a general-purpose API that enables partners of Mews to access data and services in __Mews Operations__.
 
-The API is typically consumed by cloud applications that work with the data of hotels and other properties hosted in Mews, e.g. revenue management systems and cloud-based point-of-sale systems.
-It can also be used by applications that are running on-premise to mediate communication between Mews and local devices, e.g. en-premise point-of-sale systems, self-service kiosks and physical devices such as printers.
+The API is typically consumed by cloud applications that work with the data of properties hosted in Mews, e.g. revenue management systems and cloud-based point-of-sale systems.
+It can also be used by applications that are running on-premise to mediate communication between Mews and local devices, e.g. on-premise point-of-sale systems, self-service kiosks and physical devices such as printers.
 
-As your first step to using the API, you will want to get familiar with the [Guidelines](guidelines/) which describe how to get started communicating with the API.
-All API endpoints are detailed in [Operations](operations/), see also [Websockets](websockets/) and [Webhooks](webhooks/) for other ways to communicate.
-For guidance on using the API for different scenarios, have a look at the [Use cases](use-cases/) which will help you through your implementation.
+To get started, see our [Guidelines](guidelines/README.md) for information on how to connect, what authentication tokens you need, Mews terminology, and more besides.
+All of the API operations are detailed in [Operations](operations/README.md). In addition, we support [Webhooks](webhooks/README.md) and [WebSockets](websockets/README.md).
+Not sure which to use? See [Ways to communicate](guidelines/communicate.md).
+For specific guidance on using the API for different scenarios, have a look at [Use cases](use-cases/README.md) which will help you through your implementation.
+
+If you encounter any issues using the API, or you have a question or special request, please get in touch via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
 
 > ### Changes to this API
 > * For the history of changes to the API, see the [Changelog](changelog/)

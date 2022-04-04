@@ -19,7 +19,7 @@ Use the below logins for accessing the demo enterprises ([Gross Pricing Environm
 
 ### Security Policy
 
-> **The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.**
+> **IMPORTANT!** The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.
 
 ### Request limits
 
@@ -81,7 +81,7 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 
 ### Security Policy
 
-> **To protect the live data of each property, please store your production tokens securely and do not share them publicly.**
+> **IMPORTANT!** To protect the live data of each property, please store your production tokens securely and do not share them publicly.
 
 ### Request limits
 

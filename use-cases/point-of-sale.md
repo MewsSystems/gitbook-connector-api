@@ -31,7 +31,7 @@ Outlets are used by the POS to send a full revenue push to Mews, for end-of-day 
 Use [Get all outlets](../operations/outlets.md#get-all-outlets) to retrieve outlets that the property has configured.
 Outlets should be created by the property for each external location, as well as unique `accounting categories` that should be used to separate payments and revenue per outlet.
 
-##### Example of Service and Outlet mapping
+#### Example of Service and Outlet mapping
 
 | Point of Sale | Mews Service | Mews Outlet | 
 | :-- | :-- | :-- |
@@ -50,7 +50,7 @@ Accounting categories are linked to accounting items such as revenue items (e.g.
 The POS system should be configured to map accounting items to the correct accounting categories in Mews to ensure accurate posting. 
 Use [Get all account categories](../operations/accountingcategories.md#get-all-accounting-categories) to retrieve a list of all `accounting categories` which the property has configured, then map these against the product offerings and accepted payment types that have been configured in the POS system. 
 
-##### Example of POS revenue item and payment type mapping
+#### Example of POS revenue item and payment type mapping
 
 | POS Revenue/Payment | Mews Accounting Category |
 | :-- | :-- |
@@ -73,7 +73,7 @@ The customer classification `Cashlist` is used by properties to indicate where c
 Note that having a `Cashlist` [customer classification](../operations/customers.md#customer-classification) does not automatically prevent orders from being posted to the customer's bill, 
 the POS system can decide whether to recognise this classification on a customer profile and prevent users from sending room charges from the POS system.
 
-> *Note: room numbers of hotels (space resources in Mews) may consist of numbers, letters and other characters.*
+> Note: room numbers of hotels (space resources in Mews) may consist of numbers, letters and other characters.
 
 ### Charge posting
 

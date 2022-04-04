@@ -1,54 +1,60 @@
 ## Device integrations
 
-In order to communicate with devices on the local hotel network, such as printers, lock systems, PBX, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands. When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed. Of course, as many of the actions with devices should happen in real time, you should in most of the cases use this in combination with [Websockets](../websockets/README.md) to avoid polling for new commands. Whenever a relevant command is created, you would receive a notification about such an event through the opened websocket.
+In order to communicate with devices on the local hotel network, such as printers, lock systems, PBX, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands.
+When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed.
+Of course, as many of the actions with devices happen in real time, you should in most cases use this in combination with [WebSockets](../websockets/README.md) or [Webhooks](../webhooks/README.md) to avoid polling for new commands.
+Whenever a relevant command is created, you will receive a notification about such an event via the configured WebSocket or Webhook.
+For more information on choosing the right option, see [Ways to communicate](../guidelines/communicate.md).
 
 ### Adding a new device 
 
-Device integrations will require two integrations to be added to a property's Marketplace subscriptions. One is the generic device integration - used for creating the device in Mews. The other is your integration, where the created device must be added under the **Connected devices** section in the integration settings, so that your system can begin receiving websocket notifications of newly created device commands for the selected devices. 
+Device integrations will require two integrations to be added to a property's Marketplace subscriptions. One is the generic device integration - used for creating the device in Mews.
+The other is your integration, where the created device must be added under the **Connected devices** section in the integration settings, so that your system can begin receiving WebSocket or Webhook notifications of newly created device commands for the selected devices. 
+See [Testing your integration](#testing-your-integration) below for how to create the devices and link them to your integration.
 
-See the **Testing your integration** section on how to create the devices and link them to your integration
-
-*N.B. When a new device has been created in Mews and linked to your integration, or removed from the integration, you should disconnect and reconnect to the websocket in order to receive websocket events for the newly added devices.Currently there is no automatic notification, and the property must inform you of any changes to their device set up.* 
+> Note: If using WebSockets, when a new device has been created in Mews and linked to your integration, or removed from your integration, you should disconnect and reconnect to the WebSocket in order to receive WebSocket events for the newly added devices.
+> Currently there is no automatic notification of this, so the property must inform you of any changes to their device set-up.
 
 ### Retrieving commands 
 
-First, subscribe your application to receive device command events by connecting to the Websockets endpoint. Once the websocket connection has been established, your application will receive notification of all newly created device commands in real time.  
+Using [WebSockets](../websockets/README.md), first subscribe your application to receive `DeviceCommand` events and connect to the WebSockets endpoint.
+Once the connection has been established, you will receive notification of all `DeviceCommand` events in real time.
+When you get the [Device Command event](../websockets/README.md#device-command-event) notification, you can fetch details of the command using [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids). 
 
-Once you are notified of a new or updated [Command event](../websockets/README.md#command-event), retrieve the command into your application using [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids). 
-
-If your application reconnects using websockets or was offline for any reason and length of time, you should use the [Get all commands](../operations/commands.md#get-all-commands) operation to retrieve all pending commands that were in the queue while your application was offline. This is to ensure that no commands in the queue remain unprocessed.  
+If your application re-connects using WebSockets, or was offline for any reason and for any length of time, you should use the [Get all commands](../operations/commands.md#get-all-commands) operation to retrieve all pending commands that were in the queue while your application was offline. This is to ensure that no commands in the queue remain unprocessed.  
 
 ### Processing commands 
 
-Once your application has successfully processed the device command, you should update the status of the command to “Processed” (or others if the command was not successfully processed) using the [Update command](../operations/commands.md#update-command) operation. 
+Once your application has successfully processed the device command, you should update the status of the command to “Processed” (or other state, if the command was *not* successfully processed) using the [Update command](../operations/commands.md#update-command) operation. 
 
 ### Types of device commands
 
 Mews currently provides several types of [Command data](../operations/commands.md#command-data), including printer, payment terminal, passport scanner, fiscal machine, and key cutter command data.
 
-#### Fiscal machine commands
+### Fiscal machine commands
 
-For Fiscal Machines (whether a virtual or a physical one), you will receive a command containing [Fiscal machine command data](../operations/commands.md#fiscal-machine-command-data). That includes all data of the related [Bill](../operations/bills.md#bill) including all the payments and revenue items in a form of [Accounting item](../operations/accountingitems.md#accounting-item). 
-*NB: Currently, there is no way to send fiscal codes generated by the fiscal machine back to Mews.*
+For Fiscal Machines (whether a virtual or a physical one), you will receive a command containing [Fiscal machine command data](../operations/commands.md#fiscal-machine-command-data).
+This includes all data of the related [Bill](../operations/bills.md#bill), including all the payments and revenue items in the form of an [Accounting item](../operations/accountingitems.md#accounting-item). 
 
-#### Key cutter commands
+> Note: Currently, there is no way to send fiscal codes generated by the fiscal machine back to Mews.
 
-In case your device is a Key Cutter, you will get a command containing [Key cutter command data](../operations/commands.md#key-cutter-command-data). You can then use this set of information to encode a physical key card. If your solution includes both physical keys and mobile/other forms of keys, you can also use the same set of information to send the key or door code to the guest.  
+### Key cutter commands
 
-For a more detailed use case on door locks and mobile keys, refer to the Access control use case.
+In case your device is a Key Cutter, you will get a command containing [Key cutter command data](../operations/commands.md#key-cutter-command-data). You can then use this set of information to encode a physical key card.
+If your solution includes both physical keys and mobile or other forms of keys, you can also use the same set of information to send the key or door code to the guest.  
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to Device integrations:
+Ensure you follow our general [Guidelines](../guidelines/README.md) for testing integrations. In addition to this, the following is specific to device integrations:
 
-To be able to use your integration, an additional step of configuring the device and connecting it to the relevant integration (and therefore the API access token) is required. This is done through the following steps:
+To be able to use your integration, an additional step of configuring the device and connecting it to the relevant integration (and therefore the API `Access Token`) is required. This is done through the following steps:
 
-1. Open the main menu in the top left corner, scroll down and click on **Marketplace**.
+1. In __Mews Operations__, open the main menu in the top left corner, scroll down and click on **Marketplace**.
 2. Depending on the type of device you are connecting, click on either the Facility management category (Key cutter integration, Passport scanner integration, Printer integration) or Legal environment (Fiscal machine integration) category.
 3. Once you have found the correct device integration, click **See more** followed by **Connect** to add this device integration to your Marketplace subscription.
 4. Go into the integrations settings page and complete the required fields (if any), then click on the device type on the left side of the screen (e.g. **Key cutters**) and then the "+" button to add and configure any required fields of the device (e.g. Identifier). Be sure to save all changes. 
 5. Go back to your integration found in the **My subscriptions** section of the Marketplace and click on the **Settings** found on the right side of the integration listing.
-6. Once inside the integration settings page, you will see a drop down menu titled **Connected devices**. Select your newly created device from that list and click **Save** and restart the websocket connection.
+6. Once inside the integration settings page, you will see a drop down menu titled **Connected devices**. Select your newly created device from that list and click **Save**, then restart your WebSocket connection.
 
 This is the same process that will be required when you assist any mutual customer with onboarding and configuration of your solution.
 
