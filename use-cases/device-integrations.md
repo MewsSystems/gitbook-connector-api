@@ -2,14 +2,13 @@
 
 In order to communicate with devices on the local hotel network, such as printers, lock systems, PBX, TVs, key cutters or fiscal machines, Mews has introduced the concept of devices and device commands.
 When a relevant action happens in Mews, a device command is generated and put into the device command queue. Using the API, you can pull the commands from the queue, process them as you find necessary and later mark them as processed.
-Of course, as many of the actions with devices happen in real time, you should in most cases use this in combination with [WebSockets](../websockets/README.md) or [Webhooks](../webhooks/README.md) to avoid polling for new commands.
-Whenever a relevant command is created, you will receive a notification about such an event via the configured WebSocket or Webhook.
-For more information on choosing the right option, see [Ways to communicate](../guidelines/communicate.md).
+Of course, as many of the actions with devices happen in real time, you should in many cases use this in combination with [WebSockets](../websockets/README.md) to avoid polling for new commands.
+Whenever a relevant command is created, you will receive a notification about such an event via the configured WebSocket.
 
 ### Adding a new device 
 
 Device integrations will require two integrations to be added to a property's Marketplace subscriptions. One is the generic device integration - used for creating the device in Mews.
-The other is your integration, where the created device must be added under the **Connected devices** section in the integration settings, so that your system can begin receiving WebSocket or Webhook notifications of newly created device commands for the selected devices. 
+The other is your integration, where the created device must be added under the **Connected devices** section in the integration settings, so that your system can begin receiving WebSocket notifications of newly created device commands for the selected devices. 
 See [Testing your integration](#testing-your-integration) below for how to create the devices and link them to your integration.
 
 > Note: If using WebSockets, when a new device has been created in Mews and linked to your integration, or removed from your integration, you should disconnect and reconnect to the WebSocket in order to receive WebSocket events for the newly added devices.
