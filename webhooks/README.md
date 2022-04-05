@@ -82,7 +82,7 @@ See the Webhook reference pages for details of the request body:
 ### What is the frequency of event generation?
 
 The frequency at which events are created in the Mews system depends on the type of event and on the level of activity.
-However, a system parameter determines the maximum frequency at which event Webhooks are sent out, typically this is no more than every 2 minutes.
+However, a system parameter determines the maximum frequency at which event Webhooks are sent out, typically this is in the range 2 to 5 minutes.
 See [When are Webhooks generated?](../guidelines/communicate.md#when-are-webhooks-generated).
 
 ### Can I see what Webhooks are configured?
