@@ -39,10 +39,14 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     "ExternalIdentifiers": [
         "Block-0001"
     ],
+    "ActivityStates": [
+        "Active"
+    ],
     "Extent": {
         "AvailabilityBlocks": true,
         "Adjustments": true,
-        "ServiceOrders": false
+        "ServiceOrders": false,
+        "Rates": false
     }
 }
 ```
@@ -59,6 +63,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are active. |
 | `States` | array of string [Availability block state](#availability-block-state) | optional | States the availability blocks should be in. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems. |
+| `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservations](reservations.md#reservation)) are returned. |
 
 #### Time interval
@@ -83,6 +88,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `AvailabilityBlocks` | bool | optional | Whether the response should contain the general availability blocks. |
 | `Adjustments` | bool | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
 | `ServiceOrders` | bool | optional | Whether the response should contain reservations related to availability blocks. |
+| `Rates` | bool | optional | Whether the response should contain rates related to availability blocks. |
 
 ### Response
 
