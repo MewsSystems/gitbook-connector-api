@@ -8,6 +8,11 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 25th April 2022 11:00 UTC
+
+* Extended operations [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ActivityStates` property.
+* Extended operations [Get all availability blocks](../operations/availabilityblocks.md#availability-block-extent) with `Rates` property.
+
 ## 24th March 2022 14:00 UTC
 
 * Extended operations [Get all services](../operations/services.md#get-all-services) and [Get all products](../operations/products.md#get-all-products) with `Options` property.
