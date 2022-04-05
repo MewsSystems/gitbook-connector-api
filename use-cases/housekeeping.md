@@ -8,11 +8,15 @@ The integration must first retrieve all the resources the property has configure
 
 ### Managing resources 
 
-To ensure all of the information is always synchronized between the two systems, the housekeeping integration monitors and manages any changes to the state of a resource. Use the [Resource event](../websockets/README.md#resource-event) websocket to receive real-time events whenever the [resource state](../operations/resources.md#resource-state) is changed. Once a staff member has cleaned or inspected a room, the state can be updated in Mews using [Update resources](../operations/resources.md#update-resources) by specifying the new state of the resource. 
+To ensure all of the information is always synchronized between the two systems, the housekeeping integration monitors and manages any changes to the state of a resource.
+Rather than polling the Mews API for state changes, you can subscribe to notification events using [Webhooks](../webhooks/README.md) or [WebSockets](../websockets/README.md).
+Both methods support changes to resources. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md).
+Once a staff member has cleaned or inspected a room, the state can be updated in Mews using [Update resources](../operations/resources.md#update-resources) by specifying the new state of the resource. 
 
 Information about resource blocks can be requested using [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks). Housekeeping integrations can also manage blocks through [Add resource block](../operations/resourceblocks.md#add-resource-block) and [Delete resource blocks](../operations/resourceblocks.md#delete-resource-blocks).
 
-If there is a use case for creating a task directly in Mews, this can be done using the [Add task](../operations/tasks.md#add-task) request. If a task should be assigned to a specific department, the unique identifiers required for this action can be retrieved using [Get all departments](../operations/departments.md#get-all-departments). A list of existing tasks can be retrieved from Mews using [Get all tasks](../operations/tasks.md#get-all-tasks).
+If there is a use case for creating a task directly in Mews, this can be done using the [Add task](../operations/tasks.md#add-task) operation.
+If a task should be assigned to a specific department, the unique identifiers required for this action can be retrieved using [Get all departments](../operations/departments.md#get-all-departments). A list of existing tasks can be retrieved from Mews using [Get all tasks](../operations/tasks.md#get-all-tasks).
 
 ### Additional information
 
@@ -20,9 +24,9 @@ Mews allows properties to configure when a space will be marked as `Dirty`, upon
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to housekeeping integrations
+Please ensure you follow our general [Guidelines](../guidelines/README.md) for testing integrations. In addition to this, and specific to housekeeping integrations:
 
-Using the demo credentials, you can run the [housekeeping report](https://help.mews.com/s/article/space-status-report?language=en_US) to cross-check whether the integration is working correctly.
+* Using the demo credentials, you can run the [housekeeping report](https://help.mews.com/s/article/space-status-report?language=en_US) to cross-check whether the integration is working correctly.
 
 ### Additional Help for working with the demo environment
 

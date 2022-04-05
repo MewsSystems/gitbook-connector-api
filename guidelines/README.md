@@ -9,6 +9,11 @@ This section describes guidelines for general usage of the __Mews Connector API_
 
 ## Quick start
 
+To begin with, Mews operates several environments. At the beginning of your development process, you'll be interested in the [Demo environment](environments.md#demo-environment).
+To get yourself familiar with the system and the types of data we provide, you can log in to __Mews Operations__ using the email and password provided and check out the Mews system features.
+
+Alternatively, you can start using the API right away, using the demo tokens below. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method.
+Below is an example request which will return the configuration details for one of our test hotels.
 To begin with, Mews operates several environments. At the beginning of your development process, you'll be interested in the [Demo environment](environments.md#demo-environment). To get yourself familiar with the system and the types of data we provide, you can log in to __Mews Operations__ using the email and password provided and check out the Mews system features.
 
 Alternatively, you can start using the API right away, using the demo tokens below. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method. Below is an example request which will return the configuration details for one of our test hotels.
@@ -61,4 +66,7 @@ If the [response](responses.md) looks something like this, you've successfully m
 
 There are several [serialization](serialization.md) patterns that you should get familiar with in order to use the API correctly. For example, we work with times in UTC so you should be aware of the timezone the property is in (as can be seen on example above) as well as any daylight saving time changes, and adjust accordingly.
 
-If you receive an error response, check the [response codes](responses.md#response-codes) and the message specified in [response details](responses.md#response-details) to determine what went wrong. Note that if you encounter a `429` error with one of the testing demo credentials, it may be that multiple developers are using the same demo credentials and have exhausted our [request limits](requests.md#request-limits). To minimize the impact this may have on your development efforts, we provide multiple sets of tokens for the test hotels that you can use in Demo. 
+If you receive an error response, check the [response codes](responses.md#response-codes) and the message specified in [response details](responses.md#response-details) to determine what went wrong.
+Note that if you encounter a `429` error with one of the testing demo credentials, it may be that multiple developers are using the same demo credentials and have exhausted our [request limits](requests.md#request-limits).
+To minimize the impact this may have on your development efforts, we provide multiple sets of tokens for the test hotels that you can use in Demo.
+

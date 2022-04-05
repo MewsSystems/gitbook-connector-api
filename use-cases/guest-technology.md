@@ -1,28 +1,31 @@
 ## Guest technology
 
-Guest technology integrations such as a telephone system are used for staff to identify guests on telephones or TV's and to generate revenue by charging guests for outside phone calls.
+Guest technology integrations, such as telephone systems or entertainment systems, are used to identify guests on telephones or TVs and to generate revenue by charging guests for outside phone calls.
 
 ### Setup
 
-The integration should use the [Get all services](../operations/services.md#get-all-services) operation to retrieve all services the property has configured in Mews. Once all services are retrieved, the service which you would like all charges to be sent under would be selected. Alternatively, a field where the `ServiceId` can be entered can be used.
+The integration should use the [Get all services](../operations/services.md#get-all-services) operation to retrieve all services the property has configured in Mews.
+Once all services are retrieved, the service which you would like all charges to be sent to can be selected. Alternatively, a field where the `ServiceId` can be entered can be used.
 
 The [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) operation should be used to retrieve all accounting categories the property has configured in Mews. This is important as a hotel may prefer to have charges for international phone calls reported with a different accounting category than domestic phone calls.
 
 ### Room Status
 
-Guest technology integrations are required to receive an update to a [reservation state](../operations/reservations.md#reservation-state) in real time, this is why integration partners should configure a [Reservation Websocket](../websockets/README.md#reservation-event) instead of constantly polling for new states.
+Guest technology integrations require information on changes to [reservation state](../operations/reservations.md#reservation-state).
+Rather than polling the Mews API for state changes, it is better to subscribe to notification events using [Webhooks](../webhooks/README.md) or [WebSockets](../websockets/README.md).
+Both methods support changes to reservations. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md).
+Once a reservation update event is received, use the reservation ID in a [Get all reservations](../operations/reservations.md#get-all-reservations) request to retrieve all information about the reservation and customer.
 
-If the websocket event fits your criteria, after receiving the event, use the ReservationId it contains in the [Get all reservations](../operations/reservations.md#get-all-reservations) request to retrieve all information about the reservation and customer.
+> Note: The customer classification `Cashlist` is used when charges cannot be sent to the customer bill. This is commonly known as ‘No Post’.
 
-*Note: The customer classification, `Cashlist` is what customers are classified as if charges should not be sent to their bill. This is also commonly known as ‘No Post’.*
+### Charging checked-in customers
 
-### Charging checked in customers
-
-Once the unique identifier of the customer to be charged is obtained, the items can be posted onto their billing tab using the [Add order](../operations/orders.md#add-order) operation. If the product being posted already exists in Mews, then use [Product order parameters](../operations/orders.md#product-order-parameters). If the product does not exist in Mews then use the [Item parameters](../operations/orders.md#item-parameters). 
+Once the unique identifier of the customer to be charged is obtained, the items can be posted onto their billing tab using the [Add order](../operations/orders.md#add-order) operation.
+If the product being posted already exists in Mews, then use [Product order parameters](../operations/orders.md#product-order-parameters). If the product does *not* exist in Mews then use the [Item parameters](../operations/orders.md#item-parameters). 
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines) for testing integrations.
+Please ensure you follow our general [Guidelines](../guidelines/README.md) for testing integrations.
 
 To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
 

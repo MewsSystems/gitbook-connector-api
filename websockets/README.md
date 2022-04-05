@@ -1,31 +1,43 @@
-# Websockets
+# WebSockets
 
-For use cases where polling would be too resource consuming or not real-time enough, websockets can be used.
-A websocket is an open connection over which Mews can send event messages as the events occur.
-After the client application makes a successful connection, it will receive messages according to the configuration of the Connector integration in __Mews Operations__.
+WebSockets provides another way to communicate with Mews, for special use cases where polling using API [Operations](../operations/README.md) is too resource consuming, and event-driven [Webhooks](../webhooks/README.md) are not sufficiently real-time.
+A WebSocket is an open connection over which Mews can send event messages as the events occur.
+After you make a successful WebSocket connection to Mews, you will receive event messages according to the configuration of your integration in __Mews Operations__.
+For a comparative overview of [Operations](../operations/README.md) vs [Webhooks](../webhooks/README.md) vs WebSockets, see [Ways to communicate](../guidelines/communicate.md).
 
-## Endpoint
+## Supported events
 
-`[WebSocketAddress]/ws/connector`
+| <div style="width:100px">Entity</div> | <div style="width:150px">Event</div> | Description |
+| :-- | :-- | :-- |
+| Command | `DeviceCommand` | Event triggered when a device command is updated |
+| Reservation | `Reservation` | Event triggered when a reservation is updated |
+| Resource | `Resource` | Event triggered when a resource is updated |
+| Price | `PriceUpdate` | Event triggered when a rate price is updated |
+
+## Endpoint URL
+
+```text
+[WebSocketAddress]/ws/connector
+```
+
+* **WebSocketAddress** - Base address for Mews WebSockets, depending on the [Environment](../guidelines/environments.md) \(Demo or Production\).
 
 ## Authentication
 
-Authentication is done using same combination of `ClientToken` and `AccessToken` values as in case of standard API operations. These tokens must be sent as cookies together with the connection request. Most websocket client libraries support this. 
+Authentication is done using the same combination of `ClientToken` and `AccessToken` as used for standard API operations. These tokens must be sent as cookies together with the connection request. Most WebSocket client libraries support this. 
+For more information about client tokens and access tokens, see [Authentication](../guidelines/requests.md#authentication).
 
 ```
 Cookie: ClientToken=E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D; AccessToken=C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D
 ```
 
-Note: There can't be any spaces around `=` in the Cookie value as this would prevent successful WebSocket connection.
+> Note: There can't be any spaces around `=` in the Cookie value as this would prevent successful WebSocket connection.
 
-| Name | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
+* **ClientToken** - Unique token per integration which will be provided to you by Mews upon successful certification.
+* **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 
-For further details about access tokens, consult the [Authentication](../guidelines/requests.md#authentication) section.
 
-## Message
+## Message body
 
 ```javascript
 {
@@ -67,13 +79,14 @@ For further details about access tokens, consult the [Authentication](../guideli
 
 Depending on the event `Type`, it is one of the following:
 
-* [Command event](#command-event)
+* [Device Command event](#device-command-event)
 * [Reservation event](#reservation-event)
 * [Resource event](#resource-event)
+* [Price Update event](#price-update-event)
 
-#### Command event
+#### Device Command event
 
-If the Connector integration is configured to handle commands for some devices, it will receive events whenever a command is updated \(created, updated\).
+If the integration is configured to handle commands for some devices, it will receive events whenever a command is created or updated.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -83,7 +96,7 @@ If the Connector integration is configured to handle commands for some devices, 
 
 #### Reservation event
 
-If the Connector integration is configured to receive reservation updates, it will receive events whenever a reservation is updated \(created, updated, canceled etc\).
+If the integration is configured to receive reservation updates, it will receive events whenever any change is made to a reservation \(created, updated, canceled, etc.\).
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -96,7 +109,7 @@ If the Connector integration is configured to receive reservation updates, it wi
 
 #### Resource event
 
-If the Connector integration is configured to receive resource updates, it will receive events whenever a resource is updated \(created, renamed, state updated\).
+If the integration is configured to receive resource updates, it will receive events whenever a change is made to a resource \(created, renamed, state updated\).
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -104,9 +117,10 @@ If the Connector integration is configured to receive resource updates, it will 
 | `Id` | string | required | Unique identifier of the [Resource](../operations/resources.md#resource). |
 | `State` | string [Resource state](../operations/resources.md#resource-state) | required | State of the resource. |
 
-#### Price update event
+#### Price Update event
 
-If the Connector integration is configured to receive price updates, it will receive events whenever a rate price is updated \(created\). Events are related to rate base price update, price adjustment and category adjustment.
+If the integration is configured to receive price updates, it will receive events whenever a rate price is created or updated.
+Events are related to base price updates, price adjustments and category adjustments.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
