@@ -31,6 +31,9 @@ Returns all services offered by the enterprise.
             "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
             "IsActive": true,
             "Name": "Restaurant",
+            "Options": {
+                "BillAsPackage": false
+            },
             "Data": {
                 "Discriminator": "Additional",
                 "Value": {
@@ -49,6 +52,9 @@ Returns all services offered by the enterprise.
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Accommodation",
+            "Options": {
+                "BillAsPackage": true
+            },
             "Data": {
                 "Discriminator": "Bookable",
                 "Value": {
@@ -75,7 +81,14 @@ Returns all services offered by the enterprise.
 | `Id` | string | required | Unique identifier of the service. |
 | `IsActive` | boolean | required | Whether the service is still active. |
 | `Name` | string | required | Name of the service. |
+| `Options` | [Service options](#service-options) | required | Options of the service. |
 | `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
+
+#### Service options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillAsPackage` | boolean | required | Products should be displayed as a single package instead of individual items. |
 
 #### Service data
 

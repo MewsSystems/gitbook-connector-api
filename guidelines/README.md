@@ -14,6 +14,9 @@ To get yourself familiar with the system and the types of data we provide, you c
 
 Alternatively, you can start using the API right away, using the demo tokens below. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method.
 Below is an example request which will return the configuration details for one of our test hotels.
+To begin with, Mews operates several environments. At the beginning of your development process, you'll be interested in the [Demo environment](environments.md#demo-environment). To get yourself familiar with the system and the types of data we provide, you can log in to __Mews Operations__ using the email and password provided and check out the Mews system features.
+
+Alternatively, you can start using the API right away, using the demo tokens below. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method. Below is an example request which will return the configuration details for one of our test hotels.
 You can find out more about this API operation in [Get configuration](../operations/configuration.md#get-configuration).
 
 Endpoint URL:
@@ -65,4 +68,5 @@ There are several [serialization](serialization.md) patterns that you should get
 
 If you receive an error response, check the [response codes](responses.md#response-codes) and the message specified in [response details](responses.md#response-details) to determine what went wrong.
 Note that if you encounter a `429` error with one of the testing demo credentials, it may be that multiple developers are using the same demo credentials and have exhausted our [request limits](requests.md#request-limits).
-To minimize the impact this may have on your development efforts, we provide multiple sets of tokens for the test hotels that you can use in Demo. 
+To minimize the impact this may have on your development efforts, we provide multiple sets of tokens for the test hotels that you can use in Demo.
+

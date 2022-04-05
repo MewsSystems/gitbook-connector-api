@@ -4,9 +4,25 @@ We have changed the URLs for our API. The old URLs with `mews.li` are no longer 
 * `api.mews.com` for the endpoints
 * `ws.mews.com` for websockets
 
-For more details, see [Environments](guidelines/environments.md).
+For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
+
+## 25th April 2022 11:00 UTC
+
+* Extended operations [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ActivityStates` property.
+* Extended operations [Get all availability blocks](../operations/availabilityblocks.md#availability-block-extent) with `Rates` property.
+
+## 24th March 2022 14:00 UTC
+
+* Extended operations [Get all services](../operations/services.md#get-all-services) and [Get all products](../operations/products.md#get-all-products) with `Options` property.
+
+## 16th March 2022 08:20 UTC
+
+* Added operation [Get all message threads](../operations/messagethreads.md#get-all-message-threads) to retrieve message threads.
+* Added operation [Add message thread](../operations/messagethreads.md#add-message-thread) to add message thread.
+* Added operation [Get all messages](../operations/messages.md#get-all-messages) to retrieve messages.
+* Added operation [Add messages](../operations/messages.md#add-messages) to add messages.
 
 ## 7th March 2022 11:20 UTC
 

@@ -32,7 +32,7 @@
 * Split [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments) and [Get all taxations](../operations/taxations.md#get-all-taxations).
 * Extended [Tax Rate](../operations/taxations.md#tax-rate) discriminator with `Dependent`.
 
-## 6th January 20201 11:30 UTC
+## 6th January 2021 11:30 UTC
 * Specified limitations on operation parameters (generally 1000 items in collection and maximum time filter length of 3 months).
 * Changed the [websocket](../websockets/README.md) authentication method to use cookies instead of URL query parameters.
 * Extended [Space resource data](../operations/resources.md#space-resource-data) with `LocationNotes`.

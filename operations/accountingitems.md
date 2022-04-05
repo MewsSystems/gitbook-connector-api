@@ -247,6 +247,7 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
+| `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
 
 #### Rebate order item data
 
