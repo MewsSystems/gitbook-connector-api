@@ -37,10 +37,7 @@ Of course a Webhook is still a web API using request-response because that is ho
 
 ### When are Webhooks generated?
 
-A Webhook is generated when some event occurs in the system, however they are 'near real-time' and not 'true real-time'.
-Instead events are queued when they occur, with the queue being periodically read and the Webhooks generated.
-That period is a system parameter, typically in the range 2 to 5 minutes.
-That means that the lag between an event occuring and the Webhook being generated is between 0 and 2 to 5 minutes (even then, circumstances can cause delays so times are not guaranteed).
+A Webhook is generated when some event occurs in the system, however note these are not true real-time events, there may be a lag of up to several minutes (depending on circumstances and on system parameters) between the event occurring and the Webhook being generated.
 For most use cases that is absolutely fine, but there are some use cases that require true real-time event information, e.g. generating digital keys.
 For this case, we have WebSockets.
 
