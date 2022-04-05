@@ -40,7 +40,6 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         "Block-0001"
     ],
     "ActivityStates": [
-        "Deleted",
         "Active"
     ],
     "Extent": {
