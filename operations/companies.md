@@ -74,7 +74,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "IsActive": true,
             "Number": 25,
             "TaxIdentifier": "",
-            "BillingCode": ""
+            "BillingCode": "",
+            "Options": {
+                "Invoicable": true
+            }
         },
         {
             "AccountingCode": "",
@@ -109,8 +112,15 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `BillingCode` | string | optional | Billing code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
+| `BillingCode` | string | optional | Billing code of the company. |
+| `Options` | [CompanyOptions](#company-options) | required | Options of the company. |
+
+#### Company options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Invoiceable` | boolean | required | Whether is the company invoicable or not. |
 
 ## Add company
 
@@ -138,7 +148,10 @@ Adds a new company to the enterprise.
     "ContacPerson": "SamplePerson",
     "Contact": "ContactInfo",
     "Notes": "Note1",
-    "Iata": "PAO"
+    "Iata": "PAO",
+    "Options: {
+        "Invoiceable": true
+    }
 }
 ```
 
@@ -160,6 +173,7 @@ Adds a new company to the enterprise.
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
+| `Options` | string | optional | Iata of the company. |
 
 ### Response
 
@@ -204,6 +218,11 @@ Updates information of the company.
     },
     "Iata": {
         "Value": "PAO"
+    },
+    "Options": {
+        "Invoiceable": {
+            "Value": true
+        }
     }
 }
 ```
@@ -226,12 +245,31 @@ Updates information of the company.
 | `Contact` | [String update value](#string-update-value) | optional | Contact of the company. |
 | `Notes` | [String update value](#string-update-value) | optional | Notes of the company. |
 | `Iata` | [String update value](#string-update-value) | optional | Iata of the company. |
+| `Options` | [Options update value](#company-options-update-value) | optional | Options of the company. |
 
 #### String update value
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | string | optional | Value which is to be updated. |
+
+#### Company options update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Options` | [Bool update value](#company-options-update-value) | required | Value which is to be updated. |
+
+#### Company options update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Invoiceable` | [Bool update value](#bool-update-value) | optional | Value which is to be updated. |
+
+#### Bool update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | bool | optional | Value which is to be updated. |
 
 ### Response
 
