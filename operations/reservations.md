@@ -74,8 +74,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | :-- | :-- | :-- | :-- |
 | `BusinessSegments` | bool | optional | Whether the response should contain business segmentation. |
 | `Customers` | bool | optional | Whether the response should contain customers of the reservations. |
-| `CustomersAddresses` | bool | optional | Whether the response should contain customer adresses. |
-| `CustomerIdentityDocuments` | bool | optional | Whether the response should contain customer identity documents. |
 | `OrderItems` | bool | optional | Whether the response should contain reservation items. |
 | `Products` | bool | optional | Whether the response should contain products orderable with the reservations. |
 | `Rates` | bool | optional | Whether the response should contain rates and rate groups. |
