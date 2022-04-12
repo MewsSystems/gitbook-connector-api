@@ -114,7 +114,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 | `BillingCode` | string | optional | Billing code of the company. |
-| `Options` | [Company Options](#company-options) | required | Options of the company. |
+| `Options` | [Company options](#company-options) | required | Options of the company. |
 
 #### Company options
 
@@ -178,8 +178,8 @@ Adds a new company to the enterprise.
 #### Company options parameters
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Invoiceable` | bool | required | Whether is the company invoiceable or not. |
+| :-- | :-- | :-- | :-- |
+| `Invoiceable` | bool | required | Whether the company is invoiceable or not. |
 
 ### Response
 
@@ -256,14 +256,14 @@ Updates information of the company.
 #### String update value
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Value` | string | optional | Value which is to be updated. |
 
 #### Company options update value
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Invoiceable` | [Bool update value](#bool-update-value) | optional | Value which is to be updated. |
+| :-- | :-- | :-- | :-- |
+| `Invoiceable` | [Bool update value](#bool-update-value) | optional | Whether the company is invoiceable or not. |
 
 #### Bool update value
 
