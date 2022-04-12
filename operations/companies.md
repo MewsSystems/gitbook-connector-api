@@ -76,7 +76,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "TaxIdentifier": "",
             "BillingCode": "",
             "Options": {
-                "Invoicable": true
+                "Invoiceable": true
             }
         },
         {
@@ -114,13 +114,13 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 | `BillingCode` | string | optional | Billing code of the company. |
-| `Options` | [CompanyOptions](#company-options) | required | Options of the company. |
+| `Options` | [Options](#options) | required | Options of the company. |
 
-#### Company options
+#### Options
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | boolean | required | Whether is the company invoicable or not. |
+| `Invoiceable` | boolean | required | Whether is the company invoiceable or not. |
 
 ## Add company
 
@@ -149,7 +149,7 @@ Adds a new company to the enterprise.
     "Contact": "ContactInfo",
     "Notes": "Note1",
     "Iata": "PAO",
-    "Options: {
+    "Options": {
         "Invoiceable": true
     }
 }
@@ -173,7 +173,13 @@ Adds a new company to the enterprise.
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
-| `Options` | string | optional | Iata of the company. |
+| `Options` | [Option parameters](#option-parameters) | optional | Options of the company. |
+
+#### Option parameters
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Invoiceable` | bool | required | Whether is the company invoiceable or not. |
 
 ### Response
 
@@ -252,12 +258,6 @@ Updates information of the company.
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | string | optional | Value which is to be updated. |
-
-#### Company options update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Options` | [Bool update value](#company-options-update-value) | required | Value which is to be updated. |
 
 #### Company options update value
 
