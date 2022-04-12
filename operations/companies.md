@@ -114,9 +114,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 | `BillingCode` | string | optional | Billing code of the company. |
-| `Options` | [Options](#options) | required | Options of the company. |
+| `Options` | [Company Options](#company-options) | required | Options of the company. |
 
-#### Options
+#### Company options
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -173,9 +173,9 @@ Adds a new company to the enterprise.
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
-| `Options` | [Option parameters](#option-parameters) | optional | Options of the company. |
+| `Options` | [Company option parameters](#company-options-parameters) | optional | Options of the company. If not provided Invoiceable is set by default. |
 
-#### Option parameters
+#### Company options parameters
 
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
