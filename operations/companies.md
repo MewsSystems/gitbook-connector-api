@@ -120,7 +120,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | boolean | required | Whether is the company invoiceable or not. |
+| `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
 
 ## Add company
 
