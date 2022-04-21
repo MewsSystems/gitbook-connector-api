@@ -101,7 +101,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 
 ## Get rate pricing
 
-Returns prices for a given rate for a specified time interval. Prices will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 00:00 - 1st Jan 00:00` will result in one price for `1st Jan`, while Interval `1st Jan 00:00 - 2nd Jan 00:00` will result in two prices for `1st Jan` and `2nd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ is 100 time units or 2 years, whichever is the shorter amount of time.
+Returns prices for a given rate for a specified time interval. Prices will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ is 100 time units or 2 years, whichever is the shorter amount of time.
 
 The price in the response is dependent on the enterprise's [pricing](configuration.md#pricing) setting. If the enterprise is set to a Gross pricing environment, then the price returned is the gross price (inclusive of tax). If the enterprise is set to a Net pricing environment, the price returned is the net price (excluding tax).
 
@@ -155,10 +155,10 @@ The price in the response is dependent on the enterprise's [pricing](configurati
             "Prices": [ 20, 20, 20 ]
         }
     ],
-    "DatesUtc": [
-        "2016-12-31T23:00:00Z",
-        "2017-01-01T23:00:00Z",
-        "2017-01-02T23:00:00Z"
+    "TimeUnitStartsUtc": [
+        "2022-01-01T23:00:00Z",
+        "2022-01-02T23:00:00Z",
+        "2022-01-03T23:00:00Z"
     ]
 }
 ```
@@ -166,7 +166,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `DatesUtc` | array of string | required | Set of all dates covered by the time interval; expressed in UTC timezone ISO 8601 format. |
+| `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `BasePrices` | array of number | required | Base prices of the rates for each time unit covered by the time interval. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
