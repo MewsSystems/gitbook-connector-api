@@ -40,8 +40,8 @@ Returns all products offered together with the specified services.
             "ExternalName": "Breakfast",
             "ShortName": "BFST",
             "Description": "Nice continental breakfast.",
-            "Charging": "PerPersonPerTimeUnit",
-            "Posting": "Once",
+            "ChargingMode": "PerPersonPerTimeUnit",
+            "PostingMode": "Once",
             "Options": {
                 "BillAsPackage": false
             },
@@ -91,24 +91,24 @@ Returns all products offered together with the specified services.
 | `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
 | `ShortName` | string | required | Short name of the product. |
 | `Description` | string | optional | Description of the product. |
-| `Charging` | string [Product charging](#product-charging) | required | Charging of the product. |
-| `Posting` | string [Product posting](#product-posting) | required | Posting of the product. |
+| `ChargingMode` | string [Product charging mode](#product-charging-mode) | required | Charging mode of the product. |
+| `PostingMode` | string [Product posting mode](#product-posting-mode) | required | Posting mode of the product. |
 | `Options` | [Product options](#product-options) | required | Options of the product. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 | `Classifications` | [Product classifications](#product-classifications) | required | Classifications of the service. |
 | `Price` | [Currency value](accountingitems.md#currency-value) | required | Price of the product. |
 
-#### Product charging
+#### Product charging mode
 
 * `Once`
 * `PerTimeUnit`
 * `PerPersonPerTimeUnit`
 * `PerPerson`
 
-#### Product posting
+#### Product posting mode
 
 * `Once`
-* `Daily`
+* `PerTimeUnit`
 
 #### Product options
 
