@@ -19,6 +19,10 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
     "CreatedUtc": {
         "StartUtc": "2022-03-03T00:00:00Z",
         "EndUtc": "2022-03-14T00:00:00Z"
+    },
+    "Limitation":{
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
     }
 }
 ```
@@ -30,6 +34,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | `Client` | string | required | Name and version of the client application. |
 | `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](messagethreads.md#message-thread) from where to return messages. |
 | `CreatedUtc` | [Time interval](messagethreads.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
+| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation applied to the fetched messages. |
 
 ### Response
 
@@ -45,13 +50,15 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
             },
             "CreatedUtc": "2022-03-09T13:19:46Z"
         }
-    ]
+    ],
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Messages` | array of [Messages](#message) | required | The filtered messages. |
+| `Cursor` | string | required | Index of the last message Id. Should be used in [Limitation](messagethreads.md#limitation) to fetch older messages in the follow-up request. |
 
 #### Message
 

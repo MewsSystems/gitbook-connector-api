@@ -16,6 +16,10 @@ Get all message threads that you have created, filtered by time interval and/or 
     "CreatedUtc":{
         "StartUtc": "2022-03-03T00:00:00Z",
         "EndUtc": "2022-03-14T00:00:00Z"
+    },
+    "Limitation":{
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
     }
 }
 ```
@@ -28,6 +32,7 @@ Get all message threads that you have created, filtered by time interval and/or 
 | `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [Message threads](#message-thread). Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
+| `Limitation` | [Limitation](#limitation) | required | Limitation applied to the fetched message threads. |
 
 #### Time interval
 
@@ -35,6 +40,13 @@ Get all message threads that you have created, filtered by time interval and/or 
 | :-- | :-- | :-- | :-- |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+
+#### Limitation
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Cursor` | string | optional | Id of the item prior to which the returned items are going to be skipped. |
+| `Count` | number | required, max count 1000 | Number of items returned by the endpoint. |
 
 ### Response
 
@@ -48,13 +60,15 @@ Get all message threads that you have created, filtered by time interval and/or 
             "CreatedUtc": "2022-03-07T16:09:45Z",
             "UpdatedUtc": "2022-03-07T16:09:45Z"
         }
-    ]
+    ],
+    "Cursor": "7f9325f6-ef44-4911-89a8-ae51010a5aa4"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `MessageThreads` | array of [Message threads](#message-thread) | required | The filtered message threads. |
+| `Cursor` | string | required | Index of the last message thread Id. Should be used in [Limitation](#limitation) to fetch older message threads in the follow-up request. |
 
 #### Message thread
 
