@@ -58,7 +58,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Messages` | array of [Messages](#message) | required | The filtered messages. |
-| `Cursor` | string | required | Index of the last message Id. Should be used in [Limitation](messagethreads.md#limitation) to fetch older messages in the follow-up request. |
+| `Cursor` | string | optional | Index of the last message Id. Should be used in [Limitation](messagethreads.md#limitation) to fetch older messages in the follow-up request. |
 
 #### Message
 

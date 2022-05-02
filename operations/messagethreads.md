@@ -68,7 +68,7 @@ Get all message threads that you have created, filtered by time interval and/or 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `MessageThreads` | array of [Message threads](#message-thread) | required | The filtered message threads. |
-| `Cursor` | string | required | Index of the last message thread Id. Should be used in [Limitation](#limitation) to fetch older message threads in the follow-up request. |
+| `Cursor` | string | optional | Index of the last message thread Id. Should be used in [Limitation](#limitation) to fetch older message threads in the follow-up request. |
 
 #### Message thread
 
