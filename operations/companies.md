@@ -74,7 +74,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "IsActive": true,
             "Number": 25,
             "TaxIdentifier": "",
-            "BillingCode": ""
+            "BillingCode": "",
+            "Options": {
+                "Invoiceable": true
+            }
         },
         {
             "AccountingCode": "",
@@ -109,8 +112,15 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `BillingCode` | string | optional | Billing code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
+| `BillingCode` | string | optional | Billing code of the company. |
+| `Options` | [Company options](#company-options) | required | Options of the company. |
+
+#### Company options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
 
 ## Add company
 
@@ -125,7 +135,10 @@ Adds a new company to the enterprise.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "Name": "Mews Systems",
+    "Name": "Mews",
+    "Options": {
+        "Invoiceable": true
+    },
     "MotherCompanyId": null,
     "Identifier": null,
     "TaxIdentifier": null,
@@ -148,6 +161,7 @@ Adds a new company to the enterprise.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | required | Name of the company. |
+| `Options` | [Company option parameters](#company-options-parameters) | required | Options of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
 | `Identifier` | string | optional | Identifier of the company (e.g. legal identifier). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
@@ -160,6 +174,12 @@ Adds a new company to the enterprise.
 | `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
+
+#### Company options parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Invoiceable` | bool | required | Whether the company is invoiceable or not. |
 
 ### Response
 
@@ -181,6 +201,11 @@ Updates information of the company.
     "CompanyId": "7a1e4d67-d6a2-4a4c-a464-ab1100bea786",
     "Name": {
         "Value": "Sample company name"
+    },
+    "Options": {
+        "Invoiceable": {
+            "Value": true
+        }
     },
     "MotherCompanyId": {
         "Value": "ff649bce-0c4b-4395-9cdd-02039acb7cb3"
@@ -215,6 +240,7 @@ Updates information of the company.
 | `Client` | string | required | Name and version of the client application. |
 | `CompanyId` | string | required | Unique identifier of the [Company](#company). |
 | `Name` | [String update value](#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
+| `Options` | [Options update value](#company-options-update-value) | optional | Options of the company. |
 | `MotherCompanyId` | [String update value](#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
 | `Identifier` | [String update value](#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
 | `TaxIdentifier` | [String update value](#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
@@ -230,8 +256,20 @@ Updates information of the company.
 #### String update value
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `Value` | string | optional | Value which is to be updated. |
+
+#### Company options update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Invoiceable` | [Bool update value](#bool-update-value) | optional | Whether the company is invoiceable or not. |
+
+#### Bool update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | bool | optional | Value which is to be updated. |
 
 ### Response
 
