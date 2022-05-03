@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created.
+Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created. Note this operation uses the `Limitation` property to implement a form of data pagination and thus limit the quantity of items returned.
 
 ### Request
 
@@ -58,7 +58,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Messages` | array of [Messages](#message) | required | The filtered messages. |
-| `Cursor` | string | optional | Index of the last message Id. Should be used in [Limitation](messagethreads.md#limitation) to fetch older messages in the follow-up request. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest message returned. This can be used in [Limitation](messagethreads.md#limitation) in a subsequent request to fetch the next batch of older messages. |
 
 #### Message
 
