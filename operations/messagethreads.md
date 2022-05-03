@@ -2,7 +2,7 @@
 
 ## Get all message threads
 
-Get all message threads that you have created, filtered by time interval and/or specific message thread IDs.
+Get all message threads that you have created, filtered by time interval and/or specific message thread IDs. Note this operation uses the `Limitation` property to implement a form of data pagination and thus limit the quantity of items returned.
 
 ### Request
 
@@ -32,7 +32,7 @@ Get all message threads that you have created, filtered by time interval and/or 
 | `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [Message threads](#message-thread). Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
-| `Limitation` | [Limitation](#limitation) | required | Limitation on the quantity of message data returned (using cursor pagination). |
+| `Limitation` | [Limitation](#limitation) | required | Limitation on the quantity of message thread data returned (using cursor pagination). |
 
 #### Time interval
 
@@ -45,8 +45,13 @@ Get all message threads that you have created, filtered by time interval and/or 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Cursor` | string | optional | Id of the item prior to which the returned items are going to be skipped. |
-| `Count` | number | required, max count 1000 | Number of items returned by the endpoint. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. Note that the response message will include the identifier of the oldest item in the response, which can then be used in subsequent calls - see Limitation example below. |
+| `Count` | number | required | Count of items to be returned, minimum 1, maximum 1000. |
+
+> **Limitation example:**
+> A request with Cursor set to null and Count set to 10 will return the latest or most recent 10 items, and the value of Cursor in the response will reference the oldest of those 10 items returned.
+> Let's say the value of Cursor returned is "12345", then if a subsequent request is made with Cursor set to "12345" and Count set to 10, then the next oldest 10 items will be returned.
+> This process can be repeated as required to fetch historical data.
 
 ### Response
 
@@ -68,7 +73,7 @@ Get all message threads that you have created, filtered by time interval and/or 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `MessageThreads` | array of [Message threads](#message-thread) | required | The filtered message threads. |
-| `Cursor` | string | optional | Index of the last message thread Id. Should be used in [Limitation](#limitation) to fetch older message threads in the follow-up request. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest message thread returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older message threads. |
 
 #### Message thread
 
