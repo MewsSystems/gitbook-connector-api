@@ -32,7 +32,7 @@ Get all message threads that you have created, filtered by time interval and/or 
 | `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [Message threads](#message-thread). Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
-| `Limitation` | [Limitation](#limitation) | required | Limitation applied to the fetched message threads. |
+| `Limitation` | [Limitation](#limitation) | required | Limitation on the quantity of message data returned (using cursor pagination). |
 
 #### Time interval
 
