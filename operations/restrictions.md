@@ -156,7 +156,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](#day) | optional | The restricted days of week. Will be automatically set to all values when not provided. |
+| `Days` | array of string [Day](#day) | optional | The restricted days of week. Will be automatically set to all values when not provided or service has time unit longer than a day.
 
 #### Restriction Exceptions
 
