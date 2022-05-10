@@ -74,7 +74,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | :-- | :-- | :-- | :-- |
 | `BusinessSegments` | bool | optional | Whether the response should contain business segmentation. |
 | `Customers` | bool | optional | Whether the response should contain customers of the reservations. |
-| `Items` | bool | optional | Whether the response should contain reservation items. |
+| `OrderItems` | bool | optional | Whether the response should contain reservation items. |
 | `Products` | bool | optional | Whether the response should contain products orderable with the reservations. |
 | `Rates` | bool | optional | Whether the response should contain rates and rate groups. |
 | `Reservations` | bool | optional | Whether the response should contain reservations. |
@@ -85,6 +85,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
 | `Notes` | bool | optional | Whether the response should contain notes. |
 | `QrCodeData` | bool | optional | Whether the response should contain QR code data. |
+| `Companies` | bool | optional | Whether the response should contain companies. |
 | `AccountingStates` | array of string [Accounting item state](accountingitems.md#accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
 
 ### Response

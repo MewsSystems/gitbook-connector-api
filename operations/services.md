@@ -153,7 +153,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 
 ## Get service availability
 
-Returns availability of a bookable service in the specified interval including applied availability adjustments. The response contains availability for all dates that the specified interval intersects.
+Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ is 100 time units or 2 years, whichever is the shorter amount of time.
 
 ### Request
 
@@ -165,8 +165,8 @@ Returns availability of a bookable service in the specified interval including a
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-    "StartUtc":"2017-01-01T00:00:00.000Z",
-    "EndUtc":"2017-01-03T00:00:00.000Z"
+    "FirstTimeUnitStartUtc":"2017-01-01T23:00:00.000Z",
+    "LastTimeUnitStartUtc":"2017-01-03T23:00:00.000Z"
 }
 ```
 
@@ -176,8 +176,9 @@ Returns availability of a bookable service in the specified interval including a
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
-| `StartUtc` | string | required, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+
 
 ### Response
 
@@ -195,10 +196,10 @@ Returns availability of a bookable service in the specified interval including a
             "CategoryId": "a0a7a5c5-c4ef-494a-8b34-6cca97629076"
         }
     ],
-    "DatesUtc": [
-        "2016-12-31T23:00:00Z",
+    "TimeUnitStartsUtc": [
         "2017-01-01T23:00:00Z",
-        "2017-01-02T23:00:00Z"
+        "2017-01-02T23:00:00Z",
+        "2017-01-03T23:00:00Z"
     ]
 }
 ```
@@ -206,7 +207,7 @@ Returns availability of a bookable service in the specified interval including a
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryAvailabilities` | array of [Resource category availability](resources.md#resource-category-availability) | required | Resource category availabilities. |
-| `DatesUtc` | array of string | required | Covered dates in UTC timezone in ISO 8601 format. |
+| `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 
 #### Resource category availability
 
@@ -218,7 +219,7 @@ Returns availability of a bookable service in the specified interval including a
 
 ## Update service availability
 
-Updates the number of available resources in [Resource category](resources.md#resource-category) by a certain amount (relative adjustment). Note that availabilities are defined daily, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the price on all dates that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
+Updates the number of available resources in [Resource category](resources.md#resource-category) by a certain amount (relative adjustment). Note that availabilities are defined per time unit, so when the server receives the UTC interval, it first converts it to enterprise timezone and updates the availability on all time units that the interval intersects. It's not allowed to update past availabilities outside of `EditableHistoryInterval`, future updates are allowed for up to 5 years.
 
 ### Request
 
@@ -232,15 +233,15 @@ Updates the number of available resources in [Resource category](resources.md#re
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "AvailabilityUpdates": [
         {
-            "StartUtc": "2020-10-05T00:00:00Z",
-            "EndUtc": "2020-10-05T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2020-10-05T23:00:00Z",
+            "LastTimeUnitStartUtc": "2020-10-05T23:00:00Z",
             "AvailabilityBlockId": "23e85a44-d95a-4dcf-9f36-acb000b10abe",
             "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
             "UnitCountAdjustment": { "Value": 6 }
         },
         {
-            "StartUtc": "2020-10-07T00:00:00Z",
-            "EndUtc": "2020-10-08T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2020-10-07T23:00:00Z",
+            "LastTimeUnitStartUtc": "2020-10-08T23:00:00Z",
             "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
             "UnitCountAdjustment": { }
         }
@@ -260,8 +261,8 @@ Updates the number of available resources in [Resource category](resources.md#re
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
