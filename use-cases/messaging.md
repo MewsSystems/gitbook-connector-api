@@ -6,18 +6,18 @@ You can do this through the API with the [Messages](../operations/README.md#mess
 Message threads or conversations are initiated by the customer and their messages are sent through to the enterprise, where employees are notified and can quickly respond with a message reply added to the thread.
 The typical workflow is as follows:
 
-1. [Customer creates a message within your app](#step-1---customer-creates-a-message-within-your-app)
-2. [Your app creates a new message thread in Mews](#step-2---your-app-creates-a-new-message-thread-in-mews)
-3. [Your app listens for MessageAdded Webhook events](#step-3---your-app-listens-for-messageadded-webhook-events)
-4. [Continue the conversation!](#step-4---continue-the-conversation)
+1. [Customer creates a message within your app](#step-1-customer-creates-a-message-within-your-app)
+2. [Your app creates a new message thread in Mews](#step-2-your-app-creates-a-new-message-thread-in-mews)
+3. [Your app listens for MessageAdded Webhook events](#step-3-your-app-listens-for-messageadded-webhook-events)
+4. [Continue the conversation!](#step-4-continue-the-conversation)
 
-### Step 1 - Customer creates a message within your app
+### Step 1: Customer creates a message within your app
 
 The customer or guest creates an instant message within your app, directed to the enterprise.
 
 **Penelope:** ```"Hi! I just wanted to let you know I will be arriving late tonight"```
 
-### Step 2 - Your app creates a new message thread in Mews
+### Step 2: Your app creates a new message thread in Mews
 
 Your app creates a new message thread in Mews and adds the customer message to the thread.
 
@@ -96,7 +96,7 @@ Your app creates a new message thread in Mews and adds the customer message to t
 	}
 ```
 
-### Step 3 - Your app listens for MessageAdded Webhook events
+### Step 3: Your app listens for MessageAdded Webhook events
 
 **Enterprise:** ```"Hello Ms Penelope! Thank you for contacting us. What time do you expect to arrive?"```
 
@@ -135,7 +135,7 @@ The text of the message can be passed on to the customer through your app.
 	}
 ```
 
-### Step 4 - Continue the conversation!
+### Step 4: Continue the conversation!
 
 You can pass messages back and forth, as above, until the conversation is resolved.
 And if you need to search or fetch your messages or your message threads, you have the [Get all messages](../operations/messages.md#get-all-messages) and [Get all message threads](../operations/messagethreads.md#get-all-message-threads) API operations.
