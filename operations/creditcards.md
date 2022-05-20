@@ -152,7 +152,6 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
     "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
     "CreditCardData": {
         "StorageData": "190510170631533875",
-        "ObfuscatedNumber": "41111********1111",
         "Expiration": "2025-10"
     }
 }
@@ -171,7 +170,6 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `StorageData` | string | required | Identifier of credit card data in PCI storage (`transactionId`). |
-| `ObfuscatedNumber` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |
 | `Expiration` | string | required | Expiration of the credit card in format `yyyy-MM`. |
 
 ### Response
