@@ -9,6 +9,7 @@
   * [Guest technology](use-cases/guest-technology.md)
   * [Housekeeping](use-cases/housekeeping.md)
   * [Kiosk](use-cases/kiosk.md)
+  * [Messaging](use-cases/messaging.md)
   * [Point of sale](use-cases/point-of-sale.md)
   * [Reputation management](use-cases/reputation-management.md)
   * [Revenue management](use-cases/revenue-management.md)

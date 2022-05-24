@@ -156,7 +156,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
 | `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
-| `Days` | array of string [Day](#day) | required | The restricted days of week. |
+| `Days` | array of string [Day](#day) | optional | The restricted days of week. Will automatically be set to all values when not provided or when the service uses a time unit longer than a day.
 
 #### Restriction Exceptions
 
@@ -166,8 +166,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
 | `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
-| `MinPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the minimum night price. |
-| `MaxPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the maximum night price. |
+| `MinPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the minimum price per time unit. |
+| `MaxPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the maximum price per time unit. |
 
 #### Day
 
@@ -181,7 +181,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 #### Restriction type
 
-* `Stay` - guests can't stay overnight within specified dates.
+* `Stay` - guests can't stay within specified dates.
 * `Start`- guests can't check in within specified dates.
 * `End` - guests can't check out within specified dates.
 

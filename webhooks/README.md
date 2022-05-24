@@ -10,7 +10,7 @@ Like normal requests to API endpoints in the __Mews Connector API__, the Webhook
 Mews currently supports two types of Webhook:
 
 * [General Webhooks](wh-general.md) - a single webhook request encapsulating multiple types of event
-* [Integration Webhooks](wh-integration.md) - individual webhooks related solely to integration events (deprecated)
+* [Integration Webhooks](wh-integration.md) - individual webhooks related solely to integration events
 
 ## Webhooks FAQ
 
