@@ -52,6 +52,6 @@ The limits are dependent on circumstances and on the environment - see [Environm
 Regardless, your system should be prepared to receive a `429 Too Many Requests` response in cases where you hit such a limit - see [Responses](responses.md).
 
 If you receive this error response, your system can re-try after an interval time, however some care is needed in choosing the interval time.
-In case of a 429 error, we include the `Retry-After` http header in the response to indicate how long you should wait before making a re-try attempt.
+In case of a 429 error, we include the `Retry-After` HTTP header in the response to indicate how long you should wait before making a re-try attempt.
 Alternatively, you could implement something like an exponential backoff strategy, i.e. using a progressively longer wait between re-tries for consecutive error responses. Pausing for a fixed amount of time is never recommended.
 If you are receiving `429 Too Many Requests` errors, then we would also recommend examining your implementation to see if it is possible to make design changes to reduce the load on our API and prevent the errors being generated in the first place.
