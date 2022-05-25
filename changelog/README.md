@@ -8,6 +8,11 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 25th May 2022 11:00 UTC
+
+* Updated guidance on [Request limits](../guidelines/requests.md#request-limits)
+* Added `Retry-After` HTTP header to `429 Too Many requests` error response
+
 ## 25th April 2022 11:00 UTC
 
 * Extended operations [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ActivityStates` property.
