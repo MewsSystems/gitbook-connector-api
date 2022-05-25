@@ -47,6 +47,11 @@ A unique `AccessToken` will automatically be generated and shared with you for e
 
 ## Request limits
 
-In order to preserve stability of our API, we've put request limits in place. We continually strive to make the API more efficient, improve its usability, support batch operations, and avoid the need of polling. However, if you have any suggestion or use cases that require higher limits, please contact us at partnersuccess@mews.com.
+Mews implements API request limits in order to protect our systems against an excessive volume of calls which could compromise the service for all its users.
+The limits are dependent on circumstances and on the environment - see [Environments](environments.md) for details of specific request limits.
+Regardless, your system should be prepared to receive a `429 Too Many Requests` response in cases where you hit such a limit - see [Responses](responses.md).
 
-The particular limits are dependent on the [Environments](environments.md), and therefore are listed as part of the environment description.
+If you receive this error response, your system can re-try after an interval time, however some care is needed in choosing the interval time.
+In case of a 429 error, we include the `Retry-After` HTTP header in the response to indicate how long you should wait before making a re-try attempt.
+Alternatively, you could implement something like an exponential backoff strategy, i.e. using a progressively longer wait between re-tries for consecutive error responses. Pausing for a fixed amount of time is never recommended.
+If you are receiving `429 Too Many Requests` errors, then we would also recommend examining your implementation to see if it is possible to make design changes to reduce the load on our API and prevent the errors being generated in the first place.
