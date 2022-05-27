@@ -82,7 +82,7 @@ Returns translations of texts in the specified languages.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `LangaugeCodes` | array of string | required | Language-culture codes of the [Language](#language)s whose texts to return. |
+| `LanguageCodes` | array of string | required | Language-culture codes of the [Languages](#language) whose texts to return. |
 | `Scope` | string | required | Scope of texts to return. |
 
 ### Response
