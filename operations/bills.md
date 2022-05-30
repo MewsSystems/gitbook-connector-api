@@ -132,8 +132,8 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
-| `OrderItems` | array of [Order item](orders.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
-| `PaymentItems` | array of [Payment item](orders#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
+| `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
+| `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
 
 #### Bill type
