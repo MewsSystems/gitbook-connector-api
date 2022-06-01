@@ -196,6 +196,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
 | `Fee` | [Amount](#amount-value) | optional | Fee of the transaction. |
+| `AdjustedFeeTotal` | [Amount](#amount-value) | optional | Adjusted fee of the transaction. |
 | `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
 | `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
 
