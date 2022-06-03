@@ -220,8 +220,8 @@ Adds availability blocks which are used to group related [Availability updates](
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherCode": null,
             "Name": "Mr. Smith's block",
-            "StartUtc": "2020-11-05T00:00:00Z",
-            "EndUtc": "2020-11-06T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
+            "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
             "ExternalIdentifier": "Block-0001",
             "Budget": {  
@@ -251,8 +251,8 @@ Adds availability blocks which are used to group related [Availability updates](
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) to assign block to. |
 | `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](rates.md#rate). |
 | `Name` | string | optional | The name of the block. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations. |
@@ -307,8 +307,8 @@ Updates information about the specified [Availability block](#availability-block
         {
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "Name": {"Value": "Mr. John Snow block"},
-            "StartUtc":{"Value": "2021-07-05T00:00:00Z"},
-            "EndUtc":{"Value": "2021-07-15T00:00:00Z"},
+            "FirstTimeUnitStartUtc":{"Value": "2021-07-05T00:00:00Z"},
+            "LastTimeUnitStartUtc":{"Value": "2021-07-15T00:00:00Z"},
             "ReleasedUtc":{"Value": "2021-07-04T00:00:00Z"},
             "ExternalIdentifier": {"Value": "123456798"}
         }
@@ -329,8 +329,8 @@ Updates information about the specified [Availability block](#availability-block
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
 | `Name` | [String update value](#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
-| `StartUtc` | [String update value](#string-update-value) | required | Start of the interval in UTC timezone in ISO 8601 format \(or `null` if the start time should not be updated\). |
-| `EndUtc` | [String update value](#string-update-value) | required | End of the interval in UTC timezone in ISO 8601 format \(or `null` if the end time should not be updated\). |
+| `FirstTimeUnitStartUtc` | [String update value](#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). |
+| `LastTimeUnitStartUtc` | [String update value](#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). |
 | `ReleasedUtc` | [String update value](#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
 | `ExternalIdentifier` | [String update value](#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
 
