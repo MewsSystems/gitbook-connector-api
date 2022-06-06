@@ -9,15 +9,11 @@ This section describes guidelines for general usage of the __Mews Connector API_
 
 ## Quick start
 
-To begin with, Mews operates several environments. At the beginning of your development process, you'll be interested in the [Demo environment](environments.md#demo-environment).
-To get yourself familiar with the system and the types of data we provide, you can log in to __Mews Operations__ using the email and password provided and check out the Mews system features.
+Mews operates several environments. To start your development process, you will want to use one of the [Demo environments](environments.md#demo-environments). You can switch to the [Production environment](environments.md#production-environment) when your development is complete and your integration is certified.
 
-Alternatively, you can start using the API right away, using the demo tokens below. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method.
-Below is an example request which will return the configuration details for one of our test hotels.
-To begin with, Mews operates several environments. At the beginning of your development process, you'll be interested in the [Demo environment](environments.md#demo-environment). To get yourself familiar with the system and the types of data we provide, you can log in to __Mews Operations__ using the email and password provided and check out the Mews system features.
+To get yourself familiar with the Mews system and the types of data we provide, you can log in to __Mews Operations__ using the email and password provided and check out the system features. Alternatively, you can start using the API right away, using the demo tokens below.
 
-Alternatively, you can start using the API right away, using the demo tokens below. [Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method. Below is an example request which will return the configuration details for one of our test hotels.
-You can find out more about this API operation in [Get configuration](../operations/configuration.md#get-configuration).
+[Requests](requests.md) towards our API should be in `JSON` format and sent using `POST` method. Below is an example request which will return the configuration details for one of our test hotels. You can find out more about this API operation in [Get configuration](../operations/configuration.md#get-configuration).
 
 Endpoint URL:
 
