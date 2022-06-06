@@ -7,7 +7,7 @@
 ## 27th November 2020
 * Added operation [Get all vouchers](../operations/vouchers.md#get-all-vouchers) and extended  [Reservation](../operations/reservations.md#reservation) with property `VoucherId`.
 
-## 3th November 2020
+## 3rd November 2020
 * Extended response of operation [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments) with validity interval of taxation.
 * Extended response of operation [Get all rates](../operations/rates.md#get-all-rates) with property `IsEnabled` specifying the rate is currently available to customers.
 * Extended operation [Update reservation](../operations/reservations.md#update-reservation) with parameter `AssignedResourceLocked`.
