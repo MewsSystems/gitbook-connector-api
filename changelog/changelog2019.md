@@ -128,7 +128,7 @@
 
 * Extended [Add reservations](../operations/reservations.md#add-reservations) parameters with `CompanyId`.
 
-## 4nd January 2019
+## 4th January 2019
 
 * Added [Charge credit card](../operations/creditcards.md#charge-credit-card) operation.
 * Added [Get all companies by name](../operations/companies.md#get-all-companies-by-name) operation.
