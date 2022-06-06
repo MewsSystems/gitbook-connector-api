@@ -12,69 +12,69 @@
 
 * Extended [Add reservations](../operations/reservations.md#add-reservations) parameters with `TimeUnitCost`.
 
-## 21st Nov 2018
+## 21st November 2018
 
 * Extended [Reservation extent](../operations/reservations.md#reservation-extent) with `QrCodeData`.
 * Extended 'Space feature' with `Names`, `ShortName`, `ShortNames` and `Descriptions`.
 
-## 14th Nov 2018
+## 14th November 2018
 
 * Extended [Add credit card payments](../operations/payments.md#add-credit-card-payment) parameters with `AccountingCategoryId`.
 * Extended [Add external payment](../operations/payments.md#add-external-payment) parameters with `AccountingCategoryId`.
 * Extended [Add outlet bills](../operations/outletitems.md#outlet-item-parameters) parameters with `AccountingCategoryId`.
 * Extended [Add order](../operations/orders.md#add-order) parameters with `AccountingCategoryId`.
 
-## 19th Sep 2018
+## 19th September 2018
 
 * Extended [Reservation event](../websockets/README.md#reservation-event) with `AssignedSpaceId`.
 * Extended [Service](../operations/services.md#service) with `Type`.
 
-## 29th Aug 2018
+## 29th August 2018
 
 * Extended 'Space category' with `ExtraUnitCount`.
 
-## 16th Aug 2018
+## 16th August 2018
 
 * Extended [Add reservations](../operations/reservations.md#add-reservations) parameters with `GroupId`.
 * Extended [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) with `PaymentTerminalData`.
 * Added [Confirm reservation](../operations/reservations.md#confirm-reservation) operation.
 
-## 8th Aug 2018
+## 8th August 2018
 
 * Extended [Get all countries](../operations/countries.md#get-all-countries) response with `CountrySubdivisions` and `CountryAlliances`.
 * Extended 'Get all space blocks' parameters with `TimeFilter`.
 * Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) parameters with `Extent` and response with `CreditCardTransactions`.
 * Extended [Key cutter command data](../operations/commands.md#key-cutter-command-data) with `Email`.
 
-## 1st Aug 2018
+## 1st August 2018
 
 * Extended [Add reservations](../operations/reservations.md#add-reservations) parameters with `CheckOverbooking`.
 * Added [Get all outlet items](../operations/outletitems.md#get-all-outlet-items) operation. 
 
-## 25th Jul 2018
+## 25th July 2018
 
 * Extended [Add reservations](../operations/reservations.md#add-reservations) parameters with `CheckRateApplicability`.
 
-## 27th Jun 2018
+## 27th June 2018
 
 * Added [Get all customers by name](../operations/customers.md#get-all-customers-by-name) operation.
 
-## 20th Jun 2018
+## 20th June 2018
 
 * Extended [Get all reservations](../operations/reservations.md#get-all-reservations) with possibility to retrieve notes.
 
-## 13th Jun 2018
+## 13th June 2018
 
 * Added [Get all outlets](../operations/outlets.md#get-all-outlets) operation.
 * Added [Add outlet bills](../operations/outletbills.md#add-outlet-bills) operation.
 
-## 7th Jun 2018
+## 7th June 2018
 
 * Extended [Bill](../operations/bills.md#bill) with `CounterId`.
 * Extended [Key cutter command data](../operations/commands.md#key-cutter-command-data) with `Telephone` and `ReservationNumber`.
 * Extended 'Space category' with `Names`, `ShortNames` and `Descriptions`.
 
-## 5th Jun 2018
+## 5th June 2018
 
 * Mimimal required TLS version updated to `TLS 1.2`.
 
