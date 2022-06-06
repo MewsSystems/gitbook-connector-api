@@ -1,23 +1,23 @@
 # Changelog 2016
 
-## 14th December 2016 21:50 UTC
+## 14th December 2016
 
 * Added `Get All Customers By Ids` operation.
 * Extended `Reservation` with `ChannelManagerNumber`, `ChannelManagerGroupNumber` and `ChannelManager`.
 * Extended `Get All Products` to return products of mulitple services at once.
 * Extended `Accounting Category` with `Code` and `ExternalCode`.
 
-## 22nd November 2016 23:15 UTC
+## 22nd November 2016
 
 * Added `Notes` to `Accounting Item`.
 * Deprecated response of `Add Credit Card Payment`.
 
-## 15th November 2016 22:00 UTC
+## 15th November 2016
 
 * Added `BaseRateId` and `ShortName` to `Rate`.
 * Added `Get All Reservations By Ids` operation.
 
-## 17th October 2016 23:00 UTC
+## 17th October 2016
 
 * Removed the deprecated data fields and operations.
 * Added `Start` and `End` `Reservation Time Filter`.
@@ -29,7 +29,7 @@
 * Added `Get Rate Pricing` operation.
 * Generalized `Update Rate Base Price` to `Update Rate Price`.
 
-## 1st September 2016 22:00 UTC
+## 1st September 2016
 
 * Added operation `Update Rate Base Price` that allows e.g. revenue management systems to provide recommended rates to MEWS.
 * Added operation `Get All Reservation Items` that returns revenue items of selected reservations.
