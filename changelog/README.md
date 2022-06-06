@@ -8,40 +8,40 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
-## 25th May 2022 11:00 UTC
+## 25th May 2022
 
 * Updated guidance on [Request limits](../guidelines/requests.md#request-limits)
 * Added `Retry-After` HTTP header to `429 Too Many requests` error response
 
-## 25th April 2022 11:00 UTC
+## 25th April 2022
 
 * Extended operations [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ActivityStates` property.
 * Extended operations [Get all availability blocks](../operations/availabilityblocks.md#availability-block-extent) with `Rates` property.
 
-## 24th March 2022 14:00 UTC
+## 24th March 2022
 
 * Extended operations [Get all services](../operations/services.md#get-all-services) and [Get all products](../operations/products.md#get-all-products) with `Options` property.
 
-## 16th March 2022 08:20 UTC
+## 16th March 2022
 
 * Added operation [Get all message threads](../operations/messagethreads.md#get-all-message-threads) to retrieve message threads.
 * Added operation [Add message thread](../operations/messagethreads.md#add-message-thread) to add message thread.
 * Added operation [Get all messages](../operations/messages.md#get-all-messages) to retrieve messages.
 * Added operation [Add messages](../operations/messages.md#add-messages) to add messages.
 
-## 7th March 2022 11:20 UTC
+## 7th March 2022
 
 * Re-structured documentation pages for API operations so pages are organised by domain entity (e.g. [countries](../operations/countries.md), [outletbills](../operations/outletbills.md), [products](../operations/products.md)) rather than theme (e.g. configuration, reservations, finance)
 * Re-structured documentation pages for Changelog so organised by year; [deprecations](../deprecations/README.md) split off into its own page
 * Some minor additional changes to documentation pages, e.g. [webhooks](../webhooks/README.md) and [websockets](../websockets/README.md) now in separate directories
 * Added reference to Swagger/OpenAPI definition on [home page](../README.md)
 
-## 11th February 2022 10:22 UTC
+## 11th February 2022
 
 * Deprecated `AdultCount` and `ChildCount` from [Reservation](../operations/reservations.md#reservation) and [Reservation parameters](../operations/reservations.md#reservation-parameters) and [Reservation updates](../operations/reservations.md#reservation-updates).
 * Added [Age category parameters](../operations/reservations.md#age-category-parameters) replacing `AdultCount` and `ChildCount` for [Reservation](../operations/reservations.md#reservation) and [Reservation parameters](../operations/reservations.md#reservation-parameters) and [Reservation updates](../operations/reservations.md#reservation-updates). 
 
-## 8th February 2022 10:22 UTC
+## 8th February 2022
 
 * Extended [Time unit period](../operations/services.md#time-unit-period) with Month.
 * Added [Time unit](../operations/services.md#time-unit).
@@ -52,11 +52,11 @@ For more details, see [Environments](../guidelines/environments.md).
 * Removed TimeUnit from [Bookable service data](../operations/services.md#bookable-service-data)
 * Added TimeUnitPeriod to [Bookable service data](../operations/services.md#bookable-service-data)
 
-## 7th February 2022 10:22 UTC
+## 7th February 2022
 
 * Added [Get all age categories](../operations/agecategories.md#get-all-age-categories) operation.
 
-## 2nd February 2022 10:22 UTC
+## 2nd February 2022
 
 * Extended the request parameters for [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) to add new filter parameter `Rebated item IDs`
 * Extended the [Accounting use case](../use-cases/accounting.md) to include new section [Working with rebates](../use-cases/accounting.md#working-with-rebates)
