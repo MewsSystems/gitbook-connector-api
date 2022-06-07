@@ -26,6 +26,6 @@ If you encounter any issues using the API, or you have a question or special req
 > * To track changes and updates, you can follow the [GitHub repository](https://github.com/MewsSystems/gitbook-connector-api/tree/master)
 
 > ### OpenAPI definition
-> The Swagger/OpenAPI definition for the __Mews Connector API__ can be found [here](https://www.mews.li/Swagger/connector/swagger.yaml?utm_medium=email&_hsmi=2&_hsenc=p2ANqtz--5lDCujDR6Xe7Jy52w3Lnw1k6BdHQKkAlBtI9IgVXTrKDCzqGE0VkjZU8LIhw7ZI8P3_e90peDM_GJ7Fz7iEXjPdJZrw&utm_content=2&utm_source=hs_email),
+> The Swagger/OpenAPI definition for the __Mews Connector API__ can be found [here](https://api.mews.com/Swagger/connector/swagger.yaml),
 > you can use this to build out client applications using third party tools.
 > At this stage we consider this a Beta test version, but please use it and get in touch to let us know how you get on.
