@@ -195,7 +195,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
 | `SettlementId` | string | optional | Identifier of the settlement. |
 | `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
-| `Fee` | [Amount](#amount-value) | optional | Fee of the transaction. |
+| `Fee` | [Amount](#amount-value) | optional | Transaction fee - this includes an estimate of bank charges. |
+| `AdjustedFee` | [Amount](#amount-value) | optional | Transaction fee (adjusted) - this is the final confirmed transaction fee, including confirmed bank charges. |
 | `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
 | `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
 
