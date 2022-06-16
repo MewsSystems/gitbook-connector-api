@@ -55,3 +55,15 @@ If you receive this error response, your system can re-try after an interval tim
 In case of a 429 error, we include the `Retry-After` HTTP header in the response to indicate how long you should wait before making a re-try attempt.
 Alternatively, you could implement something like an exponential backoff strategy, i.e. using a progressively longer wait between re-tries for consecutive error responses. Pausing for a fixed amount of time is never recommended.
 If you are receiving `429 Too Many Requests` errors, then we would also recommend examining your implementation to see if it is possible to make design changes to reduce the load on our API and prevent the errors being generated in the first place.
+
+## Request timeouts
+
+In rare circumstances, you may receive a `408 Request Timeout` response if the request puts a large demand on the system and we are unable to prepare the data within a reasonable timeframe.
+There are numerous scenarios in which that might occur, the most common of which are related to [Get all reservations](../operations/reservations.md#get-all-reservations).
+There can be a large number of reservations on the system, they can carry a lot of information, and the greater the use of [Reservation extent](../operations/reservations.md#reservation-extent) then the more workload is put on the system to prepare the response data.
+You should be prepared to receive this error response and have a mitigation solution in place.
+
+What should you do if you receive a 408 error? The error indicates that the load required to prepare the response is too great, so the best solution is to lessen the load.
+If you are asking for reservations over a period of time, instead make multiple requests over shorter periods of time.
+For example, if a single request for reservation data over a period of several days returns a 408 error, instead try multiple requests, each for a separate day;
+if a single request for reservation data over a period of one day returns a 408 error, instead try multiple requests, each for a separate hour.
