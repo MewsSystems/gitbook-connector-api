@@ -1,28 +1,70 @@
 # Deprecations
 
-## Operations we are planning to deprecate in 2021
+Deprecations are features of the API which you are discouraged from using, even though they may still be supported for a period of time for the sake of backwards compatibility.
+Such features are normally deprecated because they are superseded by a better alternative. They can include object properties, entire objects or entire API operations.
+The list of deprecations is as follows. Individual items are also highlighted in the [Changelog](../changelog/README.md) when they occur.
+Historic deprecations that have already been discontinued may not be listed.
 
-These are the operations that we will deprecate in 2021. While we are not yet enforcing these changes, and are yet to finalise a date for these deprecations, we strongly advise you to review these and if you are using them in your API calls, to update them accordingly.
+> **Important:** We strongly advise you to review this list and if you are using any of the deprecated items in your integration, to update your implementation accordingly.
 
-### Deprecated operations
+The table columns have the following meanings:
 
-Following legacy operations to be completely removed:
-* `companies/getAllByName` (replaced by [Get all companies](../operations/companies.md#get-all-companies))
-* `bills/getAllByIds` (replaced by [Get all bills](../operations/bills.md#get-all-bills))
-* `bills/getAllByCustomers` (replaced by [Get all bills](../operations/bills.md#get-all-bills))
-* `bills/getAllClosed` (replaced by [Get all bills](../operations/bills.md#get-all-bills))
-* `creditCards/getAllByIds` (replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards))
-* `creditCards/getAllByCustomers` (replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards))
-* `reservations/getAllByIds` (replaced by [Get all reservations](../operations/reservations.md#get-all-reservations))
-* `reservations/getAllByCustomers` (replaced by [Get all reservations](../operations/reservations.md#get-all-reservations))
-* `reservations/getAllByNumbers` (replaced by [Get all reservations](../operations/reservations.md#get-all-reservations))
-* `customers/getAllByIds` (replaced by [Get all customers](../operations/customers.md#get-all-customers))
-* `customers/getAllByEmails` (replaced by [Get all customers](../operations/customers.md#get-all-customers))
-* `customers/getAllByName` (replaced by [Get all customers](../operations/customers.md#get-all-customers))
+* __Feature__ - What entity or feature is being deprecated
+* __Comments__ - Additional information, such as the reason for the deprecation and what the replacement is
+* __Deprecated__ - The date at which the deprecation notice was given (see the [Changelog](../changelog/README.md))
+* __Discontinued__ \- The date at which it is planned to discontinue support completely; a value of '-' indicates no date has been set
 
-### Deprecated time filters 
+## Deprecated operations
 
-Properties `TimeFilter`, `StartUtc` and `EndUtc` to be removed on operations:
+| <div style="width:225px">Feature</div> | <div style="width:200px">Comments</div> | <div style="width:100px">Deprecated</div> | <div style="width:100px">Discontinued</div> |
+| :-- | :-- | :-- | :-- |
+| `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | ? | - |
+| `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
+| `bills/getAllByCustomers` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
+| `bills/getAllClosed` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
+| `creditCards/getAllByIds` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | ? | - |
+| `creditCards/getAllByCustomers` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | ? | - |
+| `reservations/getAllByIds` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | ? | - |
+| `reservations/getAllByCustomers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | ? | - |
+| `reservations/getAllByNumbers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | ? | - |
+| `customers/getAllByIds` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | ? | - |
+| `customers/getAllByEmails` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | ? | - |
+| `customers/getAllByName` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | ? | - |
+
+## Deprecated properties
+
+| <div style="width:225px">Feature</div> | <div style="width:200px">Comments</div> | <div style="width:100px">Deprecated</div> | <div style="width:100px">Discontinued</div> |
+| :-- | :-- | :-- | :-- |
+| `StartUtc`, `EndUtc`<br>in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
+| `StartUtc`, `EndUtc`<br>in [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
+| `AdultCount`, `ChildCount`<br>in [Reservation](../operations/reservations.md#reservation), [Reservation parameters](../operations/reservations.md#reservation-parameters), [Reservation updates](../operations/reservations.md#reservation-updates) | Replaced by `PersonCounts` and [`Age category`](../operations/agecategories.md#age-category) | 11 Feb 2022 | - |
+| `TimeUnit`<br>in [Bookable service data](../operations/services.md#bookable-service-data) | Replaced by `TimeUnitPeriod` | 08 Feb 2022 | - |
+| `DatesUtc`<br>in [Get rate pricing](../operations/rates.md#get-rate-pricing) | Replaced by `TimeUnitStartsUtc` | 08 Feb 2022 | - |
+| `Rebated`<br> in [Bill options](../operations/bills.md#bill-options) | See [Working with rebates](../use-cases/accounting.md#working-with-rebates) | 02 Feb 2022 | - |
+| `CompanionIds`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by operation [Get all companionships](../operations/companionships.md#get-all-companionships) | 03 Mar 2021 | - |
+| `Gender`<br>in [Customer](../operations/customers.md#customer) object in [Operations using deprecated gender](#operations-using-deprecated-gender) | Replaced by `Sex` | 29 Sep 2020 | - |
+| `TimeFilter`, `StartUtc`, `EndUtc`<br>in [Operations using deprecated time filters](#operations-using-deprecated-time-filters) | Replaced by `CreatedUtc`, `UpdatedUtc`, etc. as per operation description | 19 Aug 2020 | - |
+| `TraveAgencyId`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `TravelAgencyId` | 05 Aug 2020 | - |
+| `CategoryId`<br>in [Customer](../operations/customers.md#customer) | - | 02 Jul 2020 | - |
+| `TimeUnitCost`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `TimeUnitPrices` | 17 Jul 2019 | - |
+| `TaxIdentificationNumber`<br>in [Company](../operations/companies.md#company) | Replaced by `TaxIdentifier` | 25 May 2018 | - |
+| `ChannelManagerId`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `ChannelManagerNumber` | 14 Dec 2016 | - |
+| `ApplyCancelationFee`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `ApplyCancellationFee` | ? | - |
+| `Total`<br>in [Reservation price](../operations/reservations.md#reservation-price) | Replaced by `TotalAmount` | ? | - |
+| `BirthDateUtc`<br>in [Customer](../operations/customers.md#customer) | Replaced by `BirthDate` | 07 Jun 2017 | - |
+| `Passport`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
+| `IdentityCard`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
+| `Visa`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
+| `DriversLicense`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
+| `ExpirationUtc`<br>in [Document](../operations/customers.md#document) | Replaced by `Expiration` | 07 Jun 2017 | - |
+| `IssuanceUtc`<br>in [Document](../operations/customers.md#document) | Replaced by `Issuance` | 07 Jun 2017 | - |
+| `Net`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | ? | - |
+| `Tax`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | ? | - |
+| `TaxRate`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | ? | - |
+| Object `UnitCost`<br> in [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by `Amount` | ? | - |
+
+### Operations using deprecated time filters 
+
 * [Get all customers](../operations/customers.md#get-all-customers)
 * [Get all bills](../operations/bills.md#get-all-bills)
 * [Get all companies](../operations/companies.md#get-all-companies)
@@ -30,36 +72,17 @@ Properties `TimeFilter`, `StartUtc` and `EndUtc` to be removed on operations:
 * [Get all outlet items](../operations/outletitems.md#get-all-outlet-items)
 * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions)
 
-Use properties `CreatedUtc`, `UpdatedUtc`, etc. as per operation description.
+### Operations using deprecated gender 
 
-### Other deprecated properties
+* [Add customer](../operations/customers.md#add-customer)
+* [Update customer](../operations/customers.md#update-customer)
+* [Get all customers](../operations/customers.md#get-all-customer)
+* [Search customers](../operations/customers.md#search-customers)
+* [Get all reservations](../operations/reservations.md#get-all-reservations)
 
-Following properties to be removed from output and/or ignored on input:
+## Deprecated functionality
 
-| Object | Property | Replaced by |
-| :-- | :-- | :-- |
-| [Company](../operations/companies.md#company) | `TaxIdentificationNumber` | `TaxIdentifier` |
-| [Reservation](../operations/reservations.md#reservation) | `ChannelManagerId` | `ChannelManagerNumber` |
-| [Reservation](../operations/reservations.md#reservation) | `TimeUnitCost` | `TimeUnitPrices` |
-| [Reservation](../operations/reservations.md#reservation) | `TraveAgencyId` | `TravelAgencyId` |
-| [Reservation](../operations/reservations.md#reservation) | `ApplyCancelationFee` | `ApplyCancellationFee` |
-| [Reservation](../operations/reservations.md#reservation) | `CompanionIds` | Operation [Get all companionships](../operations/services.md#get-all-companionships) |
-| [Reservation price](../operations/reservations.md#reservation-price) | `Total` | `TotalAmount` |
-| [Customer](../operations/customers.md#customer) | `Gender` | `Sex` |
-| [Customer](../operations/customers.md#customer) | `BirthDateUtc` | `BirthDate` |
-| [Customer](../operations/customers.md#customer) | `CategoryId` | --- |
-| [Customer](../operations/customers.md#customer) | `Passport` | [Document](../operations/customers.md#document) object in `Documents` part of response |
-| [Customer](../operations/customers.md#customer) | `IdentityCard` | [Document](../operations/customers.md#document) object in `Documents` part of response |
-| [Customer](../operations/customers.md#customer) | `Visa` | [Document](../operations/customers.md#document) object in `Documents` part of response |
-| [Customer](../operations/customers.md#customer) | `DriversLicense` | [Document](../operations/customers.md#document) object in `Documents` part of response |
-| [Document](../operations/customers.md#document) | `ExpirationUtc` | `Expiration` |
-| [Document](../operations/customers.md#document) | `IssuanceUtc` | `Issuance` |
-| [Currency value](../operations/accountingitems.md#currency-value) | `Net` | --- |
-| [Currency value](../operations/accountingitems.md#currency-value) | `Tax` | --- |
-| [Currency value](../operations/accountingitems.md#currency-value) | `TaxRate` | --- |
-| Whole `UnitCost` object | --- | [Amount](../operations/accountingitems.md#amount-value) |
-| [Bill options](../operations/bills.md#bill-options) | `Rebated` | [Working with rebates](../use-cases/accounting.md#working-with-rebates) |
-
-### Websocket authentication
-
-Changed [Websocket authentication](../websockets/README.md#authentication) from being passed via URL query parameters to cookies.
+| <div style="width:225px">Feature</div> | <div style="width:200px">Comments</div> | <div style="width:100px">Deprecated</div> | <div style="width:100px">Discontinued</div> |
+| :-- | :-- | :-- | :-- |
+| [Websocket authentication](../websockets/README.md#authentication) using URL query parameters | Changed to use cookies instead, which is more secure | 06 Jan 2021 | - |
+| WebSocket `Space event` | Replaced by [Resource event](../websockets/README.md#resource-event) | 21 Sep 2020 | - |
