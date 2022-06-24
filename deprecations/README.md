@@ -16,7 +16,7 @@ The table columns have the following meanings:
 
 ## Deprecated operations
 
-| <div style="width:225px">Feature</div> | <div style="width:200px">Comments</div> | <div style="width:100px">Deprecated</div> | <div style="width:100px">Discontinued</div> |
+| Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | ? | - |
 | `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
@@ -33,7 +33,7 @@ The table columns have the following meanings:
 
 ## Deprecated properties
 
-| <div style="width:225px">Feature</div> | <div style="width:200px">Comments</div> | <div style="width:100px">Deprecated</div> | <div style="width:100px">Discontinued</div> |
+| Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | `StartUtc`, `EndUtc`<br>in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
@@ -82,7 +82,7 @@ The table columns have the following meanings:
 
 ## Deprecated functionality
 
-| <div style="width:225px">Feature</div> | <div style="width:200px">Comments</div> | <div style="width:100px">Deprecated</div> | <div style="width:100px">Discontinued</div> |
+| Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | [Websocket authentication](../websockets/README.md#authentication) using URL query parameters | Changed to use cookies instead, which is more secure | 06 Jan 2021 | - |
 | WebSocket `Space event` | Replaced by [Resource event](../websockets/README.md#resource-event) | 21 Sep 2020 | - |
