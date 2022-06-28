@@ -48,7 +48,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all company contracts](companycontracts.md#get-all-company-contracts) | Returns all contracts between the enterprise and other companies |
 | [Get all departments](departments.md#get-all-departments) | Returns all departments of an enterprise associated with the connector integration |
 | [Get all counters](counters.md#get-all-counters) | Returns all counters of an enterprise associated with the connector integration |
-| [Get all outlets](blah.md#get-all-outlets) | Returns all outlets of an enterprise associated with the connector integration |
+| [Get all outlets](outlets.md#get-all-outlets) | Returns all outlets of an enterprise associated with the connector integration |
 | [Get all resources](resources.md#get-all-resources) | Returns all resources of an enterprise associated with the connector integration |
 | [Update resources](resources.md#update-resources) | Updates details of the resources |
 | [Get all resource blocks](resourceblocks.md#get-all-resource-blocks) | Returns all resource blocks \(out of order blocks or internal use blocks\) |
