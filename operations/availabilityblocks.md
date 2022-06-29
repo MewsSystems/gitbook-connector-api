@@ -109,8 +109,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "ReservationPurpose": "Leisure",
             "CreatedUtc": "2021-10-11T13:32:32Z",
             "UpdatedUtc": "2021-10-11T13:32:32Z",
-            "StartUtc": "2021-10-14T00:00:00Z",
-            "EndUtc": "2021-10-17T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
+            "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "ReleasedUtc": "2021-10-13T00:00:00Z",
             "ExternalIdentifier": "Block-0001"
             "Name": "Wedding group",
@@ -154,8 +154,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         {
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ResourceCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
-            "StartUtc": "2020-11-05T23:00:00Z",
-            "EndUtc": "2020-11-06T23:00:00Z",
+            "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
+            "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "UnitCount": 6
         }
     ]
@@ -182,8 +182,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
@@ -195,8 +195,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block) whose availability is updated. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability is updated. |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `UnitCount` | string | required | Adjustment value applied on the interval. |
 
 ## Add availability blocks
@@ -269,8 +269,8 @@ Adds availability blocks which are used to group related [Availability updates](
             "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "StartUtc": "2020-11-05T00:00:00Z",
-            "EndUtc": "2020-11-06T00:00:00Z",
+            "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
+            "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
             "ExternalIdentifier": "Block-0001"
         }
