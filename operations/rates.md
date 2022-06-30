@@ -83,7 +83,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of [Rate group](#rate-group) where the rate belongs. |
 | `BaseRateId` | string | required | Unique identifier of the base [Rate](#rate). |
-| `BusinessSegmentId` | string | optional | Unique identifier of the business segment [Business segment](#business-segment.md#business-segment). |
+| `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
