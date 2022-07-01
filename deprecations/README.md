@@ -18,18 +18,18 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | ? | - |
-| `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
-| `bills/getAllByCustomers` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
-| `bills/getAllClosed` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | ? | - |
-| `creditCards/getAllByIds` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | ? | - |
-| `creditCards/getAllByCustomers` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | ? | - |
-| `reservations/getAllByIds` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | ? | - |
-| `reservations/getAllByCustomers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | ? | - |
-| `reservations/getAllByNumbers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | ? | - |
-| `customers/getAllByIds` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | ? | - |
-| `customers/getAllByEmails` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | ? | - |
-| `customers/getAllByName` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | ? | - |
+| `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
+| `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
+| `bills/getAllByCustomers` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
+| `bills/getAllClosed` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
+| `creditCards/getAllByIds` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | 01 Jan 2020 | - |
+| `creditCards/getAllByCustomers` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | 01 Jan 2020 | - |
+| `reservations/getAllByIds` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | 01 Jan 2020 | - |
+| `reservations/getAllByCustomers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | 01 Jan 2020 | - |
+| `reservations/getAllByNumbers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | 01 Jan 2020 | - |
+| `customers/getAllByIds` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
+| `customers/getAllByEmails` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
+| `customers/getAllByName` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
 
 ## Deprecated properties
 
@@ -49,19 +49,19 @@ The table columns have the following meanings:
 | `TimeUnitCost`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `TimeUnitPrices` | 17 Jul 2019 | - |
 | `TaxIdentificationNumber`<br>in [Company](../operations/companies.md#company) | Replaced by `TaxIdentifier` | 25 May 2018 | - |
 | `ChannelManagerId`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `ChannelManagerNumber` | 14 Dec 2016 | - |
-| `ApplyCancelationFee`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `ApplyCancellationFee` | ? | - |
-| `Total`<br>in [Reservation price](../operations/reservations.md#reservation-price) | Replaced by `TotalAmount` | ? | - |
+| `ApplyCancelationFee`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `ApplyCancellationFee` | Prior to 2021 | - |
+| `Total`<br>in [Reservation price](../operations/reservations.md#reservation-price) | Replaced by `TotalAmount` | Prior to 2021 | - |
 | `BirthDateUtc`<br>in [Customer](../operations/customers.md#customer) | Replaced by `BirthDate` | 07 Jun 2017 | - |
-| `Passport`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
-| `IdentityCard`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
-| `Visa`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
-| `DriversLicense`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | ? | - |
+| `Passport`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
+| `IdentityCard`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
+| `Visa`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
+| `DriversLicense`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
 | `ExpirationUtc`<br>in [Document](../operations/customers.md#document) | Replaced by `Expiration` | 07 Jun 2017 | - |
 | `IssuanceUtc`<br>in [Document](../operations/customers.md#document) | Replaced by `Issuance` | 07 Jun 2017 | - |
-| `Net`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | ? | - |
-| `Tax`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | ? | - |
-| `TaxRate`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | ? | - |
-| Object `UnitCost`<br> in [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by `Amount` | ? | - |
+| `Net`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | Prior to 2021 | - |
+| `Tax`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | Prior to 2021 | - |
+| `TaxRate`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | Prior to 2021 | - |
+| Object `UnitCost`<br> in [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by `Amount` | Prior to 2021 | - |
 
 ### Operations using deprecated time filters 
 
