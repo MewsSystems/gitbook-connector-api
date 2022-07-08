@@ -8,6 +8,18 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 8th July 2022
+
+* Re-designed and updated [Deprecations page](../deprecations/README.md)
+
+## 29th June 2022
+
+* Monthly Services (coming soon) - Deprecated `StartUtc` and `EndUtc` in favor of `FirstTimeUnitUtc` and `LastTimeUnitUtc` in [Availability block](../operations/availabilityblocks.md#availability-block), [Availability block adjustment](../operations/availabilityblocks.md#availability-block-adjustment) 
+
+## 24th Jun 2022
+
+* Monthly Services (coming soon) - Deprecated `StartUtc` and `EndUtc` in favor of `FirstTimeUnitUtc` and `LastTimeUnitUtc` in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters), [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters)
+
 ## 25th May 2022
 
 * Updated guidance on [Request limits](../guidelines/requests.md#request-limits)
