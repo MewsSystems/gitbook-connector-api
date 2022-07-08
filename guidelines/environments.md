@@ -96,3 +96,7 @@ Each enterprise is located in a specific [Tax environment](../operations/taxenvi
 Instead of numeric tax rates such as `0.1`, use [Tax rate codes](../operations/taxations.md#tax-rate) such as `AT-S` in order to represent and calculate the correct taxation for each accounting item in Mews. To obtain the applicable codes, first download the enterprise information with [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment, then filter for the applicable [Tax rate codes](../operations/taxations.md#tax-rate) from all tax environment information retrieved via [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments). 
 
 Make sure to note the validity intervals as well as any government announcements to anticipate changes to tax rates. Should any changes occur, re-retrieve enterprise and tax environment information to identify the new tax rate codes.
+
+## Whitelisting
+
+Whitelisting (also called 'allowlisting') is a common security measure which can be applied to a system to allow only specified external systems to talk to it. This has traditionally been achieved using IP address-based firewall rules. However, this approach does not work with modern cloud based architectures, which use dynamic and shared IP addresses, proxy servers and elastic resources. For this reason, we do not support the use of IP address whitelists for our APIs and we cannot supply a list of IP addresses for our APIs.
