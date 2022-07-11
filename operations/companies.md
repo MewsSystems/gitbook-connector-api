@@ -89,7 +89,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "Name": "Booking.com",
             "IsActive": true,
             "TaxIdentifier": "",
-            "BillingCode": ""
+            "BillingCode": "",
+            "InvoicingEmail": null
         }
     ]
 }
@@ -114,6 +115,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 | `BillingCode` | string | optional | Billing code of the company. |
+| `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 
 #### Company options
