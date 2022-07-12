@@ -59,12 +59,12 @@ Returns all products offered together with the specified services.
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount":{
-                "GrossValue":25,
-                "Currency":"EUR",
+            "UnitAmount": {
+                "GrossValue": 25,
+                "Currency": "EUR",
                 "TaxValues": [
                     {
-                        "Code":"FR-T"
+                        "Code": "FR-T"
                     }
                 ]
             }

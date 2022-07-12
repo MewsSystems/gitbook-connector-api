@@ -62,18 +62,17 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "TaxIdentifier": null,
             "AdditionalTaxIdentifier": null,
             "ElectronicInvoiceIdentifier": null,
-            "InvoiceDueInterval": null,
+            "InvoiceDueInterval": "P2DT23H",
             "AccountingCode": null,
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
             "BillingCode": null,
-            "Iata": null,
-            "Telephone": null,
-            "InvoicingEmail": null,
-            "ContactPerson": null,
-            "Contact": null,
-            "Notes": null,
+            "Iata": "PAO"
+            "Telephone": "111-222-333",
+            "ContacPerson": "Sample Person 1",
+            "Contact": "Contact Info 1",
+            "Notes": "Note 1",
             "Options": {
                 "Invoiceable": true
             }
@@ -87,18 +86,17 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "TaxIdentifier": null,
             "AdditionalTaxIdentifier": null,
             "ElectronicInvoiceIdentifier": null,
-            "InvoiceDueInterval": null,
+            "InvoiceDueInterval": "P2DT23H",
             "AccountingCode": null,
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
             "BillingCode": null,
-            "Iata": null,
-            "Telephone": null,
-            "InvoicingEmail": null,
-            "ContactPerson": null,
-            "Contact": null,
-            "Notes": null,
+            "Iata": "PAO"
+            "Telephone": "111-222-333",
+            "ContacPerson": "Sample Person 2",
+            "Contact": "Contact Info 2",
+            "Notes": "Note 2",
             "Options": {
                 "Invoiceable": true
             }
@@ -123,17 +121,17 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
-| `InvoiceDueInterval` | string | optional | Timespan indicating the invoice due. |
+| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
 | `CreatedUtc` | string | optional | UTC creation date. |
 | `UpdatedUtc` | string | optional | UTC update date. |
 | `BillingCode` | string | optional | Billing code of the company. |
-| `Iata` | string | optional | International Air Transport Association. |
+| `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
-| `ContactPerson` | string | optional | Contact person full name. |
-| `Contact` | string | optional | Company contact. |
+| `ContactPerson` | string | optional | Contact person of the company. |
+| `Contact` | string | optional | Contact of the company. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 
