@@ -8,7 +8,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 
 `[PlatformAddress]/api/connector/v1/companies/getAll`
 
-```javascript
+```json
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -50,7 +50,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 
 ### Response
 
-```javascript
+```json
 {
     "Companies": [
         {
@@ -151,7 +151,7 @@ Adds a new company to the enterprise.
 
 `[PlatformAddress]/api/connector/v1/companies/add`
 
-```javascript
+```json
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
@@ -214,7 +214,7 @@ Updates information of the company.
 
 `[PlatformAddress]/api/connector/v1/companies/update`
 
-```javascript
+```json
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
