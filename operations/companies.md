@@ -112,10 +112,18 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
+| `InvoiceDueInterval` | string | optional | Timespan indicating the invoice due. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
+| `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
+| `CreatedUtc` | string | optional | UTC creation date. |
+| `UpdatedUtc` | string | optional | UTC update date. |
 | `BillingCode` | string | optional | Billing code of the company. |
+| `Iata` | string | optional | International Air Transport Association. |
+| `Telephone` | string | optional | Contact telephone number. |
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
+| `ContactPerson` | string | optional | Contact person full name. |
+| `Contact` | string | optional | Company contact. |
+| `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 
 #### Company options
