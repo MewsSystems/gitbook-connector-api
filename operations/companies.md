@@ -126,8 +126,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
 | `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
-| `CreatedUtc` | string | optional | UTC creation date. |
-| `UpdatedUtc` | string | optional | UTC update date. |
+| `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
+| `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
