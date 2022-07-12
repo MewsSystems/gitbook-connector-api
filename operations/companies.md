@@ -68,7 +68,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
             "BillingCode": null,
-            "Iata": "PAO"
+            "Iata": "PAO",
             "Telephone": "111-222-333",
             "ContacPerson": "Sample Person 1",
             "Contact": "Contact Info 1",
@@ -92,7 +92,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
             "BillingCode": null,
-            "Iata": "PAO"
+            "Iata": "PAO",
             "Telephone": "111-222-333",
             "ContacPerson": "Sample Person 2",
             "Contact": "Contact Info 2",
