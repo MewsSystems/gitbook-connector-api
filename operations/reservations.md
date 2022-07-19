@@ -35,7 +35,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
         "ReservationGroups": true,
         "Customers": true
     },
-    "Limitation":{
+    "Limitation": {
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
         "Count": 10
     }
