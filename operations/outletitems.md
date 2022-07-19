@@ -22,7 +22,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
         "EndUtc": "2020-01-10T00:00:00Z"
     },
     "Currency": "EUR",
-    "Limitation":{
+    "Limitation": {
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
         "Count": 100
     }
