@@ -8,6 +8,20 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 14th July 2022
+
+* Added InvoicingEmail field in [Company](../operations/companies.md#company)
+* Added InvoiceDueInterval field in [Company](../operations/companies.md#company)
+* Added MotherCompanyId field in [Company](../operations/companies.md#company)
+* Added CreatedUtc field in [Company](../operations/companies.md#company)
+* Added UpdatedUtc field in [Company](../operations/companies.md#company)
+* Added Telephone field in [Company](../operations/companies.md#company)
+* Added ContactPerson field in [Company](../operations/companies.md#company)
+* Added Contact field in [Company](../operations/companies.md#company)
+* Added Notes field in [Company](../operations/companies.md#company)
+* Removed Address field (deprecated) in [Company](../operations/companies.md#company
+* Changed Price to UnitAmount field in [Product](../operations/products.md#response)
+
 ## 8th July 2022
 
 * Re-designed and updated [Deprecations page](../deprecations/README.md)
