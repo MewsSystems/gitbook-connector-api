@@ -46,6 +46,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     "Rates": [
         {
             "BaseRateId": null,
+            "BusinessSegmentId": null,
             "GroupId": "c8b866b3-be2e-4a47-9486-034318e9f393",
             "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -82,6 +83,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of [Rate group](#rate-group) where the rate belongs. |
 | `BaseRateId` | string | required | Unique identifier of the base [Rate](#rate). |
+| `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
