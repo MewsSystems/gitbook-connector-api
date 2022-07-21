@@ -21,6 +21,7 @@
   * [Responses](guidelines/responses.md)
   * [Environments](guidelines/environments.md)
   * [Serialization](guidelines/serialization.md)
+  * [Pagination](guidelines/pagination.md)
   * [Ways to communicate](guidelines/communicate.md)
   * [Certification](guidelines/certification.md)
   * [Taxation](guidelines/taxation.md)
