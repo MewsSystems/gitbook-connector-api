@@ -2,7 +2,7 @@
 
 ## Get all outlet items
 
-Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
+Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -37,7 +37,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
-| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of outlet items returned (using cursor pagination). |
+| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of outlet items returned /(using [cursor pagination](../guidelines/pagination.md)/). |
 
 #### Time interval
 
