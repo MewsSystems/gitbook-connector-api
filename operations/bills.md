@@ -2,7 +2,7 @@
 
 ## Get all bills
 
-Returns all bills, possibly filtered by customers, identifiers and other filters.
+Returns all bills, optionally filtered by customers, identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -53,7 +53,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `DueUtc` | [Time interval](#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
 | `PaidUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
-| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of bill data returned (using cursor pagination). |
+| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of bill data returned \(using [cursor pagination](../guidelines/pagination.md)\). |
 
 #### Time interval
 
