@@ -133,7 +133,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Telephone` | string | optional | Contact telephone number. |
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `Contact` | string | optional | Telephone or email contact of the company. |
+| `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 
@@ -192,7 +192,7 @@ Adds a new company to the enterprise.
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `Contact` | string | optional | Contact of the company. |
+| `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
 
@@ -270,7 +270,7 @@ Updates information of the company.
 | `AccountingCode` | [String update value](#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
 | `InvoiceDueInterval` | [String update value](#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `ContactPerson` | [String update value](#string-update-value) | optional | Contact person of the company. |
-| `Contact` | [String update value](#string-update-value) | optional | Contact of the company. |
+| `Contact` | [String update value](#string-update-value) | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | [String update value](#string-update-value) | optional | Notes of the company. |
 | `Iata` | [String update value](#string-update-value) | optional | Iata of the company. |
 
