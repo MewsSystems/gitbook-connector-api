@@ -2,7 +2,7 @@
 
 ## Get all reservations
 
-Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. 
+Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -34,6 +34,10 @@ Returns all reservations specified by any identifier, customer or other filter. 
         "Reservations": true,
         "ReservationGroups": true,
         "Customers": true
+    },
+    "Limitation": {
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
     }
 }
 ```
@@ -57,6 +61,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of reservation data returned. |
 
 #### Reservation time filter
 
@@ -177,7 +182,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
     "Resources": null,
     "ResourceCategories": null,
     "ResourceCategoryAssignments": null,
-    "Notes": null
+    "Notes": null,
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
@@ -196,7 +202,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resources.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
-| `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. | 
+| `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest reservation returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older reservations. |
 
 #### Reservation
 
