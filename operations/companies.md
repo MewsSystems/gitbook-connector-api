@@ -133,7 +133,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Telephone` | string | optional | Contact telephone number. |
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `Contact` | string | optional | Contact of the company. |
+| `Contact` | string | optional | Telephone or email contact of the company. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 
