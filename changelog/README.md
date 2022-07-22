@@ -11,6 +11,7 @@ For more details, see [Environments](../guidelines/environments.md).
 ## 22nd July 2022
 
 * Added new page [Pagination](../guidelines/pagination.md) under [Guidelines](../guidelines/README.md)
+* Added limitation and cursor to support pagination in [Get all bills](../operations/bill.md#get-all-bills), [Get all reservation](../operations/reservations.md#get-all-reservations), [Get all outletItems](../operations/outletitems.md#get-all-outletitems)
 * Added InvoicingEmail field in [Company](../operations/companies.md#company)
 * Added InvoiceDueInterval field in [Company](../operations/companies.md#company)
 * Added MotherCompanyId field in [Company](../operations/companies.md#company)
@@ -25,10 +26,6 @@ For more details, see [Environments](../guidelines/environments.md).
 ## 19th July 2022
 
 * Extended operation [Update reservations](../operations/reservations.md#update-reservations) with `Purpose` property.
-
-## 18th July 2022
-
-* Added limitation and cursor to support pagination in [Get all bills](../operations/bill.md#get-all-bills), [Get all reservation](../operations/reservations.md#get-all-reservations), [Get all outletItems](../operations/outletitems.md#get-all-outletitems)
 
 ## 8th July 2022
 
