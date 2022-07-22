@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 19th July 2022
+
+* Extended operation [Update reservations](../operations/reservations.md#update-reservations) with `Purpose` property.
+
 ## 18th July 2022
 
 * Added limitation and cursor to support pagination in [Get all bills](../operations/bill.md#get-all-bills), [Get all reservation](../operations/reservations.md#get-all-reservations), [Get all outletItems](../operations/outletitems.md#get-all-outletitems)
