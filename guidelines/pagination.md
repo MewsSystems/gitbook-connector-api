@@ -57,5 +57,4 @@ We use a method called _cursor pagination_. This takes the following form:
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Data` | ... | required | Placeholder for response data (details will vary). |
-
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest datum returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older data. |
