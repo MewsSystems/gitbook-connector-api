@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 19th July 2022
+
+* Extended operation [Update reservations](../operations/reservations.md#update-reservations) with `Purpose` property.
+
 ## 8th July 2022
 
 * Re-designed and updated [Deprecations page](../deprecations/README.md)

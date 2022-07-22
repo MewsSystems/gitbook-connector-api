@@ -683,6 +683,9 @@ Updates information about the specified reservations. Note that if any of the fi
                 "Value": "73ba34d1-f375-460c-bf2d-8a63e71677a6"
             },
             "BusinessSegmentId": null,
+            "Purpose": {
+                "Value": "Business"
+            },
             "RateId": null,
             "BookerId": {
                 "Value": "92923102-bf91-4a4a-8ee8-9dcb79c9d6de"
@@ -761,6 +764,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `TravelAgencyId` | [String update value](#string-update-value) | optional | Identifier of the [Company](companies.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
 | `CompanyId` | [String update value](#string-update-value) | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
 | `BusinessSegmentId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment) \(or `null` if the business segment should not be updated).|
+| `Purpose` | [String update value](#string-update-value) | optional | [Purpose](#reservation-purpose) of the reservation \(or `null` if the purpose should not be updated).|
 | `RateId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Rate](rates.md#rate) \(or `null` if the rate should not be updated). |
 | `BookerId` | [String update value](#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
