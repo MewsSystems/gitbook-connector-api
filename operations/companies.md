@@ -67,6 +67,17 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
+            "Address": {
+                "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
+                "Line1": "Rheinlanddamm 207-209",
+                "Line2": "",
+                "City": "Dortmund",
+                "PostalCode": "44137"
+                "CountryCode": "DE",
+                "CountrySubdivisionCode": null,
+                "Latitude": null,
+                "Longitude": null
+            },
             "BillingCode": null,
             "Iata": "PAO",
             "Telephone": "111-222-333",
@@ -92,6 +103,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
+            "Address": null,
             "BillingCode": null,
             "Iata": "PAO",
             "Telephone": "111-222-333",
@@ -128,6 +140,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
 | `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
 | `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
+| `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
