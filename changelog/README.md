@@ -27,7 +27,7 @@ For more details, see [Environments](../guidelines/environments.md).
 * Added ContactPerson field in [Company](../operations/companies.md#company)
 * Added Contact field in [Company](../operations/companies.md#company)
 * Added Notes field in [Company](../operations/companies.md#company)
-* Removed Address field (deprecated) in [Company](../operations/companies.md#company
+* Removed Address field (deprecated) in [Company](../operations/companies.md#company)
 * Changed Price to UnitAmount field in [Product](../operations/products.md#response)
 
 ## 8th July 2022
