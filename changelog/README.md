@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 22nd July 2022
+
+* Added new page [Pagination](../guidelines/pagination.md) under [Guidelines](../guidelines/README.md)
+
 ## 8th July 2022
 
 * Re-designed and updated [Deprecations page](../deprecations/README.md)
