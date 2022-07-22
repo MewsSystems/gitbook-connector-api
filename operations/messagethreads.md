@@ -2,7 +2,7 @@
 
 ## Get all message threads
 
-Get all message threads that you have created, filtered by time interval and/or specific message thread IDs. Note this operation uses the `Limitation` property to implement a form of data pagination and thus limit the quantity of items returned.
+Get all message threads that you have created, filtered by time interval and/or specific message thread IDs. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
