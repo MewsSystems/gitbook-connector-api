@@ -53,7 +53,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `DueUtc` | [Time interval](#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
 | `PaidUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
-| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of bill data returned \(using [cursor pagination](../guidelines/pagination.md)\). |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of bill data returned. |
 
 #### Time interval
 
@@ -117,7 +117,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Bills` | array of [Bill](#bill) | required | The filtered bills. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](messagethreads.md#limitation) in a subsequent request to fetch the next batch of older bills. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older bills. |
 
 #### Bill
 

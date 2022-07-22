@@ -37,7 +37,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
-| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of outlet items returned /(using [cursor pagination](../guidelines/pagination.md)/). |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of outlet items returned. |
 
 #### Time interval
 
@@ -110,7 +110,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | :-- | :-- | :-- | :-- |
 | `OutletItems` | array of [Outlet item](#outlet-item) | required | The outlet items. |
 | `OutletBills` | array of [Outlet bill](#outlet-bill) | required | The outlet bills of the items. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest outlet item returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older outlet items. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest outlet item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older outlet items. |
 
 #### Outlet item
 

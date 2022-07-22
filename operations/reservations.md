@@ -61,7 +61,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
-| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of reservation data returned \(using [cursor pagination](../guidelines/pagination.md)\). |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of reservation data returned. |
 
 #### Reservation time filter
 
@@ -203,7 +203,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resources.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
 | `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest reservation returned. This can be used in [Limitation](messagethreads.md#limitation) in a subsequent request to fetch the next batch of older reservations. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest reservation returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older reservations. |
 
 #### Reservation
 
