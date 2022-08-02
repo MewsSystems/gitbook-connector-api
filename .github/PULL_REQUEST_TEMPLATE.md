@@ -1,12 +1,10 @@
-#### Changelog notes 
-
-```
-* Added/Extended operations....
-```
-
 #### Follow style guide
 
 [Style guide](https://app.getguru.com/card/c98GRexi/Style-Guide-for-Mews-Open-API-Documentation)
+
+#### Change log 
+
+- [ ] Have you updated the change log file?
 
 #### Check during review
 
