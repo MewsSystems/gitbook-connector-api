@@ -1,6 +1,5 @@
+<<<<<<< HEAD
 #### Summary
-
-
 
 #### Follow style guide
 
