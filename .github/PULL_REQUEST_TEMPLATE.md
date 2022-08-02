@@ -1,8 +1,6 @@
-#### Changelog notes 
+#### Summary
 
-```
-* Added/Extended operations....
-```
+
 
 #### Follow style guide
 
@@ -10,6 +8,8 @@
 
 #### Check during review
 
+- [ ] The changelog and potentially a deprecation entries are in place.
+  - [ ] The changelog timestamp is date of merge to develop. 
 - [ ] JSON example extended.
   - [ ] New properties are added to the correct place in the JSON.
 - [ ] New properties in the table are added to the correct place.
