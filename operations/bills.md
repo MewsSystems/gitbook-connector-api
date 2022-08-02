@@ -2,7 +2,7 @@
 
 ## Get all bills
 
-Returns all bills, possibly filtered by customers, identifiers and other filters.
+Returns all bills, optionally filtered by customers, identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -32,6 +32,10 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
     "PaidUtc": null,
     "Extent": {
         "Items": false
+    },
+    "Limitation":{
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 100
     }
 }
 ```
@@ -49,6 +53,7 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
 | `DueUtc` | [Time interval](#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
 | `PaidUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of bill data returned. |
 
 #### Time interval
 
@@ -104,13 +109,15 @@ Returns all bills, possibly filtered by customers, identifiers and other filters
                 }
             }
         }
-    ]
+    ],
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Bills` | array of [Bill](#bill) | required | The filtered bills. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older bills. |
 
 #### Bill
 

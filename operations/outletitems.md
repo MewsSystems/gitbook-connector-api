@@ -2,7 +2,7 @@
 
 ## Get all outlet items
 
-Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency.
+Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -21,7 +21,11 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
         "StartUtc": "2020-01-05T00:00:00Z",
         "EndUtc": "2020-01-10T00:00:00Z"
     },
-    "Currency": "EUR"
+    "Currency": "EUR",
+    "Limitation": {
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 100
+    }
 }
 ```
 
@@ -33,6 +37,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of outlet items returned. |
 
 #### Time interval
 
@@ -96,7 +101,8 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "ClosedUtc": "2018-07-26T10:19:02Z",
             "Notes": null
         }
-    ]
+    ],
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
@@ -104,6 +110,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | :-- | :-- | :-- | :-- |
 | `OutletItems` | array of [Outlet item](#outlet-item) | required | The outlet items. |
 | `OutletBills` | array of [Outlet bill](#outlet-bill) | required | The outlet bills of the items. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest outlet item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older outlet items. |
 
 #### Outlet item
 

@@ -2,7 +2,7 @@
 
 ## Get all reservations
 
-Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. 
+Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -34,6 +34,10 @@ Returns all reservations specified by any identifier, customer or other filter. 
         "Reservations": true,
         "ReservationGroups": true,
         "Customers": true
+    },
+    "Limitation": {
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
     }
 }
 ```
@@ -57,6 +61,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of reservation data returned. |
 
 #### Reservation time filter
 
@@ -177,7 +182,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
     "Resources": null,
     "ResourceCategories": null,
     "ResourceCategoryAssignments": null,
-    "Notes": null
+    "Notes": null,
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
@@ -196,7 +202,8 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resources.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `Notes` | array of [Order note](#order-note) | optional | Notes of the reservations. | 
-| `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. | 
+| `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest reservation returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older reservations. |
 
 #### Reservation
 
@@ -683,6 +690,9 @@ Updates information about the specified reservations. Note that if any of the fi
                 "Value": "73ba34d1-f375-460c-bf2d-8a63e71677a6"
             },
             "BusinessSegmentId": null,
+            "Purpose": {
+                "Value": "Business"
+            },
             "RateId": null,
             "BookerId": {
                 "Value": "92923102-bf91-4a4a-8ee8-9dcb79c9d6de"
@@ -761,6 +771,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `TravelAgencyId` | [String update value](#string-update-value) | optional | Identifier of the [Company](companies.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
 | `CompanyId` | [String update value](#string-update-value) | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
 | `BusinessSegmentId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment) \(or `null` if the business segment should not be updated).|
+| `Purpose` | [String update value](#string-update-value) | optional | [Purpose](#reservation-purpose) of the reservation \(or `null` if the purpose should not be updated).|
 | `RateId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Rate](rates.md#rate) \(or `null` if the rate should not be updated). |
 | `BookerId` | [String update value](#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |

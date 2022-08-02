@@ -54,8 +54,19 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 {
     "Companies": [
         {
-            "AccountingCode": "",
-            "AdditionalTaxIdentifier": "",
+            "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+            "Name": "Sample Company 1",
+            "IsActive": true,
+            "Number": 11,
+            "Identifier": null,
+            "TaxIdentifier": null,
+            "AdditionalTaxIdentifier": null,
+            "ElectronicInvoiceIdentifier": null,
+            "InvoiceDueInterval": "P2DT23H",
+            "AccountingCode": null,
+            "MotherCompanyId": null,
+            "CreatedUtc": "2022-07-11T09:56:54Z",
+            "UpdatedUtc": "2022-07-11T09:56:54Z",
             "Address": {
                 "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
                 "Line1": "Rheinlanddamm 207-209",
@@ -67,29 +78,42 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
                 "Latitude": null,
                 "Longitude": null
             },
-            "ElectronicInvoiceIdentifier": "",
-            "Id": "207b9da3-1c2a-45df-af20-54e57a13368c",
-            "Identifier": "",
-            "Name": "IBM",
-            "IsActive": true,
-            "Number": 25,
-            "TaxIdentifier": "",
-            "BillingCode": "",
+            "BillingCode": null,
+            "Iata": "PAO",
+            "Telephone": "111-222-333",
+            "InvoicingEmail": "sample1@mews.com",
+            "ContacPerson": "Sample Person 1",
+            "Contact": "Contact Info 1",
+            "Notes": "Note 1",
             "Options": {
                 "Invoiceable": true
             }
         },
         {
-            "AccountingCode": "",
-            "AdditionalTaxIdentifier": "",
-            "Address": null,
-            "ElectronicInvoiceIdentifier": "",
-            "Id": "217b9da3-1c2a-45df-af20-54e57a13368c",
-            "Identifier": "",
-            "Name": "Booking.com",
+            "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
+            "Name": "Sample Company 2",
             "IsActive": true,
-            "TaxIdentifier": "",
-            "BillingCode": ""
+            "Number": 12,
+            "Identifier": null,
+            "TaxIdentifier": null,
+            "AdditionalTaxIdentifier": null,
+            "ElectronicInvoiceIdentifier": null,
+            "InvoiceDueInterval": "P2DT23H",
+            "AccountingCode": null,
+            "MotherCompanyId": null,
+            "CreatedUtc": "2022-07-11T09:56:54Z",
+            "UpdatedUtc": "2022-07-11T09:56:54Z",
+            "Address": null,
+            "BillingCode": null,
+            "Iata": "PAO",
+            "Telephone": "111-222-333",
+            "InvoicingEmail": "sample2@mews.com",
+            "ContacPerson": "Sample Person 2",
+            "Contact": "Contact Info 2",
+            "Notes": "Note 2",
+            "Options": {
+                "Invoiceable": true
+            }
         }
     ]
 }
@@ -111,9 +135,19 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
+| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `AccountingCode` | string | optional | Accounting code of the company. |
+| `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
+| `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
+| `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
 | `BillingCode` | string | optional | Billing code of the company. |
+| `Iata` | string | optional | Iata of the company. |
+| `Telephone` | string | optional | Contact telephone number. |
+| `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
+| `ContactPerson` | string | optional | Contact person of the company. |
+| `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
+| `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 
 #### Company options
@@ -171,7 +205,7 @@ Adds a new company to the enterprise.
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `Contact` | string | optional | Contact of the company. |
+| `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
 
@@ -249,7 +283,7 @@ Updates information of the company.
 | `AccountingCode` | [String update value](#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
 | `InvoiceDueInterval` | [String update value](#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `ContactPerson` | [String update value](#string-update-value) | optional | Contact person of the company. |
-| `Contact` | [String update value](#string-update-value) | optional | Contact of the company. |
+| `Contact` | [String update value](#string-update-value) | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | [String update value](#string-update-value) | optional | Notes of the company. |
 | `Iata` | [String update value](#string-update-value) | optional | Iata of the company. |
 

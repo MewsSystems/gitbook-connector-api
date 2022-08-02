@@ -60,9 +60,12 @@ If the [response](responses.md) looks something like this, you've successfully m
 }
 ```
 
-There are several [serialization](serialization.md) patterns that you should get familiar with in order to use the API correctly. For example, we work with times in UTC so you should be aware of the timezone the property is in (as can be seen on example above) as well as any daylight saving time changes, and adjust accordingly.
+## Next steps
+
+There are several [serialization](serialization.md) patterns that you should get familiar with in order to use the API correctly. For example, we work with times in UTC so you should be aware of the timezone the property is in, as well as any daylight saving time changes, and adjust accordingly.
 
 If you receive an error response, check the [response codes](responses.md#response-codes) and the message specified in [response details](responses.md#response-details) to determine what went wrong.
 Note that if you encounter a `429` error with one of the testing demo credentials, it may be that multiple developers are using the same demo credentials and have exhausted our [request limits](requests.md#request-limits).
 To minimize the impact this may have on your development efforts, we provide multiple sets of tokens for the test hotels that you can use in Demo.
 
+Finally, be aware that some 'get' operations use [pagination](pagination.md) to manage performance when fetching potentially large amounts of data.

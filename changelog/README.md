@@ -8,6 +8,25 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 22nd July 2022
+
+* Added new page [Pagination](../guidelines/pagination.md) under [Guidelines](../guidelines/README.md).
+* Added cursor pagination in [Get all bills](../operations/bills.md#get-all-bills), [Get all reservation](../operations/reservations.md#get-all-reservations), [Get all outletItems](../operations/outletitems.md#get-all-outletitems) operations.
+* Added InvoicingEmail field in [Company](../operations/companies.md#company).
+* Added InvoiceDueInterval field in [Company](../operations/companies.md#company).
+* Added MotherCompanyId field in [Company](../operations/companies.md#company).
+* Added CreatedUtc field in [Company](../operations/companies.md#company).
+* Added UpdatedUtc field in [Company](../operations/companies.md#company).
+* Added Telephone field in [Company](../operations/companies.md#company).
+* Added ContactPerson field in [Company](../operations/companies.md#company).
+* Added Contact field in [Company](../operations/companies.md#company).
+* Added Notes field in [Company](../operations/companies.md#company).
+* Changed Price to UnitAmount field in [Product](../operations/products.md#response).
+
+## 19th July 2022
+
+* Extended operation [Update reservations](../operations/reservations.md#update-reservations) with `Purpose` property.
+
 ## 8th July 2022
 
 * Re-designed and updated [Deprecations page](../deprecations/README.md)

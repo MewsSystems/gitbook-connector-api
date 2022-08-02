@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created. Note this operation uses the `Limitation` property to implement a form of data pagination and thus limit the quantity of items returned.
+Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -34,7 +34,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | `Client` | string | required | Name and version of the client application. |
 | `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](messagethreads.md#message-thread) from where to return messages. |
 | `CreatedUtc` | [Time interval](messagethreads.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
-| `Limitation` | [Limitation](messagethreads.md#limitation) | required | Limitation on the quantity of message data returned (using cursor pagination). |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of message data returned (using cursor pagination). |
 
 ### Response
 
@@ -58,7 +58,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Messages` | array of [Messages](#message) | required | The filtered messages. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest message returned. This can be used in [Limitation](messagethreads.md#limitation) in a subsequent request to fetch the next batch of older messages. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest message returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older messages. |
 
 #### Message
 
