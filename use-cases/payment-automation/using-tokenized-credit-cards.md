@@ -21,7 +21,7 @@ Implement steps 1 through 3 described in the documentation. See [Examples](https
 1. [Set up Secure Fields](https://docs.pci-proxy.com/collect/secure-fields-js#1.-setup-secure-fields).
 2. [Create the Payment Form](https://docs.pci-proxy.com/collect/secure-fields-js#2.-create-the-payment-form) to collect card number, CVV, and expiration date*.
 3. [Retrieve a Transaction ID](https://docs.pci-proxy.com/collect/secure-fields-js#3.-retrieve-a-transaction-id) using the `merchantId`. Take note of the `transactionId` in the response, which looks like a series of numbers (e.g. `201028230732590232`).
-4. Step 4 \([Obtain the tokens](https://docs.pci-proxy.com/collect/secure-fields-js#4.-obtain-the-tokens)\) is perfomed by the Mews backend, no action is required by the integration partner in this step.
+4. This step \([Obtain the tokens](https://docs.pci-proxy.com/collect/secure-fields-js#4.-obtain-the-tokens)\) is performed by the Mews backend, no action is required by the integration partner in this step.
 
 > **Expiration date:**
 > Though not required by PCI Proxy, credit card expiration date is listed as a mandatory parameter on the [Add tokenized credit card](../../operations/creditcards.md#add-tokenized-credit-card) endpoint so that it can be displayed within the customer profile in Mews. This can also be used as an additional validation method for the property to know if there is an expired card on file.
