@@ -8,7 +8,7 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
-## 2nd August 2022
+## 5th August 2022
 
 * Updated PCI Proxy links in [Using tokenized credit cards](../use-cases/payment-automation/using-tokenized-credit-cards.md).
 
