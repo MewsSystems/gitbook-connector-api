@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 8rd August 2022
+
+* Added BookerId field in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters).
+
 ## 22nd July 2022
 
 * Added new page [Pagination](../guidelines/pagination.md) under [Guidelines](../guidelines/README.md).
