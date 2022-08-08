@@ -230,7 +230,8 @@ Adds availability blocks which are used to group related [Availability updates](
             },
             "ReservationPurpose": null,
             "Notes": null,
-            "State": "Confirmed"
+            "State": "Confirmed",
+            "BookerId": null
         }
     ]
 }
