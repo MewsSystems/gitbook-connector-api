@@ -12,6 +12,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 * Added BookerId field in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters).
 
+## 5th August 2022
+
+* Updated PCI Proxy use case [Using tokenized credit cards](../use-cases/payment-automation/using-tokenized-credit-cards.md).
+
 ## 22nd July 2022
 
 * Added new page [Pagination](../guidelines/pagination.md) under [Guidelines](../guidelines/README.md).
