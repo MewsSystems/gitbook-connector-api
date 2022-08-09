@@ -16,6 +16,7 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 | Service Order | `ServiceOrderUpdated` | Event triggered when a service order is updated |
 | Resource | `ResourceUpdated` | Event triggered when a resource is updated |
 | Message | `MessageAdded` | Event triggered when a new message is added |
+| Resource block | `ResourceBlockUpdated` | Event triggered when a resource block is updated |
 
 > ### Terminology
 > A *Service Order* is an order made against a *Service*. A *Service Order* made against a *Bookable Service* is called a *Reservation*.
