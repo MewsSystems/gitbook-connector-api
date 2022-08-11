@@ -16,6 +16,7 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 | Service Order | `ServiceOrderUpdated` | Event triggered when a service order is updated |
 | Resource | `ResourceUpdated` | Event triggered when a resource is updated |
 | Message | `MessageAdded` | Event triggered when a new message is added |
+| Resource block | `ResourceBlockUpdated` | Event triggered when a resource block is updated |
 
 > ### Terminology
 > A *Service Order* is an order made against a *Service*. A *Service Order* made against a *Bookable Service* is called a *Reservation*.
@@ -106,7 +107,8 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
                 "Discriminator": "Application"
             },
             "CreatedUtc": "2022-03-09T13:19:46Z"
-        }
+        },
+        "ResourceBlocks": []
     ]
     }
 }
@@ -131,6 +133,7 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 * `ServiceOrderUpdated` - A [Reservation](../operations/reservations.md#reservation) or other Service Order was updated. `Value` is [Entity updated data](#entity-updated-data).
 * `ResourceUpdated` - A [Resource](../operations/resources.md#resource) (for example a guest room or other space) was updated. `Value` is [Entity updated data](#entity-updated-data).
 * `MessageAdded` - A [Message](../operations/messages.md#message) was added. `Value` is [Entity updated data](#entity-updated-data).
+* `ResourceBlockUpdated` - A [Resource block](../operations/resourceblocks.md#resource-block) was updated. `Value` is [Entity updated data](#entity-updated-data).
 
 ### Entity updated data
 
@@ -145,3 +148,4 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 | `ServiceOrders` | array of [Reservation](../operations/reservations.md#reservation) | optional | Latest state of [Reservations](../operations/reservations.md#reservation) related to [Events](#event). |
 | `Resources` | array of [Resource](../operations/resources.md#resource) | optional | Latest state of [Resources](../operations/resources.md#resource) related to [Events](#event). |
 | `Messages` | array of [Message](../operations/messages.md#message) | optional | Newly added messages since the last webhook execution. |
+| `ResourceBlocks` | array of [Resource block](../operations/resourceblocks.md#resource-block) | optional | Latest state of [Resource blocks](../operations/resourceblocks.md#resource-block) related to [Events](#event). |
