@@ -172,7 +172,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
-| `MergeTargetId` | string | optional | `Id` of the account (Customer/Company) where the customer is linked to. |
+| `MergeTargetId` | string | optional | `Id` of the account ([Customer](#customer)/[Company](companies.md#company)) to which this customer is linked. |
 | `ActivityState` | string | optional | [State](#activity-state) of returned customer. |
 
 
