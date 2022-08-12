@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 12th August 2022
+
+* Added a new type of webhook for updated Resource blocks (../webhooks/wh-general.md).
+
 ## 8rd August 2022
 
 * Added BookerId field in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters).
