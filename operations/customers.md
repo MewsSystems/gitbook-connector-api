@@ -173,7 +173,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 | `MergeTargetId` | string | optional | `Id` of the account ([Customer](#customer)/[Company](companies.md#company)) to which this customer is linked. |
-| `ActivityState` | string | optional | [State](#activity-state) of returned customer. |
+| `ActivityState` | string | optional | [Activity State](#activity-state) of customer record, i.e. whether active or deleted. |
 
 
 #### Title
