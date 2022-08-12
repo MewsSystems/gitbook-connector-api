@@ -8,6 +8,9 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 12th August 2022
+* Added a `ActivityState` and `MergeTargetId` into the [Customer](../operations/customers.md#customer).
+
 ## 10th August 2022
 
 * Added a new type of webhook for updated Resource blocks (../webhooks/wh-general.md).
