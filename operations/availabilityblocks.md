@@ -101,6 +101,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherId": null,
             "BookerId": null,
+            "CompanyId": null,
             "Budget": {
                 "Currency": "USD",
                 "Value": 48.0
@@ -112,7 +113,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "ReleasedUtc": "2021-10-13T00:00:00Z",
-            "ExternalIdentifier": "Block-0001"
+            "ExternalIdentifier": "Block-0001",
             "Name": "Wedding group",
             "Notes": "Have a nice stay"
         }
@@ -177,6 +178,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) the block is assigned to. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) used to access specified private [Rate](rates.md#rate). |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
+| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) of which the block is part of. |
 | `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations in the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 | `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
