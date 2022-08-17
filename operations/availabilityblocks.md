@@ -232,7 +232,8 @@ Adds availability blocks which are used to group related [Availability updates](
             },
             "ReservationPurpose": null,
             "Notes": null,
-            "State": "Confirmed"
+            "State": "Confirmed",
+            "BookerId": null
         }
     ]
 }
@@ -261,6 +262,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `Notes` | string | optional | Additional notes of the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
+| `BookerId` | string | optional | Unique identifier of the [Booker](customers.md#customer) as a creator of an availability block. |
 
 ### Response
 
