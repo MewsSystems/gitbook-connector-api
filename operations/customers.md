@@ -175,7 +175,6 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](#customer)) to which this customer is linked. |
 | `ActivityState` | string | required | [Activity State](#activity-state) of customer record, i.e. whether active or deleted. |
 
-
 #### Title
 
 * `Mister`
