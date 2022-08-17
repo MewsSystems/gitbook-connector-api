@@ -8,7 +8,8 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
-## 12th August 2022
+## 17th August 2022
+
 * Added `ActivityState` and `MergeTargetId` to the [Customer](../operations/customers.md#customer) object.
 
 ## 10th August 2022
