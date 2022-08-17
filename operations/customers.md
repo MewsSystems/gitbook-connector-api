@@ -118,7 +118,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "TaxIdentificationNumber": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z",
-            "CompanyId": "cb7d4a2f-10e0-4163-a176-ad03007efa8a"
+            "CompanyId": "cb7d4a2f-10e0-4163-a176-ad03007efa8a",
+            "MergeTargetId": null,
+            "ActivityState": "Active"
         }
     ],
     "Documents": [
@@ -170,6 +172,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
+| `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](#customer)) to which this customer is linked. |
+| `ActivityState` | string | required | [Activity State](#activity-state) of customer record, i.e. whether active or deleted. |
 
 #### Title
 
@@ -224,6 +228,11 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 * `SendMarketingEmails`
 * ...
+
+#### Activity State
+
+* `Active`
+* `Deleted`
 
 ## Search customers
 
