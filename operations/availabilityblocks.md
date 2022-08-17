@@ -178,7 +178,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) the block is assigned to. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) used to access specified private [Rate](rates.md#rate). |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
-| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) of which the block is part of. |
+| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) linked to the block. |
 | `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations in the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 | `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
