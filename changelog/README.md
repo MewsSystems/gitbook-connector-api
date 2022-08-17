@@ -11,6 +11,7 @@ For more details, see [Environments](../guidelines/environments.md).
 ## 17th August 2022
 
 * Added BookerId field in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters).
+* Extended [Get all availability blocks](../operations/availabilityblocks#get-all-availability-blocks) response with `CompanyId` field in [Availability block](../operations/availabilityblocks.md#availability-block).
 
 ## 10th August 2022
 
