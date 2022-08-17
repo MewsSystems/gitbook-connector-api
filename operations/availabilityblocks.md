@@ -262,7 +262,6 @@ Adds availability blocks which are used to group related [Availability updates](
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 | `BookerId` | string | optional | Unique identifier of the [Booker](customers.md#customer) as a creator of an availability block. |
 
-
 ### Response
 
 ```javascript
