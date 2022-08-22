@@ -17,8 +17,8 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 | Resource | `ResourceUpdated` | Event triggered when a resource is updated |
 | Message | `MessageAdded` | Event triggered when a new message is added |
 | Resource block | `ResourceBlockUpdated` | Event triggered when a resource block is updated |
-| Customer | `Customer`, `CustomerAdded` | Event triggered when a customer is added |
-| Customer | `Customer`, `CustomerUpdated` | Event triggered when a customer is updated |
+| Customer | `CustomerAdded` | Event triggered when a customer is added |
+| Customer | `CustomerUpdated` | Event triggered when a customer is updated |
 
 > ### Terminology
 > A *Service Order* is an order made against a *Service*. A *Service Order* made against a *Bookable Service* is called a *Reservation*.
