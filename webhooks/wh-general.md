@@ -17,6 +17,8 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 | Resource | `ResourceUpdated` | Event triggered when a resource is updated |
 | Message | `MessageAdded` | Event triggered when a new message is added |
 | Resource block | `ResourceBlockUpdated` | Event triggered when a resource block is updated |
+| Customer | `Customer`, `CustomerAdded` | Event triggered when a customer is added |
+| Customer | `Customer`, `CustomerUpdated` | Event triggered when a customer is updated |
 
 > ### Terminology
 > A *Service Order* is an order made against a *Service*. A *Service Order* made against a *Bookable Service* is called a *Reservation*.
@@ -49,6 +51,18 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
                 "Id": "4bfe4675-98a9-4428-9ea9-ae5300dbaa93"
             }
         },
+        {
+            "Discriminator": "CustomerAdded",
+            "Value": {
+                "Id": "c2f1d888-232e-49eb-87ac-5f75363af13b"
+            }
+        },
+        {
+            "Discriminator": "CustomerUpdated",
+            "Value": {
+                "Id": "b3ce0fd7-a715-4bfc-969e-ef7a4822963c"
+            }
+        }
     ],
     "Entities": {
         "ServiceOrders": [
@@ -134,6 +148,8 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 * `ResourceUpdated` - A [Resource](../operations/resources.md#resource) (for example a guest room or other space) was updated. `Value` is [Entity updated data](#entity-updated-data).
 * `MessageAdded` - A [Message](../operations/messages.md#message) was added. `Value` is [Entity updated data](#entity-updated-data).
 * `ResourceBlockUpdated` - A [Resource block](../operations/resourceblocks.md#resource-block) was updated. `Value` is [Entity updated data](#entity-updated-data).
+* `CustomerAdded` - A [Customer](../operations/customers.md#customer) was added.
+* `CustomerUpdated` - A [Customer](../operations/customers.md#customer) was updated.
 
 ### Entity updated data
 
