@@ -6,8 +6,7 @@ Each General Webhook message corresponds to a single property or enterprise inte
 You will receive events for all the properties you are integrated with, and can identify each one from this information.
 
 The message encapsulates all events occurring at the same time which belong to event types to which you have subscribed.
-For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order)
-and you may receive multiple `ServiceOrderUpdated` events in one Webhook message.
+For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message. When the entity is added you may receive event for both added and update in one webhook message.
 
 ## Supported events
 
@@ -82,12 +81,14 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 
 ### Event discriminator
 
-* `ServiceOrderUpdated` - A [Reservation](../operations/reservations.md#reservation) or other Service Order was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all reservations](../operations/reservations.md#get-all-reservations).
-* `ResourceUpdated` - A [Resource](../operations/resources.md#resource) (for example a guest room or other space) was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all resources](../operations/resources.md#get-all-resources).
-* `MessageAdded` - A [Message](../operations/messages.md#message) was added. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all messages](../operations/messages.md#get-all-messages).
-* `ResourceBlockUpdated` - A [Resource block](../operations/resourceblocks.md#resource-block) was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
-* `CustomerAdded` - A [Customer](../operations/customers.md#customer) was added. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all customers](../operations/customers.md#get-all-customers).
-* `CustomerUpdated` - A [Customer](../operations/customers.md#customer) was updated `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all customers](../operations/customers.md#get-all-customers).
+| Discriminator | Description | Value | Fetch operation |
+| :-- | :-- | :-- | :-- |
+| `ServiceOrderUpdated` | A [Reservation](../operations/reservations.md#reservation) or other Service Order was updated. | [Entity updated data](#entity-updated-data) | [Get all reservations](../operations/reservations.md#get-all-reservations) |
+| `ResourceUpdated` | A [Resource](../operations/resources.md#resource) (for example a guest room or other space) was updated. | [Entity updated data](#entity-updated-data) | [Get all resources](../operations/resources.md#get-all-resources) |
+| `MessageAdded` | A [Message](../operations/messages.md#message) was added. | [Entity updated data](#entity-updated-data) | [Get all messages](../operations/messages.md#get-all-messages) |
+| `ResourceBlockUpdated` | A [Resource block](../operations/resourceblocks.md#resource-block) was updated. | [Entity updated data](#entity-updated-data) | [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) |
+| `CustomerAdded` | A [Customer](../operations/customers.md#customer) was added. | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
+| `CustomerUpdated` | A [Customer](../operations/customers.md#customer) was updated | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
 
 ### Entity updated data
 
