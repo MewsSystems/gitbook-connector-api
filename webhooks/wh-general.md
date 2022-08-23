@@ -82,7 +82,7 @@ and you may receive multiple `ServiceOrderUpdated` events in one Webhook message
 
 ### Event discriminator
 
-* `ServiceOrderUpdated` - A [Reservation](../operations/reservations.md#reservation) or other Service Order was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all service orders](../operations/services.md#get-all-services).
+* `ServiceOrderUpdated` - A [Reservation](../operations/reservations.md#reservation) or other Service Order was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all reservations](../operations/reservations.md#get-all-reservations).
 * `ResourceUpdated` - A [Resource](../operations/resources.md#resource) (for example a guest room or other space) was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all resources](../operations/resources.md#get-all-resources).
 * `MessageAdded` - A [Message](../operations/messages.md#message) was added. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all messages](../operations/messages.md#get-all-messages).
 * `ResourceBlockUpdated` - A [Resource block](../operations/resourceblocks.md#resource-block) was updated. `Value` is [Entity updated data](#entity-updated-data). Data about entity can be obtained by [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
