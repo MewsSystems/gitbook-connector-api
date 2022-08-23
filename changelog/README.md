@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 23rd August 2022
+
+* Added new webhook events `CustomerAdded` and `CustomerUpdated` in [General webhooks](../webhooks/wh-general.md).
+
 ## 17th August 2022
 
 * Added `BookerId` field in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters).
