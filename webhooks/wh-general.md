@@ -94,4 +94,4 @@ For example, if you are interested in reservations you will subscribe to `Servic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the updated/added entity. |
+| `Id` | string | required | Unique identifier of the updated/added entity. To fetch entity data use the related operation per [Event discriminator](#event-discriminator). |
