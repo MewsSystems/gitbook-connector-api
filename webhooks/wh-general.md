@@ -1,12 +1,16 @@
 # General Webhooks
 
-This is a newer form of Webhook message which will be extended in future to carry events about different entities in Mews.
+This is a newer form of Webhook message which carries event information related to different entities in Mews.
 
 Each General Webhook message corresponds to a single property or enterprise integration, identified by `EnterpriseId` and `IntegrationId` in the request body.
 You will receive events for all the properties you are integrated with, and can identify each one from this information.
 
 The message encapsulates all events occurring at the same time which belong to event types to which you have subscribed.
-For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message. When the entity is added you may receive event for both added and update in one webhook message.
+For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message.
+
+Each event includes the type of event and the unique identifier for the related entity, e.g. a `Customer Added` event would also include the Customer ID.
+To obtain details about the entity, you then need to call the corresponding API operation using that identifier,
+e.g. in the case of `Customer Added` you would call [Get all customers](../operations/customers.md#get-all-customers) with the Customer ID.
 
 ## Supported events
 
@@ -88,7 +92,7 @@ For example, if you are interested in reservations you will subscribe to `Servic
 | `MessageAdded` | A [Message](../operations/messages.md#message) was added. | [Entity updated data](#entity-updated-data) | [Get all messages](../operations/messages.md#get-all-messages) |
 | `ResourceBlockUpdated` | A [Resource block](../operations/resourceblocks.md#resource-block) was updated. | [Entity updated data](#entity-updated-data) | [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) |
 | `CustomerAdded` | A [Customer](../operations/customers.md#customer) was added. | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
-| `CustomerUpdated` | A [Customer](../operations/customers.md#customer) was updated | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
+| `CustomerUpdated` | A [Customer](../operations/customers.md#customer) was updated. | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
 
 ### Entity updated data
 

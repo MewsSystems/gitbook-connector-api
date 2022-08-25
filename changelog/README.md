@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 25th August 2022
+
+* Small improvements to [Webhooks](../webhooks/README.md) documentation, including moving the [Webhooks FAQ](../webhooks/wh-faq.md) to its own page.
+
 ## 23rd August 2022
 
 * Added new webhook events `CustomerAdded` and `CustomerUpdated` in [General webhooks](../webhooks/wh-general.md).

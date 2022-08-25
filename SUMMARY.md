@@ -73,6 +73,7 @@
 * [Webhooks](webhooks/README.md)
   * [General Webhooks](webhooks/wh-general.md)
   * [Integration Webhooks](webhooks/wh-integration.md)
+  * [Webhooks FAQ](webhooks/wh-faq.md)
 * [WebSockets](websockets/README.md)
 * [Deprecations](deprecations/README.md)
 * [Changelog](changelog/README.md)
