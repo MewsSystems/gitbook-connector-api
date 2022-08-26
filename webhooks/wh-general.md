@@ -9,8 +9,7 @@ The message encapsulates all events occurring at the same time which belong to e
 For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message.
 
 Each event includes the type of event and the unique identifier for the related entity, e.g. a `Customer Added` event would also include the Customer ID.
-To obtain details about the entity, you then need to call the corresponding API operation using that identifier,
-e.g. in the case of `Customer Added` you would call [Get all customers](../operations/customers.md#get-all-customers) with the Customer ID.
+To obtain details about the entity, you then need to call the corresponding API operation using that identifier, e.g. in the case of `Customer Added` you would call [Get all customers](../operations/customers.md#get-all-customers) with the Customer ID.
 
 ## Supported events
 
