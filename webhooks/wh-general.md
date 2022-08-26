@@ -6,7 +6,7 @@ Each General Webhook message corresponds to a single property or enterprise inte
 You will receive events for all the properties you are integrated with, and can identify each one from this information.
 
 The message encapsulates all events occurring at the same time which belong to event types to which you have subscribed.
-For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message.
+For example, if you are interested in reservations you will subscribe to `ServiceOrderUpdated` events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message, each for a different Service Order / Reservation.
 
 Each event includes the type of event and the unique identifier for the related entity, e.g. a `Customer Added` event would also include the Customer ID.
 To obtain details about the entity, you then need to call the corresponding API operation using that identifier, e.g. in the case of `Customer Added` you would call [Get all customers](../operations/customers.md#get-all-customers) with the Customer ID.
@@ -27,6 +27,12 @@ To obtain details about the entity, you then need to call the corresponding API 
 > In fact only *Reservations* are currently supported, however this may be extended in future.
 > A *Resource* can be a bookable space, an object or even the services of a person. *Resource* normally implies a space, but again this may be extended in future.
 > For a full description of all the terms used, see the [Mews Glossary for Open API users](https://help.mews.com/s/article/Mews-Glossary-for-Open-API-users?language=en_US).
+
+## Added vs Updated events
+
+'Updated' implies that some change to an entity has occurred, including changes to the fields or properties within the entity but also when the entity is created or added at the beginning of its life. 'Added' implies only that the entity is created or added at the beginning of its life. In other words, 'Added' is a subset of 'Updated'.
+
+As a consequence of this, note that if you subscribe to both `CustomerAdded` and `CustomerUpdated`, then when a new Customer is created, the system will generate both a `CustomerAdded` event and a `CustomerUpdated` event for the same Customer ID in the same Webhook message. Be aware you should only call [Get all customers](../operations/customers.md#get-all-customers) once not twice in this case.
 
 ## Request body
 
