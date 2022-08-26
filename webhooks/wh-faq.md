@@ -32,7 +32,7 @@ No special content-type headers are used.
 To confirm that a request to your Webhook endpoint originates from Mews, we can add a shared secret token to the URL, as follows:
 
 ### Figure 1: Webhook Authentication
-![Alt text](../.gitbook/assets/webhook-auth.png)
+![Webhook authentication](../.gitbook/assets/webhook-auth.png)
 
 To use this authentication, let us know the details via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
 The token should be kept secret and not shared with anyone except Mews.
