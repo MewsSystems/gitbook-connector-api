@@ -8,7 +8,7 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
-## 29th August 2022
+## 30th August 2022
 
 * Small improvements to [Webhooks](../webhooks/README.md) documentation, including moving the [Webhooks FAQ](../webhooks/wh-faq.md) to its own page.
 
