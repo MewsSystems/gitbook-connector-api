@@ -10,7 +10,7 @@ For more details, see [Environments](../guidelines/environments.md).
 
 ## 7th September 2022
 
-* Described the [Pagination](../guidelines/pagination.md) for the [Customers Get all](../operations/Customers.md)  endpoint.
+* Described the [Pagination](../guidelines/pagination.md) for the [Customers Get all](../operations/Customers.md) endpoint.
 
 ## 30th August 2022
 
