@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 7th September 2022
+
+* Described the [Pagination](../guidelines/pagination.md) for the [Customers Get all](../operations/Customers.md)  endpoint.
+
 ## 30th August 2022
 
 * Small improvements to [Webhooks](../webhooks/README.md) documentation, including moving the [Webhooks FAQ](../webhooks/wh-faq.md) to its own page.
