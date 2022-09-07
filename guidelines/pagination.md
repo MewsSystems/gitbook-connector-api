@@ -22,6 +22,8 @@ We use a method called _cursor pagination_. This takes the following form:
 }
 ```
 
+You will always get the value for the `Cursor` if you're sending the `Limitation` parameter. Note that when you're using _Extent_ functionality (e.g. [Customer extent](../operations/customers.md#customer-extent)) to limit returned result, it will return the value of the `Cursor` for further processing, no matter if the call returns any value or not.
+
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ClientToken` | string | required | Token identifying the client application. |

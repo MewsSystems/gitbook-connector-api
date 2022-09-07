@@ -2,7 +2,7 @@
 
 ## Get all customers
 
-Returns all customers filtered by identifiers, emails, names and other filters.
+Returns all customers filtered by identifiers, emails, names and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -44,6 +44,10 @@ Returns all customers filtered by identifiers, emails, names and other filters.
         "Customers": "true",
         "Documents": "true",
         "Addresses": "false"
+    },
+    "Limitation":{
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
     }
 }
 ```
@@ -63,6 +67,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `DeletedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | optional | Whether return only active, only deleted or both records. |
 | `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of outlet items returned. |
 
 #### Time interval
 
@@ -133,7 +138,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "Issuance": "2016-01-01",
             "IssuingCountryCode": "CZ"
         }
-    ]
+    ],
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
@@ -141,6 +147,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](#customer) | required | The customers. |
 | `Documents` | array of [Document](#document) | required | The identity documents of customers. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. |
 
 #### Customer
 
