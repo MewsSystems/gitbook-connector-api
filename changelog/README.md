@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 8th September 2022
+
+* Extended [Customers Get All](../operations/customers.md#get-all-customers) response with `CarRegistrationNumber` field.
+
 ## 30th August 2022
 
 * Small improvements to [Webhooks](../webhooks/README.md) documentation, including moving the [Webhooks FAQ](../webhooks/wh-faq.md) to its own page.
