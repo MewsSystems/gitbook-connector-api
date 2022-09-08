@@ -10,7 +10,7 @@ For more details, see [Environments](../guidelines/environments.md).
 
 ## 8th September 2022
 
-* Extended [Customers Get All](../operations/customers.md#get-all-customers) response with `CarRegistrationNumber` field.
+* Extended [Get all customers](../operations/customers.md#get-all-customers) response with `CarRegistrationNumber` field.
 
 ## 30th August 2022
 
