@@ -8,7 +8,7 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
-## 7th September 2022
+## 12th September 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get All Customers](../operations/customers.md#get-all-customers).
 
