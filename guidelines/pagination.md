@@ -22,8 +22,6 @@ We use a method called _cursor pagination_. This takes the following form:
 }
 ```
 
-You will always get the value for the `Cursor` if you're sending the `Limitation` parameter. Note that when you're using _Extent_ functionality (e.g. [Customer extent](../operations/customers.md#customer-extent)) to limit returned result, it will return the value of the `Cursor` for further processing, no matter if the call returns any value or not.
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ClientToken` | string | required | Token identifying the client application. |
@@ -59,4 +57,4 @@ You will always get the value for the `Cursor` if you're sending the `Limitation
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Data` | ... | required | Placeholder for response data (details will vary). |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest datum returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older data. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest datum returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older data. If [Limitation](#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned, e.g. in case of [Get all customers](../operations/customers.md#get-all-customers) with all Extent properties set to "false".|
