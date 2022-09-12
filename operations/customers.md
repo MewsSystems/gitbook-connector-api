@@ -147,7 +147,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](#customer) | required | The customers. |
 | `Documents` | array of [Document](#document) | required | The identity documents of customers. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
 
 #### Customer
 
