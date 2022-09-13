@@ -116,6 +116,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
             "BillingCode": null,
             "NationalityCode": "US",
             "Notes": "",
+            "CarRegistrationNumber": null,
             "Options": [],
             "Number": "1",
             "Phone": "00420123456789",
@@ -171,6 +172,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
 | `AccountingCode` | string | optional | Accounting code of the customer. |
 | `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
+| `CarRegistrationNumber` | string | optional | Registration number of the customer's car. |
 | `Classifications` | array of [Customer classification](#customer-classification) | required | Classifications of the customer. |
 | `Options` | array of [Customer option](#customer-option) | required | Options of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
