@@ -8,6 +8,10 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 13th September 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get All Customers](../operations/customers.md#get-all-customers).
+
 ## 8th September 2022
 
 * Extended [Get all customers](../operations/customers.md#get-all-customers) response with `CarRegistrationNumber` field.
