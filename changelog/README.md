@@ -1,6 +1,6 @@
 # Changelog
 
-## 22th September 2022
+## 22nd September 2022
 
 * Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
 * Added `ChannelManagerAbsoluteAdjustment` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
