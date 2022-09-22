@@ -28,12 +28,25 @@ Returns all contracts between the enterprise and other companies.
 {
     "TravelAgencyContracts": [
         {
-            "Commission": null,
+            "Id": "0078f370-3787-43dc-a615-af150066bb88",
+            "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
+            "CompanyId": "bfd5667b-533f-424f-860d-af150065f4d6",
+            "IsActive": true,
             "CommissionIncluded": null,
-            "CompanyId": "04ba69d8-ff17-494f-be27-92422e100aa1",
-            "Id": "c172d21a-5595-44ab-8088-014eedd5bbf3",
-            "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
-            "IsActive": true
+            "Commission": null,
+            "ChannelManagerAbsoluteAdjustment": null,
+            "ChannelManagerRelativeAdjustment": null,
+            "Options": {
+                "IncludeCancellationFeeInCommissionEstimate": false,
+                "SkipAutomaticSettlement": false
+            },
+            "AccountingCode": null,
+            "InvoiceDueInterval": null,
+            "ChannelManagerBusinessSegmentId": null,
+            "ContactPerson": null,
+            "ContactEmail": null,
+            "AdditionalContactInfo": null,
+            "Notes": null
         }
     ]
 }
@@ -53,3 +66,20 @@ Returns all contracts between the enterprise and other companies.
 | `IsActive` | boolean | required | Whether the contract is still active. |
 | `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
 | `Commission` | number | optional | Commission of the travel agency. |
+| `ChannelManagerAbsoluteAdjustment` | number | optional | Flat fee added to (or subtracted from) the reservation price when coming from Channel Managers. |
+| `ChannelManagerRelativeAdjustment` | number | optional | Percentage of the reservation price added to (or subtracted from) price when coming from Channel Managers. |
+| `Options` | [Travel agency contract options](#travel-agency-contract-options) | required | Options of the travel agency contract. |
+| `AccountingCode` | string | optional | Accounting code of the travel agency contract. |
+| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ChannelManagerBusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment) used for incoming reservations originating from Channel Managers, for this particular contract.
+| `ContactPerson` | string | optional | Contact person of the travel agency. |
+| `ContactEmail` | string | optional | Contact email of the travel agency. |
+| `AdditionalContactInfo` | string | optional | Additional contact info of the travel agency. |
+| `Notes` | string | optional | Additional notes of the travel agency contract. |
+
+#### Travel agency contract options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `IncludeCancellationFeeInCommissionEstimate` | boolean | required | Cancellation fee will be considered when calculating the travel agency commission estimate. |
+| `SkipAutomaticSettlement` | boolean | required | Reservations from travel agencies will not be automatically charged. |

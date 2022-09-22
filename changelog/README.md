@@ -1,5 +1,19 @@
 # Changelog
 
+## 22nd September 2022
+
+* Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
+* Added `ChannelManagerAbsoluteAdjustment` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ChannelManagerRelativeAdjustment` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `Options` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `AccountingCode` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `InvoiceDueInterval` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ChannelManagerBusinessSegmentId` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ContactPerson` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ContactEmail` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `AdditionalContactInfo` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `Notes` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+
 ## 13th September 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get All Customers](../operations/customers.md#get-all-customers).
