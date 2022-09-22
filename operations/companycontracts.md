@@ -71,7 +71,7 @@ Returns all contracts between the enterprise and other companies.
 | `Options` | [Travel agency contract options](#travel-agency-contract-options) | required | Options of the travel agency contract. |
 | `AccountingCode` | string | optional | Accounting code of the travel agency contract. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `ChannelManagerBusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment).
+| `ChannelManagerBusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment) used for incoming reservations originating from Channel Managers, for this particular contract.
 | `ContactPerson` | string | optional | Contact person of the travel agency. |
 | `ContactEmail` | string | optional | Contact email of the travel agency. |
 | `AdditionalContactInfo` | string | optional | Additional contact info of the travel agency. |
