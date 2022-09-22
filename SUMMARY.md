@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Use cases](use-cases/README.md)
+  * [Access & Identity Management](use-cases/access-and-identity.md)
   * [Accounting](use-cases/accounting.md)
   * [Customer management](use-cases/customer-management.md)
   * [Device integrations](use-cases/device-integrations.md)

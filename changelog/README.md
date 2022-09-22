@@ -1,5 +1,9 @@
 # Changelog
 
+## 15th September 2022
+
+* Added new use case for [Access & Identity Management](../use-cases/access-and-identity.md)
+
 ## 13th September 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get All Customers](../operations/customers.md#get-all-customers).
