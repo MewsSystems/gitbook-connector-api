@@ -58,6 +58,8 @@ Returns all contracts between the enterprise and other companies.
 
 #### Travel agency contract
 
+When `CommissionIncluded` is not provided means unspecified, when set to true it means the the commission is included in the rate and false means the commission in not included in the rate.
+
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the contract. |
@@ -86,7 +88,7 @@ Returns all contracts between the enterprise and other companies.
 
 ## Add company contracts
 
-Adds a new company contracts.
+Add one or more company contracts.
 
 ### Request
 
@@ -105,15 +107,15 @@ Adds a new company contracts.
             "IncludeCancellationFeeInCommissionEstimate": false,
             "SkipAutomaticSettlement": false
         },
-        "CommissionIncluded": null,
-        "Commission": null,
-        "ChannelManagerAbsoluteAdjustment": null,
-        "ChannelManagerRelativeAdjustment": null,
-        "AccountingCode": null,
-        "InvoiceDueInterval": null,
-        "ChannelManagerBusinessSegmentId": null,
-        "ContactPerson": null,
-        "ContactEmail": null,
+        "CommissionIncluded": true,
+        "Commission": 0.1,
+        "ChannelManagerAbsoluteAdjustment": 0.15,
+        "ChannelManagerRelativeAdjustment": 0.15,
+        "AccountingCode": "P2DT23H",
+        "InvoiceDueInterval": "P0M15DT0H0M0S",
+        "ChannelManagerBusinessSegmentId": "1289d3c8-3c83-4169-b756-af150066bb87",
+        "ContactPerson": "Sample person",
+        "ContactEmail": "sample-person@email.com",
         "AdditionalContactInfo": null,
         "Notes": null
     }
@@ -132,7 +134,6 @@ Adds a new company contracts.
 | :-- | :-- | :-- | :-- |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the travel agency contract is created to. |
 | `CompanyId` | string | required | Unique identifier of the [Company](companies.md#company) the travel agency contract is issued to. |
-| `Options` | string | required | Options of the travel agency contract. |
 | `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
 | `Commission` | number | optional | Commission of the travel agency. |
 | `ChannelManagerAbsoluteAdjustment` | number | optional | Flat fee added to (or subtracted from) the reservation price when coming from Channel Managers. |
@@ -156,19 +157,19 @@ Adds a new company contracts.
             "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
             "CompanyId": "bfd5667b-533f-424f-860d-af150065f4d6",
             "IsActive": true,
-            "CommissionIncluded": null,
-            "Commission": null,
-            "ChannelManagerAbsoluteAdjustment": null,
-            "ChannelManagerRelativeAdjustment": null,
+            "CommissionIncluded": true,
+            "Commission": 0.1,
+            "ChannelManagerAbsoluteAdjustment": 0.1,
+            "ChannelManagerRelativeAdjustment": 0.1,
             "Options": {
                 "IncludeCancellationFeeInCommissionEstimate": false,
                 "SkipAutomaticSettlement": false
             },
-            "AccountingCode": null,
-            "InvoiceDueInterval": null,
-            "ChannelManagerBusinessSegmentId": null,
-            "ContactPerson": null,
-            "ContactEmail": null,
+            "AccountingCode": "P2DT23H",
+            "InvoiceDueInterval": "P0M15DT0H0M0S",
+            "ChannelManagerBusinessSegmentId": "1289d3c8-3c83-4169-b756-af150066bb87",
+            "ContactPerson": "Sample person",
+            "ContactEmail": "sample-person@email.com",
             "AdditionalContactInfo": null,
             "Notes": null
         }
