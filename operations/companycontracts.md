@@ -178,4 +178,4 @@ Add one or more company contracts.
 ```
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `TravelAgencyContracts` | array of [Travel agency contracts](#travel-agency-contract) | required | Travel agency contracts. |
+| `TravelAgencyContracts` | array of [Travel agency contracts parameters](#travel-agency-contract-parameters) | required | Travel agency contracts. |
