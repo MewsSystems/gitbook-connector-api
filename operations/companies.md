@@ -86,8 +86,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "Contact": "Contact Info 1",
             "Notes": "Note 1",
             "Options": {
-                "Invoiceable": true
-            }
+                "Invoiceable": true,
+                "AddFeesToInvoices": true
+            },
+            "Department": "Sales"
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -112,8 +114,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "Contact": "Contact Info 2",
             "Notes": "Note 2",
             "Options": {
-                "Invoiceable": true
-            }
+                "Invoiceable": true,
+                "AddFeesToInvoices": false
+            },
+            "Department": "Accounting"
         }
     ]
 }
@@ -149,12 +153,14 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
+| `Department` | string | optional | Company department. |
 
 #### Company options
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
 
 ## Add company
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 30th September 2022
+
+* Extended [Company Options](../operation/companies.md#company-options) with 'AddFeesToInvoices' field.
+
 ## 22nd September 2022
 
 * Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
