@@ -1,5 +1,8 @@
 # Changelog
 
+## 7th September 2022
+* Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
+
 ## 22nd September 2022
 
 * Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
