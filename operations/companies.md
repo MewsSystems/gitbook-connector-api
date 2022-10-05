@@ -89,7 +89,11 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
                 "Invoiceable": true,
                 "AddFeesToInvoices": true
             },
-            "Department": "Sales"
+            "Department": "Sales",
+            "DunsNumber": "123456789",
+            "CreditRating": {
+                "Basic": "PaymentRequiredUpfront"
+            }
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -117,7 +121,11 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
                 "Invoiceable": true,
                 "AddFeesToInvoices": false
             },
-            "Department": "Accounting"
+            "Department": "Accounting",
+            "DunsNumber": "987654321",
+            "CreditRating": {
+                "Basic": "CreditOk"
+            }
         }
     ]
 }
@@ -154,6 +162,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 | `Department` | string | optional | Company department. |
+| `DunsNumber` | string | optional | A unique 9-digit code that identifies a company or business entity. |
+| `CreditRating` | [Credit rating](#credit-rating) | optional | Basic credit rating to define creditworthiness of the company. |
 
 #### Company options
 
@@ -161,6 +171,18 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | :-- | :-- | :-- | :-- |
 | `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
 | `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
+
+#### Credit rating
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Basic` | string [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
+
+#### Credit rating basic
+
+* `CreditOk`
+* `PaymentRequiredUpfront`
+* `LocalDecisionRequired`
 
 ## Add company
 
