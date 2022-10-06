@@ -82,6 +82,7 @@ Returns all resource access tokens based on resource access tokens, reservations
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceAccessTokens` | array of [Resource access token](#resource-access-token) | required | Resource access tokens. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older tokens. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message. |
 
 #### Resource access token
 
@@ -97,7 +98,7 @@ Returns all resource access tokens based on resource access tokens, reservations
 | `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
 | `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
 | `Permissions` | [Resource access token permissions](#resource-access-token-permissions) | required | Specify permissions of [Resource access token](#resource-access-token). |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older tokens. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message. |
+
 
 #### Resource access token type
 
