@@ -2,7 +2,7 @@
 
 ## 10th October 2022
 
-* Added [Pagination](../guidelines/pagination.md) to [Get All Resource tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+* Added [Pagination](../guidelines/pagination.md) to [Get All Resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
 
 ## 22nd September 2022
 
