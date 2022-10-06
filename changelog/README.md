@@ -1,5 +1,9 @@
 # Changelog
 
+## 10th Ocotober 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get All Resource tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+
 ## 22nd September 2022
 
 * Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
