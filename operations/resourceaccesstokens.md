@@ -2,7 +2,7 @@
 
 ## Get all resource access tokens
 
-Returns all resource access tokens based on resource access tokens, reservations or interval. One of them must be specified in the request.  Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all resource access tokens based on resource access tokens, reservations or interval. One of them must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
