@@ -26,7 +26,7 @@ Returns all resource access tokens based on resource access tokens, reservations
     "ActivityStates": [
         "Active"
     ],
-    "Limitation":{
+    "Limitation": {
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
         "Count": 10
     }
