@@ -99,7 +99,6 @@ Returns all resource access tokens based on resource access tokens, reservations
 | `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
 | `Permissions` | [Resource access token permissions](#resource-access-token-permissions) | required | Specify permissions of [Resource access token](#resource-access-token). |
 
-
 #### Resource access token type
 
 * `PinCode`
