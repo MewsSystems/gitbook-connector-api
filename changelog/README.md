@@ -1,5 +1,8 @@
 # Changelog
 
+* Added new page [Loyalty Program](../operations/loyaltyprogram.md) under [Operations](../operations/README.md).
+* Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve messages.
+
 ## 22nd September 2022
 
 * Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
