@@ -1,6 +1,6 @@
 # Changelog
 
-## 8th October 2022
+## 7th October 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
 
