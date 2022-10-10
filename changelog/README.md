@@ -1,6 +1,6 @@
 # Changelog
 
-## 12th September 2022
+## 12th October 2022
 
 * Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 * Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
