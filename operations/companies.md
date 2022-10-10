@@ -161,8 +161,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
-| `Department` | string | optional | Company department. |
-| `DunsNumber` | string | optional | A unique 9-digit code that identifies a company or business entity. |
+| `Department` | string | optional | The internal segmentation of a company, f.e. sales department. |
+| `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Basic credit rating to define creditworthiness of the company. |
 
 #### Company options
