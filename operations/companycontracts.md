@@ -300,7 +300,7 @@ Update one or more company contracts.
 
 ## Delete company contracts
 
-Delete company contracts.
+Delete one or more company contracts.
 
 ### Request
 
