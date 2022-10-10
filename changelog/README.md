@@ -1,5 +1,9 @@
 # Changelog
 
+## 7th October 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+
 ## 5th October 2022
 
 * Added 'AddFeesToInvoices' to [Company Options](../operations/companies.md#company-options).
