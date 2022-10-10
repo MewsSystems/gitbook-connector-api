@@ -2,7 +2,7 @@
 
 ## Get all resource access tokens
 
-Returns all resource access tokens based on resource access tokens, reservations or interval. One of them must be specified in the request.
+Returns all resource access tokens based on resource access token identifiers, reservations or interval. One of them must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -25,7 +25,11 @@ Returns all resource access tokens based on resource access tokens, reservations
     },
     "ActivityStates": [
         "Active"
-    ]
+    ],
+    "Limitation": {
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
+    }
 }
 ```
 
@@ -38,6 +42,7 @@ Returns all resource access tokens based on resource access tokens, reservations
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example [Reservation](reservations.md#reservation)). Required if no other filter is provided. |
 | `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of tokens returned. |
 
 #### Time interval
 
@@ -69,13 +74,15 @@ Returns all resource access tokens based on resource access tokens, reservations
                 "Building": false
             }
         }
-    ]
+    ],
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceAccessTokens` | array of [Resource access token](#resource-access-token) | required | Resource access tokens. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older tokens. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message. |
 
 #### Resource access token
 

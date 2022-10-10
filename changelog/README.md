@@ -1,5 +1,9 @@
 # Changelog
 
+## 7th October 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+
 ## 29th September 2022
 * Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 
