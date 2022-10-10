@@ -329,7 +329,7 @@ Delete one or more company contracts.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `TravelAgencyContractIds` | array of string | required, max 1000 items | Unique identifier of the Travel agency contract to delete. |
-| `ServiceId` | array of string | required, max 1000 items | Unique identifier of the service of travel agency contract. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifier of the service of travel agency contract. |
 
 ### Response
 
