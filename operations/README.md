@@ -109,7 +109,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation companion](reservations.md#add-reservation-companion) | Adds a customer as a companion to the reservation |
 | [Delete reservation companion](reservations.md#delete-reservation-companion) | Removes customer companionship from the reservation |
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
-| [Get all source assignments](sources.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
+| [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
 
 ## Services
