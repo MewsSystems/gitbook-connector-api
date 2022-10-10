@@ -1,5 +1,9 @@
 # Changelog
 
+## 7th October 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+
 * Added new page [Loyalty Program](../operations/loyaltyprogram.md) under [Operations](../operations/README.md).
 * Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve messages.
 
