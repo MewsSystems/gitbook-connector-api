@@ -1,11 +1,14 @@
 # Changelog
 
+## 12th September 2022
+
+* Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
+* Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
+* Added [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+
 ## 7th October 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
-
-## 29th September 2022
-* Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 
 ## 22nd September 2022
 
