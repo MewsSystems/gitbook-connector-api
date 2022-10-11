@@ -1,8 +1,8 @@
 # Changelog
 
-## 10th October 2022
+## 11th October 2022
 
-* Added new operations [Get all source assignments](../operations/sources.md#get-all-source-assignments) and [Get all sources](../operations/sources.md#get-all-sources) for retrieval of reservation sources.
+* Added new operations [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) and [Get all sources](../operations/sources.md#get-all-sources) for retrieval of reservation sources.
 
 ## 7th October 2022
 
