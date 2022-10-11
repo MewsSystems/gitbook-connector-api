@@ -1,8 +1,8 @@
 # Changelog
 
-* Added new page [Loyalty Program](../operations/loyaltyprogram.md) under [Operations](../operations/README.md).
+* Added new page [Loyalty Programs](../operations/loyaltyprograms.md) under [Operations](../operations/README.md).
 * Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve messages.
-* Added [Loyalty program](../operations/loyaltyprogram.md#loyalty-program).
+* Added [Loyalty programs](../operations/loyaltyprograms.md#loyalty-program).
 
 ## 7th October 2022
 
