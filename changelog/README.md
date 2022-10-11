@@ -8,8 +8,8 @@
 
 * Added 'AddFeesToInvoices' to [Company Options](../operations/companies.md#company-options).
 * Added 'Department', 'DunsNumber' and 'CreditRating' field in [Company](../operations/companies.md#company).
-* Added [Credit Rating](../operations/company.md#credit-rating).
-* Added [Credit Rating Basic](../operations/company.md#credit-rating-basic).
+* Added [Credit Rating](../operations/companies.md#credit-rating).
+* Added [Credit Rating Basic](../operations/companies.md#credit-rating-basic).
 
 ## 22nd September 2022
 
