@@ -66,6 +66,8 @@
   * [Restrictions](operations/restrictions.md)
   * [Rules](operations/rules.md)
   * [Services](operations/services.md)
+  * [Source assignments](operations/sourceassignments.md)
+  * [Sources](operations/sources.md)
   * [Tasks](operations/tasks.md)
   * [Tax environments](operations/taxenvironments.md)
   * [Taxations](operations/taxations.md)
