@@ -1,5 +1,12 @@
 # Changelog
 
+## 12th October 2022
+
+* Added 'AddFeesToInvoices' to [Company Options](../operations/companies.md#company-options).
+* Added 'Department', 'DunsNumber' and 'CreditRating' field in [Company](../operations/companies.md#company).
+* Added [Credit Rating](../operations/companies.md#credit-rating).
+* Added [Credit Rating Basic](../operations/companies.md#credit-rating-basic).
+
 ## 11th October 2022
 
 * Added new operations [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) and [Get all sources](../operations/sources.md#get-all-sources) for retrieval of reservation sources.
@@ -7,13 +14,6 @@
 ## 7th October 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
-
-## 5th October 2022
-
-* Added 'AddFeesToInvoices' to [Company Options](../operations/companies.md#company-options).
-* Added 'Department', 'DunsNumber' and 'CreditRating' field in [Company](../operations/companies.md#company).
-* Added [Credit Rating](../operations/companies.md#credit-rating).
-* Added [Credit Rating Basic](../operations/companies.md#credit-rating-basic).
 
 ## 22nd September 2022
 
