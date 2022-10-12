@@ -2,9 +2,7 @@
 
 ## 12th October 2022
 
-* Added new page [Loyalty programs](../operations/loyaltyprograms.md) under [Operations](../operations/README.md).
 * Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve messages.
-* Added [Loyalty program](../operations/loyaltyprograms.md#loyalty-program).
 
 ## 11th October 2022
 

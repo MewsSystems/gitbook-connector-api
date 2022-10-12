@@ -19,12 +19,12 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
     ],
     "CreatedUtc": {
-        "StartUtc": "2019-12-05T00:00:00Z",
-        "EndUtc": "2019-12-10T00:00:00Z"
+        "StartUtc": "2022-10-05T00:00:00Z",
+        "EndUtc": "2022-10-10T00:00:00Z"
     },
     "UpdatedUtc": {
-        "StartUtc": "2019-12-10T00:00:00Z",
-        "EndUtc": "2019-12-17T00:00:00Z"
+        "StartUtc": "2022-10-10T00:00:00Z",
+        "EndUtc": "2022-10-17T00:00:00Z"
     },
     "ActivityStates": [
         "Active"
@@ -46,7 +46,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-
 
 #### Time interval
 
@@ -71,7 +70,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Code": "GEC07",
         }
     ],
-    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7"
+    "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
 }
 ```
 
