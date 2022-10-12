@@ -49,7 +49,7 @@
   * [Exchange rates](operations/exchangerates.md)
   * [Images](operations/images.md)
   * [Languages](operations/languages.md)
-  * [Loyalty Programs](operations/loyaltyprograms.md)
+  * [Loyalty programs](operations/loyaltyprograms.md)
   * [Messages](operations/messages.md)
   * [Message threads](operations/messagethreads.md)
   * [Orders](operations/orders.md)

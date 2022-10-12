@@ -82,7 +82,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 
-## Loyalty Programs
+## Loyalty programs
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |

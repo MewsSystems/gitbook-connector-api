@@ -80,7 +80,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `LoyaltyPrograms` | array of [Loyalty program](#loyalty-program) | required | The loyalty programs of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-#### Loyalty Program
+#### Loyalty program
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
