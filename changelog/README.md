@@ -6,6 +6,10 @@
 * Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve messages.
 * Added [Loyalty program](../operations/loyaltyprograms.md#loyalty-program).
 
+## 11th October 2022
+
+* Added new operations [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) and [Get all sources](../operations/sources.md#get-all-sources) for retrieval of reservation sources.
+
 ## 7th October 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
