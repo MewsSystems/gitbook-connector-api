@@ -67,7 +67,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
             "Name": "Gold Exclusive Club",
-            "Code": "GEC07",
+            "Code": "GEC07"
         }
     ],
     "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
