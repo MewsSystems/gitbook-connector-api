@@ -161,7 +161,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
-| `Department` | string | optional | The internal segmentation of a company, f.e. sales department. |
+| `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Basic credit rating to define creditworthiness of the company. |
 
@@ -242,9 +242,9 @@ Adds a new company to the enterprise.
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
-| `Department` | string | optional | The internal segmentation of a company, f.e. sales department. |
+| `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
-| `CreditRating` | [Credit rating parameters](#credit-rating-parameters) | optional | Basic credit rating to define creditworthiness of the company. |
+| `CreditRating` | [Credit rating](#credit-rating) | optional | Basic credit rating to define creditworthiness of the company. |
 
 #### Company options parameters
 
@@ -252,12 +252,6 @@ Adds a new company to the enterprise.
 | :-- | :-- | :-- | :-- |
 | `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
 | `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
-
-#### Credit rating parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Basic` | string [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
 
 ### Response
 
@@ -355,11 +349,11 @@ Updates information of the company.
 | `Invoiceable` | [Bool update value](#bool-update-value) | optional | Whether the company is invoiceable or not. |
 | `AddFeesToInvoices` | [Bool update value](#bool-update-value) | optional | Whether the company has an additional fee applied for invoicing or not. |
 
-### Credit rating update value
+#### Credit rating update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | [string update value](#string-update-value) | optional | The level of creditworthiness of the company. |
+| `Basic` | [string update value](#string-update-value) with possible values of [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
 
 #### String update value
 
