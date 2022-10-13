@@ -6,6 +6,7 @@
 * Added 'Department', 'DunsNumber' and 'CreditRating' field in [Company](../operations/companies.md#company).
 * Added [Credit Rating](../operations/companies.md#credit-rating).
 * Added [Credit Rating Basic](../operations/companies.md#credit-rating-basic).
+* Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve messages.
 
 ## 11th October 2022
 
