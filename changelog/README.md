@@ -3,10 +3,10 @@
 ## 13th October 2022
 
 * Extended [Add company](../operations/companies.md#add-company) with 'Department', 'DunsNumber' and 'CreditRating' fields.
-* Extended [Company options parameters](../operations/companies.md#company-options-parameters) with 'AddFeesToInvoices' field.
+* Added 'AddFeesToInvoices' to [Company options parameters](../operations/companies.md#company-options-parameters).
 * Added [Credit rating parameters](../operations/companies.md#credit-rating-parameters).
 * Extended [Update company](../operations/companies.md#update-company) with 'Department', 'DunsNumber' and 'CreditRating' fields.
-* Extended [Company options update value](../operations/companies.md#company-options-update-value) with 'AddFeesToInvoices' field.
+* Added 'AddFeesToInvoices' to [Company options update value](../operations/companies.md#company-options-update-value).
 * Added [Credit rating update value](../operations/companies.md#credit-rating-update-value). 
 
 ## 12th October 2022
