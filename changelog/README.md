@@ -1,6 +1,7 @@
 # Changelog
 
 ## 13th October 2022
+
 * Added operation [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) to add loyalty programs.
 * Added operation [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs) to update loyalty programs.
 * Added operation [Delete loyalty programs](../operations/loyaltyprograms.md#delete-loyalty-programs) to delete loyalty programs.

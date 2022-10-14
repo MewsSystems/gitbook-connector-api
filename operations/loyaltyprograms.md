@@ -89,7 +89,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ## Add loyalty programs
 
-Adds loyalty programs to the enterprise (in the given activity state).
+Adds loyalty programs to the enterprise.
 
 ### Request
 
@@ -145,7 +145,7 @@ Adds loyalty programs to the enterprise (in the given activity state).
 
 ## Update loyalty programs
 
-Updates information about the specified [Loyalty program](#loyalty-program).
+Updates information about the specified loyalty programs.
 
 ### Request
 
