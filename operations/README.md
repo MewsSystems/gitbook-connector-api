@@ -82,6 +82,15 @@ This section describes all operations supported by the API, organised here by th
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 
+## Loyalty programs
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
+| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
+| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | Updates selected loyalty programs |
+| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | Deletes selected loyalty programs |
+
 ## Messages
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |

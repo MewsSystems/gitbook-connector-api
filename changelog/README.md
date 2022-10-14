@@ -8,6 +8,9 @@
 * Extended [Update company](../operations/companies.md#update-company) with 'Department', 'DunsNumber' and 'CreditRating' fields.
 * Added 'AddFeesToInvoices' to [Company options update value](../operations/companies.md#company-options-update-value).
 * Added [Credit rating update value](../operations/companies.md#credit-rating-update-value). 
+* Added operation [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) to add loyalty programs.
+* Added operation [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs) to update loyalty programs.
+* Added operation [Delete loyalty programs](../operations/loyaltyprograms.md#delete-loyalty-programs) to delete loyalty programs.
 
 ## 12th October 2022
 
@@ -15,6 +18,7 @@
 * Added 'Department', 'DunsNumber' and 'CreditRating' field in [Company](../operations/companies.md#company).
 * Added [Credit Rating](../operations/companies.md#credit-rating).
 * Added [Credit Rating Basic](../operations/companies.md#credit-rating-basic).
+* Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve loyalty programs.
 
 ## 11th October 2022
 
