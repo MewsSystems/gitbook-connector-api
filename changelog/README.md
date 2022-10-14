@@ -1,6 +1,6 @@
 # Changelog
 
-## 13th October 2022
+## 14th October 2022
 
 * Extended [Add company](../operations/companies.md#add-company) with 'Department', 'DunsNumber' and 'CreditRating' fields.
 * Added 'AddFeesToInvoices' to [Company options parameters](../operations/companies.md#company-options-parameters).

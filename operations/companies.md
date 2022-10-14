@@ -163,7 +163,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Options` | [Company options](#company-options) | required | Options of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
-| `CreditRating` | [Credit rating](#credit-rating) | optional | Basic credit rating to define creditworthiness of the company. |
+| `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 
 #### Company options
 
@@ -244,7 +244,7 @@ Adds a new company to the enterprise.
 | `Iata` | string | optional | Iata of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
-| `CreditRating` | [Credit rating](#credit-rating) | optional | Basic credit rating to define creditworthiness of the company. |
+| `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 
 #### Company options parameters
 
@@ -338,9 +338,9 @@ Updates information of the company.
 | `Contact` | [String update value](#string-update-value) | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | [String update value](#string-update-value) | optional | Notes of the company. |
 | `Iata` | [String update value](#string-update-value) | optional | Iata of the company. |
-| `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, f.e. sales department. |
+| `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
-| `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Basic credit rating to define creditworthiness of the company. |
+| `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
 
 #### Company options update value
 
