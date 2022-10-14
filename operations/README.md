@@ -87,6 +87,9 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
 | [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
+| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
+| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | Updates selected loyalty programs |
+| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | Deletes selected loyalty programs |
 
 ## Messages
 
