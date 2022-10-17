@@ -12,7 +12,11 @@ Returns all contracts between the enterprise and other companies.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "Limitation": {
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
+    }
 }
 ```
 
@@ -21,6 +25,10 @@ Returns all contracts between the enterprise and other companies.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of message thread data returned (using cursor pagination). |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service) where the Travel agency contract belong to. |
+| `CompanyIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](companies.md#company) where the Travel agency contract belong to. |
+| `CompanyContractIds` | array of string | optional, max 1000 items | Unique identifier of the Travel agency contract to fetch. |
 
 ### Response
 
@@ -48,7 +56,8 @@ Returns all contracts between the enterprise and other companies.
             "AdditionalContactInfo": null,
             "Notes": null
         }
-    ]
+    ],
+    "Cursor": "0078f370-3787-43dc-a615-af150066bb88"
 }
 ```
 

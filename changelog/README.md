@@ -1,7 +1,8 @@
 # Changelog
 
-## 12th October 2022
+## 17th October 2022
 
+* Updated [Get company contracts](../operations/companycontracts.md#get-company-contracts) with pagination and filtering.
 * Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 * Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
 * Added [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
