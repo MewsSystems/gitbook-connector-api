@@ -1,5 +1,12 @@
 # Changelog
 
+## 17th October 2022
+
+* Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
+* Added operation [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) to add loyalty memberships.
+* Added operation [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) to update loyalty memberships.
+* Added operation [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships) to delete loyalty memberships.
+
 ## 14th October 2022
 
 * Extended [Add company](../operations/companies.md#add-company) with `Department`, `DunsNumber` and `CreditRating` fields.
