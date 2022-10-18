@@ -236,8 +236,8 @@ Updates information about the specified loyalty memberships.
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",
-            "ExpirationDate": "2022-12-31",
-            "Url": ""
+            "ExpirationDate": "2030-12-31",
+            "Url": "https://www.mews.com/"
         }
     ]
 }
