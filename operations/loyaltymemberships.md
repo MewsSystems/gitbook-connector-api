@@ -2,7 +2,7 @@
 
 ## Get all loyalty memberships
 
-Returns all loyalty memberships of the enterprise (in the given activity state), optionally filtered by specific loyalty membership identifiers or other filter parameters.
+Returns all loyalty memberships of the enterprise (in the given activity states), optionally filtered by specific loyalty membership identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
