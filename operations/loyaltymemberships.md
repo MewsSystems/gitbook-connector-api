@@ -51,7 +51,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Client` | string | required | Name and version of the client application. |
 | `LoyaltyMembershipIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty memberships](#loyalty-membership). |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customers](customers.md#customer) or [Companies](companies.md#company). |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the membership is associated with. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
@@ -75,7 +75,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 {
     "LoyaltyMemberships": [
         {
-            "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
+            "Id": "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-001",
@@ -143,12 +143,12 @@ Adds loyalty memberships to the enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `LoyaltyMemberships` | array of [Loyalty membership parameters](#loyalty-membership-parameters) | required, max 1000 items | Loyalty memberships to be added. |
 
-### Loyalty membership parameters
+#### Loyalty membership parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program whose member the enterprise is. |
-| `AccountId` | string | required | Unique identifier of the account whose member the enterprise is. |
+| `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
+| `AccountId` | string | required | Unique identifier of the account. |
 | `Code` | string | required | Code of the loyalty membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |

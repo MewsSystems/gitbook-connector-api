@@ -1,6 +1,6 @@
 # Changelog
 
-## 19th October 2022
+## 20th October 2022
 
 * Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
 * Added operation [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) to add loyalty memberships.
