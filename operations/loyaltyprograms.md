@@ -117,7 +117,7 @@ Adds loyalty programs to the enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `LoyaltyPrograms` | array of [Loyalty program parameters](#loyalty-program-parameters) | required, max 1000 items | Loyalty programs to be added. |
 
-### Loyalty program parameters
+#### Loyalty program parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
