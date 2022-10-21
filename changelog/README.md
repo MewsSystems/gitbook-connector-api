@@ -1,7 +1,7 @@
 # Changelog
 
 ## 21th October 2022
-* Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
+* Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) response with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
 
 ## 20th October 2022
 
