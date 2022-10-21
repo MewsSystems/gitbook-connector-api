@@ -1,5 +1,8 @@
 # Changelog
 
+## 21th October 2022
+* Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
+
 ## 20th October 2022
 
 * Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
