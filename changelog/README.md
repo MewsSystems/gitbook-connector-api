@@ -1,5 +1,8 @@
 # Changelog
 
+## 21th October 2022
+* Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response in [Order item](../operations/accountingitems.md#order-item) with `UnitCount` and `UnitAmount`.
+
 ## 20th October 2022
 
 * Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.

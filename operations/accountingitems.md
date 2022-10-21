@@ -102,6 +102,27 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                     ]
                 }
             },
+            "UnitAmount": {
+                "Currency": "EUR",
+                "NetValue": 93.46,
+                "GrossValue": 100.0,
+                "TaxValues": [
+                    {
+                        "Code": "DE-2020-1-L",
+                        "Value": 6.54
+                    }
+                ],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": "DE-2020-1-L",
+                            "NetValue": 93.46,
+                            "TaxValue": 6.54
+                        }
+                    ]
+                }
+            },
+            "UnitCount": 1,
             "RevenueType": "Additional",
             "ConsumedUtc": "2021-06-19T04:00:08Z",
             "ClosedUtc": null,
@@ -166,6 +187,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
+| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of the item. |
+| `UnitCount` | integer | required | Unit count of the item. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
