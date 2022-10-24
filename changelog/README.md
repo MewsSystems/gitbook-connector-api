@@ -1,7 +1,7 @@
 # Changelog
 
 ## 21th October 2022
-* Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response in [Order item](../operations/accountingitems.md#order-item) with `UnitCount` and `UnitAmount`.
+* Extended `OrderItems` to add `UnitCount` and `UnitAmount` to the response to [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items); this is in addition to `Amount` and does not replace it.
 
 ## 20th October 2022
 

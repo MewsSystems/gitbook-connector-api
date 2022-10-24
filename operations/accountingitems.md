@@ -186,9 +186,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
-| `UnitCount` | integer | required | Unit count of the item. |
-| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of the items. |
-| `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment, total of all unit amounts. |
+| `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
+| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
+| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
