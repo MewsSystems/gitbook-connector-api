@@ -2,6 +2,10 @@
 
 ## 20th October 2022
 
+* Extended [Payment item](../operations/accountingitems.md#payment-item) with SettlementId.
+
+## 20th October 2022
+
 * Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
 * Added operation [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) to add loyalty memberships.
 * Added operation [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) to update loyalty memberships.
