@@ -2,7 +2,7 @@
 
 ## 25th October 2022
 
-* Extended [Payment item](../operations/accountingitems.md#payment-item) with SettlementId.
+* Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.
 
 ## 20th October 2022
 
