@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th October 2022
+
+* Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.
+
 ## 20th October 2022
 
 * Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
