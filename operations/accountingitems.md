@@ -155,6 +155,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                 }
             },
             "Notes": "NORMAL0140",
+            "SettlementId": "po_1Lun9w4JpyDC38oQJQz7hAcx",
             "ConsumedUtc": "2021-06-19T19:24:20Z",
             "ClosedUtc": null,
             "AccountingState": "Open",
@@ -205,6 +206,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
 | `Notes` | string | optional | Additional notes. |
+| `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the item. |
