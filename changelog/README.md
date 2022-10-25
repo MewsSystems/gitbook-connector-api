@@ -1,6 +1,6 @@
 # Changelog
 
-## 20th October 2022
+## 25th October 2022
 
 * Extended [Payment item](../operations/accountingitems.md#payment-item) with SettlementId.
 
