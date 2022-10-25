@@ -3,6 +3,7 @@
 ## 25th October 2022
 
 * Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.
+* Extended [Order item](../operations/accountingitems.md#order-item) with `UnitCount` and `UnitAmount`.
 
 ## 20th October 2022
 

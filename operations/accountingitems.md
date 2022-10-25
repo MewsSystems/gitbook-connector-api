@@ -82,22 +82,43 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
             "OrderId": "1103b431-998a-4b78-84de-ad4b00a9fd99",
             "BillId": null,
             "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
-            "Amount": {
-                "Currency": "GBP",
-                "NetValue": 1523.81,
-                "GrossValue": 1600.00,
+            "UnitCount": 15,
+            "UnitAmount": {
+                "Currency": "EUR",
+                "NetValue": 8.40,
+                "GrossValue": 10.00,
                 "TaxValues": [
                     {
-                        "Code": "UK-2020-R",
-                        "Value": 76.19
+                        "Code": "DE-2020-1-I",
+                        "Value": 1.60
                     }
                 ],
                 "Breakdown": {
                     "Items": [
                         {
-                            "TaxRateCode": "UK-2020-R",
-                            "NetValue": 1523.81,
-                            "TaxValue": 76.19
+                            "TaxRateCode": "DE-2020-1-I",
+                            "NetValue": 8.40,
+                            "TaxValue": 1.60
+                        }
+                    ]
+                }
+            },
+            "Amount": {
+                "Currency": "EUR",
+                "NetValue": 126.05,
+                "GrossValue": 150.00,
+                "TaxValues": [
+                    {
+                        "Code": "DE-2020-1-I",
+                        "Value": 23.95
+                    }
+                ],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": "DE-2020-1-I",
+                            "NetValue": 126.05,
+                            "TaxValue": 23.95
                         }
                     ]
                 }
@@ -166,7 +187,9 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
-| `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
+| `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
+| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
+| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
