@@ -251,7 +251,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | :-- | :-- | :-- | :-- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
-| `BaseAmountPrices` | [Amount value](accountingitems.md#amount-value) | required | Base prices of the rates for each time unit covered by the time interval. |
+| `BaseAmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Base prices of the rates for each time unit covered by the time interval. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
 | `RelativeAdjustment` | decimal | required | Specific amount which shows the difference between this rate and the base rate. |
@@ -264,7 +264,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `AmountPrices` | Array of [Amount value](accountingitems.md#amount-value) | required | Prices of the rate for the resource category in the covered dates. |
+| `AmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Prices of the rate for the resource category in the covered dates. |
 
 #### Resource category adjustment
 
