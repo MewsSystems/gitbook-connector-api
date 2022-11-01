@@ -1,5 +1,10 @@
 # Changelog
 
+## 2nd November 2022
+
+* Extended [Outlet item](../operations/outletitems.md) with `ExternalIdentifier`.
+* Extended [Outlet bill](../operations/outletbills.md) with `ExternalIdentifier` for items.
+
 ## 25th October 2022
 
 * Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.

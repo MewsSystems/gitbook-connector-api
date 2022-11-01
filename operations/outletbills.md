@@ -30,7 +30,8 @@ Adds new outlet bills with their items.
                             "UK-S"
                         ]
                     },
-                    "ConsumedUtc": "2017-01-01T00:00:00Z"
+                    "ConsumedUtc": "2017-01-01T00:00:00Z",
+                    "ExternalIdentifier": "PaymentReference123"
                 },
                 {  
                     "Type": "Revenue",
@@ -78,6 +79,7 @@ Adds new outlet bills with their items.
 | `UnitCount` | number | required | Unit count of the item. |
 | `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes of the item. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the item. |
 

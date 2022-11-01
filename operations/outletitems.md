@@ -60,12 +60,13 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "UnitCount": 4,
             "UnitAmount": {  
                 "Currency": "EUR",
-                "GrossValue": 11,
+                "GrossValue": 11,~~~~
                 "NetValue": 11,
                 "TaxValues": []
             },
             "CreatedUtc": "2018-07-25T12:47:11Z",
             "ConsumedUtc": "2018-07-26T12:19:07Z",
+            "ExternalIdentifier": null,
             "Notes": null
         },
         {  
@@ -83,6 +84,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             },
             "CreatedUtc": "2018-07-25T16:25:28Z",
             "ConsumedUtc": "2018-07-26T10:11:08Z",
+            "ExternalIdentifier": "PaymentReference123",
             "Notes": null
         }
     ],
@@ -125,7 +127,9 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes. |
+
 
 #### Outlet item type
 
