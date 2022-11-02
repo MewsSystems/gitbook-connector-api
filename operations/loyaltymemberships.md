@@ -79,6 +79,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-001",
+            "IsPrimary": true,
+            "Points": 10,
             "ExpirationDate": "2024-12-31",
             "Url": "https://www.mews.com/"
         },
@@ -87,6 +89,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
             "AccountId": "0ed43ab7-4592-4c99-906a-426588de1c00",
             "Code": "Code-002",
+            "IsPrimary": false,
+            "Points": 25,
             "ExpirationDate": "",
             "Url": ""
         }
@@ -108,6 +112,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Code` | string | required | Code of the loyalty membership. |
+| `IsPrimary` | boolean | required | Defines the primary loyalty membership. |
+| `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 
@@ -129,6 +135,8 @@ Adds loyalty memberships to the enterprise.
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",
+            "IsPrimary": true,
+            "Points": 5,
             "ExpirationDate": "2022-12-31",
             "Url": ""
         }
@@ -150,6 +158,8 @@ Adds loyalty memberships to the enterprise.
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Code` | string | required | Code of the loyalty membership. |
+| `IsPrimary` | boolean | required | Defines the primary loyalty membership for the account. |
+| `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 
@@ -163,6 +173,8 @@ Adds loyalty memberships to the enterprise.
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",
+            "IsPrimary": true,
+            "Points": 5,
             "ExpirationDate": "2022-12-31",
             "Url": ""
         }
@@ -217,6 +229,8 @@ Updates information about the specified loyalty memberships.
 | :-- | :-- | :-- | :-- |
 | `LoyaltyMembershipId` | string | required | Unique identifier of the loyalty membership. |
 | `LoyaltyProgramId` | [String update value](#string-update-value) | optional | Unique identifier of the loyalty program \(or `null` if the name should not be updated\). |
+| `IsPrimary` | [Bool update value](#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account. |
+| `Points` | [Integer update value](#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
 | `ExpirationDate` | [String update value](#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the name should not be updated\). |
 | `Url` | [String update value](#string-update-value) | optional | Url of the loyalty membership \(or `null` if the name should not be updated\). |
 
@@ -225,6 +239,19 @@ Updates information about the specified loyalty memberships.
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Value` | string | optional | Value which is to be updated. |
+
+#### Bool update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | bool | optional | Value which is to be updated. |
+
+#### Integer update value
+
+| Property | Type | Contract | Description |
+| --- | --- | --- | --- |
+| `Value` | integer | optional | Value which is to be updated. |
+
 
 ### Response
 
