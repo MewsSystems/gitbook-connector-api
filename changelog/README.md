@@ -2,8 +2,8 @@
 
 ## 2nd November 2022
 
-* Extended [Outlet item](../operations/outletitems.md) with `ExternalIdentifier`.
-* Extended [Outlet bill](../operations/outletbills.md) with `ExternalIdentifier` for items.
+* Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
+* Extended [Outlet bill](../operations/outletbills.md#outlet-item-parameters) with `ExternalIdentifier` for items.
 
 ## 25th October 2022
 
