@@ -1,11 +1,16 @@
 # Changelog
 
-## 2nd October 2022
+## 2nd November 2022
 
 * Updated [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with pagination and filtering.
 * Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 * Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
 * Added [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+
+## 25th October 2022
+
+* Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.
+* Extended [Order item](../operations/accountingitems.md#order-item) with `UnitCount` and `UnitAmount`.
 
 ## 20th October 2022
 
