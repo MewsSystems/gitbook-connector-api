@@ -2,7 +2,7 @@
 
 ## 2nd November 2022
 
-* Extended [Loyalty membership](../operations/companies.md#loyalty-membership) with `IsPrimary` and `Points` fields.
+* Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `IsPrimary` and `Points` fields.
 * Extended operations [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships), [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) and [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) with `IsPrimary` and `Points` fields.
 
 ## 25th October 2022
