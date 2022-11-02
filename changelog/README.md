@@ -3,9 +3,12 @@
 ## 31st October 2022
 * Deprecated `BasePrices` and replaced it with `BaseAmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `BaseAmountPrices` includes information about the tax breakdown.
 * Deprecated `Prices` and replaced it with `AmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `AmountPrices` includes information about the tax breakdown.
-
-## 21th October 2022
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) response with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
+
+## 25th October 2022
+
+* Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.
+* Extended [Order item](../operations/accountingitems.md#order-item) with `UnitCount` and `UnitAmount`.
 
 ## 20th October 2022
 
