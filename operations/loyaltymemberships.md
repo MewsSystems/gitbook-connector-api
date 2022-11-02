@@ -111,7 +111,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Id` | string | required | Unique identifier of the loyalty membership. |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `AccountId` | string | required | Unique identifier of the account. |
-| `Code` | string | required | Code of the loyalty membership. |
+| `Code` | string | optional | Code of the loyalty membership. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
@@ -157,7 +157,7 @@ Adds loyalty memberships to the enterprise.
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `AccountId` | string | required | Unique identifier of the account. |
-| `Code` | string | required | Code of the loyalty membership. |
+| `Code` | string | optional | Code of the loyalty membership. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership for the account. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
@@ -231,6 +231,7 @@ Updates information about the specified loyalty memberships.
 | `LoyaltyProgramId` | [String update value](#string-update-value) | optional | Unique identifier of the loyalty program \(or `null` if the name should not be updated\). |
 | `IsPrimary` | [Bool update value](#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account. |
 | `Points` | [Integer update value](#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
+| `Code` | [String update value](#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the name should not be updated\). |
 | `ExpirationDate` | [String update value](#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the name should not be updated\). |
 | `Url` | [String update value](#string-update-value) | optional | Url of the loyalty membership \(or `null` if the name should not be updated\). |
 
