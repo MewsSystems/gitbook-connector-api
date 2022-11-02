@@ -1,18 +1,18 @@
 # Changelog
 
+## 2nd October 2022
+
+* Updated [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with pagination and filtering.
+* Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
+* Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
+* Added [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+
 ## 20th October 2022
 
 * Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
 * Added operation [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) to add loyalty memberships.
 * Added operation [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) to update loyalty memberships.
 * Added operation [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships) to delete loyalty memberships.
-
-## 17th October 2022
-
-* Updated [Get company contracts](../operations/companycontracts.md#get-company-contracts) with pagination and filtering.
-* Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
-* Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
-* Added [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
 
 ## 14th October 2022
 
