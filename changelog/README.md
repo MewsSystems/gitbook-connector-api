@@ -1,11 +1,11 @@
 # Changelog
 
-## 2nd November 2022
+## 3rd November 2022
 
-* Updated [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with pagination and filtering.
-* Added [Add company contracts](../operations/companycontracts.md#add-company-contracts).
-* Added [Update company contracts](../operations/companycontracts.md#update-company-contracts).
-* Added [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+* Extended [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with [Pagination](../guidelines/pagination.md) and filtering parameters `ServiceIds`, `CompanyIds` and `CompanyContractIds`.
+* Added operation [Add company contracts](../operations/companycontracts.md#add-company-contracts).
+* Added operation [Update company contracts](../operations/companycontracts.md#update-company-contracts).
+* Added operation [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
 
 ## 25th October 2022
 
