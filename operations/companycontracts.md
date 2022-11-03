@@ -67,7 +67,7 @@ Returns all contracts between the enterprise and other companies.
 
 #### Travel agency contract
 
-When `CommissionIncluded` is not provided means unspecified, when set to true it means the the commission is included in the rate and false means the commission in not included in the rate.
+When `CommissionIncluded` is not provided in the response, that means commission is unspecified, when set to true it means the the commission is included in the rate and false means the commission in not included in the rate.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
