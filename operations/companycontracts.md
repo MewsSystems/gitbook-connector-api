@@ -67,15 +67,13 @@ Returns all contracts between the enterprise and other companies.
 
 #### Travel agency contract
 
-When `CommissionIncluded` is not provided in the response, that means commission is unspecified, when set to true it means the the commission is included in the rate and false means the commission in not included in the rate.
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the contract. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the contract is related to. |
 | `CompanyId` | string | required | Unique identifier of the contracted [Company](companies.md#company). |
 | `IsActive` | boolean | required | Whether the contract is still active. |
-| `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. |
+| `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. When `CommissionIncluded` is not provided in the response, that means commission is unspecified, when set to true it means the the commission is included in the rate and false means the commission in not included in the rate. |
 | `Commission` | number | optional | Commission of the travel agency. |
 | `ChannelManagerAbsoluteAdjustment` | number | optional | Flat fee added to (or subtracted from) the reservation price when coming from Channel Managers. |
 | `ChannelManagerRelativeAdjustment` | number | optional | Percentage of the reservation price added to (or subtracted from) price when coming from Channel Managers. |
