@@ -142,3 +142,93 @@ Adds a new address to the system and assigns it to a specified account. The acco
 | :-- | :-- | :-- | :-- |
 | `Addresses` | array of [Address](#address-items) | required | Created addresses. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
+
+## Update addresses
+
+Updates an existing address in the system assigned to a specified account.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/addresses/update`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AddressUpdates" : [
+        {
+            "AddressId" : "fc7b2df3-de66-48a6-907d-af4600ecd892",
+            "Line1": { "Value" : "Address Line 1.1"},
+            "Line2": { "Value" : "Address Line 2.1"},
+            "City": { "Value" : "City 2"},
+            "PostalCode": { "Value" : "12346"},
+            "CountryCode": { "Value" : "ES"},
+            "CountrySubdivisionCode": { "Value" : "ES-BA"},
+            "Latitude": { "Value" : 0 },
+            "Longitude": { "Value" : 0 }
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `AddressUpdates` | array of [Address update parameters](#address-update-parameters) | required | Collection of addresses to be updated. |
+
+#### Address update parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AddressId` | string | required | Unique identifier of the [Address](configuration.md#address). |
+| `Line1` | [String update value](#string-update-value) | optional | First line of the address. |
+| `Line2` | [String update value](#string-update-value) | optional | Second line of the address. |
+| `City` | [String update value](#string-update-value) | optional | The city. |
+| `PostalCode` | [String update value](#string-update-value) | optional | Postal code. |
+| `CountryCode` | [String update value](#string-update-value) | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountrySubdivisionCode` | [String update value](#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
+| `Latitude` | [Number update value](#number-update-value) | optional | The latitude. |
+| `Longitude` | [Number update value](#number-update-value) | optional | The longitude. |
+
+#### String update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | string | optional | Value which is to be updated. |
+
+#### Number update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | number | optional | Value which is to be updated. |
+
+### Response
+
+```javascript
+{
+    "Addresses": [
+        {
+            "Id": "fc7b2df3-de66-48a6-907d-af4600ecd892",
+            "AccountId": "078892fe-93f0-46b8-9b33-af4600df2c65",
+            "AccountType": "Customer",
+            "Line1": "Address Line 1.1",
+            "Line2": "Address Line 2.1",
+            "City": "City 2",
+            "PostalCode": "12346",
+            "CountryCode": "ES",
+            "CountrySubdivisionCode": "ES-BA",
+            "Latitude": 0.0,
+            "Longitude": 0.0
+        }
+    ],
+    "Cursor": null
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Addresses` | array of [Address](#address-items) | required | Updated addresses. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
