@@ -1,6 +1,6 @@
 # Changelog
 
-## 2nd November 2022
+## 7th November 2022
 
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
 * Extended [Outlet bill](../operations/outletbills.md#outlet-item-parameters) with `ExternalIdentifier` for items.
