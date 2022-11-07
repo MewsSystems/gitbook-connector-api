@@ -79,7 +79,7 @@ Returns all addresses associated with the accounts within an enterprise.
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
 
-## Add new addresses
+## Add addresses
 
 Adds a new address to the system and assigns it to a specified account. The account has to be within the same enterprise.
 

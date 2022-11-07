@@ -8,6 +8,13 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
+## 7th November 2022
+
+* Added new page [Addresses](../operations/addresses.md).
+* Added operation [Get all addresses](../operations/addresses.md#get-all-addreses).
+* Added operation [Add addresses](../operations/addresses.md#add-addresses).
+* Added operation [Update addresses](../operations/addresses.md#update-addresses).\
+
 ## 22nd July 2022
 
 * Added new page [Pagination](../guidelines/pagination.md) under [Guidelines](../guidelines/README.md).
