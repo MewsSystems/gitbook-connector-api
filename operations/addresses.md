@@ -78,3 +78,67 @@ Returns all addresses associated with the accounts within an enterprise.
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
+
+## Add new addresses
+
+Adds a new address to the system and assigns it to a specified account. The account has to be within the same enterprise.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/addresses/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Addresses": [
+        {
+            "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
+            "Line1": "Address Line 1",
+            "Line2": "Address Line 2",
+            "City": "City",
+            "PostalCode": "10 000",
+            "CountryCode": "ES",
+            "CountrySubdivisionCode": "ES-BA",
+            "Latitude": 11,
+            "Longitude": 10
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Addresses` | array of [Address](#address-items), max 1000 items | required | Collection of addresses to be created. |
+
+### Response
+
+```javascript
+{
+    "Addresses": [
+        {
+            "Id": "fc7b2df3-de66-48a6-907d-af4600ecd892",
+            "AccountId": "078892fe-93f0-46b8-9b33-af4600df2c65",
+            "AccountType": "Customer",
+            "Line1": "Address Line 1",
+            "Line2": "Address Line 2",
+            "City": "City",
+            "PostalCode": "12345",
+            "CountryCode": "BM",
+            "CountrySubdivisionCode": null,
+            "Latitude": null,
+            "Longitude": null
+        }
+    ],
+    "Cursor": null
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Addresses` | array of [Address](#address-items) | required | Created addresses. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
