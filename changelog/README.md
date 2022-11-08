@@ -1,11 +1,16 @@
 # Changelog
 
-## 3rd November 2022
+## 8th November 2022
 
 * Extended [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with [Pagination](../guidelines/pagination.md) and filtering parameters `ServiceIds`, `CompanyIds` and `CompanyContractIds`.
 * Added operation [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 * Added operation [Update company contracts](../operations/companycontracts.md#update-company-contracts).
 * Added operation [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+
+## 7th November 2022
+
+* Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
+* Extended [Outlet bill](../operations/outletbills.md#outlet-item-parameters) with `ExternalIdentifier` for items.
 
 ## 25th October 2022
 
