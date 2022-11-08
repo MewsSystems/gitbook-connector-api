@@ -2,6 +2,14 @@
 
 This section describes all operations supported by the API, organised here by theme.
 
+## Addresses
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
+| [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
+| [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
+
 ## Configuration
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
