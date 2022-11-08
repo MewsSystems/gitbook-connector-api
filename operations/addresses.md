@@ -2,7 +2,7 @@
 
 ## Get all addresses
 
-Returns all addresses associated with the accounts within an enterprise.
+Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md)
 
 ### Request
 
@@ -33,7 +33,7 @@ Returns all addresses associated with the accounts within an enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `AccountIds` | array of string | required, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
 | `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](configuration.md#address) addresses within the enterprise. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of outlet items returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of address items returned. |
 
 ### Response
 
@@ -177,7 +177,7 @@ Updates an existing address in the system assigned to a specified account.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AddressUpdates` | array of [Address update parameters](#address-update-parameters) | required | Collection of addresses to be updated. |
+| `AddressUpdates` | array of [Address update parameters](#address-update-parameters), max 1000 items | required | Collection of addresses to be updated. |
 
 #### Address update parameters
 
