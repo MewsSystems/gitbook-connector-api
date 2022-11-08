@@ -13,7 +13,7 @@ For more details, see [Environments](../guidelines/environments.md).
 * Added new page [Addresses](../operations/addresses.md).
 * Added operation [Get all addresses](../operations/addresses.md#get-all-addreses).
 * Added operation [Add addresses](../operations/addresses.md#add-addresses).
-* Added operation [Update addresses](../operations/addresses.md#update-addresses).\
+* Added operation [Update addresses](../operations/addresses.md#update-addresses).
 
 ## 22nd July 2022
 
