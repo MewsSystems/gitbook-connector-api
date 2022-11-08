@@ -11,7 +11,7 @@ For more details, see [Environments](../guidelines/environments.md).
 ## 7th November 2022
 
 * Added new page [Addresses](../operations/addresses.md).
-* Added operation [Get all addresses](../operations/addresses.md#get-all-addreses).
+* Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
 * Added operation [Add addresses](../operations/addresses.md#add-addresses).
 * Added operation [Update addresses](../operations/addresses.md#update-addresses).
 
