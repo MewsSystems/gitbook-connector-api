@@ -113,7 +113,23 @@ Adds a new address to the system and assigns it to a specified account. The acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Addresses` | array of [Address](#address-items), max 1000 items | required | Collection of addresses to be created. |
+| `Addresses` | array of [Address add items](#address-add-items), max 1000 items | required | Collection of addresses to be created. |
+
+#### Address add items
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the [Address](configuration.md#address). |
+| `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
+| `AccountType` | string | required | Discriminator specifying whether the account is a [Company](companies.md#company) or a [Customer](customers.md#customer). |
+| `Line1` | string | optional | First line of the address. |
+| `Line2` | string | optional | Second line of the address. |
+| `City` | string | optional | The city. |
+| `PostalCode` | string | optional | Postal code. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
+| `Latitude` | number | optional | The latitude. |
+| `Longitude` | number | optional | The longitude. |
 
 ### Response
 
@@ -130,8 +146,8 @@ Adds a new address to the system and assigns it to a specified account. The acco
             "PostalCode": "12345",
             "CountryCode": "BM",
             "CountrySubdivisionCode": null,
-            "Latitude": null,
-            "Longitude": null
+            "Latitude": 11,
+            "Longitude": 10
         }
     ],
     "Cursor": null
@@ -164,9 +180,7 @@ Updates an existing address in the system assigned to a specified account.
             "City": { "Value" : "City 2"},
             "PostalCode": { "Value" : "12346"},
             "CountryCode": { "Value" : "ES"},
-            "CountrySubdivisionCode": { "Value" : "ES-BA"},
-            "Latitude": { "Value" : 0 },
-            "Longitude": { "Value" : 0 }
+            "CountrySubdivisionCode": { "Value" : "ES-BA"}
         }
     ]
 }
@@ -190,20 +204,12 @@ Updates an existing address in the system assigned to a specified account.
 | `PostalCode` | [String update value](#string-update-value) | optional | Postal code. |
 | `CountryCode` | [String update value](#string-update-value) | optional | ISO 3166-1 code of the [Country](countries.md#country). |
 | `CountrySubdivisionCode` | [String update value](#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
-| `Latitude` | [Number update value](#number-update-value) | optional | The latitude. |
-| `Longitude` | [Number update value](#number-update-value) | optional | The longitude. |
 
 #### String update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Value` | string | optional | Value which is to be updated. |
-
-#### Number update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | number | optional | Value which is to be updated. |
 
 ### Response
 
@@ -220,8 +226,8 @@ Updates an existing address in the system assigned to a specified account.
             "PostalCode": "12346",
             "CountryCode": "ES",
             "CountrySubdivisionCode": "ES-BA",
-            "Latitude": 0.0,
-            "Longitude": 0.0
+            "Latitude": null,
+            "Longitude": null
         }
     ],
     "Cursor": null
