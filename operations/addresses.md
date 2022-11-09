@@ -2,7 +2,7 @@
 
 ## Get all addresses
 
-Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md)
+Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -41,17 +41,17 @@ Returns all addresses associated with the specified accounts within the enterpri
 {
     "Addresses": [
         {
-            "Id": "3db2c989-7d95-42b4-a502-a9f246db1634",
-            "AccountId": "078892fe-93f0-46b8-9b33-af4600df2c65",
+            "Id": "fc7b2df3-de66-48a6-907d-af4600ecd892",
+            "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
             "AccountType": "Customer",
-            "Line1": "Address Line 1",
-            "Line2": "Address Line 2",
-            "City": "City",
-            "PostalCode": "10 000",
-            "CountryCode": "ES",
-            "CountrySubdivisionCode": "ES-BA",
-            "Latitude": 11,
-            "Longitude": 10
+            "Line1": "Rheinlanddamm 207-209",
+            "Line2": null,
+            "City": "Dortmund",
+            "PostalCode": "44137",
+            "CountryCode": "DE",
+            "CountrySubdivisionCode": null,
+            "Latitude": null,
+            "Longitude": null
         }
     ],
     "Cursor": "a5347333-74c0-4ffb-82d7-af4600df5047"
@@ -95,14 +95,14 @@ Adds a new address to the system and assigns it to a specified account. The acco
     "Addresses": [
         {
             "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
-            "Line1": "Address Line 1",
-            "Line2": "Address Line 2",
-            "City": "City",
-            "PostalCode": "10 000",
-            "CountryCode": "ES",
-            "CountrySubdivisionCode": "ES-BA",
-            "Latitude": 11,
-            "Longitude": 10
+            "Line1": "Rheinlanddamm 207-209",
+            "Line2": null,
+            "City": "Dortmund",
+            "PostalCode": "44137",
+            "CountryCode": "DE",
+            "CountrySubdivisionCode": null,
+            "Latitude": null,
+            "Longitude": null
         }
     ]
 }
@@ -138,16 +138,16 @@ Adds a new address to the system and assigns it to a specified account. The acco
     "Addresses": [
         {
             "Id": "fc7b2df3-de66-48a6-907d-af4600ecd892",
-            "AccountId": "078892fe-93f0-46b8-9b33-af4600df2c65",
+            "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
             "AccountType": "Customer",
-            "Line1": "Address Line 1",
-            "Line2": "Address Line 2",
-            "City": "City",
-            "PostalCode": "12345",
-            "CountryCode": "BM",
+            "Line1": "Rheinlanddamm 207-209",
+            "Line2": null,
+            "City": "Dortmund",
+            "PostalCode": "44137",
+            "CountryCode": "DE",
             "CountrySubdivisionCode": null,
-            "Latitude": 11,
-            "Longitude": 10
+            "Latitude": null,
+            "Longitude": null
         }
     ],
     "Cursor": null
@@ -175,12 +175,12 @@ Updates an existing address in the system assigned to a specified account.
     "AddressUpdates" : [
         {
             "AddressId" : "fc7b2df3-de66-48a6-907d-af4600ecd892",
-            "Line1": { "Value" : "Address Line 1.1"},
-            "Line2": { "Value" : "Address Line 2.1"},
-            "City": { "Value" : "City 2"},
-            "PostalCode": { "Value" : "12346"},
-            "CountryCode": { "Value" : "ES"},
-            "CountrySubdivisionCode": { "Value" : "ES-BA"}
+            "Line1": { "Value" : "I.P. Pavlova 5" },
+            "Line2": { "Value" : null },
+            "City": { "Value" : "Prague" },
+            "PostalCode": { "Value" : "12000" },
+            "CountryCode": { "Value" : "CZ" },
+            "CountrySubdivisionCode": { "Value" : null }
         }
     ]
 }
@@ -218,14 +218,14 @@ Updates an existing address in the system assigned to a specified account.
     "Addresses": [
         {
             "Id": "fc7b2df3-de66-48a6-907d-af4600ecd892",
-            "AccountId": "078892fe-93f0-46b8-9b33-af4600df2c65",
+            "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
             "AccountType": "Customer",
-            "Line1": "Address Line 1.1",
-            "Line2": "Address Line 2.1",
-            "City": "City 2",
-            "PostalCode": "12346",
-            "CountryCode": "ES",
-            "CountrySubdivisionCode": "ES-BA",
+            "Line1": "I.P. Pavlova 5",
+            "Line2": null,
+            "City": "Prague",
+            "PostalCode": "12000",
+            "CountryCode": "CZ",
+            "CountrySubdivisionCode": null,
             "Latitude": null,
             "Longitude": null
         }
