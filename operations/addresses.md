@@ -69,7 +69,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the [Address](configuration.md#address). |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
-| `AccountType` | string | required | Discriminator specifying whether the account is a [Company](companies.md#company) or a [Customer](customers.md#customer). |
+| `AccountType` | string | required | A discriminator specifying the [Account type](#account-type). |
 | `Line1` | string | optional | First line of the address. |
 | `Line2` | string | optional | Second line of the address. |
 | `City` | string | optional | The city. |
@@ -78,6 +78,11 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
+
+#### Account type
+
+* [Company](companies.md#company)
+* [Customer](customers.md#customer)
 
 ## Add addresses
 
