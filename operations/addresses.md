@@ -69,7 +69,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the [Address](configuration.md#address). |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
-| `AccountType` | string | required | A discriminator specifying the [Account type](#account-type). |
+| `AccountType` | string | required | A discriminator specifying the [type of account](#account-type), e.g. customer or company. |
 | `Line1` | string | optional | First line of the address. |
 | `Line2` | string | optional | Second line of the address. |
 | `City` | string | optional | The city. |
