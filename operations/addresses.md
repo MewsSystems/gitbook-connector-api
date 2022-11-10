@@ -180,6 +180,7 @@ Updates an existing address in the system assigned to a specified account.
     "AddressUpdates" : [
         {
             "AddressId" : "fc7b2df3-de66-48a6-907d-af4600ecd892",
+            "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
             "Line1": { "Value" : "I.P. Pavlova 5" },
             "Line2": { "Value" : null },
             "City": { "Value" : "Prague" },
@@ -203,6 +204,7 @@ Updates an existing address in the system assigned to a specified account.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AddressId` | string | required | Unique identifier of the [Address](configuration.md#address). |
+| `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
 | `Line1` | [String update value](#string-update-value) | optional | First line of the address. |
 | `Line2` | [String update value](#string-update-value) | optional | Second line of the address. |
 | `City` | [String update value](#string-update-value) | optional | The city. |
