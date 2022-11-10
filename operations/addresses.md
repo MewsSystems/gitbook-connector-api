@@ -32,7 +32,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `AccountIds` | array of string | required, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
-| `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](configuration.md#address) addresses within the enterprise. |
+| `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](configuration.md#address) within the enterprise. Use this property if you want to fetch specific addresses. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of address items returned. |
 
 ### Response
@@ -60,7 +60,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Address](#address-items) | required | The addresses with their items. |
+| `Addresses` | array of [Address items](#address-items) | required | The collection of address items, containing address and account information. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
 
 #### Address items
@@ -118,23 +118,7 @@ Adds a new address to the system and assigns it to a specified account. The acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Addresses` | array of [Address add items](#address-add-items), max 1000 items | required | Collection of addresses to be created. |
-
-#### Address add items
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the [Address](configuration.md#address). |
-| `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
-| `AccountType` | string | required | Discriminator specifying whether the account is a [Company](companies.md#company) or a [Customer](customers.md#customer). |
-| `Line1` | string | optional | First line of the address. |
-| `Line2` | string | optional | Second line of the address. |
-| `City` | string | optional | The city. |
-| `PostalCode` | string | optional | Postal code. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
-| `Latitude` | number | optional | The latitude. |
-| `Longitude` | number | optional | The longitude. |
+| `Addresses` | array of [Address add items](#address-items), max 1000 items | required | Collection of addresses to be created. |
 
 ### Response
 
@@ -161,12 +145,12 @@ Adds a new address to the system and assigns it to a specified account. The acco
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Address](#address-items) | required | Created addresses. |
+| `Addresses` | array of [Address items](#address-items) | required | Created addresses. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
 
 ## Update addresses
 
-Updates an existing address in the system assigned to a specified account.
+Updates one or more existing addresses in the system, assigned to specified accounts.
 
 ### Request
 
