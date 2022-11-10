@@ -2,7 +2,7 @@
 
 ## 11th November 2022
 
-* Added cursor pagination in [Get all products](../operations/products.md#get-all-products)
+* Added cursor pagination in [Get all products](../operations/products.md#get-all-products).
 * Extended [Get all products](../operations/products.md#get-all-products) with `CustomerProducts`.
 
 ## 7th November 2022
