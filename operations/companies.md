@@ -86,7 +86,13 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "Contact": "Contact Info 1",
             "Notes": "Note 1",
             "Options": {
-                "Invoiceable": true
+                "Invoiceable": true,
+                "AddFeesToInvoices": true
+            },
+            "Department": "Sales",
+            "DunsNumber": "123456789",
+            "CreditRating": {
+                "Basic": "PaymentRequiredUpfront"
             }
         },
         {
@@ -112,7 +118,13 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "Contact": "Contact Info 2",
             "Notes": "Note 2",
             "Options": {
-                "Invoiceable": true
+                "Invoiceable": true,
+                "AddFeesToInvoices": false
+            },
+            "Department": "Accounting",
+            "DunsNumber": "987654321",
+            "CreditRating": {
+                "Basic": "CreditOk"
             }
         }
     ]
@@ -149,12 +161,28 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Company options](#company-options) | required | Options of the company. |
+| `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
+| `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
+| `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 
 #### Company options
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
+
+#### Credit rating
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Basic` | string [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
+
+#### Credit rating basic
+
+* `CreditOk`
+* `PaymentRequiredUpfront`
+* `LocalDecisionRequired`
 
 ## Add company
 
@@ -171,7 +199,8 @@ Adds a new company to the enterprise.
     "Client": "Sample Client 1.0.0",
     "Name": "Mews",
     "Options": {
-        "Invoiceable": true
+        "Invoiceable": true,
+        "AddFeesToInvoices": true
     },
     "MotherCompanyId": null,
     "Identifier": null,
@@ -185,7 +214,12 @@ Adds a new company to the enterprise.
     "ContacPerson": "SamplePerson",
     "Contact": "ContactInfo",
     "Notes": "Note1",
-    "Iata": "PAO"
+    "Iata": "PAO",
+    "Department": "Sales",
+    "DunsNumber": "987654321",
+    "CreditRating": {
+        "Basic": "CreditOk"
+    }
 }
 ```
 
@@ -208,12 +242,16 @@ Adds a new company to the enterprise.
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | string | optional | Notes of the company. |
 | `Iata` | string | optional | Iata of the company. |
+| `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
+| `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
+| `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 
 #### Company options parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | bool | required | Whether the company is invoiceable or not. |
+| `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
 
 ### Response
 
@@ -239,6 +277,9 @@ Updates information of the company.
     "Options": {
         "Invoiceable": {
             "Value": true
+        },
+        "AddFeesToInvoices": {
+            "Value": false
         }
     },
     "MotherCompanyId": {
@@ -263,6 +304,17 @@ Updates information of the company.
     },
     "Iata": {
         "Value": "PAO"
+    },
+    "Department": {
+        "Value": "Marketing"
+    },
+    "DunsNumber": {
+        "Value": "123456789"
+    },
+    "CreditRating": {
+        "Basic": {
+            "Value": "PaymentRequiredUpfront"
+        }
     }
 }
 ```
@@ -286,18 +338,28 @@ Updates information of the company.
 | `Contact` | [String update value](#string-update-value) | optional | Other contact details, such as telephone, email or similar. |
 | `Notes` | [String update value](#string-update-value) | optional | Notes of the company. |
 | `Iata` | [String update value](#string-update-value) | optional | Iata of the company. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
+| `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
+| `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
+| `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
 
 #### Company options update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Invoiceable` | [Bool update value](#bool-update-value) | optional | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | [Bool update value](#bool-update-value) | optional | Whether the company has an additional fee applied for invoicing or not. |
+
+#### Credit rating update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Basic` | [string update value](#string-update-value) with possible values of [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
+
+#### String update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | string | optional | Value which is to be updated. |
 
 #### Bool update value
 

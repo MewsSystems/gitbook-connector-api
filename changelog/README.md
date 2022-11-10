@@ -1,11 +1,3 @@
-# ACTION REQUIRED!
-
-We have changed the URLs for our API. The old URLs with `mews.li` are no longer operational, instead you should be using:
-* `api.mews.com` for the endpoints
-* `ws.mews.com` for websockets
-
-For more details, see [Environments](../guidelines/environments.md).
-
 # Changelog
 
 ## 10th November 2022
@@ -14,6 +6,94 @@ For more details, see [Environments](../guidelines/environments.md).
 * Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
 * Added operation [Add addresses](../operations/addresses.md#add-addresses).
 * Added operation [Update addresses](../operations/addresses.md#update-addresses).
+## 7th November 2022
+
+* Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
+* Extended [Outlet bill](../operations/outletbills.md#outlet-item-parameters) with `ExternalIdentifier` for items.
+
+## 25th October 2022
+
+* Extended [Payment item](../operations/accountingitems.md#payment-item) with `SettlementId`.
+* Extended [Order item](../operations/accountingitems.md#order-item) with `UnitCount` and `UnitAmount`.
+
+## 20th October 2022
+
+* Added operation [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) to retrieve loyalty memberships.
+* Added operation [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) to add loyalty memberships.
+* Added operation [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) to update loyalty memberships.
+* Added operation [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships) to delete loyalty memberships.
+
+## 14th October 2022
+
+* Extended [Add company](../operations/companies.md#add-company) with `Department`, `DunsNumber` and `CreditRating` fields.
+* Added `AddFeesToInvoices` to [Company options parameters](../operations/companies.md#company-options-parameters).
+* Extended [Update company](../operations/companies.md#update-company) with `Department`, `DunsNumber` and `CreditRating` fields.
+* Added `AddFeesToInvoices` to [Company options update value](../operations/companies.md#company-options-update-value).
+* Added [Credit rating update value](../operations/companies.md#credit-rating-update-value).
+* Added [Credit rating parameters](../operations/companies.md#credit-rating-parameters).
+* Added operation [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) to add loyalty programs.
+* Added operation [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs) to update loyalty programs.
+* Added operation [Delete loyalty programs](../operations/loyaltyprograms.md#delete-loyalty-programs) to delete loyalty programs.
+
+## 12th October 2022
+
+* Added `AddFeesToInvoices` to [Company Options](../operations/companies.md#company-options).
+* Added `Department`, `DunsNumber` and `CreditRating` field in [Company](../operations/companies.md#company).
+* Added [Credit Rating](../operations/companies.md#credit-rating).
+* Added [Credit Rating Basic](../operations/companies.md#credit-rating-basic).
+* Added operation [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) to retrieve loyalty programs.
+
+## 11th October 2022
+
+* Added new operations [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) and [Get all sources](../operations/sources.md#get-all-sources) for retrieval of reservation sources.
+
+## 7th October 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+
+## 22nd September 2022
+
+* Added description of [Travel agency contract options](../operations/companycontracts.md#travel-agency-contract-options).
+* Added `ChannelManagerAbsoluteAdjustment` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ChannelManagerRelativeAdjustment` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `Options` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `AccountingCode` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `InvoiceDueInterval` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ChannelManagerBusinessSegmentId` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ContactPerson` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `ContactEmail` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `AdditionalContactInfo` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+* Added `Notes` field in [Travel agency contract](../operations/companycontracts.md#travel-agency-contract).
+
+## 13th September 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get All Customers](../operations/customers.md#get-all-customers).
+
+## 8th September 2022
+
+* Extended [Get all customers](../operations/customers.md#get-all-customers) response with `CarRegistrationNumber` field.
+
+## 30th August 2022
+
+* Small improvements to [Webhooks](../webhooks/README.md) documentation, including moving the [Webhooks FAQ](../webhooks/wh-faq.md) to its own page.
+
+## 23rd August 2022
+
+* Added new webhook events `CustomerAdded` and `CustomerUpdated` in [General webhooks](../webhooks/wh-general.md).
+
+## 17th August 2022
+
+* Added `BookerId` field in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters).
+* Extended [Get all availability blocks](../operations/availabilityblocks#get-all-availability-blocks) response with `CompanyId` field in [Availability block](../operations/availabilityblocks.md#availability-block).
+* Added `ActivityState` and `MergeTargetId` to the [Customer](../operations/customers.md#customer) object.
+
+## 10th August 2022
+
+* Added a new type of webhook for updated Resource blocks (../webhooks/wh-general.md).
+
+## 5th August 2022
+
+* Updated PCI Proxy use case [Using tokenized credit cards](../use-cases/payment-automation/using-tokenized-credit-cards.md).
 
 ## 22nd July 2022
 

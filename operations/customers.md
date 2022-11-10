@@ -2,7 +2,7 @@
 
 ## Get all customers
 
-Returns all customers filtered by identifiers, emails, names and other filters.
+Returns all customers filtered by identifiers, emails, names and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -44,6 +44,10 @@ Returns all customers filtered by identifiers, emails, names and other filters.
         "Customers": "true",
         "Documents": "true",
         "Addresses": "false"
+    },
+    "Limitation":{
+        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+        "Count": 10
     }
 }
 ```
@@ -63,6 +67,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `DeletedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | optional | Whether return only active, only deleted or both records. |
 | `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
 
 #### Time interval
 
@@ -111,6 +116,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "BillingCode": null,
             "NationalityCode": "US",
             "Notes": "",
+            "CarRegistrationNumber": null,
             "Options": [],
             "Number": "1",
             "Phone": "00420123456789",
@@ -118,7 +124,9 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "TaxIdentificationNumber": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z",
-            "CompanyId": "cb7d4a2f-10e0-4163-a176-ad03007efa8a"
+            "CompanyId": "cb7d4a2f-10e0-4163-a176-ad03007efa8a",
+            "MergeTargetId": null,
+            "ActivityState": "Active"
         }
     ],
     "Documents": [
@@ -131,7 +139,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
             "Issuance": "2016-01-01",
             "IssuingCountryCode": "CZ"
         }
-    ]
+    ],
+    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
 }
 ```
 
@@ -139,6 +148,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](#customer) | required | The customers. |
 | `Documents` | array of [Document](#document) | required | The identity documents of customers. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
 
 #### Customer
 
@@ -162,6 +172,7 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `AccountingCode` | string | optional | Accounting code of the customer. |
 | `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
+| `CarRegistrationNumber` | string | optional | Registration number of the customer's car. |
 | `Classifications` | array of [Customer classification](#customer-classification) | required | Classifications of the customer. |
 | `Options` | array of [Customer option](#customer-option) | required | Options of the customer. |
 | `Address` | [Address](configuration.md#address) | optional | Address of the customer. |
@@ -170,6 +181,8 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
+| `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](#customer)) to which this customer is linked. |
+| `ActivityState` | string | required | [Activity State](#activity-state) of customer record, i.e. whether active or deleted. |
 
 #### Title
 
@@ -224,6 +237,11 @@ Returns all customers filtered by identifiers, emails, names and other filters.
 
 * `SendMarketingEmails`
 * ...
+
+#### Activity State
+
+* `Active`
+* `Deleted`
 
 ## Search customers
 

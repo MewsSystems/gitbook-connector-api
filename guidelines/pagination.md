@@ -57,4 +57,4 @@ We use a method called _cursor pagination_. This takes the following form:
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Data` | ... | required | Placeholder for response data (details will vary). |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest datum returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older data. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest datum returned. This can be used in [Limitation](#limitation) in a subsequent request to fetch the next batch of older data. If [Limitation](#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned, e.g. in case of [Get all customers](../operations/customers.md#get-all-customers) with all Extent properties set to "false".|
