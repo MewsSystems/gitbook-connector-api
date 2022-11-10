@@ -8,7 +8,7 @@ For more details, see [Environments](../guidelines/environments.md).
 
 # Changelog
 
-## 7th November 2022
+## 10th November 2022
 
 * Added new page [Addresses](../operations/addresses.md).
 * Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
