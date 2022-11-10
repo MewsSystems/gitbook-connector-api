@@ -6,6 +6,7 @@
 * Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
 * Added operation [Add addresses](../operations/addresses.md#add-addresses).
 * Added operation [Update addresses](../operations/addresses.md#update-addresses).
+
 ## 7th November 2022
 
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
