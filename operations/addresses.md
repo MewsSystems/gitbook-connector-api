@@ -86,7 +86,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 
 ## Add addresses
 
-Adds a new address to the system and assigns it to a specified account. The account has to be within the same enterprise.
+Adds one or more new addresses to the system and assign them to specified accounts.
 
 ### Request
 
@@ -118,7 +118,7 @@ Adds a new address to the system and assigns it to a specified account. The acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Addresses` | array of [Address add items](#address-items), max 1000 items | required | Collection of addresses to be created. |
+| `Addresses` | array of [Address items](#address-items), max 1000 items | required | Collection of addresses to be created. |
 
 ### Response
 
@@ -227,5 +227,5 @@ Updates one or more existing addresses in the system, assigned to specified acco
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Address](#address-items) | required | Updated addresses. |
+| `Addresses` | array of [Address items](#address-items) | required | Updated addresses. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
