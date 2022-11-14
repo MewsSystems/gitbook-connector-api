@@ -1,5 +1,8 @@
 # Changelog
 
+## 14th November 2022
+* Extended the request parameters for [Get all reservations](../operations/reservations.md#get-all-reservations) to add new filter parameter `ChannelNumbers`.
+
 ## 7th November 2022
 
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
