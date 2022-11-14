@@ -1,5 +1,12 @@
 # Changelog
 
+## 18th November 2022
+
+* Added operation [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) to retrieve routing rules.
+* Added operation [Add routing rules](../operations/routingrules.md#add-routing-rule) to add routing rules.
+* Added operation [Update routing rules](../operations/routingrules.md#update-routing-rule) to update routing rules.
+* Added operation [Delete routing rules](../operations/routingrules.md#delete-routing-rule) to delete routing rules.
+
 ## 7th November 2022
 
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
