@@ -4,16 +4,13 @@
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all products](../operations/products.md#get-all-products).
 * Extended [Get all products](../operations/products.md#get-all-products) response with `CustomerProducts`.
+* Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `IsPrimary`, `Points` and `Code` fields.
+* Extended operations [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships), [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) and [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) with `IsPrimary`, `Points` and `Code` fields.
 
 ## 7th November 2022
 
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) with `ExternalIdentifier`.
 * Extended [Outlet bill](../operations/outletbills.md#outlet-item-parameters) with `ExternalIdentifier` for items.
-
-## 2nd November 2022
-
-* Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `IsPrimary`, `Points` and `Code` fields.
-* Extended operations [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships), [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) and [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) with `IsPrimary`, `Points` and `Code` fields.
 
 ## 25th October 2022
 
