@@ -1,6 +1,6 @@
 # Changelog
 
-## 11th November 2022
+## 15th November 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all products](../operations/products.md#get-all-products).
 * Extended [Get all products](../operations/products.md#get-all-products) response with `CustomerProducts`.
