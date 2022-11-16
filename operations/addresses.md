@@ -14,13 +14,10 @@ Returns all addresses associated with the specified accounts within the enterpri
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "AccountIds": [
-        "3db2c989-7d95-42b4-a502-a9f246db1634",
-        "1f841f0a-2af3-4f01-9441-ca52828d5224",
-        "5e045eb0-8d57-4bf5-a766-1fa28e7dfd11",
+        "3db2c989-7d95-42b4-a502-a9f246db1634"
     ],
     "AddressIds": [
-        "6cabdd7b-6c6b-4939-919a-0d043997fa7a",
-        "cfc63db6-ccae-44ad-9e58-48aa89b301ed"
+        "fc7b2df3-de66-48a6-907d-af4600ecd892"
     ],
     "Limitation": { "Count": 10 }
 }
@@ -33,7 +30,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `Client` | string | required | Name and version of the client application. |
 | `AccountIds` | array of string | required, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
 | `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](configuration.md#address) within the enterprise. Use this property if you want to fetch specific addresses. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of address items returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Account address returned. |
 
 ### Response
 
@@ -54,20 +51,20 @@ Returns all addresses associated with the specified accounts within the enterpri
             "Longitude": null
         }
     ],
-    "Cursor": "a5347333-74c0-4ffb-82d7-af4600df5047"
+    "Cursor": "fc7b2df3-de66-48a6-907d-af4600ecd892"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Address items](#address-items) | required | The collection of address items, containing address and account information. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
+| `Addresses` | array of [Account address](#account-address) | required | The collection of Account addresses, containing address and account information. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older Account address. |
 
-#### Address items
+#### Account address
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the [Address](configuration.md#address). |
+| `Id` | string | required | Unique identifier of the address. |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](#account-type), e.g. customer or company. |
 | `Line1` | string | optional | First line of the address. |
@@ -118,7 +115,7 @@ Adds one or more new addresses to the system and assign them to specified accoun
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Addresses` | array of [Address items](#address-items), max 1000 items | required | Collection of addresses to be created. |
+| `Addresses` | array of [Account address](#account-address), max 1000 items | required | Collection of addresses to be created. |
 
 ### Response
 
@@ -138,15 +135,13 @@ Adds one or more new addresses to the system and assign them to specified accoun
             "Latitude": null,
             "Longitude": null
         }
-    ],
-    "Cursor": null
+    ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Address items](#address-items) | required | Created addresses. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
+| `Addresses` | array of [Account address](#account-address) | required | Created addresses. |
 
 ## Update addresses
 
@@ -220,12 +215,10 @@ Updates one or more existing addresses in the system, assigned to specified acco
             "Latitude": null,
             "Longitude": null
         }
-    ],
-    "Cursor": null
+    ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Address items](#address-items) | required | Updated addresses. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older address items. |
+| `Addresses` | array of [Account address](#account-address) | required | Updated addresses. |
