@@ -115,7 +115,21 @@ Adds one or more new addresses to the system and assign them to specified accoun
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Addresses` | array of [Account address](#account-address), max 1000 items | required | Collection of addresses to be created. |
+| `Addresses` | array of [Account address adds](#account-address-add-parameters), max 1000 items | required | Collection of addresses to be created. |
+
+#### Account address add parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
+| `Line1` | string | optional | First line of the address. |
+| `Line2` | string | optional | Second line of the address. |
+| `City` | string | optional | The city. |
+| `PostalCode` | string | optional | Postal code. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
+| `Latitude` | number | optional | The latitude in range of -90 to 90. |
+| `Longitude` | number | optional | The longitude in range of -180 to 180. |
 
 ### Response
 
@@ -176,13 +190,13 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AddressUpdates` | array of [Address update parameters](#address-update-parameters), max 1000 items | required | Collection of addresses to be updated. |
+| `AddressUpdates` | array of [Account address updates](#account-address-update-parameters), max 1000 items | required | Collection of addresses to be updated. |
 
-#### Address update parameters
+#### Account address update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AddressId` | string | required | Unique identifier of the [Address](configuration.md#address). |
+| `AddressId` | string | required | Unique identifier of the address. |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
 | `Line1` | [String update value](#string-update-value) | optional | First line of the address. |
 | `Line2` | [String update value](#string-update-value) | optional | Second line of the address. |
