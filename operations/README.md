@@ -129,7 +129,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all routing rules](routingrules.md#get-all-routing-rules) | Returns all routing rules of the enterprise. |
+| [Get all routing rules](routingrules.md#get-all-routing-rules) | Returns all routing rules of the enterprise |
 | [Add routing rules](routingrules.md#add-routing-rule) | Adds a new routing rules |
 | [Update routing rules](routingrules.md#update-routing-rule) | Updates selected routing rules |
 | [Delete routing rules](routingrules.md#delete-routing-rule) | Deletes selected routing rules |
