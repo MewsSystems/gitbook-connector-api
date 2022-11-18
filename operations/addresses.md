@@ -115,9 +115,9 @@ Adds one or more new addresses to the system and assign them to specified accoun
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Addresses` | array of [Account address adds](#account-address-add-parameters), max 1000 items | required | Collection of addresses to be created. |
+| `Addresses` | array of [Account address parameters](#account-address-parameters), max 1000 items | required | Collection of addresses to be created. |
 
-#### Account address add parameters
+#### Account address parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
