@@ -964,7 +964,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | required | Unique identifiers of the [Reservations](#reservation) to cancel. |
 | `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
-| `Notes` | string | required | Addiotional notes describing the cancellation. |
+| `Notes` | string | required | Additional notes describing the reason for the cancellation. |
 
 ### Response
 
