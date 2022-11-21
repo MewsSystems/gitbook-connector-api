@@ -2,7 +2,7 @@
 
 ## Get all routing rules
 
-Returns all routing rules.
+Returns all routing rules. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -76,7 +76,7 @@ Returns all routing rules.
 ```
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `RoutingRules` | array of [Routing rules](#routing-rule) | required | Routing rules. |
+| `RoutingRules` | array of [Routing rules](#routing-rule) | required | Collection of Routing rules. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Routing rule
@@ -86,10 +86,10 @@ Returns all routing rules.
 | `Id` | string | required | Unique identifier of the service. |
 | `CompanyId` | string | required | Unique identifier of the [Company](companies.md#company) routing rule is assigned to. |
 | `CompanyRelation` | string [Company relation](routingrules.md#company-relation) | required | Relation of the company to the routing rule. |
-| `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA). |
+| `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency, or only future reservations that are prepaid. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
-| `RouteType` | string [Route type](routingrules.md#route-type) | required | What should be routed. |
-| `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | To which stay items routing rule applies to. Returns only if RouteType value is SelectedStayItems. |
+| `RouteType` | string [Route type](routingrules.md#route-type) | required | Determines to which stay items the routing rule applies. |
+| `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | Specific items to which the routing rule applies. Returns only if RouteType value is SelectedStayItems. |
 
 ### Company relation
 
@@ -112,7 +112,7 @@ Returns all routing rules.
 | :-- | :-- | :-- | :-- |
 | `Nights` | boolean | required | Whether routing rule applies to nights. |
 | `CityTax` | boolean | required | Whether routing rule applies to city tax. |
-| `ProductCategoryIds` | array of string | optional | Product categories to which routing rule applies to. |
+| `ProductCategoryIds` | array of string | optional | Product categories to which routing rule applies. |
 
 ## Add routing rule
 
@@ -152,8 +152,7 @@ Adds a new routing rules.
                     "d4c1b435-0ed1-4d98-9833-af2c00b28518"
                 ]
             }
-        },
-
+        }
     ]
 }
 ```
@@ -163,7 +162,7 @@ Adds a new routing rules.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `RoutingRules` | array of [Routing rule parameters](routingrules.md#routing-rule-parameters) | required, max 1000 items | Routing rules to be added. |
+| `RoutingRules` | array of [Routing rule parameters](routingrules.md#routing-rule-parameters) | required, max 1000 items | Collection of Routing rules to be added. |
 
 #### Routing rule parameters
 
@@ -171,7 +170,7 @@ Adds a new routing rules.
 | :-- | :-- | :-- | :-- |
 | `CompanyId` | string | required | Unique identifier of the [Company](companies.md#company) routing rule is assigned to. |
 | `CompanyRelation` | string [Company relation](routingrules.md#company-relation) | required | Relation of the company to the routing rule. |
-| `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA). |
+| `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
 | `RouteType` | string [Route type](routingrules.md#route-type) | required | What should be routed. |
 | `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | To which stay items routing rule applies to. Returns only if RouteType value is SelectedStayItems. |
@@ -253,10 +252,10 @@ Updates routing rules.
                 "CityTax" : { "Value": true },
                 "ProductCategoryIds": { "Value": [
                     "004fa262-7b08-4853-b544-af2a00d5cf1f"
-                ]}
+                    ]
+                }
             }
-        },
-
+        }
     ]
 }
 ```
@@ -266,18 +265,18 @@ Updates routing rules.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `RoutingRules` | array of [Routing rule update parameters](routingrules.md#routing-rule-update-parameters) | required, max 1000 items | Routing rules to be updated. |
+| `RoutingRules` | array of [Routing rule update parameters](routingrules.md#routing-rule-update-parameters) | required, max 1000 items | Collection Routing rules to be updated. |
 
 #### Routing rule update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `RoutingRuleId` | string | required | Unique identifier of the routing rule. |
-| `CompanyId` | [String update value](#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) \(or `null` if should not be updated\). |
-| `CompanyRelation` | [String update value](#string-update-value)| optional | [Company relation](routingrules.md#company-relation) to the routing rule \(or `null` if should not be updated\). |
-| `Applicability` | [String update value](#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` if should not be updated\). |
-| `ServiceId` | [String update value](#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` if should not be updated\). |
-| `RouteType` | [String update value](#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` if should not be updated\). |
+| `CompanyId` | [String update value](#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) \(or `null` should it not be updated\). |
+| `CompanyRelation` | [String update value](#string-update-value)| optional | [Company relation](routingrules.md#company-relation) to the routing rule \(or `null` should it not be updated\). |
+| `Applicability` | [String update value](#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` should it not be updated\). |
+| `ServiceId` | [String update value](#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` should it not be updated\). |
+| `RouteType` | [String update value](#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` should it not be updated\). |
 | `SelectedStayItems` | [Selected stay items update parameters](routingrules.md#selected-stay-items-update-parameters) | optional | To which stay items routing rule applies to. Returns only if RouteType value is SelectedStayItems. |
 
 #### String update value
@@ -302,9 +301,9 @@ Updates routing rules.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Nights` | [Bool update value](#bool-update-value) | optional | Whether routing rule applies to nights \(or `null` if should not be updated\). |
-| `CityTax` | [Bool update value](#bool-update-value) | optional | Whether routing rule applies to city tax \(or `null` if should not be updated\). |
-| `ProductCategoryIds` | [String array update value](#string-array-update-value) | optional | Product categories to which routing rule applies to \(or `null` if should not be updated\). |
+| `Nights` | [Bool update value](#bool-update-value) | optional | Whether routing rule applies to nights \(or `null` should it not be updated\). |
+| `CityTax` | [Bool update value](#bool-update-value) | optional | Whether routing rule applies to city tax \(or `null` should it not be updated\). |
+| `ProductCategoryIds` | [String array update value](#string-array-update-value) | optional | Product categories to which the routing rule applies \(or `null` should it not be updated\). |
 
 ### Response
 
@@ -335,15 +334,13 @@ Updates routing rules.
                 ]
             }
         }
-    ],
-    "Cursor": null
+    ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `RoutingRules` | array of [Routing rules](#routing-rule) | required | Routing rules. |
-| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
+| `RoutingRules` | array of [Routing rules](#routing-rule) | required | Collection of Routing rules. |
 
 ## Delete routing rule
 
@@ -371,7 +368,7 @@ Deletes routing rules.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `RoutingRuleIds` | array of string | required, max 1000 items | Unique identifier of the routing rules to be delete. |
+| `RoutingRuleIds` | array of string | required, max 1000 items | Unique identifiers of the routing rules to be delete. |
 
 ### Response
 
