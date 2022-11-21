@@ -59,7 +59,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer) which own the reservations. |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Resources](resources.md#resource) assigned to the reservations. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate) assigned to the reservations. |
-| `ChannelNumbers` | array of string | optional, max 1000 items | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\) of [Reservations](#reservation). |
+| `ChannelNumbers` | array of string | optional, max 1000 items | Set of numbers or references used by the Channel \(i.e. OTA, GDS, CRS, etc.\) in case the reservation group originates there, e.g. Booking.com confirmation numbers. |
 | `BusinessSegmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Business segments](businesssegments.md#business-segment) assigned to the reservations. |
 | `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](#reservation). |
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
