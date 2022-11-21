@@ -1,5 +1,12 @@
 # Changelog
 
+## 21th November 2022
+
+* Added new page [Addresses](../operations/addresses.md).
+* Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
+* Added operation [Add addresses](../operations/addresses.md#add-addresses).
+* Added operation [Update addresses](../operations/addresses.md#update-addresses).
+
 ## 15th November 2022
 
 * Added [Pagination](../guidelines/pagination.md) to [Get all products](../operations/products.md#get-all-products).
