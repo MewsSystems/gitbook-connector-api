@@ -1,6 +1,6 @@
 # Changelog
 
-## 18th November 2022
+## 21th November 2022
 
 * Added new page [Addresses](../operations/addresses.md).
 * Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
