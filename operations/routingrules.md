@@ -114,7 +114,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 | `CityTax` | boolean | required | Whether routing rule applies to city tax. |
 | `ProductCategoryIds` | array of string | optional | Product categories to which routing rule applies. |
 
-## Add routing rule
+## Add routing rules
 
 Adds a new routing rules.
 
@@ -216,7 +216,7 @@ Adds a new routing rules.
 | `RoutingRules` | array of [Routing rules](#routing-rule) | required | Routing rules. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-## Update routing rule
+## Update routing rules
 
 Updates routing rules.
 
@@ -342,7 +342,7 @@ Updates routing rules.
 | :-- | :-- | :-- | :-- |
 | `RoutingRules` | array of [Routing rules](#routing-rule) | required | Collection of Routing rules. |
 
-## Delete routing rule
+## Delete routing rules
 
 Deletes routing rules.
 
