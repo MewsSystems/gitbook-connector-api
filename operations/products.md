@@ -15,7 +15,8 @@ Returns all products offered together with the specified services.
     "Client": "Sample Client 1.0.0",
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
-    ]
+    ],
+    "Limitation": { "Count" : 10 }
 }
 ```
 
@@ -25,6 +26,7 @@ Returns all products offered together with the specified services.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of products returned. |
 
 ### Response
 
@@ -69,13 +71,56 @@ Returns all products offered together with the specified services.
                 ]
             }
         }
-    ]
+    ],
+    "CustomerProducts" : [
+        {
+            "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "CategoryId": null,
+            "IsActive": true,
+            "Name": "Breakfast",
+            "ExternalName": "Breakfast",
+            "ShortName": "BFST",
+            "Description": "Nice continental breakfast.",
+            "ChargingMode": "PerPersonPerTimeUnit",
+            "PostingMode": "Once",
+            "Options": {
+                "BillAsPackage": false
+            },
+            "Promotions": {
+                "BeforeCheckIn": false,
+                "AfterCheckIn": false,
+                "DuringStay": false,
+                "BeforeCheckOut": false,
+                "AfterCheckOut": false,
+                "DuringCheckOut": false
+            },
+            "Classifications": {
+                "Food": false,
+                "Beverage": false,
+                "Wellness": false,
+                "CityTax": false
+            },
+            "UnitAmount": {
+                "GrossValue": 25,
+                "Currency": "EUR",
+                "TaxValues": [
+                    {
+                        "Code": "FR-T"
+                    }
+                ]
+            }
+        }
+    ],
+    "Cursor" : "198bc308-c1f2-4a1c-a827-c41d99d52f3d"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Products` | array of [Product](#product) | required | Products offered with the service. |
+| `CustomerProducts` | array of [Product](#product) | required | Products offered specifically to customers. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest product returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older products.
 
 #### Product
 

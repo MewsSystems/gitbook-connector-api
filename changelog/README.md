@@ -1,11 +1,26 @@
 # Changelog
 
-## 18th November 2022
+## 23th November 2022
 
 * Added operation [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) to retrieve routing rules.
 * Added operation [Add routing rules](../operations/routingrules.md#add-routing-rule) to add routing rules.
 * Added operation [Update routing rules](../operations/routingrules.md#update-routing-rule) to update routing rules.
 * Added operation [Delete routing rules](../operations/routingrules.md#delete-routing-rule) to delete routing rules.
+
+## 21th November 2022
+
+* Added new page [Addresses](../operations/addresses.md).
+* Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
+* Added operation [Add addresses](../operations/addresses.md#add-addresses).
+* Added operation [Update addresses](../operations/addresses.md#update-addresses).
+
+## 15th November 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get all products](../operations/products.md#get-all-products).
+* Extended [Get all products](../operations/products.md#get-all-products) response with `CustomerProducts`.
+* Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `IsPrimary`, `Points` and `Code` fields.
+* Extended operations [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships), [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) and [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) with `IsPrimary`, `Points` and `Code` fields.
+
 
 ## 7th November 2022
 
