@@ -93,18 +93,21 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 
 #### Company relation
 
-* PartnerCompany
-* TravelAgency
+* `PartnerCompany`
+* `TravelAgency`
+* ...
 
 #### Applicability
 
-* Always
-* PrepaidOnly
+* `Always`
+* `PrepaidOnly`
+* ...
 
 #### Route type
 
-* AllStayItems
-* SelectedStayItems
+* `AllStayItems`
+* `SelectedStayItems`
+* ...
 
 #### Selected stay items
 
