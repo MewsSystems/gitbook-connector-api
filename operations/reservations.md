@@ -28,7 +28,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
         "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     ], 
     "ChannelNumbers": [
-        "68845cdd-1340-49b5-9071-acbd00b1d091"
+        "TW48ZP"
     ],
     "States": [
         "Started"
@@ -146,10 +146,10 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
             "Number": "52",
+            "ChannelNumber": "TW48ZP",
             "ChannelManager": "",
             "ChannelManagerGroupNumber": null,
             "ChannelManagerNumber": null,
-            "ChannelNumber": "68845cdd-1340-49b5-9071-acbd00b1d091",
             "State": "Processed",
             "Origin": "Connector",
             "OriginDetail": null,
