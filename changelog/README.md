@@ -1,6 +1,6 @@
 # Changelog
 
-## 23th November 2022
+## 24th November 2022
 
 * Added operation [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) to retrieve routing rules.
 * Added operation [Add routing rules](../operations/routingrules.md#add-routing-rules) to add routing rules.
