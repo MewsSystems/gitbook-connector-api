@@ -6,8 +6,9 @@
 * Added operation [Add routing rules](../operations/routingrules.md#add-routing-rules) to add routing rules.
 * Added operation [Update routing rules](../operations/routingrules.md#update-routing-rules) to update routing rules.
 * Added operation [Delete routing rules](../operations/routingrules.md#delete-routing-rules) to delete routing rules.
+* Extended the request parameters for [Get all reservations](../operations/reservations.md#get-all-reservations) to add new filter parameter `ChannelNumbers`.
 
-## 21th November 2022
+## 21st November 2022
 
 * Added new page [Addresses](../operations/addresses.md).
 * Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).

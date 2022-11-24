@@ -26,6 +26,9 @@ Returns all reservations specified by any identifier, customer or other filter. 
     ],
     "RateIds": [
         "ed4b660b-19d0-434b-9360-a4de2ea42eda"
+    ], 
+    "ChannelNumbers": [
+        "TW48ZP"
     ],
     "States": [
         "Started"
@@ -56,6 +59,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer) which own the reservations. |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Resources](resources.md#resource) assigned to the reservations. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate) assigned to the reservations. |
+| `ChannelNumbers` | array of string | optional, max 1000 items | Set of numbers or references used by the Channel \(i.e. OTA, GDS, CRS, etc.\) in case the reservation group originates there, e.g. Booking.com confirmation numbers. |
 | `BusinessSegmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Business segments](businesssegments.md#business-segment) assigned to the reservations. |
 | `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](#reservation). |
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
@@ -142,10 +146,10 @@ Returns all reservations specified by any identifier, customer or other filter. 
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
             "Number": "52",
+            "ChannelNumber": "TW48ZP",
             "ChannelManager": "",
             "ChannelManagerGroupNumber": null,
             "ChannelManagerNumber": null,
-            "ChannelNumber": null,
             "State": "Processed",
             "Origin": "Connector",
             "OriginDetail": null,
