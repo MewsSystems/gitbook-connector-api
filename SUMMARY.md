@@ -67,6 +67,7 @@
   * [Resource blocks](operations/resourceblocks.md)
   * [Resources](operations/resources.md)
   * [Restrictions](operations/restrictions.md)
+  * [Routing rules](operations/routingrules.md)
   * [Rules](operations/rules.md)
   * [Services](operations/services.md)
   * [Source assignments](operations/sourceassignments.md)

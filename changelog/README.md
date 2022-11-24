@@ -1,5 +1,12 @@
 # Changelog
 
+## 24th November 2022
+
+* Added operation [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) to retrieve routing rules.
+* Added operation [Add routing rules](../operations/routingrules.md#add-routing-rules) to add routing rules.
+* Added operation [Update routing rules](../operations/routingrules.md#update-routing-rules) to update routing rules.
+* Added operation [Delete routing rules](../operations/routingrules.md#delete-routing-rules) to delete routing rules.
+
 ## 21th November 2022
 
 * Added new page [Addresses](../operations/addresses.md).

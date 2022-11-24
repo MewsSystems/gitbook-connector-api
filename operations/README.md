@@ -133,6 +133,15 @@ This section describes all operations supported by the API, organised here by th
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
 
+## Routing rules
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all routing rules](routingrules.md#get-all-routing-rules) | Returns all routing rules of the enterprise |
+| [Add routing rules](routingrules.md#add-routing-rules) | Adds new routing rules |
+| [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
+| [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
+
 ## Services
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
