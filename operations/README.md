@@ -2,6 +2,14 @@
 
 This section describes all operations supported by the API, organised here by theme.
 
+## Addresses
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
+| [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
+| [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
+
 ## Configuration
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
@@ -124,6 +132,15 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
+
+## Routing rules
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all routing rules](routingrules.md#get-all-routing-rules) | Returns all routing rules of the enterprise |
+| [Add routing rules](routingrules.md#add-routing-rules) | Adds new routing rules |
+| [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
+| [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
 
 ## Services
 
