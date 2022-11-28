@@ -1,11 +1,33 @@
 # Changelog
 
-## 8th November 2022
+## 28th November 2022
 
 * Extended [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with [Pagination](../guidelines/pagination.md) and filtering parameters `ServiceIds`, `CompanyIds` and `CompanyContractIds`.
 * Added operation [Add company contracts](../operations/companycontracts.md#add-company-contracts).
 * Added operation [Update company contracts](../operations/companycontracts.md#update-company-contracts).
 * Added operation [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+
+## 24th November 2022
+
+* Added operation [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) to retrieve routing rules.
+* Added operation [Add routing rules](../operations/routingrules.md#add-routing-rules) to add routing rules.
+* Added operation [Update routing rules](../operations/routingrules.md#update-routing-rules) to update routing rules.
+* Added operation [Delete routing rules](../operations/routingrules.md#delete-routing-rules) to delete routing rules.
+* Extended the request parameters for [Get all reservations](../operations/reservations.md#get-all-reservations) to add new filter parameter `ChannelNumbers`.
+
+## 21st November 2022
+
+* Added new page [Addresses](../operations/addresses.md).
+* Added operation [Get all addresses](../operations/addresses.md#get-all-addresses).
+* Added operation [Add addresses](../operations/addresses.md#add-addresses).
+* Added operation [Update addresses](../operations/addresses.md#update-addresses).
+
+## 15th November 2022
+
+* Added [Pagination](../guidelines/pagination.md) to [Get all products](../operations/products.md#get-all-products).
+* Extended [Get all products](../operations/products.md#get-all-products) response with `CustomerProducts`.
+* Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `IsPrimary`, `Points` and `Code` fields.
+* Extended operations [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships), [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) and [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) with `IsPrimary`, `Points` and `Code` fields.
 
 ## 7th November 2022
 
