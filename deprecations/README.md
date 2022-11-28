@@ -19,6 +19,7 @@ The table columns have the following meanings:
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
+| `customers/merge` | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 1 Dec 2022 | 1 Dec 2023 |
 | `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
 | `bills/getAllByCustomers` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
 | `bills/getAllClosed` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
