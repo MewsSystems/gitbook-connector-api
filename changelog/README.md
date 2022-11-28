@@ -1,5 +1,12 @@
 # Changelog
 
+## 28th November 2022
+
+* Extended [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with [Pagination](../guidelines/pagination.md) and filtering parameters `ServiceIds`, `CompanyIds` and `CompanyContractIds`.
+* Added operation [Add company contracts](../operations/companycontracts.md#add-company-contracts).
+* Added operation [Update company contracts](../operations/companycontracts.md#update-company-contracts).
+* Added operation [Delete company contracts](../operations/companycontracts.md#delete-company-contracts).
+
 ## 24th November 2022
 
 * Added operation [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) to retrieve routing rules.
