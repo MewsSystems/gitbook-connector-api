@@ -54,6 +54,9 @@ This section describes all operations supported by the API, organised here by th
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
 | [Get all company contracts](companycontracts.md#get-all-company-contracts) | Returns all contracts between the enterprise and other companies |
+| [Add company contracts](companycontracts.md#add-company-contracts) | Adds a new company contract to the enterprise |
+| [Update company contracts](companycontracts.md#update-company-contracts) | Updates a company contract |
+| [Delete company contracts](companycontracts.md#delete-company-contracts) | Deletes a company contract |
 | [Get all departments](departments.md#get-all-departments) | Returns all departments of an enterprise associated with the connector integration |
 | [Get all counters](counters.md#get-all-counters) | Returns all counters of an enterprise associated with the connector integration |
 | [Get all outlets](outlets.md#get-all-outlets) | Returns all outlets of an enterprise associated with the connector integration |
