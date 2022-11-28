@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st December 2022
+
+* Added operation [Merge accounts](../operations/accounts.md#merge-accounts).
+
 ## 28th November 2022
 
 * Extended [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with [Pagination](../guidelines/pagination.md) and filtering parameters `ServiceIds`, `CompanyIds` and `CompanyContractIds`.

@@ -2,6 +2,12 @@
 
 This section describes all operations supported by the API, organised here by theme.
 
+## Accounts
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Merge accounts](accounts.md#merge-accounts) | Merges one or more accounts into one, e.g. customer, company. |
+
 ## Addresses
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
