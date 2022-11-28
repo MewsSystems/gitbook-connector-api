@@ -64,6 +64,7 @@ Returns all contracts between the enterprise and other companies.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `TravelAgencyContracts` | array of [Travel agency contract](#travel-agency-contract) | required | The travel agency contracts. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest contract returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older messages. |
 
 #### Travel agency contract
 
@@ -112,7 +113,7 @@ Adds one or more company contracts.
         "CompanyId": "896e9313-477d-4306-9d37-af150065f4d6",
         "CommissionIncluded": true,
         "Commission": 0.1,
-        "ChannelManagerAbsoluteAdjustment": 0.10,
+        "ChannelManagerAbsoluteAdjustment": 10,
         "ChannelManagerRelativeAdjustment": 0.15,
         "Options": {
             "IncludeCancellationFeeInCommissionEstimate": false,
@@ -128,6 +129,7 @@ Adds one or more company contracts.
     }
 }
 ```
+
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ClientToken` | string | required | Token identifying the client application. |
@@ -166,7 +168,7 @@ Adds one or more company contracts.
             "IsActive": true,
             "CommissionIncluded": true,
             "Commission": 0.1,
-            "ChannelManagerAbsoluteAdjustment": 0.10,
+            "ChannelManagerAbsoluteAdjustment": 10,
             "ChannelManagerRelativeAdjustment": 0.15,
             "Options": {
                 "IncludeCancellationFeeInCommissionEstimate": false,
@@ -185,7 +187,7 @@ Adds one or more company contracts.
 ```
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `TravelAgencyContracts` | array of [Travel agency contracts parameters](#travel-agency-contract-parameters) | required | Travel agency contracts. |
+| `TravelAgencyContracts` | array of [Travel agency contract](#travel-agency-contract) | required | The added travel agency contracts. |
 
 ## Update company contracts
 
@@ -205,7 +207,7 @@ Updates one or more company contracts.
         "TravelAgencyContractId": "652d4a22-ac33-42b7-abe7-af1f00820023",
         "CommissionIncluded": { "Value": true },
         "Commission": { "Value" : 0.1 },
-        "ChannelManagerAbsoluteAdjustment": { "Value": 0.10 },
+        "ChannelManagerAbsoluteAdjustment": { "Value": 10 },
         "ChannelManagerRelativeAdjustment": { "Value": 0.15 },
         "Options": {
             "IncludeCancellationFeeInCommissionEstimate": { "Value": true },
@@ -228,13 +230,13 @@ Updates one or more company contracts.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `TravelAgencyContracts` | array of [Travel agency contract update parameters](#travel-agency-contract-update-parameters) | required | Information about travel agency contracts to be updated. |
+| `TravelAgencyContractUpdates` | array of [Travel agency contract update parameters](#travel-agency-contract-update-parameters) | required | Information about travel agency contracts to be updated. |
 
 #### Travel agency contract update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `TravelAgencyContractI` | string | required | Unique identifier of the Travel agency contract. |
+| `TravelAgencyContractId` | string | required | Unique identifier of the Travel agency contract. |
 | `CommissionIncluded` | [Bool update value](#bool-update-value) | optional | Whether commission of the travel agency is included in the rate. |
 | `Commission` | [Number update value](#number-update-value) | optional | Commission of the travel agency. |
 | `ChannelManagerAbsoluteAdjustment` | [Number update value](#number-update-value) | optional | Flat fee added to (or subtracted from) the reservation price when coming from Channel Managers. |
@@ -285,7 +287,7 @@ Updates one or more company contracts.
             "IsActive": true,
             "CommissionIncluded": true,
             "Commission": 0.1,
-            "ChannelManagerAbsoluteAdjustment": 0.10,
+            "ChannelManagerAbsoluteAdjustment": 10,
             "ChannelManagerRelativeAdjustment": 0.15,
             "Options": {
                 "IncludeCancellationFeeInCommissionEstimate": true,
@@ -304,7 +306,7 @@ Updates one or more company contracts.
 ```
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `TravelAgencyContracts` | array of [Travel agency contracts parameters](#travel-agency-contract-parameters) | required | Travel agency contracts. |
+| `TravelAgencyContracts` | array of [Travel agency contract](#travel-agency-contract) | required | The updated travel agency contracts. |
 
 ## Delete company contracts
 
