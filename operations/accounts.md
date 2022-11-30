@@ -2,7 +2,7 @@
 
 ## Merge accounts
 
-Merges ore or more accounts to another.
+Merges two or more accounts together. The given source accounts will be merged into the given target account and the merged account will keep the target account ID.
 
 ### Request
 
@@ -47,9 +47,9 @@ Merges ore or more accounts to another.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountType` | string [Account type](#account-type)| required | Specifying types of accounts provided, e.g. [Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company). |
-| `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source [Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company). |
-| `TargetAccountId` | string | required | Unique identifier of the target [Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company). |
+| `AccountType` | string [Account type](#account-type)| required | Specifying types of accounts provided, ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)). |
+| `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
+| `TargetAccountId` | string | required | Unique identifier of the target ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 
 ### Account type
 
