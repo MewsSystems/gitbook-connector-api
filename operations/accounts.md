@@ -48,8 +48,8 @@ Merges two or more accounts together. The given source accounts will be merged i
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountType` | string [Account type](#account-type)| required | Specifying types of accounts provided, ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)). |
-| `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
-| `TargetAccountId` | string | required | Unique identifier of the target ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
+| `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source accounts ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
+| `TargetAccountId` | string | required | Unique identifier of the target account ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 
 ### Account type
 
