@@ -2,7 +2,7 @@
 
 ## Merge accounts
 
-Merges two or more accounts together. The given source accounts will be merged into the given target account and the merged account will keep the target account ID.
+Merges two or more accounts of the same account type together. The given source accounts will be merged into the given target account and the merged account will keep the target account ID.
 
 ### Request
 
