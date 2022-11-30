@@ -41,13 +41,13 @@ Merges two or more accounts of the same account type together. The given source 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AccountMergeParameters` | array of [Account merge parameters](#account-merge-parameters) | required, max 1000 items | Accounts to be merged |
+| `AccountMergeParameters` | array of [Account merge parameters](#account-merge-parameters) | required, max 1000 items | Accounts to be merged. |
 
 #### Account merge parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountType` | string [Account type](#account-type)| required | Specifying types of accounts provided, ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)). |
+| `AccountType` | string [Account type](#account-type)| required | Specifying types of accounts provided ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)). |
 | `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source accounts ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 | `TargetAccountId` | string | required | Unique identifier of the target account ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 
