@@ -1,5 +1,9 @@
 # Changelog
 
+## 2nd December 2022
+
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds`, `UpdatedUtc` and added `AvailabilityBlocks` extent.
+
 ## 28th November 2022
 
 * Extended [Get company contracts](../operations/companycontracts.md#get-all-company-contracts) with [Pagination](../guidelines/pagination.md) and filtering parameters `ServiceIds`, `CompanyIds` and `CompanyContractIds`.

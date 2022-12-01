@@ -15,10 +15,19 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     "Client": "Sample Client 1.0.0",
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    ], 
+    "RateIds": [
+        "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2022-10-15T00:00:00Z",
+        "EndUtc": "2022-10-20T00:00:00Z"
+    },
     "Extent": {
         "Rates": true,
-        "RateGroups": true
+        "RateGroups": true,
+        "RateRestrictions": false, 
+        "AvailabilityBlocks": false
     }
 }
 ```
@@ -29,6 +38,8 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
+| `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
@@ -38,6 +49,14 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
 | `RateRestrictions` | bool | optional | Whether the response should contain rate restrictions. |
+| `AvailabilityBlocks` | bool | optional | Whether the response should contain only availability block rates. Rates extent is mandatory when AvailabilityBlocks extent is used. |
+
+#### Time interval
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
