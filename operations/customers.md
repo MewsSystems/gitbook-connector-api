@@ -589,7 +589,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 
 The updated [Customer](#customer).
 
-## Merge customers
+## ~~Merge customers~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md), please use [Merge accounts](accounts.md#merge-accounts) instead.
 
 Merges one customer to another. All entities attached to the source customer \(e.g. orders, bills\) are attached to the target customer. Profile information of the target customer are extended but not overwritten with profile information of the source customer.
 

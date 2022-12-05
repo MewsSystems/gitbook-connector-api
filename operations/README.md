@@ -6,7 +6,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Merge accounts](accounts.md#merge-accounts) | Merges one or more accounts into one, e.g. customer, company. |
+| [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
 
 ## Addresses
 
@@ -38,7 +38,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get customers open items](customers.md#get-customers-open-items) | Returns all open items for the specified customers, i.e. all unpaid items and all deposited payments |
 | [Add customer](customers.md#add-customer) | Adds a new customer to the system and returns details of the added customer |
 | [Update customer](customers.md#update-customer) | Updates personal information of a customer |
-| [Merge customers](customers.md#merge-customers) | Merges one customer to another |
+| [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
 
 ## Device integrations
