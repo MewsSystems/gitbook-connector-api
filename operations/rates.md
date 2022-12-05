@@ -26,8 +26,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     "Extent": {
         "Rates": true,
         "RateGroups": true,
-        "RateRestrictions": false, 
-        "AvailabilityBlocks": false
+        "RateRestrictions": false
     }
 }
 ```
@@ -49,7 +48,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
 | `RateRestrictions` | bool | optional | Whether the response should contain rate restrictions. |
-| `AvailabilityBlocks` | bool | optional | Whether the response should contain only availability block rates. Rates extent is mandatory when AvailabilityBlocks extent is used. |
 
 #### Time interval
 
