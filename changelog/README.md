@@ -2,7 +2,7 @@
 
 ## 2nd December 2022
 
-* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds`, `UpdatedUtc` and added `AvailabilityBlocks` extent.
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds`, `UpdatedUtc`.
 
 ## 28th November 2022
 
