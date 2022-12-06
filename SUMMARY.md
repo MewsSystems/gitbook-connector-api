@@ -28,6 +28,7 @@
 * [Operations](operations/README.md)
   * [Accounting categories](operations/accountingcategories.md)
   * [Accounting items](operations/accountingitems.md)
+  * [Accounts](operations/accounts.md)
   * [Addresses](operations/addresses.md)
   * [Age categories](operations/agecategories.md)
   * [Availability blocks](operations/availabilityblocks.md)
