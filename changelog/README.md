@@ -1,8 +1,8 @@
 # Changelog
 
-## 2nd December 2022
+## 6th December 2022
 
-* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds`, `UpdatedUtc`.
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds` and `UpdatedUtc`.
 
 ## 28th November 2022
 
