@@ -97,26 +97,26 @@ Returns configuration of the enterprise and the client.
 
 #### Enterprise
 
-| Property | Type | Contract | Description                                                                                                                       |
-| :--- | :--- | :--- |:----------------------------------------------------------------------------------------------------------------------------------|
-| `Id` | string | required | Unique identifier of the enterprise.                                                                                              |
-| `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is.                                                                    |
-| `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format.                                                      |
-| `Name` | string | required | Name of the enterprise.                                                                                                           |
-| `TimeZoneIdentifier` | string | required | IANA timezone identifier of the enterprise.                                                                                       |
-| `LegalEnvironmentCode` | string | required | Unique identifier of the legal environment where the enterprise resides.                                                          |
-| `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](languages.md#language).                                               |
-| `EditableHistoryInterval` | string | required | Editable history interval in ISO 8601 duration format.                                                                            |
-| `WebsiteUrl` | string | optional | URL of the enterprise website.                                                                                                    |
-| `Email` | string | optional | Email address of the enterprise.                                                                                                  |
-| `Phone` | string | optional | Phone number of the enterprise.                                                                                                   |
-| `LogoImageId` | string | required | Unique identifier of the enterprise logo image.                                                                                   |
-| `CoverImageId` | string | required | Unique identifier of the enterprise cover image.                                                                                  |
-| `Address` | [Address](#address) | required | Address of the enterprise.                                                                                                        |
-| `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise.                                                                                            |
-| `Pricing` | string | required | [Pricing](#pricing) of the enterprise.                                                                                            |
+| Property | Type | Contract | Description |
+| :--- | :--- | :--- | :--- |
+| `Id` | string | required | Unique identifier of the enterprise. |
+| `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is. |
+| `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
+| `Name` | string | required | Name of the enterprise. |
+| `TimeZoneIdentifier` | string | required | IANA timezone identifier of the enterprise. |
+| `LegalEnvironmentCode` | string | required | Unique identifier of the legal environment where the enterprise resides. |
+| `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](languages.md#language). |
+| `EditableHistoryInterval` | string | required | Editable history interval in ISO 8601 duration format. |
+| `WebsiteUrl` | string | optional | URL of the enterprise website. |
+| `Email` | string | optional | Email address of the enterprise. |
+| `Phone` | string | optional | Phone number of the enterprise. |
+| `LogoImageId` | string | required | Unique identifier of the enterprise logo image. |
+| `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
+| `Address` | [Address](#address) | required | Address of the enterprise. |
+| `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise. |
+| `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the enterprise from external system.                                                                                |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the enterprise from external system. |
 
 #### Address
 
