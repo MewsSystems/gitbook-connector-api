@@ -3,7 +3,7 @@
 ## 8th December 2022
 
 * Added new page [Service orders](../operations/serviceorders.md).
-* Added operation [Get all service order notes](../operations/addresses.md#get-all-service-order-notes).
+* Added operation [Get all service order notes](../operations/serviceorders.md#get-all-service-order-notes).
 
 ## 1st December 2022
 
