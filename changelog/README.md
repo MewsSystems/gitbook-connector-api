@@ -1,5 +1,16 @@
 # Changelog
 
+## 7th December 2022
+
+* Extended [Product](../operations/products.md#product) with `ExternalIdentifier`.
+* Extended [Company](../operations/companies.md#company) with `ExternalIdentifier`.
+* Extended [Service](../operations/services.md#service) with `ExternalIdentifier`.
+* Extended [Rate](../operations/rates.md#rate) with `ExternalIdentifier`.
+* Extended [Rate group](../operations/rates.md#rate-group) with `ExternalIdentifier`.
+* Extended [Resource category](../operations/resources.md#resource-category) with `ExternalIdentifier`.
+* Extended [Voucher](../operations/vouchers.md#voucher) with `ExternalIdentifier`.
+* Extended [Enterprise](../operations/configuration.md#enterprise) with `ExternalIdentifier`.
+
 ## 1st December 2022
 
 * Added operation [Merge accounts](../operations/accounts.md#merge-accounts).

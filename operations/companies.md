@@ -93,7 +93,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "DunsNumber": "123456789",
             "CreditRating": {
                 "Basic": "PaymentRequiredUpfront"
-            }
+            },
+            "ExternalIdentifier": null
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -125,7 +126,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "DunsNumber": "987654321",
             "CreditRating": {
                 "Basic": "CreditOk"
-            }
+            },
+            "ExternalIdentifier": null
         }
     ]
 }
@@ -164,6 +166,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
 
 #### Company options
 
