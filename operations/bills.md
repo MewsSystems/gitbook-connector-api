@@ -143,7 +143,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
-| `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | required | Additional information about enterprise of the bill. Persisted at the time of closing of the bill. |
+| `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about enterprise of the bill. Persisted at the time of closing of the bill. |
 
 #### Bill type
 
