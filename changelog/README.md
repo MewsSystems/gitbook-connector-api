@@ -1,7 +1,7 @@
 # Changelog
 
 ## 8th December 2022
-* Extended [Bill](../operations/bills.md#bill) with [EnterpriseData](../operations/bills.md#bill-enterprise-data)
+* Extended [Bill](../operations/bills.md#bill) with [Enterprise data](../operations/bills.md#bill-enterprise-data)
 
 ## 1st December 2022
 
