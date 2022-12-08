@@ -184,7 +184,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 
-#### Bill enterpise data
+#### Bill enterprise data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
