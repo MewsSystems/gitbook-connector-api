@@ -108,7 +108,14 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "ItalianFiscalCode": null
                 }
             },
-            "EnterpriseData": null
+            "EnterpriseData": {
+                AdditionalTaxIdentifier: null
+                CompanyName: null
+                BankAccount: null
+                BankName: null
+                Iban: null
+                Bic: null
+            }            
         }
     ],
     "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
