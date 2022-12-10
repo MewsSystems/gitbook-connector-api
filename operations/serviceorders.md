@@ -51,7 +51,7 @@ Returns all notes associated with the service order. This operation uses [Pagina
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderNotes` | array of [Service order note](#service-order-note) | required | The collection of Service order notes. |
+| `ServiceOrderNotes` | array of [Service order note](#service-order-note) | required | The collection of service order notes. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest service order note returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older service order notes. |
 
 #### Service order
