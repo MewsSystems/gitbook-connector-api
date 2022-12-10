@@ -40,7 +40,7 @@ Returns all notes associated with the service order. This operation uses [Pagina
         {
             "Id": "a06a225b-00f7-48c8-a463-af5c016768e9",
             "ServiceOrderId": "1dc0c6bf-2ce6-4a9f-af97-af5c01676720",
-            "Text": "This should be an order note, right?",
+            "Text": "Shaken, not stirred.",
             "Type": "General",
             "CreatedUtc": "2022-11-29T21:48:32Z"
         }
