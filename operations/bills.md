@@ -109,12 +109,12 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                 }
             },
             "EnterpriseData": {
-                AdditionalTaxIdentifier: null
-                CompanyName: null
-                BankAccount: null
-                BankName: null
-                Iban: null
-                Bic: null
+                AdditionalTaxIdentifier: null,
+                CompanyName: null,
+                BankAccount: "CZ3808000000000012345678",
+                BankName: "CESKA SPORITELNA A.S.",
+                Iban: "CZ6508000000192000145399",
+                Bic: "GIBACZPX"
             }            
         }
     ],
@@ -150,7 +150,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
-| `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about enterprise of the bill. Persisted at the time of closing of the bill. |
+| `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
 
@@ -199,8 +199,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `CompanyName` | string  | optional | Enterprise company name. |
 | `BankAccount` | string  | optional | Enterprise bank account. |
 | `BankName` | string  | optional | Enterprise bank name. |
-| `Iban` | string  | optional | Enterprise IBAN. |
-| `Bic` | string  | optional | Enterprise BIC. |
+| `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
+| `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
 
 ## Add bill
 
