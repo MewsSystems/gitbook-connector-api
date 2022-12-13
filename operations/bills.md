@@ -109,8 +109,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                 }
             },
             "EnterpriseData": {
-                AdditionalTaxIdentifier: null,
-                CompanyName: null,
+                AdditionalTaxIdentifier: "XY00112233445",
+                CompanyName: "The Sample Hotel Group AS",
                 BankAccount: "CZ3808000000000012345678",
                 BankName: "CESKA SPORITELNA A.S.",
                 Iban: "CZ6508000000192000145399",
