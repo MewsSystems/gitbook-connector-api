@@ -1,5 +1,8 @@
 # Changelog
 
+## 8th December 2022
+* Extended [Bill](../operations/bills.md#bill) with [Enterprise data](../operations/bills.md#bill-enterprise-data)
+
 ## 1st December 2022
 
 * Added operation [Merge accounts](../operations/accounts.md#merge-accounts).
