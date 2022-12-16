@@ -64,12 +64,12 @@ Returns all notes associated with the service order. This operation uses [Pagina
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the service order note. |
-| `ServiceOrderId` | string | required | Unique identifier of a [Service order](#service-order). |
+| `ServiceOrderId` | string | required | Unique identifier of the [Service order](#service-order) to which the Service Order Note belongs. |
 | `Text` | string | required | Content of the service order note. |
-| `Type` | string | required | A discriminator specifying the [type of service order note](#type), e.g. general or channel manager. |
+| `Type` | string | required | A discriminator specifying the [type of service order note](#service-order-note-type), e.g. general or channel manager. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 
-#### Type
+#### Service order note type
 
-* General
-* ChannelManager
+* `General`
+* `ChannelManager`
