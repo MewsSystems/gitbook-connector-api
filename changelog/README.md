@@ -1,6 +1,6 @@
 # Changelog
 
-## 8th December 2022
+## 16th December 2022
 
 * Added new page [Service orders](../operations/serviceorders.md).
 * Added operation [Get all service order notes](../operations/serviceorders.md#get-all-service-order-notes).
