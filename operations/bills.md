@@ -108,6 +108,65 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "ItalianFiscalCode": null
                 }
             },
+            "AssigneeData": {
+                "discriminator": "BillCustomerData",
+                "value": {
+                "Address": {
+                    "Line1": "Joe Doe street",
+                    "Line2": "Very long ave",
+                    "City": "Townston",
+                    "PostalCode": "154 00",
+                    "SubdivisionCode": "AU-NSW",
+                    "CountryCode": "AU"
+                },
+                "LegalIdentifiers": {
+                    "LegalIdentifier": "ValueOfLegalIdentifier",
+                },
+                "BillingCode": "billing code value",
+                "Name": "name value",
+                "FiscalIdentifier": "Fiscal identifier",
+                "AdditionalTaxIdentifier": "Additional tax identifier"
+                }
+            },
+            "OwnerData": {
+                "discriminator": "BillCustomerData",
+                "value": {
+                    "Address": {
+                        "Line1": "Joe Doe street",
+                        "Line2": "Very long ave",
+                        "City": "Townston",
+                        "PostalCode": "154 00",
+                        "SubdivisionCode": "AU-NSW",
+                        "CountryCode": "AU"
+                    },
+                    "LegalIdentifiers": {
+                        "LegalIdentifier": "Value of legal identifier",
+                        "LegalIdentifier2": "Value of legal identifier 2",
+                    },
+                    "BillingCode": "billing code value",
+                    "Name": "name value",
+                    "FiscalIdentifier": "Fiscal identifier",
+                    "AdditionalTaxIdentifier": "Additional tax identifier"
+                }
+            },
+            "OptionalCompanyData": {
+                "Address": {
+                    "Line1": "Joe Doe street",
+                    "Line2": "Very long ave",
+                    "City": "Townston",
+                    "PostalCode": "154 00",
+                    "SubdivisionCode": "AU-NSW",
+                    "CountryCode": "AU"
+                },
+                "LegalIdentifiers": {
+                    "LegalIdentifier": "Value of legal identifier",
+                    "LegalIdentifier2": "Value of legal identifier 2",
+                },
+                "BillingCode": "billing code value",
+                "Name": "name value",
+                "FiscalIdentifier": "Fiscal identifier",
+                "AdditionalTaxIdentifier": "Additional tax identifier"
+            },
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
                 CompanyName: "The Sample Hotel Group AS",
@@ -150,6 +209,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
+| `OwnerData` | [Bill owner data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
+| `OptionalCompanyData` | [Bill company data](#bill-company-data) | optional | Additional information about company assigned to the bill. Persisted at the time of closing of the bill. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -184,12 +245,27 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
+| `CustomerID` | string  | optional | ID of the Customer to whom the bill was assigned. |
+| `Address` | [Address](#address)  | optional | Address of the customer. |
+| `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
+| `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
+| `LastName` | string  | optional | Last name of the customer. |
+| `FirstName` | string  | optional | First name of the customer. |
+| `SecondLastName` | string  | optional | Second last name of the customer. |
+| `TitlePrefix` | string  | optional | Title prefix of the customer. |
+| `ItalianFiscalCode` | string  | deprecated | Italian fiscal code. Deprecated. Use values from LegalIdentifiers |
+| `ItalianLotteryCode` | string  | deprecated | Italian lottery code. Deprecated. Use values from LegalIdentifiers |
 
 #### Bill company data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `Address` | [Address](#address)  | optional | Address of the customer. |
+| `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
+| `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
+| `Name` | string  | optional | Name of the company to which the bill was assigned. |
+| `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
+| `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
 
 #### Bill enterprise data
 
@@ -201,6 +277,17 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `BankName` | string  | optional | Enterprise bank name. |
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
+
+#### Address
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Line1` | string  | optional | First line of the address. |
+| `Line2` | string  | optional | Second line of the address. |
+| `City` | string  | optional | City of the address. |
+| `Postal Code` | string  | optional | Postal code of the address. |
+| `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
+| `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
 
 ## Add bill
 
