@@ -131,7 +131,7 @@ Returns all products offered together with the specified services.
 | `Id` | string | required | Unique identifier of the product. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the Product accounting category. |
+| `AccountingCategoryId` | string | optional | Unique identifier of [Accounting Category](accountingcategories.md#accounting-category). |
 | `IsActive` | boolean | required | Whether the product is still active. |
 | `Name` | string | required | Name of the product.  |
 | `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
