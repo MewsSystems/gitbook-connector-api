@@ -102,33 +102,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             },
             "OrderItems": [],
             "PaymentItems": [],
-            "AssigneeData": {
-                "Discriminator": "BillCustomerData",
-                "Value": {
-                    "ItalianFiscalCode": null
-                }
-            },
-            "AssigneeData": {
-                "discriminator": "BillCustomerData",
-                "value": {
-                "Address": {
-                    "Line1": "Joe Doe street",
-                    "Line2": "Very long ave",
-                    "City": "Townston",
-                    "PostalCode": "154 00",
-                    "SubdivisionCode": "AU-NSW",
-                    "CountryCode": "AU"
-                },
-                "LegalIdentifiers": {
-                    "LegalIdentifier": "ValueOfLegalIdentifier",
-                },
-                "BillingCode": "billing code value",
-                "Name": "name value",
-                "FiscalIdentifier": "Fiscal identifier",
-                "AdditionalTaxIdentifier": "Additional tax identifier"
-                }
-            },
             "OwnerData": {
+                "ID": "26afba60-06c3-455b-92db-0e3983be0b1d",
                 "discriminator": "BillCustomerData",
                 "value": {
                     "Address": {
@@ -149,7 +124,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
             },
-            "OptionalCompanyData": {
+            "CompanyDetails": {
+                "ID": "26afba60-06c3-455b-92db-0e3983be0b1d",
                 "Address": {
                     "Line1": "Joe Doe street",
                     "Line2": "Very long ave",
@@ -208,9 +184,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
-| `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
-| `OwnerData` | [Bill owner data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
-| `OptionalCompanyData` | [Bill company data](#bill-company-data) | optional | Additional information about company assigned to the bill. Persisted at the time of closing of the bill. |
+| `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
+| `CompanyDetails` | [Bill company data](#bill-company-data) | optional | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -229,14 +204,14 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 
-#### Bill assignee data
+#### Bill owner data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Bill assignee data discriminator](#bill-assignee-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Bill assignee data discriminator](#bill-assignee-data-discriminator). |
+| `Discriminator` | string [Bill owner data discriminator](#bill-owner-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). |
 
-#### Bill assignee data discriminator
+#### Bill owner data discriminator
 
 * `BillCustomerData` - Assignee data specific to a customer.
 * `BillCompanyData` - Assignee data specific to a company.
@@ -245,7 +220,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CustomerID` | string  | optional | ID of the Customer to whom the bill was assigned. |
+| `CustomerId` | string  | optional | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
 | `Address` | [Address](#address)  | optional | Address of the customer. |
 | `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
 | `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
@@ -253,13 +228,12 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `FirstName` | string  | optional | First name of the customer. |
 | `SecondLastName` | string  | optional | Second last name of the customer. |
 | `TitlePrefix` | string  | optional | Title prefix of the customer. |
-| `ItalianFiscalCode` | string  | deprecated | Italian fiscal code. Deprecated. Use values from LegalIdentifiers |
-| `ItalianLotteryCode` | string  | deprecated | Italian lottery code. Deprecated. Use values from LegalIdentifiers |
 
 #### Bill company data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `CompanyId` | string  | optional | ID of the [Company](companies.md#company) to whom the bill was assigned. |
 | `Address` | [Address](#address)  | optional | Address of the customer. |
 | `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
 | `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
