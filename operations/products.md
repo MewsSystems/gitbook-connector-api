@@ -37,6 +37,7 @@ Returns all products offered together with the specified services.
             "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "CategoryId": null,
+            "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
             "Name": "Breakfast",
             "ExternalName": "Breakfast",
@@ -77,6 +78,7 @@ Returns all products offered together with the specified services.
             "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "CategoryId": null,
+            "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
             "Name": "Breakfast",
             "ExternalName": "Breakfast",
@@ -129,6 +131,7 @@ Returns all products offered together with the specified services.
 | `Id` | string | required | Unique identifier of the product. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the Product accounting category. |
 | `IsActive` | boolean | required | Whether the product is still active. |
 | `Name` | string | required | Name of the product.  |
 | `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
