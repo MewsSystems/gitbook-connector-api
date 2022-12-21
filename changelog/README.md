@@ -1,5 +1,8 @@
 # Changelog
 
+## 20th December 2022
+* Extended [Product](../operations/products.md#product) with AccountingCategoryId.
+
 ## 8th December 2022
 * Extended [Bill](../operations/bills.md#bill) with [Enterprise data](../operations/bills.md#bill-enterprise-data)
 
