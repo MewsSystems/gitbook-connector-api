@@ -103,9 +103,9 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "OrderItems": [],
             "PaymentItems": [],
             "OwnerData": {
-                "ID": "26afba60-06c3-455b-92db-0e3983be0b1d",
                 "discriminator": "BillCustomerData",
                 "value": {
+                    "ID": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "Address": {
                         "Line1": "Joe Doe street",
                         "Line2": "Very long ave",
@@ -209,7 +209,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Bill owner data discriminator](#bill-owner-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). |
+| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). Can be either of type [Bill customer data](#bill-customer-data) or [Bill company data](#bill-company-data)|
 
 #### Bill owner data discriminator
 
@@ -220,7 +220,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CustomerId` | string  | optional | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
+| `Id` | string  | optional | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
 | `Address` | [Address](#address)  | optional | Address of the customer. |
 | `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
 | `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
@@ -233,8 +233,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CompanyId` | string  | optional | ID of the [Company](companies.md#company) to whom the bill was assigned. |
-| `Address` | [Address](#address)  | optional | Address of the customer. |
+| `Id` | string  | optional | ID of the [Company](companies.md#company) to whom the bill was assigned. |
+| `Address` | [Bill address](#bill-address)  | optional | Address of the customer. |
 | `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
 | `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
 | `Name` | string  | optional | Name of the company to which the bill was assigned. |
@@ -252,7 +252,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
 
-#### Address
+#### Bill address
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
