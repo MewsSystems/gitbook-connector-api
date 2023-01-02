@@ -221,7 +221,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | optional | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
-| `Address` | [Address](#address)  | optional | Address of the customer. |
+| `Address` | [Bill address](#bill-address)  | optional | Address of the customer. |
 | `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
 | `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
 | `LastName` | string  | optional | Last name of the customer. |
@@ -234,9 +234,9 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | optional | ID of the [Company](companies.md#company) to whom the bill was assigned. |
-| `Address` | [Bill address](#bill-address)  | optional | Address of the customer. |
-| `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
-| `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
+| `Address` | [Bill address](#bill-address)  | optional | Address of the company. |
+| `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the company. |
+| `BillingCode` | string  | optional | ID of the company to whom the bill was assigned. |
 | `Name` | string  | optional | Name of the company to which the bill was assigned. |
 | `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
 | `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
