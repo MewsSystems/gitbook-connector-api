@@ -119,7 +119,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                         "LegalIdentifier2": "Value of legal identifier 2",
                     },
                     "BillingCode": "billing code value",
-                    "Name": "name value",
+                    "LastName": "Last name value",
+                    "FirstName": "First name value",
+                    "SecondLastName": "Second last name value",
+                    "TitlePrefix": "Mistress",
                     "FiscalIdentifier": "Fiscal identifier",
                     "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
@@ -227,7 +230,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `LastName` | string  | optional | Last name of the customer. |
 | `FirstName` | string  | optional | First name of the customer. |
 | `SecondLastName` | string  | optional | Second last name of the customer. |
-| `TitlePrefix` | string  | optional | Title prefix of the customer. |
+| `TitlePrefix` | [Title](customers.md#Title)  | optional | Title prefix of the customer. |
 
 #### Bill company data
 
