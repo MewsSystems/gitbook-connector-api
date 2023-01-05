@@ -25,8 +25,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     },
     "Extent": {
         "Rates": true,
-        "RateGroups": true,
-        "RateRestrictions": false
+        "RateGroups": true
     }
 }
 ```
@@ -47,7 +46,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | :-- | :-- | :-- | :-- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
-| `RateRestrictions` | bool | optional | Whether the response should contain rate restrictions. |
 
 #### Time interval
 
