@@ -1,6 +1,6 @@
 # Changelog
 
-## 5th January 2023
+## 6th January 2023
 
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds` and `UpdatedUtc`.
 
