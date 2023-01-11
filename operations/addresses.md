@@ -2,7 +2,7 @@
 
 ## Get all addresses
 
-Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all addresses associated with the specified accounts within the enterprise. At least one filter is required. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -19,6 +19,10 @@ Returns all addresses associated with the specified accounts within the enterpri
     "AddressIds": [
         "fc7b2df3-de66-48a6-907d-af4600ecd892"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2022-12-10T00:00:00Z",
+        "EndUtc": "2022-12-17T00:00:00Z"
+    },
     "Limitation": { "Count": 10 }
 }
 ```
@@ -28,9 +32,17 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AccountIds` | array of string | required, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
 | `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](configuration.md#address) within the enterprise. Use this property if you want to fetch specific addresses. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Address](#address) last update date and time. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Account address returned. |
+
+#### Time interval
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
