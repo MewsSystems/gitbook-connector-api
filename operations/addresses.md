@@ -32,9 +32,9 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
-| `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise. Use this property if you want to fetch specific addresses. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Address](#account-address) last update date and time. |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. Required if no other filter is provided. |
+| `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise. Use this property if you want to fetch specific addresses. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Address](#account-address) last update date and time. Required if no other filter is provided. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Account address returned. |
 
 #### Time interval
