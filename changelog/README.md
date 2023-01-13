@@ -2,7 +2,7 @@
 
 ## ??? January 2023
 
-* Extended [Add order](../operations/orders.md#add) with `AccountId` property to support [Company](../operations/companies.md#company) accounts. `CustomerId` property was deprecated.
+* Extended [Add order](../operations/orders.md#add-order) with `AccountId` property to support [Company](../operations/companies.md#company) accounts. `CustomerId` property was deprecated.
 
 ## 6th January 2023
 
