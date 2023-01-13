@@ -2,7 +2,7 @@
 
 ## Get all addresses
 
-Returns all addresses associated with the specified accounts within the enterprise. At least one filter is required. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
