@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th January 2023
+
+* Added `AmountDefault` field in [Payment Items](../operations/accountingitems.md#payment-item).
+
 ## 6th January 2023
 
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds` and `UpdatedUtc`.
