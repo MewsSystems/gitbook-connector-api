@@ -1,5 +1,9 @@
 # Changelog
 
+## ??? January 2023
+
+* Extended [Add external payment](../operations/payments.md#add-external-payment) with `AccountId` property to support [Company](../operations/companies.md#company) accounts. `CustomerId` property was deprecated.
+
 ## 6th January 2023
 
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds` and `UpdatedUtc`.
