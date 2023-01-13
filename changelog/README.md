@@ -2,7 +2,7 @@
 
 ## 13th January 2023
 
-* Extended the request parameters of [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
+* Extended [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
 
 ## 6th January 2023
 
