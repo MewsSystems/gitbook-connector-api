@@ -2,7 +2,7 @@
 
 ## 16th January 2023
 
-* Added `AmountDefault` field in [Payment Items](../operations/accountingitems.md#payment-item).
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault.
 
 ## 13th January 2023
 
