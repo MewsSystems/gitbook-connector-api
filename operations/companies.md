@@ -168,7 +168,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
-| `ReferenceIdentifier` | string | optional | Identifier used as a reference to an identifier in a third-party system. |
+| `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
 
 #### Company options
@@ -253,7 +253,7 @@ Adds a new company to the enterprise.
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
-| `ReferenceIdentifier` | string | optional | Identifier used as a reference to an identifier in a third-party system. |
+| `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
 
 #### Company options parameters
@@ -357,7 +357,7 @@ Updates information of the company.
 | `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
-| `ReferenceIdentifier` |  [String update value](#string-update-value)  | optional | Identifier used as a reference to an identifier in a third-party system. |
+| `ReferenceIdentifier` |  [String update value](#string-update-value)  | optional | External system identifier - custom identifier used by an external system such as an external database. |
 | `WebsiteUrl` |  [String update value](#string-update-value)  | optional | The website url of the company. |
 
 #### Company options update value
