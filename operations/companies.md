@@ -154,7 +154,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
 | `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
 | `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
-| `AddressId` | string | optional | Unique identifier of the company [Address](/addresses.md#account-address). |
+| `AddressId` | string | optional | Unique identifier of the company [Address](addresses.md#account-address). |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
