@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th January 2023
+
+* Extended [Get all companies](../operations/companies#get-all-companies) with `Limitation` and filter for `ExternalIdentifiers`.
+
 ## 13th January 2023
 
 * Extended [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
