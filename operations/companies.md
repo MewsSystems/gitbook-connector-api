@@ -27,6 +27,11 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
     "UpdatedUtc": {
         "StartUtc": "2019-12-10T00:00:00Z",
         "EndUtc": "2019-12-17T00:00:00Z"
+    },
+    "ExternalIdentifiers": ["123"],
+    "Limitation": {
+        "Count": 100,
+        "Cursor": "8a98965a-7c03-48a1-a28c-ab1b009b53c8" 
     }
 }
 ```
@@ -40,6 +45,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
+| `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Company](#company) from external systems. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
+
 
 #### Time interval
 
@@ -127,13 +135,15 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
                 "Basic": "CreditOk"
             }
         }
-    ]
+    ],
+    "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Companies` | array of [Company](#company) | required | The company profiles of the enterprise. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest company item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older companies. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
 
 #### Company
 
