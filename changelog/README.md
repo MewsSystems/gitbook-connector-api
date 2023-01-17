@@ -2,11 +2,11 @@
 
 ## 17th January 2023
 
-* Extended [Get all companies](../operations/companies#get-all-companies) with `Limitation` and filter for `ExternalIdentifiers`.
+* Extended [Get all companies](../operations/companies.md#get-all-companies) with `Limitation` and filter for `ExternalIdentifiers`.
 
 ## 13th January 2023
 
-* Extended [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
+* Extended [Get all addresses](../operations/addresses.md#get-all-addresses) with filter parameter `UpdatedUtc`.
 
 ## 6th January 2023
 
