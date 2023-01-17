@@ -1,8 +1,8 @@
 # Changelog
 
-## 16th January 2023
+## 17th January 2023
 
-* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault.
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
 
 ## 13th January 2023
 
