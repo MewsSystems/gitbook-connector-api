@@ -2,6 +2,15 @@
 
 This section describes all operations supported by the API, organised here by theme.
 
+## Accounts
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
+| [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
+| [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
+| [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
+
 ## Configuration
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
@@ -15,7 +24,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get language texts](languages.md#get-language-texts) | Returns translations of texts in the specified languages |
 | [Get image URLs](images.md#get-image-URLs) | Returns URLs of the specified images |
 
-## Customers (guests)
+## Customers
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
@@ -24,7 +33,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get customers open items](customers.md#get-customers-open-items) | Returns all open items for the specified customers, i.e. all unpaid items and all deposited payments |
 | [Add customer](customers.md#add-customer) | Adds a new customer to the system and returns details of the added customer |
 | [Update customer](customers.md#update-customer) | Updates personal information of a customer |
-| [Merge customers](customers.md#merge-customers) | Merges one customer to another |
+| [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
 
 ## Device integrations
@@ -46,6 +55,9 @@ This section describes all operations supported by the API, organised here by th
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
 | [Get all company contracts](companycontracts.md#get-all-company-contracts) | Returns all contracts between the enterprise and other companies |
+| [Add company contracts](companycontracts.md#add-company-contracts) | Adds new company contracts to the enterprise |
+| [Update company contracts](companycontracts.md#update-company-contracts) | Updates selected company contracts |
+| [Delete company contracts](companycontracts.md#delete-company-contracts) | Deletes selected company contracts |
 | [Get all departments](departments.md#get-all-departments) | Returns all departments of an enterprise associated with the connector integration |
 | [Get all counters](counters.md#get-all-counters) | Returns all counters of an enterprise associated with the connector integration |
 | [Get all outlets](outlets.md#get-all-outlets) | Returns all outlets of an enterprise associated with the connector integration |
@@ -124,6 +136,15 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
+
+## Routing rules
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all routing rules](routingrules.md#get-all-routing-rules) | Returns all routing rules of the enterprise |
+| [Add routing rules](routingrules.md#add-routing-rules) | Adds new routing rules |
+| [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
+| [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
 
 ## Services
 
