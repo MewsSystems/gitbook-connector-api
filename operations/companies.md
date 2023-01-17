@@ -45,7 +45,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
-| `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Company](#company) from external systems. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](#company) from external systems. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
 
 
