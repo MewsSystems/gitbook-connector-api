@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th January 2023
+
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
+
 ## 13th January 2023
 
 * Extended [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
