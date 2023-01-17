@@ -2,7 +2,7 @@
 
 ## Get all service order notes
 
-Returns all notes associated with the service order. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all notes associated with the service order (e.g. reservation). This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
