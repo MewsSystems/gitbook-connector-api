@@ -28,7 +28,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
         "StartUtc": "2019-12-10T00:00:00Z",
         "EndUtc": "2019-12-17T00:00:00Z"
     },
-    "ExternalIdentifiers": ["123"],
+    "ExternalIdentifiers": [
+        "12345",
+        "4312343"
+    ],
     "Limitation": {
         "Count": 100,
         "Cursor": "8a98965a-7c03-48a1-a28c-ab1b009b53c8" 
