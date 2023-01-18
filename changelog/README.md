@@ -1,10 +1,20 @@
 # Changelog
 
 ## 17th January 2023
+
 * Deprecated AssigneeData in [Get all bills](../operations/bills.md#get-all-bills) response
 * Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Address](../operations/bills.md#address) fields.
 * Extended [Bill company data](../operations/bills.md#bill-company-data) with Owner Data `LegalIdentifiers`, `BillingCode`, `Name`, `FiscalIdentifier`, `AdditionalTaxIdentifier` and with [Address](../operations/bills.md#address) fields.
 * Extended [Product](../operations/products.md#product) with AccountingCategoryId.
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
+
+## 13th January 2023
+
+* Extended [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
+
+## 6th January 2023
+
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `RateIds` and `UpdatedUtc`.
 
 | Changelog by year |
 | :-- |
