@@ -1,6 +1,6 @@
 # Changelog
 
-## 17th January 2023
+## 18th January 2023
 
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)
 * Added new filter `ExternalIdentifiers` to  [Get all companies](../operations/companies.md#get-all-companies)
