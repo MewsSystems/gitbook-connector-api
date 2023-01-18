@@ -6,6 +6,10 @@
 * Deprecated `Prices` and replaced it with `AmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `AmountPrices` includes information about the tax breakdown.
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) response with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
 
+## 17th January 2023
+
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
+
 ## 13th January 2023
 
 * Extended [Get all addresses](../operations/addresses#get-all-addresses) with filter parameter `UpdatedUtc`.
