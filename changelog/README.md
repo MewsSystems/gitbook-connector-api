@@ -5,6 +5,9 @@
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)
 * Added new filter `ExternalIdentifiers` to  [Get all companies](../operations/companies.md#get-all-companies)
 * Deprecated `Address` in [Company](../operations/companies.md#company) and replaced with `AddressId`
+
+## 17th January 2023
+
 * Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
 
 ## 13th January 2023
