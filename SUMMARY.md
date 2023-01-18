@@ -73,6 +73,7 @@
   * [Services](operations/services.md)
   * [Source assignments](operations/sourceassignments.md)
   * [Sources](operations/sources.md)
+  * [Service orders](operations/serviceorders.md)
   * [Tasks](operations/tasks.md)
   * [Tax environments](operations/taxenvironments.md)
   * [Taxations](operations/taxations.md)
