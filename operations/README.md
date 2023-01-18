@@ -155,7 +155,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the service order (e.g. reservation) |
+| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. Service orders can be reservations or product orders. |
 
 ## Services
 
