@@ -1,8 +1,10 @@
 # Service orders
 
+> **Service order:** This is the general name for an order made against a service, which includes both 'stay' service orders, called [Reservations](reservations.md#reservation), and 'product' service orders, which we simply call [Orders](orders.md). Operations such as [Get all service order notes](#get-all-service-order-notes) will accept Reservation IDs or Order IDs as service order identifiers.
+
 ## Get all service order notes
 
-Returns all notes associated with the service order (e.g. reservation). This operation uses [Pagination](../guidelines/pagination.md).
+Returns all notes associated with the given service orders. Service orders can be reservations or product orders. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -28,7 +30,7 @@ Returns all notes associated with the service order (e.g. reservation). This ope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of [Service order](#service-order). |
+| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of [Service order](#service-order). Reservation IDs or Order IDs can be used as service order identifiers. |
 | `ServiceOrderNoteIds` | array of string | optional, max 1000 items | Unique identifiers of [Service order notes](#service-order-note). Use this property if you want to fetch specific service order notes. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Service order notes returned. |
 
@@ -73,3 +75,4 @@ Returns all notes associated with the service order (e.g. reservation). This ope
 
 * `General`
 * `ChannelManager`
+* ...
