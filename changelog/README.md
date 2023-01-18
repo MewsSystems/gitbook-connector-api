@@ -2,7 +2,9 @@
 
 ## 17th January 2023
 
-* Extended [Get all companies](../operations/companies.md#get-all-companies) with `Limitation` and filter for `ExternalIdentifiers`.
+* Added pagination to [Get all companies](../operations/companies.md#get-all-companies)
+* Added new filter `ExternalIdentifiers` to  [Get all companies](../operations/companies.md#get-all-companies)
+* Deprecated `Address` in [Company](../operations/companies.md#company) and replaced with `AddressId`
 
 ## 13th January 2023
 
