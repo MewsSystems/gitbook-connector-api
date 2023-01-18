@@ -2,11 +2,11 @@
 
 ## 17th January 2023
 
-* Deprecated AssigneeData in [Get all bills](../operations/bills.md#get-all-bills) response
-* Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Address](../operations/bills.md#address) fields.
-* Extended [Bill company data](../operations/bills.md#bill-company-data) with Owner Data `LegalIdentifiers`, `BillingCode`, `Name`, `FiscalIdentifier`, `AdditionalTaxIdentifier` and with [Address](../operations/bills.md#address) fields.
-* Extended [Product](../operations/products.md#product) with AccountingCategoryId.
+* Deprecated `AssigneeData` in [Get all bills](../operations/bills.md#get-all-bills) response and replaced by new object `OwnerData`
+* Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Bill address](../operations/bills.md#bill-address) fields.
+* Extended [Bill company data](../operations/bills.md#bill-company-data) with Owner Data `LegalIdentifiers`, `BillingCode`, `Name`, `FiscalIdentifier`, `AdditionalTaxIdentifier` and with [Bill address](../operations/bills.md#bill-address) fields.
 * Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
+* Deprecated  `ItalianFiscalCode` and `ItalianLotteryCode` in [Bill customer data](../operations/bills.md#bill-customer-data)
 
 ## 13th January 2023
 

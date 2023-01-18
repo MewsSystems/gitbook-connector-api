@@ -103,9 +103,9 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "OrderItems": [],
             "PaymentItems": [],
             "OwnerData": {
-                "discriminator": "BillCustomerData",
-                "value": {
-                    "ID": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                "Discriminator": "BillCustomerData",
+                "Value": {
+                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "Address": {
                         "Line1": "Joe Doe street",
                         "Line2": "Very long ave",
@@ -128,7 +128,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                 }
             },
             "CompanyDetails": {
-                "ID": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
                 "Address": {
                     "Line1": "Joe Doe street",
                     "Line2": "Very long ave",
@@ -216,8 +216,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Bill owner data discriminator
 
-* `BillCustomerData` - Assignee data specific to a customer.
-* `BillCompanyData` - Assignee data specific to a company.
+* `BillCustomerData` - Owner data specific to a customer.
+* `BillCompanyData` - Owner data specific to a company.
 
 #### Bill customer data
 
@@ -225,8 +225,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | optional | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
 | `Address` | [Bill address](#bill-address)  | optional | Address of the customer. |
-| `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the customer. |
-| `BillingCode` | string  | optional | ID of the Customer to whom the bill was assigned. |
+| `LegalIdentifiers` | [LegalIdentifiers](#legal-identifiers) | optional | Legal Identifiers of the customer. |
+| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
 | `LastName` | string  | optional | Last name of the customer. |
 | `FirstName` | string  | optional | First name of the customer. |
 | `SecondLastName` | string  | optional | Second last name of the customer. |
@@ -236,11 +236,11 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string  | optional | ID of the [Company](companies.md#company) to whom the bill was assigned. |
+| `Id` | string  | optional | ID of the [Company](companies.md#company). |
 | `Address` | [Bill address](#bill-address)  | optional | Address of the company. |
-| `LegalIdentifiers` | Dictionary<string, string>  | optional | Legal Identifiers of the company. |
-| `BillingCode` | string  | optional | ID of the company to whom the bill was assigned. |
-| `Name` | string  | optional | Name of the company to which the bill was assigned. |
+| `LegalIdentifiers` | [LegalIdentifiers](#legal-identifiers) | optional | Legal Identifiers of the company. |
+| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
+| `Name` | string  | optional | Name of the company. |
 | `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
 | `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
 
@@ -255,7 +255,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
 
-#### Bill address
+### Bill address
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -265,6 +265,28 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `Postal Code` | string  | optional | Postal code of the address. |
 | `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
 | `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
+
+#### Legal Identifiers
+
+A key value pair where key determines type of legal identifier and value is the string value of that identifier
+
+* `TaxIdentifier`
+* `CompanyName`
+* `Siret`
+* `Siren`
+* `NafCode`
+* `RcsCode`
+* `LegalStatus`
+* `RegisteredCapital`
+* `CityOfRegistration`
+* `TradesDirectoryRegistrationNumber`
+* `ItDestinationCode`
+* `ItFiscalCode`
+* `ItLotteryCode`
+* `HungarianVatCode`
+* `HungarianCompanyName`
+* `HungarianTaxPayerIdentifier`
+
 
 ## Add bill
 
