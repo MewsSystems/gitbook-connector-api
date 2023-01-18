@@ -2,7 +2,7 @@
 
 ## Get all companies
 
-Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
+Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -27,6 +27,14 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
     "UpdatedUtc": {
         "StartUtc": "2019-12-10T00:00:00Z",
         "EndUtc": "2019-12-17T00:00:00Z"
+    },
+    "ExternalIdentifiers": [
+        "12345",
+        "4312343"
+    ],
+    "Limitation": {
+        "Count": 100,
+        "Cursor": "8a98965a-7c03-48a1-a28c-ab1b009b53c8" 
     }
 }
 ```
@@ -40,6 +48,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](#company) from external systems. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
+
 
 #### Time interval
 
@@ -67,17 +78,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
-            "Address": {
-                "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
-                "Line1": "Rheinlanddamm 207-209",
-                "Line2": "",
-                "City": "Dortmund",
-                "PostalCode": "44137"
-                "CountryCode": "DE",
-                "CountrySubdivisionCode": null,
-                "Latitude": null,
-                "Longitude": null
-            },
+            "AddressId": "bab7441c-4b82-43bc-8001-ab0400a346ec",
             "BillingCode": null,
             "Iata": "PAO",
             "Telephone": "111-222-333",
@@ -93,7 +94,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "DunsNumber": "123456789",
             "CreditRating": {
                 "Basic": "PaymentRequiredUpfront"
-            }
+            },
+            "ExternalIdentifier": "12345"
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -109,7 +111,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
-            "Address": null,
+            "AddressId": null,
             "BillingCode": null,
             "Iata": "PAO",
             "Telephone": "111-222-333",
@@ -125,15 +127,18 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "DunsNumber": "987654321",
             "CreditRating": {
                 "Basic": "CreditOk"
-            }
+            },
+            "ExternalIdentifier": "4312343"
         }
-    ]
+    ],
+    "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Companies` | array of [Company](#company) | required | The company profiles of the enterprise. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest company item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older companies. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
 
 #### Company
 
@@ -152,7 +157,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
 | `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
 | `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
+| `AddressId` | string | optional | Unique identifier of the company [Address](addresses.md#account-address). |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
@@ -164,6 +169,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
 
 #### Company options
 
