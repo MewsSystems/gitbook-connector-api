@@ -58,7 +58,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "ExternalNames": {
                 "en-US": "Long Stay Flexible Rate"
             },
-            "ExternalIdentifier": null
+            "ExternalIdentifier": "D001"
         }
     ],
     "RateGroups": [
@@ -67,7 +67,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Default",
-            "ExternalIdentifier": null
+            "ExternalIdentifier": "RG001"
         }
     ]
 }
@@ -93,7 +93,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
 | `ExternalNames` | [Localized text](resources.md#localized-text) | required | All translations of the external name of the rate. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate identifier, chosen by the user for the purposes of portfolio management; called Rate Key in Mews Operations. |
 
 #### Rate group
 
@@ -103,7 +103,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate group from external system. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate group identifier, chosen by the user for the purposes of portfolio management; called Rate Group Key in Mews Operations. |
 
 ## Get rate pricing
 
