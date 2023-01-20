@@ -1,5 +1,17 @@
 # Changelog
 
+## 20th January 2023
+
+* Added `ExternalIdentifier` to each of the following entities. `ExternalIdentifier` is used for portfolio management to link the entities at an above-enterprise level.
+  * [Product](../operations/products.md#product)
+  * [Company](../operations/companies.md#company)
+  * [Service](../operations/services.md#service)
+  * [Rate](../operations/rates.md#rate)
+  * [Rate group](../operations/rates.md#rate-group)
+  * [Resource category](../operations/resources.md#resource-category)
+  * [Voucher](../operations/vouchers.md#voucher)
+  * [Enterprise](../operations/configuration.md#enterprise)
+
 ## 18th January 2023
 
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)

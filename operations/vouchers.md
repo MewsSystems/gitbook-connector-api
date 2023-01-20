@@ -74,7 +74,8 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
             "UpdatedUtc": "2020-10-30T13:38:49Z",
             "ActivityState": "Active",
             "CompanyId": "3506994b-3c0b-49ba-9f57-ac4700641440",
-            "TravelAgencyId": null
+            "TravelAgencyId": null,
+            "ExternalIdentifier": "VCHR-278"
         }
     ],
     "VoucherCodes": [
@@ -132,6 +133,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `ActivityState` | string [Activity state](#activity-state) | required | Whether voucher is active or deleted. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the voucher is related to. |
 | `TravelAgencyId` | string | optional | Unique identifier of [Company](companies.md#company) with [Travel agency contract](companycontracts.md#travel-agency-contract) the voucher is related to. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level voucher identifier, chosen by the user for the purposes of portfolio management; called Voucher Key in Mews Operations. |
 
 #### Voucher code
 

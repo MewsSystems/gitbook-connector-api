@@ -46,7 +46,8 @@ Returns all services offered by the enterprise.
                         "DuringCheckOut": false
                     }
                 }
-            }
+            },
+            "ExternalIdentifier": "SVCE-Restaurant"
         },
         {
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -64,7 +65,8 @@ Returns all services offered by the enterprise.
                     "OccupancyEndOffset": "P0M0DT12H0M0S",
                     "TimeUnitPeriod": "Day"
                 }
-            }
+            },
+            "ExternalIdentifier": "SVCE-Accomm"
         }
     ]
 }
@@ -83,6 +85,7 @@ Returns all services offered by the enterprise.
 | `Name` | string | required | Name of the service. |
 | `Options` | [Service options](#service-options) | required | Options of the service. |
 | `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level service identifier, chosen by the user for the purposes of portfolio management; called Service Key in Mews Operations. |
 
 #### Service options
 
