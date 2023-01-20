@@ -1,5 +1,9 @@
 # Changelog
 
+## 23th January 2023
+
+* Added external identifier to [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies)
+
 ## 18th January 2023
 
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)
