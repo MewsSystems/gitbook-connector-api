@@ -225,7 +225,8 @@ Adds a new company to the enterprise.
     "DunsNumber": "987654321",
     "CreditRating": {
         "Basic": "CreditOk"
-    }
+    },
+    "ExternalIdentifier": "1234"
 }
 ```
 
@@ -251,6 +252,7 @@ Adds a new company to the enterprise.
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
 
 #### Company options parameters
 
@@ -321,6 +323,9 @@ Updates information of the company.
         "Basic": {
             "Value": "PaymentRequiredUpfront"
         }
+    },
+    "ExternalIdentifier": {
+        "Value": "4321"
     }
 }
 ```
@@ -347,6 +352,8 @@ Updates information of the company.
 | `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
+| `ExternalIdentifier` | string | [String update value](#string-update-value) | optional | Identifier of the company from external system. |
+
 
 #### Company options update value
 
