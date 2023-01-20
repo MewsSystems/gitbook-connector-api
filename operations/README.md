@@ -7,11 +7,6 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
 | [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
-
-## Addresses
-
-| <div style="width:200px">Operation or Endpoint</div> | Description |
-| :-- | :-- |
 | [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
@@ -29,7 +24,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get language texts](languages.md#get-language-texts) | Returns translations of texts in the specified languages |
 | [Get image URLs](images.md#get-image-URLs) | Returns URLs of the specified images |
 
-## Customers (guests)
+## Customers
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
@@ -150,6 +145,12 @@ This section describes all operations supported by the API, organised here by th
 | [Add routing rules](routingrules.md#add-routing-rules) | Adds new routing rules |
 | [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
 | [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
+
+## Service orders
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. Service orders can be reservations or product orders. |
 
 ## Services
 
