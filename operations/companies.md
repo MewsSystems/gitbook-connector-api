@@ -94,7 +94,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "CreditRating": {
                 "Basic": "PaymentRequiredUpfront"
             },
-            "ExternalIdentifier": null
+            "ExternalIdentifier": "company0001"
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -127,7 +127,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "CreditRating": {
                 "Basic": "CreditOk"
             },
-            "ExternalIdentifier": null
+            "ExternalIdentifier": "company0002"
         }
     ]
 }
@@ -145,7 +145,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Name` | string | required | Name of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Number`| number | required | Unique number of the company. |
-| `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
+| `Identifier` | string | optional | Other identifier of the company, e.g. legal identifier. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
@@ -166,7 +166,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
 
 #### Company options
 
