@@ -72,7 +72,8 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "ShortName": "FF",
             "ExternalNames": {
                 "en-US": "Long Stay Flexible Rate"
-            } 
+            },
+            "ExternalIdentifier": "D001"
         }
     ],
     "RateGroups": [
@@ -80,7 +81,8 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "Id": "c8b866b3-be2e-4a47-9486-034318e9f393",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
-            "Name": "Default"
+            "Name": "Default",
+            "ExternalIdentifier": "RG001"
         }
     ]
 }
@@ -106,6 +108,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
 | `ExternalNames` | [Localized text](resources.md#localized-text) | required | All translations of the external name of the rate. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate identifier, chosen by the user for the purposes of portfolio management; called Rate Key in Mews Operations. |
 
 #### Rate group
 
@@ -115,6 +118,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate group identifier, chosen by the user for the purposes of portfolio management; called Rate Group Key in Mews Operations. |
 
 ## Get rate pricing
 
@@ -151,7 +155,48 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 ```javascript
 {
     "Currency": "EUR",
-    "BasePrices": [ 20, 20, 20 ],
+    "BaseAmountPrices": [
+        {
+            "Currency": "EUR",
+            "NetValue": 93.46,
+            "GrossValue": 100.00,
+            "TaxValues": [
+                {
+                    "Code": "DE-2020-1-L",
+                    "Value": 6.54
+                }
+            ],
+            "Breakdown": {
+                "Items": [
+                    {
+                        "TaxRateCode": "DE-2020-1-L",
+                        "NetValue": 93.46,
+                        "TaxValue": 6.54
+                    }
+                ]
+            }
+        },
+        {
+            "Currency": "EUR",
+            "NetValue": 93.46,
+            "GrossValue": 100.00,
+            "TaxValues": [
+                {
+                    "Code": "DE-2020-1-L",
+                    "Value": 6.54
+                }
+            ],
+            "Breakdown": {
+                "Items": [
+                    {
+                        "TaxRateCode": "DE-2020-1-L",
+                        "NetValue": 93.46,
+                        "TaxValue": 6.54
+                    }
+                ]
+            }
+        }
+    ],
     "CategoryAdjustments": [
         {
             "AbsoluteValue": 0,
@@ -169,7 +214,48 @@ The price in the response is dependent on the enterprise's [pricing](configurati
     "CategoryPrices": [
         {
             "CategoryId": "e3aa3117-dff0-46b7-b49a-2c0391e70ff9",
-            "Prices": [ 20, 20, 20 ]
+            "AmountPrices": [
+                {
+                    "Currency": "EUR",
+                    "NetValue": 93.46,
+                    "GrossValue": 100.00,
+                    "TaxValues": [
+                        {
+                            "Code": "DE-2020-1-L",
+                            "Value": 6.54
+                        }
+                    ],
+                    "Breakdown": {
+                        "Items": [
+                            {
+                                "TaxRateCode": "DE-2020-1-L",
+                                "NetValue": 93.46,
+                                "TaxValue": 6.54
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Currency": "EUR",
+                    "NetValue": 93.46,
+                    "GrossValue": 100.00,
+                    "TaxValues": [
+                        {
+                            "Code": "DE-2020-1-L",
+                            "Value": 6.54
+                        }
+                    ],
+                    "Breakdown": {
+                        "Items": [
+                            {
+                                "TaxRateCode": "DE-2020-1-L",
+                                "NetValue": 93.46,
+                                "TaxValue": 6.54
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     ],
     "TimeUnitStartsUtc": [
@@ -184,7 +270,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | :-- | :-- | :-- | :-- |
 | `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
-| `BasePrices` | array of number | required | Base prices of the rates for each time unit covered by the time interval. |
+| `BaseAmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Base prices of the rates for each time unit covered by the time interval. |
 | `CategoryPrices` | array of [Resource category pricing](#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](#resource-category-adjustment) | required | Resource category adjustments. |
 | `RelativeAdjustment` | decimal | required | Specific amount which shows the difference between this rate and the base rate. |
@@ -197,7 +283,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Prices` | array of number | required | Prices of the rate for the resource category in the covered dates. |
+| `AmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Prices of the rate for the resource category in the covered dates. |
 
 #### Resource category adjustment
 

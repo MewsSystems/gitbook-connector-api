@@ -146,6 +146,12 @@ This section describes all operations supported by the API, organised here by th
 | [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
 | [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
 
+## Service orders
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. Service orders can be reservations or product orders. |
+
 ## Services
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |

@@ -65,7 +65,8 @@ Returns configuration of the enterprise and the client.
             }
         ],
         "Pricing": "Gross",
-        "TaxPrecision": null
+        "TaxPrecision": null,
+        "ExternalIdentifier": null
     },
     "Service":
     {
@@ -115,6 +116,7 @@ Returns configuration of the enterprise and the client.
 | `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level enterprise identifier, chosen by the user for the purposes of portfolio management; called Enterprise Key in Mews Operations. |
 
 #### Address
 

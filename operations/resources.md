@@ -99,7 +99,8 @@ Returns all resources of an enterprise associated with the connector integration
             "Descriptions": {},
             "Ordering": 0,
             "Capacity": 2,
-            "ExtraCapacity": 0
+            "ExtraCapacity": 0,
+            "ExternalIdentifier": "RT001-BestRoom"
         }
     ],
     "ResourceCategoryAssignments": [
@@ -223,6 +224,7 @@ Returns all resources of an enterprise associated with the connector integration
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
 | `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
 | `ExtraCapacity` | number | required | Extra capacity that can be served \(e.g. extra bed count\). |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level resource category identifier, chosen by the user for the purposes of portfolio management; called Resource Category Key in Mews Operations. |
 
 #### Resource category type
 
