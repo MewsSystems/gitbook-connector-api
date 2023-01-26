@@ -146,7 +146,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
-| `PurchaseOrderNumber` | string | optional | Number of purchase order (document) a buyer sends to a seller after ordering goods or services. |
+| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
@@ -360,7 +360,7 @@ Closes a bill so no further modification to it is possible.
 | `DueDate` | [String update value](#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `VariableSymbol` | [String update value](#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `TaxIdentifier` | [String update value](#string-update-value) | optional | Tax identifier of account to be put on a bill. |
-| `PurchaseOrderNumber` | [String update value](#string-update-value) | optional | Number of purchase order (document) a buyer sends to a seller after ordering goods or services. |
+| `PurchaseOrderNumber` | [String update value](#string-update-value) | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | [String update value](#string-update-value) | optional | Notes to be attached to bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
 
