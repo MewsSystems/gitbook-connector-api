@@ -1,6 +1,6 @@
 # Changelog
 
-## 16th January 2023
+## 26th January 2023
 
 * Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
 * Extended [Update company](../operations/companies.md#update-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
