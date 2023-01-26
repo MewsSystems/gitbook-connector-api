@@ -5,6 +5,8 @@
 * Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
 * Extended [Update company](../operations/companies.md#update-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
 * Added `ReferenceIdentifier`and `WebsiteUrl` fields in [Company](../operations/companies.md#company).
+* Extended [Close bill](../operations/bills.md#close-bill) and with `PurchaseOrderNumber` field.
+* Extended [Bill](../operations/bills.md#bill) with `PurchaseOrderNumber` field.
 
 ## 20th January 2023
 
