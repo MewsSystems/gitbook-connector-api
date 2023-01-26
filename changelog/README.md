@@ -1,5 +1,11 @@
 # Changelog
 
+## 26th January 2023
+
+* Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
+* Extended [Update company](../operations/companies.md#update-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
+* Added `ReferenceIdentifier`and `WebsiteUrl` fields in [Company](../operations/companies.md#company).
+
 ## 20th January 2023
 
 * Added `ExternalIdentifier` to each of the following entities. `ExternalIdentifier` is used for portfolio management to link the entities at an above-enterprise level.
