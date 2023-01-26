@@ -212,12 +212,12 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Bill owner data discriminator](#bill-owner-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). Can be either of type [Bill customer data](#bill-customer-data) or [Bill company data](#bill-company-data)|
+| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). Can be either of type [Bill customer data](#bill-customer-data) or [Bill company data](#bill-company-data). |
 
 #### Bill owner data discriminator
 
-* `BillCustomerData` - Owner data specific to a customer.
-* `BillCompanyData` - Owner data specific to a company.
+* `BillCustomerData` - Owner data specific to a [Customer](customers.md#customer).
+* `BillCompanyData` - Owner data specific to a [Company](companies.md#company).
 
 #### Bill customer data
 
@@ -268,7 +268,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Legal Identifiers
 
-A key value pair where key determines type of legal identifier and value is the string value of that identifier
+A key value pair where key determines type of legal identifier and value is the string value of that identifier.
 
 * `TaxIdentifier`
 * `CompanyName`
