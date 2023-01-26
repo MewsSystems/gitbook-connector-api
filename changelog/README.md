@@ -2,7 +2,7 @@
 
 ## 23th January 2023
 
-* Added external identifier to [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies)
+* Extended [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies) with `ExternalIdentifier`.
 
 ## 18th January 2023
 
