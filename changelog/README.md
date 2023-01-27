@@ -1,5 +1,9 @@
 # Changelog
 
+## 27th January 2023
+
+* Extended [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies) with `ExternalIdentifier`.
+
 ## 26th January 2023
 
 * Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
