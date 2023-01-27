@@ -1,6 +1,6 @@
 # Changelog
 
-## 23th January 2023
+## 27th January 2023
 
 * Extended [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies) with `ExternalIdentifier`.
 
