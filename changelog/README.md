@@ -4,6 +4,26 @@
 
 * Extended [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies) with `ExternalIdentifier`.
 
+## 26th January 2023
+
+* Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
+* Extended [Update company](../operations/companies.md#update-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
+* Added `ReferenceIdentifier`and `WebsiteUrl` fields in [Company](../operations/companies.md#company).
+* Extended [Close bill](../operations/bills.md#close-bill) with `PurchaseOrderNumber` field.
+* Extended [Bill](../operations/bills.md#bill) with `PurchaseOrderNumber` field.
+
+## 20th January 2023
+
+* Added `ExternalIdentifier` to each of the following entities. `ExternalIdentifier` is used for portfolio management to link the entities at an above-enterprise level.
+  * [Product](../operations/products.md#product)
+  * [Company](../operations/companies.md#company)
+  * [Service](../operations/services.md#service)
+  * [Rate](../operations/rates.md#rate)
+  * [Rate group](../operations/rates.md#rate-group)
+  * [Resource category](../operations/resources.md#resource-category)
+  * [Voucher](../operations/vouchers.md#voucher)
+  * [Enterprise](../operations/configuration.md#enterprise)
+
 ## 18th January 2023
 
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)

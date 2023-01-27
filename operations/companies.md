@@ -48,9 +48,8 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
-| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](#company) from external systems. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Portfolio-level company identifiers, used for portfolio management; called Company Key in Mews Operations. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
-
 
 #### Time interval
 
@@ -95,7 +94,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "CreditRating": {
                 "Basic": "PaymentRequiredUpfront"
             },
-            "ExternalIdentifier": "12345"
+            "ReferenceIdentifier": "da34b396-77e3-495a-bd61-aecf00a3f19d",
+            "WebsiteUrl": "https://www.mewssystems.com"
+            "ExternalIdentifier": "company0001"
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -128,7 +129,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "CreditRating": {
                 "Basic": "CreditOk"
             },
-            "ExternalIdentifier": "4312343"
+            "ReferenceIdentifier": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+            "WebsiteUrl": "https://www.mews.com"
+            "ExternalIdentifier": "company0002"
         }
     ],
     "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
@@ -148,7 +151,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Name` | string | required | Name of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Number`| number | required | Unique number of the company. |
-| `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
+| `Identifier` | string | optional | Other identifier of the company, e.g. legal identifier. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
@@ -169,7 +172,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
+| `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
+| `WebsiteUrl` | string | optional | The website url of the company. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
 
 #### Company options
 
@@ -226,7 +231,9 @@ Adds a new company to the enterprise.
     "CreditRating": {
         "Basic": "CreditOk"
     },
-    "ExternalIdentifier": "1234"
+    "ExternalIdentifier": "1234",
+    "ReferenceIdentifier": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+    "WebsiteUrl": "https://www.mews.com"
 }
 ```
 
@@ -253,6 +260,8 @@ Adds a new company to the enterprise.
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
+| `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
+| `WebsiteUrl` | string | optional | The website url of the company. |
 
 #### Company options parameters
 
@@ -326,6 +335,12 @@ Updates information of the company.
     },
     "ExternalIdentifier": {
         "Value": "4321"
+    },
+    "ReferenceIdentifier": {
+        "Value": "ff64395-9cdd-4395-9cdd-02039acb7cb3"
+    },
+    "WebsiteUrl": {
+        "Value": "https://www.mews.com"
     }
 }
 ```
@@ -353,6 +368,8 @@ Updates information of the company.
 | `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
 | `ExternalIdentifier` | string | [String update value](#string-update-value) | optional | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
+| `ReferenceIdentifier` |  [String update value](#string-update-value)  | optional | External system identifier - custom identifier used by an external system such as an external database. |
+| `WebsiteUrl` |  [String update value](#string-update-value)  | optional | The website url of the company. |
 
 #### Company options update value
 
