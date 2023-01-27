@@ -252,7 +252,7 @@ Adds a new company to the enterprise.
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
 
 #### Company options parameters
 
@@ -352,8 +352,7 @@ Updates information of the company.
 | `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
-| `ExternalIdentifier` | string | [String update value](#string-update-value) | optional | Identifier of the company from external system. |
-
+| `ExternalIdentifier` | string | [String update value](#string-update-value) | optional | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
 
 #### Company options update value
 
