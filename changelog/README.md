@@ -1,5 +1,9 @@
 # Changelog
 
+## 31st January 2023
+
+* Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
+
 ## 26th January 2023
 
 * Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.

@@ -2,8 +2,8 @@
 
 Welcome to the __Mews Connector API__. This is a general-purpose API that enables partners of Mews to access data and services in __Mews Operations__.
 
-To get started, see our [Guidelines](guidelines/README.md) for information on how to connect, what authentication tokens you need, Mews terminology, and more besides.
-All of the API operations are detailed in [Operations](operations/README.md). In addition, we support [Webhooks](webhooks/README.md) and [WebSockets](websockets/README.md).
+To make a quick start and get a feel for the API, see [Getting started](getting-started/README.md). For a full guide on how to connect, what authentication tokens you need, the meaning of error codes and much more, see our [Guidelines](guidelines/README.md).
+All of the API operations are detailed in [API Operations](operations/README.md). In addition, we support [Webhooks](webhooks/README.md) and [WebSockets](websockets/README.md).
 Not sure which to use? See [Ways to communicate](guidelines/communicate.md). For specific guidance on using the API for different scenarios, have a look at [Use cases](use-cases/README.md) which will help you through your implementation.
 
 If you encounter any issues using the API, or you have a question or special request, please get in touch via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
