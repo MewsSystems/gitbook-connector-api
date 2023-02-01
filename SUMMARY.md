@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Mews Connector API](README.md)
 * [Use cases](use-cases/README.md)
   * [Accounting](use-cases/accounting.md)
   * [Customer management](use-cases/customer-management.md)
