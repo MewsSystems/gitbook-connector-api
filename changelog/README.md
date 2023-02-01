@@ -1,14 +1,20 @@
 # Changelog
 
-## 31st January 2023
+## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
+
+## 27th January 2023
+
+* Extended [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies) with `ExternalIdentifier`.
 
 ## 26th January 2023
 
 * Extended [Add company](../operations/companies.md#add-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
 * Extended [Update company](../operations/companies.md#update-company) with `ReferenceIdentifier`and `WebsiteUrl` fields.
 * Added `ReferenceIdentifier`and `WebsiteUrl` fields in [Company](../operations/companies.md#company).
+* Extended [Close bill](../operations/bills.md#close-bill) with `PurchaseOrderNumber` field.
+* Extended [Bill](../operations/bills.md#bill) with `PurchaseOrderNumber` field.
 
 ## 20th January 2023
 
