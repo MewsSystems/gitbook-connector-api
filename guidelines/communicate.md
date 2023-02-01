@@ -1,7 +1,7 @@
 # Ways to communicate
 
 The purpose of this page is to provide an overview of the three different ways to interact with the API and suggest when you might use each particular one.
-The main way to integrate with Mews is to use the API [Operations](../operations/README.md) to make requests, e.g. to fetch data or to request some other action.
+The main way to integrate with Mews is to use the [API Operations](../operations/README.md) to make requests, e.g. to fetch data or to request some other action.
 However, we also support [Webhooks](../webhooks/README.md) and [WebSockets](../websockets/README.md) for special cases where polling is not efficient or not real-time enough.
 
 > ### Three ways to communicate
@@ -17,7 +17,7 @@ These operations work on a stateless, request-response basis. That means when yo
 If the request is for information, then the response will normally contain the requested information.
 If the request is to make an action of some sort, then the response may just be a success message to tell you the action was performed by Mews ok.
 
-* For the details of individual API operations, see [Operations](../operations/README.md).
+* For the details of individual API operations, see [API Operations](../operations/README.md).
 
 But what if you want to know when some event happens in the Mews system?
 Using the standard request-response model, you would need to keep asking "has this event happened yet?".

@@ -1,4 +1,4 @@
-# Operations
+# API Operations
 
 This section describes all operations supported by the API, organised here by theme.
 

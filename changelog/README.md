@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st February 2023
+
+* Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
+
 ## 27th January 2023
 
 * Extended [Add companies](../operations/companies.md#add-companies) and [Update companies](../operations/companies.md#update-companies) with `ExternalIdentifier`.
