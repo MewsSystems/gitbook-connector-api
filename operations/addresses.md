@@ -6,6 +6,9 @@ Returns all addresses associated with the specified accounts within the enterpri
 
 ### Request
 
+
+
+
 `[PlatformAddress]/api/connector/v1/addresses/getAll`
 
 ```javascript
