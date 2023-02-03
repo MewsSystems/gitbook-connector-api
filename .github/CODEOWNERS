@@ -1,9 +1,9 @@
-/additional-functions/  @MewsSystems/tech-be-connectivity-conent-owners
-/changelog/             @MewsSystems/tech-be-connectivity-conent-owners @MewsSystems/tech-be-connectivity-contract-owners
-/deprecacation/         @MewsSystems/tech-be-connectivity-conent-owners @MewsSystems/tech-be-connectivity-contract-owners
-/getting-started/       @MewsSystems/tech-be-connectivity-conent-owners
-/guidelines/            @MewsSystems/tech-be-connectivity-conent-owners
-/operations/            @MewsSystems/tech-be-connectivity-conent-owners @MewsSystems/tech-be-connectivity-contract-owners
-/use-cases/             @MewsSystems/tech-be-connectivity-conent-owners
-/wenhooks/              @MewsSystems/tech-be-connectivity-conent-owners @MewsSystems/tech-be-connectivity-contract-owners
-/websockets/            @MewsSystems/tech-be-connectivity-conent-owners @MewsSystems/tech-be-connectivity-contract-owners
+/additional-functions/  @MewsSystems/tech-be-connectivity-content-owners
+/changelog/             @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
+/deprecacation/         @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
+/getting-started/       @MewsSystems/tech-be-connectivity-content-owners
+/guidelines/            @MewsSystems/tech-be-connectivity-content-owners
+/operations/            @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
+/use-cases/             @MewsSystems/tech-be-connectivity-content-owners
+/wenhooks/              @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
+/websockets/            @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
