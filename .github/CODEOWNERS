@@ -5,5 +5,5 @@
 /guidelines/            @MewsSystems/tech-be-connectivity-content-owners
 /operations/            @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
 /use-cases/             @MewsSystems/tech-be-connectivity-content-owners
-/wenhooks/              @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
+/webhooks/              @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
 /websockets/            @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
