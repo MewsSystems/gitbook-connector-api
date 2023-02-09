@@ -5,7 +5,7 @@ This use case is for Mews customers and partners who want to access [Mews Paymen
 ## Contents
 
 * [Introduction](#introduction)
-* [Caution!](#caution!)
+* [Caution!](#caution)
 * [Taking payments](#taking-payments)
 * [POS workflow](#pos-workflow)
 * [Kiosk workflow](#kiosk-workflow)
@@ -16,7 +16,7 @@ This use case is for Mews customers and partners who want to access [Mews Paymen
 
 ## Introduction
 
-This use case is most likely to be of interest if you have a Point Of Sale solution or a Kiosk solution – but we don't want to limit your imagination if you have a different application in mind!
+This is most likely to be of interest if you have a Point Of Sale solution or a Kiosk solution – but we don't want to limit your imagination if you have a different application in mind!
 
 **POS:** Point Of Sale systems in outlets such as restaurants and shops will normally have their own payment terminals, but they may want to take payments through Mews Terminals for various reasons, perhaps because the terminals are located at reception, or to streamline the property's workflow.
 
@@ -50,7 +50,7 @@ The most important API Operation you will need to use is [Add payment command](.
 
 Taking a payment is an asynchronous activity, so you will need to wait for a device command _event_ to show that the payment is complete, or in case of error taking the payment. This is done using [WebSockets](../websockets/README.md). Specifically, you will listen for [DeviceCommand](../websockets/README.md#device-command-event) WebSocket events.
 
-![Add payment command sequence diagram](../.gitbook/assets/mews-terminals-3.png)
+![Add payment command - message flow](../.gitbook/assets/mews-terminals-3.png)
 
 ### Add payment command
 
@@ -94,7 +94,7 @@ As well as the usual authentication parameters, required parameters are:
 * **CustomerId**
 * **Amount** (Currency and Value)
 
-You must address the specific Mews Terminal with TerminalId \(see [Obtaining the Terminal ID](#obtaining-the-terminal-id)\), and identify the specific customer with CustomerId \(see [Identifying the customer](#identifying-the-customer)\).
+You must address the specific Mews Terminal with `TerminalId` \(see [Obtaining the Terminal ID](#obtaining-the-terminal-id)\), and identify the specific customer with `CustomerId` \(see [Identifying the customer](#identifying-the-customer)\).
 
 ### WebSocket event
 
@@ -120,7 +120,7 @@ As stated, you must identify the specific customer with `CustomerId` when commun
 
 ## POS workflow
 
-As a POS system, you would normally use [Add outlet bills](../operations/bills.md#add-outlet-bills) to send revenue and payments to Mews. However, if you need to use a Mews Terminal to take a payment, you instead use [Add payment command](../operations/commands.md#add-payment-command) to add a card payment to a customer profile, and [Add order](../operations/orders.md#add-order) to add order items, instead of using outlet items.
+As a POS system, you would normally use [Add outlet bills](../operations/outletbills.md#add-outlet-bills) to send revenue and payments to Mews. However, if you need to use a Mews Terminal to take a payment, you instead use [Add payment command](../operations/commands.md#add-payment-command) to add a card payment to a customer profile, and [Add order](../operations/orders.md#add-order) to add order items, instead of using outlet items.
 
 The following workflow describes the steps of the process:
 
@@ -140,7 +140,7 @@ The following workflow describes the steps of the process:
 * B) Name lookup
 * C) Customer is external
 
-[**Step 3: Instruct the terminal to take a payment**](#step-3-instruct-the-terminal-to-take-a-payment)
+[**Step 3: Instruct the terminal to take the payment**](#step-3-instruct-the-terminal-to-take-the-payment)
 * Create a payment terminal command
 * Listen for the WebSocket event
 
@@ -168,7 +168,7 @@ You must fetch the following information before starting the main workflow:
 
 If the customer wants to charge the payment to the room, then follow the standard "post to room" workflow - perform room lookup with [Search customers](../operations/customers.md#search-customers) to find the customer profile, then post the order items to the customer profile using [Add order](../operations/orders.md#add-order).
 
-If the customer wants to pay by means other than a card at the terminal, then take the payment by other means (outside Mews), then follow the standard "revenue push" workflow - post the order items to Mews using [Add outlet bills](../operations/bills.md#add-outlet-bills).
+If the customer wants to pay by means other than a card at the terminal, then take the payment by other means (outside Mews), then follow the standard "revenue push" workflow - post the order items to Mews using [Add outlet bills](../operations/outletbills.md#add-outlet-bills).
 
 ![](../.gitbook/assets/mews-terminals-4.png)
 
@@ -224,9 +224,9 @@ If the payment is _not_ successful, the value of `State` will give an indication
 
 You will want to present a copy of the bill to the customer. One way to do this is to fetch a bill from Mews as a PDF document and print it out through a Mews connected printer.
 
-5. Optional: Get the bill PDF and store the Base64Data, using Get bill PDF
+5. Optional: Get the bill PDF and store the Base64Data, using [Get bill PDF](../operations/bills.md#get-bill-pdf)
 6. Optional: The user selects the printer and the number of copies required
-7. Optional: Print the bill, using Add printer command (like terminals, a printer is another type of connected device)
+7. Optional: Print the bill, using [Add printer command](../operations/commands.md#add-printer-command) (like terminals, a printer is another type of connected device)
 
 <p align="center">
   <img src="../.gitbook/assets/mews-terminals-8.png"/>
@@ -264,7 +264,7 @@ Ideally, you would create a real customer profile each time, with real details s
 #### Paymaster profile
 Alternatively, all payments could be made against a single, pre-defined Paymaster profile. This keeps things centralized, but it requires some workarounds as the Mews system is not designed to work in this way, specifically you need to make sure all the bills are closed to keep things clean and manageable. Potentially you would have a single account profile with lots of payment cards under the Payments tab.
 
-To clear down the payments in the account, you could do this manually at the end of each period, e.g. end-of-shift or end-of-day, or you could do it programmatically via the API. The API supports [Update accounting items](../operations/accountingitems.md#update-accounting-items) for moving specific order items to a bill, and [Close bill](../operations/bills.md#close-bills) for closing bills. This would of course require further development on the part of the POS partner.
+To clear down the payments in the account, you could do this manually at the end of each period, e.g. end-of-shift or end-of-day, or you could do it programmatically via the API. The API supports [Update accounting items](../operations/accountingitems.md#update-accounting-items) for moving specific order items to a bill, and [Close bill](../operations/bills.md#close-bill) for closing bills. This would of course require further development on the part of the POS partner.
 
 ## Kiosk workflow
 
@@ -288,33 +288,29 @@ You will have to either create and manage customer profiles, or work with a shar
 
 ## Testing
 
-To test your workflow implementation with an actual Mews Terminal device, please contact our Partner Support team - they can be contacted at partnersuccess@mews.com. They will supply you with the necessary details to connect to a test configuration:
+To test your workflow implementation with an actual Mews Terminal device, please contact our Partner Support team - they can be contacted at [partnersuccess@mews.com](mailto://partnersuccess@mews.com). They will supply you with the necessary details to connect to a test configuration:
 
-#### Mews Operations
+- **Mews Operations**
+  - Mews Operations platform address, for the appropriate test server
+  - Test account username and password
+  - Test property or enterprise name
 
-- Mews Operations platform address, for the appropriate test server
-- Test account username and password
-- Test property or enterprise name
+- **Mews Connector API**
+  - Mews API platform address, for the appropriate environment
+  - WebSocket address
 
-#### Mews Connector API
+- **Test integration**
+  - Integration name
+  - Client Token
+  - Access Token
 
-- Mews API platform address, for the appropriate environment
-- WebSocket address
+- **Terminal device**
+  - Device name
+  - Device ID / Terminal ID
 
-#### Test integration
+When testing [Add payment command](../operations/commands.md#add-payment-command) to communicate with a Mews Terminal, note that just like other device commands, the command will be added to the _Device Commands Queue_ and can be viewed by logging in to **Mews Operations**. The queue also shows the state of the transaction, so you can see if the payment was processed successfully or not, or if it is still pending.
 
-- Integration name
-- Client Token
-- Access Token
-
-#### Terminal device
-
-- Device name
-- Device ID / Terminal ID
-
-When testing [Add payment command](../operations/commands.md#add-payment-command) to communicate with a Mews Terminal, note that just like other device commands, the command will be added to the Device Commands Queue and can be viewed by logging in to Mews Operations. The queue also shows the state of the transaction, so you can see if the payment was processed successfully or not, or if it still pending.
-
-Finally, when a payment is taken through a Mews Terminal, it will appear against that customer's profile in Mews Operations under the Payments tab, just the same as any other payment item.
+Finally, when a payment is taken through a Mews Terminal, it will appear against that customer's profile in **Mews Operations** under the _Payments_ tab, just the same as any other payment item.
 
 
 ## Help and support
@@ -327,10 +323,10 @@ Within the Connector API documentation, the following sections may be helpful:
 - [Use cases - Kiosk](kiosk.md)
 - [Use cases - Point of sale](point-of-sale.md)
 
-There are a number of articles on Mews Help that may provide additional assistance:
+There are a number of articles on Mews Help that may also provide additional assistance:
 
 - [Mews Terminals \(various\)](https://help.mews.com/s/global-search/mews%20terminal?language=en_US)
 - [The Device Commands Queue](https://help.mews.com/s/article/device-commands-queue)
 - [Create a customer profile](https://help.mews.com/s/article/create-a-customer-profile?language=en_US)
 
-If you still require assistance, please get in touch at partnersuccess@mews.com.
+If you still require assistance, please get in touch at [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
