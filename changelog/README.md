@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th February 2023
+
+* Added new use case [Mews Payment Terminals](../use-cases/mews-terminals.md)
+
 ## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
