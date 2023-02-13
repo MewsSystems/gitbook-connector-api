@@ -119,10 +119,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                         "LegalIdentifier": "Value of legal identifier",
                         "LegalIdentifier2": "Value of legal identifier 2",
                     },
-                    "BillingCode": "billing code value",
-                    "LastName": "Last name value",
-                    "FirstName": "First name value",
-                    "SecondLastName": "Second last name value",
+                    "BillingCode": "Billing code value",
+                    "LastName": "Doe",
+                    "FirstName": "John",
+                    "SecondLastName": "Vincent",
                     "TitlePrefix": "Mistress",
                     "FiscalIdentifier": "Fiscal identifier",
                     "AdditionalTaxIdentifier": "Additional tax identifier"
@@ -143,7 +143,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "LegalIdentifier2": "Value of legal identifier 2",
                 },
                 "BillingCode": "billing code value",
-                "Name": "name value",
+                "Name": "Company Name Inc.",
                 "FiscalIdentifier": "Fiscal identifier",
                 "AdditionalTaxIdentifier": "Additional tax identifier"
             },
@@ -225,11 +225,11 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string  | optional | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
-| `Address` | [Bill address](#bill-address)  | optional | Address of the customer. |
+| `Id` | string  | required | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
+| `Address` | [Bill address](#bill-address) | optional | Address of the customer. |
 | `LegalIdentifiers` | [LegalIdentifiers](#legal-identifiers) | optional | Legal Identifiers of the customer. |
 | `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
-| `LastName` | string  | optional | Last name of the customer. |
+| `LastName` | string  | required | Last name of the customer. |
 | `FirstName` | string  | optional | First name of the customer. |
 | `SecondLastName` | string  | optional | Second last name of the customer. |
 | `TitlePrefix` | [Title](customers.md#Title)  | optional | Title prefix of the customer. |
@@ -238,11 +238,11 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string  | optional | ID of the [Company](companies.md#company). |
-| `Address` | [Bill address](#bill-address)  | optional | Address of the company. |
+| `Id` | string  | required | ID of the [Company](companies.md#company). |
+| `Address` | [Bill address](#bill-address) | optional | Address of the company. |
 | `LegalIdentifiers` | [LegalIdentifiers](#legal-identifiers) | optional | Legal Identifiers of the company. |
 | `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
-| `Name` | string  | optional | Name of the company. |
+| `Name` | string  | required | Name of the company. |
 | `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
 | `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
 
@@ -288,6 +288,7 @@ A key value pair where key determines type of legal identifier and value is the 
 * `HungarianVatCode`
 * `HungarianCompanyName`
 * `HungarianTaxPayerIdentifier`
+* ...
 
 
 ## Add bill
