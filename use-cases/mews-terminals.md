@@ -20,11 +20,7 @@ This is most likely to be of interest if you have a Point Of Sale solution or a 
 
 **POS:** Point Of Sale systems in outlets such as restaurants and shops will normally have their own payment terminals, but they may want to take payments through Mews Terminals for various reasons, perhaps because the terminals are located at reception, or to streamline the property's workflow.
 
-![POS use case](../.gitbook/assets/mews-terminals-1.png)
-
 **Kiosk:** Typically, a guest uses a physical kiosk in the lobby for self-service, so they don't need to queue to see a member of staff at reception, if they choose to do so. The primary function of the kiosk is to check in at the property, but they might need to access a payment terminal, e.g. to make an on-site reservation, to pay the balance on an existing reservation, or to pay their bill on check-out.
-
-![Kiosk use case](../.gitbook/assets/mews-terminals-2.png)
 
 > **Terminology:** Remember that in the terminology of the Mews Connector API, the party connecting to the API (that's you!) is the _Client_; the hotel, hostel or other such property is the _Enterprise_; and the end-user or guest is the _Customer_.
 
@@ -89,10 +85,10 @@ Response body:
 
 As well as the usual authentication parameters, required parameters are:
 
-* **Type** (either "Payment" or "Preauthorization")
-* **TerminalId**
-* **CustomerId**
-* **Amount** (Currency and Value)
+* Type (either "Payment" or "Preauthorization")
+* TerminalId
+* CustomerId
+* Amount (Currency and Value)
 
 You must address the specific Mews Terminal with `TerminalId` \(see [Obtaining the Terminal ID](#obtaining-the-terminal-id)\), and identify the specific customer with `CustomerId` \(see [Identifying the customer](#identifying-the-customer)\).
 
@@ -121,38 +117,14 @@ As stated, you must identify the specific customer with `CustomerId` when commun
 ## POS workflow
 
 As a POS system, you would normally use [Add outlet bills](../operations/outletbills.md#add-outlet-bills) to send revenue and payments to Mews. However, if you need to use a Mews Terminal to take a payment, you instead use [Add payment command](../operations/commands.md#add-payment-command) to add a card payment to a customer profile, and [Add order](../operations/orders.md#add-order) to add order items, instead of using outlet items.
-
 The following workflow describes the steps of the process:
 
-[**Pre-conditions**](#pre-conditions)
-* You must fetch certain information before starting the main workflow
-
-[**Step 1: How does the customer want to pay?**](#step-1-how-does-the-customer-want-to-pay)
-* Choose between...
-* A) Charge to the room
-* B) Pay by other means than card
-* C) Pay by card
-* What follows assumes 'pay by card'
-
-[**Step 2: Choose how to search for the customer**](#step-2-choose-how-to-search-for-the-customer)
-* Choose between...
-* A) Room lookup
-* B) Name lookup
-* C) Customer is external
-
-[**Step 3: Instruct the terminal to take the payment**](#step-3-instruct-the-terminal-to-take-the-payment)
-* Create a payment terminal command
-* Listen for the WebSocket event
-
-[**Step 4: Add the order items and prepare the bill**](#step-4-add-the-order-items-and-prepare-the-bill)
-* Add the order items
-* Create a new bill
-* Transfer the payment item and order items to the bill
-* Close the bill
-
-[**Step 5: Print the bill for the customer**](#step-5-print-the-bill-for-the-customer)
-* Optional: Get the bill PDF
-* Optional: Print the bill PDF
+* [Pre-conditions](#pre-conditions)
+* [Step 1: How does the customer want to pay?](#step-1-how-does-the-customer-want-to-pay)
+* [Step 2: Choose how to search for the customer](#step-2-choose-how-to-search-for-the-customer)
+* [Step 3: Instruct the terminal to take the payment](#step-3-instruct-the-terminal-to-take-the-payment)
+* [Step 4: Add the order items and prepare the bill](#step-4-add-the-order-items-and-prepare-the-bill)
+* [Step 5: Print the bill for the customer](#step-5-print-the-bill-for-the-customer)
 
 ### Pre-conditions
 
@@ -176,13 +148,8 @@ What follows applies to the main workflow where the customer wants to **pay by c
 
 ### Step 2: Choose how to search for the customer
 
-When using a Mews Terminal to take a payment, you will need the account profile of the customer, identified with a unique account identifier. This is what is referred to as a Customer ID or CustomerId.
-
-There are three scenarios:
-
-1. **Room lookup** - search against a customer's room or other space, i.e. customer is "in house"
-2. **Name lookup** - search against the customer's name; again, assuming the customer is "in house"
-3. **Customer is external** - customer is a non-resident
+When using a Mews Terminal to take a payment, you will need the account profile of the customer, identified with a unique identifier. This is what is referred to as a Customer ID or CustomerId.
+How you obtain the customer identifier depends on the search scenario - room lookup, name lookup, or "customer is external".
 
 #### Room lookup
 If doing a room lookup, search against your stored list of room resources or spaces and obtain the Resource identifier for that space, then use the Resource identifier in a lookup for the checked-in customer using [Search customers](../operations/customers.md#search-customers). This will return the Customer identifier or CustomerId.
@@ -224,35 +191,15 @@ If the payment is _not_ successful, the value of `State` will give an indication
 
 You will want to present a copy of the bill to the customer. One way to do this is to fetch a bill from Mews as a PDF document and print it out through a Mews connected printer.
 
-5. Optional: Get the bill PDF and store the Base64Data, using [Get bill PDF](../operations/bills.md#get-bill-pdf)
-6. Optional: The user selects the printer and the number of copies required
-7. Optional: Print the bill, using [Add printer command](../operations/commands.md#add-printer-command) (like terminals, a printer is another type of connected device)
+1. Optional: Get the bill PDF and store the Base64Data, using [Get bill PDF](../operations/bills.md#get-bill-pdf)
+2. Optional: The user selects the printer and the number of copies required
+3. Optional: Print the bill, using [Add printer command](../operations/commands.md#add-printer-command) (like terminals, a printer is another type of connected device)
 
 <p align="center">
   <img src="../.gitbook/assets/mews-terminals-8.png"/>
 </p>
 
 Now you are finished!
-
-### Typical POS implementation
-
-The POS workflow could be implemented as follows:
-
-#### Flow 1 (customer profile)
-1. POS user clicks 'pay by card' on the POS
-2. POS user types in the customer name
-3. POS system searches and presents all applicable search results
-4. POS user selects one result, or has the option to create a new customer profile
-5. POS system attempts payment via terminal against the customer profile
-6. If payment succeeds, the POS system posts the product items and closes the bill
-7. If payment fails, return to step 1
-
-#### Flow 2 (alternative, using Paymaster account)
-1. POS user clicks 'pay by card' on the POS
-2. POS system attempts payment via terminal against a pre-defined Paymaster profile
-3. If payment succeeds, the POS system posts the product items and closes the bill
-4. If payment fails, return to step 1
-
 
 ### Customer profile vs Paymaster profile
 
