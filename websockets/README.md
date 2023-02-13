@@ -1,6 +1,6 @@
 # WebSockets
 
-WebSockets provides another way to communicate with Mews, for special use cases where polling using API [Operations](../operations/README.md) is too resource consuming, and event-driven [Webhooks](../webhooks/README.md) are not sufficiently real-time.
+WebSockets provides another way to communicate with Mews, for special use cases where polling using [API Operations](../operations/README.md) is too resource consuming, and event-driven [Webhooks](../webhooks/README.md) are not sufficiently real-time.
 A WebSocket is an open connection over which Mews can send event messages as the events occur.
 After you make a successful WebSocket connection to Mews, you will receive event messages according to the configuration of your integration in __Mews Operations__.
 For a comparative overview of [Operations](../operations/README.md) vs [Webhooks](../webhooks/README.md) vs WebSockets, see [Ways to communicate](../guidelines/communicate.md).
