@@ -1,4 +1,4 @@
-## Point of sale
+# Point of sale
 
 Here we walk you through a point-of-sale (POS) integration, from initial setup (synchronizing product and payment information with Mews) through to customer/guest search, posting charges and posting end-of-day balances or 'outlet bills'.
 We also cover split payments, rebates and gratuities, as well as providing some guidance on testing your integration; and finally, some links to further information.
@@ -10,7 +10,7 @@ To post a charge to a customer profile, use the API operation [Add order](../ope
 The receipts that are finalized in the POS system can be sent to Mews to allow for end-of-day balancing (sometimes referred to as 'revenue push' or 'revenue sync').
 In Mews, these are called `outlet bills`.
 
-### Initial setup
+## Initial setup
 
 There are two concepts in Mews that are used to represent the point-of-sale or revenue center that exists in a property: `services` and `outlets`.
 A user can configure the names of both to match the actual name of the restaurant/bar/spa/etc. for ease of recognition on Mews reports.
@@ -19,19 +19,19 @@ Both already exist in the [Demo environment](../guidelines/environments.md) for 
 * A `service` is used to represent the point-of-sale under which `items` are recorded when posting `orders`.
 * An `outlet` is used to represent the point-of-sale under which `items` are recorded when posting `outlet bills`.
 
-#### Services
+### Services
 
 Use [Get all services](../operations/services.md#get-all-services) to retrieve services the property has created in Mews, which can then be mapped to corresponding services in the POS system.
 The services of interest to POS systems are those with the `Additional` [service data type](../operations/services.md#service-data), together with any products offered under those services.
 Use the service `Id` when identifying a service in subsequent API calls.
 
-#### Outlets
+### Outlets
 
 Outlets are used by the POS to send a full revenue push to Mews, for end-of-day balancing.
 Use [Get all outlets](../operations/outlets.md#get-all-outlets) to retrieve outlets that the property has configured.
 Outlets should be created by the property for each external location, as well as unique `accounting categories` that should be used to separate payments and revenue per outlet.
 
-#### Example of Service and Outlet mapping
+### Example of Service and Outlet mapping
 
 | Point of Sale | Mews Service | Mews Outlet | 
 | :-- | :-- | :-- |
@@ -39,18 +39,18 @@ Outlets should be created by the property for each external location, as well as
 | Room Service | Room Service | Room Service |
 | Hina Spa | Hina Spa | Hina Spa |
 
-#### Resources
+### Resources
 
 Use [Get all resources](../operations/resources.md#get-all-resources) to retrieve the list of resources the property has set up in Mews.
 Resources includes bookable spaces such as guest rooms. This will then give you the information needed to make a customer look-up against a specific guest room or other type of resource.
 
-#### Accounting categories
+### Accounting categories
 
 Accounting categories are linked to accounting items such as revenue items (e.g. entree, main, dessert, beverage, or alcohol) and payment items (e.g. credit card, cash, voucher, invoice).
 The POS system should be configured to map accounting items to the correct accounting categories in Mews to ensure accurate posting. 
 Use [Get all account categories](../operations/accountingcategories.md#get-all-accounting-categories) to retrieve a list of all `accounting categories` which the property has configured, then map these against the product offerings and accepted payment types that have been configured in the POS system. 
 
-#### Example of POS revenue item and payment type mapping
+### Example of POS revenue item and payment type mapping
 
 | POS Revenue/Payment | Mews Accounting Category |
 | :-- | :-- |
@@ -60,8 +60,7 @@ Use [Get all account categories](../operations/accountingcategories.md#get-all-a
 | Cash | Cash |
 | Credit card | Credit card |
 
-
-### Customer search
+## Customer search
 
 Searching for customers active within the property is done via the [Search customers](../operations/customers.md#search-customers) endpoint.
 This will allow you to search all customers that are in-house or those with the `PaymasterAccount` [customer classification](../operations/customers.md#customer-classification).
@@ -75,18 +74,18 @@ the POS system can decide whether to recognise this classification on a customer
 
 > Note: room numbers of hotels (space resources in Mews) may consist of numbers, letters and other characters.
 
-### Charge posting
+## Charge posting
 
 Once the customer profile to be charged is identified, the items can be posted onto their bill using the [Add order](../operations/orders.md#add-order) operation.
 The order needs to be sent with its full name, e.g. "Caesar salad" or "Beer", and not just “Item". The `AccountingCategoryId` will need to be used per item to allow for correct reporting for accounting systems. You can make use of `Notes` to record the associated ticket number from the POS system.
 
-### Split payments
+## Split payments
 
 If the POS supports split payments, e.g. one salad divided between two people, it must be sent to Mews as separate transactions with the product `Count` or item `UnitCount` rounded up to the nearest whole number. 
 
 *Example: One salad of €10.00 divided between two people is sent as two separate orders, each with one salad at a price of €5.00.*
 
-### Rebates
+## Rebates
 
 Rebates or cancelled items will need to be allowed by the property and can be applied to both orders and outlet bills.
 It is not permitted to directly cancel or modify the originally posted item, therefore the POS system should use the applicable endpoint \([Add order](../operations/orders.md#add-order) or [Add outlet bill](../operations/outletbills.md#add-outlet-bills)\) to post a rebate or cancelled item.
@@ -94,11 +93,11 @@ Such items should be sent through with __negative__ values, in order to balance 
 
 *Example: One salad of €10.00 has been sent to Mews. To rebate this item, send through one salad of -€10.00. If partial rebate of 50%, send through one salad of -€5.00.*
 
-### Gratuities
+## Gratuities
 
 Gratuities should be sent as another item to Mews and can be posted under a different accounting category, depending on the property's accounting practices and configurations. In the full revenue push, both the tip revenue item and the payment used to cover the tip should be sent.
 
-### Outlets bills
+## Outlets bills
 
 Outlets are used in Mews to record any revenue and payments that have been taken outside of Mews.
 This allows for the centralization and reporting of data to an external accounting system.
@@ -106,7 +105,7 @@ The POS system will need to use [Add outlet bill](../operations/outletbills.md#a
 
 In an outlet bill, items of the [payment type](../operations/outletitems.md#outlet-item-type) are customisable by `Name`, and should draw from the list of accepted types of payment configured in the POS system. Such items should also be sent with the corresponding accounting categories previously mapped in the POS system to ensure correct reporting.
 
-### Testing your integration
+## Testing your integration
 
 Ensure you follow our general [guidelines](../guidelines) for testing integrations.
 To make sure the integration supports the minimum expected functionality, please test the following operations. Ignore any items that are not supported by your solution or not required by the property.
@@ -127,7 +126,11 @@ All correctly posted orders will be shown in the Revenue section of the report.
 All outlet bills (containing both revenue items and matching payments) will be shown in the `Outlet` section of the Accounting report.
 An incorrectly posted item (without an associated accounting category) will be displayed in the Accounting report under the 'None' accounting category of either section. 
 
-### Additional Help
+## Connecting to Mews Terminals
+
+To connect to Mews Payment Terminals, see [Mews Payment Terminals](mews-terminals.md).
+
+## Additional Help
 
 - [Mews Glossary for Open API users](https://help.mews.com/s/article/Mews-Glossary-for-Open-API-users?language=en_US)
 - [How to view the Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US)
