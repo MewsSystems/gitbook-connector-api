@@ -1,5 +1,13 @@
 # Changelog
 
+## 14th February 2023
+
+* Deprecated `AssigneeData` in [Get all bills](../operations/bills.md#get-all-bills) response and replaced with  `OwnerData`.
+* Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Bill address](../operations/bills.md#bill-address) fields.
+* Extended [Bill company data](../operations/bills.md#bill-company-data) with Owner Data `LegalIdentifiers`, `BillingCode`, `Name`, `FiscalIdentifier`, `AdditionalTaxIdentifier` and with [Bill address](../operations/bills.md#bill-address) fields.
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
+* Deprecated  `ItalianFiscalCode` and `ItalianLotteryCode` in [Bill customer data](../operations/bills.md#bill-customer-data).
+
 ## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
@@ -15,11 +23,6 @@
 * Added `ReferenceIdentifier`and `WebsiteUrl` fields in [Company](../operations/companies.md#company).
 * Extended [Close bill](../operations/bills.md#close-bill) with `PurchaseOrderNumber` field.
 * Extended [Bill](../operations/bills.md#bill) with `PurchaseOrderNumber` field.
-* Deprecated `AssigneeData` in [Get all bills](../operations/bills.md#get-all-bills) response and replaced with  `OwnerData`.
-* Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Bill address](../operations/bills.md#bill-address) fields.
-* Extended [Bill company data](../operations/bills.md#bill-company-data) with Owner Data `LegalIdentifiers`, `BillingCode`, `Name`, `FiscalIdentifier`, `AdditionalTaxIdentifier` and with [Bill address](../operations/bills.md#bill-address) fields.
-* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
-* Deprecated  `ItalianFiscalCode` and `ItalianLotteryCode` in [Bill customer data](../operations/bills.md#bill-customer-data).
 
 ## 20th January 2023
 
