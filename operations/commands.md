@@ -255,6 +255,63 @@ Adds a new key cutter command representing cutting of a key for the specified re
 | :-- | :-- | :-- | :-- |
 | `CommandId` | string | required | Unique identifier of the created [Command](#command). |
 
+## Add payment command
+
+> ### Restricted!
+> This operation is part of a custom workflow for Mews partners such as POS systems to access Mews Payment Terminals.
+> See [Mews Payment Terminals](../use-cases/mews-terminals.md).
+
+Adds a new Mews Payment Terminal command for taking a customer payment.
+The operation instructs a specified terminal device to take a payment from a specified customer for a specified amount.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/commands/addPaymentTerminal`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382",
+    "Client": "MyPOS 1.0",
+    "Type": "Payment",
+    "TerminalId": "be35b39e-ad7e-460a-8de9-4c7581e016a2",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "BillId": null,
+    "Amount": {
+        "Currency": "EUR",
+        "Value": 230.00
+   }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token authenticating the client application. |
+| `AccessToken` | string | required | Token authenticating access to the enterprise integration. |
+| `Client` | string | required | Name and version of the client application. |
+| `Type` | string [Payment type](#payment-type) | required | The type of payment, e.g. "preauthorization". |
+| `TerminalId` | string | required | Unique identifier of the payment terminal. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill). |
+| `Amount` | [Currency value](accountingitems.md#currency-value) | required | Amount of the payment. |
+
+#### Payment type
+
+* `Payment`
+* `Preauthorization`
+
+### Response
+
+```javascript
+{
+  "CommandId": "2391a3df-1c61-4131-b6f8-c85b4234adcb"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CommandId` | string | required | Unique identifier of the created [Command](#command). |
+
 ## Update command
 
 Updates state of a command.
