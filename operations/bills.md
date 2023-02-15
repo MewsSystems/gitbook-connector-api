@@ -187,8 +187,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
-| `OwnerData` | [Owner data](#bill-owner-data) | required | Additional information about owner of the bill. Persisted at the time of closing of the bill. |
-| `CompanyDetailsData` | [Company details data](#bill-company-data) | optional | Additional information about company details assigned to the bill. Persisted at the time of closing of the bill. This is not company owner. |
+| `OwnerData` | [Bill owner data](#bill-owner-data) | required | Additional information about owner of the bill. Persisted at the time of closing of the bill. |
+| `CompanyDetailsData` | [Bill company data](#bill-company-data) | optional | Additional information about company details assigned to the bill. Persisted at the time of closing of the bill. This is not company owner. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
