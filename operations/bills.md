@@ -103,11 +103,47 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             },
             "OrderItems": [],
             "PaymentItems": [],
-            "AssigneeData": {
+            "OwnerData": {
                 "Discriminator": "BillCustomerData",
                 "Value": {
-                    "ItalianFiscalCode": null
+                    "Id": "244d2300-787a-452d-9c57-af01009cb43d",
+                     "Address": {
+                        "Line1": "Somerford Road Hello House/135",
+                        "Line2": null,
+                        "City": "Christchurch",
+                        "PostalCode": "BH23 3PY",
+                        "SubdivisionCode": null,
+                        "CountryCode": "GB",
+                    },
+                    "LegalIdentifiers": {
+                        "NAF": "55.2",
+                        "RCS": "FR-RCS-799640133"
+                    },
+                    "BillingCode": null,
+                    "LastName": "Griffin",
+                    "FirstName": "Tabby",
+                    "SecondLastName": null,
+                    "TitlePrefix": null,
                 }
+            },
+            "CompanyDetailsData": {
+                "Id": "577d2300-787a-452d-9c57-af01009cb43d",
+                "Address": {
+                    "Line1": "Somerford Road Hello House/135",
+                    "Line2": null,
+                    "City": "Christchurch",
+                    "PostalCode": "BH23 3PY",
+                    "SubdivisionCode": null,
+                    "CountryCode": "GB",
+                },
+                "LegalIdentifiers": {
+                    "NAF": "55.2",
+                    "RCS": "FR-RCS-799640133"
+                },
+                "BillingCode": null,
+                "Name": "Smart company",
+                "FiscalIdentifier": null,
+                "AdditionalTaxIdentifier": "XY00112233445" 
             },
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
@@ -151,7 +187,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
-| `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
+| `OwnerData` | [Owner data](#owner-data) | required | Additional information about owner of the bill. Persisted at the time of closing of the bill. |
+| `CompanyDetailsData` | [Company details data](#company-details-data) | optional | Additional information about company details assigned to the bill. Persisted at the time of closing of the bill. This is not company owner. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -170,7 +207,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 
-#### Bill assignee data
+#### Bill owner data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -186,12 +223,26 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
-
+| `Id` | string  | required | Unique identifier of the customer. |
+| `Address` | Address  | required | The customer address. | // Todo  reference?
+| `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the customer. |
+| `BillingCode` | string  | optional | A unique code that will list on invoices, so the customer can easily identify invoices from your property. |
+| `Lastname` | string  | required | Customer last name. |
+| `FirstName` | string  | optional | Customer first name. |
+| `SecondLastName` | string  | optional | Customer second last name. |
+| `TitlePrefix` | string  | required | Customer title. |
+ 
 #### Bill company data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the company. |
+| `Address` | Address | required | The company address. |
+| `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the company. |
+| `BillingCode` | string | optional | A unique code that will list on invoices, so the company can easily identify invoices from your property. |
+| `Name` | string | required | The company name. |
+| `FiscalIdentifier` | string | optional | Fiscal identifier of the company. |
+| `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 
 #### Bill enterprise data
 
