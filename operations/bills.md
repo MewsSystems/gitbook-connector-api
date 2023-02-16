@@ -224,7 +224,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | required | Unique identifier of the customer. |
-| `Address` | [Address](#address) | required | Address of the enterprise. |
+| `Address` | [Address](#address) | required | Customer address. |
 | `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the customer. |
 | `BillingCode` | string  | optional | A unique code that will list on invoices, so the customer can easily identify invoices from your property. |
 | `Lastname` | string  | required | Customer's last name. |
