@@ -224,7 +224,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | required | Unique identifier of the customer. |
-| `Address` | Address  | required | The customer address. | // Todo  reference?
+| `Address` | [Address](#address) | required | Address of the enterprise. |
 | `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the customer. |
 | `BillingCode` | string  | optional | A unique code that will list on invoices, so the customer can easily identify invoices from your property. |
 | `Lastname` | string  | required | Customer last name. |
@@ -237,7 +237,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the company. |
-| `Address` | Address | required | The company address. |
+| `Address` | [Address](#address) | required | The company address. |
 | `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the company. |
 | `BillingCode` | string | optional | A unique code that will list on invoices, so the company can easily identify invoices from your property. |
 | `Name` | string | required | The company name. |
@@ -254,6 +254,18 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `BankName` | string  | optional | Enterprise bank name. |
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
+
+#### Address
+
+| Property | Type | Contract | Description |
+| :--- | :--- | :--- | :--- |
+| `Id` | string | required | Unique identifier of the address. |
+| `Line1` | string | optional | First line of the address. |
+| `Line2` | string | optional | Second line of the address. |
+| `City` | string | optional | The city. |
+| `PostalCode` | string | optional | Postal code. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 
 ## Add bill
 
