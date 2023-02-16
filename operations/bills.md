@@ -240,7 +240,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `Address` | [Address](#address) | required | Company address. |
 | `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the company. |
 | `BillingCode` | string | optional | A unique code that will list on invoices, so the company can easily identify invoices from your property. |
-| `Name` | string | required | The company name. |
+| `Name` | string | required | Company name. |
 | `FiscalIdentifier` | string | optional | Fiscal identifier of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 
