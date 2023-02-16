@@ -227,17 +227,17 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `Address` | [Address](#address) | required | Address of the enterprise. |
 | `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the customer. |
 | `BillingCode` | string  | optional | A unique code that will list on invoices, so the customer can easily identify invoices from your property. |
-| `Lastname` | string  | required | Customer last name. |
-| `FirstName` | string  | optional | Customer first name. |
-| `SecondLastName` | string  | optional | Customer second last name. |
-| `TitlePrefix` | string  | required | Customer title. |
+| `Lastname` | string  | required | Customer's last name. |
+| `FirstName` | string  | optional | Customer's first name. |
+| `SecondLastName` | string  | optional | Customer's second last name. |
+| `TitlePrefix` | string  | required | Customer's title. |
  
 #### Bill company data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the company. |
-| `Address` | [Address](#address) | required | The company address. |
+| `Address` | [Address](#address) | required | Company address. |
 | `LegalIdentifiers` | Dictionary of string | required | Legal identifiers of the company. |
 | `BillingCode` | string | optional | A unique code that will list on invoices, so the company can easily identify invoices from your property. |
 | `Name` | string | required | The company name. |
