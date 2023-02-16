@@ -2,7 +2,7 @@
 ## 16th February 2023
 * Deprecated `AssigneeData` in [Bill](../operations/bills.md#bill) with [Bill owner data](../operations/bills.md#bill-owner-data)
 * Extended [Bill](../operations/bills.md#bill) with [Bill copmany data](../operations/bills.md#bill-company-data)
-* Extended [Bill](../operations/bills.md#bill) with [Customer data](../operations/bills.md#bill-customer-data)
+* Extended [Bill](../operations/bills.md#bill) with [Bill customer data](../operations/bills.md#bill-customer-data)
 * Extended [Bill](../operations/bills.md#bill) with [Address](../operations/bills.md#address)
 
 ## 1st February 2023
