@@ -299,6 +299,7 @@ The operation instructs a specified terminal device to take a payment from a spe
 
 * `Payment`
 * `Preauthorization`
+...
 
 ### Response
 
