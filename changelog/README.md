@@ -1,5 +1,9 @@
 # Changelog
 
+## 20th February 2023
+
+* Added [Payment request](../operations/paymentrequests.md) operations: `getAll`, `add` and `cancel`.
+
 ## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
