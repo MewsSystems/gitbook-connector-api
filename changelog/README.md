@@ -1,5 +1,9 @@
 # Changelog
 
+## 20th February 2023
+
+* Added operation [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
+
 ## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
