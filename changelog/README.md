@@ -1,6 +1,6 @@
 # Changelog
 
-## 14th February 2023
+## 20th February 2023
 
 * Added new restricted operation [Add payment command](../operations/commands.md#add-payment-command).
 
