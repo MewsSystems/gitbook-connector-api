@@ -69,9 +69,6 @@ Request body:
     "Amount": {
         "Currency": "EUR",
         "Value": 230.00
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null
    }
 }
 ```
