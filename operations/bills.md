@@ -116,8 +116,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                         "CountryCode": "AU"
                     },
                     "LegalIdentifiers": {
-                        "LegalIdentifier": "Value of legal identifier",
-                        "LegalIdentifier2": "Value of legal identifier 2",
+                        "TaxIdentifier": "CZ8810310963",
+                    "CityOfRegistration": "Prague",
                     },
                     "BillingCode": "Billing code value",
                     "LastName": "Doe",
@@ -139,8 +139,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "CountryCode": "AU"
                 },
                 "LegalIdentifiers": {
-                    "LegalIdentifier": "Value of legal identifier",
-                    "LegalIdentifier2": "Value of legal identifier 2",
+                    "TaxIdentifier": "CZ8810310963",
+                    "CityOfRegistration": "Prague",
                 },
                 "BillingCode": "billing code value",
                 "Name": "Company Name Inc.",
@@ -227,7 +227,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | required | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
 | `Address` | [Bill address](#bill-address) | optional | Address of the customer. |
-| `LegalIdentifiers` | [LegalIdentifiers](#legal-identifiers) | optional | Legal Identifiers of the customer. |
+| `LegalIdentifiers` | [Dictionary](#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the customer. |
 | `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
 | `LastName` | string  | required | Last name of the customer. |
 | `FirstName` | string  | optional | First name of the customer. |
@@ -240,7 +240,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | required | ID of the [Company](companies.md#company). |
 | `Address` | [Bill address](#bill-address) | optional | Address of the company. |
-| `LegalIdentifiers` | [LegalIdentifiers](#legal-identifiers) | optional | Legal Identifiers of the company. |
+| `LegalIdentifiers` | [Dictionary](#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the company. |
 | `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
 | `Name` | string  | required | Name of the company. |
 | `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
@@ -268,12 +268,19 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
 | `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
 
-#### Legal Identifiers
+### Dictionary
 
-A key value pair where key determines type of legal identifier and value is the string value of that identifier.
+Dictionary is a collection of key-value pairs.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
+
+### Legal Identifiers
+
+`LegalIdentifiers` is a [Dictionary](#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
 
 * `TaxIdentifier`
-* `CompanyName`
 * `Siret`
 * `Siren`
 * `NafCode`
@@ -289,7 +296,6 @@ A key value pair where key determines type of legal identifier and value is the 
 * `HungarianCompanyName`
 * `HungarianTaxPayerIdentifier`
 * ...
-
 
 ## Add bill
 
