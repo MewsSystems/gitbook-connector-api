@@ -2,6 +2,7 @@
 
 ## 20th February 2023
 
+* Added new use case [Mews Payment Terminals](../use-cases/mews-terminals.md)
 * Added new restricted operation [Add payment command](../operations/commands.md#add-payment-command).
 * Deprecated `AssigneeData` in [Get all bills](../operations/bills.md#get-all-bills) response and replaced with  `OwnerData`.
 * Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Bill address](../operations/bills.md#bill-address) fields.
