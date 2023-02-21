@@ -1,11 +1,12 @@
 # Changelog
 
-## 20th February 2023
+## 21st February 2023
 
 * Added new page [Payment requests](../operations/paymentrequests.md) with operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
   * [Add payment requests](../operations/paymentrequests.md#add-payment-requests).
   * [Cancel payment requests](../operations/paymentrequests.md#cancel-payment-requests).
+
 ## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
