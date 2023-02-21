@@ -150,7 +150,7 @@ Creates a payment request to the specified [Customer](customers.md#customer).
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request is issued. |
+| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) account to which the payment request is issued. |
 | `Amount` | [Currency value](#currency-value) | required | Amount of the payment request. |
 | `Type` | [Payment request type](#payment-request-type) | required | A payment request type. |
 | `Reason` | [Payment request reason](#payment-request-reason) | required | A payment request reason. |
