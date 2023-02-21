@@ -97,7 +97,7 @@ Get all payment requests belonging to the specified customer accounts. Note that
 
 #### Payment request type
 
-* `Payment` - indicates that a [Payment](payments.md) is requested.
+* `Payment` - indicates that a payment is requested.
 * `Preauthorization` - indicates that a [Preauthorization](preauthorizations.md#preauthorization) is requested.
 
 #### Payment request reason
