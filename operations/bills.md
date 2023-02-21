@@ -103,11 +103,49 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             },
             "OrderItems": [],
             "PaymentItems": [],
-            "AssigneeData": {
+            "OwnerData": {
                 "Discriminator": "BillCustomerData",
                 "Value": {
-                    "ItalianFiscalCode": null
+                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                    "Address": {
+                        "Line1": "Joe Doe street",
+                        "Line2": "Very long ave",
+                        "City": "Townston",
+                        "PostalCode": "154 00",
+                        "SubdivisionCode": "AU-NSW",
+                        "CountryCode": "AU"
+                    },
+                    "LegalIdentifiers": {
+                        "TaxIdentifier": "CZ8810310963",
+                    "CityOfRegistration": "Prague",
+                    },
+                    "BillingCode": "Billing code value",
+                    "LastName": "Doe",
+                    "FirstName": "John",
+                    "SecondLastName": "Vincent",
+                    "TitlePrefix": "Mistress",
+                    "FiscalIdentifier": "Fiscal identifier",
+                    "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
+            },
+            "CompanyDetails": {
+                "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                "Address": {
+                    "Line1": "Joe Doe street",
+                    "Line2": "Very long ave",
+                    "City": "Townston",
+                    "PostalCode": "154 00",
+                    "SubdivisionCode": "AU-NSW",
+                    "CountryCode": "AU"
+                },
+                "LegalIdentifiers": {
+                    "TaxIdentifier": "CZ8810310963",
+                    "CityOfRegistration": "Prague",
+                },
+                "BillingCode": "billing code value",
+                "Name": "Company Name Inc.",
+                "FiscalIdentifier": "Fiscal identifier",
+                "AdditionalTaxIdentifier": "Additional tax identifier"
             },
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
@@ -151,7 +189,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
-| `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
+| `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
+| `CompanyDetails` | [Bill company data](#bill-company-data) | optional | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -170,28 +209,42 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 
-#### Bill assignee data
+#### Bill owner data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Bill assignee data discriminator](#bill-assignee-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Bill assignee data discriminator](#bill-assignee-data-discriminator). |
+| `Discriminator` | string [Bill owner data discriminator](#bill-owner-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). Can be either of type [Bill customer data](#bill-customer-data) or [Bill company data](#bill-company-data). |
 
-#### Bill assignee data discriminator
+#### Bill owner data discriminator
 
-* `BillCustomerData` - Assignee data specific to a customer.
-* `BillCompanyData` - Assignee data specific to a company.
+* `BillCustomerData` - Owner data specific to a [Customer](customers.md#customer).
+* `BillCompanyData` - Owner data specific to a [Company](companies.md#company).
 
 #### Bill customer data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
+| `Id` | string  | required | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
+| `Address` | [Bill address](#bill-address) | optional | Address of the customer. |
+| `LegalIdentifiers` | [Dictionary](#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the customer. |
+| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
+| `LastName` | string  | required | Last name of the customer. |
+| `FirstName` | string  | optional | First name of the customer. |
+| `SecondLastName` | string  | optional | Second last name of the customer. |
+| `TitlePrefix` | [Title](customers.md#Title)  | optional | Title prefix of the customer. |
 
 #### Bill company data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `Id` | string  | required | ID of the [Company](companies.md#company). |
+| `Address` | [Bill address](#bill-address) | optional | Address of the company. |
+| `LegalIdentifiers` | [Dictionary](#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the company. |
+| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
+| `Name` | string  | required | Name of the company. |
+| `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
+| `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
 
 #### Bill enterprise data
 
@@ -203,6 +256,46 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `BankName` | string  | optional | Enterprise bank name. |
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
+
+### Bill address
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Line1` | string  | optional | First line of the address. |
+| `Line2` | string  | optional | Second line of the address. |
+| `City` | string  | optional | City of the address. |
+| `Postal Code` | string  | optional | Postal code of the address. |
+| `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
+| `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
+
+### Dictionary
+
+Dictionary is a collection of key-value pairs.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
+
+### Legal Identifiers
+
+`LegalIdentifiers` is a [Dictionary](#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
+
+* `TaxIdentifier`
+* `Siret`
+* `Siren`
+* `NafCode`
+* `RcsCode`
+* `LegalStatus`
+* `RegisteredCapital`
+* `CityOfRegistration`
+* `TradesDirectoryRegistrationNumber`
+* `ItDestinationCode`
+* `ItFiscalCode`
+* `ItLotteryCode`
+* `HungarianVatCode`
+* `HungarianCompanyName`
+* `HungarianTaxPayerIdentifier`
+* ...
 
 ## Add bill
 

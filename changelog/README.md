@@ -7,6 +7,16 @@
   * [Add payment requests](../operations/paymentrequests.md#add-payment-requests).
   * [Cancel payment requests](../operations/paymentrequests.md#cancel-payment-requests).
 
+## 20th February 2023
+
+* Added new use case [Mews Payment Terminals](../use-cases/mews-terminals.md)
+* Added new restricted operation [Add payment command](../operations/commands.md#add-payment-command).
+* Deprecated `AssigneeData` in [Get all bills](../operations/bills.md#get-all-bills) response and replaced with  `OwnerData`.
+* Extended [Bill customer data](../operations/bills.md#bill-customer-data) with `CustomerID`, `LegalIdentifiers`, `BillingCode`, `LastName`, `FirstName`, `SecondLastName`, `TitlePrefix` and with [Bill address](../operations/bills.md#bill-address) fields.
+* Extended [Bill company data](../operations/bills.md#bill-company-data) with Owner Data `LegalIdentifiers`, `BillingCode`, `Name`, `FiscalIdentifier`, `AdditionalTaxIdentifier` and with [Bill address](../operations/bills.md#bill-address) fields.
+* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
+* Deprecated  `ItalianFiscalCode` and `ItalianLotteryCode` in [Bill customer data](../operations/bills.md#bill-customer-data).
+
 ## 1st February 2023
 
 * Some changes to documentation structure to improve readability and navigability; documentation only, no functional changes to the API
@@ -45,10 +55,6 @@
 * Deprecated `BasePrices` and replaced it with `BaseAmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `BaseAmountPrices` includes information about the tax breakdown.
 * Deprecated `Prices` and replaced it with `AmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `AmountPrices` includes information about the tax breakdown.
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) response with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
-
-## 17th January 2023
-
-* Extended [Payment Items](../operations/accountingitems.md#payment-item) with `AmountDefault`.
 
 ## 13th January 2023
 
