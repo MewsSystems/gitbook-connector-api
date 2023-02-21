@@ -1,5 +1,9 @@
 # Changelog
 
+## 22nd February 2023
+
+Extended [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `UpdatedUtc` filter.
+
 ## 20th February 2023
 
 * Added new use case [Mews Payment Terminals](../use-cases/mews-terminals.md)
