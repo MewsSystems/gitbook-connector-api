@@ -10,9 +10,9 @@ Get all payment requests belonging to the specified [Customers](customers.md#cus
 
 ```javascript
 {
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "AccessToken": "DEF9B0AA35F74220ADC3AFA900D0EB24-251F227C3344EEEF232B01038D6B780",
-    "ClientToken": "3640AA564052470681BFAFA900D0EA09-C6BE8CB1B41BE4A8F90E7BA1ADBEB54",
     "AccountIds": [
         "8466DFDD-0964-4002-8719-AFA900D0F1BA"
     ],
@@ -29,7 +29,7 @@ Get all payment requests belonging to the specified [Customers](customers.md#cus
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customers](customers.md#customer) to which payment requests were issued. |
-| `States` | [PaymentRequestState](#payment-request-state) | required | A list of payment request states to filter by. |
+| `States` | [Payment request state](#payment-request-state) | optional | A list of payment request states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of payment requests returned (using cursor pagination). |
 
 ### Response
@@ -80,10 +80,10 @@ Get all payment requests belonging to the specified [Customers](customers.md#cus
 | `Id` | string | required | Unique identifier of the payment request. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request was issued. |
 | `ReservationGroupId` | string | optional | Unique identifier of the [Reservation group](reservations#reservation-group). |
-| `State` | [PaymentRequestState](#payment-request-state) | required | A payment request state. |
-| `Amount` | int | required | Amount of the payment request. |
-| `Type` | [PaymentRequestType](#payment-request-type) | required | A payment request type. |
-| `Reason` | [PaymentRequestReason](#payment-request-reason) | required | A payment request reason. |
+| `State` | [Payment request state](#payment-request-state) | required | A payment request state. |
+| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the payment request. |
+| `Type` | [Payment request type](#payment-request-type) | required | A payment request type. |
+| `Reason` | [Payment request reason](#payment-request-reason) | required | A payment request reason. |
 | `ExpirationUtc` | string | required | Date and time of the payment request's expiration in ISO 8601 format. |
 | `Description` | string | required | Description of the payment request. |
 | `Notes` | string | optional | Payment request's notes. |
@@ -98,15 +98,16 @@ Get all payment requests belonging to the specified [Customers](customers.md#cus
 #### Payment request type
 
 * `Payment` - indicates that a [Payment](payments.md) is requested.
-* `Preauthorization` - indicates that a [Preauthorization](preauthorizations.md) is requested.
+* `Preauthorization` - indicates that a [Preauthorization](preauthorizations.md#preauthorization) is requested.
 
 #### Payment request reason
 
-* `PaymentCardMissing` - payment card is missing.
-* `PaymentCardDeclined` - payment card was declined.
-* `Prepayment` - prepayment is requested.
-* `Fee` - fee is requested.
-* `Other` - other payment request reason.
+* `PaymentCardMissing`
+* `PaymentCardDeclined`
+* `Prepayment`
+* `Fee`
+* `Other`
+* ...
 
 ## Add payment requests
 
@@ -118,9 +119,9 @@ Creates a payment request to the specified [Customer](customers.md#customer).
 
 ```javascript
 {
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "AccessToken": "DEF9B0AA35F74220ADC3AFA900D0EB24-251F227C3344EEEF232B01038D6B780",
-    "ClientToken": "3640AA564052470681BFAFA900D0EA09-C6BE8CB1B41BE4A8F90E7BA1ADBEB54",
     "PaymentRequests": [
         {
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
@@ -143,19 +144,26 @@ Creates a payment request to the specified [Customer](customers.md#customer).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `PaymentRequests` | array of [Payment request parameters](#payment-request-parameters) | required | Payment requests to be added. |
+| `PaymentRequests` | array of [Payment request parameters](#payment-request-parameters) | required, max 1000 items | Payment requests to be added. |
 
 #### Payment request parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request is issued. |
-| `Amount` | int | required | Amount of the payment request. |
-| `Type` | [PaymentRequestType](#payment-request-type) | required | A payment request type. |
-| `Reason` | [PaymentRequestReason](#payment-request-reason) | required | A payment request reason. |
+| `Amount` | [Currency value](#currency-value) | required | Amount of the payment request. |
+| `Type` | [Payment request type](#payment-request-type) | required | A payment request type. |
+| `Reason` | [Payment request reason](#payment-request-reason) | required | A payment request reason. |
 | `ExpirationUtc` | string | required | Date and time of the payment request's expiration in ISO 8601 format. |
-| `Description` | string | required | Description of the payment request. |
-| `Notes` | string | optional | Payment request's notes. |
+| `Description` | string | required, max 1000 characters | Description of the payment request. |
+| `Notes` | string | optional, max 1000 characters | Payment request's notes. |
+
+#### Currency value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `Value` | number | required | Amount in the currency. |
 
 ### Response
 
@@ -207,9 +215,9 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
 
 ```javascript
 {
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "AccessToken": "DEF9B0AA35F74220ADC3AFA900D0EB24-251F227C3344EEEF232B01038D6B780",
-    "ClientToken": "3640AA564052470681BFAFA900D0EA09-C6BE8CB1B41BE4A8F90E7BA1ADBEB54",
     "PaymentRequestIds": [
         "6282d17b-a068-4a9f-83d3-afae00c39bfb"
     ]
@@ -221,7 +229,7 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `PaymentRequestIds` | array of string | required | Identifiers of payment requests to be canceled. |
+| `PaymentRequestIds` | array of string | required, max 1000 items | Identifiers of payment requests to be canceled. |
 
 ### Response
 
@@ -261,4 +269,4 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `PaymentRequests` | array of [Payment requests](#payment-request) | required | Added payment requests. |
+| `PaymentRequests` | array of [Payment requests](#payment-request) | required | Canceled payment requests. |
