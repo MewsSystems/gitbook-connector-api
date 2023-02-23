@@ -8,6 +8,7 @@
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
   * [Add payment requests](../operations/paymentrequests.md#add-payment-requests).
   * [Cancel payment requests](../operations/paymentrequests.md#cancel-payment-requests).
+* Added new page [Availability adjustments](../operations/availabilityadjustments.md) with operation [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
 
 ## 20th February 2023
 
