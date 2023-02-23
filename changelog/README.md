@@ -2,6 +2,8 @@
 
 ## 23rd February 2023
 
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with `AvailabilityBlockAssignments` extent.
+* Extended [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ReleasedUtc` filter.
 * Added new page [Payment requests](../operations/paymentrequests.md) with operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
   * [Add payment requests](../operations/paymentrequests.md#add-payment-requests).
