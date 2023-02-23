@@ -196,8 +196,7 @@ Creates a payment request to the specified [Customer](customers.md#customer).
             "Description": "Payment required",
             "Notes": "Internal notes."
         }
-    ],
-    "Cursor": null
+    ]
 }
 ``` 
 
@@ -262,8 +261,7 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
             "Description": "Payment required",
             "Notes": "Internal notes."
         }
-    ],
-    "Cursor": null
+    ]
 }
 ``` 
 
