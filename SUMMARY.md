@@ -62,6 +62,7 @@
   * [Outlet items](operations/outletitems.md)
   * [Outlets](operations/outlets.md)
   * [Payments](operations/payments.md)
+  * [Payment requests](operations/paymentrequests.md)
   * [Preauthorizations](operations/preauthorizations.md)
   * [Products](operations/products.md)
   * [Rates](operations/rates.md)
