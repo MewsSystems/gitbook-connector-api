@@ -1,6 +1,6 @@
 # Changelog
 
-## 22nd February 2023
+## 23rd February 2023
 
 * Extended [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ReleasedUtc` filter.
 
