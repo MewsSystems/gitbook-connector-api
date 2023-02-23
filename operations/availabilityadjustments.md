@@ -35,7 +35,7 @@ Returns all availability adjustments.  Note that this operation uses [Pagination
 | `Client` | string | required | Name and version of the client application. |
 | `AvailabilityAdjustmentIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability adjustments](#availability-adjustment). |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability adjustments](#availability-adjustment) were updated. |
-| `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether to return only active, only deleted or both records. |
+| `ActivityStates` | array of string [Activity state](#activity-state) | optional| Whether to return only active, only deleted or both records. |
 
 #### Time interval
 
