@@ -1,6 +1,6 @@
 # Changelog
 
-## 21st February 2023
+## 23rd February 2023
 
 * Added new page [Payment requests](../operations/paymentrequests.md) with operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
