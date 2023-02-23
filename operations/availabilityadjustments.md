@@ -2,7 +2,7 @@
 
 ## Get all availability adjustments
 
-Returns availability adjustments filtered by specified filters.  Note that this operation uses [Pagination](../guidelines/pagination.md).
+Returns all availability adjustments.  Note that this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
