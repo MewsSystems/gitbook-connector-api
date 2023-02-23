@@ -33,6 +33,10 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         "StartUtc": "2020-11-05T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
     },
+    "ReleasedUtc" : {
+        "StartUtc": "2020-11-04T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
     "States": [
         "Confirmed"
     ],
@@ -61,6 +65,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were created. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were updated. |
 | `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are active. |
+| `ReleasedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are released. |
 | `States` | array of string [Availability block state](#availability-block-state) | optional | States the availability blocks should be in. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |

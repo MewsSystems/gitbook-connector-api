@@ -25,7 +25,8 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
     },
     "Extent": {
         "Rates": true,
-        "RateGroups": true
+        "RateGroups": true,
+        "AvailabilityBlockAssignments": true
     }
 }
 ```
@@ -46,6 +47,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | :-- | :-- | :-- | :-- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
+| `AvailabilityBlockAssignments` | bool | optional | Whether the response should contain availability block assignments. |
 
 #### Time interval
 
@@ -84,6 +86,12 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
             "Name": "Default",
             "ExternalIdentifier": "RG001"
         }
+    ],
+    "AvailabilityBlockAssignments": [
+        {
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "AvailabilityBlockId": "12806ae8-9c15-44c7-9a44-afae01289928"
+        }
     ]
 }
 ```
@@ -92,6 +100,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | :-- | :-- | :-- | :-- |
 | `Rates` | array of [Rate](#rate) | required | Rates of the default service. |
 | `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups of the default service. |
+| `AvailabilityBlockAssignments` | array of [Availability block assignment](#availability-block-assignment) | optional | Shows which rates relate to which availability blocks. |
 
 #### Rate
 
@@ -119,6 +128,13 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate group identifier, chosen by the user for the purposes of portfolio management; called Rate Group Key in Mews Operations. |
+
+#### Availability block assignment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RateId` | string | required | Unique identifier of the [Rate](#rate). |
+| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability Block](availabilityblocks.md#availability-block). |
 
 ## Get rate pricing
 

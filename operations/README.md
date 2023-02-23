@@ -45,6 +45,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all commands by ids](commands.md#get-all-commands-by-ids) | Returns all commands by their identifiers |
 | [Add printer command](commands.md#add-printer-command) | Adds a new printer command representing printing of the specified document on a printer |
 | [Add key cutter command](commands.md#add-key-cutter-command) | Adds a new key cutter command representing cutting of a key for the specified reservation |
+| [Add payment command](commands.md#add-payment-command) | **Restricted!** Adds a new Mews Payment Terminal command |
 | [Update command](commands.md#update-command) | Updates state of a command |
 
 ## Enterprises
