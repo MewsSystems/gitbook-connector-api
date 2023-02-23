@@ -158,11 +158,13 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     ],
     "Adjustments": [
         {
+            "Id": "e19297af-373e-4701-b4ea-afae0129bded",
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ResourceCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
-            "UnitCount": 6
+            "UnitCount": 6,
+            "ActivityState": "Active"
         }
     ]
 }
@@ -172,7 +174,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
 | `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservations](reservations.md#reservation)) linked to availability blocks. |
-| `Adjustments` | array of [Availability block adjustment](#availability-block-adjustment) | optional | Availability adjustments of availability blocks. |
+| `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
 
 #### Availability block
 
@@ -195,16 +197,6 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
-
-#### Availability block adjustment
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block) whose availability is updated. |
-| `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability is updated. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `UnitCount` | string | required | Adjustment value applied on the interval. |
 
 ## Add availability blocks
 

@@ -164,6 +164,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add availability blocks](availabilityblocks.md#add-availability-blocks) | Adds availability blocks which are used to group related availability updates |
 | [Update availability blocks](availabilityblocks.md#update-availability-blocks) | Updates information about the specified availability block |
 | [Delete availability blocks](availabilityblocks.md#delete-availability-blocks) | Delete availability blocks |
+| [Get all availability adjustments](operations/availabilityadjustments.md#get-all-availability-adjustments) | Get all availability adjustments |
 | [Get all rules](rules.md#get-all-rules) | Returns all rules applied with the reservations |
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
 | [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) and rate groups \(condition settings\) of the default service provided by the enterprise |
