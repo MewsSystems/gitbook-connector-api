@@ -4,6 +4,10 @@
 
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with `AvailabilityBlockAssignments` extent.
 * Extended [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) with `ReleasedUtc` filter.
+* Added new page [Payment requests](../operations/paymentrequests.md) with operations:
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
+  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests).
+  * [Cancel payment requests](../operations/paymentrequests.md#cancel-payment-requests).
 * Added new page [Availability adjustments](../operations/availabilityadjustments.md) with operation [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
 
 ## 20th February 2023
