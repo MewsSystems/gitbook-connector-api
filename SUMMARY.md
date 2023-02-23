@@ -33,6 +33,7 @@
   * [Addresses](operations/addresses.md)
   * [Age categories](operations/agecategories.md)
   * [Availability blocks](operations/availabilityblocks.md)
+  * [Availability adjustments](operations/availabilityadjustments.md)
   * [Bills](operations/bills.md)
   * [Business segments](operations/businesssegments.md)
   * [Cashiers](operations/cashiers.md)
