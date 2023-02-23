@@ -81,7 +81,7 @@ Returns all availability adjustments.  Note that this operation uses [Pagination
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the [Availability adjustment](#availability-adjustment). |
-| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](#availability-block) which the availability adjustment belongs to. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) which the availability adjustment belongs to. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability is updated. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
