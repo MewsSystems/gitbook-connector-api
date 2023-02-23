@@ -9,8 +9,8 @@ Not sure which to use? See [Ways to communicate](guidelines/communicate.md). For
 If you encounter any issues using the API, or you have a question or special request, please get in touch via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
 
 > ### Changes to this API
-> * For the history of changes to the API, see the [Changelog](changelog/)
-> * For important information on deprecations, see [Deprecations](deprecations/)
+> * For the history of changes to the API, see the [Changelog](changelog/README.md)
+> * For important information on deprecations, see [Deprecations](deprecations/README.md)
 > * To track changes and updates, you can follow the [GitHub repository](https://github.com/MewsSystems/gitbook-connector-api/tree/master)
 
 > ### OpenAPI definition
