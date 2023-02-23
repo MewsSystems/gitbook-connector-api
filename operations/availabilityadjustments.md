@@ -10,9 +10,9 @@ Returns all availability adjustments.  Note that this operation uses [Pagination
 
 ```javascript
 {
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "AccessToken": "DEF9B0AA35F74220ADC3AFA900D0EB24-251F227C3344EEEF232B01038D6B780",
-    "ClientToken": "3640AA564052470681BFAFA900D0EA09-C6BE8CB1B41BE4A8F90E7BA1ADBEB54",
     "AvailabilityAdjustmentIds": [
         "e19297af-373e-4701-b4ea-afae0129bded",
         "7413724a-6c48-46d4-ab3a-afae01280999"
