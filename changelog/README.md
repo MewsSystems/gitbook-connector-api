@@ -1,6 +1,6 @@
 # Changelog
 
-## 20th February 2023
+## 23rd February 2023
 
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with `AvailabilityBlockAssignments` extent.
 
