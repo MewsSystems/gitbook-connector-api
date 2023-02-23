@@ -85,7 +85,7 @@ Returns all availability adjustments.  Note that this operation uses [Pagination
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability is updated. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `UnitCount` | string | required | Adjustment value applied on the interval. |
+| `UnitCount` | int | required | Adjustment value applied on the interval. |
 | `ActivityState` | string [Activity state](#activity-state) | required | Shows whether the availability adjustment is active or deleted. |
 
 #### Activity state
