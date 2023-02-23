@@ -1,8 +1,8 @@
 # Changelog
 
-## 20th February 2023
+## 23rd February 2023
 
-* Added operation [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
+* Added new page [Availability adjustments](../operations/availabilityadjustments.md) with operation [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
 
 ## 1st February 2023
 
