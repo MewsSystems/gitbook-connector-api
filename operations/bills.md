@@ -95,6 +95,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "VariableSymbol": null,
             "CreatedUtc": "2017-01-31T10:48:06Z",
             "IssuedUtc": "2017-01-31T10:58:06Z",
+            "UpdatedUtc": null,
             "TaxedUtc": null,
             "PaidUtc": null,
             "DueUtc": null,
