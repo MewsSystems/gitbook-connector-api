@@ -16,6 +16,10 @@ Returns all [Sources](sources.md#source) assigned to a [Reservation group](reser
     "ReservationGroupIds": [
         "730d050c-8098-415a-95af-af2500a2de47"
     ],
+        "UpdatedUtc": {
+        "StartUtc": "2023-02-1T00:00:00Z",
+        "EndUtc": "2023-02-28T00:00:00Z"
+    },
     "Limitation": {
         "Count": 10,
         "Cursor": null
@@ -29,6 +33,7 @@ Returns all [Sources](sources.md#source) assigned to a [Reservation group](reser
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationGroupIds` | array of string | required, max 1000 items | Unique identifiers of the [Reservation group](reservations.md#reservation-group). |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Reservation group](reservations.md#reservation-group) last update date and time. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of source assignment data returned. |
 
 ### Response
