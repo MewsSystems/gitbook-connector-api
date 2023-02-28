@@ -1,5 +1,10 @@
 # Changelog
 
+## 28th February 2023
+
+* Added new parameter field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)
+* Added new response field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)
+
 ## 20th February 2023
 
 * Added new use case [Mews Payment Terminals](../use-cases/mews-terminals.md)
