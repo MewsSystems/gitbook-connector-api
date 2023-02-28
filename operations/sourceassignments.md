@@ -16,7 +16,7 @@ Returns all [Sources](sources.md#source) assigned to a [Reservation group](reser
     "ReservationGroupIds": [
         "730d050c-8098-415a-95af-af2500a2de47"
     ],
-        "UpdatedUtc": {
+    "UpdatedUtc": {
         "StartUtc": "2023-02-1T00:00:00Z",
         "EndUtc": "2023-02-28T00:00:00Z"
     },
