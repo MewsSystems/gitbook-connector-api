@@ -176,6 +176,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
+| [Set restrictions](restrictions.md#set-restrictions) | Sets new restrictions |
 | [Add order](orders.md#add-order) | Creates a new order with the specified products and items |
 | [Get all companionships](companionships.md#get-all-companionships) | Returns all companionships based on customers, reservations or reservation groups |
 | [Get all resource access tokens](resourceaccesstokens.md#get-all-resource-access-tokens) | Returns all resource access tokens based on resource access tokens, reservations or interval |

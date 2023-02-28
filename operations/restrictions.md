@@ -369,3 +369,111 @@ Removes restrictions from the service.
 ```javascript
 {}
 ```
+
+## Set restrictions
+
+Adds new restrictions with the specified conditions.
+
+If there already exists a restriction with the same conditions, following scenarios apply:
+
+1) If the exceptions of the new restriction match the old restriction:
+   1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
+   2) If the new interval is shorter, no changes are made.
+2) If the exceptions of the new restriction do not match the old restriction:
+   1) If the new interval is overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
+   2) If the new interval do not overlap the old interval, the new restriction is added as usual.
+
+If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
+
+The usage of this endpoint must be enabled per enterprise.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/set`
+
+```javascript
+{  
+   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+   "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+   "Restrictions": [  
+      {  
+         "Identifier": "1234",
+         "ExternalIdentifier": "5678",
+         "Type": "Start",
+         "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+         "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+         "Days": [  
+            "Friday",
+            "Saturday",
+            "Sunday"
+         ],
+         "MinLength": "P0M2DT0H0M0S",
+         "MaxLength": "P0M7DT0H0M0S",
+      },
+      {  
+         "Identifier": "1235",
+         "ExternalIdentifier": "5678",
+         "Type": "Start",
+         "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+         "Days": {
+            "Monday": false,
+            "Tuesday": false,
+            "Wednesday": false,
+            "Thursday": false,
+            "Friday": true,
+            "Saturday": true,
+            "Sunday": true
+         },
+         "MinAdvance": "P0Y0M1DT0H0M0S",
+         "MaxAdvance": "P0Y0M3DT0H0M0S"
+      }
+   ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
+| `Data` | array of [RestrictionSetData](#restriction-set-data) | required | Parameters of restrictions. |
+
+#### Restriction set data
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Identifier` | string | optional | Identifier of the restriction within the transaction. |
+| `ExternalIdentifier` | string | optional | External identifier of the restriction. |
+| `Type` | string | required | [Restriction type](#restriction-type). |
+| `ExactRateId` | string | optional | Unique identifier of the restricted exact [Rate](rates.md#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the restricted base [Rate](rates.md#rate). |
+| `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](rates.md#rate-group). |
+| `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](resources.md#resource-category). |
+| `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
+| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
+| `Days` | [DaysParameters](#days-parameters) | required | The restricted days of week. |
+| `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
+| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
+| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+| `MinPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the minimum price per time unit. |
+| `MaxPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the maximum price per time unit. |
+
+#### Days parameters
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Monday` | boolean | required | Monday enabled. |
+| `Tuesday` | boolean | required | Tuesday enabled. |
+| `Wednesday` | boolean | required | Wednesday enabled. |
+| `Thursday` | boolean | required | Thursday enabled. |
+| `Friday` | boolean | required | Friday enabled. |
+| `Saturday` | boolean | required | Saturday enabled. |
+| `Sunday` | boolean | required | Sunday enabled. |
+
+### Response
+
+```javascript
+{}
+```
