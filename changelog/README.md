@@ -1,5 +1,9 @@
 # Changelog
 
+## 2nd March 2023
+
+* Added new parameter field `UpdatedUtc` in [Get all accountingItems](../operations/accountingitems.md#get-all-accounting-items)
+
 ## 28th February 2023
 
 * Added new parameter field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)

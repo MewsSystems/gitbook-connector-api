@@ -21,6 +21,10 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
         "StartUtc": "2020-01-05T00:00:00Z",
         "EndUtc": "2020-01-10T00:00:00Z"
     },
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
     "ItemIds": [
         "cb643cb7-8b6e-48a6-b67e-ad4c0041f550",
         "44ca12b8-f009-455e-be91-ad4c013fcbc5"
