@@ -2,7 +2,7 @@
 
 ## Get all sources
 
-Returns all sources from which reservations can be coming from. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all sources from which reservations can originate. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
