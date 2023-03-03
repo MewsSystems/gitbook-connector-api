@@ -1,5 +1,9 @@
 # Changelog
 
+## 6th March 2023
+
+* Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
+
 ## 3rd March 2023
 
 * Added new parameter field `UpdatedUtc` in [Get all accountingItems](../operations/accountingitems.md#get-all-accounting-items)
