@@ -1,5 +1,9 @@
 # Changelog
 
+## 3rd March 2023
+
+* Added new parameter field `UpdatedUtc` in [Get all companionships](../operations/companionships.md#get-all-companionships)
+
 ## 28th February 2023
 
 * Added new parameter field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)
