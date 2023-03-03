@@ -1,6 +1,7 @@
 # Changelog
 
-## 1st March 2022
+## 3rd March 2022
+
 * Extended [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) with `UpdatedUtc` filter.
 
 ## 23rd February 2023
