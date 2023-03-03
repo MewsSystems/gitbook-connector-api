@@ -4,6 +4,11 @@
 
 * Extended [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) with `UpdatedUtc` filter.
 
+## 28th February 2023
+
+* Added new parameter field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)
+* Added new response field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)
+
 ## 23rd February 2023
 
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with `AvailabilityBlockAssignments` extent.
