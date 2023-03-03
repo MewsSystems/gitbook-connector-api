@@ -47,6 +47,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `Client` | string | required | Name and version of the client application. |
 | `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the accounting item was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the accounting item was closed. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the accounting item was updated. Required if no other filter is provided. |
 | `ItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items. Required if no other filter is provided. |
 | `RebatedItemIds` | array of string | optional, max 1000 items | Unique identifiers of the Accounting items we are finding rebates for. Required if no other filter is provided. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
