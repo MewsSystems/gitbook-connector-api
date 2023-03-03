@@ -1,10 +1,9 @@
 # Changelog
 
-## 3rd March 2022
+## 3rd March 2023
 
 * Added new parameter field `UpdatedUtc` in [Get all accountingItems](../operations/accountingitems.md#get-all-accounting-items)
 * Extended [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) with `UpdatedUtc` filter.
-
  
 ## 28th February 2023
 
