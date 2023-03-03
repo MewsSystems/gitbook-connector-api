@@ -136,7 +136,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Date and time of the item updation in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the item in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes. |
 
@@ -155,5 +155,5 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `OutletId` | string | required | Unique identifier of the [Outlet](outlets.md#outlet) where the bill was issued. |
 | `Number` | string | required | Number of the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Date and time of the bill updation in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the bill in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes on the bill. |
