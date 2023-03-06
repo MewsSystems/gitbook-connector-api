@@ -34,8 +34,8 @@ Returns all sources from which reservations can originate. Note this operation u
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `SourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Source](sources.md#source). |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Source](sources.md#source) was updated. |
+| `SourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Sources](sources.md#source). |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of source data returned. |
 
 ### Response
@@ -78,7 +78,7 @@ Returns all sources from which reservations can originate. Note this operation u
 | `Id` | string | required | Unique identifier of the source. |
 | `Name` | string | required | Name of the source. |
 | `Type` | string [Source type](#source-type) | required | Type of the source. |
-| `UpdatedUtc` | string | required | Last update date and time of the source in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Date and time when the source was last updated, expressed in UTC timezone in ISO 8601 format. |
 
 #### Source type
 
