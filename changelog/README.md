@@ -2,6 +2,7 @@
 
 ## 3rd March 2023
 
+* Added new parameter field `UpdatedUtc` in [Get all companionships](../operations/companionships.md#get-all-companionships)
 * Added new parameter field `UpdatedUtc` in [Get all accountingItems](../operations/accountingitems.md#get-all-accounting-items)
 
 ## 28th February 2023
