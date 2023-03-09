@@ -189,6 +189,12 @@ Returns all restrictions of the default service provided by the enterprise.
 
 Adds new restrictions with the specified conditions.
 
+The added restrictions by this endpoint match the restrictions sent in the request. If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made.
+
+This means that there can easily be a big number of restrictions per service, leading to sub-optimal performance. Quota of **150000** has been introduced for this reason.
+
+To mitigate the issue, the preferred way to add restrictions is the [restrictions set endpoint](#set-restrictions).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/add`
@@ -376,16 +382,18 @@ Adds new restrictions with the specified conditions.
 
 If there already exists a restriction with the same conditions, following scenarios apply:
 
-1) If the exceptions of the new restriction match the old restriction:
-   1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
+- A. If the exceptions of the new restriction match the old restriction:
+   1) A If the new interval is longer than the old one, new restriction is created joining the two intervals.
    2) If the new interval is shorter, no changes are made.
-2) If the exceptions of the new restriction do not match the old restriction:
-   1) If the new interval is overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
+- B. If the exceptions of the new restriction do not match the old restriction:
+   1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
    2) If the new interval do not overlap the old interval, the new restriction is added as usual.
 
 If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
 
-The usage of this endpoint must be enabled per enterprise.
+The usage of this endpoint must be enabled per enterprise by Connectivity team.
+
+Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint.](#add-restrictions)
 
 ### Request
 
