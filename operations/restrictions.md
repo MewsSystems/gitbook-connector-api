@@ -195,6 +195,8 @@ This means that there can easily be a big number of restrictions per service, le
 
 To mitigate the issue, the preferred way to add restrictions is the [restrictions set endpoint](#set-restrictions).
 
+This endpoint cannot be used in conjunction with [restrictions set endpoint](#set-restrictions).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/add`
@@ -378,12 +380,15 @@ Removes restrictions from the service.
 
 ## Set restrictions
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
 Adds new restrictions with the specified conditions.
 
 If there already exists a restriction with the same conditions, following scenarios apply:
 
 - A. If the exceptions of the new restriction match the old restriction:
-   1) A If the new interval is longer than the old one, new restriction is created joining the two intervals.
+   1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
    2) If the new interval is shorter, no changes are made.
 - B. If the exceptions of the new restriction do not match the old restriction:
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
@@ -391,9 +396,11 @@ If there already exists a restriction with the same conditions, following scenar
 
 If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
 
-The usage of this endpoint must be enabled per enterprise by Connectivity team.
+Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint](#add-restrictions), but the internal logic makes the quota much less likely to be exceeded.
 
-Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint.](#add-restrictions)
+The usage of this endpoint must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable this endpoint.
+
+This endpoint cannot be used in conjunction with [restrictions add endpoint](#add-restrictions).
 
 ### Request
 
