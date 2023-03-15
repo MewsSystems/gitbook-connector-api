@@ -47,19 +47,19 @@ Returns all sources from which reservations can originate. Note this operation u
             "Id": "bbe29c21-401a-4746-b97d-af1f00e1bb8b",
             "Name": "Booking.com",
             "Type": "OnlineTravelAgency",
-            "UpdatedUtc": "2023-01-05T12:00:00Z",
+            "UpdatedUtc": "2023-01-05T12:00:00Z"
         },
         {
             "Id": "22e42a59-b321-43f8-a5d1-af1f00e1bb8b",
             "Name": "Hostelworld",
             "Type": "OnlineTravelAgency",
-            "UpdatedUtc": "2023-01-06T12:00:00Z",
+            "UpdatedUtc": "2023-01-06T12:00:00Z"
         },
         {
             "Id": "b5a55d41-bbc5-48d0-a01b-af1f00e1bb8b",
             "Name": "SynXis",
             "Type": "OnlineTravelAgency",
-            "UpdatedUtc": "2023-01-06T12:00:00Z",
+            "UpdatedUtc": "2023-01-06T12:00:00Z"
         }
     ],
     "Cursor": "b5a55d41-bbc5-48d0-a01b-af1f00e1bb8b"
