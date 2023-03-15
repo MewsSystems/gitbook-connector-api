@@ -1,14 +1,22 @@
 # Changelog
 
-## 15th March 2023
+## 16th March 2023
 
 * Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
+
+## 15th March 2023
+
+* Extended [Get all sources](../operations/sources.md#get-all-sources) with `UpdatedUtc` and `SourceIds` filter.
+* Extended [Get all sources](../operations/sources.md#get-all-sources) response with `UpdatedUtc` in [Source](../operations/sources.md#source).
+* Extended [Get all outlet items](../operations/outletitems.md#get-all-outlet-items) with `UpdatedUtc` filter.
+* Extended [Get all outlet items](../operations/outletitems.md#get-all-outlet-items) response with `UpdatedUtc` in [Outlet bill](../operations/outletitems.md#outlet-bill) and [Outlet item](../operations/outletitems.md#outlet-item).
 
 ## 3rd March 2023
 
 * Added new parameter field `UpdatedUtc` in [Get all companionships](../operations/companionships.md#get-all-companionships)
 * Added new parameter field `UpdatedUtc` in [Get all accountingItems](../operations/accountingitems.md#get-all-accounting-items)
-
+* Extended [Get all source assignments](../operations/sourceassignments.md#get-all-source-assignments) with `UpdatedUtc` filter.
+ 
 ## 28th February 2023
 
 * Added new parameter field `UpdatedUtc` in [Get all bills](../operations/bills.md#get-all-bills)
