@@ -394,6 +394,10 @@ If there already exists a restriction with the same conditions, following scenar
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
    2) If the new interval do not overlap the old interval, the new restriction is added as usual.
 
+Interval is defined as all the dates contained within the `StartUtc` and `EndUtc` inclusive.
+
+The `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to enterprise's local datetime. This is different from the `restrictions add` endpoint since it allowed setting different times. Restrictions are applied for all the dates within the interval including the `EndUtc` date.
+
 If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
 
 Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint](#add-restrictions), but the internal logic makes the quota much less likely to be exceeded.
@@ -466,8 +470,8 @@ This endpoint cannot be used in conjunction with [restrictions add endpoint](#ad
 | `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](rates.md#rate-group). |
 | `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](resources.md#resource-category). |
 | `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional | Start date of the restricted interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
+| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning the restriction will apply on the date of `EndUtc`. |
 | `Days` | [DaysParameters](#days-parameters) | required | The restricted days of week. |
 | `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
