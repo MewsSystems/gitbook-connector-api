@@ -1,6 +1,6 @@
 # Changelog
 
-## 6th March 2023
+## 15th March 2023
 
 * Extended [Get all sources](../operations/sources.md#get-all-sources) with `UpdatedUtc` and `SourceIds` filter.
 * Extended [Get all sources](../operations/sources.md#get-all-sources) response with `UpdatedUtc` in [Source](../operations/sources.md#source).
