@@ -1,6 +1,6 @@
 # Changelog
 
-## 6th March 2023
+## 15th March 2023
 
 * Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
 
