@@ -1,5 +1,9 @@
 # Changelog
 
+## 16th March 2023
+
+* Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
+
 ## 15th March 2023
 
 * Extended [Get all sources](../operations/sources.md#get-all-sources) with `UpdatedUtc` and `SourceIds` filter.
