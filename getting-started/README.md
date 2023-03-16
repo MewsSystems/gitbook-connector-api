@@ -68,5 +68,4 @@ If you receive an error response, check the [response codes](../guidelines/respo
 Note that if you encounter a `429` error with one of the testing demo credentials, it may be that multiple developers are using the same demo credentials and have exhausted our [request limits](../guidelines/requests.md#request-limits).
 To minimize the impact this may have on your development efforts, we provide multiple sets of tokens for the test hotels that you can use in Demo.
 
-Be aware that some 'get' operations use [pagination](../guidelines/pagination.md) to manage performance when fetching potentially large amounts of data.
-For other tips on how to get the most of your integration, see our [best practices](../guidelines/best-practices.md).
+Be aware that some 'get' operations use [pagination](../guidelines/pagination.md) to manage performance when fetching potentially large amounts of data. For other tips on how to get the most out of your integration, see our [best practices](../guidelines/best-practices.md).
