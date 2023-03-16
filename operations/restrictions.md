@@ -422,11 +422,15 @@ This endpoint cannot be used in conjunction with [restrictions add endpoint](#ad
          "Type": "Start",
          "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
          "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
-         "Days": [  
-            "Friday",
-            "Saturday",
-            "Sunday"
-         ],
+         "Days": {
+            "Monday": false,
+            "Tuesday": false,
+            "Wednesday": false,
+            "Thursday": false,
+            "Friday": true,
+            "Saturday": true,
+            "Sunday": true
+         },
          "MinLength": "P0M2DT0H0M0S",
          "MaxLength": "P0M7DT0H0M0S",
       },
