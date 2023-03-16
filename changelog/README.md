@@ -2,6 +2,7 @@
 
 ## 16th March 2023
 
+* Added new page [Best practices](../guidelines/best-practices.md)
 * Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
 
 ## 15th March 2023
