@@ -388,19 +388,19 @@ Adds new restrictions with the specified conditions.
 If there already exists a restriction with the same conditions, following scenarios apply:
 
 - A. If the exceptions of the new restriction match the old restriction:
-   1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
+   1) If the new interval is longer than the old one, a new restriction is created joining the two intervals.
    2) If the new interval is shorter, no changes are made.
 - B. If the exceptions of the new restriction do _not_ match the old restriction:
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
-   2) If the new interval do not overlap the old interval, the new restriction is added as usual.
+   2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
 
-Interval is defined as all the dates contained within the `StartUtc` and `EndUtc` inclusive.
+Note that interval is defined as all the dates contained between and inclusive of `StartUtc` and `EndUtc`.
 
 The `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to enterprise's local datetime. This is different from the `restrictions add` endpoint since it allowed setting different times. Restrictions are applied for all the dates within the interval including the `EndUtc` date.
 
-If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
+If the supplied restrictions match in all properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
 
-Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint](#add-restrictions), but the internal logic makes the quota much less likely to be exceeded.
+A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the merging algorithm.
 
 The usage of this endpoint must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable this endpoint.
 
