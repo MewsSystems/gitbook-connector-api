@@ -390,7 +390,7 @@ If there already exists a restriction with the same conditions, following scenar
 - A. If the exceptions of the new restriction match the old restriction:
    1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
    2) If the new interval is shorter, no changes are made.
-- B. If the exceptions of the new restriction do not match the old restriction:
+- B. If the exceptions of the new restriction do _not_ match the old restriction:
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
    2) If the new interval do not overlap the old interval, the new restriction is added as usual.
 
