@@ -189,7 +189,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 Adds new restrictions with the specified conditions.
 
-The added restrictions by this endpoint match the restrictions sent in the request. If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made.
+**Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [set restrictions](#set-restrictions). The new operation is currently marked as 'Restricted' and subject to change as part of beta testing, but in time we expect that to replace [add restrictions](#add-restrictions).
 
 This means that there can easily be a big number of restrictions per service, leading to sub-optimal performance. Quota of **150000** has been introduced for this reason.
 
@@ -382,10 +382,22 @@ Removes restrictions from the service.
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
+> 
+>  The usage of this endpoint must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable this endpoint.
 
 Adds new restrictions with the specified conditions.
 
-If there already exists a restriction with the same conditions, following scenarios apply:
+The `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to enterprise's local datetime. This is different from the `restrictions add` endpoint since it allowed setting different times. Restrictions are applied for all the dates within the interval including the `EndUtc` date.
+
+If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction. See [merging algorithm](#merging-algorithm).
+
+Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint](#add-restrictions), but the internal logic makes the quota much less likely to be exceeded.
+
+This endpoint cannot be used in conjunction with [restrictions add endpoint](#add-restrictions). Reason being that the [add endpoint](#add-restrictions) does not support the [merging algorithm](#merging-algorithm). This means that the [add endpoint](#add-restrictions) can be used to add a significant number of restriction, hitting the quota early and contributing to sub-optimal performance.
+
+## Merging algorithm
+
+If a restriction already exists with the same conditions, merging algorithm is applied to improve efficiency, as described below.
 
 - A. If the exceptions of the new restriction match the old restriction:
    1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
@@ -395,16 +407,6 @@ If there already exists a restriction with the same conditions, following scenar
    2) If the new interval do not overlap the old interval, the new restriction is added as usual.
 
 Interval is defined as all the dates contained within the `StartUtc` and `EndUtc` inclusive.
-
-The `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to enterprise's local datetime. This is different from the `restrictions add` endpoint since it allowed setting different times. Restrictions are applied for all the dates within the interval including the `EndUtc` date.
-
-If the supplied restrictions match in all the properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction.
-
-Quota of **150000** restrictions per service applies here as well as the [restrictions add endpoint](#add-restrictions), but the internal logic makes the quota much less likely to be exceeded.
-
-The usage of this endpoint must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable this endpoint.
-
-This endpoint cannot be used in conjunction with [restrictions add endpoint](#add-restrictions).
 
 ### Request
 
