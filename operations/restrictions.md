@@ -189,11 +189,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 Adds new restrictions with the specified conditions.
 
-**Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [set restrictions](#set-restrictions). The new operation is currently marked as 'Restricted' and subject to change as part of beta testing, but in time we expect that to replace [add restrictions](#add-restrictions).
-
-This means that there can easily be a big number of restrictions per service, leading to sub-optimal performance. Quota of **150000** has been introduced for this reason.
-
-To mitigate the issue, the preferred way to add restrictions is the [restrictions set endpoint](#set-restrictions).
+> **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions). The new operation is currently marked as 'Restricted' and subject to change as part of beta testing, but in time we expect that to replace [Add restrictions](#add-restrictions).
 
 This endpoint cannot be used in conjunction with [restrictions set endpoint](#set-restrictions).
 
@@ -381,9 +377,7 @@ Removes restrictions from the service.
 ## Set restrictions
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
-> 
->  The usage of this endpoint must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable this endpoint.
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable it.
 
 Adds new restrictions with the specified conditions.
 
