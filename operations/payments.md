@@ -190,3 +190,84 @@ Adds a new alternative payment to a specified customer.
 #### Payment next action discriminator
 
 * `RedirectToUrl` - Redirect customer to a URL where they can complete their payment.
+
+## Get all payments
+
+Returns all payments. Note this operation uses [Pagination](../guidelines/pagination.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "PaymentIds": 
+    [
+        "f6313945-94c1-4e27-b402-031c2a8c989f",
+        "be922eb7-bc5f-4877-b847-1120c0c2acd2"
+    ],
+    "BillIds": 
+    [
+        "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
+        "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
+    "ChargedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
+    "ClosedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },    
+    "AccountingStates": [
+        "Closed"
+    ],
+    "States":[
+        "Open"
+    ],
+    "Currency": "EUR",
+    "Limitation": {
+        "Count": 10, 
+        "Cursor": null
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `PaymentIds` | array of string | required, max 1000 items | Unique identifier of the [Payment](payments.md#payment). |
+| `BillIds` | array of string | required, max 1000 items | Unique identifier of the [Bill](bills.md#bill) to which payment is assigned to. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was created. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was updated. |
+| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was charged. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was closed. |
+| `AccountingState` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
+| `States` | array of string [Accounting item state](#accounting-item-state) | optional | States the accounting items should be in. If not specified, accounting items in `Open` or `Closed` states are returned. |
+| `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+
+### Response
+
+```javascript
+{
+    "Payments": [
+    ],
+    "Cursor": "d98c9611-0006-4691-a835-af2e00b170c4"
+}
+```
+
+#### Payment
