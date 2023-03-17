@@ -191,8 +191,6 @@ Adds new restrictions with the specified conditions.
 
 > **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions). The new operation is currently marked as 'Restricted' and subject to change as part of beta testing, but in time we expect that to replace [Add restrictions](#add-restrictions).
 
-This endpoint cannot be used in conjunction with [restrictions set endpoint](#set-restrictions).
-
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/add`
@@ -377,28 +375,25 @@ Removes restrictions from the service.
 ## Set restrictions
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please, contact the Technical Partner Support team in order to enable it.
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
-Adds new restrictions with the specified conditions.
+Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction - see [Merging algorithm](#merging-algorithm). A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [Merging algorithm](#merging-algorithm).
 
-The `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to enterprise's local datetime. This is different from the `restrictions add` endpoint since it allowed setting different times. Restrictions are applied for all the dates within the interval including the `EndUtc` date.
+### Merging algorithm
 
-If the supplied restrictions match in all properties but differ in interval and follow each other chronologically, the supplied restrictions will be joined into a single restriction. See [merging algorithm](#merging-algorithm).
-
-A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [merging algorithm](#merging-algorithm).
-
-This endpoint cannot be used in conjunction with [restrictions add endpoint](#add-restrictions). Reason being that the [add endpoint](#add-restrictions) does not support the [merging algorithm](#merging-algorithm). This means that the [add endpoint](#add-restrictions) can be used to add a significant number of restriction, hitting the quota early and contributing to sub-optimal performance.
-
-## Merging algorithm
-
-If a restriction already exists with the same conditions, merging algorithm is applied to improve efficiency, as described below.
+If a restriction already exists with the same conditions, or if multiple supplied restrictions match in all properties but differ in time interval and follow each other chronologically, a merging algorithm is applied to combine them.
+This reduces the overall number of restrictions and improves system performance. The merging algorithm is as follows:
 
 - A. If the exceptions of the new restriction match the old restriction:
-   1) If the new interval is longer than the old one, new restriction is created joining the two intervals.
+   1) If the new interval is longer than the old one, a new restriction is created joining the two intervals.
    2) If the new interval is shorter, no changes are made.
-- B. If the exceptions of the new restriction do not match the old restriction:
+- B. If the exceptions of the new restriction do _not_ match the old restriction:
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
-   2) If the new interval do not overlap the old interval, the new restriction is added as usual.
+   2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
+
+### Time interval
+
+Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to the enterprise's local datetime. This is different from the [Add restrictions](#add-restrictions) operation since it allows the setting of different times. Restrictions are applied for all the dates within the interval, including the `EndUtc` date.
 
 ### Request
 
