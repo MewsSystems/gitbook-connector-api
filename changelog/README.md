@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th March 2023
+
+* Added operation [Set restrictions](../operations/restrictions.md#set-restrictions).
+
 ## 16th March 2023
 
 * Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
