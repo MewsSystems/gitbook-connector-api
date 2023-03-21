@@ -406,8 +406,6 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
    "Restrictions": [  
       {  
-         "Identifier": "1234",
-         "ExternalIdentifier": "5678",
          "Type": "Start",
          "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
          "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
@@ -424,8 +422,6 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
          "MaxLength": "P0M7DT0H0M0S",
       },
       {  
-         "Identifier": "1235",
-         "ExternalIdentifier": "5678",
          "Type": "Start",
          "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
          "Days": {
@@ -455,8 +451,6 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 #### Restriction set data
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Identifier` | string | optional | Identifier of the restriction within the transaction. |
-| `ExternalIdentifier` | string | optional | External identifier of the restriction. |
 | `Type` | string | required | [Restriction type](#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted exact [Rate](rates.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted base [Rate](rates.md#rate). |
