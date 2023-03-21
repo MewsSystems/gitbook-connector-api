@@ -28,6 +28,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
         "StartUtc": "2020-02-05T00:00:00Z",
         "EndUtc": "2020-02-10T00:00:00Z"
     },
+    "UpdatedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-10T00:00:00Z"
+    },
     "DueUtc": null,
     "PaidUtc": null,
     "Extent": {
@@ -50,6 +54,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `State` | string | optional | [Bill state](#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was updated. |
 | `DueUtc` | [Time interval](#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
 | `PaidUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
@@ -90,6 +95,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "VariableSymbol": null,
             "CreatedUtc": "2017-01-31T10:48:06Z",
             "IssuedUtc": "2017-01-31T10:58:06Z",
+            "UpdatedUtc": null,
             "TaxedUtc": null,
             "PaidUtc": null,
             "DueUtc": null,

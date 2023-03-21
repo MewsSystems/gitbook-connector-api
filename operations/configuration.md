@@ -66,7 +66,15 @@ Returns configuration of the enterprise and the client.
         ],
         "Pricing": "Gross",
         "TaxPrecision": null,
-        "ExternalIdentifier": null
+        "ExternalIdentifier": null,
+        "AccountingConfiguration": {
+            "AdditionalTaxIdentifier": null,
+            "CompanyName": "Connector API Hotel",
+            "BankAccountNumber": "1234",
+            "BankName": "Random bank",
+            "Iban": "CZ7250517882393618329719",
+            "Bic": "GIBACZPY"
+        }
     },
     "Service":
     {
@@ -117,6 +125,7 @@ Returns configuration of the enterprise and the client.
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level enterprise identifier, chosen by the user for the purposes of portfolio management; called Enterprise Key in Mews Operations. |
+| `AccountingConfiguration` | [Accounting configuration](#accounting-configuration) | optional | Configuration information containg financial information about the property. |
 
 #### Address
 
@@ -150,3 +159,14 @@ Returns configuration of the enterprise and the client.
 | Property | Type | Contract | Description |
 | :--- | :--- | :--- | :--- |
 | `PublicKey` | string | required | Key for accessing PCI proxy storage. |
+
+#### Accounting configuration
+
+| Property | Type | Contract | Description |
+| :--- | :--- | :--- | :--- |
+| `AdditionalTaxIdentifier` | string | optional, max 50 characters | Organization number. |
+| `CompanyName` | string | optional, max 100 characters | Legal name of the company. |
+| `BankAccountNumber` | string | optional, max 50 characters | Bank account number. |
+| `BankName` | string | optional, max 100 characters | Name of the bank. |
+| `Iban` | string | optional, max 40 characters | International Bank Account Number. |
+| `Bic` | string | optional, max 11 characters | Business Identification Code. |

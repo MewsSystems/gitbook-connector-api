@@ -21,6 +21,10 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
         "StartUtc": "2020-01-05T00:00:00Z",
         "EndUtc": "2020-01-10T00:00:00Z"
     },
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
     "Currency": "EUR",
     "Limitation": {
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
@@ -36,6 +40,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `Client` | string | required | Name and version of the client application. |
 | `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was updated. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of outlet items returned. |
 
@@ -66,6 +71,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             },
             "CreatedUtc": "2018-07-25T12:47:11Z",
             "ConsumedUtc": "2018-07-26T12:19:07Z",
+            "UpdatedUtc": "2018-07-26T12:19:07Z",
             "ExternalIdentifier": null,
             "Notes": null
         },
@@ -84,6 +90,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             },
             "CreatedUtc": "2018-07-25T16:25:28Z",
             "ConsumedUtc": "2018-07-26T10:11:08Z",
+            "UpdatedUtc": "2018-07-26T10:11:08Z",
             "ExternalIdentifier": "PaymentReference123",
             "Notes": null
         }
@@ -94,6 +101,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "OutletId": "c9f09414-2fdf-41d6-bdb1-12158b01048e",
             "Number": "1305",
             "ClosedUtc": "2018-07-26T12:19:07Z",
+            "UpdatedUtc": "2018-07-26T12:19:07Z",
             "Notes": null
         },
         {  
@@ -101,6 +109,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "OutletId": "E0A29D6D-411E-4302-AA6D-9289935C5F14",
             "Number": "1306",
             "ClosedUtc": "2018-07-26T10:19:02Z",
+            "UpdatedUtc": "2018-07-26T10:19:02Z",
             "Notes": null
         }
     ],
@@ -127,6 +136,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the item. |
 | `CreatedUtc` | string | optional | Date and time of the item creation in UTC timezone in ISO 8601 format. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the item in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes. |
 
@@ -145,4 +155,5 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `OutletId` | string | required | Unique identifier of the [Outlet](outlets.md#outlet) where the bill was issued. |
 | `Number` | string | required | Number of the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the bill in UTC timezone in ISO 8601 format. |
 | `Notes` | string | optional | Additional notes on the bill. |
