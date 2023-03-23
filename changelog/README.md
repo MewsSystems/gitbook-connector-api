@@ -4,6 +4,10 @@
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
+## 23rd March 2023
+
+* Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON
+
 ## 22nd March 2023
 
 * Added new page [Best practices](../guidelines/best-practices.md)
