@@ -4,6 +4,10 @@
 
 * Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON
 
+## 22nd March 2023
+
+* Added new page [Best practices](../guidelines/best-practices.md)
+
 ## 17th March 2023
 
 * Added operation [Set restrictions](../operations/restrictions.md#set-restrictions).
