@@ -1,5 +1,9 @@
 # Changelog
 
+## 24th March 2023
+
+* Added operation [Get all payments](../operations/payments.md#get-all-payments).
+
 ## 16th March 2023
 
 * Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
