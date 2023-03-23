@@ -194,21 +194,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                     ]
                 }
             },
-            "AmountDefault": {
-                "Currency": "EUR",
-                "NetValue": 850.00,
-                "GrossValue": 850.00,
-                "TaxValues": [],
-                "Breakdown": {
-                    "Items": [
-                        {
-                            "TaxRateCode": null,
-                            "NetValue": 850.00,
-                            "TaxValue": 0.0
-                        }
-                    ]
-                }
-            },
             "Notes": "NORMAL0140",
             "SettlementId": "po_1Lun9w4JpyDC38oQJQz7hAcx",
             "ConsumedUtc": "2021-06-19T19:24:20Z",
@@ -262,7 +247,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
 | `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
-| `AmountDefault` | [Amount value](#amount-value) | required | Item's amount in property's default currency, negative amount represents either rebate or a payment. |
+| ~~`AmountDefault`~~ | ~~[Amount value](#amount-value)~~ | ~~required~~ | ~~Item's amount in property's default currency, negative amount represents either rebate or a payment.~~ **Deprecated!** |
 | `Notes` | string | optional | Additional notes. |
 | `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |

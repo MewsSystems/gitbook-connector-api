@@ -1,8 +1,9 @@
 # Changelog
 
-## 20th March 2023
+## 24th March 2023
 
 * Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response with `OriginalAmount` in [Order items](../operations/accountingitems.md#order-item) and [Payment items](../operations/accountingitems.md#payment-item).
+* Deprecated `AmountDefault` in Extended [Payment Items](../operations/accountingitems.md#payment-item).
 
 ## 23rd March 2023
 
