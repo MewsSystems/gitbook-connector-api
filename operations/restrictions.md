@@ -343,6 +343,8 @@ Adds new restrictions with the specified conditions.
 
 Removes restrictions from the service.
 
+> **Important:** Since the [set restrictions](#set-restrictions) operation is the preffered way to add restrictions, this endpoint becomes unusable when used in conjunction with the set. This is because the set operation does not return the ids of individual restrictions. To delete restrictions added by the set restrictions operation, use the [clear restrictions](#clear-restrictions) operation.
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/delete`
@@ -478,40 +480,41 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
-Deletes restrictions that exactly the conditions. The clear algorithm is as follows:
+Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm).
 
-- A. If no interval is supplied
+This operation is meant to replace the [restrictions delete](#delete-restrictions) operation as the introduction of [restrictions set](#set-restrictions) makes the delete operation very impractical. This is because the [merging algorithm](#merging-algorithm) makes it very hard to keep track of individual restriction ids.
 
-### Merging algorithm
+### Matching conditions
 
-If a restriction already exists with the same conditions, or if multiple supplied restrictions match in all properties but differ in time interval and follow each other chronologically, a merging algorithm is applied to combine them.
-This reduces the overall number of restrictions and improves system performance. The merging algorithm is as follows:
+The [spliced](#splicing-algorithm) restriction must match the specified conditions exactly. Consider the following example:
 
-- A. If the exceptions of the new restriction match the old restriction:
-   1) If the new interval is longer than the old one, a new restriction is created joining the two intervals.
-   2) If the new interval is shorter, no changes are made.
-- B. If the exceptions of the new restriction do _not_ match the old restriction:
-   1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
-   2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
+Service has restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 to all rates.
 
-### Time interval
+If the clear data specified have specified resource category C1 but do not specify any rate, only restriction B is spliced. Restriction B remains untouch, even though it is applied to resource category C1 as well.
 
-Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to the enterprise's local datetime. This is different from the [Add restrictions](#add-restrictions) operation since it allows the setting of different times. Restrictions are applied for all the dates within the interval, including the `EndUtc` date.
+### Splicing algorithm
+
+Splicing refers to the process of cutting a restriction according to the supplied time interval, removing the original restriction and adding the offcuts.
+
+Consider restriction A that is applicable from 5th of January to 25th of January. If the interval of the supplied clear data is set to 10th of January to 20th of January, following logic is applied:
+
+Two new restrictions are created. Restriction B is created, applicable from 1st of January to 4th of January. Restriction C is created, applicable from the 21st of January to 25th of January. Restriction A is deleted.
+
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/restrictions/set`
+`[PlatformAddress]/api/connector/v1/restrictions/clear`
 
 ```javascript
 {  
    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-   "Restrictions": [  
+   "Data": [  
       {  
-         "Identifier": "1234",
-         "ExternalIdentifier": "5678",
          "Type": "Start",
+         "StartUtc": "2023-02-15T00:00:00Z",
+         "EndUtc": "2023-02-22T00:00:00Z",
          "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
          "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
          "Days": {
@@ -522,14 +525,12 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
             "Friday": true,
             "Saturday": true,
             "Sunday": true
-         },
-         "MinLength": "P0M2DT0H0M0S",
-         "MaxLength": "P0M7DT0H0M0S",
+         }
       },
-      {  
-         "Identifier": "1235",
-         "ExternalIdentifier": "5678",
+      {
          "Type": "Start",
+         "StartUtc": "2023-02-23T00:00:00Z",
+         "EndUtc": "2023-03-03T00:00:00Z",
          "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
          "Days": {
             "Monday": false,
@@ -539,9 +540,7 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
             "Friday": true,
             "Saturday": true,
             "Sunday": true
-         },
-         "MinAdvance": "P0Y0M1DT0H0M0S",
-         "MaxAdvance": "P0Y0M3DT0H0M0S"
+         }
       }
    ]
 }
@@ -553,39 +552,20 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
-| `Data` | array of [RestrictionSetData](#restriction-set-data) | required | Parameters of restrictions. |
+| `Data` | Array of [RestrictionClearData](#restriction-clear-data) | required | Clear parameters. |
 
-#### Restriction set data
+#### Restriction clear data
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Identifier` | string | optional | Identifier of the restriction within the transaction. |
-| `ExternalIdentifier` | string | optional | External identifier of the restriction. |
 | `Type` | string | required | [Restriction type](#restriction-type). |
-| `ExactRateId` | string | optional | Unique identifier of the restricted exact [Rate](rates.md#rate). |
-| `BaseRateId` | string | optional | Unique identifier of the restricted base [Rate](rates.md#rate). |
-| `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](rates.md#rate-group). |
-| `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](resources.md#resource-category). |
-| `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
-| `StartUtc` | string | optional | Start date of the restricted interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning the restriction will apply on the date of `EndUtc`. |
-| `Days` | [DaysParameters](#days-parameters) | required | The restricted days of week. |
-| `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
-| `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
-| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
-| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
-| `MinPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the minimum price per time unit. |
-| `MaxPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the maximum price per time unit. |
-
-#### Days parameters
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Monday` | boolean | required | Monday enabled. |
-| `Tuesday` | boolean | required | Tuesday enabled. |
-| `Wednesday` | boolean | required | Wednesday enabled. |
-| `Thursday` | boolean | required | Thursday enabled. |
-| `Friday` | boolean | required | Friday enabled. |
-| `Saturday` | boolean | required | Saturday enabled. |
-| `Sunday` | boolean | required | Sunday enabled. |
+| `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) of the restrictions to be spliced. |
+| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate) of the restrictions to be spliced. |
+| `RateGroupId` | string | optional | Unique identifier of the [Rate group](rates.md#rate-group) of the restrictions to be spliced. |
+| `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) of the restrictions to be spliced. |
+| `ResourceCategoryType` | string | optional | Name of the [Resource category type](resources.md#resource-category-type) of the restrictions to be spliced. |
+| `StartUtc` | string | optional | Start date of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
+| `EndUtc` | string | optional | End of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning restrictions applicable on the date of `EndUtc` will be spliced. |
+| `Days` | [DaysParameters](#days-parameters) | required | The days of week of the restrictions to be spliced. |
 
 ### Response
 
