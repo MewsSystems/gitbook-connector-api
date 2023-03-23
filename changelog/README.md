@@ -4,6 +4,14 @@
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
+## 22nd March 2023
+
+* Added new page [Best practices](../guidelines/best-practices.md)
+
+## 17th March 2023
+
+* Added operation [Set restrictions](../operations/restrictions.md#set-restrictions).
+
 ## 16th March 2023
 
 * Extended [Enterprise](../operations/configuration.md#enterprise) with `AccountingConfiguration` in [Get configuration](../operations/configuration.md#get-configuration).
