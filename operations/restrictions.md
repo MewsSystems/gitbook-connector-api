@@ -478,7 +478,9 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
-Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction - see [Merging algorithm](#merging-algorithm). A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [Merging algorithm](#merging-algorithm).
+Deletes restrictions that exactly the conditions. The clear algorithm is as follows:
+
+- A. If no interval is supplied
 
 ### Merging algorithm
 
