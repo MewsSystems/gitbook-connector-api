@@ -1,5 +1,9 @@
 # Changelog
 
+## 23th March 2023
+
+* Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed Identifier and ExternalIdentifier, and updated sample JSON
+
 ## 17th March 2023
 
 * Added operation [Set restrictions](../operations/restrictions.md#set-restrictions).
