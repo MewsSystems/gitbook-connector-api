@@ -406,11 +406,11 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-   "Restrictions": [  
+   "Data": [  
       {  
-         "Identifier": "1234",
-         "ExternalIdentifier": "5678",
          "Type": "Start",
+         "StartUtc": "2023-02-15T00:00:00Z",
+         "EndUtc": "2023-02-22T00:00:00Z",
          "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
          "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
          "Days": {
@@ -426,9 +426,9 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
          "MaxLength": "P0M7DT0H0M0S",
       },
       {  
-         "Identifier": "1235",
-         "ExternalIdentifier": "5678",
          "Type": "Start",
+         "StartUtc": "2023-02-23T00:00:00Z",
+         "EndUtc": "2023-03-03T00:00:00Z",
          "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
          "Days": {
             "Monday": false,
@@ -457,8 +457,6 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 #### Restriction set data
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Identifier` | string | optional | Identifier of the restriction within the transaction. |
-| `ExternalIdentifier` | string | optional | External identifier of the restriction. |
 | `Type` | string | required | [Restriction type](#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the restricted exact [Rate](rates.md#rate). |
 | `BaseRateId` | string | optional | Unique identifier of the restricted base [Rate](rates.md#rate). |

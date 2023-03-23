@@ -10,6 +10,7 @@
   * [Serialization](guidelines/serialization.md)
   * [Pagination](guidelines/pagination.md)
   * [Taxation](guidelines/taxation.md)
+  * [Best practices](guidelines/best-practices.md)
   * [Certification](guidelines/certification.md)
 * [Use cases](use-cases/README.md)
   * [Accounting](use-cases/accounting.md)
