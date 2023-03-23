@@ -570,3 +570,15 @@ Two new restrictions are created. Restriction B is created, applicable from 1st 
 ```javascript
 {}
 ```
+
+#### Days parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Monday` | boolean | required | Monday enabled. |
+| `Tuesday` | boolean | required | Tuesday enabled. |
+| `Wednesday` | boolean | required | Wednesday enabled. |
+| `Thursday` | boolean | required | Thursday enabled. |
+| `Friday` | boolean | required | Friday enabled. |
+| `Saturday` | boolean | required | Saturday enabled. |
+| `Sunday` | boolean | required | Sunday enabled. |

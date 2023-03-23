@@ -2,6 +2,10 @@
 
 ## 23rd March 2023
 
+* Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
+## 23rd March 2023
+
 * Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON
 
 ## 22nd March 2023
