@@ -1,5 +1,9 @@
 # Changelog
 
+## 27th March 2023
+
+* Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.
+
 ## 23rd March 2023
 
 * Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON

@@ -3,7 +3,7 @@
 ## Get all loyalty memberships
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Returns all loyalty memberships of the enterprise (in the given activity states), optionally filtered by specific loyalty membership identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
@@ -123,7 +123,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 ## Add loyalty memberships
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Adds loyalty memberships to the enterprise.
 
@@ -195,7 +195,7 @@ Adds loyalty memberships to the enterprise.
 ## Update loyalty memberships
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Updates information about the specified loyalty memberships.
 
@@ -287,7 +287,7 @@ Updates information about the specified loyalty memberships.
 ## Delete loyalty memberships
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes loyalty memberships.
 
