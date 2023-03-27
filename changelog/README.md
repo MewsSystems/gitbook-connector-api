@@ -4,8 +4,11 @@
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
-## 23rd March 2023
+## 27th March 2023
 
+* Re-wrote the [Datetimes](../guidelines/serialization.md#datetimes) section to better explain how date-times are used in the API.
+* Updated descriptions for `startUtc` and `endUtc` in [Restriction Conditions](../operations/restrictions.md#restriction-conditions) and [Restriction set data](../operations/restrictions.md#restriction-set-data).
+* Other minor improvements to documentation in the [Restrictions](../operations/restrictions.md) page.
 * Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON
 
 ## 22nd March 2023
