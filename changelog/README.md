@@ -1,6 +1,6 @@
 # Changelog
 
-## 23rd March 2023
+## 27th March 2023
 
 * Re-wrote the [Datetimes](../guidelines/serialization.md#datetimes) section to better explain how date-times are used in the API.
 * Updated descriptions for `startUtc` and `endUtc` in [Restriction Conditions](../operations/restrictions.md#restriction-conditions) and [Restriction set data](../operations/restrictions.md#restriction-set-data).
