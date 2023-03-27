@@ -44,9 +44,9 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the restrictions are requested. |
 | `ResourceCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource categories](resources.md#resource-category). |
-| `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns all restrictions that affect given rates (i.e. ones without any [Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate group](rates.md#rate-group) of specified rates, or ones inherited from base rates).  |
-| `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `BaseRateId` set in [Conditions](#restriction-conditions). |
-| `ExactRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `ExactRateId` set in [Conditions](#restriction-conditions). |
+| `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns all restrictions that affect the given rates, i.e. ones without any [Restriction Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate groups](rates.md#rate-group) of specified rates, or ones inherited from base rates. |
+| `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `BaseRateId` set in [Restriction Conditions](#restriction-conditions). |
+| `ExactRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `ExactRateId` set in [Restriction Conditions](#restriction-conditions). |
 | `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was updated. |
@@ -141,8 +141,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `Id` | string | required | Unique identifier of the restriction. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
-| `Conditions` | string | required | [Conditions](#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
-| `Exceptions` | string | optional | [Exceptions](#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
+| `Conditions` | [Restriction Conditions](#restriction-conditions) | required | The conditions or rules that must be met by a reservation for the restriction to apply. |
+| `Exceptions` | [Restriction Exceptions](#restriction-exceptions) | optional | The rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
 #### Restriction Conditions
 
@@ -154,8 +154,8 @@ Returns all restrictions of the default service provided by the enterprise.
 | `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](rates.md#rate-group). |
 | `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](resources.md#resource-category). |
 | `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
-| `StartUtc` | string | optional | Start of the restricted interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional | Start date of the restriction time interval, specified in ISO 8601 format and adjusted to UTC - see [Datetimes](../guidelines/serialization.md#datetimes) for important information on format and implementation. |
+| `EndUtc` | string | optional | End date of the restriction time interval, specified in ISO 8601 format and adjusted to UTC - see [Datetimes](../guidelines/serialization.md#datetimes) for important information on format and implementation. |
 | `Days` | array of string [Day](#day) | optional | The restricted days of week. Will automatically be set to all values when not provided or when the service uses a time unit longer than a day.
 
 #### Restriction Exceptions
@@ -187,7 +187,7 @@ Returns all restrictions of the default service provided by the enterprise.
 
 ## Add restrictions
 
-Adds new restrictions with the specified conditions.
+Adds new restrictions with the specified conditions. Note care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes).
 
 > **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions). The new operation is currently marked as 'Restricted' and subject to change as part of beta testing, but in time we expect that to replace [Add restrictions](#add-restrictions).
 
@@ -253,8 +253,8 @@ Adds new restrictions with the specified conditions.
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
-| `Conditions` | string | required | [Conditions](#restriction-conditions) are rules that must be met by a reservation for the restriction to apply. |
-| `Exceptions` | string | optional | [Exceptions](#restriction-exceptions) are rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
+| `Conditions` | [Restriction Conditions](#restriction-conditions) | required | The conditions or rules that must be met by a reservation for the restriction to apply. |
+| `Exceptions` | [Restriction Exceptions](#restriction-exceptions) | optional | The rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
 ### Response
 
@@ -378,6 +378,7 @@ Removes restrictions from the service.
 > This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
 Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction - see [Merging algorithm](#merging-algorithm). A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [Merging algorithm](#merging-algorithm).
+Note care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). The validation of these properties is stronger in this operation than for [Add restrictions](#add-restrictions).
 
 ### Merging algorithm
 
@@ -390,10 +391,6 @@ This reduces the overall number of restrictions and improves system performance.
 - B. If the exceptions of the new restriction do _not_ match the old restriction:
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
    2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
-
-### Time interval
-
-Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the given date when converted to the enterprise's local datetime. This is different from the [Add restrictions](#add-restrictions) operation since it allows the setting of different times. Restrictions are applied for all the dates within the interval, including the `EndUtc` date.
 
 ### Request
 
@@ -450,7 +447,7 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
-| `Data` | array of [RestrictionSetData](#restriction-set-data) | required | Parameters of restrictions. |
+| `Data` | array of [Restriction set data](#restriction-set-data) | required | Parameters of restrictions. |
 
 #### Restriction set data
 | Property | Type | Contract | Description |
@@ -461,8 +458,8 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 | `RateGroupId` | string | optional | Unique identifier of the restricted [Rate group](rates.md#rate-group). |
 | `ResourceCategoryId` | string | optional | Unique identifier of the restricted [Resource category](resources.md#resource-category). |
 | `ResourceCategoryType` | string | optional | Name of the restricted [Resource category type](resources.md#resource-category-type). |
-| `StartUtc` | string | optional | Start date of the restricted interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
-| `EndUtc` | string | optional | End of the restricted interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning the restriction will apply on the date of `EndUtc`. |
+| `StartUtc` | string | optional | Start date of the restriction time interval, specified in ISO 8601 format and adjusted to UTC - see [Datetimes](../guidelines/serialization.md#datetimes) for important information on format and implementation. |
+| `EndUtc` | string | optional | End date of the restriction time interval, specified in ISO 8601 format and adjusted to UTC - see [Datetimes](../guidelines/serialization.md#datetimes) for important information on format and implementation. |
 | `Days` | [DaysParameters](#days-parameters) | required | The restricted days of week. |
 | `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
