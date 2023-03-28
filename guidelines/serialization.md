@@ -2,21 +2,35 @@
 
 ## Datetimes
 
-Some operations of the API accept datetimes in their parameters or return them in their results. The datetimes are represented as `string`s following the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) formatting rules. Moreover, they should always be in [UTC](https://en.wikipedia.org/wiki/ISO_8601#UTC) so that it is clear which instant they represent and there is no room for confusion. Putting this all together means that the expected format of datetimes is `YYYY-MM-DDThh:mm:ssZ`. This format is also used in return values.
+Some operations of the API accept datetimes in their parameters or return them in their results. Datetime is represented as a `string`, following the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) formatting rules. Moreover, it should always be in [UTC](https://en.wikipedia.org/wiki/ISO_8601#UTC) so that it is clear which instant it represents and there is no room for confusion. This means the standard format for datetime used throughout the API is `YYYY-MM-DDThh:mm:ssZ`.
 
-As an example, consider an operation that takes datetime interval in its parameters. And let's say we want to fully cover 1st and 2nd of January 2017 in an enterprise that is located in timezone UTC+2. Then the interval in the local time is:
+> ### Example 1
+> A date and time of 7:12am on March 22nd 2023 local time in Chicago (UTC-5), would be represented as:
+> * `2023-03-22T12:12:00Z`
 
-* Start `2021-01-01T00:00:00+02:00`
-* End `2021-01-03T00:00:00+02:00`
+Where only a date is needed, this is also usually represented with standard datetime, but in this case the time component is set to zero, i.e. `00:00:00`.
+Note however that when adjusted from local time to UTC, the time may become non-zero.
 
-In order to pass this interval to the API, it has to be converted to UTC:
+> ### Example 2
+> A date-only of March 22nd 2023 local time in Chicago (UTC-5), would be represented as:
+> * `2023-03-22T05:00:00Z`
 
-* StartUtc `2020-12-31T22:00:00Z`
-* EndUtc `2021-01-02T22:00:00Z`
+Note that adjusting from local time to UTC can also shift the date.
+
+> ### Example 3
+> A date-only of March 22nd 2023 local time in Beijing (UTC+8), would be represented as:
+> * `2023-03-21T16:00:00Z`
+
+The API frequently uses time intervals, i.e. periods of time defined by a start datetime and an end datetime, as usual expressed in UTC. These time intervals are inclusive, meaning that the interval includes the start and end as part of the interval. For example, an interval with start of January 1st and end of January 5th includes the 1st, 2nd, 3rd, 4th and 5th. The datetimes used to define a time interval follow all the normal rules for datetimes, as described above.
+
+> ### Example 4
+> A date-only time interval of March 20th to March 23rd 2023 (including the 20th, 21st, 22nd and 23rd) local time in Beijing (UTC+8), would be represented as:
+> * StartUtc `2023-03-19T16:00:00Z`
+> * EndUtc `2023-03-22T16:00:00Z`
 
 ## Durations
 
-Some operations of the API accept durations in their parameters or return them in their results. The durations are represented as `string`s following the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) formatting rules.
+Some operations of the API accept durations in their parameters or return them in their results. Duration is represented as a `string`, following the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) formatting rules.
 
 As an example, consider minimum and maximum length of the reservation:
 

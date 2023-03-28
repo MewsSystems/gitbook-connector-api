@@ -5,8 +5,12 @@
 * Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response with `OriginalAmount` in [Order item](../operations/accountingitems.md#order-item) and [Payment item](../operations/accountingitems.md#payment-item).
 * Deprecated `AmountDefault` in [Payment Item](../operations/accountingitems.md#payment-item).
 
-## 23rd March 2023
+## 27th March 2023
 
+* Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.
+* Re-wrote the [Datetimes](../guidelines/serialization.md#datetimes) section to better explain how date-times are used in the API.
+* Updated descriptions for `startUtc` and `endUtc` in [Restriction Conditions](../operations/restrictions.md#restriction-conditions) and [Restriction set data](../operations/restrictions.md#restriction-set-data).
+* Other minor improvements to documentation in the [Restrictions](../operations/restrictions.md) page.
 * Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON
 
 ## 22nd March 2023

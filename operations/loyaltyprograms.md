@@ -2,6 +2,9 @@
 
 ## Get all loyalty programs
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
+
 Returns all loyalty programs of the enterprise (in the given activity state), optionally filtered by specific loyalty program identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -89,6 +92,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ## Add loyalty programs
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
+
 Adds loyalty programs to the enterprise.
 
 ### Request
@@ -144,6 +150,9 @@ Adds loyalty programs to the enterprise.
 | `LoyaltyPrograms` | array of [Loyalty program](#loyalty-program) | required | Added loyalty programs. |
 
 ## Update loyalty programs
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Updates information about the specified loyalty programs.
 
@@ -204,6 +213,9 @@ Updates information about the specified loyalty programs.
 | `LoyaltyPrograms` | array of [Loyalty program](#loyalty-program) | required | Updated loyalty programs. |
 
 ## Delete loyalty programs
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes loyalty programs. Note that a loyalty program containing active memberships cannot be deleted.
 
