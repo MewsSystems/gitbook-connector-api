@@ -193,7 +193,9 @@ Adds a new alternative payment to a specified customer.
 
 ## Get all payments
 
-Returns all payments. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all payments. Note this operation uses [Pagination](../guidelines/pagination.md). This operation uses [Pagination](../guidelines/pagination.md). 
+One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be provided as well.
+
 
 ### Request
 
@@ -251,13 +253,13 @@ Returns all payments. Note this operation uses [Pagination](../guidelines/pagina
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `PaymentIds` | array of string | required, max 1000 items | Unique identifier of the [Payment](payments.md#payment). |
-| `BillIds` | array of string | required, max 1000 items | Unique identifier of the [Bill](bills.md#bill) to which payment is assigned to. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was updated. |
-| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was charged. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was closed. |
-| `AccountingState` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
+| `PaymentIds` | array of string | optional, max 1000 items | Unique identifier of the [Payment](payments.md#payment). Required if no other filter is provided. |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifier of the [Bill](bills.md#bill) to which payment is assigned to. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was updated. Required if no other filter is provided. |
+| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was charged. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was closed. Required if no other filter is provided. |
+| `AccountingState` | string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
 | `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -375,6 +377,11 @@ Returns all payments. Note this operation uses [Pagination](../guidelines/pagina
 }
 ```
 
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Payments` | string | required | The filtered payments. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest payment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of payments. |
+
 #### Payment
 
 | Property | Type | Contract | Description |
@@ -387,24 +394,24 @@ Returns all payments. Note this operation uses [Pagination](../guidelines/pagina
 | `OriginalAmount` | [Amount value](#amount-value) | required | Payment's original amount, negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
 | `Notes` | string | optional | Additional notes. |
 | `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
-| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ConsumedUtc` | string | optional | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the payment bill closure in UTC timezone in ISO 8601 format. |
-| `ChargedUtc` | string | required | Charged date and time of the payment in UTC timezone in ISO 8601 format. |
+| `ChargedUtc` | string | optional | Charged date and time of the payment in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the payment created in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the payment in UTC timezone in ISO 8601 format. |
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the payment. |
 | `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
-| `Identifier` | string | optional | Additional unique identifier of the payment dependent on the payment type. |
+| `Identifier` | string | optional | Additional unique identifier of the payment. |
 | `PaymentType` | string [Payment type](#payment-type) | required | Payment state of the payment. |
-| `DataDiscriminator` | object [Payment item data](#payment-data-discriminator) | required | Discriminator pointing to the field in the [Data](#payment-data-discriminator) field that contains additional information. |
-| `Data` | object [Payment data](#payment-data) | required | Additional payment data. |
+| `DataDiscriminator` | object [Payment item data](#payment-data-discriminator) | optional | Discriminator pointing to the field in the [Data](#payment-data) field that contains additional information. |
+| `Data` | object [Payment data](#payment-data) | optional | Additional payment data. |
 
 #### Payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CardData` | object [Card data](#payment-data)| optional | Contains additional data for card payment. |
-| `InvoiceData` | object [Invoice data](#payment-data) | optional | Contains additional data for invoice payment. |
+| `CardData` | object [Card data](#card-data)| optional | Contains additional data in the case of a card payment. |
+| `InvoiceData` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
 
 #### Card data
 
@@ -430,32 +437,32 @@ Returns all payments. Note this operation uses [Pagination](../guidelines/pagina
 * `Open` - Accounting items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
 * `Closed` - Accounting items which carry a non-zero value and have been closed on a bill or invoice.
 * `Inactive` - Accounting items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
-* `Canceled` - Accounting items which have been canceled, regardless of whether the item is of zero value
+* `Canceled` - Accounting items which have been canceled, regardless of whether the item is of zero value.
 
 #### Payment state
 
-  * `Charged`
-  * `Canceled`
-  * `Pending`
-  * `Failed`
-  * `Verifying`
+* `Charged`
+* `Canceled`
+* `Pending`
+* `Failed`
+* `Verifying`
 
-  #### Payment type
+#### Payment type
 
-  * `CreditCard`
-  * `Invoice`
-  * `Cash`
-  * `Unspecified`
-  * `BadDebts`
-  * `WireTransfer`
-  * `ExchangeRateDifference`
-  * `ExchangeRoundingDifference`
-  * `BankCharges`
-  * `Cheque`
-  * `Other`
+* `CreditCard`
+* `Invoice`
+* `Cash`
+* `Unspecified`
+* `BadDebts`
+* `WireTransfer`
+* `ExchangeRateDifference`
+* `ExchangeRoundingDifference`
+* `BankCharges`
+* `Cheque`
+* `Other`
 
-  #### Payment data discriminator
+#### Payment data discriminator
 
-  * `CardData`
-  * `InvoiceData`
-  * ...
+* `CardData`
+* `InvoiceData`
+* ...
