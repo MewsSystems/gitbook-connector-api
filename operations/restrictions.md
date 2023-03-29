@@ -343,8 +343,6 @@ Adds new restrictions with the specified conditions.
 
 Removes restrictions from the service.
 
-> **Important:** Since the [set restrictions](#set-restrictions) operation is the preffered way to add restrictions, this endpoint becomes unusable when used in conjunction with the set. This is because the set operation does not return the ids of individual restrictions. To delete restrictions added by the set restrictions operation, use the [clear restrictions](#clear-restrictions) operation.
-
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/delete`
@@ -480,7 +478,7 @@ Note the `StartUtc` and `EndUtc` properties must be set to the midnight of the g
 
 Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm).
 
-This operation is meant to replace the [restrictions delete](#delete-restrictions) operation as the introduction of [restrictions set](#set-restrictions) makes the delete operation very impractical. This is because the [merging algorithm](#merging-algorithm) makes it very hard to keep track of individual restriction ids.
+This operation is intended to be used in conjunction with   [Set restrictions](#set-restrictions).
 
 ### Matching conditions
 
@@ -550,7 +548,7 @@ Two new restrictions are created. Restriction B is created, applicable from 1st 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
-| `Data` | Array of [RestrictionClearData](#restriction-clear-data) | required | Clear parameters. |
+| `Data` | Array of [Restriction clear data](#restriction-clear-data) | required | Clear parameters. |
 
 #### Restriction clear data
 | Property | Type | Contract | Description |
@@ -563,7 +561,7 @@ Two new restrictions are created. Restriction B is created, applicable from 1st 
 | `ResourceCategoryType` | string | optional | Name of the [Resource category type](resources.md#resource-category-type) of the restrictions to be spliced. |
 | `StartUtc` | string | optional | Start date of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
 | `EndUtc` | string | optional | End of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning restrictions applicable on the date of `EndUtc` will be spliced. |
-| `Days` | [DaysParameters](#days-parameters) | required | The days of week of the restrictions to be spliced. |
+| `Days` | [Days parameters](#days-parameters) | required | The days of week of the restrictions to be spliced. |
 
 ### Response
 

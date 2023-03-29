@@ -1,6 +1,6 @@
 # Changelog
 
-## 23rd March 2023
+## 30th March 2023
 
 * Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
 
