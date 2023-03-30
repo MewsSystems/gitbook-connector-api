@@ -89,16 +89,9 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `TaskIds` | array of string | optional, max 1000 items | Unique identifiers of [Tasks](#task). |
 | `DepartmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Departments](departments.md#department). Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string  | optional, max 1000 items | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or Product order). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was created. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was closed. |
-| `DeadlineUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) has a deadline. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was created. |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was closed. |
+| `DeadlineUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) has a deadline. |
 
 ### Response
 

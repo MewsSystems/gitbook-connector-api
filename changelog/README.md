@@ -1,5 +1,9 @@
 # Changelog
 
+## 31st March 2023
+
+* Added new page for [common object definitions](../operations/_objects.md) used throughout the API
+
 ## 27th March 2023
 
 * Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.
