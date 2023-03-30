@@ -438,6 +438,7 @@ One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `C
 * `Closed` - Accounting items which carry a non-zero value and have been closed on a bill or invoice.
 * `Inactive` - Accounting items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
 * `Canceled` - Accounting items which have been canceled, regardless of whether the item is of zero value.
+* ...
 
 #### Payment state
 
@@ -446,6 +447,7 @@ One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `C
 * `Pending`
 * `Failed`
 * `Verifying`
+* ...
 
 #### Payment type
 
@@ -460,6 +462,7 @@ One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `C
 * `BankCharges`
 * `Cheque`
 * `Other`
+* ...
 
 #### Payment data discriminator
 
