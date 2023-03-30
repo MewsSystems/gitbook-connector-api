@@ -1,6 +1,6 @@
 # Changelog
 
-## 24th March 2023
+## 30th March 2023
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
