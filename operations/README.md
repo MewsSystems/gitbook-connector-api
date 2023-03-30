@@ -102,14 +102,14 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
-| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
-| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | Updates selected loyalty programs |
-| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | Deletes selected loyalty programs |
-| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | Returns all loyalty memberships of the enterprise |
-| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | Adds new loyalty memberships |
-| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | Updates selected loyalty memberships |
-| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | Deletes selected loyalty memberships |
+| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | **Restricted!** Returns all loyalty programs of the enterprise |
+| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | **Restricted!** Adds new loyalty programs |
+| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | **Restricted!** Updates selected loyalty programs |
+| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | **Restricted!** Deletes selected loyalty programs |
+| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | **Restricted!** Returns all loyalty memberships of the enterprise |
+| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | **Restricted!** Adds new loyalty memberships |
+| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | **Restricted!** Updates selected loyalty memberships |
+| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | **Restricted!** Deletes selected loyalty memberships |
 
 ## Messages
 
@@ -176,6 +176,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
+| [Set restrictions](restrictions.md#set-restrictions) | **Restricted!** Adds new restrictions with the specified conditions |
 | [Add order](orders.md#add-order) | Creates a new order with the specified products and items |
 | [Get all companionships](companionships.md#get-all-companionships) | Returns all companionships based on customers, reservations or reservation groups |
 | [Get all resource access tokens](resourceaccesstokens.md#get-all-resource-access-tokens) | Returns all resource access tokens based on resource access tokens, reservations or interval |
