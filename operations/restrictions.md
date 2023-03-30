@@ -557,7 +557,7 @@ Two new restrictions are created. Restriction B is created, applicable from 1st 
 | `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) of the restrictions to be spliced. |
 | `ResourceCategoryType` | string | optional | Name of the [Resource category type](resources.md#resource-category-type) of the restrictions to be spliced. |
 | `StartUtc` | string | optional | Start date of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
-| `EndUtc` | string | optional | End of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning restrictions applicable on the date of `EndUtc` will be spliced. |
+| `EndUtc` | string | optional | End date of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning restrictions applicable on the date of `EndUtc` will be spliced. |
 | `Days` | [Days parameters](#days-parameters) | required | The days of week of the restrictions to be spliced. |
 
 ### Response
