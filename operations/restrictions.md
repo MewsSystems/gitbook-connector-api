@@ -475,7 +475,7 @@ This reduces the overall number of restrictions and improves system performance.
 
 Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm).
 
-This operation is intended to be used in conjunction with   [Set restrictions](#set-restrictions).
+This operation is intended to be used in conjunction with [Set restrictions](#set-restrictions).
 
 ### Matching conditions
 
