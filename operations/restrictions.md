@@ -483,7 +483,7 @@ The [spliced](#splicing-algorithm) restriction must match the specified conditio
 
 Service has restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 to all rates.
 
-If the clear data specified have specified resource category C1 but do not specify any rate, only restriction B is spliced. Restriction B remains untouch, even though it is applied to resource category C1 as well.
+If the clear data specified have specified resource category C1 but do not specify any rate, only restriction B is spliced. Restriction B remains untouched, even though it is applied to resource category C1 as well.
 
 ### Splicing algorithm
 
