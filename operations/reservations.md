@@ -811,7 +811,7 @@ Updates information about the specified reservations. Note that if any of the fi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Index` | number | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
+| `Index` | integer | required | Index of the unit. Indexing starts with `0`. E.g the first night of the reservation has index 0. |
 | `Amount` | [Amount parameters](orders.md#amount-parameters) | required | Amount of the unit. |
 
 #### Person counts update value
