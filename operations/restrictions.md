@@ -491,7 +491,7 @@ Splicing refers to the process of cutting a restriction according to the supplie
 
 Consider restriction A that is applicable from 5th of January to 25th of January. If the interval of the supplied clear data is set to 10th of January to 20th of January, following logic is applied:
 
-Two new restrictions are created. Restriction B is created, applicable from 1st of January to 4th of January. Restriction C is created, applicable from the 21st of January to 25th of January. Restriction A is deleted.
+Two new restrictions are created. Restriction B is created, applicable from 5th of January to 9th of January. Restriction C is created, applicable from the 21st of January to 25th of January. Restriction A is deleted.
 
 
 ### Request
