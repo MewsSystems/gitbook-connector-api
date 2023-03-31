@@ -481,7 +481,7 @@ This operation is intended to be used in conjunction with [Set restrictions](#se
 
 The [spliced](#splicing-algorithm) restriction must match the specified conditions exactly. Consider the following example:
 
-Service has restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 to all rates.
+A Bookable Service has restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 to all rates.
 
 If the clear data specified have specified resource category C1 but do not specify any rate, only restriction B is spliced. Restriction B remains untouched, even though it is applied to resource category C1 as well.
 
