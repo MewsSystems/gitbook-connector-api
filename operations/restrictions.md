@@ -551,7 +551,7 @@ Two new restrictions are created. Restriction B is created, applicable from 5th 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | string | required | [Restriction type](#restriction-type). |
-| `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) of the restrictions to be spliced. |
+| `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) to which the restriction applies. |
 | `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate) of the restrictions to be spliced. |
 | `RateGroupId` | string | optional | Unique identifier of the [Rate group](rates.md#rate-group) of the restrictions to be spliced. |
 | `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) of the restrictions to be spliced. |
