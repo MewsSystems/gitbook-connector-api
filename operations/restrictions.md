@@ -544,7 +544,7 @@ Two new restrictions are created. Restriction B is created, applicable from 5th 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
 | `Data` | Array of [Restriction clear data](#restriction-clear-data) | required | Clear parameters. |
 
 #### Restriction clear data
