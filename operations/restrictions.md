@@ -546,14 +546,14 @@ The original restriction A is deleted, and in its place new restriction B is cre
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
-| `Data` | Array of [Restriction clear data](#restriction-clear-data) | required | Clear parameters. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
+| `Data` | Array of [Restriction clear data](#restriction-clear-data) | required | Details of the matching conditions and time intervals for clearing restrictions. |
 
 #### Restriction clear data
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | string | required | [Restriction type](#restriction-type). |
-| `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) of the restrictions to be spliced. |
+| `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) to which the restriction applies. |
 | `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate) of the restrictions to be spliced. |
 | `RateGroupId` | string | optional | Unique identifier of the [Rate group](rates.md#rate-group) of the restrictions to be spliced. |
 | `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) of the restrictions to be spliced. |
