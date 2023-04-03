@@ -254,10 +254,10 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Client` | string | required | Name and version of the client application. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was created. Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was updated. Required if no other filter is provided. |
-| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was charged. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was closed. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
+| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was closed. Required if no other filter is provided. |
 | `AccountingState` | string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
 | `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
@@ -378,8 +378,8 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Payments` | string | required | The filtered payments. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest payment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of payments. |
+| `Payments` | array of [Payment](#payment) | required | The list of filtered payments. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest payment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of payments. |
 
 #### Payment
 
@@ -401,9 +401,15 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the payment. |
 | `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
 | `Identifier` | string | optional | Additional unique identifier of the payment. |
-| `PaymentType` | string [Payment type](#payment-type) | required | Payment state of the payment. |
+| `PaymentType` | string [Payment type](#payment-type) | required | Payment type, e.g. whether credit card or cash. |
 | `DataDiscriminator` | object [Payment item data](#payment-data-discriminator) | optional | Discriminator pointing to the field in the [Data](#payment-data) field that contains additional information. |
 | `Data` | object [Payment data](#payment-data) | optional | Additional payment data. |
+
+#### Payment data discriminator
+
+* `CreditCardData`
+* `InvoiceData`
+* ...
 
 #### Payment data
 
@@ -474,10 +480,4 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `BankCharges`
 * `Cheque`
 * `Other`
-* ...
-
-#### Payment data discriminator
-
-* `CardData`
-* `InvoiceData`
 * ...
