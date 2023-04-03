@@ -473,25 +473,27 @@ This reduces the overall number of restrictions and improves system performance.
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
-Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm).
+The specified conditions must be met exactly - see [Matching conditions](#matching-conditions) below. The time interval, however, does not need to correspond with an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval - see [Time interval splicing](#time-interval-splicing).
 
-This operation is intended to be used in conjunction with [Set restrictions](#set-restrictions).
+Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm). This operation is intended to be used alongside [Set restrictions](#set-restrictions).
 
 ### Matching conditions
 
-The [spliced](#splicing-algorithm) restriction must match the specified conditions exactly. Consider the following example:
+The specified conditions must be met exactly. For example:
 
-A Bookable Service has restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 to all rates.
+A bookable service has two restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 and to all rates.
 
-If the clear data specified have specified resource category C1 but do not specify any rate, only restriction B is spliced. Restriction A remains untouched, even though it is applied to resource category C1 as well.
+If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction condition of resource category C1 but with no rate specified (this defaults to all rates), then only Restriction B is cleared, not Restriction A.
 
-### Splicing algorithm
+### Time interval splicing
 
-Splicing refers to the process of cutting a restriction according to the supplied time interval, removing the original restriction and adding the offcuts.
+The time interval does not need to correspond to an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval. For example:
 
-Consider restriction A that is applicable from 5th of January to 25th of January. If the interval of the supplied clear data is set to 10th of January to 20th of January, following logic is applied:
+An existing restriction in the system applies from 5th January to 25th January. As usual, time intervals are inclusive, meaning that the time interval includes both the 5th January and the 25th January.
 
-Two new restrictions are created. Restriction B is created, applicable from 5th of January to 9th of January. Restriction C is created, applicable from the 21st of January to 25th of January. Restriction A is deleted.
+If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction time interval of 10th January to 20th January, i.e. within the original restriction A, then the time interval of restriction A is split into three separate intervals.
+
+The original restriction A is deleted, and in its place new restriction B is created for the period of time from 5th January to 9th January inclusive, and new restriction C is created for the period of time from 21st January to 25th January. Thus the period 10th January to 20th January has been cleared, but without affecting other time periods.
 
 
 ### Request
