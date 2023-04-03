@@ -1,5 +1,9 @@
 # Changelog
 
+## 3rd April 2023
+
+* Fixed name of parameter `PostCancellationFee` in [Reservation cancel](../operations/reservations.md#cancel-reservation).
+
 ## 27th March 2023
 
 * Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.

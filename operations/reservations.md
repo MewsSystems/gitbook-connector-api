@@ -952,7 +952,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
     "ReservationIds": [
         "5ca70705-cbb7-48c4-8cc4-abb900aa278c"
     ],
-    "ChargeCancellationFee": true,
+    "PostCancellationFee": true,
     "Notes": "Cancellation through Connector API"
 }
 ```
@@ -963,7 +963,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | required | Unique identifiers of the [Reservations](#reservation) to cancel. |
-| `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
+| `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |
 
 ### Response
