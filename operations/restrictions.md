@@ -554,13 +554,13 @@ The original restriction A is deleted, and in its place new restriction B is cre
 | :-- | :-- | :-- | :-- |
 | `Type` | string | required | [Restriction type](#restriction-type). |
 | `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate) of the restrictions to be spliced. |
-| `RateGroupId` | string | optional | Unique identifier of the [Rate group](rates.md#rate-group) of the restrictions to be spliced. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) of the restrictions to be spliced. |
-| `ResourceCategoryType` | string | optional | Name of the [Resource category type](resources.md#resource-category-type) of the restrictions to be spliced. |
-| `StartUtc` | string | optional | Start date of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. |
-| `EndUtc` | string | optional | End date of the spliced interval in UTC timezone in ISO 8601 format. The time must be the midnight of the day when converted to enterprise's local time. Restriction's `EndUtc` is inclusive meaning restrictions applicable on the date of `EndUtc` will be spliced. |
-| `Days` | [Days parameters](#days-parameters) | required | The days of week of the restrictions to be spliced. |
+| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate) to which the restriction applies. |
+| `RateGroupId` | string | optional | Unique identifier of the [Rate group](rates.md#rate-group) to which the restriction applies. |
+| `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) to which the restriction applies. |
+| `ResourceCategoryType` | string | optional | Name of the [Resource category type](resources.md#resource-category-type) to which the restriction applies. |
+| `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetime](../guidelines/serialization.md#datetimes). |
+| `EndUtc` | string | optional | Inclusive end date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetime](../guidelines/serialization.md#datetimes). |
+| `Days` | [Days parameters](#days-parameters) | required | The days of week to which the restriction applies. |
 
 ### Response
 
