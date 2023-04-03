@@ -473,9 +473,9 @@ This reduces the overall number of restrictions and improves system performance.
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
-The specified conditions must be met exactly - see [Matching conditions](#matching-conditions) below. The time interval, however, does not need to correspond with an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval - see [Time interval splicing](#time-interval-splicing).
-
 Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm). This operation is intended to be used alongside [Set restrictions](#set-restrictions).
+
+The specified conditions must be met exactly - see [Matching conditions](#matching-conditions) below. The time interval, however, does not need to correspond with an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval - see [Time interval splicing](#time-interval-splicing).
 
 ### Matching conditions
 
