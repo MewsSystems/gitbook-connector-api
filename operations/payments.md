@@ -193,8 +193,7 @@ Adds a new alternative payment to a specified customer.
 
 ## Get all payments
 
-Returns all payments. Note this operation uses [Pagination](../guidelines/pagination.md). This operation uses [Pagination](../guidelines/pagination.md). 
-One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be provided as well.
+Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 
 ### Request
@@ -253,8 +252,8 @@ One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `C
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `PaymentIds` | array of string | optional, max 1000 items | Unique identifier of the [Payment](payments.md#payment). Required if no other filter is provided. |
-| `BillIds` | array of string | optional, max 1000 items | Unique identifier of the [Bill](bills.md#bill) to which payment is assigned to. Required if no other filter is provided. |
+| `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was updated. Required if no other filter is provided. |
 | `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Payment](#payment) was charged. Required if no other filter is provided. |
@@ -410,20 +409,33 @@ One of the `PaymentIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `C
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CardData` | object [Card data](#card-data)| optional | Contains additional data in the case of a card payment. |
+| `CreditCardData` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
 | `InvoiceData` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
 
-#### Card data
+#### CreditCard payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `PaymentCardId` | string | optional | Unique identifier of the payment card. |
+| `CreditCardId` | string | optional | Unique identifier of the payment card. |
+| `Transaction` | object [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
 
-#### Invoice data
+#### InvoiceData payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `PaymentCardId` | string | optional | Unique identifier of the invoice. |
+| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](bills.md#bill). |
+
+#### Credit card transaction
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
+| `SettlementId` | string | optional | Identifier of the settlement. |
+| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
+| `Fee` | [Amount](#amount-value) | optional | Transaction fee - this includes an estimate of bank charges. |
+| `AdjustedFee` | [Amount](#amount-value) | optional | Transaction fee (adjusted) - this is the final confirmed transaction fee, including confirmed bank charges. |
+| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
 
 #### Time interval
 
