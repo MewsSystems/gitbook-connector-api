@@ -412,7 +412,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `CreditCardData` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
 | `InvoiceData` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
 
-#### CreditCard payment data
+#### CreditCardData payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
