@@ -255,12 +255,13 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 #### Reservation origin
 
-* `Distributor`
-* `ChannelManager`
-* `Commander`
-* `Import`
-* `Connector`
-* `Navigator`
+* `Distributor` - Reservation from the Mews Booking Engine or Booking Engine API
+* `ChannelManager` - Reservation from a channel integration
+* `Commander` - Reservation from Mews Operations
+* `Import` - Reservation from an import process
+* `Connector` - Reservation from the Mews Connector API
+* `Navigator` - Reservation from Mews Guest Services
+* ...
 
 #### Reservation purpose
 

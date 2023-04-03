@@ -1,5 +1,9 @@
 # Changelog
 
+## 3rd April 2023
+
+* Added clarification to values for [Reservation origin](../operations/reservations.md#reservation-origin)
+
 ## 27th March 2023
 
 * Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.
