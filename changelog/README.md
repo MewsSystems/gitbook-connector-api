@@ -1,5 +1,9 @@
 # Changelog
 
+## 4th April 2023
+
+* Added operation [Get all payments](../operations/payments.md#get-all-payments).
+
 ## 3rd April 2023
 
 * Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
