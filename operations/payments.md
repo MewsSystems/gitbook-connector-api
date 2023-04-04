@@ -325,7 +325,7 @@ Returns all payments in the system, filtered by various parameters. At least one
                 "Invoice": null,
                 "External": null
             }
-        }.
+        },
         {
             "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
             "AccountId": "4ce18db7-3444-460a-b8af-afb900c92864",
