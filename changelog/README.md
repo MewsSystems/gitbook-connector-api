@@ -1,11 +1,16 @@
 # Changelog
 
-## 3rd April 2023
+## 4th April 2023
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
+## 3rd April 2023
+
+* Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
 ## 27th March 2023
 
+* Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.
 * Re-wrote the [Datetimes](../guidelines/serialization.md#datetimes) section to better explain how date-times are used in the API.
 * Updated descriptions for `startUtc` and `endUtc` in [Restriction Conditions](../operations/restrictions.md#restriction-conditions) and [Restriction set data](../operations/restrictions.md#restriction-set-data).
 * Other minor improvements to documentation in the [Restrictions](../operations/restrictions.md) page.
