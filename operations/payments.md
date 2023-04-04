@@ -239,6 +239,7 @@ Returns all payments in the system, filtered by various parameters. At least one
         "Charged",
         "Pending"
     ],
+    "Type": "Payment",
     "Currency": "EUR",
     "Limitation": {
         "Count": 10, 
@@ -261,6 +262,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `AccountingState` | string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
 | `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `Type` | string [Payment type](#payment-type) | optional | Payment state of the item. | |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -313,13 +315,15 @@ Returns all payments in the system, filtered by various parameters. At least one
             "AccountingState": "Open",
             "State": "Charged",
             "Identifier": "ch_764309db-4bcd-4f2c-ad6a-1c178089deec",
-            "PaymentType": "CreditCard",
-            "DataDiscriminator": "CardData",
+            "PaymentType": "CreditCardPayment",
             "Data": {
-                "CardData": {
-                    "PaymentCardId": "c922266b-291d-4e25-9df7-afbd007c1991"
+                "Discriminator": "CreditCard",
+                "CreditCard": {
+                    "CreditCardId": "c922266b-291d-4e25-9df7-afbd007c1991",
+                    "Transaction": null,
                 },
-                "InvoiceData": null
+                "Invoice": null,
+                "External": null
             }
         }.
         {
@@ -367,8 +371,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "AccountingState": "Closed",
             "State": "Charged",
             "Identifier": "",
-            "PaymentType": "Cash",
-            "DataDiscriminator": null,
+            "Type": "CashPayment",
             "Data": null
         }
     ],
@@ -401,35 +404,44 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the payment. |
 | `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
 | `Identifier` | string | optional | Additional unique identifier of the payment. |
-| `PaymentType` | string [Payment type](#payment-type) | required | Payment type, e.g. whether credit card or cash. |
-| `DataDiscriminator` | object [Payment item data](#payment-data-discriminator) | optional | Discriminator pointing to the field in the [Data](#payment-data) field that contains additional information. |
+| `Type` | string [Payment type](#payment-type) | required | Payment type, e.g. whether credit card or cash. |
 | `Data` | object [Payment data](#payment-data) | optional | Additional payment data. |
-
-#### Payment data discriminator
-
-* `CreditCardData`
-* `InvoiceData`
-* ...
 
 #### Payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CreditCardData` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
-| `InvoiceData` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
+| `Discriminator` | object [Payment data discriminator](#payment-data-discriminator) | optional | Discriminator pointing to the fields within this object that contains additional data. |
+| `CreditCard` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
+| `Invoice` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
+| `External` | object [External data](#invoice-data) | optional | Contains additional data in the case of an external payment. |
 
-#### CreditCardData payment data
+#### Payment data discriminator
+
+* `CreditCard`
+* `Invoice`
+* `External`
+* ...
+
+#### CreditCard payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CreditCardId` | string | optional | Unique identifier of the payment card. |
 | `Transaction` | object [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
 
-#### InvoiceData payment data
+#### Invoice payment data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](bills.md#bill). |
+| `InvoiceId` | string | optional | Unique identifier of the invoice [Bill](bills.md#bill). |
+
+#### External payment data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Type` | string [External payment data](#external-payment-type-new) | required | Unique identifier of the invoice [Bill](bills.md#bill). |
+| `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
 
 #### Credit card transaction
 
@@ -469,15 +481,57 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 #### Payment type
 
-* `CreditCard`
-* `Invoice`
-* `Cash`
-* `Unspecified`
-* `BadDebts`
-* `WireTransfer`
-* `ExchangeRateDifference`
-* `ExchangeRoundingDifference`
-* `BankCharges`
-* `Cheque`
-* `Other`
+* `Payment` - Any type of payment, used only for filtering
+* `CreditCardPayment`
+* `AlternativePayment`
+* `CashPayment`
+* `InvoicePayment`
+* `ExternalPayment`
+* ...
+
+#### External payment type new
+
+* `*Unspecified`
+* `*BadDebts`
+* `*Bacs`
+* `*WireTransfer`
+* `*Invoice`
+* `*ExchangeRateDifference`
+* `*Complimentary`
+* `*Reseller`
+* `*ExchangeRoundingDifference`
+* `*Barter`
+* `*Commission`
+* `*BankCharges`
+* `*CrossSettlement`
+* `*Cash`
+* `*CreditCard`
+* `*Prepayment`
+* `*Cheque`
+* `*Bancontact`
+* `*IDeal`
+* `*PayPal`
+* `*GiftCard`
+* `*LoyaltyPoints`
+* `*ChequeVacances`
+* `*OnlinePayment`
+* `*CardCheck`
+* `*PaymentHubRedirection`
+* `*Voucher`
+* `*MasterCard`
+* `*Visa`
+* `*Amex`
+* `*Discover`
+* `*DinersClub`
+* `*Jcb`
+* `*UnionPay`
+* `*Twint`
+* `*Reka`
+* `*LoyaltyCard`
+* `*PosDiningAndSpaReward`
+* `*DirectDebit`
+* `*DepositCheck`
+* `*DepositCash`
+* `*DepositCreditCard`
+* `*DepositWireTransfer`
 * ...
