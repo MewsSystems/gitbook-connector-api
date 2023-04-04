@@ -411,10 +411,10 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | object [Payment data discriminator](#payment-data-discriminator) | optional | Discriminator pointing to the fields within this object that contains additional data. |
+| `Discriminator` | string [Payment data discriminator](#payment-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
 | `CreditCard` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
 | `Invoice` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
-| `External` | object [External data](#invoice-data) | optional | Contains additional data in the case of an external payment. |
+| `External` | object [External data](#external-data) | optional | Contains additional data in the case of an external payment. |
 
 #### Payment data discriminator
 
@@ -440,7 +440,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Type` | string [External payment data](#external-payment-type-new) | required | Unique identifier of the invoice [Bill](bills.md#bill). |
+| `Type` | string [External payment data](#external-payment-type) | required | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
 
 #### Credit card transaction
@@ -489,7 +489,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `ExternalPayment`
 * ...
 
-#### External payment type new
+#### External payment type
 
 * `Unspecified`
 * `BadDebts`
