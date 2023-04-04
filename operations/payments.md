@@ -99,11 +99,11 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
-| `Type` | string [External payment type](#external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
+| `Type` | string [External payment type](#add-external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
-#### External payment type
+#### Add external payment type
 
 * `Cash`
 * `CreditCard`
