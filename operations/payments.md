@@ -320,7 +320,7 @@ Returns all payments in the system, filtered by various parameters. At least one
                 "Discriminator": "CreditCard",
                 "CreditCard": {
                     "CreditCardId": "c922266b-291d-4e25-9df7-afbd007c1991",
-                    "Transaction": null,
+                    "Transaction": null
                 },
                 "Invoice": null,
                 "External": null
@@ -428,7 +428,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CreditCardId` | string | optional | Unique identifier of the payment card. |
-| `Transaction` | object [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
+| `Transaction` | object [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transaction. |
 
 #### Invoice payment data
 
@@ -440,7 +440,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Type` | string [External payment data](#external-payment-type) | required | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
+| `Type` | string [External payment type](#external-payment-type) | required | Type of the external payment. *Except for enterprises based in the French Legal Environment. `Unspecified` is considered as fraud. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
 
 #### Credit card transaction
