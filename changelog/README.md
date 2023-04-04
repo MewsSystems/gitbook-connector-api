@@ -1,8 +1,12 @@
 # Changelog
 
-## 3rd April 2023
+## 4th April 2023
 
 * Fixed name of parameter `PostCancellationFee` in [Reservation cancel](../operations/reservations.md#cancel-reservation).
+
+## 3rd April 2023
+
+* Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
 
 ## 27th March 2023
 
