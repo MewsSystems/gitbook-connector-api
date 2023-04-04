@@ -477,7 +477,6 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `Pending`
 * `Failed`
 * `Verifying`
-* ...
 
 #### Payment type
 
