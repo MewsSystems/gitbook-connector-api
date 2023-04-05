@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th April 2023
+
+* Extended [Get all rules](../operations/rules.md#get-all-rules) response with `TravelAgencyId` in [Rule conditions](../operations/rules.md#rule-conditions).
+
 ## 4th April 2023
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
