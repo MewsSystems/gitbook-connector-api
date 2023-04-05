@@ -116,7 +116,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     },
                     "LegalIdentifiers": {
                         "TaxIdentifier": "CZ8810310963",
-                        "CityOfRegistration": "Prague",
+                        "CityOfRegistration": "Prague"
                     },
                     "BillingCode": "Billing code value",
                     "LastName": "Doe",
