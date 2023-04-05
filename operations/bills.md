@@ -282,7 +282,7 @@ Dictionary is a collection of key-value pairs.
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
-### Legal Identifiers
+#### Legal Identifiers
 
 `LegalIdentifiers` is a [Dictionary](#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
 
