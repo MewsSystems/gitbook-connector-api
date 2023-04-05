@@ -152,9 +152,9 @@ Adds a new resource block to the specified resource for a defined period of time
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ResourceBlocks` | array of [Resource block parameters](#resource-block-parameter) | required | Resource block parameters. |
+| `ResourceBlocks` | array of [Resource block parameters](#resource-block-parameters) | required | Resource block parameters. |
 
-#### Resource block parameter
+#### Resource block parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
