@@ -86,7 +86,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `CanceledUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was canceled. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was closed. Required if no other filter is provided. |
 | `AccountingStates` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
-| `Types` | string [Order item type](#accounting-item-state) | required | Accounting state of the item. |
+| `Types` | string [Order item type](#order-item-type | required | Order item type, e.g. whether product order or space order. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
