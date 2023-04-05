@@ -130,7 +130,7 @@ Returns all rules applied with the reservations.
 | `ResourceCategoryId` | [Rule condition](#rule-condition) | required | Condition based on [Resource category](resources.md#resource-category). |
 | `ResourceCategoryType` | [Rule condition](#rule-condition) | required | Condition based on [Resource category type](resources.md#resource-category-type). |
 | `Origin` | [Rule condition](#rule-condition) | required | Condition based on [Reservation origin](reservations.md#reservation-origin). |
-| `TravelAgencyId` | [Rule condition](#rule-condition) | required | Condition based on [Company](companies.md#company) that is travel agency. |
+| `TravelAgencyId` | [Rule condition](#rule-condition) | required | Condition based on [Company](companies.md#company). |
 | `MinimumTimeUnitCount` | string | required | Condition based on minimum amount of time units. |
 | `MaximumTimeUnitCount` | string | required | Condition based on maximum amount of time units. |
 
