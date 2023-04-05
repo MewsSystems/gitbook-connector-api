@@ -1,8 +1,16 @@
 # Changelog
 
-## 3rd April 2023
+## 11th April 2023
 
 * Added operation [Get all order items](../operations/orderItems.md#get-all-order-items).
+
+## 4th April 2023
+
+* Added operation [Get all payments](../operations/payments.md#get-all-payments).
+
+## 3rd April 2023
+
+* Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
 
 ## 27th March 2023
 
