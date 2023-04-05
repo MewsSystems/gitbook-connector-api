@@ -48,7 +48,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
-| `ExternalIdentifiers` | array of string | optional, max 1000 items | Portfolio-level company identifiers, used for portfolio management; called Company Key in Mews Operations. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | External identifier of [Company](#company) from external system. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
 
 #### Time interval
@@ -174,7 +174,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 | `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
+| `ExternalIdentifier` | string | optional, max 255 characters | External identifier of company from external system. |
 
 #### Company options
 
@@ -259,7 +259,7 @@ Adds a new company to the enterprise.
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
+| `ExternalIdentifier` | string | optional, max 255 characters | External identifier of the company from external system. |
 | `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
 
@@ -367,7 +367,7 @@ Updates information of the company.
 | `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
-| `ExternalIdentifier` | string | [String update value](#string-update-value) | optional | Portfolio-level company identifier, chosen by the user for the purposes of portfolio management; called Company Key in Mews Operations. |
+| `ExternalIdentifier` | string | [String update value](#string-update-value) | optional | External identifier of the company from external system. |
 | `ReferenceIdentifier` |  [String update value](#string-update-value)  | optional | External system identifier - custom identifier used by an external system such as an external database. |
 | `WebsiteUrl` |  [String update value](#string-update-value)  | optional | The website url of the company. |
 

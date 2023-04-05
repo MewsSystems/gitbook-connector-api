@@ -84,7 +84,7 @@
 
 ## 20th January 2023
 
-* Added `ExternalIdentifier` to each of the following entities. `ExternalIdentifier` is used for portfolio management to link the entities at an above-enterprise level.
+* Added `ExternalIdentifier` to each of the following entities.
   * [Product](../operations/products.md#product)
   * [Company](../operations/companies.md#company)
   * [Service](../operations/services.md#service)
