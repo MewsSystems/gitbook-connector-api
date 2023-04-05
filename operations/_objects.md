@@ -63,3 +63,18 @@ These are JSON object definitions shared by operations across the API.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Value` | integer | optional | Value which is to be updated. |
+
+### Dictionary
+
+Dictionary is a collection of key-value pairs.
+
+```javascript
+{
+    "TaxIdentifier": "CZ8810310963",
+    "CityOfRegistration": "Prague"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |

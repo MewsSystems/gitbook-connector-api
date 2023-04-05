@@ -1,6 +1,6 @@
 # Changelog
 
-## 31st March 2023
+## 6th April 2023
 
 * Added new page for [common object definitions](../operations/_objects.md) used throughout the API
 
