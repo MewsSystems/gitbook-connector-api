@@ -58,7 +58,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
         "Open",
         "Closed"
     ],
-    "OrderItemTypes": [
+    "Types": [
         "CityTax",
         "SpaceOrder"
     ],
@@ -86,7 +86,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `CanceledUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was canceled. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was closed. Required if no other filter is provided. |
 | `AccountingStates` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
-| `OrderItemTypes` | string [Order item type](#accounting-item-state) | required | Accounting state of the item. |
+| `Types` | string [Order item type](#accounting-item-state) | required | Accounting state of the item. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -172,8 +172,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
             "ClosedUtc": null,
             "StartUtc": "2023-03-30T22:00:00Z",
             "AccountingState": "Open",
-            "OrderItemType": "CityTax",
-            "DataDiscriminator": null,
+            "Type": "CityTax",            
             "Data": null
         },
         {
@@ -253,11 +252,11 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
             "ClosedUtc": null,
             "StartUtc": "2023-03-30T22:00:00Z",
             "AccountingState": "Open",
-            "OrderItemType": "SpaceOrder",
-            "DataDiscriminator": "ProductData",
+            "OrderItemType": "SpaceOrder",            
             "Data": {
-                "RebateData": null,
-                "ProductData": {
+                "Discriminator": "Product",
+                "Rebate": null,
+                "Product": {
                     "ProductId": "8c8dbd02-f2e2-4845-b964-afb900c8f919",
                     "AgeCategoryId": null
                 }
@@ -290,16 +289,16 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `UpdatedUtc` | string | required | Last update date and time of the order item in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the order item in UTC timezone in ISO 8601 format. |
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the order item. |
-| `OrderItemType` | string [Order item type](#order-item-type) | required | Type of the order item. |
-| `DataDiscriminator` | object [Order item data discriminator](#order-item-data-discriminator) | optional | Discriminator pointing to the field in the [Data](#order-item-data) field that contains additional information. |
+| `Type` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Data` | object [Order item data](#order-item-data) | optional | Additional order item data. |
 
 #### Order item data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `RebateData` | object [Rebate data](#rebate-data)| optional | Contains additional data in the case of rebate item. |
-| `ProductData` | object [Product data](#product-data) | optional | Contains additional data in the case of product item. |
+| `Discriminator` | string [Order item data discriminator](#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
+| `Rebate` | object [Rebate data](#rebate-data)| optional | Contains additional data in the case of rebate item. |
+| `Product` | object [Product data](#product-data) | optional | Contains additional data in the case of product item. |
 
 #### Rebate data
 
@@ -348,6 +347,6 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 
 #### Order item data discriminator
 
-* `RebateData`
-* `ProductData`
+* `Rebate`
+* `Product`
 * ...
