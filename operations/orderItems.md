@@ -252,7 +252,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
             "ClosedUtc": null,
             "StartUtc": "2023-03-30T22:00:00Z",
             "AccountingState": "Open",
-            "OrderItemType": "SpaceOrder",            
+            "Type": "SpaceOrder",            
             "Data": {
                 "Discriminator": "Product",
                 "Rebate": null,
