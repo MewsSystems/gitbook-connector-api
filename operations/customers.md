@@ -62,19 +62,12 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
 | `FirstNames` | array of string | optional, max 1000 items | First names of the [Customers](#customer). |
 | `LastNames` | array of string | optional, max 1000 items | Last names of the [Customers](#customer). |
 | `LoyaltyCodes` | array of string | optional, max 1000 items | Loyalty codes of the [Customers](#customer). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was updated. |
-| `DeletedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was updated. |
+| `DeletedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | optional | Whether return only active, only deleted or both records. |
 | `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Customer extent
 
@@ -576,14 +569,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Address` | [Address parameters](#address-parameters)  | optional | New address details. |
 | `Classifications` | array of [Customer classification](#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](#customer-option) | optional | Options of the customer. |
-| `ItalianDestinationCode` | [String update value](#string-update-value) | optional | New Italian destination code of customer. |
-| `ItalianFiscalCode` | [String update value](#string-update-value) | optional | New Italian fiscal code of customer. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
+| `ItalianDestinationCode` | [String update value](_objects.md#string-update-value) | optional | New Italian destination code of customer. |
+| `ItalianFiscalCode` | [String update value](_objects.md#string-update-value) | optional | New Italian fiscal code of customer. |
 
 ### Response
 

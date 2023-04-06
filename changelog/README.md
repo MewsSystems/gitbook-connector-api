@@ -1,5 +1,9 @@
 # Changelog
 
+## 6th April 2023
+
+* Added new page for [common object definitions](../operations/_objects.md) used throughout the API
+
 ## 4th April 2023
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).

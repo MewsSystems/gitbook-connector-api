@@ -37,7 +37,7 @@ Returns all companionships based on customers, reservations or reservation group
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of [Customers](customers.md#customer). |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservations](reservations.md#reservation). |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Companionship](#companionship) was updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Companionship](#companionship) was updated. |
 | `Extent` | [Companionship extent](#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
 
 #### Companionship extent

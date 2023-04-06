@@ -29,6 +29,7 @@
   * [Payment automation](use-cases/payment-automation/README.md)
     * [Using tokenized credit cards](use-cases/payment-automation/using-tokenized-credit-cards.md)
 * [API Operations](operations/README.md)
+  * [Common objects](operations/_objects.md)
   * [Accounting categories](operations/accountingcategories.md)
   * [Accounting items](operations/accountingitems.md)
   * [Accounts](operations/accounts.md)

@@ -52,20 +52,13 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](#bill). Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
 | `State` | string | optional | [Bill state](#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was updated. |
-| `DueUtc` | [Time interval](#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
-| `PaidUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was updated. |
+| `DueUtc` | [Time interval](_objects.md#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
+| `PaidUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of bill data returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Bill state
 
@@ -123,7 +116,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     },
                     "LegalIdentifiers": {
                         "TaxIdentifier": "CZ8810310963",
-                    "CityOfRegistration": "Prague",
+                        "CityOfRegistration": "Prague"
                     },
                     "BillingCode": "Billing code value",
                     "LastName": "Doe",
@@ -233,7 +226,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | required | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
 | `Address` | [Bill address](#bill-address) | optional | Address of the customer. |
-| `LegalIdentifiers` | [Dictionary](#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the customer. |
+| `LegalIdentifiers` | [Dictionary](_objects.md#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the customer. |
 | `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
 | `LastName` | string  | required | Last name of the customer. |
 | `FirstName` | string  | optional | First name of the customer. |
@@ -246,7 +239,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | :-- | :-- | :-- | :-- |
 | `Id` | string  | required | ID of the [Company](companies.md#company). |
 | `Address` | [Bill address](#bill-address) | optional | Address of the company. |
-| `LegalIdentifiers` | [Dictionary](#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the company. |
+| `LegalIdentifiers` | [Dictionary](_objects.md#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the company. |
 | `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
 | `Name` | string  | required | Name of the company. |
 | `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
@@ -274,17 +267,9 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
 | `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
 
-#### Dictionary
-
-Dictionary is a collection of key-value pairs.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
-
 #### Legal Identifiers
 
-`LegalIdentifiers` is a [Dictionary](#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
+`LegalIdentifiers` is a [Dictionary](_objects.md#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
 
 * `TaxIdentifier`
 * `Siret`
@@ -455,32 +440,20 @@ Closes a bill so no further modification to it is possible.
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](counters.md#counter) to be used for closing. Default one is used when no value is provided. |
 | `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](devices.md#device) to be used for closing. Default one is used when no value is provided. |
 | `Options` | [Bill options parameters](#bill-options-parameters) | optional  | Options of the bill. If not provided both `DisplayCustomer` and `DisplayTaxation` are set by default. |
-| `TaxedDate` | [String update value](#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `DueDate` | [String update value](#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `VariableSymbol` | [String update value](#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `TaxIdentifier` | [String update value](#string-update-value) | optional | Tax identifier of account to be put on a bill. |
-| `PurchaseOrderNumber` | [String update value](#string-update-value) | optional | Unique number of the purchase order from the buyer. |
-| `Notes` | [String update value](#string-update-value) | optional | Notes to be attached to bill. |
+| `TaxedDate` | [String update value](_objects.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `DueDate` | [String update value](_objects.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `VariableSymbol` | [String update value](_objects.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
+| `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
+| `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
 
 #### Bill options parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `DisplayCustomer` | [Bool update value](#bool-update-value) | required | Display customer information on a bill. |
-| `DisplayTaxation` | [Bool update value](#bool-update-value) | required | Display taxation detail on a bill. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
+| `DisplayCustomer` | [Bool update value](_objects.md#bool-update-value) | required | Display customer information on a bill. |
+| `DisplayTaxation` | [Bool update value](_objects.md#bool-update-value) | required | Display taxation detail on a bill. |
 
 ### Response
 
