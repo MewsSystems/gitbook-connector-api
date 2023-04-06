@@ -1,5 +1,9 @@
 # Changelog
 
+## 6th April 2023
+
+* Updated definitions for external identifiers throughout the API.
+
 ## 4th April 2023
 
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
