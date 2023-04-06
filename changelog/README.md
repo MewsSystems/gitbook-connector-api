@@ -1,5 +1,11 @@
 # Changelog
 
+## 7th April 2023
+
+* Added new `serviceOrdernotes/Add` endpoint and docs in [Add serviceOrderNotes](../operations/serviceOrders.md#add-service-order-notes)
+* Added new `serviceOrdernotes/Update` endpoint and docs in [Update serviceOrderNotes](../operations/serviceOrders.md#update-service-order-notes)
+* Added new `serviceOrdernotes/Delete` endpoint and docs in [Delete serviceOrderNotes](../operations/serviceOrders.md#delete-service-order-notes)
+
 ## 6th April 2023
 
 * Added new page for [common object definitions](../operations/_objects.md) used throughout the API
