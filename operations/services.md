@@ -85,7 +85,7 @@ Returns all services offered by the enterprise.
 | `Name` | string | required | Name of the service. |
 | `Options` | [Service options](#service-options) | required | Options of the service. |
 | `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
-| `ExternalIdentifier` | string | optional, max 255 characters | External identifier of the service from external system. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the service from external system. |
 
 #### Service options
 
