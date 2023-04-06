@@ -99,11 +99,11 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
-| `Type` | string [External payment type](#external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
+| `Type` | string [Add external payment type](#add-external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the external payment. |
 | `Notes` | string | optional | Additional payment notes. |
 
-#### External payment type
+#### Add external payment type
 
 * `Cash`
 * `CreditCard`
@@ -190,3 +190,347 @@ Adds a new alternative payment to a specified customer.
 #### Payment next action discriminator
 
 * `RedirectToUrl` - Redirect customer to a URL where they can complete their payment.
+
+## Get all payments
+
+Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md).
+
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/getAll`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "PaymentIds": 
+    [
+        "f6313945-94c1-4e27-b402-031c2a8c989f",
+        "be922eb7-bc5f-4877-b847-1120c0c2acd2"
+    ],
+    "BillIds": 
+    [
+        "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
+        "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
+    "ChargedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
+    "ClosedUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },    
+    "AccountingStates": [
+        "Closed",
+        "Open"
+    ],
+    "States":[
+        "Charged",
+        "Pending"
+    ],
+    "Type": "Payment",
+    "Currency": "EUR",
+    "Limitation": {
+        "Count": 10, 
+        "Cursor": null
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
+| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was closed. Required if no other filter is provided. |
+| `AccountingState` | string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
+| `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
+| `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `Type` | string [Payment type](#payment-type) | optional | Payment state of the item. | |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+
+### Response
+
+```javascript
+{
+    "Payments": [
+        {
+            "Id": "f6313945-94c1-4e27-b402-031c2a8c989f",
+            "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
+            "BillId": "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
+            "AccountingCategoryId": null,
+            "Amount": {
+                "Currency": "EUR",
+                "NetValue": -3700.00,
+                "GrossValue": -3700.00,
+                "TaxValues": [],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": null,
+                            "NetValue": -3700.00,
+                            "TaxValue": 0.0
+                        }
+                    ]
+                }
+            },
+            "OriginalAmount": {
+                "Currency": "GBP",
+                "NetValue": -3700.0,
+                "GrossValue": -3700.0,
+                "TaxValues": [],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": null,
+                            "NetValue": -3700.0,
+                            "TaxValue": 0.0
+                        }
+                    ]
+                }
+            },
+            "Notes": null,
+            "SettlementId": null,
+            "ClosedUtc": null,
+            "ConsumedUtc": "2023-03-02T12:12:35Z",
+            "ChargedUtc": "2023-03-06T07:31:52Z",
+            "CreatedUtc": "2023-03-06T07:31:51Z",
+            "UpdatedUtc": "2023-03-06T07:31:53Z",
+            "AccountingState": "Open",
+            "State": "Charged",
+            "Identifier": "ch_764309db-4bcd-4f2c-ad6a-1c178089deec",
+            "PaymentType": "CreditCardPayment",
+            "Data": {
+                "Discriminator": "CreditCard",
+                "CreditCard": {
+                    "CreditCardId": "c922266b-291d-4e25-9df7-afbd007c1991",
+                    "Transaction": null
+                },
+                "Invoice": null,
+                "External": null
+            }
+        },
+        {
+            "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
+            "AccountId": "4ce18db7-3444-460a-b8af-afb900c92864",
+            "BillId": "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4",
+            "AccountingCategoryId": null,
+            "Amount": {
+                "Currency": "EUR",
+                "NetValue": -300.00,
+                "GrossValue": -300.00,
+                "TaxValues": [],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": null,
+                            "NetValue": -300.00,
+                            "TaxValue": 0.0
+                        }
+                    ]
+                }
+            },
+            "OriginalAmount": {
+                "Currency": "EUR",
+                "NetValue": -300.00,
+                "GrossValue": -300.00,
+                "TaxValues": [],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": null,
+                            "NetValue": -300.00,
+                            "TaxValue": 0.0
+                        }
+                    ]
+                }
+            },
+            "Notes": null,
+            "SettlementId": null,
+            "ConsumedUtc": "2023-03-02T12:12:35Z",
+            "ClosedUtc": "2023-03-02T12:12:35Z",
+            "ChargedUtc": "2023-03-02T12:12:32Z",
+            "CreatedUtc": "2023-03-02T12:12:32Z",
+            "UpdatedUtc": "2023-03-02T12:12:37Z",
+            "AccountingState": "Closed",
+            "State": "Charged",
+            "Identifier": "",
+            "Type": "CashPayment",
+            "Data": null
+        }
+    ],
+    "Cursor": "be922eb7-bc5f-4877-b847-1120c0c2acd2"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Payments` | array of [Payment](#payment) | required | The list of filtered payments. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest payment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of payments. |
+
+#### Payment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the payment. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the payment is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the payment belongs to. |
+| `Amount` | [Amount value](#amount-value) | required | Payment's amount, negative amount represents either rebate or a payment. |
+| `OriginalAmount` | [Amount value](#amount-value) | required | Payment's original amount, negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
+| `Notes` | string | optional | Additional notes. |
+| `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
+| `ConsumedUtc` | string | optional | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | string | optional | Date and time of the payment bill closure in UTC timezone in ISO 8601 format. |
+| `ChargedUtc` | string | optional | Charged date and time of the payment in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | string | required | Creation date and time of the payment created in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the payment in UTC timezone in ISO 8601 format. |
+| `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the payment. |
+| `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
+| `Identifier` | string | optional | Additional unique identifier of the payment. |
+| `Type` | string [Payment type](#payment-type) | required | Payment type, e.g. whether credit card or cash. |
+| `Data` | object [Payment data](#payment-data) | optional | Additional payment data. |
+
+#### Payment data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Payment data discriminator](#payment-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
+| `CreditCard` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
+| `Invoice` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
+| `External` | object [External data](#external-data) | optional | Contains additional data in the case of an external payment. |
+
+#### Payment data discriminator
+
+* `CreditCard`
+* `Invoice`
+* `External`
+* ...
+
+#### CreditCard payment data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CreditCardId` | string | optional | Unique identifier of the payment card. |
+| `Transaction` | object [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transaction. |
+
+#### Invoice payment data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `InvoiceId` | string | optional | Unique identifier of the invoice [Bill](bills.md#bill). |
+
+#### External payment data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Type` | string [External payment type](#external-payment-type) | required | Type of the external payment. *Except for enterprises based in the French Legal Environment. `Unspecified` is considered as fraud. |
+| `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
+
+#### Credit card transaction
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
+| `SettlementId` | string | optional | Identifier of the settlement. |
+| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
+| `Fee` | [Amount](#amount-value) | optional | Transaction fee - this includes an estimate of bank charges. |
+| `AdjustedFee` | [Amount](#amount-value) | optional | Transaction fee (adjusted) - this is the final confirmed transaction fee, including confirmed bank charges. |
+| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
+
+#### Time interval
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+
+#### Accounting item state
+
+* `Open` - Accounting items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
+* `Closed` - Accounting items which carry a non-zero value and have been closed on a bill or invoice.
+* `Inactive` - Accounting items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
+* `Canceled` - Accounting items which have been canceled, regardless of whether the item is of zero value.
+* ...
+
+#### Payment state
+
+* `Charged`
+* `Canceled`
+* `Pending`
+* `Failed`
+* `Verifying`
+
+#### Payment type
+
+* `Payment` - Any type of payment, used only for filtering
+* `CreditCardPayment`
+* `AlternativePayment`
+* `CashPayment`
+* `InvoicePayment`
+* `ExternalPayment`
+* ...
+
+#### External payment type
+
+* `Unspecified`
+* `BadDebts`
+* `Bacs`
+* `WireTransfer`
+* `Invoice`
+* `ExchangeRateDifference`
+* `Complimentary`
+* `Reseller`
+* `ExchangeRoundingDifference`
+* `Barter`
+* `Commission`
+* `BankCharges`
+* `CrossSettlement`
+* `Cash`
+* `CreditCard`
+* `Prepayment`
+* `Cheque`
+* `Bancontact`
+* `IDeal`
+* `PayPal`
+* `GiftCard`
+* `LoyaltyPoints`
+* `ChequeVacances`
+* `OnlinePayment`
+* `CardCheck`
+* `PaymentHubRedirection`
+* `Voucher`
+* `MasterCard`
+* `Visa`
+* `Amex`
+* `Discover`
+* `DinersClub`
+* `Jcb`
+* `UnionPay`
+* `Twint`
+* `Reka`
+* `LoyaltyCard`
+* `PosDiningAndSpaReward`
+* `DirectDebit`
+* `DepositCheck`
+* `DepositCash`
+* `DepositCreditCard`
+* `DepositWireTransfer`
+* ...

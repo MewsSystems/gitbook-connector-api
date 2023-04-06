@@ -4,6 +4,14 @@
 
 * Added new page for [common object definitions](../operations/_objects.md) used throughout the API
 
+## 4th April 2023
+
+* Added operation [Get all payments](../operations/payments.md#get-all-payments).
+
+## 3rd April 2023
+
+* Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
 ## 27th March 2023
 
 * Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.

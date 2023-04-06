@@ -461,7 +461,108 @@ This reduces the overall number of restrictions and improves system performance.
 | `MinPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the minimum price per time unit. |
 | `MaxPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the maximum price per time unit. |
 
+## Clear restrictions
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
+
+Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm). This operation is intended to be used alongside [Set restrictions](#set-restrictions).
+
+The specified conditions must be met exactly - see [Matching conditions](#matching-conditions) below. The time interval, however, does not need to correspond with an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval - see [Time interval splicing](#time-interval-splicing).
+
+### Matching conditions
+
+The specified conditions must be met exactly. For example:
+
+A bookable service has two restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 and to all rates.
+
+If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction condition of resource category C1 but with no rate specified (this defaults to all rates), then only Restriction B is cleared, not Restriction A.
+
+### Time interval splicing
+
+The time interval does not need to correspond to an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval. For example:
+
+An existing restriction in the system applies from 5th January to 25th January. As usual, time intervals are inclusive, meaning that the time interval includes both the 5th January and the 25th January.
+
+If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction time interval of 10th January to 20th January, i.e. within the original restriction A, then the time interval of restriction A is split into three separate intervals.
+
+The original restriction A is deleted, and in its place new restriction B is created for the period of time from 5th January to 9th January inclusive, and new restriction C is created for the period of time from 21st January to 25th January. Thus the period 10th January to 20th January has been cleared, but without affecting other time periods.
+
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/clear`
+
+```javascript
+{  
+   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+   "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+   "Data": [  
+      {  
+         "Type": "Start",
+         "StartUtc": "2023-02-15T00:00:00Z",
+         "EndUtc": "2023-02-22T00:00:00Z",
+         "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
+         "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
+         "Days": {
+            "Monday": false,
+            "Tuesday": false,
+            "Wednesday": false,
+            "Thursday": false,
+            "Friday": true,
+            "Saturday": true,
+            "Sunday": true
+         }
+      },
+      {
+         "Type": "Start",
+         "StartUtc": "2023-02-23T00:00:00Z",
+         "EndUtc": "2023-03-03T00:00:00Z",
+         "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
+         "Days": {
+            "Monday": false,
+            "Tuesday": false,
+            "Wednesday": false,
+            "Thursday": false,
+            "Friday": true,
+            "Saturday": true,
+            "Sunday": true
+         }
+      }
+   ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
+| `Data` | Array of [Restriction clear data](#restriction-clear-data) | required | Details of the matching conditions and time intervals for clearing restrictions. |
+
+#### Restriction clear data
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Type` | string | required | [Restriction type](#restriction-type). |
+| `ExactRateId` | string | optional | Unique identifier of the exact [Rate](rates.md#rate) to which the restriction applies. |
+| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate) to which the restriction applies. |
+| `RateGroupId` | string | optional | Unique identifier of the [Rate group](rates.md#rate-group) to which the restriction applies. |
+| `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) to which the restriction applies. |
+| `ResourceCategoryType` | string | optional | Name of the [Resource category type](resources.md#resource-category-type) to which the restriction applies. |
+| `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetime](../guidelines/serialization.md#datetimes). |
+| `EndUtc` | string | optional | Inclusive end date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetime](../guidelines/serialization.md#datetimes). |
+| `Days` | [Days parameters](#days-parameters) | required | The days of week to which the restriction applies. |
+
+### Response
+
+```javascript
+{}
+```
+
 #### Days parameters
+
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Monday` | boolean | required | Monday enabled. |
@@ -471,9 +572,3 @@ This reduces the overall number of restrictions and improves system performance.
 | `Friday` | boolean | required | Friday enabled. |
 | `Saturday` | boolean | required | Saturday enabled. |
 | `Sunday` | boolean | required | Sunday enabled. |
-
-### Response
-
-```javascript
-{}
-```

@@ -93,9 +93,10 @@ This section describes all operations supported by the API, organised here by th
 | [Add credit card payment](payments.md#add-credit-card-payment) | Adds a new credit card payment to a bill of the specified customer |
 | [Add external payment](payments.md#add-external-payment) | Adds a new external payment to a bill of the specified customer |
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
+| [Get all payments](payments.md#get-all-payments) | Returns all payments, filtered by various parameters |
 | [Get all payment requests](paymentrequests.md#get-all-payment-requests) | Returns all payment requests |
-| [Add payment requests](/paymentrequests.md#add-payment-requests). | Adds new payment requests for specified customers |
-| [Cancel payment requests](paymentrequests.md#cancel-payment-requests). | Cancels specified pending payment requests |
+| [Add payment requests](/paymentrequests.md#add-payment-requests) | Adds new payment requests for specified customers |
+| [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 
 ## Loyalty
@@ -177,6 +178,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
 | [Set restrictions](restrictions.md#set-restrictions) | **Restricted!** Adds new restrictions with the specified conditions |
+| [Clear restrictions](restrictions.md#clear-restrictions) | **Restricted!** Clears restrictions which meet specified conditions over a specified time interval |
 | [Add order](orders.md#add-order) | Creates a new order with the specified products and items |
 | [Get all companionships](companionships.md#get-all-companionships) | Returns all companionships based on customers, reservations or reservation groups |
 | [Get all resource access tokens](resourceaccesstokens.md#get-all-resource-access-tokens) | Returns all resource access tokens based on resource access tokens, reservations or interval |
