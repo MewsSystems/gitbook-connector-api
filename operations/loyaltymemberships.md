@@ -55,17 +55,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `LoyaltyMembershipIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty memberships](#loyalty-membership). |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the membership is associated with. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Activity state
 
@@ -237,31 +230,12 @@ Updates information about the specified loyalty memberships.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyMembershipId` | string | required | Unique identifier of the loyalty membership. |
-| `LoyaltyProgramId` | [String update value](#string-update-value) | optional | Unique identifier of the loyalty program \(or `null` if the program should not be updated\). |
-| `IsPrimary` | [Bool update value](#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account. \(or `null` if the value should not be updated\).  |
-| `Points` | [Integer update value](#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
-| `Code` | [String update value](#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
-| `ExpirationDate` | [String update value](#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
-| `Url` | [String update value](#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | bool | optional | Value which is to be updated. |
-
-#### Integer update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | integer | optional | Value which is to be updated. |
-
+| `LoyaltyProgramId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty program \(or `null` if the program should not be updated\). |
+| `IsPrimary` | [Bool update value](_objects.md#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account. \(or `null` if the value should not be updated\).  |
+| `Points` | [Integer update value](_objects.md#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
+| `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
+| `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
+| `Url` | [String update value](_objects.md#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
 
 ### Response
 

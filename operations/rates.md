@@ -38,7 +38,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
@@ -48,13 +48,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
 | `AvailabilityBlockAssignments` | bool | optional | Whether the response should contain availability block assignments. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 

@@ -2,7 +2,8 @@
 
 ## 6th April 2023
 
-* Updated definitions for external identifiers throughout the API.
+* Updated definitions for external identifiers throughout the API
+* Added new page for [common object definitions](../operations/_objects.md) used throughout the API
 
 ## 4th April 2023
 

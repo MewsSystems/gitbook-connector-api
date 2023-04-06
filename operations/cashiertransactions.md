@@ -25,14 +25,7 @@ Returns all cashier transactions created within the specified interval.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CreatedUtc` | [Time interval](#time-interval) | required, max length 3 months | Interval in which the [Cashier transaction](#cashier-transaction) was created. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required, max length 3 months | Interval in which the [Cashier transaction](#cashier-transaction) was created. |
 
 ### Response
 

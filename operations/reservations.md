@@ -766,40 +766,22 @@ Updates information about the specified reservations. Note that if any of the fi
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
-| `StartUtc` | [String update value](#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
-| `EndUtc` | [String update value](#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
-| `AssignedResourceId` | [String update value](#string-update-value) | optional | Identifier of the assigned [Resource](resources.md#resource). |
-| `AssignedResourceLocked` | [Bool update value](#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](resources.md#resource). Unlocking and assigning reservation to new [Resource](resources.md#resource) can be done in one call. |
-| `ChannelNumber` | [String update value](#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
-| `RequestedCategoryId` | [String update value](#string-update-value) | optional | Identifier of the requested [Resource category](resources.md#resource-category) \(or `null` if resource category should not be updated). |
-| `TravelAgencyId` | [String update value](#string-update-value) | optional | Identifier of the [Company](companies.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
-| `CompanyId` | [String update value](#string-update-value) | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
-| `BusinessSegmentId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment) \(or `null` if the business segment should not be updated).|
-| `Purpose` | [String update value](#string-update-value) | optional | [Purpose](#reservation-purpose) of the reservation \(or `null` if the purpose should not be updated).|
-| `RateId` | [String update value](#string-update-value) | optional | Identifier of the reservation [Rate](rates.md#rate) \(or `null` if the rate should not be updated). |
-| `BookerId` | [String update value](#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
+| `StartUtc` | [String update value](_objects.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
+| `EndUtc` | [String update value](_objects.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
+| `AssignedResourceId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the assigned [Resource](resources.md#resource). |
+| `AssignedResourceLocked` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned [Resource](resources.md#resource). Unlocking and assigning reservation to new [Resource](resources.md#resource) can be done in one call. |
+| `ChannelNumber` | [String update value](_objects.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) \(or `null` if the channel number should not be updated). |
+| `RequestedCategoryId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the requested [Resource category](resources.md#resource-category) \(or `null` if resource category should not be updated). |
+| `TravelAgencyId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the [Company](companies.md#company) that mediated the reservation \(or `null` if travel agency should not be updated). |
+| `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made \(or `null` if company should not be updated). |
+| `BusinessSegmentId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment) \(or `null` if the business segment should not be updated).|
+| `Purpose` | [String update value](_objects.md#string-update-value) | optional | [Purpose](#reservation-purpose) of the reservation \(or `null` if the purpose should not be updated).|
+| `RateId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the reservation [Rate](rates.md#rate) \(or `null` if the rate should not be updated). |
+| `BookerId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. \(or `null` if the booker should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. \(or `null` if the unit amounts should not be updated). |
 | `PersonCounts` | array of [Person counts update value](#person-counts-update-value) | optional | Number of people per age category the reservation is for. Is supplied the person counts will be replaced. \(or `null` if the person counts should not be updated). |
-| `CreditCardId` | [String update value](#string-update-value) | optional | Identifier of [Credit card](creditcards.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation.  \(or `null` if the credit card should not be updated). |
-| `AvailabilityBlockId` | [String update value](#string-update-value) | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Number update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | number | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
+| `CreditCardId` | [String update value](_objects.md#string-update-value) | optional | Identifier of [Credit card](creditcards.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation.  \(or `null` if the credit card should not be updated). |
+| `AvailabilityBlockId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
 
 #### Time unit amount update value
 

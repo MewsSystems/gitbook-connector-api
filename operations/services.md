@@ -143,7 +143,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 | :-- | :-- | :-- | :-- |
 | `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
 
-##### Promotions
+#### Promotions
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -268,13 +268,7 @@ Updates the number of available resources in [Resource category](resources.md#re
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
-| `UnitCountAdjustment` | [Number update value](#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
-
-#### Number update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | number | optional | Value which is to be updated. |
+| `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
 
 ### Response
 

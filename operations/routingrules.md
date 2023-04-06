@@ -273,18 +273,12 @@ Updates routing rules.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `RoutingRuleId` | string | required | Unique identifier of the routing rule. |
-| `CompanyId` | [String update value](#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) \(or `null` should it not be updated\). |
-| `CompanyRelation` | [String update value](#string-update-value)| optional | [Company relation](routingrules.md#company-relation) to the routing rule \(or `null` should it not be updated\). |
-| `ServiceId` | [String update value](#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` should it not be updated\). |
-| `Applicability` | [String update value](#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` should it not be updated\). |
-| `RouteType` | [String update value](#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` should it not be updated\). |
+| `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) \(or `null` should it not be updated\). |
+| `CompanyRelation` | [String update value](_objects.md#string-update-value)| optional | [Company relation](routingrules.md#company-relation) to the routing rule \(or `null` should it not be updated\). |
+| `ServiceId` | [String update value](_objects.md#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` should it not be updated\). |
+| `Applicability` | [String update value](_objects.md#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` should it not be updated\). |
+| `RouteType` | [String update value](_objects.md#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` should it not be updated\). |
 | `SelectedStayItems` | [Selected stay items update parameters](routingrules.md#selected-stay-items-update-parameters) | optional | To which stay items routing rule applies to. Required only if RouteType value is SelectedStayItems. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
 
 #### String array update value
 
@@ -292,18 +286,12 @@ Updates routing rules.
 | :-- | :-- | :-- | :-- |
 | `Value` | array of string | optional | Value which is to be updated. |
 
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
-
 #### Selected stay items update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Nights` | [Bool update value](#bool-update-value) | optional | Whether routing rule applies to nights \(or `null` should it not be updated\). |
-| `CityTax` | [Bool update value](#bool-update-value) | optional | Whether routing rule applies to city tax \(or `null` should it not be updated\). |
+| `Nights` | [Bool update value](_objects.md#bool-update-value) | optional | Whether routing rule applies to nights \(or `null` should it not be updated\). |
+| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional | Whether routing rule applies to city tax \(or `null` should it not be updated\). |
 | `ProductCategoryIds` | [String array update value](#string-array-update-value) | optional | Product categories to which the routing rule applies \(or `null` should it not be updated\). |
 
 ### Response
