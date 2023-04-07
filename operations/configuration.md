@@ -12,7 +12,8 @@ Returns configuration of the enterprise and the client.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "851df8c8-90f2-4c4a-8e01-a4fc46b25178"
 }
 ```
 
@@ -21,6 +22,7 @@ Returns configuration of the enterprise and the client.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Identifies the enterprise to return when multiple are accessible. |
 
 ### Response
 
@@ -120,26 +122,13 @@ Returns configuration of the enterprise and the client.
 | `Phone` | string | optional | Phone number of the enterprise. |
 | `LogoImageId` | string | required | Unique identifier of the enterprise logo image. |
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
-| `Address` | [Address](#address) | required | Address of the enterprise. |
+| `AddressId` | string | required | Identifier of the [Address](addresses.md#account-address) of the enterprise. |
+| ~~`Address`~~ | ~~[Address](#address)~~ | ~~required~~ | ~~Address of the enterprise.~~ **Deprecated!** |
 | `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the enterprise from external system. |
 | `AccountingConfiguration` | [Accounting configuration](#accounting-configuration) | optional | Configuration information containg financial information about the property. |
-
-#### Address
-
-| Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
-| `Id` | string | required | Unique identifier of the address. |
-| `Line1` | string | optional | First line of the address. |
-| `Line2` | string | optional | Second line of the address. |
-| `City` | string | optional | The city. |
-| `PostalCode` | string | optional | Postal code. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
-| `Latitude` | number | optional | The latitude. |
-| `Longitude` | number | optional | The longitude. |
 
 #### Accepted currency
 
