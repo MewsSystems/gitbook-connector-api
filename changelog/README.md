@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th April 2023
+
+* Extended [Get all rules](../operations/rules.md#get-all-rules) response with `TravelAgencyId` in [Rule conditions](../operations/rules.md#rule-conditions).
+
 ## 6th April 2023
 
 * Updated definitions for external identifiers throughout the API
