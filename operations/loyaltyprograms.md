@@ -45,17 +45,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](#loyalty-program). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) creation date and time. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) creation date and time. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -186,13 +179,7 @@ Updates information about the specified loyalty programs.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
-| `Name` | [String update value](#string-update-value) | optional | Name of the loyalty program \(or `null` if the name should not be updated\). |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the loyalty program \(or `null` if the name should not be updated\). |
 
 ### Response
 

@@ -34,15 +34,8 @@ Returns all availability adjustments.  Note that this operation uses [Pagination
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `AvailabilityAdjustmentIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability adjustments](#availability-adjustment). |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability adjustments](#availability-adjustment) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability adjustments](#availability-adjustment) were updated. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | optional| Whether to return only active, only deleted or both records. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
