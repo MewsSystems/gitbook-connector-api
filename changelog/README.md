@@ -7,6 +7,7 @@
 
 ## 4th April 2023
 
+* Fixed name of parameter `PostCancellationFee` in [Reservation cancel](../operations/reservations.md#cancel-reservation).
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
 ## 3rd April 2023
