@@ -2,7 +2,7 @@
 
 ## 11th April 2023
 
-* Added operation [Get all order items](../operations/orderItems.md#get-all-order-items).
+* Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
 
 ## 4th April 2023
 
