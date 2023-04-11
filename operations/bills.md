@@ -263,7 +263,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
 
-### Bill address
+#### Bill address
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -274,7 +274,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
 | `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
 
-### Dictionary
+#### Dictionary
 
 Dictionary is a collection of key-value pairs.
 
@@ -282,7 +282,7 @@ Dictionary is a collection of key-value pairs.
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
-### Legal Identifiers
+#### Legal Identifiers
 
 `LegalIdentifiers` is a [Dictionary](#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
 

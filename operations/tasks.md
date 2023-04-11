@@ -17,7 +17,7 @@ Adds a new task to the enterprise, optionally to a specified department.
     "Description": "Task description",
     "DeadlineUtc": "2016-01-01T14:00:00Z",
     "ServiceOrderId": "c73cf884-ae2b-4fba-858c-ab1400b4c8c3",
-    "DepartmentId": "8a0770a7-5178-4b87-8898-ab0400a346ec",
+    "DepartmentId": "8a0770a7-5178-4b87-8898-ab0400a346ec"
 }
 ```
 

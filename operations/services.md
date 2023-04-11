@@ -143,7 +143,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 | :-- | :-- | :-- | :-- |
 | `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
 
-##### Promotions
+#### Promotions
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

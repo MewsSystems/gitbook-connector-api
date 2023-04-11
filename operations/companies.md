@@ -243,7 +243,7 @@ Adds a new company to the enterprise.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | required | Name of the company. |
-| `Options` | [Company option parameters](#company-options-parameters) | required | Options of the company. |
+| `Options` | [Company options parameters](#company-options-parameters) | required | Options of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
 | `Identifier` | string | optional | Identifier of the company (e.g. legal identifier). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
