@@ -5,6 +5,10 @@
 * Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
 * Deprecated `Address` in [Enterprise](../operations/configuration.md#enterprise) and replaced with `AddressId`.
 
+## 9th April 2023
+
+* Extended [Get all rules](../operations/rules.md#get-all-rules) response with `TravelAgencyId` in [Rule conditions](../operations/rules.md#rule-conditions).
+
 ## 6th April 2023
 
 * Updated definitions for external identifiers throughout the API
@@ -12,6 +16,7 @@
 
 ## 4th April 2023
 
+* Fixed name of parameter `PostCancellationFee` in [Reservation cancel](../operations/reservations.md#cancel-reservation).
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
 ## 3rd April 2023
