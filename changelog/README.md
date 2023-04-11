@@ -4,6 +4,10 @@
 
 * Added new page [Enterprises](../operations/enterprises.md) with operation [Get all enterprises](../operations/enterprises.md#get-all-enterprises).
 
+## 9th April 2023
+
+* Extended [Get all rules](../operations/rules.md#get-all-rules) response with `TravelAgencyId` in [Rule conditions](../operations/rules.md#rule-conditions).
+
 ## 6th April 2023
 
 * Updated definitions for external identifiers throughout the API
@@ -11,6 +15,7 @@
 
 ## 4th April 2023
 
+* Fixed name of parameter `PostCancellationFee` in [Reservation cancel](../operations/reservations.md#cancel-reservation).
 * Added operation [Get all payments](../operations/payments.md#get-all-payments).
 
 ## 3rd April 2023
