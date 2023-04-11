@@ -40,16 +40,9 @@ Returns all resource access tokens based on resource access token identifiers, r
 | `Client` | string | required | Name and version of the client application. |
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access tokens](#resource-access-token). Required if no other filter is provided. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example [Reservation](reservations.md#reservation)). Required if no other filter is provided. |
-| `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of tokens returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -173,16 +166,10 @@ Adds new resource access tokens with the specified data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Bed` | [Bool update value](#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
-| `Room` | [Bool update value](#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access room. |
-| `Floor` | [Bool update value](#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access floor. |
-| `Building` | [Bool update value](#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access building. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
+| `Bed` | [Bool update value](_objects.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access bed. |
+| `Room` | [Bool update value](_objects.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access room. |
+| `Floor` | [Bool update value](_objects.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access floor. |
+| `Building` | [Bool update value](_objects.md#bool-update-value) | optional | Specify whether [Resource access token](#resource-access-token) grants permission to access building. |
 
 ### Response
 
@@ -256,16 +243,10 @@ Updates the [Resource access token](#resource-access-token) validity interval an
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceAccessTokenId` | [String update value](#string-update-value) | required | Unique identifier of [Resource access token](#resource-access-token). |
-| `ValidityStartUtc` | [String update value](#string-update-value) | optional | Marks the start of interval in which the resource access token can be used. |
-| `ValidityEndUtc` | [String update value](#string-update-value) | optional | Marks the end of interval in which the resource access token can be used. |
+| `ResourceAccessTokenId` | [String update value](_objects.md#string-update-value) | required | Unique identifier of [Resource access token](#resource-access-token). |
+| `ValidityStartUtc` | [String update value](_objects.md#string-update-value) | optional | Marks the start of interval in which the resource access token can be used. |
+| `ValidityEndUtc` | [String update value](_objects.md#string-update-value) | optional | Marks the end of interval in which the resource access token can be used. |
 | `Permissions` | [Resource access token permission parameter](#resource-access-token-permission-parameter) | optional | Specify permissions of [Resource access token](#resource-access-token). |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
 
 ### Response
 
