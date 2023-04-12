@@ -1,14 +1,14 @@
 # Changelog
 
+## 12th April 2023
+
+* Added operation [Add service order notes](../operations/serviceordernotes.md#add-service-order-notes).
+* Added operation [Update service order notes](../operations/serviceordernotes.md#update-service-order-notes).
+* Added operation [Delete service order notes](../operations/serviceordernotes.md#delete-service-order-notes).
+
 ## 9th April 2023
 
 * Extended [Get all rules](../operations/rules.md#get-all-rules) response with `TravelAgencyId` in [Rule conditions](../operations/rules.md#rule-conditions).
-
-## 7th April 2023
-
-* Added operation `serviceOrdernotes/add` [Add service order notes](../operations/serviceOrders.md#add-service-order-notes).
-* Added operation `serviceOrdernotes/update` [Update service order notes](../operations/serviceOrders.md#update-service-order-notes).
-* Added operation `serviceOrdernotes/delete` [Delete service order notes](../operations/serviceOrders.md#delete-service-order-notes).
 
 ## 6th April 2023
 
