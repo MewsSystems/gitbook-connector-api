@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th April 2023
+
+* Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
+
 ## 11th April 2023
 
 * Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response with `OriginalAmount` in [Order item](../operations/accountingitems.md#order-item) and [Payment item](../operations/accountingitems.md#payment-item).
