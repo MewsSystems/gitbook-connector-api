@@ -2,9 +2,9 @@
 
 ## 7th April 2023
 
-* Added new `serviceOrdernotes/Add` endpoint and docs in [Add serviceOrderNotes](../operations/serviceOrders.md#add-service-order-notes)
-* Added new `serviceOrdernotes/Update` endpoint and docs in [Update serviceOrderNotes](../operations/serviceOrders.md#update-service-order-notes)
-* Added new `serviceOrdernotes/Delete` endpoint and docs in [Delete serviceOrderNotes](../operations/serviceOrders.md#delete-service-order-notes)
+* Added operation `serviceOrdernotes/add` [Add service order notes](../operations/serviceOrders.md#add-service-order-notes).
+* Added operation `serviceOrdernotes/update` [Update service order notes](../operations/serviceOrders.md#update-service-order-notes).
+* Added operation `serviceOrdernotes/delete` [Delete service order notes](../operations/serviceOrders.md#delete-service-order-notes).
 
 ## 6th April 2023
 

@@ -80,11 +80,11 @@ Returns all notes associated with the given service orders. Service orders can b
 
 ## Add service order notes
 
-Adds note with a provided text to a specific service order. Service orders can be reservations or product orders.
+Adds one or more notes with a provided text to a specific service order. Service orders can be reservations or product orders.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/serviceOrderNotes/Add`
+`[PlatformAddress]/api/connector/v1/serviceOrderNotes/add`
 
 ```javascript
 {
@@ -93,8 +93,8 @@ Adds note with a provided text to a specific service order. Service orders can b
     "Client": "Sample Client 1.0.0",
     "ServiceOrderNotes": [
         {
-            "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Text": "Is this a place for an Easter egg?"
+            "ServiceOrderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "Text": "Sample text"
         }
     ]
 }
@@ -105,16 +105,14 @@ Adds note with a provided text to a specific service order. Service orders can b
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderNotes` | array of [ServiceOrderNoteAddParameters](#service-order-note-add-parameters) | required, max 1000 items | Links serviceOrder with text to be added |
+| `ServiceOrderNotes` | array of [Service order note parameters](#service-order-note-parameters) | required, max 1000 items | Notes to be added. |
 
-
-#### Service Order Note Add Parameters
+#### Service order note parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifiers of [Service order](#service-order). Reservation IDs or Order IDs can be used as service order identifiers. |
-| `Text` | string | required, cannot be empty | Text of the note. |
-
+| `ServiceOrderId` | string | required | Unique identifier of the [Service order](#service-order) to which note will be added. |
+| `Text` | string | required, min 1 character | Content of the service order note. |
 
 ### Response
 
@@ -123,8 +121,8 @@ Adds note with a provided text to a specific service order. Service orders can b
     "ServiceOrderNotes": [
         {
             "Id": "a06a225b-00f7-48c8-a463-af5c016768e9",
-            "ServiceOrderId": "1dc0c6bf-2ce6-4a9f-af97-af5c01676720",
-            "Text": "Shaken, not stirred.",
+            "ServiceOrderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "Text": "Sample text"
             "Type": "General",
             "CreatedUtc": "2022-11-29T21:48:32Z"
         }
@@ -134,15 +132,15 @@ Adds note with a provided text to a specific service order. Service orders can b
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderNotes` | array of [Service order note](#service-order-note) | required | The collection of service order notes. |
+| `ServiceOrderNotes` | array of [Service order note](#service-order-note) | required | Added service order notes. |
 
 ## Update service order notes
 
-Updates provided note with a new text. Service orders can be reservations or product orders.
+Updates provided note with a new text.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/serviceOrderNotes/Update`
+`[PlatformAddress]/api/connector/v1/serviceOrderNotes/update`
 
 ```javascript
 {
@@ -152,7 +150,7 @@ Updates provided note with a new text. Service orders can be reservations or pro
     "ServiceOrderNoteUpdates": [
         {
             "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Text": "Is this a place for an Easter egg?"
+            "Text": "Sample text"
         }
     ]
 }
@@ -163,16 +161,15 @@ Updates provided note with a new text. Service orders can be reservations or pro
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderNoteUpdates` | array of [ServiceOrderNoteUpdateParameters](#service-order-note-update-parameters) | required, max 1000 items | Links serviceOrderNote with text to be updated with |
+| `ServiceOrderNoteUpdates` | array of [Service order note update parameters](#service-order-note-update-parameters) | required, max 1000 items | Notes to be updated. |
 
 
-#### Service Order Note Update Parameters
+#### Service order note update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifiers of [Service order Note](#service-order-note). Reservation IDs or Order IDs can be used as service order identifiers. |
-| `Text` | string | required, cannot be empty | Text of the note. |
-
+| `ServiceOrderNoteId` | string | required | Unique identifiers of [Service order note](#service-order-note). |
+| `Text` | string | required, min 1 character | Content of the service order note. |
 
 ### Response
 
@@ -180,9 +177,9 @@ Updates provided note with a new text. Service orders can be reservations or pro
 {
     "ServiceOrderNotes": [
         {
-            "Id": "a06a225b-00f7-48c8-a463-af5c016768e9",
+            "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceOrderId": "1dc0c6bf-2ce6-4a9f-af97-af5c01676720",
-            "Text": "Shaken, not stirred.",
+            "Text": "Sample text",
             "Type": "General",
             "CreatedUtc": "2022-11-29T21:48:32Z"
         }
@@ -192,15 +189,15 @@ Updates provided note with a new text. Service orders can be reservations or pro
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderNotes` | array of [Service order note](#service-order-note) | required | The collection of service order notes. |
+| `ServiceOrderNotes` | array of [Service order note](#service-order-note) | required | Updated service order notes. |
 
 ## Delete service order notes
 
-Deletes serviceOrderNotes by an Ids. Service orders can be reservations or product orders.
+Deletes service order notes.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/serviceOrderNotes/Delete`
+`[PlatformAddress]/api/connector/v1/serviceOrderNotes/delete`
 
 ```javascript
 {
@@ -218,7 +215,7 @@ Deletes serviceOrderNotes by an Ids. Service orders can be reservations or produ
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderNoteIds` | array of strings | required, max 1000 items | Ids of the serviceOrderNotes to be deleted |
+| `ServiceOrderNoteIds` | array of strings | required, max 1000 items | Unique identifier of the service order notes to be deleted. |
 
 
 ### Response
