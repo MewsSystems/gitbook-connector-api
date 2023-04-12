@@ -1,8 +1,8 @@
-# Order Items
+# Order items
 
 ## Get all order items
 
-Returns all order items. Note this operation uses [Pagination](../guidelines/pagination.md). This operation uses [Pagination](../guidelines/pagination.md). 
+Returns all order items. Note this operation uses [Pagination](../guidelines/pagination.md).
 One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be provided as well.
 
 ### Request
@@ -75,16 +75,16 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `OrderItemIds` | array of string | required, max 1000 items | Unique identifier of the [Order item](orderItems.md#order-item). Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifier of the [Service order](serviceorders.md#service-order). Required if no other filter is provided. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifier of the [Service](services.md#service). Required if no other filter is provided. |
-| `BillIds` | array of string | required, max 1000 items | Unique identifier of the [Bill](bills.md#bill) to which order item is assigned to. Required if no other filter is provided. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was created. Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was updated. Required if no other filter is provided. |
-| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was charged. Required if no other filter is provided. |
-| `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was consumed. Required if no other filter is provided. |
-| `CanceledUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was canceled. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderItems.md#order-item) was closed. Required if no other filter is provided. |
+| `OrderItemIds` | array of string | required, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of the [Service orders](serviceorders.md#service-order). Required if no other filter is provided. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
+| `BillIds` | array of string | required, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was updated. Required if no other filter is provided. |
+| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was charged. Required if no other filter is provided. |
+| `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was consumed. Required if no other filter is provided. |
+| `CanceledUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was canceled. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was closed. Required if no other filter is provided. |
 | `AccountingStates` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
 | `Types` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
@@ -278,8 +278,8 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the order item belongs to. |
 | `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
 | `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
-| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or order item. |
-| `OriginalAmount` | [Amount value](#amount-value) | required | order item's original amount, negative amount represents either rebate or a order item. Contains the earliest known value in conversion chain. |
+| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
+| `OriginalAmount` | [Amount value](#amount-value) | required | order item's original amount, negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
 | `Notes` | string | optional | Additional notes. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |

@@ -98,6 +98,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add payment requests](/paymentrequests.md#add-payment-requests) | Adds new payment requests for specified customers |
 | [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
+| [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
 
 ## Loyalty
 
@@ -156,12 +157,6 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
 | [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. Service orders can be reservations or product orders. |
-
-## Order items
-| <div style="width:200px">Operation or Endpoint</div> | Description |
-| :-- | :-- |
-| [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
-
 
 ## Services
 
