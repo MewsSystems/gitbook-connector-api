@@ -255,10 +255,10 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Client` | string | required | Name and version of the client application. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
-| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was closed. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
+| `ChargedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was closed. Required if no other filter is provided. |
 | `AccountingState` | string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
 | `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
@@ -454,13 +454,6 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `AdjustedFee` | [Amount](#amount-value) | optional | Transaction fee (adjusted) - this is the final confirmed transaction fee, including confirmed bank charges. |
 | `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
 | `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Accounting item state
 

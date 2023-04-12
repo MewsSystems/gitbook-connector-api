@@ -237,43 +237,25 @@ Updates one or more company contracts.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `TravelAgencyContractId` | string | required | Unique identifier of the Travel agency contract. |
-| `CommissionIncluded` | [Bool update value](#bool-update-value) | optional | Whether commission of the travel agency is included in the rate. |
-| `Commission` | [Number update value](#number-update-value) | optional | Commission of the travel agency. |
-| `ChannelManagerAbsoluteAdjustment` | [Number update value](#number-update-value) | optional | Flat fee added to (or subtracted from) the reservation price when coming from Channel Managers. |
-| `ChannelManagerRelativeAdjustment` | [Number update value](#number-update-value) | optional | Percentage of the reservation price added to (or subtracted from) price when coming from Channel Managers. |
+| `CommissionIncluded` | [Bool update value](_objects.md#bool-update-value) | optional | Whether commission of the travel agency is included in the rate. |
+| `Commission` | [Number update value](_objects.md#number-update-value) | optional | Commission of the travel agency. |
+| `ChannelManagerAbsoluteAdjustment` | [Number update value](_objects.md#number-update-value) | optional | Flat fee added to (or subtracted from) the reservation price when coming from Channel Managers. |
+| `ChannelManagerRelativeAdjustment` | [Number update value](_objects.md#number-update-value) | optional | Percentage of the reservation price added to (or subtracted from) price when coming from Channel Managers. |
 | `Options` | [Travel agency contract update options](#travel-agency-contract-update-options) | optional | Options of the travel agency contract. |
-| `AccountingCode` | [String update value](#string-update-value) | optional | Accounting code of the travel agency contract. |
-| `InvoiceDueInterval` | [String update value](#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `ChannelManagerBusinessSegmentId` | [String update value](#string-update-value) | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment) used for incoming reservations originating from Channel Managers, for this particular contract. |
-| `ContactPerson` | [String update value](#string-update-value) | optional | Contact person of the travel agency. |
-| `ContactEmail` | [String update value](#string-update-value) | optional | Contact email of the travel agency. |
-| `AdditionalContactInfo` | [String update value](#string-update-value) | optional | Additional contact info of the travel agency. |
-| `Notes` | [String update value](#string-update-value) | optional | Additional notes of the travel agency contract. |
+| `AccountingCode` | [String update value](_objects.md#string-update-value) | optional | Accounting code of the travel agency contract. |
+| `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ChannelManagerBusinessSegmentId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment) used for incoming reservations originating from Channel Managers, for this particular contract. |
+| `ContactPerson` | [String update value](_objects.md#string-update-value) | optional | Contact person of the travel agency. |
+| `ContactEmail` | [String update value](_objects.md#string-update-value) | optional | Contact email of the travel agency. |
+| `AdditionalContactInfo` | [String update value](_objects.md#string-update-value) | optional | Additional contact info of the travel agency. |
+| `Notes` | [String update value](_objects.md#string-update-value) | optional | Additional notes of the travel agency contract. |
 
 #### Travel agency contract update options
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `IncludeCancellationFeeInCommissionEstimate` | [Bool update value](#bool-update-value) | required | Cancellation fee will be considered when calculating the travel agency commission estimate. |
-| `SkipAutomaticSettlement` | [Bool update value](#bool-update-value) | required | Reservations from travel agencies will not be automatically charged. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Number update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | number | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
+| `IncludeCancellationFeeInCommissionEstimate` | [Bool update value](_objects.md#bool-update-value) | required | Cancellation fee will be considered when calculating the travel agency commission estimate. |
+| `SkipAutomaticSettlement` | [Bool update value](_objects.md#bool-update-value) | required | Reservations from travel agencies will not be automatically charged. |
 
 ### Response
 

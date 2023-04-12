@@ -44,17 +44,10 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
 | `Client` | string | required | Name and version of the client application. |
 | `ResourceBlockIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Resource blocks](#resource-block). |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the requested Assigned [Resources](resources.md#resource). |
-| `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) is active. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) was created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) was updated. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) is active. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) was created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) was updated. |
 | `Extent` | [Resource block extent](#resource-block-extent) | required | Extent of data to be returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Resource block extent
 
@@ -152,9 +145,9 @@ Adds a new resource block to the specified resource for a defined period of time
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ResourceBlocks` | array of [Resource block parameters](#resource-block-parameter) | required | Resource block parameters. |
+| `ResourceBlocks` | array of [Resource block parameters](#resource-block-parameters) | required | Resource block parameters. |
 
-#### Resource block parameter
+#### Resource block parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
