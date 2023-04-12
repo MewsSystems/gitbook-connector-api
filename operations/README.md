@@ -151,14 +151,14 @@ This section describes all operations supported by the API, organised here by th
 | [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
 | [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
 
-## Service orders
+## Service order notes
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. |
-| [Add service order notes](serviceorders.md#add-service-order-notes) | Adds service order notes to a given service order. |
-| [Update service order notes](serviceorders.md#update-service-order-notes) | Updates content of given service order notes. |
-| [Delete service order notes](serviceorders.md#delete-service-order-notes) | Deletes given service order notes. |
+| [Get all service order notes](serviceordernotes.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. |
+| [Add service order notes](serviceordernotes.md#add-service-order-notes) | Adds service order notes to a given service order. |
+| [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes. |
+| [Delete service order notes](serviceordernotes.md#delete-service-order-notes) | Deletes given service order notes. |
 
 ## Services
 
