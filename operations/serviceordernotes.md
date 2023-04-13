@@ -136,7 +136,7 @@ Adds one or more notes with a provided text to a specific service order. Service
 
 ## Update service order notes
 
-Updates provided note with a new text.
+Updates one or more given service order notes with new text.
 
 ### Request
 
