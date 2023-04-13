@@ -168,7 +168,7 @@ Updates provided note with a new text.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderNoteId` | string | required | Unique identifiers of [Service order note](#service-order-note). |
+| `ServiceOrderNoteId` | string | required | Unique identifier of [Service order note](#service-order-note). |
 | `Text` | string | required, min 1 character | Content of the service order note. |
 
 ### Response
