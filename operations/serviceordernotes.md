@@ -215,7 +215,7 @@ Deletes service order notes.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderNoteIds` | array of strings | required, max 1000 items | Unique identifier of the service order notes to be deleted. |
+| `ServiceOrderNoteIds` | array of strings | required, max 1000 items | Unique identifiers of the service order notes to be deleted. |
 
 
 ### Response
