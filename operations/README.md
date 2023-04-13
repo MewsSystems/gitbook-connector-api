@@ -151,7 +151,7 @@ This section describes all operations supported by the API, organised here by th
 | [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
 | [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
 
-## Service order notes
+## Service orders
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
