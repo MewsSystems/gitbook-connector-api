@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th April 2023
+
+* Deprecated operation [Get all accounting items ](../operations/accountingitems.md#get-all-accounting-items). Operation [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
 ## 12th April 2023
 
 * Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
