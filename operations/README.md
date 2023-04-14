@@ -78,7 +78,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all cashiers](cashiers.md#get-all-cashiers) | Returns all cashiers in the enterprise |
 | [Get all cashier transactions](cashiertransactions.md#get-all-cashier-transactions) | Returns all cashier transactions created within the specified interval |
 | [Get all accounting categories](accountingcategories.md#get-all-accounting-categories) | Returns all accounting categories of the enterprise associated with the connector integration |
-| [Get all accounting items](accountingitems.md#get-all-accounting-items) | Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval |
+| [~~Get all accounting items~~](accountingitems.md#get-all-accounting-items) | **Deprecated!** Please use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.  |
 | [Update accounting items](accountingitems.md#update-accounting-items) | Updates specified accounting item |
 | [Get all bills](bills.md#get-all-bills) | Returns all bills, possibly filtered by customers, identifiers and other filters |
 | [Add bill](bills.md#add-bill) | Creates new empty bill assigned to specified account |
