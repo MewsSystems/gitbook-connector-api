@@ -130,6 +130,20 @@ Returns the configuration of the enterprise or the service associated with the g
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the enterprise from external system. |
 | `AccountingConfiguration` | [Accounting configuration](#accounting-configuration) | optional | Configuration information containg financial information about the property. |
 
+#### Address
+
+| Property | Type | Contract | Description |
+| :--- | :--- | :--- | :--- |
+| `Id` | string | required | Unique identifier of the address. |
+| `Line1` | string | optional | First line of the address. |
+| `Line2` | string | optional | Second line of the address. |
+| `City` | string | optional | The city. |
+| `PostalCode` | string | optional | Postal code. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
+| `Latitude` | number | optional | The latitude. |
+| `Longitude` | number | optional | The longitude. |
+
 #### Accepted currency
 
 | Property | Type | Contract | Description |
