@@ -1,6 +1,6 @@
 # Changelog
 
-## 11th April 2023
+## 17th April 2023
 
 * Added new page [Enterprises](../operations/enterprises.md) with operation [Get all enterprises](../operations/enterprises.md#get-all-enterprises).
 
