@@ -52,6 +52,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
+| [Get all enterprises](enterprises.md#get-all-enterprises) | Returns all enterprises accessible to a supplied access token. |
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
