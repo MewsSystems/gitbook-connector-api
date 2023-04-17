@@ -121,6 +121,26 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                     ]
                 }
             },
+            "OriginalAmount": {
+                "Currency": "EUR",
+                "NetValue": 126.05,
+                "GrossValue": 150.00,
+                "TaxValues": [
+                    {
+                        "Code": "DE-2020-1-I",
+                        "Value": 23.95
+                    }
+                ],
+                "Breakdown": {
+                    "Items": [
+                        {
+                            "TaxRateCode": "DE-2020-1-I",
+                            "NetValue": 126.05,
+                            "TaxValue": 23.95
+                        }
+                    ]
+                }
+            },
             "RevenueType": "Additional",
             "ConsumedUtc": "2021-06-19T04:00:08Z",
             "ClosedUtc": null,
@@ -152,8 +172,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
                     ]
                 }
             },
-            "AmountDefault": {
-                "Currency": "EUR",
+            "OriginalAmount": {
+                "Currency": "GBP",
                 "NetValue": 850.00,
                 "GrossValue": 850.00,
                 "TaxValues": [],
@@ -203,6 +223,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
 | `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
 | `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
+| `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
@@ -218,7 +239,8 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
-| `AmountDefault` | [Amount value](#amount-value) | required | Item's amount in property's default currency, negative amount represents either rebate or a payment. |
+| `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
+| ~~`AmountDefault`~~ | ~~[Amount value](#amount-value)~~ | ~~required~~ | ~~Item's amount in property's default currency, negative amount represents either rebate or a payment.~~ **Deprecated!** |
 | `Notes` | string | optional | Additional notes. |
 | `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
