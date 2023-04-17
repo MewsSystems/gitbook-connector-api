@@ -2,7 +2,7 @@
 
 ## Get configuration
 
-Returns the configuration of the enterprise or the service associated with the given access token.
+Returns the configuration of the enterprise, and optionally the service, associated with the given access token.
 
 ### Request
 
