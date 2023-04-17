@@ -4,6 +4,16 @@
 
 * Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
 * Deprecated `Address` in [Enterprise](../operations/configuration.md#enterprise) and replaced with `AddressId`.
+* Added new page [Enterprises](../operations/enterprises.md) with operation [Get all enterprises](../operations/enterprises.md#get-all-enterprises).
+
+## 12th April 2023
+
+* Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
+
+## 11th April 2023
+
+* Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response with `OriginalAmount` in [Order item](../operations/accountingitems.md#order-item) and [Payment item](../operations/accountingitems.md#payment-item).
+* Deprecated `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item).
 
 ## 9th April 2023
 
