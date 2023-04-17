@@ -90,8 +90,8 @@ Returns all enterprises, optionally filtered by ids and external identifiers. Th
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |
-| `LogoImageId` | string | required | Unique identifier of the enterprise logo image. |
-| `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
+| `LogoImageId` | string | optional | Unique identifier of the enterprise logo image. |
+| `CoverImageId` | string | optional | Unique identifier of the enterprise cover image. |
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
 | `AddressId` | string | required | Id of the [Address](addresses.md#account-address) of the enterprise. |
