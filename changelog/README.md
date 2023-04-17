@@ -1,5 +1,10 @@
 # Changelog
 
+## 18th April 2023
+
+* Extended [Get order items](../operations/orderitems.md#get-all-order-items) with `EnterpriseIds` parameter and [Order item](../operations/orderitems.md#order-item) with `EnterpriseId` property.
+* Extended [Get payments](../operations/payments.md#get-all-payments) with `EnterpriseIds` parameter and [Payment](../operations/payments.md#payment) with `EnterpriseId` property.
+
 ## 17th April 2023
 
 * Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
