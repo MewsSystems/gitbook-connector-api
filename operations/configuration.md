@@ -2,7 +2,7 @@
 
 ## Get configuration
 
-Returns configuration of the enterprise and the client.
+Returns the configuration of the enterprise or the service associated with the given access token.
 
 ### Request
 
@@ -22,7 +22,7 @@ Returns configuration of the enterprise and the client.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Identifies the enterprise to return when multiple are accessible. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](#enterprise), defaults to the enterprise associated with the given access token. |
 
 ### Response
 
@@ -122,7 +122,7 @@ Returns configuration of the enterprise and the client.
 | `Phone` | string | optional | Phone number of the enterprise. |
 | `LogoImageId` | string | required | Unique identifier of the enterprise logo image. |
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
-| `AddressId` | string | required | Identifier of the [Address](addresses.md#account-address) of the enterprise. |
+| `AddressId` | string | required | Unique identifier of the [Address](addresses.md#account-address) of the enterprise. |
 | ~~`Address`~~ | ~~[Address](#address)~~ | ~~required~~ | ~~Address of the enterprise.~~ **Deprecated!** |
 | `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
