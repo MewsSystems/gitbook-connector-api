@@ -2,7 +2,7 @@
 
 ## Get all enterprises
 
-Returns all enterprises, possibly filtered by ids and external identifiers. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all enterprises, optionally filtered by ids and external identifiers. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
