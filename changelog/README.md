@@ -1,6 +1,6 @@
 # Changelog
 
-## 11th April 2023
+## 17th April 2023
 
 * Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
 * Deprecated `Address` in [Enterprise](../operations/configuration.md#enterprise) and replaced with `AddressId`.
