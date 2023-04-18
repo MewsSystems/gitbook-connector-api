@@ -1,5 +1,8 @@
 # Changelog
 
+## 18th April 2023
+* Extended [loyalty programs](../operations/loyaltyprograms.md#loyalty-program) with [Type](#loyalty-program-type) and [Subscription](#loyalty-program-subscription) parameters.
+
 ## 17th April 2023
 
 * Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
