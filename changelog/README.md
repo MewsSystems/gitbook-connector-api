@@ -2,8 +2,8 @@
 
 ## 18th April 2023
 
-* Extended [Get order items](../operations/orderitems.md#get-all-order-items) with `EnterpriseIds` parameter and [Order item](../operations/orderitems.md#order-item) with `EnterpriseId` property.
-* Extended [Get payments](../operations/payments.md#get-all-payments) with `EnterpriseIds` parameter and [Payment](../operations/payments.md#payment) with `EnterpriseId` property.
+* Extended [Get all order items](../operations/orderitems.md#get-all-order-items) with `EnterpriseIds` filter and [Order item](../operations/orderitems.md#order-item) with `EnterpriseId`.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) with `EnterpriseIds` filter and [Payment](../operations/payments.md#payment) with `EnterpriseId`.
 
 ## 17th April 2023
 
