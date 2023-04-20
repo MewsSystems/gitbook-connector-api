@@ -91,14 +91,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 
 #### Loyalty program type
 
-* `Hotel` - Hotel                      (Senem: more explanation is needed)
-* `ExternalPartner` - External partner (Senem: more explanation is needed)
-* `SoftBrand` - Soft brand             (Senem: more explanation is needed)
+* `Hotel`
+* `ExternalPartner`
+* `SoftBrand`
 
 #### Loyalty program subscription
 
-* `Free` - Free (Senem: more explanation is needed)
-* `Paid` - Paid (Senem: more explanation is needed)
+* `Free`
+* `Paid`
 
 ## Add loyalty programs
 
@@ -142,8 +142,8 @@ Adds loyalty programs to the enterprise.
 | `DataClusterId` | string | required | Unique identifier of the chain whose member the enterprise is. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
-| `Type` | [Loyalty program type](#loyalty-program-type) | string | optional | Type of the loyalty program. |
-| `Subscription` | [Loyalty program subscription](#loyalty-program-subscription) | string | optional | Subscription of the loyalty program. |
+| `Type` | string [Loyalty program type](#loyalty-program-type) | optional | Type of the loyalty program. |
+| `Subscription` | string [Loyalty program subscription](#loyalty-program-subscription) | optional | Subscription of the loyalty program. |
 
 ### Response
 
@@ -184,9 +184,15 @@ Updates information about the specified loyalty programs.
     "LoyaltyProgramUpdates": [
         {
             "LoyaltyProgramId": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-            "Name": "Platinum Club Extra",
-            "Type": "Hotel",
-            "Subscription": "Free"
+            "Name": {
+                "Value": "Platinum Club Extra"
+            },
+            "Type": {
+                "Value": "Hotel"
+            },
+            "Subscription": {
+                "Value": "Free"
+            }
         }
     ]
 }
@@ -205,8 +211,18 @@ Updates information about the specified loyalty programs.
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the loyalty program \(or `null` if the name should not be updated\). |
-| `Type` | [Loyalty program type](#loyalty-program-type) | string | optional | Type of the loyalty program. |
-| `Subscription` | [Loyalty program subscription](#loyalty-program-subscription) | string | optional | Subscription of the loyalty program. |
+| `Type` | [Loyalty program type update](#loyalty-program-type-update) | optional | Type of the loyalty program, \(or `null` if the type should not be updated\). |
+| `Subscription` | [Loyalty program subscription update](#loyalty-program-subscription-update) | optional | Subscription of the loyalty program, \(or `null` if the subscription should not be updated\). |
+
+#### Loyalty program type update
+
+| Property | Type | Contract | Description |
+| `Value` | string [Loyalty program type](#loyalty-program-type) | required | Type of the loyalty program. |
+
+#### Loyalty program subscription update
+
+| Property | Type | Contract | Description |
+| `Value` | string [Loyalty program subscription](#loyalty-program-subscription) | required | Subscription of the loyalty program. |
 
 ### Response
 
