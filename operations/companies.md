@@ -12,7 +12,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
     "Ids": [
         "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
         "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
