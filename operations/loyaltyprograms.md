@@ -86,8 +86,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Id` | string | required | Unique identifier of the loyalty program. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
-| `Type` | [Loyalty program type](#loyalty-program-type) | string | optional | Type of the loyalty program. |
-| `Subscription` | [Loyalty program subscription](#loyalty-program-subscription) | string | optional | Subscription of the loyalty program. |
+| `Type` | [Loyalty program type](#loyalty-program-type) | string | required | Type of the loyalty program. |
+| `Subscription` | [Loyalty program subscription](#loyalty-program-subscription) | string | required | Subscription of the loyalty program. |
 
 #### Loyalty program type
 
@@ -142,8 +142,8 @@ Adds loyalty programs to the enterprise.
 | `DataClusterId` | string | required | Unique identifier of the chain whose member the enterprise is. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
-| `Type` | string [Loyalty program type](#loyalty-program-type) | optional | Type of the loyalty program. |
-| `Subscription` | string [Loyalty program subscription](#loyalty-program-subscription) | optional | Subscription of the loyalty program. |
+| `Type` | string [Loyalty program type](#loyalty-program-type) | required | Type of the loyalty program. |
+| `Subscription` | string [Loyalty program subscription](#loyalty-program-subscription) | required | Subscription of the loyalty program. |
 
 ### Response
 
