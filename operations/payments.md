@@ -205,6 +205,11 @@ Returns all payments in the system, filtered by various parameters. At least one
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": 
+    [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "PaymentIds": 
     [
         "f6313945-94c1-4e27-b402-031c2a8c989f",
@@ -253,6 +258,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
@@ -272,6 +278,7 @@ Returns all payments in the system, filtered by various parameters. At least one
     "Payments": [
         {
             "Id": "f6313945-94c1-4e27-b402-031c2a8c989f",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
             "BillId": "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
             "AccountingCategoryId": null,
@@ -328,6 +335,7 @@ Returns all payments in the system, filtered by various parameters. At least one
         },
         {
             "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "AccountId": "4ce18db7-3444-460a-b8af-afb900c92864",
             "BillId": "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4",
             "AccountingCategoryId": null,
@@ -389,6 +397,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the payment. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the payment is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the payment belongs to. |
