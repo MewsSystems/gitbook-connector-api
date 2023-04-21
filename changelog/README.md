@@ -1,7 +1,7 @@
 # Changelog
 
 ## 21st April 2023
-
+* Extended [loyalty programs](../operations/loyaltyprograms.md#loyalty-program) with [Type](../operations/loyaltyprograms.md#loyalty-program-type) and [Subscription](../operations/loyaltyprograms.md#loyalty-program-subscription) parameters.
 * Added operation [Add service order notes](../operations/serviceordernotes.md#add-service-order-notes).
 * Added operation [Update service order notes](../operations/serviceordernotes.md#update-service-order-notes).
 * Added operation [Delete service order notes](../operations/serviceordernotes.md#delete-service-order-notes).
