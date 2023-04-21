@@ -121,7 +121,7 @@
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)
 * Added new filter `ExternalIdentifiers` to  [Get all companies](../operations/companies.md#get-all-companies)
 * Deprecated `Address` in [Company](../operations/companies.md#company) and replaced with `AddressId`
-* Added new page [Service orders](../operations/serviceorders.md) \[corrected to [Service order notes](../operations/serviceordernotes.md) 12th April 2023\].
+* Added new page [Service orders](../operations/serviceorders.md) \[corrected to [Service order notes](../operations/serviceordernotes.md) 21st April 2023\].
 * Added operation [Get all service order notes](../operations/serviceordernotes.md#get-all-service-order-notes).
 * Deprecated `BasePrices` and replaced it with `BaseAmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `BaseAmountPrices` includes information about the tax breakdown.
 * Deprecated `Prices` and replaced it with `AmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `AmountPrices` includes information about the tax breakdown.
