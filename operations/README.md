@@ -157,7 +157,10 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. Service orders can be reservations or product orders. |
+| [Get all service order notes](serviceordernotes.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. |
+| [Add service order notes](serviceordernotes.md#add-service-order-notes) | Adds service order notes to a given service order. |
+| [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes. |
+| [Delete service order notes](serviceordernotes.md#delete-service-order-notes) | Deletes given service order notes. |
 
 ## Services
 
