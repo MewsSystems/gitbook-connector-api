@@ -5,7 +5,6 @@
 * Added operation [Add service order notes](../operations/serviceordernotes.md#add-service-order-notes).
 * Added operation [Update service order notes](../operations/serviceordernotes.md#update-service-order-notes).
 * Added operation [Delete service order notes](../operations/serviceordernotes.md#delete-service-order-notes).
-* Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
 
 ## 20th April 2023
 
@@ -21,6 +20,10 @@
 * Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
 * Deprecated `Address` in [Enterprise](../operations/configuration.md#enterprise) and replaced with `AddressId`.
 * Added new page [Enterprises](../operations/enterprises.md) with operation [Get all enterprises](../operations/enterprises.md#get-all-enterprises).
+
+## 12th April 2023
+
+* Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
 
 ## 11th April 2023
 
