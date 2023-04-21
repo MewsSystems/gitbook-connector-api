@@ -13,7 +13,12 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
+    "Client": "Sample Client 1.0.0",    
+    "EnterpriseIds": 
+    [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "OrderItemIds": 
     [
         "3e982ab5-6245-4c39-80af-1118d40e7494",
@@ -75,6 +80,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `OrderItemIds` | array of string | required, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
 | `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of the [Service orders](serviceorders.md#service-order). Required if no other filter is provided. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
@@ -97,6 +103,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
     "OrderItems": [
         {
             "Id": "53896156-f25b-4949-b55b-afd3007b1146",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
             "ServiceOrderId": "ac5ef5eb-c5b2-4083-879f-83f04a5ebda5",
             "BillId": "d27ffe99-ff92-4afb-ac03-9268f24f0556",
@@ -177,6 +184,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
         },
         {
             "Id": "bd11dc4a-8f9e-442b-bb1e-f5361b31dfa2",
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
             "ServiceOrderId": "dd01a673-ee6e-4f10-9c93-afcd00759ddd",
             "BillId": "297de6f8-bd67-4ebd-98b6-ecc1cd8f920c",
@@ -272,6 +280,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the order item. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
 | `ServiceOrderId` | string | optional | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the order item is assigned to. |
