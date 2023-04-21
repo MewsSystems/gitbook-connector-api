@@ -1,6 +1,6 @@
 # Changelog
 
-## 12th April 2023
+## 21st April 2023
 
 * Added operation [Add service order notes](../operations/serviceordernotes.md#add-service-order-notes).
 * Added operation [Update service order notes](../operations/serviceordernotes.md#update-service-order-notes).
