@@ -53,6 +53,7 @@
   * [Customers](operations/customers.md)
   * [Departments](operations/departments.md)
   * [Devices](operations/devices.md)
+  * [Enterprises](operations/enterprises.md)
   * [Exchange rates](operations/exchangerates.md)
   * [Images](operations/images.md)
   * [Languages](operations/languages.md)

@@ -7,6 +7,21 @@
 * Added operation [Delete service order notes](../operations/serviceordernotes.md#delete-service-order-notes).
 * Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
 
+## 20th April 2023
+
+* Extended [Get all order items](../operations/orderitems.md#get-all-order-items) with `EnterpriseIds` filter and [Order item](../operations/orderitems.md#order-item) with `EnterpriseId`.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) with `EnterpriseIds` filter and [Payment](../operations/payments.md#payment) with `EnterpriseId`.
+
+## 19th April 2023
+
+* Deprecated operation [Get all accounting items ](../operations/accountingitems.md#get-all-accounting-items). Operation [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
+## 17th April 2023
+
+* Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
+* Deprecated `Address` in [Enterprise](../operations/configuration.md#enterprise) and replaced with `AddressId`.
+* Added new page [Enterprises](../operations/enterprises.md) with operation [Get all enterprises](../operations/enterprises.md#get-all-enterprises).
+
 ## 11th April 2023
 
 * Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response with `OriginalAmount` in [Order item](../operations/accountingitems.md#order-item) and [Payment item](../operations/accountingitems.md#payment-item).

@@ -1,6 +1,9 @@
 # Accounting items
 
-## Get all accounting items
+## ~~Get all accounting items~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md), please use [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/payments.md#get-all-payments) instead.
 
 Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency. Accounting items are split into [Order items](#order-item) (consumed items such as nights or products) and [Payment items](#payment-item) (such as cash, credit card payments or invoices).
 
