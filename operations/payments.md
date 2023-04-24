@@ -193,6 +193,9 @@ Adds a new alternative payment to a specified customer.
 
 ## Get all payments
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
 Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 
