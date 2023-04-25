@@ -1,6 +1,6 @@
 # Changelog
 
-## 3rd April 2023
+## 25th April 2023
 
 * Added clarification to values for [Reservation origin](../operations/reservations.md#reservation-origin)
 
