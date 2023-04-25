@@ -52,6 +52,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
+| [Get all enterprises](enterprises.md#get-all-enterprises) | Returns all enterprises accessible to a supplied access token. |
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
@@ -78,7 +79,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all cashiers](cashiers.md#get-all-cashiers) | Returns all cashiers in the enterprise |
 | [Get all cashier transactions](cashiertransactions.md#get-all-cashier-transactions) | Returns all cashier transactions created within the specified interval |
 | [Get all accounting categories](accountingcategories.md#get-all-accounting-categories) | Returns all accounting categories of the enterprise associated with the connector integration |
-| [Get all accounting items](accountingitems.md#get-all-accounting-items) | Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval |
+| [~~Get all accounting items~~](accountingitems.md#get-all-accounting-items) | **Deprecated!** Please use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.  |
 | [Update accounting items](accountingitems.md#update-accounting-items) | Updates specified accounting item |
 | [Get all bills](bills.md#get-all-bills) | Returns all bills, possibly filtered by customers, identifiers and other filters |
 | [Add bill](bills.md#add-bill) | Creates new empty bill assigned to specified account |
@@ -93,10 +94,12 @@ This section describes all operations supported by the API, organised here by th
 | [Add credit card payment](payments.md#add-credit-card-payment) | Adds a new credit card payment to a bill of the specified customer |
 | [Add external payment](payments.md#add-external-payment) | Adds a new external payment to a bill of the specified customer |
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
+| [Get all payments](payments.md#get-all-payments) | Returns all payments, filtered by various parameters |
 | [Get all payment requests](paymentrequests.md#get-all-payment-requests) | Returns all payment requests |
-| [Add payment requests](/paymentrequests.md#add-payment-requests). | Adds new payment requests for specified customers |
-| [Cancel payment requests](paymentrequests.md#cancel-payment-requests). | Cancels specified pending payment requests |
+| [Add payment requests](/paymentrequests.md#add-payment-requests) | Adds new payment requests for specified customers |
+| [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
+| [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
 
 ## Loyalty
 
@@ -154,7 +157,10 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all service order notes](serviceorders.md#get-all-service-order-notes) | Returns all notes associated with the given service orders. Service orders can be reservations or product orders. |
+| [Get all service order notes](serviceordernotes.md#get-all-service-order-notes) | Returns all notes associated with the given service orders |
+| [Add service order notes](serviceordernotes.md#add-service-order-notes) | Adds service order notes to a given service order |
+| [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes |
+| [Delete service order notes](serviceordernotes.md#delete-service-order-notes) | Deletes given service order notes |
 
 ## Services
 
@@ -177,6 +183,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
 | [Set restrictions](restrictions.md#set-restrictions) | **Restricted!** Adds new restrictions with the specified conditions |
+| [Clear restrictions](restrictions.md#clear-restrictions) | **Restricted!** Clears restrictions which meet specified conditions over a specified time interval |
 | [Add order](orders.md#add-order) | Creates a new order with the specified products and items |
 | [Get all companionships](companionships.md#get-all-companionships) | Returns all companionships based on customers, reservations or reservation groups |
 | [Get all resource access tokens](resourceaccesstokens.md#get-all-resource-access-tokens) | Returns all resource access tokens based on resource access tokens, reservations or interval |

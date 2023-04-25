@@ -38,7 +38,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 
 #### Rate extent
@@ -48,13 +48,6 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Rates` | bool | optional | Whether the response should contain rates. |
 | `RateGroups` | bool | optional | Whether the response should contain rate groups. |
 | `AvailabilityBlockAssignments` | bool | optional | Whether the response should contain availability block assignments. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -117,7 +110,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
 | `ExternalNames` | [Localized text](resources.md#localized-text) | required | All translations of the external name of the rate. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate identifier, chosen by the user for the purposes of portfolio management; called Rate Key in Mews Operations. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 
 #### Rate group
 
@@ -127,7 +120,7 @@ Returns all rates \(pricing setups\) and rate groups \(condition settings\) of t
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Portfolio-level rate group identifier, chosen by the user for the purposes of portfolio management; called Rate Group Key in Mews Operations. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate group from external system. |
 
 #### Availability block assignment
 
