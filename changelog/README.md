@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th April 2023
+
+* Added clarification to values for [Reservation origin](../operations/reservations.md#reservation-origin).
+
 ## 21st April 2023
 * Extended [loyalty programs](../operations/loyaltyprograms.md#loyalty-program) with [Type](../operations/loyaltyprograms.md#loyalty-program-type) and [Subscription](../operations/loyaltyprograms.md#loyalty-program-subscription) parameters.
 * Added operation [Add service order notes](../operations/serviceordernotes.md#add-service-order-notes).
