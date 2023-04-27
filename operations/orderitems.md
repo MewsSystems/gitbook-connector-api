@@ -300,6 +300,8 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the order item. |
 | `Type` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Data` | object [Order item data](#order-item-data) | optional | Additional order item data. |
+| `CreatorProfileId` | object [Creator Profile](#creator-profile) | optional | Id of user who created the order item |
+| `UpdaterProfileId` | object [Updater Profile](#updater profile) | optional | Id of user who updated the order item. |
 
 #### Order item data
 
