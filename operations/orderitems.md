@@ -275,6 +275,11 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 }
 ```
 
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `OrderItems` | array of [Order item](#order-item) | required | Set of requested order items. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest order item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older order items. |
+
 #### Order item
 
 | Property | Type | Contract | Description |
@@ -291,6 +296,8 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `OriginalAmount` | [Amount value](#amount-value) | required | order item's original amount, negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
 | `Notes` | string | optional | Additional notes. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `ChargedUtc` | string | optional | Charged date and time of the order item charged in UTC timezone in ISO 8601 format. |
@@ -300,8 +307,6 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the order item. |
 | `Type` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Data` | object [Order item data](#order-item-data) | optional | Additional order item data. |
-| `CreatorProfileId` | object [Creator Profile](#creator-profile) | optional | Id of user who created the order item |
-| `UpdaterProfileId` | object [Updater Profile](#updater profile) | optional | Id of user who updated the order item. |
 
 #### Order item data
 
