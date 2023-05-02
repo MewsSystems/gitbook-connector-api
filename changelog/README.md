@@ -2,7 +2,7 @@
 
 ## 2nd May 2023
 
-* Added operation [Get all cancellation policies](../operations/serviceordernotes.md#add-service-order-notes).
+* Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
 
 ## 25th April 2023
 
