@@ -1,5 +1,9 @@
 # Changelog
 
+## 2nd May 2023
+
+* Added operation [Get all cancellation policies](../operations/serviceordernotes.md#add-service-order-notes).
+
 ## 25th April 2023
 
 * Added clarification to values for [Reservation origin](../operations/reservations.md#reservation-origin).
