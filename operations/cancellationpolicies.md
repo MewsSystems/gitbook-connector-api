@@ -1,8 +1,9 @@
-# Cancellation Policies
+# Cancellation policies
 
 ## Get all cancellation policies
 
-<strong style="color:red">Note that this endpoint is currently in beta phase and breaking changes may still occur.</strong>
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.</strong>
 
 Returns all cancellation policies filtered by services, rate groups and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -22,7 +23,7 @@ Returns all cancellation policies filtered by services, rate groups and other fi
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
     "RateGroupIds": [
-        "fe795f96-0b64-445b-89ed-c032563f2bac"
+        "deb9444e-6897-4f2a-86b4-aff100c2896e"
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-27T11:48:57Z",
@@ -40,10 +41,10 @@ Returns all cancellation policies filtered by services, rate groups and other fi
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceIds` | array of string | max 1000 items | Unique identifiers of the [Service](#service). Required. |
-| `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). |
-| `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](rates.md#rategroup). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellationpolicy) was updated. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](#service). |
+| `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). Required if no other filter is provided. |
+| `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](rates.md#rategroup). Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellationpolicy) was updated. Required if no other filter is provided. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of cancellation policies returned. |
 
 ### Response
@@ -70,7 +71,7 @@ Returns all cancellation policies filtered by services, rate groups and other fi
             "RelativeFee": 0.00000000
         }
     ],
-    "Cursor": "1a38eedb-9590-4aed-9049-aff100c3189f"
+    "Cursor": "769fc613-838f-41a7-ac2a-aff100c3189f"
 }
 ```
 
@@ -91,12 +92,10 @@ Returns all cancellation policies filtered by services, rate groups and other fi
 | `FeeExtent` | [Fee Extent](#fee-extent) | required | Extent for the cancellation fee. |
 | `ApplicabilityOffset` | string | required | Offset for order start (assuming applicability is set to Start) from which the fee is applied. |
 | `FeeMaximumTimeUnits` | int | required | Maximum number of time units the cancellation fee is applicable to. |
-| `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | required | Absolute value of the fee. |
+| `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | optional | Absolute value of the fee. |
 | `RelativeFee` | decimal | required | Relative value of the fee. |
 
 #### Cancellation Policy Applicability
-
-There are three applicability options:
 
 * `Creation` - Cancellation fee is applicable from the time of creating the reservation.
 * `Start` - Cancellation fee is applicable as soon as the reservation starts, i.e. at arrival time.

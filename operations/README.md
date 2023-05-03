@@ -11,6 +11,13 @@ This section describes all operations supported by the API, organised here by th
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
 
+## Cancellation policies
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rategroups and other filters |
+
+
 ## Configuration
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
