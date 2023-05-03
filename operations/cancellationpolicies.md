@@ -2,6 +2,8 @@
 
 ## Get all cancellation policies
 
+<strong style="color:red">Note that this endpoint is currently in beta phase and breaking changes may still occur.</strong>
+
 Returns all cancellation policies filtered by services, rate groups and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
@@ -23,8 +25,8 @@ Returns all cancellation policies filtered by services, rate groups and other fi
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
     "UpdatedUtc": {
-        "StartUtc": "2020-02-05T00:00:00Z",
-        "EndUtc": "2020-02-10T00:00:00Z"
+        "StartUtc": "2023-04-27T11:48:57Z",
+        "EndUtc": "2023-04-27T11:48:57Z",
     },
     "Limitation":{
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
@@ -38,7 +40,7 @@ Returns all cancellation policies filtered by services, rate groups and other fi
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Service](#service). Required. |
+| `ServiceIds` | array of string | max 1000 items | Unique identifiers of the [Service](#service). Required. |
 | `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). |
 | `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](rates.md#rategroup). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellationpolicy) was updated. |
@@ -89,15 +91,8 @@ Returns all cancellation policies filtered by services, rate groups and other fi
 | `FeeExtent` | [Fee Extent](#fee-extent) | required | Extent for the cancellation fee. |
 | `ApplicabilityOffset` | string | required | Offset for order start (assuming applicability is set to Start) from which the fee is applied. |
 | `FeeMaximumTimeUnits` | int | required | Maximum number of time units the cancellation fee is applicable to. |
-| `AbsoluteFee` | [Currency Value](#currency-value) | required | Absolute value of the fee. |
+| `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | required | Absolute value of the fee. |
 | `RelativeFee` | decimal | required | Relative value of the fee. |
-
-#### Currency Value
-
-| Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
-| `Currency` | string | required | ISO-4217 three-letter code, e.g. `USD` or `GBP`. |
-| `Value` | number | required | Nominal value. |
 
 #### Cancellation Policy Applicability
 
@@ -106,8 +101,10 @@ There are three applicability options:
 * `Creation` - Cancellation fee is applicable from the time of creating the reservation.
 * `Start` - Cancellation fee is applicable as soon as the reservation starts, i.e. at arrival time.
 * `StartDate` - Cancellation fee is applicable on the date the reservation starts, i.e., at midnight.
+* ...
 
 #### Fee Extent
 
 * `TimeUnits`
 * `Products`
+* ...
