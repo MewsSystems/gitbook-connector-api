@@ -2,6 +2,9 @@
 
 ## Get all order items
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
 Returns all order items. Note this operation uses [Pagination](../guidelines/pagination.md).
 One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be provided as well.
 
