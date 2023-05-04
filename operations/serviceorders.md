@@ -133,7 +133,6 @@ Returns all service orders associated with the given enterprise. This operation 
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create service order. |
 | `BusinessSegmentId` | string | optional | Identifier of the service order [Business segment](businesssegments.md#business-segment). |
-| `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the service order was booked for. |
 | `Data` | object [Service order data](#service-order-data) | optional | Additional service order data. |
 
 #### Service order data
@@ -165,6 +164,7 @@ Returns all service orders associated with the given enterprise. This operation 
 | `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `Purpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
 | `Options` | string [Reservation options](reservations.md#reservation-options) | optional | Options of the reservations. |
+| `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the service order was booked for. |
 
 #### Person count
 
