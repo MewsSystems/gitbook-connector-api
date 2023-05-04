@@ -35,7 +35,6 @@ Returns all service orders associated with the given enterprise. This operation 
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Service orders](serviceorders.md#service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
-| `GroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservation groups](reservations.md#reservation-group). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the service order is associated with. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
