@@ -2,6 +2,12 @@
 
 This section describes all operations supported by the API, organised here by theme.
 
+## Reservation groups
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups filtered by ids and updatedUtc |
+
 ## Accounts
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |

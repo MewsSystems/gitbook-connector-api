@@ -1,5 +1,9 @@
 # Changelog
 
+## 11th May 2023
+
+* Added operation [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups).
+
 ## 28th April 2023
 
 * Added missing property descriptions to [Get all order items](../operations/orderitems.md#get-all-order-items)
