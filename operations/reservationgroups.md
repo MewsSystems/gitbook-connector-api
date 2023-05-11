@@ -2,7 +2,7 @@
 
 ## Get all reservation groups
 
-Returns all reservation groups filtered by unique idenitiiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all reservation groups filtered by unique identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -63,7 +63,7 @@ Returns all reservation groups filtered by unique idenitiiers and other filters.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation group. |
-| `Name` | string | required | Name of the reservation group. |
+| `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
 | `ChannelManager` | string | optional | Name of the corresponding channel manager. |
 | `ChannelManagerGroupNumber` | string | optional | Identifier of the channel manager. |
 | `EnterpriseId` | string | required | Unique identifier of an enterprise the reservation group belongs to. |
