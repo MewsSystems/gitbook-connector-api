@@ -6,7 +6,7 @@ Returns all service orders associated with the given enterprise. This operation 
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/serviceOrders/getAll`
+`[PlatformAddress]/api/connector/v1/serviceOrders/reservations/getAlll`
 
 ```javascript
 {
@@ -33,12 +33,11 @@ Returns all service orders associated with the given enterprise. This operation 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Service orders](serviceorders.md#service-order). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](serviceorders.md#reservation). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the service order is associated with. |
-| `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Service orders](serviceorders.md#service-order) were created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Service orders](serviceorders.md#service-order) were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Service orders](serviceorders.md#service-order) are active. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -47,7 +46,7 @@ Returns all service orders associated with the given enterprise. This operation 
 
 ```javascript
 {
-    "ServiceOrders": [
+    "Reservations": [
         {
             "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
             "EnterpriseId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -63,6 +62,20 @@ Returns all service orders associated with the given enterprise. This operation 
             "CancelledUtc": null,
             "VoucherId": null,
             "BusinessSegmentId": null,
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "CreditCardId": null,
+            "GroupId": null,
+            "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714"
+            "AvailabilityBlockId": null,
+            "PartnerCompanyId": null,
+            "TravelAgencyId": null,
+            "AssignedResourceLocked": false,
+            "ChannelNumber": "TW48ZP",
+            "ChannelManager": "",
+            "Purpose": null,
+            "UpdatedUtc": "2023-04-23T14:58:02Z",
+            "ReservationPurpose": "Leisure",
             "PersonCounts": [
                 {
                     "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
@@ -73,36 +86,10 @@ Returns all service orders associated with the given enterprise. This operation 
                     "Count": 2
                 }
             ],
-            "CompanionIds": [
-                "5560f6d4-b029-4eaa-a48f-cd8734db6876",
-                "701459d7-730a-4d9f-b728-f865249b70d4"
-            ],
-            "Data":{
-                "Discriminator": "Reservation",
-                "Reservation":{
-                    "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-                    "CreditCardId": null,
-                    "GroupId": null,
-                    "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-                    "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714"
-                    "AvailabilityBlockId": null,
-                    "PartnerCompanyId": null,
-                    "TravelAgencyId": null,
-                    "AssignedResourceLocked": false,
-                    "ChannelNumber": "TW48ZP",
-                    "ChannelManager": "",
-                    "ChannelManagerGroupNumber": null,
-                    "ChannelManagerNumber": null,
-                    "CancellationReason": null,
-                    "UpdatedUtc": "2023-04-23T14:58:02Z",
-                    "ReservationPurpose": "Leisure",
-                    "Options": {
-                        "OwnerCheckedIn": true,
-                        "AllCompanionsCheckedIn": true,
-                        "AnyCompanionCheckedIn": true
-                    }
-                },
-                "ProductServiceOrder": null
+            "Options": {
+                "OwnerCheckedIn": true,
+                "AllCompanionsCheckedIn": true,
+                "AnyCompanionCheckedIn": true
             }
         }
     ],
@@ -112,10 +99,10 @@ Returns all service orders associated with the given enterprise. This operation 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrders` | array of [Service orders](#service-order) | required | The service orders of the enterprise. |
+| `Reservations` | array of [Reservations](#reservation) | required | The reservations of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-#### Service order
+#### Reservation
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -133,20 +120,6 @@ Returns all service orders associated with the given enterprise. This operation 
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create service order. |
 | `BusinessSegmentId` | string | optional | Identifier of the service order [Business segment](businesssegments.md#business-segment). |
-| `Data` | object [Service order data](#service-order-data) | optional | Additional service order data. |
-
-#### Service order data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Service order data discriminator](#service-order-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
-| `Reservation` | object [Reservation](#reservation-data)| optional | Contains additional data in the case of reservation. |
-| `ProductServiceOrder` | object | optional | Currently do not hold any additional data in the case of product service order. |
-
-#### Reservation data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
 | `RateId` | string | required | Identifier of the reservation [Rate](rates.md#rate). |
 | `CreditCardId` | string | optional | Unique identifier of the [Credit card](creditcards.md#credit-card). |
 | `GroupId` | string | required | Unique identifier of the [Reservation group](reservations.md#reservation-group). |
@@ -158,8 +131,6 @@ Returns all service orders associated with the given enterprise. This operation 
 | `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](resources.md#resource) and cannot be moved. |
 | `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
 | `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
-| `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel manager that transferred the reservation from Channel to Mews. |
-| `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
 | `CancellationReason` | string [Cancellation reason](#reservation-cancellation-reason) | optional | Cancellation reason of the reservation. |
 | `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `Purpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
@@ -199,12 +170,6 @@ Returns all service orders associated with the given enterprise. This operation 
 * `Import` - Service order from an import process
 * `Connector` - Service order from the Mews Connector API
 * `Navigator` - Service order from Mews Guest Services
-* ...
-
-#### Service order data discriminator
-
-* `Reservation`
-* `ProductServiceOrder`
 * ...
 
 #### Reservation cancellation reason
