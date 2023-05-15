@@ -70,6 +70,7 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource blocks](resourceblocks.md#delete-resource-blocks) | Removes specified resource blocks from the resources |
 | [Add task](tasks.md#add-task) | Adds a new task to the enterprise, optionally to a specified department |
 | [Get all tasks](tasks.md#get-all-tasks) | Returns all tasks of the enterprise, filtered by identifiers or other filters |
+| [Get all resouce categories](resources.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
 
 ## Finance
 
