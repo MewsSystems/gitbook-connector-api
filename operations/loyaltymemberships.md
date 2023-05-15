@@ -16,7 +16,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
     "LoyaltyMembershipIds": [
         "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
         "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
