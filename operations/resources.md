@@ -385,4 +385,4 @@ Updates details of the resources.
 
 ```javascript
 {}
-``` 
+```
