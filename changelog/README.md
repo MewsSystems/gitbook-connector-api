@@ -1,9 +1,9 @@
 # Changelog
 
-## 16th April 2023
+## 16th May 2023
 
 * Added operation [Get all resource categories](../operations/resources.md#get-all-resource-categories).
-* Deprecated operation extent `ResourceCategories` in [Get all resources](../operations/resources.md#get-all-resources.) and [Get all resource categories](../operations/resources.md#get-all-resource-categories) should be used instead
+* Deprecated operation extent `ResourceCategories` in [Get all resources](../operations/resources.md#get-all-resources.) and [Get all resource categories](../operations/resources.md#get-all-resource-categories) should be used instead.
 
 ## 28th April 2023
 
