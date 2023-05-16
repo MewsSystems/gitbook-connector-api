@@ -5,7 +5,7 @@
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.</strong>
 
-Returns all cancellation policies filtered by services, rate groups and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all cancellation policies, filtered by services, rate groups and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -88,12 +88,12 @@ Returns all cancellation policies filtered by services, rate groups and other fi
 | `RateGroupId` | string | required | Unique identifier of the rate group the cancellation policy belongs to. |
 | `CreatedUtc` | string | required | Date and time of the cancellation policy creation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Date and time of the cancellation policy update in UTC timezone in ISO 8601 format. |
-| `Applicability` | string | required | Applicability mode of the cancellation policy. |
-| `FeeExtent` | [Fee Extent](#fee-extent) | required | Extent for the cancellation fee. |
-| `ApplicabilityOffset` | string | required | Offset for order start (assuming applicability is set to Start) from which the fee is applied. |
+| `Applicability` | string [Applicability](#cancellation-policy-applicability) | required | Applicability mode of the cancellation policy. |
+| `FeeExtent` | array of string [Fee Extent](#fee-extent) | required | Extent for the cancellation fee, i.e. what should be in scope for the automatic payment. |
+| `ApplicabilityOffset` | string | required | Offset for order start (assuming Applicability is set to `Start`) from which the fee is applied. |
 | `FeeMaximumTimeUnits` | int | required | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | optional | Absolute value of the fee. |
-| `RelativeFee` | decimal | required | Relative value of the fee. |
+| `RelativeFee` | decimal | required | Relative value of the fee, as a percentage of the reservation price. |
 
 #### Cancellation Policy Applicability
 
