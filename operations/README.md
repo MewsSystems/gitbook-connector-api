@@ -2,12 +2,6 @@
 
 This section describes all operations supported by the API, organised here by theme.
 
-## Reservation groups
-
-| <div style="width:200px">Operation or Endpoint</div> | Description |
-| :-- | :-- |
-| [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups filtered by ids and updatedUtc |
-
 ## Accounts
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
@@ -149,6 +143,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
+| [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups, filtered by unique identifiers and other filters |
 
 ## Routing rules
 

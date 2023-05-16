@@ -72,6 +72,7 @@
   * [Products](operations/products.md)
   * [Rates](operations/rates.md)
   * [Reservations](operations/reservations.md)
+  * [Reservation groups](operations/reservationgroups.md)
   * [Resource access tokens](operations/resourceaccesstokens.md)
   * [Resource blocks](operations/resourceblocks.md)
   * [Resources](operations/resources.md)
