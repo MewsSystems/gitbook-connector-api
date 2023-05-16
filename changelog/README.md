@@ -1,5 +1,12 @@
 # Changelog
 
+## 16th May 2023
+
+* Added operation [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers) to retrieve loyalty tiers.
+* Added operation [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers) to add loyalty tiers.
+* Added operation [Update loyalty tiers](../operations/loyaltytiers.md#update-loyalty-tiers) to update loyalty tiers.
+* Added operation [Delete loyalty tiers](../operations/loyaltytiers.md#delete-loyalty-tiers) to delete loyalty tiers.
+
 ## 28th April 2023
 
 * Added missing property descriptions to [Get all order items](../operations/orderitems.md#get-all-order-items)
