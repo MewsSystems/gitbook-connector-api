@@ -13,12 +13,18 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": 
+    [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ResourceCategoryIds": [
         "5c0804f9-d03a-4b13-a57d-b00300781a41",
         "47d6b462-35ec-467e-a565-b00300781a41"
     ],
     "ServiceIds": [
-        "9b3a6c54-63aa-4383-b50e-b0030078184b"
+        "9b3a6c54-63aa-4383-b50e-b0030078184b",
+        "c0f71466-6c0b-4993-88ac-1794f6b7e958"
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-05-05T00:00:00Z",
@@ -35,10 +41,10 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource categories for all enterprises within scope of the Access Token. |
 | `ResourceCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource categories](#resource-category). |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) where the age category belong to. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource categories was updated. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) to which the resource categories belong. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource categories were updated. |
 
 ### Response
 
@@ -47,7 +53,7 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
     "ResourceCategories":[
         {
             "Id": "5c0804f9-d03a-4b13-a57d-b00300781a41",
-            "EnterpriseId": "6b78e729-6271-4765-97f7-b0030078151d",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceId": "9b3a6c54-63aa-4383-b50e-b0030078184b",
             "IsActive": true,
             "Type": "Bed",
@@ -65,8 +71,8 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
         },
         {
             "Id": "47d6b462-35ec-467e-a565-b00300781a41",
-            "EnterpriseId": "6b78e729-6271-4765-97f7-b0030078151d",
-            "ServiceId": "9b3a6c54-63aa-4383-b50e-b0030078184b",
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+            "ServiceId": "c0f71466-6c0b-4993-88ac-1794f6b7e958",
             "IsActive": true,
             "Type": "Dorm",
             "Names": {
@@ -99,7 +105,7 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) of the resource category. |
 | `IsActive` | bool | required | Whether the resource category is still active. |
-| `Type` | string | required | Type of the category. |
+| `Type` | string | required | [Resource category type](#resource-category-type). |
 | `Names` | [Localized text](#localized-text) | required | All translations of the name. |
 | `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
 | `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
@@ -110,20 +116,20 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
 
 #### Resource category type
 
-* `Room`,
-* `Bed`,
-* `Dorm`,
-* `Apartment`,
-* `Suite`,
-* `Villa`,
-* `Site`,
-* `Office`,
-* `MeetingRoom`,
-* `ParkingSpot`,
-* `Desk`,
-* `TeamArea`,
-* `Membership`,
-* `Tent`,
-* `CaravanOrRV`,
-* `UnequippedCampsite`,
+* `Room`
+* `Bed`
+* `Dorm`
+* `Apartment`
+* `Suite`
+* `Villa`
+* `Site`
+* `Office`
+* `MeetingRoom`
+* `ParkingSpot`
+* `Desk`
+* `TeamArea`
+* `Membership`
+* `Tent`
+* `CaravanOrRV`
+* `UnequippedCampsite`
 * ...

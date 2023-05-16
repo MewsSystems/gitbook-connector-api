@@ -37,6 +37,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| Extent `ResourceCategories`<br>in [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) | - | 16 May 2023 | 16 May 2024 |
 | `Address` in [Enterprise](../operations/configuration.md#enterprise) | Replaced by `AddressId` | 17 Apr 2023 | 17 Oct 2023 |
 | `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 April 2023 | 11 Oct 2023 |
 | `AssigneeData` in [Get all bills ](../operations/bills.md#get-all-bills) | Replaced by [Owner data](../operations/bills.md#bill-owner-data) | 20 Feb 2023 | 20 Feb 2024 |

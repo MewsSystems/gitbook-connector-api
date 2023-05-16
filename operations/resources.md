@@ -37,7 +37,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Resources` | bool | optional | Whether the response should contain resources. |
-| ~~`ResourceCategories`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Please use [Get all resource categories](#get-all-resource-categories) |
+| ~~`ResourceCategories`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Please use [Get all resource categories](resourcecategories.md#get-all-resource-categories) |
 | `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
 | `ResourceCategoryImageAssignments` | bool | optional | Whether the response should contain assignments of the images to categories. |
 | `ResourceFeatures` | bool | optional | Whether the response should contain resource features. |
