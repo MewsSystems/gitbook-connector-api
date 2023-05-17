@@ -2,8 +2,13 @@
 
 ## 16th May 2023
 
+* Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
 * Added operation [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories).
 * Deprecated operation extent `ResourceCategories` in [Get all resources](../operations/resources.md#get-all-resources). [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) should be used instead.
+
+## 11th May 2023
+
+* Added operation [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups).
 
 ## 28th April 2023
 
