@@ -41,7 +41,7 @@ Returns all cancellation policies, filtered by services, rate groups and other f
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](#service). |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service). |
 | `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). Required if no other filter is provided. |
 | `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](rates.md#rategroup). Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellation-policy) was updated. Required if no other filter is provided. |
