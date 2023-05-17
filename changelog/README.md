@@ -7,6 +7,14 @@
 * Added operation [Update loyalty tiers](../operations/loyaltytiers.md#update-loyalty-tiers) to update loyalty tiers.
 * Added operation [Delete loyalty tiers](../operations/loyaltytiers.md#delete-loyalty-tiers) to delete loyalty tiers.
 
+## 16th May 2023
+
+* Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
+
+## 11th May 2023
+
+* Added operation [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups).
+
 ## 28th April 2023
 
 * Added missing property descriptions to [Get all order items](../operations/orderitems.md#get-all-order-items)
