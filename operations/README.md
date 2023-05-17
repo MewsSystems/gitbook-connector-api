@@ -143,6 +143,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
+| [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups, filtered by unique identifiers and other filters |
 
 ## Routing rules
 
@@ -192,3 +193,4 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource access tokens](resourceaccesstokens.md#delete-resource-access-tokens) | Delete specified resource access tokens |
 | [Get all vouchers](vouchers.md#get-all-vouchers) | Returns all rate vouchers filtered by service, voucher code or voucher identifier |
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
+| [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |
