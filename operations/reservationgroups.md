@@ -33,7 +33,7 @@ Returns all reservation groups, filtered by unique identifiers and other filters
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservation Group](#reservation-group). Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation Group](#reservationgroup) was updated. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation Group](#reservation-group) was updated. Required if no other filter is provided. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of reservation groups returned. |
 
 ### Response
