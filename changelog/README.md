@@ -2,7 +2,7 @@
 
 ## 16th May 2023
 
-* Added ActivityState to be able to retrieve deleted [orderItems](../operations/orderItems.md#get-all-order-items).
+* Added ActivityState to be able to retrieve deleted [orderItems](../operations/orderitems.md#get-all-order-items).
 
 ## 16th May 2023
 
