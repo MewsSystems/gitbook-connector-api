@@ -3,7 +3,7 @@
 ## Get all cancellation policies
 
 > ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.</strong>
+> This operation is currently in beta-test and as such it is subject to change.
 
 Returns all cancellation policies, filtered by services, rate groups and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
 
