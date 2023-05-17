@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th May 2023
+
+* Extended [loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
+
 ## 28th April 2023
 
 * Added missing property descriptions to [Get all order items](../operations/orderitems.md#get-all-order-items)

@@ -78,7 +78,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "IsPrimary": true,
             "Points": 10,
             "ExpirationDate": "2024-12-31",
-            "Url": "https://www.mews.com/"
+            "Url": "https://www.mews.com/",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
@@ -88,7 +89,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "IsPrimary": false,
             "Points": 25,
             "ExpirationDate": "",
-            "Url": ""
+            "Url": "",
+            "LoyaltyTierId": ""
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -112,6 +114,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
+| `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. | 
 
 ## Add loyalty memberships
 
@@ -137,7 +140,8 @@ Adds loyalty memberships to the enterprise.
             "IsPrimary": true,
             "Points": 5,
             "ExpirationDate": "2022-12-31",
-            "Url": ""
+            "Url": "",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         }
     ]
 }
@@ -161,6 +165,7 @@ Adds loyalty memberships to the enterprise.
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
+| `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. |
 
 ### Response
 
@@ -175,7 +180,8 @@ Adds loyalty memberships to the enterprise.
             "IsPrimary": true,
             "Points": 5,
             "ExpirationDate": "2022-12-31",
-            "Url": ""
+            "Url": "",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         }
     ]
 }
@@ -212,6 +218,9 @@ Updates information about the specified loyalty memberships.
             },
             "Url": {
                 "Value": "https://www.mews.com/"
+            },
+            "LoyaltyTierId": {
+                "Value": "34c29a01-c075-49e4-906a-3b1d4012463e"
             }
         }
     ]
@@ -236,6 +245,7 @@ Updates information about the specified loyalty memberships.
 | `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
 | `Url` | [String update value](_objects.md#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
+| `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier \(or `null` if the the tier should not be updated\). |
 
 ### Response
 
@@ -248,7 +258,8 @@ Updates information about the specified loyalty memberships.
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",
             "ExpirationDate": "2030-12-31",
-            "Url": "https://www.mews.com/"
+            "Url": "https://www.mews.com/",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         }
     ]
 }
