@@ -1,5 +1,9 @@
 # Changelog
 
+## 16th May 2023
+
+* Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
+
 ## 28th April 2023
 
 * Added missing property descriptions to [Get all order items](../operations/orderitems.md#get-all-order-items)

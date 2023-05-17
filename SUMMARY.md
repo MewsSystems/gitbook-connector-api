@@ -39,6 +39,7 @@
   * [Availability blocks](operations/availabilityblocks.md)
   * [Bills](operations/bills.md)
   * [Business segments](operations/businesssegments.md)
+  * [Cancellation policies](operations/cancellationpolicies.md)
   * [Cashiers](operations/cashiers.md)
   * [Cashier transactions](operations/cashiertransactions.md)
   * [Commands](operations/commands.md)
