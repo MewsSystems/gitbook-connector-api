@@ -44,7 +44,7 @@ Returns all cancellation policies, filtered by services, rate groups and other f
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](#service). |
 | `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). Required if no other filter is provided. |
 | `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](rates.md#rategroup). Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellationpolicy) was updated. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellation-policy) was updated. Required if no other filter is provided. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of cancellation policies returned. |
 
 ### Response
