@@ -1,6 +1,6 @@
 # Changelog
 
-## 2nd May 2023
+## 16th May 2023
 
 * Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
 
