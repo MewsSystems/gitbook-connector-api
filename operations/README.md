@@ -113,6 +113,10 @@ This section describes all operations supported by the API, organised here by th
 | [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | **Restricted!** Adds new loyalty memberships |
 | [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | **Restricted!** Updates selected loyalty memberships |
 | [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | **Restricted!** Deletes selected loyalty memberships |
+| [Get all loyalty tiers](loyaltytiers.md#get-all-loyalty-tiers) | **Restricted!** Returns all loyalty tiers of the enterprise |
+| [Add loyalty tiers](loyaltytiers.md#add-loyalty-tiers) | **Restricted!** Adds new loyalty tiers |
+| [Update loyalty tiers](loyaltytiers.md#update-loyalty-tiers) | **Restricted!** Updates selected loyalty tiers |
+| [Delete loyalty tiers](loyaltytiers.md#delete-loyalty-tiers) | **Restricted!** Deletes selected loyalty tiers |
 
 ## Messages
 
