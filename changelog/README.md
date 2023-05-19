@@ -1,6 +1,6 @@
 # Changelog
 
-## 17th May 2023
+## 19th May 2023
 
 * Extended [loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
 
