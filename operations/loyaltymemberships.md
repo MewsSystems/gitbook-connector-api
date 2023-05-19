@@ -245,7 +245,7 @@ Updates information about the specified loyalty memberships.
 | `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
 | `Url` | [String update value](_objects.md#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
-| `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier \(or `null` if the the tier should not be updated\). |
+| `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier \(or `null` if the tier should not be updated\). |
 
 ### Response
 
