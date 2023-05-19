@@ -1,6 +1,6 @@
 # Changelog
 
-## 17th May 2023
+## 19th May 2023
 
 * Added operation [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers) to retrieve loyalty tiers.
 * Added operation [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers) to add loyalty tiers.
