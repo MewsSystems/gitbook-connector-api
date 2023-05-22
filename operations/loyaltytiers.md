@@ -207,7 +207,7 @@ Updates information about the specified loyalty tiers.
 ```javascript
 {
     "LoyaltyTiers": [
-		{
+	{
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
             "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
             "Name": "Platinum",
