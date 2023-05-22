@@ -7,6 +7,10 @@
 * Added operation [Update loyalty tiers](../operations/loyaltytiers.md#update-loyalty-tiers) to update loyalty tiers.
 * Added operation [Delete loyalty tiers](../operations/loyaltytiers.md#delete-loyalty-tiers) to delete loyalty tiers.
 
+## 22nd May 2023
+
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
+
 ## 16th May 2023
 
 * Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
