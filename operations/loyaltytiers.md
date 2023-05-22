@@ -138,7 +138,7 @@ Adds loyalty tiers to a loyalty program of the enterprise chain.
 ```javascript
 {
     "LoyaltyTiers": [
-		{
+	{
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
             "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
             "Name": "Platinum",
@@ -199,15 +199,15 @@ Updates information about the specified loyalty tiers.
 | :-- | :-- | :-- | :-- |
 | `LoyaltyTierId` | string | required | Unique identifier of the loyalty tier. |
 | `Name` | [String update value](_objects.md#string-update-value) | optional, max length 50 characters | Name of the loyalty tier \(or `null` if the name should not be updated\). |
-| `Code` | [String update value](_objects.md#string-update-value)  | optional, max length 50 characters | Code of the loyalty tier, \(or `null` if the type should not be updated\). |
-| `Ordering` | [Number update value](_objects.md#number-update-value)  | optional | Ordering of the loyalty tier, \(or `null` if the subscription should not be updated\). |
+| `Code` | [String update value](_objects.md#string-update-value)  | optional, max length 50 characters | Code of the loyalty tier, \(or `null` if the code should not be updated\). |
+| `Ordering` | [Number update value](_objects.md#number-update-value)  | optional | Ordering of the loyalty tier, \(or `null` if the ordering should not be updated\). |
 
 ### Response
 
 ```javascript
 {
     "LoyaltyTiers": [
-		{
+	{
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
             "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
             "Name": "Platinum",

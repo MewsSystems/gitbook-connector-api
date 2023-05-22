@@ -60,6 +60,7 @@
   * [Languages](operations/languages.md)
   * [Loyalty memberships](operations/loyaltymemberships.md)
   * [Loyalty programs](operations/loyaltyprograms.md)
+  * [Loyalty tiers](operations/loyaltytiers.md)
   * [Messages](operations/messages.md)
   * [Message threads](operations/messagethreads.md)
   * [Order items](operations/orderitems.md)
