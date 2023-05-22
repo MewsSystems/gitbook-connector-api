@@ -88,9 +88,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Code": "Code-002",
             "IsPrimary": false,
             "Points": 25,
-            "ExpirationDate": "",
-            "Url": "",
-            "LoyaltyTierId": ""
+            "ExpirationDate": null,
+            "Url": null,
+            "LoyaltyTierId": null
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"

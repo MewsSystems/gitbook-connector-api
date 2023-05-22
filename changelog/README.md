@@ -2,7 +2,7 @@
 
 ## 22nd May 2023
 
-* Extended [loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
 
 ## 16th May 2023
 
