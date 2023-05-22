@@ -17,6 +17,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "a5736412-58e6-4f3d-8317-2840ad517fbe",
+        "89a81af4-e236-4aa7-9f4e-15284bc74fd6"
+    ]
     "LoyaltyMembershipIds": [
         "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
         "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -52,6 +56,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. |
 | `LoyaltyMembershipIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty memberships](#loyalty-membership). |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the membership is associated with. |
@@ -72,6 +77,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "LoyaltyMemberships": [
         {
             "Id": "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
+            "ChainId": "a5736412-58e6-4f3d-8317-2840ad517fbe",
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-001",
@@ -83,6 +89,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
+            "ChainId": "89a81af4-e236-4aa7-9f4e-15284bc74fd6",
             "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
             "AccountId": "0ed43ab7-4592-4c99-906a-426588de1c00",
             "Code": "Code-002",
@@ -107,6 +114,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the loyalty membership. |
+| `ChainId` | string | required | Unique identifier of the chain. |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Code` | string | optional | Code of the loyalty membership. |
@@ -135,6 +143,7 @@ Adds loyalty memberships to the enterprise.
     "LoyaltyMemberships": [
         {
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
+            "ChainId": "89a81af4-e236-4aa7-9f4e-15284bc74fd6",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",
             "IsPrimary": true,
@@ -254,6 +263,7 @@ Updates information about the specified loyalty memberships.
     "LoyaltyMemberships": [
 		{
             "Id": "f9e434a3-720c-4820-b82e-202cb2efa2fd",
+            "ChainId": "89a81af4-e236-4aa7-9f4e-15284bc74fd6",
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",

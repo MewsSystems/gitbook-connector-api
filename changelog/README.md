@@ -1,5 +1,10 @@
 # Changelog
 
+## 23rd May 2023
+
+* Extended [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) request with `ChainIds` parameter.
+* Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ChainIds`.
+
 ## 22nd May 2023
 
 * Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
