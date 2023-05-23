@@ -1,5 +1,10 @@
 # Changelog
 
+## 23rd May 2023
+
+* Added operation [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories).
+* Deprecated operation extent `ResourceCategories` in [Get all resources](../operations/resources.md#get-all-resources). [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) should be used instead.
+
 ## 22nd May 2023
 
 * Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
