@@ -20,7 +20,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "ChainIds": [
         "a5736412-58e6-4f3d-8317-2840ad517fbe",
         "89a81af4-e236-4aa7-9f4e-15284bc74fd6"
-    ]
+    ],
     "LoyaltyMembershipIds": [
         "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
         "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"

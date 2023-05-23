@@ -16,7 +16,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "a5736412-58e6-4f3d-8317-2840ad517fbe",
+        "89a81af4-e236-4aa7-9f4e-15284bc74fd6"
+    ],
     "LoyaltyProgramIds": [
         "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
         "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
@@ -44,6 +48,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](#loyalty-program). |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) creation date and time. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
@@ -57,6 +62,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "LoyaltyPrograms": [
         {
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+            "ChainId": "a5736412-58e6-4f3d-8317-2840ad517fbe",
             "Name": "Platinum Club",
             "Code": "PC01",
             "Type": "Hotel",
@@ -64,6 +70,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
+            "ChainId": "89a81af4-e236-4aa7-9f4e-15284bc74fd6",
             "Name": "Gold Exclusive Club",
             "Code": "GEC07",
             "Type": "ExternalPartner",
@@ -84,6 +91,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the loyalty program. |
+| `ChainId` | string | required | Unique identifier of the chain. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
 | `Type` | [Loyalty program type](#loyalty-program-type) | string | required | Type of the loyalty program. |

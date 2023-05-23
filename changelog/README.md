@@ -2,7 +2,9 @@
 
 ## 23rd May 2023
 
+* Extended [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) request with `ChainIds` parameter.
 * Extended [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) request with `ChainIds` parameter.
+* Extended [Loyalty programs](../operations/loyaltyprograms.md#loyalty-program) with `ChainIds`.
 * Extended [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ChainIds`.
 
 ## 22nd May 2023
