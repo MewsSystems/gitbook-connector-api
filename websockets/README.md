@@ -1,6 +1,6 @@
 # WebSockets
 
-WebSockets provides another way to communicate with Mews, for special use cases where polling using API [Operations](../operations/README.md) is too resource consuming, and event-driven [Webhooks](../webhooks/README.md) are not sufficiently real-time.
+WebSockets provides another way to communicate with Mews, for special use cases where polling using [API Operations](../operations/README.md) is too resource consuming, and event-driven [Webhooks](../webhooks/README.md) are not sufficiently real-time.
 A WebSocket is an open connection over which Mews can send event messages as the events occur.
 After you make a successful WebSocket connection to Mews, you will receive event messages according to the configuration of your integration in __Mews Operations__.
 For a comparative overview of [Operations](../operations/README.md) vs [Webhooks](../webhooks/README.md) vs WebSockets, see [Ways to communicate](../guidelines/communicate.md).
@@ -126,7 +126,7 @@ Events are related to base price updates, price adjustments and category adjustm
 | :-- | :-- | :-- | :-- |
 | `Type` | string `PriceUpdate` | required | Type of the event. |
 | `Id` | string | required | Unique identifier of the update event. |
-| `StartUtc` | string | required | Start of the price update interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the price update interval in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional | Start of the price update interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the price update interval in UTC timezone in ISO 8601 format. |
 | `RateId` | string | optional | Unique identifier of the [Rate](../operations/rates.md#rate) assigned to the update price event. |
 | `ResourceCategoryId` | string | optional | Unique identifier of the [Resource category](../operations/resources.md#resource-category) assigned to the update price event. |

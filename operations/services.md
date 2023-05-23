@@ -46,7 +46,8 @@ Returns all services offered by the enterprise.
                         "DuringCheckOut": false
                     }
                 }
-            }
+            },
+            "ExternalIdentifier": "SVCE-Restaurant"
         },
         {
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -64,7 +65,8 @@ Returns all services offered by the enterprise.
                     "OccupancyEndOffset": "P0M0DT12H0M0S",
                     "TimeUnitPeriod": "Day"
                 }
-            }
+            },
+            "ExternalIdentifier": "SVCE-Accomm"
         }
     ]
 }
@@ -83,6 +85,7 @@ Returns all services offered by the enterprise.
 | `Name` | string | required | Name of the service. |
 | `Options` | [Service options](#service-options) | required | Options of the service. |
 | `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the service from external system. |
 
 #### Service options
 
@@ -140,7 +143,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 | :-- | :-- | :-- | :-- |
 | `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
 
-##### Promotions
+#### Promotions
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -265,13 +268,7 @@ Updates the number of available resources in [Resource category](resources.md#re
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
-| `UnitCountAdjustment` | [Number update value](#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
-
-#### Number update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | number | optional | Value which is to be updated. |
+| `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
 
 ### Response
 

@@ -1,4 +1,4 @@
-# Operations
+# API Operations
 
 This section describes all operations supported by the API, organised here by theme.
 
@@ -45,12 +45,14 @@ This section describes all operations supported by the API, organised here by th
 | [Get all commands by ids](commands.md#get-all-commands-by-ids) | Returns all commands by their identifiers |
 | [Add printer command](commands.md#add-printer-command) | Adds a new printer command representing printing of the specified document on a printer |
 | [Add key cutter command](commands.md#add-key-cutter-command) | Adds a new key cutter command representing cutting of a key for the specified reservation |
+| [Add payment command](commands.md#add-payment-command) | **Restricted!** Adds a new Mews Payment Terminal command |
 | [Update command](commands.md#update-command) | Updates state of a command |
 
 ## Enterprises
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
+| [Get all enterprises](enterprises.md#get-all-enterprises) | Returns all enterprises accessible to a supplied access token. |
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
@@ -68,6 +70,7 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource blocks](resourceblocks.md#delete-resource-blocks) | Removes specified resource blocks from the resources |
 | [Add task](tasks.md#add-task) | Adds a new task to the enterprise, optionally to a specified department |
 | [Get all tasks](tasks.md#get-all-tasks) | Returns all tasks of the enterprise, filtered by identifiers or other filters |
+| [Get all resouce categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
 
 ## Finance
 
@@ -77,7 +80,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all cashiers](cashiers.md#get-all-cashiers) | Returns all cashiers in the enterprise |
 | [Get all cashier transactions](cashiertransactions.md#get-all-cashier-transactions) | Returns all cashier transactions created within the specified interval |
 | [Get all accounting categories](accountingcategories.md#get-all-accounting-categories) | Returns all accounting categories of the enterprise associated with the connector integration |
-| [Get all accounting items](accountingitems.md#get-all-accounting-items) | Returns all accounting items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval |
+| [~~Get all accounting items~~](accountingitems.md#get-all-accounting-items) | **Deprecated!** Please use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.  |
 | [Update accounting items](accountingitems.md#update-accounting-items) | Updates specified accounting item |
 | [Get all bills](bills.md#get-all-bills) | Returns all bills, possibly filtered by customers, identifiers and other filters |
 | [Add bill](bills.md#add-bill) | Creates new empty bill assigned to specified account |
@@ -92,20 +95,25 @@ This section describes all operations supported by the API, organised here by th
 | [Add credit card payment](payments.md#add-credit-card-payment) | Adds a new credit card payment to a bill of the specified customer |
 | [Add external payment](payments.md#add-external-payment) | Adds a new external payment to a bill of the specified customer |
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
+| [Get all payments](payments.md#get-all-payments) | **Restricted!** Returns all payments, filtered by various parameters |
+| [Get all payment requests](paymentrequests.md#get-all-payment-requests) | Returns all payment requests |
+| [Add payment requests](/paymentrequests.md#add-payment-requests) | Adds new payment requests for specified customers |
+| [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
+| [Get all order items](orderitems.md#get-all-order-items) | **Restricted!** Returns all order items |
 
 ## Loyalty
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
-| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
-| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | Updates selected loyalty programs |
-| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | Deletes selected loyalty programs |
-| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | Returns all loyalty memberships of the enterprise |
-| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | Adds new loyalty memberships |
-| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | Updates selected loyalty memberships |
-| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | Deletes selected loyalty memberships |
+| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | **Restricted!** Returns all loyalty programs of the enterprise |
+| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | **Restricted!** Adds new loyalty programs |
+| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | **Restricted!** Updates selected loyalty programs |
+| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | **Restricted!** Deletes selected loyalty programs |
+| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | **Restricted!** Returns all loyalty memberships of the enterprise |
+| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | **Restricted!** Adds new loyalty memberships |
+| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | **Restricted!** Updates selected loyalty memberships |
+| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | **Restricted!** Deletes selected loyalty memberships |
 
 ## Messages
 
@@ -136,6 +144,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
+| [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups, filtered by unique identifiers and other filters |
 
 ## Routing rules
 
@@ -145,6 +154,15 @@ This section describes all operations supported by the API, organised here by th
 | [Add routing rules](routingrules.md#add-routing-rules) | Adds new routing rules |
 | [Update routing rules](routingrules.md#update-routing-rules) | Updates selected routing rules |
 | [Delete routing rules](routingrules.md#delete-routing-rules) | Deletes selected routing rules |
+
+## Service orders
+
+| <div style="width:200px">Operation or Endpoint</div> | Description |
+| :-- | :-- |
+| [Get all service order notes](serviceordernotes.md#get-all-service-order-notes) | Returns all notes associated with the given service orders |
+| [Add service order notes](serviceordernotes.md#add-service-order-notes) | Adds service order notes to a given service order |
+| [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes |
+| [Delete service order notes](serviceordernotes.md#delete-service-order-notes) | Deletes given service order notes |
 
 ## Services
 
@@ -157,6 +175,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add availability blocks](availabilityblocks.md#add-availability-blocks) | Adds availability blocks which are used to group related availability updates |
 | [Update availability blocks](availabilityblocks.md#update-availability-blocks) | Updates information about the specified availability block |
 | [Delete availability blocks](availabilityblocks.md#delete-availability-blocks) | Delete availability blocks |
+| [Get all availability adjustments](operations/availabilityadjustments.md#get-all-availability-adjustments) | Get all availability adjustments |
 | [Get all rules](rules.md#get-all-rules) | Returns all rules applied with the reservations |
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
 | [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) and rate groups \(condition settings\) of the default service provided by the enterprise |
@@ -165,6 +184,8 @@ This section describes all operations supported by the API, organised here by th
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
+| [Set restrictions](restrictions.md#set-restrictions) | **Restricted!** Adds new restrictions with the specified conditions |
+| [Clear restrictions](restrictions.md#clear-restrictions) | **Restricted!** Clears restrictions which meet specified conditions over a specified time interval |
 | [Add order](orders.md#add-order) | Creates a new order with the specified products and items |
 | [Get all companionships](companionships.md#get-all-companionships) | Returns all companionships based on customers, reservations or reservation groups |
 | [Get all resource access tokens](resourceaccesstokens.md#get-all-resource-access-tokens) | Returns all resource access tokens based on resource access tokens, reservations or interval |
@@ -173,3 +194,4 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource access tokens](resourceaccesstokens.md#delete-resource-access-tokens) | Delete specified resource access tokens |
 | [Get all vouchers](vouchers.md#get-all-vouchers) | Returns all rate vouchers filtered by service, voucher code or voucher identifier |
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
+| [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |

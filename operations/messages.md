@@ -33,7 +33,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](messagethreads.md#message-thread) from where to return messages. |
-| `CreatedUtc` | [Time interval](messagethreads.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of message data returned (using cursor pagination). |
 
 ### Response

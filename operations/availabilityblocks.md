@@ -33,6 +33,10 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         "StartUtc": "2020-11-05T00:00:00Z",
         "EndUtc": "2020-11-05T00:00:00Z"
     },
+    "ReleasedUtc" : {
+        "StartUtc": "2020-11-04T00:00:00Z",
+        "EndUtc": "2020-11-05T00:00:00Z"
+    },
     "States": [
         "Confirmed"
     ],
@@ -58,20 +62,14 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Client` | string | required | Name and version of the client application. |
 | `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](#availability-block). |
 | `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service) to which [Availability blocks](#availability-block) are assigned. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were created. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were updated. |
-| `CollidingUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are active. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were updated. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are active. |
+| `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are released. |
 | `States` | array of string [Availability block state](#availability-block-state) | optional | States the availability blocks should be in. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservations](reservations.md#reservation)) are returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Availability block state
 
@@ -153,11 +151,13 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     ],
     "Adjustments": [
         {
+            "Id": "e19297af-373e-4701-b4ea-afae0129bded",
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
             "ResourceCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
-            "UnitCount": 6
+            "UnitCount": 6,
+            "ActivityState": "Active"
         }
     ]
 }
@@ -167,7 +167,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
 | `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservations](reservations.md#reservation)) linked to availability blocks. |
-| `Adjustments` | array of [Availability block adjustment](#availability-block-adjustment) | optional | Availability adjustments of availability blocks. |
+| `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
 
 #### Availability block
 
@@ -190,16 +190,6 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
-
-#### Availability block adjustment
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block) whose availability is updated. |
-| `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability is updated. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `UnitCount` | string | required | Adjustment value applied on the interval. |
 
 ## Add availability blocks
 
@@ -332,17 +322,11 @@ Updates information about the specified [Availability block](#availability-block
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
-| `Name` | [String update value](#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
-| `FirstTimeUnitStartUtc` | [String update value](#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). |
-| `LastTimeUnitStartUtc` | [String update value](#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). |
-| `ReleasedUtc` | [String update value](#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
-| `ExternalIdentifier` | [String update value](#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
+| `FirstTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). |
+| `LastTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). |
+| `ReleasedUtc` | [String update value](_objects.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
+| `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
 
 ### Response
 

@@ -28,6 +28,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
         "StartUtc": "2020-02-05T00:00:00Z",
         "EndUtc": "2020-02-10T00:00:00Z"
     },
+    "UpdatedUtc": {
+        "StartUtc": "2020-02-05T00:00:00Z",
+        "EndUtc": "2020-02-10T00:00:00Z"
+    },
     "DueUtc": null,
     "PaidUtc": null,
     "Extent": {
@@ -48,19 +52,13 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](#bill). Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
 | `State` | string | optional | [Bill state](#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
-| `DueUtc` | [Time interval](#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
-| `PaidUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was updated. |
+| `DueUtc` | [Time interval](_objects.md#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
+| `PaidUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
 | `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of bill data returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Bill state
 
@@ -90,9 +88,11 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "VariableSymbol": null,
             "CreatedUtc": "2017-01-31T10:48:06Z",
             "IssuedUtc": "2017-01-31T10:58:06Z",
+            "UpdatedUtc": null,
             "TaxedUtc": null,
             "PaidUtc": null,
             "DueUtc": null,
+            "PurchaseOrderNumber": "XX-123",
             "Notes": "",
             "Options": {
                 "DisplayCustomer": true,
@@ -102,11 +102,49 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             },
             "OrderItems": [],
             "PaymentItems": [],
-            "AssigneeData": {
+            "OwnerData": {
                 "Discriminator": "BillCustomerData",
                 "Value": {
-                    "ItalianFiscalCode": null
+                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                    "Address": {
+                        "Line1": "Joe Doe street",
+                        "Line2": "Very long ave",
+                        "City": "Townston",
+                        "PostalCode": "154 00",
+                        "SubdivisionCode": "AU-NSW",
+                        "CountryCode": "AU"
+                    },
+                    "LegalIdentifiers": {
+                        "TaxIdentifier": "CZ8810310963",
+                        "CityOfRegistration": "Prague"
+                    },
+                    "BillingCode": "Billing code value",
+                    "LastName": "Doe",
+                    "FirstName": "John",
+                    "SecondLastName": "Vincent",
+                    "TitlePrefix": "Mistress",
+                    "FiscalIdentifier": "Fiscal identifier",
+                    "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
+            },
+            "CompanyDetails": {
+                "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                "Address": {
+                    "Line1": "Joe Doe street",
+                    "Line2": "Very long ave",
+                    "City": "Townston",
+                    "PostalCode": "154 00",
+                    "SubdivisionCode": "AU-NSW",
+                    "CountryCode": "AU"
+                },
+                "LegalIdentifiers": {
+                    "TaxIdentifier": "CZ8810310963",
+                    "CityOfRegistration": "Prague",
+                },
+                "BillingCode": "billing code value",
+                "Name": "Company Name Inc.",
+                "FiscalIdentifier": "Fiscal identifier",
+                "AdditionalTaxIdentifier": "Additional tax identifier"
             },
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
@@ -145,11 +183,13 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
+| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Bill options](#bill-options) | required | Options of the bill. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
-| `AssigneeData` | [Bill assignee data](#bill-assignee-data) | optional | Additional information about assignee of the bill. Persisted at the time of closing of the bill. |
+| `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
+| `CompanyDetails` | [Bill company data](#bill-company-data) | optional | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -168,28 +208,42 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
 | `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
 
-#### Bill assignee data
+#### Bill owner data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Bill assignee data discriminator](#bill-assignee-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Bill assignee data discriminator](#bill-assignee-data-discriminator). |
+| `Discriminator` | string [Bill owner data discriminator](#bill-owner-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). Can be either of type [Bill customer data](#bill-customer-data) or [Bill company data](#bill-company-data). |
 
-#### Bill assignee data discriminator
+#### Bill owner data discriminator
 
-* `BillCustomerData` - Assignee data specific to a customer.
-* `BillCompanyData` - Assignee data specific to a company.
+* `BillCustomerData` - Owner data specific to a [Customer](customers.md#customer).
+* `BillCompanyData` - Owner data specific to a [Company](companies.md#company).
 
 #### Bill customer data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ItalianFiscalCode` | string  | optional | Italian fiscal code. |
+| `Id` | string  | required | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
+| `Address` | [Bill address](#bill-address) | optional | Address of the customer. |
+| `LegalIdentifiers` | [Dictionary](_objects.md#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the customer. |
+| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
+| `LastName` | string  | required | Last name of the customer. |
+| `FirstName` | string  | optional | First name of the customer. |
+| `SecondLastName` | string  | optional | Second last name of the customer. |
+| `TitlePrefix` | [Title](customers.md#Title)  | optional | Title prefix of the customer. |
 
 #### Bill company data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `Id` | string  | required | ID of the [Company](companies.md#company). |
+| `Address` | [Bill address](#bill-address) | optional | Address of the company. |
+| `LegalIdentifiers` | [Dictionary](_objects.md#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the company. |
+| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
+| `Name` | string  | required | Name of the company. |
+| `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
+| `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
 
 #### Bill enterprise data
 
@@ -201,6 +255,38 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | `BankName` | string  | optional | Enterprise bank name. |
 | `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
 | `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
+
+#### Bill address
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Line1` | string  | optional | First line of the address. |
+| `Line2` | string  | optional | Second line of the address. |
+| `City` | string  | optional | City of the address. |
+| `Postal Code` | string  | optional | Postal code of the address. |
+| `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
+| `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
+
+#### Legal Identifiers
+
+`LegalIdentifiers` is a [Dictionary](_objects.md#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
+
+* `TaxIdentifier`
+* `Siret`
+* `Siren`
+* `NafCode`
+* `RcsCode`
+* `LegalStatus`
+* `RegisteredCapital`
+* `CityOfRegistration`
+* `TradesDirectoryRegistrationNumber`
+* `ItDestinationCode`
+* `ItFiscalCode`
+* `ItLotteryCode`
+* `HungarianVatCode`
+* `HungarianCompanyName`
+* `HungarianTaxPayerIdentifier`
+* ...
 
 ## Add bill
 
@@ -335,6 +421,9 @@ Closes a bill so no further modification to it is possible.
     "TaxIdentifier": {
         "Value": "446768"
     },
+    "PurchaseOrderNumber": {
+        "Value": "XX-123"
+    },
     "Notes": {
         "Value": "Bill closing note"
     }
@@ -351,31 +440,20 @@ Closes a bill so no further modification to it is possible.
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](counters.md#counter) to be used for closing. Default one is used when no value is provided. |
 | `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](devices.md#device) to be used for closing. Default one is used when no value is provided. |
 | `Options` | [Bill options parameters](#bill-options-parameters) | optional  | Options of the bill. If not provided both `DisplayCustomer` and `DisplayTaxation` are set by default. |
-| `TaxedDate` | [String update value](#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `DueDate` | [String update value](#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `VariableSymbol` | [String update value](#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `TaxIdentifier` | [String update value](#string-update-value) | optional | Tax identifier of account to be put on a bill. |
-| `Notes` | [String update value](#string-update-value) | optional | Notes to be attached to bill. |
+| `TaxedDate` | [String update value](_objects.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `DueDate` | [String update value](_objects.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `VariableSymbol` | [String update value](_objects.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
+| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
+| `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
+| `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
 
 #### Bill options parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `DisplayCustomer` | [Bool update value](#bool-update-value) | required | Display customer information on a bill. |
-| `DisplayTaxation` | [Bool update value](#bool-update-value) | required | Display taxation detail on a bill. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
+| `DisplayCustomer` | [Bool update value](_objects.md#bool-update-value) | required | Display customer information on a bill. |
+| `DisplayTaxation` | [Bool update value](_objects.md#bool-update-value) | required | Display taxation detail on a bill. |
 
 ### Response
 
@@ -396,6 +474,7 @@ Closes a bill so no further modification to it is possible.
             "TaxedUtc": "2020-06-25",
             "PaidUtc": null,
             "DueUtc": null,
+            "PurchaseOrderNumber": "XX-123",
             "Notes": null,
             "Options": {
                 "DisplayCustomer": false,

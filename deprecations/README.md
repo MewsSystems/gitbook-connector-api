@@ -3,7 +3,7 @@
 Deprecations are features of the API which you are discouraged from using, even though they may still be supported for a period of time for the sake of backwards compatibility.
 Such features are normally deprecated because they are superseded by a better alternative. They can include object properties, entire objects or entire API operations.
 The list of deprecations is as follows. Individual items are also highlighted in the [Changelog](../changelog/README.md) when they occur.
-Historic deprecations that have already been discontinued may not be listed.
+Historic deprecations that have already been discontinued may not be listed. For more information, see our [Deprecations Policy](https://mews-systems.gitbook.io/open-api/staying-up-to-date/deprecations-policy).
 
 > **Important:** We strongly advise you to review this list and if you are using any of the deprecated items in your integration, to update your implementation accordingly.
 
@@ -18,6 +18,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `accountingItems/getAll` | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 April 2023 | 19 April 2024 |
 | `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
 | `customers/merge` | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 01 Dec 2023 |
 | `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
@@ -37,6 +38,14 @@ The table columns have the following meanings:
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | `CustomerId`<br>in [Add external payment](../operations/payments.md#add-external-payment) | Replaced by `AccountId` | ?? Jan 2023 | - |
+| Extent `ResourceCategories`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) instead | 23 May 2023 | 23 May 2024 |
+| `Address` in [Enterprise](../operations/configuration.md#enterprise) | Replaced by `AddressId` | 17 Apr 2023 | 17 Oct 2023 |
+| `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 April 2023 | 11 Oct 2023 |
+| `AssigneeData` in [Get all bills ](../operations/bills.md#get-all-bills) | Replaced by [Owner data](../operations/bills.md#bill-owner-data) | 20 Feb 2023 | 20 Feb 2024 |
+| `ItalianFiscalCode`, `ItalianLotteryCode` <br>in [Get all bills](../operations/bills.md#response) | Retrievable in LegalIdentifiers [Bill customer data](../operations/bills.md#bill-customer-data) | 20 Feb 2023 | 20 Feb 2024 |
+| `Address`<br>in [Company](../operations/companies.md#company) | Replaced by `AddressId` | 18 Jan 2023 | 18 July 2023 |
+| `BasePrices`<br>in [Get rate pricing](../operations/rates.md#get-rate-pricing) | Replaced by `BaseAmountPrices` | 18 Jan 2023 | 18 Jul 2023 |
+| `Prices`<br>in [Resource category pricing](../operations/rates.md#resource-category-pricing) | Replaced by `AmountPrices` | 18 Jan 2023 | 18 Jul 2023 |
 | `Entities`<br>in [General webhook request body](../webhooks/wh-general.md#request-body) | Fetch data per corresponding [Event discriminator](../webhooks/wh-general.md#event-discriminator) | 23 Aug 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block](../operations/availabilityblocks.md#availability-block), [Availability block adjustment](../operations/availabilityblocks.md#availability-block-adjustment) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 29 Jun 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters), [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
