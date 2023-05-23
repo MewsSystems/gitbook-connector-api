@@ -320,7 +320,7 @@ Creates new empty bill assigned to specified account.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
+| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. Company billing may not be enabled for your integration. |
 
 ### Response
 
