@@ -37,7 +37,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Resources` | bool | optional | Whether the response should contain resources. |
-| `ResourceCategories` | bool | optional | Whether the response should contain categories. |
+| ~~`ResourceCategories`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Please use [Get all resource categories](resourcecategories.md#get-all-resource-categories) |
 | `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
 | `ResourceCategoryImageAssignments` | bool | optional | Whether the response should contain assignments of the images to categories. |
 | `ResourceFeatures` | bool | optional | Whether the response should contain resource features. |
@@ -154,7 +154,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Resources` | array of [Resource](#resource) | optional | The resources of the enterprise. |
-| `ResourceCategories` | array of [Resource category](#resource-category) | optional | Categories of resources in the enterprise. |
+| ~~`ResourceCategories`~~ | ~~array of [Resource category](#resource-category)~~ | ~~optional~~ | ~~Categories of resources in the enterprise.~~ **Deprecated!** |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
 | `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |

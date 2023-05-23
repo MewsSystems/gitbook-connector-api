@@ -6,6 +6,8 @@
 * Added operation [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers) to add loyalty tiers.
 * Added operation [Update loyalty tiers](../operations/loyaltytiers.md#update-loyalty-tiers) to update loyalty tiers.
 * Added operation [Delete loyalty tiers](../operations/loyaltytiers.md#delete-loyalty-tiers) to delete loyalty tiers.
+* Added operation [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories).
+* Deprecated operation extent `ResourceCategories` in [Get all resources](../operations/resources.md#get-all-resources). [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) should be used instead.
 
 ## 22nd May 2023
 
