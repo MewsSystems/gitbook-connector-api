@@ -177,7 +177,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the bill. |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
+| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Customer](customers.md#customer) the bill is issued to.~~ **Deprecated!** |
 | `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
