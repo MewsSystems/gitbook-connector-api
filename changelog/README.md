@@ -1,5 +1,9 @@
 # Changelog
 
+## 22nd May 2023
+
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
+
 ## 16th May 2023
 
 * Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
