@@ -2,6 +2,9 @@
 
 ## Get all loyalty programs
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
+
 Returns all loyalty programs of the enterprise (in the given activity state), optionally filtered by specific loyalty program identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -42,17 +45,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](#loyalty-program). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) creation date and time. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) creation date and time. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
 | `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 ### Response
 
@@ -62,12 +58,16 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         {
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
             "Name": "Platinum Club",
-            "Code": "PC01"
+            "Code": "PC01",
+            "Type": "Hotel",
+            "Subscription": "Free"
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
             "Name": "Gold Exclusive Club",
-            "Code": "GEC07"
+            "Code": "GEC07",
+            "Type": "ExternalPartner",
+            "Subscription": "Paid"
         }
     ],
     "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
@@ -86,8 +86,24 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Id` | string | required | Unique identifier of the loyalty program. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
+| `Type` | [Loyalty program type](#loyalty-program-type) | string | required | Type of the loyalty program. |
+| `Subscription` | [Loyalty program subscription](#loyalty-program-subscription) | string | required | Subscription of the loyalty program. |
+
+#### Loyalty program type
+
+* `Hotel`
+* `ExternalPartner`
+* `SoftBrand`
+
+#### Loyalty program subscription
+
+* `Free`
+* `Paid`
 
 ## Add loyalty programs
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Adds loyalty programs to the enterprise.
 
@@ -104,7 +120,9 @@ Adds loyalty programs to the enterprise.
         {
             "DataClusterId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
             "Name": "Platinum Club",
-            "Code": "PC01"
+            "Code": "PC01",
+            "Type": "Hotel",
+            "Subscription": "Free"
         }
     ]
 }
@@ -124,6 +142,8 @@ Adds loyalty programs to the enterprise.
 | `DataClusterId` | string | required | Unique identifier of the chain whose member the enterprise is. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
+| `Type` | string [Loyalty program type](#loyalty-program-type) | required | Type of the loyalty program. |
+| `Subscription` | string [Loyalty program subscription](#loyalty-program-subscription) | required | Subscription of the loyalty program. |
 
 ### Response
 
@@ -133,7 +153,9 @@ Adds loyalty programs to the enterprise.
 		{
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
             "Name": "Platinum Club",
-            "Code": "PC01"
+            "Code": "PC01",
+            "Type": "Hotel",
+            "Subscription": "Free"
         }
     ]
 }
@@ -144,6 +166,9 @@ Adds loyalty programs to the enterprise.
 | `LoyaltyPrograms` | array of [Loyalty program](#loyalty-program) | required | Added loyalty programs. |
 
 ## Update loyalty programs
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Updates information about the specified loyalty programs.
 
@@ -159,7 +184,15 @@ Updates information about the specified loyalty programs.
     "LoyaltyProgramUpdates": [
         {
             "LoyaltyProgramId": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-            "Name": "Platinum Club Extra"
+            "Name": {
+                "Value": "Platinum Club Extra"
+            },
+            "Type": {
+                "Value": "Hotel"
+            },
+            "Subscription": {
+                "Value": "Free"
+            }
         }
     ]
 }
@@ -177,13 +210,19 @@ Updates information about the specified loyalty programs.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
-| `Name` | [String update value](#string-update-value) | optional | Name of the loyalty program \(or `null` if the name should not be updated\). |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the loyalty program \(or `null` if the name should not be updated\). |
+| `Type` | [Loyalty program type update](#loyalty-program-type-update) | optional | Type of the loyalty program, \(or `null` if the type should not be updated\). |
+| `Subscription` | [Loyalty program subscription update](#loyalty-program-subscription-update) | optional | Subscription of the loyalty program, \(or `null` if the subscription should not be updated\). |
 
-#### String update value
+#### Loyalty program type update
 
 | Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
+| `Value` | string [Loyalty program type](#loyalty-program-type) | required | Type of the loyalty program. |
+
+#### Loyalty program subscription update
+
+| Property | Type | Contract | Description |
+| `Value` | string [Loyalty program subscription](#loyalty-program-subscription) | required | Subscription of the loyalty program. |
 
 ### Response
 
@@ -193,7 +232,9 @@ Updates information about the specified loyalty programs.
 		{
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
             "Name": "Platinum Club Extra",
-            "Code": "PC01"
+            "Code": "PC01",
+            "Type": "Hotel",
+            "Subscription": "Free"
         }
     ]
 }
@@ -204,6 +245,9 @@ Updates information about the specified loyalty programs.
 | `LoyaltyPrograms` | array of [Loyalty program](#loyalty-program) | required | Updated loyalty programs. |
 
 ## Delete loyalty programs
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes loyalty programs. Note that a loyalty program containing active memberships cannot be deleted.
 

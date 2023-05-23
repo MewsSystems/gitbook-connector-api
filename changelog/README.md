@@ -1,9 +1,94 @@
 # Changelog
 
-## 23rd March 2023
+## 24th May 2023
 
 * `AccountId` in [Bill parameters](../operations/bills.md#bill-parameters) is allowed to be an Id of a [Company](../operations/companies.md#company).
 * Deprecated `CustomerId` in [Bill](../operations/bills.md#bill). Use `AccountId` instead.
+
+## 23rd May 2023
+
+* Added operation [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories).
+* Deprecated operation extent `ResourceCategories` in [Get all resources](../operations/resources.md#get-all-resources). [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) should be used instead.
+
+## 22nd May 2023
+
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `LoyaltyTierId`.
+
+## 16th May 2023
+
+* Added operation [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
+
+## 11th May 2023
+
+* Added operation [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups).
+
+## 28th April 2023
+
+* Added missing property descriptions to [Get all order items](../operations/orderitems.md#get-all-order-items)
+
+## 25th April 2023
+
+* Added clarification to values for [Reservation origin](../operations/reservations.md#reservation-origin).
+
+## 21st April 2023
+* Extended [loyalty programs](../operations/loyaltyprograms.md#loyalty-program) with [Type](../operations/loyaltyprograms.md#loyalty-program-type) and [Subscription](../operations/loyaltyprograms.md#loyalty-program-subscription) parameters.
+* Added operation [Add service order notes](../operations/serviceordernotes.md#add-service-order-notes).
+* Added operation [Update service order notes](../operations/serviceordernotes.md#update-service-order-notes).
+* Added operation [Delete service order notes](../operations/serviceordernotes.md#delete-service-order-notes).
+
+## 20th April 2023
+
+* Extended [Get all order items](../operations/orderitems.md#get-all-order-items) with `EnterpriseIds` filter and [Order item](../operations/orderitems.md#order-item) with `EnterpriseId`.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) with `EnterpriseIds` filter and [Payment](../operations/payments.md#payment) with `EnterpriseId`.
+
+## 19th April 2023
+
+* Deprecated operation [Get all accounting items ](../operations/accountingitems.md#get-all-accounting-items). Operation [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
+## 17th April 2023
+
+* Extended [Get configuration](../operations/configuration.md#get-configuration) request with `EnterpriseId` parameter.
+* Deprecated `Address` in [Enterprise](../operations/configuration.md#enterprise) and replaced with `AddressId`.
+* Added new page [Enterprises](../operations/enterprises.md) with operation [Get all enterprises](../operations/enterprises.md#get-all-enterprises).
+
+## 12th April 2023
+
+* Added operation [Get all order items](../operations/orderitems.md#get-all-order-items).
+
+## 11th April 2023
+
+* Extended [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) response with `OriginalAmount` in [Order item](../operations/accountingitems.md#order-item) and [Payment item](../operations/accountingitems.md#payment-item).
+* Deprecated `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item).
+
+## 9th April 2023
+
+* Extended [Get all rules](../operations/rules.md#get-all-rules) response with `TravelAgencyId` in [Rule conditions](../operations/rules.md#rule-conditions).
+
+## 6th April 2023
+
+* Updated definitions for external identifiers throughout the API
+* Added new page for [common object definitions](../operations/_objects.md) used throughout the API
+
+## 4th April 2023
+
+* Fixed name of parameter `PostCancellationFee` in [Reservation cancel](../operations/reservations.md#cancel-reservation).
+* Added operation [Get all payments](../operations/payments.md#get-all-payments).
+
+## 3rd April 2023
+
+* Added operation [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
+## 27th March 2023
+
+* Updated [loyalty programs](../operations/loyaltyprograms.md) and [loyalty memberships](../operations/loyaltymemberships.md) operations as restricted.
+* Re-wrote the [Datetimes](../guidelines/serialization.md#datetimes) section to better explain how date-times are used in the API.
+* Updated descriptions for `startUtc` and `endUtc` in [Restriction Conditions](../operations/restrictions.md#restriction-conditions) and [Restriction set data](../operations/restrictions.md#restriction-set-data).
+* Other minor improvements to documentation in the [Restrictions](../operations/restrictions.md) page.
+* Corrected small errors in [Set restrictions](../operations/restrictions.md#set-restrictions) - removed `Identifier` and `ExternalIdentifier`, and updated sample JSON
+
+## 22nd March 2023
+
+* Added new page [Best practices](../guidelines/best-practices.md)
 
 ## 17th March 2023
 
@@ -69,7 +154,7 @@
 
 ## 20th January 2023
 
-* Added `ExternalIdentifier` to each of the following entities. `ExternalIdentifier` is used for portfolio management to link the entities at an above-enterprise level.
+* Added `ExternalIdentifier` to each of the following entities.
   * [Product](../operations/products.md#product)
   * [Company](../operations/companies.md#company)
   * [Service](../operations/services.md#service)
@@ -84,8 +169,8 @@
 * Added pagination to [Get all companies](../operations/companies.md#get-all-companies)
 * Added new filter `ExternalIdentifiers` to  [Get all companies](../operations/companies.md#get-all-companies)
 * Deprecated `Address` in [Company](../operations/companies.md#company) and replaced with `AddressId`
-* Added new page [Service orders](../operations/serviceorders.md).
-* Added operation [Get all service order notes](../operations/serviceorders.md#get-all-service-order-notes).
+* Added new page [Service orders](../operations/serviceorders.md) \[corrected to [Service order notes](../operations/serviceordernotes.md) 21st April 2023\].
+* Added operation [Get all service order notes](../operations/serviceordernotes.md#get-all-service-order-notes).
 * Deprecated `BasePrices` and replaced it with `BaseAmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `BaseAmountPrices` includes information about the tax breakdown.
 * Deprecated `Prices` and replaced it with `AmountPrices` in the response to [Get rate pricing](../operations/rates.md#get-rate-pricing); `AmountPrices` includes information about the tax breakdown.
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) response with `AmountPrices` and `AmountPrices` in [Resource category pricing](../operations/rates.md#resource-category-pricing).
