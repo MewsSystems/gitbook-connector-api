@@ -2,6 +2,9 @@
 
 ## Get all loyalty memberships
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
+
 Returns all loyalty memberships of the enterprise (in the given activity states), optionally filtered by specific loyalty membership identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -13,7 +16,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
     "LoyaltyMembershipIds": [
         "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
         "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -52,17 +55,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `LoyaltyMembershipIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty memberships](#loyalty-membership). |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the membership is associated with. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
 
 #### Activity state
 
@@ -82,7 +78,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "IsPrimary": true,
             "Points": 10,
             "ExpirationDate": "2024-12-31",
-            "Url": "https://www.mews.com/"
+            "Url": "https://www.mews.com/",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
@@ -91,8 +88,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Code": "Code-002",
             "IsPrimary": false,
             "Points": 25,
-            "ExpirationDate": "",
-            "Url": ""
+            "ExpirationDate": null,
+            "Url": null,
+            "LoyaltyTierId": null
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -116,8 +114,12 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
+| `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. | 
 
 ## Add loyalty memberships
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Adds loyalty memberships to the enterprise.
 
@@ -138,7 +140,8 @@ Adds loyalty memberships to the enterprise.
             "IsPrimary": true,
             "Points": 5,
             "ExpirationDate": "2022-12-31",
-            "Url": ""
+            "Url": "",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         }
     ]
 }
@@ -162,6 +165,7 @@ Adds loyalty memberships to the enterprise.
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
+| `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. |
 
 ### Response
 
@@ -176,7 +180,8 @@ Adds loyalty memberships to the enterprise.
             "IsPrimary": true,
             "Points": 5,
             "ExpirationDate": "2022-12-31",
-            "Url": ""
+            "Url": "",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         }
     ]
 }
@@ -187,6 +192,9 @@ Adds loyalty memberships to the enterprise.
 | `LoyaltyMemberships` | array of [Loyalty membership](#loyalty-membership) | required | Added loyalty memberships. |
 
 ## Update loyalty memberships
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Updates information about the specified loyalty memberships.
 
@@ -210,6 +218,9 @@ Updates information about the specified loyalty memberships.
             },
             "Url": {
                 "Value": "https://www.mews.com/"
+            },
+            "LoyaltyTierId": {
+                "Value": "34c29a01-c075-49e4-906a-3b1d4012463e"
             }
         }
     ]
@@ -228,31 +239,13 @@ Updates information about the specified loyalty memberships.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyMembershipId` | string | required | Unique identifier of the loyalty membership. |
-| `LoyaltyProgramId` | [String update value](#string-update-value) | optional | Unique identifier of the loyalty program \(or `null` if the program should not be updated\). |
-| `IsPrimary` | [Bool update value](#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account. \(or `null` if the value should not be updated\).  |
-| `Points` | [Integer update value](#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
-| `Code` | [String update value](#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
-| `ExpirationDate` | [String update value](#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
-| `Url` | [String update value](#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | bool | optional | Value which is to be updated. |
-
-#### Integer update value
-
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `Value` | integer | optional | Value which is to be updated. |
-
+| `LoyaltyProgramId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty program \(or `null` if the program should not be updated\). |
+| `IsPrimary` | [Bool update value](_objects.md#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account. \(or `null` if the value should not be updated\).  |
+| `Points` | [Integer update value](_objects.md#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
+| `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
+| `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
+| `Url` | [String update value](_objects.md#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
+| `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier \(or `null` if the tier should not be updated\). |
 
 ### Response
 
@@ -265,7 +258,8 @@ Updates information about the specified loyalty memberships.
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-003",
             "ExpirationDate": "2030-12-31",
-            "Url": "https://www.mews.com/"
+            "Url": "https://www.mews.com/",
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
         }
     ]
 }
@@ -276,6 +270,9 @@ Updates information about the specified loyalty memberships.
 | `LoyaltyMemberships` | array of [Loyalty membership](#loyalty-membership) | required | Added loyalty memberships. |
 
 ## Delete loyalty memberships
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes loyalty memberships.
 

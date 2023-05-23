@@ -17,7 +17,7 @@ Adds a new task to the enterprise, optionally to a specified department.
     "Description": "Task description",
     "DeadlineUtc": "2016-01-01T14:00:00Z",
     "ServiceOrderId": "c73cf884-ae2b-4fba-858c-ab1400b4c8c3",
-    "DepartmentId": "8a0770a7-5178-4b87-8898-ab0400a346ec",
+    "DepartmentId": "8a0770a7-5178-4b87-8898-ab0400a346ec"
 }
 ```
 
@@ -89,16 +89,9 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `TaskIds` | array of string | optional, max 1000 items | Unique identifiers of [Tasks](#task). |
 | `DepartmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Departments](departments.md#department). Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string  | optional, max 1000 items | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or Product order). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was created. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was closed. |
-| `DeadlineUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) has a deadline. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was created. |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was closed. |
+| `DeadlineUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) has a deadline. |
 
 ### Response
 

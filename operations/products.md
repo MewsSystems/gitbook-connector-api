@@ -70,7 +70,8 @@ Returns all products offered together with the specified services.
                         "Code": "FR-T"
                     }
                 ]
-            }
+            },
+            "ExternalIdentifier": "PROD-BFST-009"
         }
     ],
     "CustomerProducts" : [
@@ -111,7 +112,8 @@ Returns all products offered together with the specified services.
                         "Code": "FR-T"
                     }
                 ]
-            }
+            },
+            "ExternalIdentifier": "PROD-BFST-009"
         }
     ],
     "Cursor" : "198bc308-c1f2-4a1c-a827-c41d99d52f3d"
@@ -143,6 +145,7 @@ Returns all products offered together with the specified services.
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 | `Classifications` | [Product classifications](#product-classifications) | required | Classifications of the service. |
 | `UnitAmount` | [Amount value](accountingitems.md#amount-value) | required | Unit amount representing price of the product. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the product from external system. |
 
 #### Product charging mode
 

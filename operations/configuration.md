@@ -2,7 +2,7 @@
 
 ## Get configuration
 
-Returns configuration of the enterprise and the client.
+Returns the configuration of the enterprise, and optionally the service, associated with the given access token.
 
 ### Request
 
@@ -12,7 +12,8 @@ Returns configuration of the enterprise and the client.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "851df8c8-90f2-4c4a-8e01-a4fc46b25178"
 }
 ```
 
@@ -21,6 +22,7 @@ Returns configuration of the enterprise and the client.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](#enterprise), defaults to the enterprise associated with the given access token. |
 
 ### Response
 
@@ -65,7 +67,16 @@ Returns configuration of the enterprise and the client.
             }
         ],
         "Pricing": "Gross",
-        "TaxPrecision": null
+        "TaxPrecision": null,
+        "ExternalIdentifier": null,
+        "AccountingConfiguration": {
+            "AdditionalTaxIdentifier": null,
+            "CompanyName": "Connector API Hotel",
+            "BankAccountNumber": "1234",
+            "BankName": "Random bank",
+            "Iban": "CZ7250517882393618329719",
+            "Bic": "GIBACZPY"
+        }
     },
     "Service":
     {
@@ -111,10 +122,13 @@ Returns configuration of the enterprise and the client.
 | `Phone` | string | optional | Phone number of the enterprise. |
 | `LogoImageId` | string | required | Unique identifier of the enterprise logo image. |
 | `CoverImageId` | string | required | Unique identifier of the enterprise cover image. |
-| `Address` | [Address](#address) | required | Address of the enterprise. |
+| `AddressId` | string | required | Unique identifier of the [Address](addresses.md#account-address) of the enterprise. |
+| ~~`Address`~~ | ~~[Address](#address)~~ | ~~required~~ | ~~Address of the enterprise.~~ **Deprecated!** |
 | `Currencies` | array of [Accepted currency](#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the enterprise from external system. |
+| `AccountingConfiguration` | [Accounting configuration](#accounting-configuration) | optional | Configuration information containg financial information about the property. |
 
 #### Address
 
@@ -148,3 +162,14 @@ Returns configuration of the enterprise and the client.
 | Property | Type | Contract | Description |
 | :--- | :--- | :--- | :--- |
 | `PublicKey` | string | required | Key for accessing PCI proxy storage. |
+
+#### Accounting configuration
+
+| Property | Type | Contract | Description |
+| :--- | :--- | :--- | :--- |
+| `AdditionalTaxIdentifier` | string | optional, max 50 characters | Organization number. |
+| `CompanyName` | string | optional, max 100 characters | Legal name of the company. |
+| `BankAccountNumber` | string | optional, max 50 characters | Bank account number. |
+| `BankName` | string | optional, max 100 characters | Name of the bank. |
+| `Iban` | string | optional, max 40 characters | International Bank Account Number. |
+| `Bic` | string | optional, max 11 characters | Business Identification Code. |

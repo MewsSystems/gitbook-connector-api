@@ -2,7 +2,7 @@
 
 ## Get all companies
 
-Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
+Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
@@ -12,7 +12,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
     "Ids": [
         "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
         "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
@@ -27,6 +27,14 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
     "UpdatedUtc": {
         "StartUtc": "2019-12-10T00:00:00Z",
         "EndUtc": "2019-12-17T00:00:00Z"
+    },
+    "ExternalIdentifiers": [
+        "12345",
+        "4312343"
+    ],
+    "Limitation": {
+        "Count": 100,
+        "Cursor": "8a98965a-7c03-48a1-a28c-ab1b009b53c8" 
     }
 }
 ```
@@ -38,15 +46,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Client` | string | required | Name and version of the client application. |
 | `Ids` | array of string | optional, max 1000 items | Unique identifiers of [Companies](#company). |
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
-
-#### Time interval
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Company](#company) last update date and time. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](#company) from external system. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
 
 ### Response
 
@@ -67,17 +70,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
-            "Address": {
-                "Id": "bab7441c-4b82-43bc-8001-ab0400a346ec",
-                "Line1": "Rheinlanddamm 207-209",
-                "Line2": "",
-                "City": "Dortmund",
-                "PostalCode": "44137"
-                "CountryCode": "DE",
-                "CountrySubdivisionCode": null,
-                "Latitude": null,
-                "Longitude": null
-            },
+            "AddressId": "bab7441c-4b82-43bc-8001-ab0400a346ec",
             "BillingCode": null,
             "Iata": "PAO",
             "Telephone": "111-222-333",
@@ -93,7 +86,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "DunsNumber": "123456789",
             "CreditRating": {
                 "Basic": "PaymentRequiredUpfront"
-            }
+            },
+            "ReferenceIdentifier": "da34b396-77e3-495a-bd61-aecf00a3f19d",
+            "WebsiteUrl": "https://www.mewssystems.com"
+            "ExternalIdentifier": "company0001"
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
@@ -109,7 +105,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "MotherCompanyId": null,
             "CreatedUtc": "2022-07-11T09:56:54Z",
             "UpdatedUtc": "2022-07-11T09:56:54Z",
-            "Address": null,
+            "AddressId": null,
             "BillingCode": null,
             "Iata": "PAO",
             "Telephone": "111-222-333",
@@ -125,15 +121,20 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
             "DunsNumber": "987654321",
             "CreditRating": {
                 "Basic": "CreditOk"
-            }
+            },
+            "ReferenceIdentifier": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+            "WebsiteUrl": "https://www.mews.com"
+            "ExternalIdentifier": "company0002"
         }
-    ]
+    ],
+    "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Companies` | array of [Company](#company) | required | The company profiles of the enterprise. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest company item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older companies. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
 
 #### Company
 
@@ -143,7 +144,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Name` | string | required | Name of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Number`| number | required | Unique number of the company. |
-| `Identifier` | string | optional | Identifier of the company \(e.g. legal identifier\). |
+| `Identifier` | string | optional | Other identifier of the company, e.g. legal identifier. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
 | `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
@@ -152,7 +153,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `MotherCompanyId` | guid | optional | Unique identifier of mother company. |
 | `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
 | `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
-| `Address` | [Address](configuration.md#address) | optional | Address of the company \(if it is non-empty, otherwise `null`\). |
+| `AddressId` | string | optional | Unique identifier of the company [Address](addresses.md#account-address). |
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
@@ -164,6 +165,9 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
+| `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
+| `WebsiteUrl` | string | optional | The website url of the company. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of company from external system. |
 
 #### Company options
 
@@ -219,7 +223,10 @@ Adds a new company to the enterprise.
     "DunsNumber": "987654321",
     "CreditRating": {
         "Basic": "CreditOk"
-    }
+    },
+    "ExternalIdentifier": "1234",
+    "ReferenceIdentifier": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+    "WebsiteUrl": "https://www.mews.com"
 }
 ```
 
@@ -229,7 +236,7 @@ Adds a new company to the enterprise.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | required | Name of the company. |
-| `Options` | [Company option parameters](#company-options-parameters) | required | Options of the company. |
+| `Options` | [Company options parameters](#company-options-parameters) | required | Options of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
 | `Identifier` | string | optional | Identifier of the company (e.g. legal identifier). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
@@ -245,6 +252,9 @@ Adds a new company to the enterprise.
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating](#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the company from external system. |
+| `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
+| `WebsiteUrl` | string | optional | The website url of the company. |
 
 #### Company options parameters
 
@@ -315,6 +325,15 @@ Updates information of the company.
         "Basic": {
             "Value": "PaymentRequiredUpfront"
         }
+    },
+    "ExternalIdentifier": {
+        "Value": "4321"
+    },
+    "ReferenceIdentifier": {
+        "Value": "ff64395-9cdd-4395-9cdd-02039acb7cb3"
+    },
+    "WebsiteUrl": {
+        "Value": "https://www.mews.com"
     }
 }
 ```
@@ -325,47 +344,38 @@ Updates information of the company.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CompanyId` | string | required | Unique identifier of the [Company](#company). |
-| `Name` | [String update value](#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
 | `Options` | [Options update value](#company-options-update-value) | optional | Options of the company. |
-| `MotherCompanyId` | [String update value](#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
-| `Identifier` | [String update value](#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
-| `TaxIdentifier` | [String update value](#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
-| `AdditionalTaxIdentifier` | [String update value](#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
-| `BillingCode` | [String update value](#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
-| `AccountingCode` | [String update value](#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
-| `InvoiceDueInterval` | [String update value](#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `ContactPerson` | [String update value](#string-update-value) | optional | Contact person of the company. |
-| `Contact` | [String update value](#string-update-value) | optional | Other contact details, such as telephone, email or similar. |
-| `Notes` | [String update value](#string-update-value) | optional | Notes of the company. |
-| `Iata` | [String update value](#string-update-value) | optional | Iata of the company. |
-| `Department` | [String update value](#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
-| `DunsNumber` | [String update value](#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
+| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the mother company \(or `null` if the mother company should not be updated\). |
+| `Identifier` | [String update value](_objects.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier \(or `null` if the identifier should not be updated\). |
+| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identification number of the company \(or `null` if the tax identifier should not be updated\). |
+| `AdditionalTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Additional tax identifer of the company \(or `null` if the additional tax identifier should not be updated\). |
+| `BillingCode` | [String update value](_objects.md#string-update-value) | optional | Billing code of the company \(or `null` if the billing code should not be updated\). |
+| `AccountingCode` | [String update value](_objects.md#string-update-value) | optional | Accounting code of the company \(or `null` if the acounting code should not be updated\). |
+| `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `ContactPerson` | [String update value](_objects.md#string-update-value) | optional | Contact person of the company. |
+| `Contact` | [String update value](_objects.md#string-update-value) | optional | Other contact details, such as telephone, email or similar. |
+| `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes of the company. |
+| `Iata` | [String update value](_objects.md#string-update-value) | optional | Iata of the company. |
+| `Department` | [String update value](_objects.md#string-update-value) | optional | The internal segmentation of a company, e.g. sales department. |
+| `DunsNumber` | [String update value](_objects.md#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `CreditRating` | [Credit rating update value](#credit-rating-update-value) | optional | Credit rating to define creditworthiness of the company. |
+| `ExternalIdentifier` | string | [String update value](_objects.md#string-update-value) | optional | Identifier of the company from external system. |
+| `ReferenceIdentifier` |  [String update value](_objects.md#string-update-value)  | optional | External system identifier - custom identifier used by an external system such as an external database. |
+| `WebsiteUrl` |  [String update value](_objects.md#string-update-value)  | optional | The website url of the company. |
 
 #### Company options update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | [Bool update value](#bool-update-value) | optional | Whether the company is invoiceable or not. |
-| `AddFeesToInvoices` | [Bool update value](#bool-update-value) | optional | Whether the company has an additional fee applied for invoicing or not. |
+| `Invoiceable` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the company has an additional fee applied for invoicing or not. |
 
 #### Credit rating update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | [string update value](#string-update-value) with possible values of [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
-
-#### Bool update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | bool | optional | Value which is to be updated. |
+| `Basic` | [string update value](_objects.md#string-update-value) with possible values of [Credit rating basic](#credit-rating-basic)| optional | The level of creditworthiness of the company. |
 
 ### Response
 

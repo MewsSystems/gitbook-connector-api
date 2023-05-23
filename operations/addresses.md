@@ -19,6 +19,10 @@ Returns all addresses associated with the specified accounts within the enterpri
     "AddressIds": [
         "fc7b2df3-de66-48a6-907d-af4600ecd892"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2022-12-10T00:00:00Z",
+        "EndUtc": "2022-12-17T00:00:00Z"
+    },
     "Limitation": { "Count": 10 }
 }
 ```
@@ -28,8 +32,9 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AccountIds` | array of string | required, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. |
-| `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](configuration.md#address) within the enterprise. Use this property if you want to fetch specific addresses. |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. Required if no other filter is provided. |
+| `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise. Use this property if you want to fetch specific addresses. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Address](#account-address) last update date and time. Required if no other filter is provided. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Account address returned. |
 
 ### Response
@@ -198,18 +203,12 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | :-- | :-- | :-- | :-- |
 | `AddressId` | string | required | Unique identifier of the address. |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
-| `Line1` | [String update value](#string-update-value) | optional | First line of the address. |
-| `Line2` | [String update value](#string-update-value) | optional | Second line of the address. |
-| `City` | [String update value](#string-update-value) | optional | The city. |
-| `PostalCode` | [String update value](#string-update-value) | optional | Postal code. |
-| `CountryCode` | [String update value](#string-update-value) | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `CountrySubdivisionCode` | [String update value](#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
+| `Line1` | [String update value](_objects.md#string-update-value) | optional | First line of the address. |
+| `Line2` | [String update value](_objects.md#string-update-value) | optional | Second line of the address. |
+| `City` | [String update value](_objects.md#string-update-value) | optional | The city. |
+| `PostalCode` | [String update value](_objects.md#string-update-value) | optional | Postal code. |
+| `CountryCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountrySubdivisionCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 
 ### Response
 

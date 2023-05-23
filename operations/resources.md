@@ -37,7 +37,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Resources` | bool | optional | Whether the response should contain resources. |
-| `ResourceCategories` | bool | optional | Whether the response should contain categories. |
+| ~~`ResourceCategories`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Please use [Get all resource categories](resourcecategories.md#get-all-resource-categories) |
 | `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
 | `ResourceCategoryImageAssignments` | bool | optional | Whether the response should contain assignments of the images to categories. |
 | `ResourceFeatures` | bool | optional | Whether the response should contain resource features. |
@@ -99,7 +99,8 @@ Returns all resources of an enterprise associated with the connector integration
             "Descriptions": {},
             "Ordering": 0,
             "Capacity": 2,
-            "ExtraCapacity": 0
+            "ExtraCapacity": 0,
+            "ExternalIdentifier": "RT001-BestRoom"
         }
     ],
     "ResourceCategoryAssignments": [
@@ -153,7 +154,7 @@ Returns all resources of an enterprise associated with the connector integration
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Resources` | array of [Resource](#resource) | optional | The resources of the enterprise. |
-| `ResourceCategories` | array of [Resource category](#resource-category) | optional | Categories of resources in the enterprise. |
+| ~~`ResourceCategories`~~ | ~~array of [Resource category](#resource-category)~~ | ~~optional~~ | ~~Categories of resources in the enterprise.~~ **Deprecated!** |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
 | `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
@@ -223,6 +224,7 @@ Returns all resources of an enterprise associated with the connector integration
 | `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
 | `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
 | `ExtraCapacity` | number | required | Extra capacity that can be served \(e.g. extra bed count\). |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the resource category from external system. |
 
 #### Resource category type
 
@@ -359,11 +361,11 @@ Updates details of the resources.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceId` | string | required | Unique identifier of the [Resource](#resource) which is updated. |
-| `Name` | [String update value](#string-update-value) | optional | New name of the resource \(e.g. room number\). |
-| `ParentResourceId` | [String update value](#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | New name of the resource \(e.g. room number\). |
+| `ParentResourceId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the new parent [Resource](#resource). |
 | `Data` | [Resource data update](#resource-data-update) | optional | New additional data of the resource. |
-| `State` | [String update value](#string-update-value) | optional | New [Resource state](#resource-state) except `OutOfOrder`. |
-| `StateReason` | [String update value](#string-update-value) | optional | New reason for the state of the resource. |
+| `State` | [String update value](_objects.md#string-update-value) | optional | New [Resource state](#resource-state) except `OutOfOrder`. |
+| `StateReason` | [String update value](_objects.md#string-update-value) | optional | New reason for the state of the resource. |
 
 #### Resource data update
 
@@ -376,14 +378,8 @@ Updates details of the resources.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `FloorNumber` | [String update value](#string-update-value) | required | New number of the floor the space is on. |
-| `LocationNotes` | [String update value](#string-update-value) | optional | New location notes for the space. |
-
-#### String update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional | Value which is to be updated. |
+| `FloorNumber` | [String update value](_objects.md#string-update-value) | required | New number of the floor the space is on. |
+| `LocationNotes` | [String update value](_objects.md#string-update-value) | optional | New location notes for the space. |
 
 ### Response
 

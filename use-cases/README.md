@@ -12,6 +12,7 @@ The following types of system are described here:
 * [Housekeeping](housekeeping.md)
 * [Kiosk](kiosk.md)
 * [Messaging](messaging.md)
+* [Mews Payment Terminals](mews-terminals.md)
 * [Point of sale](point-of-sale.md)
 * [Reputation management](reputation-management.md)
 * [Revenue management](revenue-management.md)
