@@ -96,7 +96,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
-| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). |
+| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
