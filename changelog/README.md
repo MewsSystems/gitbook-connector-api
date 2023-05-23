@@ -3,7 +3,7 @@
 ## 23rd March 2023
 
 * `AccountId` in [Bill parameters](../operations/bills.md#bill-parameters) is allowed to be an Id of a [Company](../operations/companies.md#company).
-* Deprecated `CustomerId` in [Bill](../operations/bills.md#bill). Use ``AccountId`` instead.
+* Deprecated `CustomerId` in [Bill](../operations/bills.md#bill). Use `AccountId` instead.
 
 ## 17th March 2023
 
