@@ -37,9 +37,10 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `CustomerId` in [Bill](../operations/bills.md#bill) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
 | Extent `ResourceCategories`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) instead | 23 May 2023 | 23 May 2024 |
 | `Address` in [Enterprise](../operations/configuration.md#enterprise) | Replaced by `AddressId` | 17 Apr 2023 | 17 Oct 2023 |
-| `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 April 2023 | 11 Oct 2023 |
+| `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 April 2023 | 11 Oct 2023 
 | `AssigneeData` in [Get all bills ](../operations/bills.md#get-all-bills) | Replaced by [Owner data](../operations/bills.md#bill-owner-data) | 20 Feb 2023 | 20 Feb 2024 |
 | `ItalianFiscalCode`, `ItalianLotteryCode` <br>in [Get all bills](../operations/bills.md#response) | Retrievable in LegalIdentifiers [Bill customer data](../operations/bills.md#bill-customer-data) | 20 Feb 2023 | 20 Feb 2024 |
 | `Address`<br>in [Company](../operations/companies.md#company) | Replaced by `AddressId` | 18 Jan 2023 | 18 July 2023 |

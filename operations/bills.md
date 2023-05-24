@@ -170,9 +170,9 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the bill. |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
-| `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) the bill is issued to. |
-| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) the bill is issued to. |
+| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
+| ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Customer](customers.md#customer) the bill is issued to.~~ **Deprecated!** |
+| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
 | `State` | string [Bill state](#bill-state) | required | State of the bill. |
 | `Type` | string [Bill type](#bill-type) | required | Type of the bill. |
@@ -320,7 +320,7 @@ Creates new empty bill assigned to specified account.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the bill is issued to. |
+| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. Company billing may not be enabled for your integration. |
 
 ### Response
 
@@ -330,7 +330,6 @@ Creates new empty bill assigned to specified account.
         {
             "Id": "177966b7-f3d9-42b7-ba49-abd80057329b",
             "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CustomerId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
             "CompanyId": null,
             "CounterId": null,
             "State": "Open",
