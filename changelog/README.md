@@ -2,6 +2,7 @@
 
 ## 24th May 2023
 
+* Extended [Add order](../operations/orders.md#add-order) with `AccountId` property to support [Company](../operations/companies.md#company) accounts. `CustomerId` property was deprecated.
 * `AccountId` in [Bill parameters](../operations/bills.md#bill-parameters) is allowed to be an Id of a [Company](../operations/companies.md#company).
 * Deprecated `CustomerId` in [Bill](../operations/bills.md#bill). Use `AccountId` instead.
 
