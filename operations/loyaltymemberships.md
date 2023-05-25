@@ -90,7 +90,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Points": 25,
             "ExpirationDate": null,
             "Url": null,
-            "LoyaltyTierId": null
+            "LoyaltyTierId": null`,
+            "CreatorProfileId": "52d19c34-b0aa-4635-905d-1326fa8b8e13",
+            "UpdaterProfileId": "2234693c-8745-42f7-9175-5e585cf7a820"
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -115,6 +117,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. | 
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the loyalty membership. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the loyalty membership. |
 
 ## Add loyalty memberships
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 26th May 2023
+
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `CreatorProfileId` and `UpdaterProfileId`.
+
 ## 24th May 2023
 
 * Extended [Add external payment](../operations/payments.md#add-external-payment) with `AccountId` property to support [Company](../operations/companies.md#company) accounts. `CustomerId` property was deprecated.
