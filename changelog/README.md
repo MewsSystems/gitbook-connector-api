@@ -2,7 +2,7 @@
 
 ## 26th May 2023
 
-* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `CreatorProfileId` and `UpdaterProfileId`.
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with [CreatorProfile](../operations/loyaltymemberships.md#profile-data) and [UpdaterProfile](../operations/loyaltymemberships.md#profile-data).
 
 ## 24th May 2023
 
