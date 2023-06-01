@@ -1,8 +1,8 @@
 # Changelog
 
-## 26th May 2023
+## 1st June 2023
 
-* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with [CreatorProfile](../operations/loyaltymemberships.md#profile-data) and [UpdaterProfile](../operations/loyaltymemberships.md#profile-data).
+* Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with `CreatorProfile` and `UpdaterProfile`.
 
 ## 24th May 2023
 

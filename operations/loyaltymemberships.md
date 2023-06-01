@@ -161,7 +161,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | :-- | :-- | :-- | :-- |
 | `ProfileId` | string | required | Unique identifier of the profile. |
 
-
 ## Add loyalty memberships
 
 > ### Restricted!
