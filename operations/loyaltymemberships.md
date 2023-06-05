@@ -75,7 +75,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 * `New`
 * `Pending`
 * `Enrolled`
-* `Cancelled`
+* `Canceled`
 * `Declined`
 
 ### Response
@@ -242,7 +242,7 @@ Updates information about the specified loyalty memberships.
                 "Value": "34c29a01-c075-49e4-906a-3b1d4012463e"
             },
             "State": {
-                "Value": "Cancelled"
+                "Value": "Canceled"
             }
         }
     ]
