@@ -29,6 +29,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         "87d4c7c4-4832-4341-8b54-e45c1a73df34",
         "0ed43ab7-4592-4c99-906a-426588de1c00"
     ],
+    "MembershipStates": [
+        "New",
+        "Enrolled"
+    ]
     "CreatedUtc": {
         "StartUtc": "2022-10-15T00:00:00Z",
         "EndUtc": "2022-10-20T00:00:00Z"
@@ -55,6 +59,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `LoyaltyMembershipIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty memberships](#loyalty-membership). |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the membership is associated with. |
+| `MembershipStates` | array of string [Loyalty membership state](#loyalty-membership-state) | optional | States of the loyalty memberships. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
 | `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
@@ -64,6 +69,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 
 * `Active` - active records (the validity might be restricted by another parameter i.e. interval).
 * `Deleted`- deleted records.
+
+#### Loyalty membership state
+
+* `New`
+* `Pending`
+* `Enrolled`
+* `Cancelled`
+* `Declined`
 
 ### Response
 
@@ -79,7 +92,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Points": 10,
             "ExpirationDate": "2024-12-31",
             "Url": "https://www.mews.com/",
-            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e",
+            "State": "New"
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
@@ -90,7 +104,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Points": 25,
             "ExpirationDate": null,
             "Url": null,
-            "LoyaltyTierId": null
+            "LoyaltyTierId": null,
+            "State": "Enrolled"
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -115,6 +130,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. | 
+| `State` | [Loyalty membership state](#loyalty-membership-state) | required | State of the loyalty membership. |
 
 ## Add loyalty memberships
 
@@ -141,7 +157,8 @@ Adds loyalty memberships to the enterprise.
             "Points": 5,
             "ExpirationDate": "2022-12-31",
             "Url": "",
-            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e",
+            "State": "New"
         }
     ]
 }
@@ -166,6 +183,7 @@ Adds loyalty memberships to the enterprise.
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. |
+| `State` | [Loyalty membership state](#loyalty-membership-state) | optional | State of the loyalty membership. |
 
 ### Response
 
@@ -181,7 +199,8 @@ Adds loyalty memberships to the enterprise.
             "Points": 5,
             "ExpirationDate": "2022-12-31",
             "Url": "",
-            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e",
+            "State": "Enrolled"
         }
     ]
 }
@@ -221,6 +240,9 @@ Updates information about the specified loyalty memberships.
             },
             "LoyaltyTierId": {
                 "Value": "34c29a01-c075-49e4-906a-3b1d4012463e"
+            },
+            "State": {
+                "Value": "Cancelled"
             }
         }
     ]
@@ -246,6 +268,12 @@ Updates information about the specified loyalty memberships.
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
 | `Url` | [String update value](_objects.md#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
 | `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier \(or `null` if the tier should not be updated\). |
+| `State` | [Loyalty membership state update](#loyalty-membership-state-update) | optional | State of the loyalty membership, \(or `null` if the state should not be updated\). |
+
+#### Loyalty membership state update
+
+| Property | Type | Contract | Description |
+| `Value` | [Loyalty membership state](#loyalty-membership-state) | required | State of the loyalty membership. |
 
 ### Response
 
