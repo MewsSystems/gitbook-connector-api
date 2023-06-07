@@ -149,11 +149,12 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 
 #### Profile data discriminator
 
-  * `Personal`
-  * `Enterprise`
-  * `Platform`
-  * `Static`
-  * `Integration`
+* `Personal`
+* `Enterprise`
+* `Platform`
+* `Static`
+* `Integration`
+* ...
 
 #### Enterprise profile data
 
