@@ -76,7 +76,17 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Points": 10,
             "ExpirationDate": "2024-12-31",
             "Url": "https://www.mews.com/",
-            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e"
+            "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e",
+            "CreatorProfile": {
+                "Discriminator": "Enterprise",
+                "EnterpriseProfile": {
+                    "ProfileId": "52d19c34-b0aa-4635-905d-1326fa8b8e13"
+                }
+            },
+            "UpdaterProfile": {
+                "Discriminator": "Integration",
+                "EnterpriseProfile": null
+            }
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
@@ -87,7 +97,19 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "Points": 25,
             "ExpirationDate": null,
             "Url": null,
-            "LoyaltyTierId": null
+            "LoyaltyTierId": null,
+            "CreatorProfile": {
+                "Discriminator": "Enterprise",
+                "EnterpriseProfile": {
+                    "ProfileId": "52d19c34-b0aa-4635-905d-1326fa8b8e13"
+                }
+            },
+            "UpdaterProfile": {
+                "Discriminator": "Enterprise",
+                "EnterpriseProfile": {
+                    "ProfileId": "2234693c-8745-42f7-9175-5e585cf7a820"
+                }
+            }
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -112,6 +134,30 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. | 
+| `CreatorProfile` | [Profile data](#profile-data) | required | The profile data of the user who created the loyalty membership. |
+| `UpdaterProfile` | [Profile data](#profile-data) | required | The profile data of the user who updated the loyalty membership. |
+
+#### Profile data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Profile data discriminator](#profile-data-discriminator) | required | Type of the profile data (e.g. `Enterprise`). |
+| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data) | optional | Enterprise profile data. |
+
+#### Profile data discriminator
+
+* `Personal`
+* `Enterprise`
+* `Platform`
+* `Static`
+* `Integration`
+* ...
+
+#### Enterprise profile data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ProfileId` | string | required | Unique identifier of the profile. |
 
 ## Add loyalty memberships
 
