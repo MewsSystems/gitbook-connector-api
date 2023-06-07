@@ -1,6 +1,6 @@
 # Changelog
 
-## 5th June 2023
+## 7th June 2023
 
 * Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with [State](../operations/loyaltymemberships.md#loyalty-membership-state).
 

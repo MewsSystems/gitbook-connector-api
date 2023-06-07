@@ -32,7 +32,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "MembershipStates": [
         "New",
         "Enrolled"
-    ]
+    ],
     "CreatedUtc": {
         "StartUtc": "2022-10-15T00:00:00Z",
         "EndUtc": "2022-10-20T00:00:00Z"
