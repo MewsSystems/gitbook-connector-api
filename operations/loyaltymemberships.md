@@ -74,6 +74,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 * `Enrolled`
 * `Canceled`
 * `Declined`
+* ...
 
 ### Response
 
