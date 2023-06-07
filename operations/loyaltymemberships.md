@@ -2,9 +2,6 @@
 
 ## Get all loyalty memberships
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
-
 Returns all loyalty memberships of the enterprise (in the given activity states), optionally filtered by specific loyalty membership identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -93,7 +90,17 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "ExpirationDate": "2024-12-31",
             "Url": "https://www.mews.com/",
             "LoyaltyTierId": "34c29a01-c075-49e4-906a-3b1d4012463e",
-            "State": "New"
+            "State": "New",
+            "CreatorProfile": {
+                "Discriminator": "Enterprise",
+                "EnterpriseProfile": {
+                    "ProfileId": "52d19c34-b0aa-4635-905d-1326fa8b8e13"
+                }
+            },
+            "UpdaterProfile": {
+                "Discriminator": "Integration",
+                "EnterpriseProfile": null
+            }
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
@@ -105,7 +112,19 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
             "ExpirationDate": null,
             "Url": null,
             "LoyaltyTierId": null,
-            "State": "Enrolled"
+            "State": "Enrolled",
+            "CreatorProfile": {
+                "Discriminator": "Enterprise",
+                "EnterpriseProfile": {
+                    "ProfileId": "52d19c34-b0aa-4635-905d-1326fa8b8e13"
+                }
+            },
+            "UpdaterProfile": {
+                "Discriminator": "Enterprise",
+                "EnterpriseProfile": {
+                    "ProfileId": "2234693c-8745-42f7-9175-5e585cf7a820"
+                }
+            }
         }
     ],
     "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -131,11 +150,32 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `Url` | string | optional | Url of the loyalty membership. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. | 
 | `State` | [Loyalty membership state](#loyalty-membership-state) | required | State of the loyalty membership. |
+| `CreatorProfile` | [Profile data](#profile-data) | required | The profile data of the user who created the loyalty membership. |
+| `UpdaterProfile` | [Profile data](#profile-data) | required | The profile data of the user who updated the loyalty membership. |
+
+#### Profile data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Profile data discriminator](#profile-data-discriminator) | required | Type of the profile data (e.g. `Enterprise`). |
+| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data) | optional | Enterprise profile data. |
+
+#### Profile data discriminator
+
+* `Personal`
+* `Enterprise`
+* `Platform`
+* `Static`
+* `Integration`
+* ...
+
+#### Enterprise profile data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ProfileId` | string | required | Unique identifier of the profile. |
 
 ## Add loyalty memberships
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Adds loyalty memberships to the enterprise.
 
@@ -211,9 +251,6 @@ Adds loyalty memberships to the enterprise.
 | `LoyaltyMemberships` | array of [Loyalty membership](#loyalty-membership) | required | Added loyalty memberships. |
 
 ## Update loyalty memberships
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Updates information about the specified loyalty memberships.
 
@@ -298,9 +335,6 @@ Updates information about the specified loyalty memberships.
 | `LoyaltyMemberships` | array of [Loyalty membership](#loyalty-membership) | required | Added loyalty memberships. |
 
 ## Delete loyalty memberships
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes loyalty memberships.
 

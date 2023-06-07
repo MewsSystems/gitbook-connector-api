@@ -106,18 +106,18 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | **Restricted!** Returns all loyalty programs of the enterprise |
-| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | **Restricted!** Adds new loyalty programs |
-| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | **Restricted!** Updates selected loyalty programs |
-| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | **Restricted!** Deletes selected loyalty programs |
-| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | **Restricted!** Returns all loyalty memberships of the enterprise |
-| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | **Restricted!** Adds new loyalty memberships |
-| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | **Restricted!** Updates selected loyalty memberships |
-| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | **Restricted!** Deletes selected loyalty memberships |
-| [Get all loyalty tiers](loyaltytiers.md#get-all-loyalty-tiers) | **Restricted!** Returns all loyalty tiers of the enterprise |
-| [Add loyalty tiers](loyaltytiers.md#add-loyalty-tiers) | **Restricted!** Adds new loyalty tiers |
-| [Update loyalty tiers](loyaltytiers.md#update-loyalty-tiers) | **Restricted!** Updates selected loyalty tiers |
-| [Delete loyalty tiers](loyaltytiers.md#delete-loyalty-tiers) | **Restricted!** Deletes selected loyalty tiers |
+| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
+| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
+| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | Updates selected loyalty programs |
+| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | Deletes selected loyalty programs |
+| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | Returns all loyalty memberships of the enterprise |
+| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | Adds new loyalty memberships |
+| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | Updates selected loyalty memberships |
+| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | Deletes selected loyalty memberships |
+| [Get all loyalty tiers](loyaltytiers.md#get-all-loyalty-tiers) | Returns all loyalty tiers of the enterprise |
+| [Add loyalty tiers](loyaltytiers.md#add-loyalty-tiers) | Adds new loyalty tiers |
+| [Update loyalty tiers](loyaltytiers.md#update-loyalty-tiers) | Updates selected loyalty tiers |
+| [Delete loyalty tiers](loyaltytiers.md#delete-loyalty-tiers) | Deletes selected loyalty tiers |
 
 ## Messages
 

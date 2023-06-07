@@ -2,9 +2,6 @@
 
 ## Get all loyalty tiers
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
-
 Returns all loyalty tiers of the chain (in the given activity state), filtered by loyalty program identifiers and optionally filtered by specific loyalty tier identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -92,9 +89,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 
 ## Add loyalty tiers
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
-
 Adds loyalty tiers to a loyalty program of the enterprise chain.
 
 ### Request
@@ -154,9 +148,6 @@ Adds loyalty tiers to a loyalty program of the enterprise chain.
 | `LoyaltyTiers` | array of [Loyalty tier](#loyalty-tier) | required | Added loyalty tiers. |
 
 ## Update loyalty tiers
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Updates information about the specified loyalty tiers.
 
@@ -223,9 +214,6 @@ Updates information about the specified loyalty tiers.
 | `LoyaltyTiers` | array of [Loyalty tier](#loyalty-tier) | required | Updated loyalty tiers. |
 
 ## Delete loyalty programs
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per chain. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes loyalty tiers. 
 
