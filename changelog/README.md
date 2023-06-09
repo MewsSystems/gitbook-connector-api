@@ -113,6 +113,10 @@
 
 // TODO: Deprecations
 
+## 9th June 2023
+
+* Extended [Add order](../operations/orders.md#add-order) with `BillId` parameter.
+
 ## 7th June 2023
 
 * Extended [Loyalty memberships](../operations/loyaltymemberships.md#loyalty-membership) with [State](../operations/loyaltymemberships.md#loyalty-membership-state).
