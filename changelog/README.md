@@ -110,8 +110,7 @@
   * [Get all services](../operations/services.md#get-all-services) request with `EnterpriseIds`, `ServiceIds` parameters.
   * [Get all restrictions](../operations/restrictions.md#get-all-restrictions) request with `EnterpriseIds` parameter.
 
-
-// TODO: Deprecations
+* Deprecated `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters` in [Get all counters](../operations/counters.md#get-all-counters). Use `Counters` instead.
 
 ## 9th June 2023
 
