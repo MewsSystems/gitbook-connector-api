@@ -13,6 +13,10 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+        "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+    ],
     "CustomerIds": [
         "35d4b117-4e60-44a3-9580-c582117eff98"
     ],
@@ -45,10 +49,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
         "Documents": "true",
         "Addresses": "false"
     },
-    "Limitation":{
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 10
-    }
+    "Limitation":{ "Count": 10 }
 }
 ```
 
@@ -65,7 +66,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was updated. |
 | `DeletedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Customer](#customer) was deleted. `ActivityStates` value `Deleted` should be provided with this filter to get expected results. |
-| `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | optional | Whether return only active, only deleted or both records. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
 
@@ -101,6 +102,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
             "FirstName": "John",
             "Sex": "Male",
             "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
+            "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
             "IdentityCard": null,
             "LanguageCode": null,
             "LastName": "Smith",
@@ -133,7 +135,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
             "IssuingCountryCode": "CZ"
         }
     ],
-    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
+    "Cursor": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
 ```
 
@@ -148,6 +150,7 @@ Returns all customers filtered by identifiers, emails, names and other filters. 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the customer. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `Number` | string | required | Number of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |

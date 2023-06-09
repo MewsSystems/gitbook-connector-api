@@ -1,6 +1,6 @@
 # Common objects
 
-These are JSON object definitions shared by operations across the API.
+These are JSON and other object definitions shared by operations across the API.
 
 ### Time interval
 
@@ -78,3 +78,8 @@ Dictionary is a collection of key-value pairs.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
+
+### Activity state
+
+* `Active` - indicates active record.
+* `Deleted`- indicates deleted record.

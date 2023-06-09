@@ -13,6 +13,10 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ResourceBlockIds": [
         "c478f1b3-7edb-4ccc-8f07-dd32fae1ca70"
     ],
@@ -33,7 +37,8 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
     },
     "Extent": {
         "Inactive": true
-    }
+    },
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -42,12 +47,14 @@ Returns all resource blocks \(out of order blocks or internal use blocks\).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ResourceBlockIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Resource blocks](#resource-block). |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the requested Assigned [Resources](resources.md#resource). |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) is active. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource block](#resource-block) was updated. |
 | `Extent` | [Resource block extent](#resource-block-extent) | required | Extent of data to be returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 #### Resource block extent
 

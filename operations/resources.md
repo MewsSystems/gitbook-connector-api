@@ -13,6 +13,22 @@ Returns all resources of an enterprise associated with the connector integration
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
+    "ResourceIds": [
+        "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+        "c32386aa-1cd2-414a-a823-489325842fbe"
+    ],
+    "CreatedUtc": {
+        "StartUtc": "2022-10-15T00:00:00Z",
+        "EndUtc": "2022-10-20T00:00:00Z"
+    },
+    "UpdatedUtc": {
+        "StartUtc": "2022-10-15T00:00:00Z",
+        "EndUtc": "2022-10-20T00:00:00Z"
+    },
     "Extent": {
         "Resources": true,
         "ResourceCategories": false,
@@ -21,7 +37,8 @@ Returns all resources of an enterprise associated with the connector integration
         "ResourceFeatures": false,
         "ResourceFeatureAssignments": false,
         "Inactive": false
-    }
+    },
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -30,7 +47,12 @@ Returns all resources of an enterprise associated with the connector integration
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `ResourceIds` | string | optional, max 1000 items | Unique identifiers of the requested [Resources](#resource). |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resources](#resource) were created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resources](#resource) were updated. |
 | `Extent` | [Resource extent](#resource-extent) | required | Extent of data to be returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 #### Resource extent
 
@@ -51,6 +73,7 @@ Returns all resources of an enterprise associated with the connector integration
     "Resources": [
         {
             "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "IsActive": true,
             "Name": "101",
             "ParentResourceId": null,
@@ -68,6 +91,7 @@ Returns all resources of an enterprise associated with the connector integration
         },
         {
             "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "IsActive": true,
             "Name": "102",
             "ParentResourceId": null,
@@ -87,21 +111,20 @@ Returns all resources of an enterprise associated with the connector integration
         }
     ],
     "ResourceCategories": [
-        {
-            "Id": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
-            "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
-            "IsActive": true,
-            "Names": {
-                "en-US": "Best Room"
-            "ShortNames":{
-                "en-US": "BR"
-            },
-            "Descriptions": {},
-            "Ordering": 0,
-            "Capacity": 2,
-            "ExtraCapacity": 0,
-            "ExternalIdentifier": "RT001-BestRoom"
+        "Id": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
+        "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
+        "IsActive": true,
+        "Names": {
+            "en-US": "Best Room"
         }
+        "ShortNames":{
+            "en-US": "BR"
+        },
+        "Descriptions": {},
+        "Ordering": 0,
+        "Capacity": 2,
+        "ExtraCapacity": 0,
+        "ExternalIdentifier": "RT001-BestRoom"
     ],
     "ResourceCategoryAssignments": [
         {
@@ -147,7 +170,8 @@ Returns all resources of an enterprise associated with the connector integration
             "CreatedUtc": "2016-03-29T15:14:06Z",
             "UpdatedUtc": "2016-03-29T15:14:06Z"
         }
-    ]
+    ],
+    "Cursor": "c32386aa-1cd2-414a-a823-489325842fbe"
 }
 ```
 
@@ -159,12 +183,14 @@ Returns all resources of an enterprise associated with the connector integration
 | `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
 | `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Assignments of resource features to resources. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Resource
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the resource. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `IsActive` | bool | required | Whether the resource is still active. |
 | `Name` | string | required | Name of the resource \(e.g. room number\). |
 | `ParentResourceId` | string | optional | Identifier of the parent [Resource](#resource) \(e.g. room of a bed\). |

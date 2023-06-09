@@ -37,6 +37,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters`<br>in [Get all counters](../operations/counters.md#get-all-counters) | Replaced by `Counters` | 12 June 2023 | 12 Dec 2023 |
 | `CustomerId`<br>in [Add external payment](../operations/payments.md#add-external-payment) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
 | `CustomerId`<br>in [Add order](../operations/orders.md#add-order) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
 | `CustomerId` in [Bill](../operations/bills.md#bill) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
