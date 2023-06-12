@@ -6,13 +6,16 @@ Returns all product service orders orders associated with the given enterprise. 
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/serviceOrders/productServiceOrders/getAlll`
+`[PlatformAddress]/api/connector/v1/productServiceOrders/getAll`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ProductServiceOrderIds": [
+        "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+    ]
     "ServiceIds": [
         "ae8da28c-e8a4-4141-9df0-8c998976c691",
         "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
@@ -36,10 +39,8 @@ Returns all product service orders orders associated with the given enterprise. 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](serviceorders.md#product-service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the product service order is associated with. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of product service order states to filter by. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](serviceorders.md#product-service-order) were updated. |
-| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](serviceorders.md#product-service-order) are active. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -48,8 +49,7 @@ Returns all product service orders orders associated with the given enterprise. 
 {
     "ProductServiceOrders": [
         {
-            "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
-            "EnterpriseId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",            
             "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
             "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
             "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
@@ -64,38 +64,15 @@ Returns all product service orders orders associated with the given enterprise. 
             "CancelledUtc": null,
             "VoucherId": null,
             "BusinessSegmentId": null,
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "CreditCardId": null,
-            "GroupId": null,
-            "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714"
-            "AvailabilityBlockId": null,
-            "PartnerCompanyId": null,
-            "TravelAgencyId": null,
-            "AssignedResourceLocked": false,
-            "ChannelNumber": "TW48ZP",
-            "ChannelManager": "",
-            "Purpose": null,
-            "UpdatedUtc": "2023-04-23T14:58:02Z",
-            "ReservationPurpose": "Leisure",
-            "PersonCounts": [
-                {
-                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
-                    "Count": 2
-                },
-                {
-                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
-                    "Count": 2
-                }
-            ],
             "Options": {
                 "OwnerCheckedIn": true,
                 "AllCompanionsCheckedIn": true,
-                "AnyCompanionCheckedIn": true
+                "AnyCompanionCheckedIn": true,
+                "ConnectorCheckIn": true
             }
         }
     ],
-    "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
+    "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
 }
 ```
 
@@ -109,7 +86,6 @@ Returns all product service orders orders associated with the given enterprise. 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the product service order. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that product service order is made againts. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the product service order. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
@@ -124,6 +100,7 @@ Returns all product service orders orders associated with the given enterprise. 
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create product service order. |
 | `BusinessSegmentId` | string | optional | Identifier of the product service order [Business segment](businesssegments.md#business-segment). |
+| `Options` | [Service order options](#service-order-options) | required | Options of the service order. |
 
 ## Get all reservations
 
@@ -131,16 +108,22 @@ Returns all reservations associated with the given enterprise. This operation us
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/serviceOrders/reservations/getAlll`
+`[PlatformAddress]/api/connector/v1/reservations/getAlll/2023-06-14`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ReservationIds": [
+        "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+    ],
     "ServiceIds": [
         "ae8da28c-e8a4-4141-9df0-8c998976c691",
         "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
+    ],
+    "AccountIds": [
+        "94843f6f-3be3-481b-a1c7-06458774c3df"
     ],
     "UpdatedUtc": {
       "StartUtc": "2023-04-01T00:00:00Z",
@@ -189,6 +172,12 @@ Returns all reservations associated with the given enterprise. This operation us
             "CancelledUtc": null,
             "VoucherId": null,
             "BusinessSegmentId": null,
+            "Options": {
+                "OwnerCheckedIn": true,
+                "AllCompanionsCheckedIn": true,
+                "AnyCompanionCheckedIn": true,
+                "ConnectorCheckIn": true
+            }
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "CreditCardId": null,
             "GroupId": null,
@@ -200,9 +189,8 @@ Returns all reservations associated with the given enterprise. This operation us
             "AssignedResourceLocked": false,
             "ChannelNumber": "TW48ZP",
             "ChannelManager": "",
-            "Purpose": null,
-            "UpdatedUtc": "2023-04-23T14:58:02Z",
-            "ReservationPurpose": "Leisure",
+            "Purpose": "Leisure",
+            "UpdatedUtc": "2023-04-23T14:58:02Z",            
             "PersonCounts": [
                 {
                     "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
@@ -212,15 +200,10 @@ Returns all reservations associated with the given enterprise. This operation us
                     "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
                     "Count": 2
                 }
-            ],
-            "Options": {
-                "OwnerCheckedIn": true,
-                "AllCompanionsCheckedIn": true,
-                "AnyCompanionCheckedIn": true
-            }
+            ]
         }
     ],
-    "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
+    "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
 }
 ```
 
@@ -263,7 +246,7 @@ Returns all reservations associated with the given enterprise. This operation us
 | `CancellationReason` | string [Cancellation reason](#reservation-cancellation-reason) | optional | Cancellation reason of the reservation. |
 | `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `Purpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
-| `Options` | string [Reservation options](reservations.md#reservation-options) | optional | Options of the reservations. |
+| `Options` | string [Service order options](#service-order-options) | optional | Options of the reservations. |
 | `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the reservation was booked for. |
 
 #### Person count
@@ -273,13 +256,14 @@ Returns all reservations associated with the given enterprise. This operation us
 | `AgeCategoryId` | string | required | Unique identifier of the [Age category](agecategories.md#age-category). |
 | `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
 
-#### Reservation options
+#### Service order options
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `OwnerCheckedIn` | boolean | required | Owner of the reservation checked in. |
 | `AllCompanionsCheckedIn` | boolean | required | All companions of the reservation checked in. |
 | `AnyCompanionCheckedIn` | boolean | required | Any of the companions of the reservation checked in. |
+| `ConnectorCheckIn` | boolean | required | Check in was done via Connector API. |
 
 #### Service order state
 
@@ -290,6 +274,7 @@ Returns all reservations associated with the given enterprise. This operation us
 * `Started` - Checked in.
 * `Processed` - Checked out.
 * `Canceled` - Canceled.
+* ...
 
 #### Service order origin
 
