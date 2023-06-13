@@ -3,7 +3,7 @@
 ## 14th April 2023
 
 * Added operation [Get all reservations 2023-06-12](../operations/reservations.md#get-all-reservations-2023-06-12).
-* Added operation [Get all product service orders](../operations/serviceorders.md#get-all-product-service-orders).
+* Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
 * Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-12](../operations/reservations.md#get-all-reservations-2023-06-12) should be used instead.
 * Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
 

@@ -243,13 +243,13 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `PersonCounts` | array of [Age category](agecategories.md#age-category) | required | Number of people per age category the reservation was booked for. |
 
-## Get all reservations 2023-06-12
+## Get all reservations 2023-06-06
 
 Returns all reservations associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/reservations/getAlll/2023-06-14`
+`[PlatformAddress]/api/connector/v1/reservations/getAlll/2023-06-06`
 
 ```javascript
 {
@@ -283,12 +283,12 @@ Returns all reservations associated with the given enterprise. This operation us
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](serviceorders.md#reservation). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](#reservation-2023-06-12). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](serviceorders.md#reservation) were updated. |
-| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](serviceorders.md#reservation) are active. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-12) were updated. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-12) are active. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response

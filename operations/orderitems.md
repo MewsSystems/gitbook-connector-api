@@ -85,7 +85,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the order items for all enterprises within scope of the Access Token. |
 | `OrderItemIds` | array of string | required, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of the [Service orders](serviceorders.md#service-order). Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of the [Product service orders](productserviceorders.md#product-service-order) or [Reservation](reservations.md#reservation). Required if no other filter is provided. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
 | `BillIds` | array of string | required, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was created. Required if no other filter is provided. |
@@ -290,7 +290,7 @@ One of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUt
 | `Id` | string | required | Unique identifier of the order item. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
-| `ServiceOrderId` | string | optional | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
+| `ServiceOrderId` | string | optional | Unique identifier of the [Product service orders](productserviceorders.md#product-service-order) or [Reservation](reservations.md#reservation) the order item is assigned to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the order item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the order item belongs to. |
 | `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
