@@ -18,6 +18,8 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `reservations/getAll` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations-2023-06-12) | 14 June 2023 | 14 June 2024 |
+| `reservations/getAllItems` | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 14 June 2023 | 14 June 2024 |
 | `accountingItems/getAll` | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 April 2023 | 19 April 2024 |
 | `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
 | `customers/merge` | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 01 Dec 2023 |

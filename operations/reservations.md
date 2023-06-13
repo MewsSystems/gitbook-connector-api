@@ -243,7 +243,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `PersonCounts` | array of [Age category](agecategories.md#age-category) | required | Number of people per age category the reservation was booked for. |
 
-## Get all reservations 2023-06-14
+## Get all reservations 2023-06-12
 
 Returns all reservations associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
 
@@ -387,7 +387,7 @@ Returns all reservations associated with the given enterprise. This operation us
 | `CancellationReason` | string [Cancellation reason](#reservation-cancellation-reason) | optional | Cancellation reason of the reservation. |
 | `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `Purpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
-| `Options` | string [Service order options](#service-order-options) | optional | Options of the reservations. |
+| `Options` | string [Service order options](serviceorders.md#service-order-options) | optional | Options of the reservations. |
 | `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the reservation was booked for. |
 
 #### Person count
