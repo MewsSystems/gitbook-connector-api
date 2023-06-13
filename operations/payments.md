@@ -79,7 +79,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "Amount": { 
         "Currency": "GBP",
         "GrossValue": 100
@@ -95,7 +95,8 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
+| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
@@ -261,14 +262,14 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the payments for all enterprises within scope of the Access Token. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
 | `ChargedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was closed. Required if no other filter is provided. |
-| `AccountingState` | string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
+| `AccountingStates` | array of string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
 | `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Type` | string [Payment type](#payment-type) | optional | Payment state of the item. | |

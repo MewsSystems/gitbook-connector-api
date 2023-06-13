@@ -70,6 +70,7 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource blocks](resourceblocks.md#delete-resource-blocks) | Removes specified resource blocks from the resources |
 | [Add task](tasks.md#add-task) | Adds a new task to the enterprise, optionally to a specified department |
 | [Get all tasks](tasks.md#get-all-tasks) | Returns all tasks of the enterprise, filtered by identifiers or other filters |
+| [Get all resouce categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
 
 ## Finance
 
@@ -105,14 +106,18 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | **Restricted!** Returns all loyalty programs of the enterprise |
-| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | **Restricted!** Adds new loyalty programs |
-| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | **Restricted!** Updates selected loyalty programs |
-| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | **Restricted!** Deletes selected loyalty programs |
-| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | **Restricted!** Returns all loyalty memberships of the enterprise |
-| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | **Restricted!** Adds new loyalty memberships |
-| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | **Restricted!** Updates selected loyalty memberships |
-| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | **Restricted!** Deletes selected loyalty memberships |
+| [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
+| [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
+| [Update loyalty programs](loyaltyprograms.md#update-loyalty-programs) | Updates selected loyalty programs |
+| [Delete loyalty programs](loyaltyprograms.md#delete-loyalty-programs) | Deletes selected loyalty programs |
+| [Get all loyalty memberships](loyaltymemberships.md#get-all-loyalty-memberships) | Returns all loyalty memberships of the enterprise |
+| [Add loyalty memberships](loyaltymemberships.md#add-loyalty-memberships) | Adds new loyalty memberships |
+| [Update loyalty memberships](loyaltymemberships.md#update-loyalty-memberships) | Updates selected loyalty memberships |
+| [Delete loyalty memberships](loyaltymemberships.md#delete-loyalty-memberships) | Deletes selected loyalty memberships |
+| [Get all loyalty tiers](loyaltytiers.md#get-all-loyalty-tiers) | Returns all loyalty tiers of the enterprise |
+| [Add loyalty tiers](loyaltytiers.md#add-loyalty-tiers) | Adds new loyalty tiers |
+| [Update loyalty tiers](loyaltytiers.md#update-loyalty-tiers) | Updates selected loyalty tiers |
+| [Delete loyalty tiers](loyaltytiers.md#delete-loyalty-tiers) | Deletes selected loyalty tiers |
 
 ## Messages
 
@@ -143,6 +148,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
+| [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups, filtered by unique identifiers and other filters |
 
 ## Routing rules
 
@@ -192,3 +198,4 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource access tokens](resourceaccesstokens.md#delete-resource-access-tokens) | Delete specified resource access tokens |
 | [Get all vouchers](vouchers.md#get-all-vouchers) | Returns all rate vouchers filtered by service, voucher code or voucher identifier |
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
+| [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |

@@ -13,8 +13,9 @@ Creates a new order with the specified products and items. Only positive charges
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382",
     "Client": "Sample Client 1.0.0",
-    "CustomerId": "407a26f8-dcfc-4e29-b978-ab440117a153",
+    "AccountId": "407a26f8-dcfc-4e29-b978-ab440117a153",
     "ServiceId": "d2129910-1da9-4d39-be14-ab3a00c9e70c",
+    "BillId": "22b68915-05fe-4a31-b1cb-bd5efa35d305",
     "ConsumptionUtc": "2020-02-04T00:00:00Z",
     "ProductOrders": [
         {
@@ -44,8 +45,10 @@ Creates a new order with the specified products and items. Only positive charges
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer) to be charged. |
+| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Identifier of the [Customer](customers.md#customer) to be charged.~~  **Deprecated!** |
+| `AccountId` | string | required | Identifier of the [Customer](customers.md#customer) or [Company](companies.md#company) to be charged. Company billing may not be enabled for your integration. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
+| `BillId` | string | optional | Identifier of the [Bill](bills.md#bill) to which the created order will be assigned. The bill needs to be issued to the same account as the order. |
 | `ConsumptionUtc` | string | optional | Date and time of the order consumption in UTC timezone in ISO 8601 format. If not specified, current date and time is used. Please note, as order consumption is one-time event, the optional parameters `StartUtc` and `EndUtc` in [Product order parameters](#product-order-parameters) should not be used. |
 | `Notes` | string | optional | Additional notes of the order. |
 | `ProductOrders` | array of [Product order parameters](#product-order-parameters) | optional | Parameters of the ordered products. |
