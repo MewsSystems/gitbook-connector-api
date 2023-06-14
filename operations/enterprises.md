@@ -2,7 +2,7 @@
 
 ## Get all enterprises
 
-Returns all enterprises, optionally filtered by ids and external identifiers. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all enterprises within scope of the `Access Token`, optionally filtered by enterprise identifiers and external identifiers. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -30,7 +30,7 @@ Returns all enterprises, optionally filtered by ids and external identifiers. Th
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of [Enterprise](#enterprise). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](#enterprise). If not specified, all enterprises within scope of the Access Token are returned. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of the [Enterprise](#enterprise) from external system. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of enterprises returned. |
 

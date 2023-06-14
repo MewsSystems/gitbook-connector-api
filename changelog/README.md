@@ -1,5 +1,10 @@
 # Changelog
 
+## 16th June 2023
+
+* Added new page [Multi-property](../guidelines/multi-property.md) for multi-property operation with Portfolio Access Tokens.
+* Updated [Requests](../guidelines/requests.md) page to add explanation of authentication with Portfolio Access Tokens.
+
 ## 9th June 2023
 
 * Extended [Add order](../operations/orders.md#add-order) with `BillId` parameter.
