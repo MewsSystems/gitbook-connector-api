@@ -24,10 +24,7 @@ Returns all business segments of the default service provided by the enterprise.
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
-    "ActivityStates": [
-        "Active", 
-        "Deleted"
-    ],
+    "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
 ```

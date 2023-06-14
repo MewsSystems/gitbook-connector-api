@@ -20,10 +20,7 @@ Returns all cashiers in the enterprise.
     "Ids": [
         "9a36e3fa-2299-474b-a8a2-5ea4da317abc"
     ],
-    "ActivityStates": [
-        "Active", 
-        "Deleted"
-    ],
+    "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
 ```

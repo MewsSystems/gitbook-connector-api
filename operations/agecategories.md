@@ -24,10 +24,7 @@ Returns all age categories filtered by [Service](services.md#service).
         "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
         "ab58c939-be30-4a60-8f75-ae1600c60c9f"
     ],
-    "ActivityStates": [
-        "Active", 
-        "Deleted"
-    ],
+    "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
 ```

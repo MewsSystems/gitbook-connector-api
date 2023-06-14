@@ -27,10 +27,7 @@ Returns all addresses associated with the specified accounts within the enterpri
         "StartUtc": "2022-12-10T00:00:00Z",
         "EndUtc": "2022-12-17T00:00:00Z"
     },
-    "ActivityStates": [
-        "Active", 
-        "Deleted"
-    ],
+    "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
 ```

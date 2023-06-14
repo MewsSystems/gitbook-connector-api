@@ -82,8 +82,8 @@
 
 * Extended requests for following endpoints:
   * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) request with `EnterpriseIds`, `AccountingCategoryIds`, `ActivityStates` parameters.
-  * [Get all addresses](../operations/accountingcategories.md#get-all-accounting-categories) request with `ChainIds`, `ActivityStates` parameters.
-  * [Get all age categories](../operations/accountingcategories.md#get-all-accounting-categories) request with `EnterpriseIds`, `ActivityStates` parameters.
+  * [Get all addresses](../operations/addresses.md#get-all-addresses) request with `ChainIds`, `ActivityStates` parameters.
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories) request with `EnterpriseIds`, `ActivityStates` parameters.
   * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments) request with `EnterpriseIds`, `ActivityStates` parameters.
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) request with `EnterpriseIds` parameter.
   * [Get all business segments](../operations/businesssegments.md#get-all-business-segments) request with `EnterpriseIds`, `Ids`, `ActivityStates` parameters.

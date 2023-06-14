@@ -21,10 +21,7 @@ Returns all accounting categories of the enterprise associated with the connecto
         "0cf7aa90-736f-43e9-a7dc-787704548d86",
         "0b9560fb-055d-47d3-a6d4-e579c44ca558"
     ],
-    "ActivityStates": [
-        "Active", 
-        "Deleted"
-    ],
+    "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
 ```

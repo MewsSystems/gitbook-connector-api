@@ -35,7 +35,7 @@ Returns all counters of an enterprise associated with the connector integration.
 
 ```javascript
 {
-     "BillCounters": [
+     "Counters": [
         {
             "Id": "b7e4b68a-026e-41f3-ad2f-35325aa5dcbf",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -81,61 +81,7 @@ Returns all counters of an enterprise associated with the connector integration.
             "Format": null,
             "Type": "ServiceOrderCounter"
         }
-    ],
-    "BillCounters": [
-        {
-            "Id": "b7e4b68a-026e-41f3-ad2f-35325aa5dcbf",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Name": "Normal",
-            "IsDefault": false,
-            "Value": 67,
-            "Format": "NORMAL{0:0000}",
-            "Type": "BillCounter"
-        },
-        {
-            "Id": "403842df-635f-4b6e-8de5-42129201235e",
-            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
-            "Name": "Events",
-            "IsDefault": true,
-            "Value": 1575,
-            "Format": "E2018{0:0000}",
-            "Type": "BillCounter"
-        }
-    ],
-    "ProformaCounters": [
-        {
-            "Id": "3362d7d5-a52f-4077-b2b4-4ec2476e6e19",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Name": "Default",
-            "IsDefault": true,
-            "Value": 171,
-            "Format": "",
-            "Type": "ProformaCounter"
-        }
-    ],
-    "BillPreviewCounters": [
-        {
-            "Id": "1162d7d5-a52f-4077-b2b4-4ec2476e6e19",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Name": "Default",
-            "IsDefault": true,
-            "Value": 911,
-            "Format": "",
-            "Type": "BillPreviewCounter"
-        }
-    ],
-    "ServiceOrderCounters": [
-        {
-            "Id": "a9fd7868-1ed0-4e96-8dd9-580708c200ea",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Name": "Default",
-            "IsDefault": true,
-            "Value": 25797,
-            "Format": null,
-            "Type": "ServiceOrderCounter"
-        }
-    ],
-    "RegistrationCardCounters": []
+    ]
 }
 ```
 
@@ -170,3 +116,4 @@ Returns all counters of an enterprise associated with the connector integration.
 * `ProformaCounter`
 * `RegistrationCardCounter`
 * `ServiceOrderCounter`
+* ...
