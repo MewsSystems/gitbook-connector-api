@@ -106,11 +106,10 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) of the resource category. |
 | `IsActive` | bool | required | Whether the resource category is still active. |
 | `Type` | string | required | [Resource category type](#resource-category-type). |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
-| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
-| `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
+| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that neither uniqueness nor continuous sequence is guaranteed\). || `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
 | `ExtraCapacity` | number | required | Extra capacity that can be served \(e.g. extra bed count\). |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the resource category from external system. |
 

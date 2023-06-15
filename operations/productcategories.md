@@ -107,17 +107,17 @@ Returns all categories of products. This operation uses [Pagination](../guidelin
 | `Id` | string | required | Unique identifier of the category. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) of the resource category. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
 | `ParentProductCategory` | string | required | [Parent product category](#parent-product-category). |
 | `CreatedUtc` | string | required | Date and time of the product category creation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Date and time of the product category update in UTC timezone in ISO 8601 format. |
-| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
+| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that neither uniqueness nor continuous sequence is guaranteed\). |
 
 #### Parent product category
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the category. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |

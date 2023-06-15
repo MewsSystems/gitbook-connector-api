@@ -1,6 +1,6 @@
 # Common objects
 
-These are JSON and other object definitions shared by operations across the API.
+These are JSON and other common object definitions shared by operations across the API.
 
 ### Time interval
 
@@ -83,3 +83,7 @@ Dictionary is a collection of key-value pairs.
 
 * `Active` - indicates active record.
 * `Deleted`- indicates deleted record.
+
+### Localized text
+
+An object where keys are the [Language](languages.md#language) codes and values texts in respective languages.

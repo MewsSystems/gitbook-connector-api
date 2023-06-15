@@ -244,11 +244,10 @@ Returns all resources of an enterprise associated with the connector integration
 | `Id` | string | required | Unique identifier of the category. |
 | `IsActive` | bool | required | Whether the category is still active. |
 | `Type` | string [Resource category type](#resource-category-type) | required | Type of the category. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
-| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that uniqueness nor continuous sequence is guaranteed\). |
-| `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
+| `Ordering` | number | required | Ordering of the category, lower number corresponds to lower category \(note that neither uniqueness nor continuous sequence is guaranteed\). || `Capacity` | number | required | Capacity that can be served \(e.g. bed count\). |
 | `ExtraCapacity` | number | required | Extra capacity that can be served \(e.g. extra bed count\). |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the resource category from external system. |
 
@@ -281,10 +280,6 @@ Returns all resources of an enterprise associated with the connector integration
 | `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
-#### Localized text
-
-An object where keys are the [Language](languages.md#language) codes and values texts in respective languages.
-
 #### Resource feature
 
 | Property | Type | Contract | Description |
@@ -293,9 +288,9 @@ An object where keys are the [Language](languages.md#language) codes and values 
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | bool | required | Whether the resource feature is still active. |
 | `Classification` | string [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
-| `Names` | [Localized text](#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](#localized-text) | required | All translations of the description. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
 
 #### Resource feature classification
 

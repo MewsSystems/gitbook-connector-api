@@ -4,7 +4,7 @@
 
 * Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.
 
-* Enabled multi-property access token for following endpoints:
+* Enabled Portfolio Access Tokens for the following operations:
   * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
   * [Get all addresses](../operations/addresses.md#get-all-addresses).
   * [Get all age categories](../operations/agecategories.md#get-all-age-categories).
@@ -36,7 +36,7 @@
   * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules).
   * [Get all services](../operations/services.md#get-all-services).
 
-* Added pagination for following endpoints:
+* Added pagination to the following operations:
   * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
   * [Get all addresses](../operations/addresses.md#get-all-addresses).
   * [Get all age categories](../operations/agecategories.md#get-all-age-categories).
