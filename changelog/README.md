@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th June 2023
+
+* Extended [Order item](../operations/orderitems.md#order-item) with `AccountType` parameter.
+
 ## 9th June 2023
 
 * Extended [Add order](../operations/orders.md#add-order) with `BillId` parameter.
