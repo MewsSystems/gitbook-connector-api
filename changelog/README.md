@@ -34,6 +34,7 @@
   * [Get all restrictions](../operations/restrictions.md#get-all-restrictions).
   * [Get all resources](../operations/resources.md#get-all-resources).
   * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules).
+  * [Get all rules](../operations/rules.md#get-all-rules).
   * [Get all services](../operations/services.md#get-all-services).
 
 * Added pagination to the following operations:
@@ -53,6 +54,7 @@
   * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
   * [Get all restrictions](../operations/restrictions.md#get-all-restrictions).
   * [Get all resources](../operations/resources.md#get-all-resources).
+  * [Get all rules](../operations/rules.md#get-all-rules).
   * [Get all services](../operations/services.md#get-all-services).
   
 * Extended response objects with `EnterpriseId` for following:
