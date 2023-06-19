@@ -1,7 +1,8 @@
 # Changelog
 
-## 12th June 2023
+## 19th June 2023
 
+* Extended [Order item](../operations/orderitems.md#order-item) with `AccountType` parameter.
 * Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.
 
 * Enabled Portfolio Access Tokens for the following operations:
@@ -113,6 +114,7 @@
   * [Get all restrictions](../operations/restrictions.md#get-all-restrictions) request with `EnterpriseIds` parameter.
 
 * Deprecated `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters` in [Get all counters](../operations/counters.md#get-all-counters). Use `Counters` instead.
+
 
 ## 9th June 2023
 

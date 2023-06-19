@@ -221,7 +221,7 @@ Updates information about the specified loyalty tiers.
 | :-- | :-- | :-- | :-- |
 | `LoyaltyTiers` | array of [Loyalty tier](#loyalty-tier) | required | Updated loyalty tiers. |
 
-## Delete loyalty programs
+## Delete loyalty tiers
 
 Deletes loyalty tiers. 
 

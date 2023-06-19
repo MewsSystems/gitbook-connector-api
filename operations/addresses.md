@@ -80,7 +80,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `Id` | string | required | Unique identifier of the address. |
 | `ChainId` | string | optional | Unique identifier of the chain. |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
-| `AccountType` | string | required | A discriminator specifying the [type of account](#account-type), e.g. customer or company. |
+| `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `Line1` | string | optional | First line of the address. |
 | `Line2` | string | optional | Second line of the address. |
 | `City` | string | optional | The city. |
@@ -89,11 +89,6 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
-
-#### Account type
-
-* [Company](companies.md#company)
-* [Customer](customers.md#customer)
 
 ## Add addresses
 
