@@ -79,6 +79,7 @@
   * [Resource access tokens](operations/resourceaccesstokens.md)
   * [Resource blocks](operations/resourceblocks.md)
   * [Resources](operations/resources.md)
+  * [Resource categories](operations/resourcecategories.md)
   * [Restrictions](operations/restrictions.md)
   * [Routing rules](operations/routingrules.md)
   * [Rules](operations/rules.md)
