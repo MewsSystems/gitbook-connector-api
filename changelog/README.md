@@ -4,10 +4,6 @@
 
 * Added new page [Multi-property](../guidelines/multi-property.md) for multi-property operation with Portfolio Access Tokens.
 * Updated [Requests](../guidelines/requests.md) page to add explanation of authentication with Portfolio Access Tokens.
-
-## 19th June 2023
-
-* Extended [Order item](../operations/orderitems.md#order-item) with `AccountType` parameter.
 * Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.
 
 * Enabled Portfolio Access Tokens for the following operations:
@@ -20,7 +16,7 @@
   * [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
   * [Get all cashiers](../operations/cashiers.md#get-all-cashiers).
   * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions).
-  * [Get all companies](../operations/companies.md#get-all-companies).
+  * [Get all companies](..  /operations/companies.md#get-all-companies).
   * [Get all companionships](../operations/companionships.md#get-all-companionships).
   * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts).
   * [Get all counters](../operations/counters.md#get-all-counters).
@@ -120,6 +116,9 @@
 
 * Deprecated `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters` in [Get all counters](../operations/counters.md#get-all-counters). Use `Counters` instead.
 
+## 19th June 2023
+
+* Extended [Order item](../operations/orderitems.md#order-item) with `AccountType` parameter.
 
 ## 9th June 2023
 
