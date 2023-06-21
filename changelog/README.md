@@ -1,6 +1,6 @@
 # Changelog
 
-## 21th June 2023
+## 20th June 2023
 
 * Added new page [Multi-property](../guidelines/multi-property.md) for multi-property operation with Portfolio Access Tokens.
 * Updated [Requests](../guidelines/requests.md) page to add explanation of authentication with Portfolio Access Tokens.
