@@ -2,7 +2,7 @@
 
 ## Get configuration
 
-Returns the configuration of the enterprise, and optionally the service, associated with the given access token.
+Returns the enterprise configuration. For single-enterprise Access Tokens, this is the enterprise associated with the token. For [Portfolio Access Tokens](../guidelines/multi-property.md), use the `EnterpriseId` parameter to specify which enterprise you want the configuration for. In the case of service scoped integrations, the operation returns the configuration associated with both the enterprise and the bookable service linked to the token.
 
 ### Request
 

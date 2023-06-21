@@ -3,13 +3,12 @@
 The API accepts only `HTTP POST` requests with `Content-Type` set to `application/json` and JSON content depending on the operation to be performed. All operations follow this address pattern:
 
 ```text
-[PlatformAddress]/api/connector/v1/[Resource]/[Operation]
+[PlatformAddress]/api/connector/v1/[Resource]/[Action]
 ```
 
-* **PlatformAddress** - Base address of the MEWS API, depends on environment \(testing, staging, production\).
-* **MewsWebApplicationAddress** - Address of the MEWS web application, depends on environment \(testing, staging, production\).
-* **Resource** - Logical group of operations, in most cases identifies target of the operations.
-* **Operation** - Name of the operation to be performed.
+* **PlatformAddress** - Base address of the Mews Connector API, this depends on the environment \(e.g. test, demo, production\)
+* **Resource** - Resource or domain entity which is the target of the action, always pluralized \(e.g. bills, reservations\)
+* **Action** - Name of the action to be performed on the resource \(e.g. getAll, add, delete\)
 
 ## Body
 
@@ -31,18 +30,25 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `LanguageCode` | string | optional | Code of the [language](../operations/languages.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
 
-All operations of the API require a `ClientToken`, an `AccessToken` and `Client` to be present in the request. Those are used to [authenticate](#authentication) incoming requests.
+All operations of the API require `ClientToken`, `AccessToken` and `Client` to be present in the request. These are used to authenticate incoming requests - see [Authentication](#authentication).
 
-All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce language and culture of the operation which affects e.g. names of entities, descriptions or error messages. Both of these values must be defined together otherwise default values of the [Enterprise](../operations/configuration.md#enterprise) are used.
+All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce the language and culture of the operation, which may affect, for example, entity descriptions or error messages. Both of these values must be defined together, otherwise default values will be used.
 
 ## Authentication
 
 Each Mews environment (e.g. demo, production) requires a different set of tokens.
 
-The `ClientToken` serves as a unique identifier of the integration partner consuming the API. A unique `AccessToken` is generated for each new property using the connection and allows the partner to access the data of that enterprise. As in the description above, `Client` is the name and version of the application you are integrating with Mews. 
+* `ClientToken` serves as the unique identifier of the API client, i.e. the integration partner consuming the API
+* `AccessToken` serves to identify the enterprise or enterprises whose data and services you have access to
+* `Client` is the name and version of the client application you are integrating with Mews
 
-In order to receive credentials for production usage, you will have to successfully complete a [certification](certification.md) process. After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that will be created in the production environment. 
+A unique `AccessToken` is generated for each new property or enterprise which uses your connection, and allows the client application to access the data for that enterprise via the API.
 
+`AccessTokens` normally allow access to a single enterprise, however some tokens may be Portfolio Access Tokens, to facilitate multi-property operation in cases where you are working with a portfolio of properties.
+These are multi-enterprise tokens, which grant access to more than one enterprise with a single token.
+For more information on Portfolio Access Tokens and multi-property working, see [Multi-property](multi-property.md).
+
+In order to receive credentials for production usage, you will have to successfully complete a [certification](certification.md) process. After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that will be created in the production environment.
 A unique `AccessToken` will automatically be generated and shared with you for each enterprise requesting to connect their Mews profile to your system.
 
 ## Request limits

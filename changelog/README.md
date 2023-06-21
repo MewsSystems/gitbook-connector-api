@@ -1,5 +1,14 @@
 # Changelog
 
+## 20th June 2023
+
+* Added new page [Multi-property](../guidelines/multi-property.md) for multi-property operation with Portfolio Access Tokens.
+* Updated [Requests](../guidelines/requests.md) page to add explanation of authentication with Portfolio Access Tokens.
+
+## 19th June 2023
+
+* Extended [Order item](../operations/orderitems.md#order-item) with `AccountType` parameter.
+
 ## 14th April 2023
 
 * Added operation [Get all reservations 2023-06-12](../operations/reservations.md#get-all-reservations-2023-06-12).

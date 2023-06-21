@@ -197,8 +197,7 @@ Adds a new alternative payment to a specified customer.
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md).
-
+Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
