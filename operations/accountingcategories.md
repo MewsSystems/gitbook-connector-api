@@ -2,7 +2,8 @@
 
 ## Get all accounting categories
 
-Returns all accounting categories of the enterprise associated with the connector integration.
+Returns all accounting categories of the enterprise associated with the connector integration. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

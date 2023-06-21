@@ -2,7 +2,7 @@
 
 ## Get all reservation groups
 
-Returns all reservation groups, filtered by unique identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all reservation groups, filtered by unique identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

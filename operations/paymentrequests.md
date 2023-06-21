@@ -2,7 +2,8 @@
 
 ## Get all payment requests
 
-Get all payment requests belonging to the specified customer accounts. Note that this operation uses [Pagination](../guidelines/pagination.md).
+Get all payment requests belonging to the specified customer accounts. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

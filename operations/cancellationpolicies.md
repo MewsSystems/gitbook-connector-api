@@ -5,7 +5,8 @@
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns all cancellation policies, filtered by services, rate groups and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all cancellation policies, filtered by services, rate groups and other filters. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

@@ -3,6 +3,7 @@
 ## Get all rules
 
 Returns all rules applied with the reservations.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

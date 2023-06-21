@@ -2,7 +2,8 @@
 
 ## Get all customers
 
-Returns all customers filtered by identifiers, emails, names and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all customers filtered by identifiers, emails, names and other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

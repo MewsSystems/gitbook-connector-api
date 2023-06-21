@@ -2,7 +2,8 @@
 
 ## Get all addresses
 
-Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all addresses associated with the specified accounts within the enterprise. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

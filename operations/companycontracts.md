@@ -3,6 +3,7 @@
 ## Get all company contracts
 
 Returns all contracts between the enterprise and other companies.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

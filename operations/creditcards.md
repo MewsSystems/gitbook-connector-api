@@ -3,6 +3,7 @@
 ## Get all credit cards 
 
 Returns all credit cards, possibly filtered by identifiers, [Customers](customers.md#customer) or other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

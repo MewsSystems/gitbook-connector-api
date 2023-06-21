@@ -2,7 +2,8 @@
 
 ## Get all companies
 
-Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

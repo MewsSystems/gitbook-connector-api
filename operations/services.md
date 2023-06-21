@@ -3,6 +3,7 @@
 ## Get all services
 
 Returns all services offered by the enterprise.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

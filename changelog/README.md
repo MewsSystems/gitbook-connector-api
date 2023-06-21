@@ -16,7 +16,7 @@
   * [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
   * [Get all cashiers](../operations/cashiers.md#get-all-cashiers).
   * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions).
-  * [Get all companies](..  /operations/companies.md#get-all-companies).
+  * [Get all companies](../operations/companies.md#get-all-companies).
   * [Get all companionships](../operations/companionships.md#get-all-companionships).
   * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts).
   * [Get all counters](../operations/counters.md#get-all-counters).

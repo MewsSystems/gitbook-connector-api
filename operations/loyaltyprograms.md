@@ -3,7 +3,7 @@
 ## Get all loyalty programs
 
 Returns all loyalty programs of the enterprise (in the given activity state), optionally filtered by specific loyalty program identifiers or other filter parameters.
-Note this operation uses [Pagination](../guidelines/pagination.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

@@ -5,6 +5,7 @@
 > This feature is being actively developed, features and behavior of this operation may change at short notice.
 
 Returns all availability blocks filtered by services, unique identifiers and other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

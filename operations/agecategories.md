@@ -2,7 +2,8 @@
 
 ## Get all age categories
 
-Returns all age categories filtered by [Service](services.md#service).
+Returns all age categories filtered by [Service](services.md#service). 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

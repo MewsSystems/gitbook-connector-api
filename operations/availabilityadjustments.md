@@ -2,7 +2,8 @@
 
 ## Get all availability adjustments
 
-Returns all availability adjustments.  Note that this operation uses [Pagination](../guidelines/pagination.md).
+Returns all availability adjustments.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

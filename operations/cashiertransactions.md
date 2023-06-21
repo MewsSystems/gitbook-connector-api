@@ -3,6 +3,7 @@
 ## Get all cashier transactions
 
 Returns all cashier transactions created within the specified interval.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

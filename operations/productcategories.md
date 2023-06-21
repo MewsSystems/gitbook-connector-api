@@ -2,7 +2,7 @@
 
 ## Get all product categories
 
-Returns all categories of products. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all categories of products. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
