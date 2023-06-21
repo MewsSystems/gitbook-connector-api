@@ -1,6 +1,6 @@
 # Common objects
 
-These are JSON and other common object definitions shared by operations across the API.
+These are JSON object definitions and other JSON entities shared by operations across the API.
 
 ### Time interval
 
