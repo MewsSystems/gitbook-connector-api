@@ -13,6 +13,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "BillIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
     ],
@@ -49,6 +53,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](#bill). Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
 | `State` | string | optional | [Bill state](#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
@@ -78,6 +83,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
     "Bills": [
         {
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CompanyId": null,
@@ -170,6 +176,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the bill. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Customer](customers.md#customer) the bill is issued to.~~ **Deprecated!** |
 | `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to. |

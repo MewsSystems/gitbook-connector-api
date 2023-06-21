@@ -3,7 +3,7 @@
 ## Get all loyalty memberships
 
 Returns all loyalty memberships of the enterprise (in the given activity states), optionally filtered by specific loyalty membership identifiers or other filter parameters.
-Note this operation uses [Pagination](../guidelines/pagination.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -14,6 +14,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+        "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+    ],
     "LoyaltyMembershipIds": [
         "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
         "ea7da00f-fdc9-4014-b0f7-71003b87e3d0"
@@ -41,10 +45,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "ActivityStates": [
         "Active"
     ],
-    "Limitation":{
-        "Cursor": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
-        "Count": 100
-    }
+    "Limitation":{ "Count": 100 }
 }
 ```
 
@@ -53,13 +54,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `LoyaltyMembershipIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty memberships](#loyalty-membership). |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the membership is associated with. |
 | `MembershipStates` | array of string [Loyalty membership state](#loyalty-membership-state) | optional | States of the loyalty memberships. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) creation date and time. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty membership](#loyalty-membership) last update date and time. |
-| `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 #### Activity state
@@ -83,6 +85,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "LoyaltyMemberships": [
         {
             "Id": "3f4d9db2-9910-4a63-b9f0-e94a13fab9ac",
+            "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
             "Code": "Code-001",
@@ -105,6 +108,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         },
         {
             "Id": "ea7da00f-fdc9-4014-b0f7-71003b87e3d0",
+            "ChainId": "5fcd1933-22f2-40b9-84da-7db04cbecec2",
             "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
             "AccountId": "0ed43ab7-4592-4c99-906a-426588de1c00",
             "Code": "Code-002",
@@ -142,6 +146,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the loyalty membership. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Code` | string | optional | Code of the loyalty membership. |

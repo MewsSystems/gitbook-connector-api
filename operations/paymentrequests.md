@@ -2,7 +2,8 @@
 
 ## Get all payment requests
 
-Get all payment requests belonging to the specified customer accounts. Note that this operation uses [Pagination](../guidelines/pagination.md).
+Get all payment requests belonging to the specified customer accounts. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,13 +14,18 @@ Get all payment requests belonging to the specified customer accounts. Note that
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
+    "PaymentRequestIds": [
+        "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
+    ],
     "AccountIds": [
         "8466DFDD-0964-4002-8719-AFA900D0F1BA"
     ],
-    "States": ["Pending", "Expired"],
-    "Limitation": {
-        "Count": 10
-    }
+    "States": [ "Pending", "Expired" ],
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -28,6 +34,8 @@ Get all payment requests belonging to the specified customer accounts. Note that
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `PaymentRequestIds` | string | optional, max 1000 items | Unique identifiers of the requested [Payment requests](#payment-request). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer) accounts to which payment requests were issued. |
 | `States` | [Payment request state](#payment-request-state) | optional | A list of payment request states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of payment requests returned (using cursor pagination). |
@@ -39,6 +47,7 @@ Get all payment requests belonging to the specified customer accounts. Note that
     "PaymentRequests": [
         {
             "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
             "ReservationGroupId": null,
             "State": "Pending",
@@ -78,6 +87,7 @@ Get all payment requests belonging to the specified customer accounts. Note that
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the payment request. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request was issued. |
 | `ReservationGroupId` | string | optional | Unique identifier of the [Reservation group](reservations#reservation-group). |
 | `State` | [Payment request state](#payment-request-state) | required | A payment request state. |

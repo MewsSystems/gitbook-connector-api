@@ -3,7 +3,7 @@
 ## Get all loyalty programs
 
 Returns all loyalty programs of the enterprise (in the given activity state), optionally filtered by specific loyalty program identifiers or other filter parameters.
-Note this operation uses [Pagination](../guidelines/pagination.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,7 +13,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+        "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+    ],
     "LoyaltyProgramIds": [
         "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
         "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
@@ -29,10 +33,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "ActivityStates": [
         "Active"
     ],
-    "Limitation":{
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 100
-    }
+    "Limitation":{ "Count": 100 }
 }
 ```
 
@@ -41,10 +42,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](#loyalty-program). |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) creation date and time. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty program](#loyalty-program) last update date and time. |
-| `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -54,6 +56,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
     "LoyaltyPrograms": [
         {
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+            "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
             "Name": "Platinum Club",
             "Code": "PC01",
             "Type": "Hotel",
@@ -61,6 +64,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
+            "ChainId": "5fcd1933-22f2-40b9-84da-7db04cbecec2",
             "Name": "Gold Exclusive Club",
             "Code": "GEC07",
             "Type": "ExternalPartner",
@@ -81,6 +85,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md).
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the loyalty program. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
 | `Type` | [Loyalty program type](#loyalty-program-type) | string | required | Type of the loyalty program. |

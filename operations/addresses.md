@@ -2,7 +2,8 @@
 
 ## Get all addresses
 
-Returns all addresses associated with the specified accounts within the enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all addresses associated with the specified accounts within the enterprise. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,6 +14,10 @@ Returns all addresses associated with the specified accounts within the enterpri
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+        "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+    ],
     "AccountIds": [
         "3db2c989-7d95-42b4-a502-a9f246db1634"
     ],
@@ -23,6 +28,7 @@ Returns all addresses associated with the specified accounts within the enterpri
         "StartUtc": "2022-12-10T00:00:00Z",
         "EndUtc": "2022-12-17T00:00:00Z"
     },
+    "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
 ```
@@ -32,10 +38,12 @@ Returns all addresses associated with the specified accounts within the enterpri
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. Required if no other filter is provided. |
 | `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise. Use this property if you want to fetch specific addresses. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Address](#account-address) last update date and time. Required if no other filter is provided. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Account address returned. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
 
@@ -44,6 +52,7 @@ Returns all addresses associated with the specified accounts within the enterpri
     "Addresses": [
         {
             "Id": "fc7b2df3-de66-48a6-907d-af4600ecd892",
+            "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
             "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
             "AccountType": "Customer",
             "Line1": "Rheinlanddamm 207-209",
@@ -70,6 +79,7 @@ Returns all addresses associated with the specified accounts within the enterpri
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the address. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `Line1` | string | optional | First line of the address. |
