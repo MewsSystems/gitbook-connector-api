@@ -133,7 +133,7 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
 | ~~[Get all reservations](reservations.md#get-all-reservations)~~ | ~~Returns all reservations specified by any identifier, customer or other filter~~ |
-| [Get all reservations 2023-06-12](reservations.md#get-all-reservations-2023-06-12) | Returns all reservations specified by filters |
+| [Get all reservations 2023-06-06](reservations.md#get-all-reservations-2023-06-06) | Returns all reservations specified by filters |
 | ~~[Get all reservation items](reservations.md#get-all-reservation-items)~~ | ~~Returns all revenue items associated with the specified reservations~~ |
 | [Price reservations](reservations.md#price-reservations) | Returns prices of reservations with the specified parameters |
 | [Add reservations](reservations.md#add-reservations) | Adds the specified reservations as a single group |

@@ -1,5 +1,12 @@
 # Changelog
 
+## 21st June 2023
+
+* Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
+* Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
+* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) should be used instead.
+* Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
 ## 20th June 2023
 
 * Added new page [Multi-property](../guidelines/multi-property.md) for multi-property operation with Portfolio Access Tokens.
@@ -8,13 +15,6 @@
 ## 19th June 2023
 
 * Extended [Order item](../operations/orderitems.md#order-item) with `AccountType` parameter.
-
-## 14th April 2023
-
-* Added operation [Get all reservations 2023-06-12](../operations/reservations.md#get-all-reservations-2023-06-12).
-* Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
-* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-12](../operations/reservations.md#get-all-reservations-2023-06-12) should be used instead.
-* Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
 
 ## 9th June 2023
 

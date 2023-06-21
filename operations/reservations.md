@@ -249,7 +249,7 @@ Returns all reservations associated with the given enterprise. This operation us
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/reservations/getAlll/2023-06-06`
+`[PlatformAddress]/api/connector/v1/reservations/getAll/2023-06-06`
 
 ```javascript
 {
@@ -283,12 +283,12 @@ Returns all reservations associated with the given enterprise. This operation us
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](#reservation-2023-06-12). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](#reservation-2023-06-06). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-12) were updated. |
-| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-12) are active. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-06) were updated. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-06) are active. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -350,10 +350,10 @@ Returns all reservations associated with the given enterprise. This operation us
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Reservations` | array of [Reservations](#reservation-2023-06-12) | required | The reservations of the enterprise. |
+| `Reservations` | array of [Reservations](#reservation-2023-06-06) | required | The reservations of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-#### Reservation 2023-06-12
+#### Reservation 2023-06-06
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
