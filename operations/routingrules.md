@@ -90,7 +90,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 | `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency, or only future reservations that are prepaid. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
 | `RouteType` | string [Route type](routingrules.md#route-type) | required | Determines to which stay items the routing rule applies. |
-| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | required | Determines if company will be attached like details to customer bill or bill will be created as company bill. |
+| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | required | Specifies whether the company will be attached as details to the customer bill or used to create as a company bill. |
 | `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | Specific items to which the routing rule applies. Returns only if RouteType value is SelectedStayItems. |
 
 #### Company relation
@@ -185,7 +185,7 @@ Adds a new routing rules.
 | `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
 | `RouteType` | string [Route type](routingrules.md#route-type) | required | What should be routed. |
-| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Determines if company will be attached like details to customer bill or bill will be created as company bill. |
+| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Specifies whether the company will be attached as details to the customer bill or used to create as a company bill. |
 | `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | To which stay items routing rule applies to. Required only if RouteType value is `SelectedStayItems`. |
 
 ### Response
@@ -290,7 +290,7 @@ Updates routing rules.
 | `ServiceId` | [String update value](_objects.md#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` should it not be updated\). |
 | `Applicability` | [String update value](_objects.md#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` should it not be updated\). |
 | `RouteType` | [String update value](_objects.md#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` should it not be updated\). |
-| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Determines if company will be attached like details to customer bill or bill will be created as company bill |
+| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Specifies whether the company will be attached as details to the customer bill or used to create as a company bill. |
 | `SelectedStayItems` | [Selected stay items update parameters](routingrules.md#selected-stay-items-update-parameters) | optional | To which stay items routing rule applies to. Required only if RouteType value is SelectedStayItems. |
 
 #### String array update value
