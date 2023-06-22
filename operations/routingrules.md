@@ -59,6 +59,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "AssignmentTargetType": "CompanyAsDetails",
             "SelectedStayItems":
             {
                 "Nights" : true,
@@ -89,6 +90,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 | `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency, or only future reservations that are prepaid. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
 | `RouteType` | string [Route type](routingrules.md#route-type) | required | Determines to which stay items the routing rule applies. |
+| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | required | Determines if company will be attached like details to customer bill or bill will be created for company. |
 | `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | Specific items to which the routing rule applies. Returns only if RouteType value is SelectedStayItems. |
 
 #### Company relation
@@ -107,6 +109,12 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 
 * `AllStayItems`
 * `SelectedStayItems`
+* ...
+
+#### Assignment target type
+
+* `CompanyAsDetails`
+* `CompanyAsOwner`
 * ...
 
 #### Selected stay items
@@ -145,6 +153,7 @@ Adds a new routing rules.
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "AssignmentTargetType": "CompanyAsDetails",
             "SelectedStayItems": 
             {
                 "Nights" : true,
@@ -176,6 +185,7 @@ Adds a new routing rules.
 | `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
 | `RouteType` | string [Route type](routingrules.md#route-type) | required | What should be routed. |
+| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Determines if company will be attached like details to customer bill or bill will be created for company. |
 | `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | To which stay items routing rule applies to. Required only if RouteType value is `SelectedStayItems`. |
 
 ### Response
@@ -198,6 +208,7 @@ Adds a new routing rules.
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "AssignmentTargetType": "CompanyAsDetails",
             "SelectedStayItems":
             {
                 "Nights" : true,
@@ -247,6 +258,7 @@ Updates routing rules.
             "ServiceId": { "Value": "708b3509-69ad-4a92-841b-d81f103edcee" },
             "Applicability": { "Value": "Always" },
             "RouteType": { "Value": "SelectedStayItems" },
+            "AssignmentTargetType": { "Value": "CompanyAsDetails" },
             "SelectedStayItems": 
             {
                 "Nights" : { "Value":  false },
@@ -278,6 +290,7 @@ Updates routing rules.
 | `ServiceId` | [String update value](_objects.md#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` should it not be updated\). |
 | `Applicability` | [String update value](_objects.md#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` should it not be updated\). |
 | `RouteType` | [String update value](_objects.md#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` should it not be updated\). |
+| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Determines if company will be attached like details to customer bill or bill will be created for company. |
 | `SelectedStayItems` | [Selected stay items update parameters](routingrules.md#selected-stay-items-update-parameters) | optional | To which stay items routing rule applies to. Required only if RouteType value is SelectedStayItems. |
 
 #### String array update value
@@ -314,6 +327,7 @@ Updates routing rules.
             "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "AssignmentTargetType": "CompanyAsDetails",
             "SelectedStayItems":
             {
                 "Nights" : false,
