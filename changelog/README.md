@@ -1,5 +1,9 @@
 # Changelog
 
+## 22nd June 2023
+
+* Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).
+
 ## 21st June 2023
 
 * Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.

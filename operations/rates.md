@@ -144,6 +144,8 @@ Returns prices for a given rate for a specified time interval. Prices will be re
 
 The price in the response is dependent on the enterprise's [pricing](configuration.md#pricing) setting. If the enterprise is set to a Gross pricing environment, then the price returned is the gross price (inclusive of tax). If the enterprise is set to a Net pricing environment, the price returned is the net price (excluding tax).
 
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/rates/getPricing`
