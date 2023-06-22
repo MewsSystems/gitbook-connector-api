@@ -290,7 +290,7 @@ Updates routing rules.
 | `ServiceId` | [String update value](_objects.md#string-update-value) | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to \(or `null` should it not be updated\). |
 | `Applicability` | [String update value](_objects.md#string-update-value) | required | [Applicability](routingrules.md#applicability) that determines if routing rule apply to all future reservations with this company or travel agency attached or only future reservations that are prepaid in online travel agency (OTA) \(or `null` should it not be updated\). |
 | `RouteType` | [String update value](_objects.md#string-update-value) | required | What should be routed [Route type](routingrules.md#route-type) \(or `null` should it not be updated\). |
-| `AssignmentTargetType` | string [Assignment target type](routingrules.md#assignment-target-type) | optional | Specifies whether the company will be attached as details to the customer bill or used to create as a company bill. |
+| `AssignmentTargetType` | [String update value](_objects.md#string-update-value) | optional | Specifies whether the company will be attached as details to the customer bill or used to create as a company bill. |
 | `SelectedStayItems` | [Selected stay items update parameters](routingrules.md#selected-stay-items-update-parameters) | optional | To which stay items routing rule applies to. Required only if RouteType value is SelectedStayItems. |
 
 #### String array update value
