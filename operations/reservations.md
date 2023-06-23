@@ -284,7 +284,7 @@ Returns all reservations associated with the given enterprise. This operation us
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](#reservation-2023-06-06). |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-06) were updated. |
