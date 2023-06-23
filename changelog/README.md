@@ -1,11 +1,125 @@
 # Changelog
 
-## 21st June 2023
+## 23rd June 2023
 
 * Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
 * Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
 * Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) should be used instead.
 * Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
+## 21st June 2023
+
+* Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.
+
+* Enabled Portfolio Access Tokens for the following operations:
+  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
+  * [Get all addresses](../operations/addresses.md#get-all-addresses).
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories).
+  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks).
+  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments).
+  * [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
+  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers).
+  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions).
+  * [Get all companies](../operations/companies.md#get-all-companies).
+  * [Get all companionships](../operations/companionships.md#get-all-companionships).
+  * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts).
+  * [Get all counters](../operations/counters.md#get-all-counters).
+  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards).
+  * [Get all customers](../operations/customers.md#get-all-customers).
+  * [Get all departments](../operations/departments.md#get-all-departments).
+  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships).
+  * [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs).
+  * [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers).
+  * [Get all outlet items](../operations/outletitems.md#get-all-outlet-items).
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
+  * [Get all product categories](../operations/productcategories.md#get-all-product-categories).
+  * [Get all rates](../operations/rates.md#get-all-rates).
+  * [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups).
+  * [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
+  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
+  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions).
+  * [Get all resources](../operations/resources.md#get-all-resources).
+  * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules).
+  * [Get all rules](../operations/rules.md#get-all-rules).
+  * [Get all services](../operations/services.md#get-all-services).
+
+* Added pagination to the following operations:
+  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
+  * [Get all addresses](../operations/addresses.md#get-all-addresses).
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories).
+  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments).
+  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers).
+  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions).
+  * [Get all companionships](../operations/companionships.md#get-all-companionships).
+  * [Get all counters](../operations/counters.md#get-all-counters).
+  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards).
+  * [Get all departments](../operations/departments.md#get-all-departments).
+  * [Get all rates](../operations/rates.md#get-all-rates).
+  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
+  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions).
+  * [Get all resources](../operations/resources.md#get-all-resources).
+  * [Get all rules](../operations/rules.md#get-all-rules).
+  * [Get all services](../operations/services.md#get-all-services).
+  
+* Extended response objects with `EnterpriseId` for following:
+  * [Accounting category](../operations/accountingcategories.md#accounting-category).
+  * [Age category](../operations/agecategories.md#age-category).
+  * [Cashier](../operations/cashiers.md#cashier).
+  * [Cashier transaction](../operations/cashiertransactions.md#cashier-transaction).
+  * [Counter](../operations/counters.md#counter).
+  * [Credit card](../operations/creditcards.md#credit-card).
+  * [Department](../operations/departments.md#department).
+  * [Outlet item](../operations/outletitems.md#outlet-item).
+  * [Payment request](../operations/paymentrequests.md#payment-request).
+  * [Reservation group](../operations/reservationgroups.md#reservation-group).
+  * [Resource access token](../operations/resourceaccesstokens.md#resource-access-token).
+  * [Resource block](../operations/resourceblocks.md#resource-block).
+  * [Resource](../operations/resources.md#resource).
+  * [Routing rule](../operations/routingrules.md#routing-rule).
+  * [Service](../operations/services.md#service).
+
+* Extended response objects with `ChainId` for following:
+  * [Address](../operations/addresses.md#addresses).
+  * [Company](../operations/companies.md#company).
+  * [Customer](../operations/customers.md#customer).
+  * [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership).
+  * [Loyalty program](../operations/loyaltyprograms.md#loyalty-program).
+  * [Loyalty tier](../operations/loyaltytiers.md#loyalty-tier).
+
+* Extended requests for following endpoints:
+  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) request with `EnterpriseIds`, `AccountingCategoryIds`, `ActivityStates` parameters.
+  * [Get all addresses](../operations/addresses.md#get-all-addresses) request with `ChainIds`, `ActivityStates` parameters.
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories) request with `EnterpriseIds`, `ActivityStates` parameters.
+  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments) request with `EnterpriseIds`, `ActivityStates` parameters.
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) request with `EnterpriseIds` parameter.
+  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments) request with `EnterpriseIds`, `Ids`, `ActivityStates` parameters.
+  * [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies) request with `EnterpriseIds` parameter.
+  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers) request with `EnterpriseIds`, `Ids`, `ActivityStates` parameters.
+  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions) request with `EnterpriseIds`, `CashierTransactionIds`, `ActivityStates` parameters.
+  * [Get all companies](../operations/companies.md#get-all-companies) request with `ChainIds` parameter.
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) request with `EnterpriseIds`, `CompanionshipIds` parameters.
+  * [Get all counters](../operations/counters.md#get-all-counters) request with `EnterpriseIds`, `Type` parameters.
+  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) request with `EnterpriseIds` parameter.
+  * [Get all customers](../operations/customers.md#get-all-customers) request with `EnterpriseIds` parameter.
+  * [Get all departments](../operations/departments.md#get-all-departments) request with `EnterpriseIds`, `DepartmentIds` parameters.
+  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) request with `ChainIds` parameter.
+  * [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) request with `ChainIds` parameter.
+  * [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers) request with `ChainIds` parameter.
+  * [Get all outlet items](../operations/outletitems.md#get-all-outlet-items) request with `EnterpriseIds` parameter.
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) request with `EnterpriseIds`, `PaymentRequestIds` parameters.
+  * [Get all rates](../operations/rates.md#get-all-rates) request with `EnterpriseIds` parameter.
+  * [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups) request with `EnterpriseIds` parameter.
+  * [Get all resource access tokens](../operations/resourceaccesstokens.md#resource-access-token) request with `EnterpriseIds` parameter.
+  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) request with `EnterpriseIds` parameter.
+  * [Get all resources](../operations/resources.md#get-all-resources) request with `EnterpriseIds`, `ResourceIds` parameters.
+  * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) request with `EnterpriseIds` parameters.
+  * [Get all services](../operations/services.md#get-all-services) request with `EnterpriseIds`, `ServiceIds` parameters.
+  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions) request with `EnterpriseIds` parameter.
+
+* Deprecated `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters` in [Get all counters](../operations/counters.md#get-all-counters). Use `Counters` instead.
 
 ## 20th June 2023
 

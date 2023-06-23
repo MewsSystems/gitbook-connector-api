@@ -2,9 +2,6 @@
 
 ## Get all order items
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
-
 Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request

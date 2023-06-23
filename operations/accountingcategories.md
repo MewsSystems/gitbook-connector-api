@@ -2,7 +2,8 @@
 
 ## Get all accounting categories
 
-Returns all accounting categories of the enterprise associated with the connector integration.
+Returns all accounting categories of the enterprise associated with the connector integration. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -12,7 +13,17 @@ Returns all accounting categories of the enterprise associated with the connecto
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
+    "AccountingCategoryIds": [
+        "0cf7aa90-736f-43e9-a7dc-787704548d86",
+        "0b9560fb-055d-47d3-a6d4-e579c44ca558"
+    ],
+    "ActivityStates": [ "Active" ],
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -21,6 +32,10 @@ Returns all accounting categories of the enterprise associated with the connecto
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `AccountingCategoryIds` | string | optional, max 1000 items | Unique identifiers of the requested [Accounting categories](#accounting-category). |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
 
@@ -29,6 +44,7 @@ Returns all accounting categories of the enterprise associated with the connecto
     "AccountingCategories": [
         {
             "Classification": "Accommodation",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Code": "345",
             "CostCenterCode": "2589",
             "ExternalCode": "3010",
@@ -40,6 +56,7 @@ Returns all accounting categories of the enterprise associated with the connecto
         },
         {
             "Classification": null,
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "Code": "100",
             "CostCenterCode": "2589",
             "ExternalCode": "ABVG",
@@ -49,19 +66,22 @@ Returns all accounting categories of the enterprise associated with the connecto
             "Name": "Alcoholic Beverage",
             "PostingAccountCode": "602020"
         }
-    ]
+    ],
+    "Cursor": "0b9560fb-055d-47d3-a6d4-e579c44ca558"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountingCategories` | array of [Accounting category](#accounting-category) | required | Accounting categories of the enterprise. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Accounting category
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the category. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `IsActive` | boolean | required | Whether the accounting category is still active. |
 | `Name` | string | required | Name of the category. |
 | `Code` | string | optional | Code of the category within Mews. |

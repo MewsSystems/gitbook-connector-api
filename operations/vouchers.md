@@ -13,6 +13,10 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
@@ -31,7 +35,8 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
     },
     "ActivityStates": [
         "Active"
-    ]
+    ],
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -40,11 +45,13 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) where the vouchers belong to. |
 | `VoucherIds` | array of string | optional, max 1000 items | Unique identifiers of vouchers. |
 | `VoucherCodeValues` | array of string | optional, max 1000 items | Value of voucher codes used by customers. |
 | `Extent` | [Voucher extent](#voucher-extent) | required | Extent of data to be returned. Whether only specific voucher info should be returned or related items as well. |
-| `ActivityStates` | array of string [Activity state](#activity-state) | required | Whether return only active, only deleted or both records. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 #### Voucher extent
 
@@ -68,6 +75,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
     "Vouchers": [
         {
             "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "Name": "Weekend Voucher",
             "CreatedUtc": "2018-11-29T08:17:05Z",
@@ -109,7 +117,8 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
         }
     ],
     "Rates": null,
-    "Companies": null
+    "Companies": null,
+    "Cursor": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d"
 }
 ```
 
@@ -120,12 +129,14 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `VoucherAssignments` | array of [Voucher assignment](#voucher-assignment) | optional | The assignments between vouchers and [Rates](rates.md#rate). |
 | `Rates` | array of [Rate](rates.md#rate) | optional | The assigned rates. |
 | `Companies` | array of [Company](companies.md#company) | optional | The related companies and travel agencies. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Voucher
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of voucher. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the voucher belongs to. |
 | `Name` | string | required | Internal name of the voucher. |
 | `CreatedUtc` | string | required | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
