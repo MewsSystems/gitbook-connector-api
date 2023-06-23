@@ -2,7 +2,8 @@
 
 ## Get all routing rules
 
-Returns all routing rules. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all routing rules.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,6 +14,10 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "RoutingRuleIds": 
     [
         "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
@@ -23,10 +28,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
         "cd441e1a-6f19-4960-887a-af2a00d5d5f8",
         "ddc23f8d-131d-44d6-b150-af2a00d5d5f8"
     ],
-    "Limitation": {
-        "Count": 10, 
-        "Cursor": null
-    }
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -35,6 +37,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `RoutingRuleIds` | array of string | required, max 1000 items | Unique identifier of the [Routing rule](routingrules.md#routing-rule). |
 | `CompanyIds` | array of string | required, max 1000 items | Unique identifier of the [Company](companies.md#company). |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -46,6 +49,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
     "RoutingRules": [
         {
             "Id": "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "CompanyId": "cd441e1a-6f19-4960-887a-af2a00d5d5f8",
             "CompanyRelation": "PartnerCompany",
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
@@ -54,6 +58,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
         },
         {
             "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "CompanyId": "ddc23f8d-131d-44d6-b150-af2a00d5d5f8",
             "CompanyRelation": "TravelAgency",
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
@@ -85,6 +90,7 @@ Returns all routing rules. Note this operation uses [Pagination](../guidelines/p
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the routing rule. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `CompanyId` | string | required | Unique identifier of the [Company](companies.md#company) routing rule is assigned to. |
 | `CompanyRelation` | string [Company relation](routingrules.md#company-relation) | required | Relation of the company to the routing rule. |
 | `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency, or only future reservations that are prepaid. |

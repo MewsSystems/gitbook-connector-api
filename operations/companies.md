@@ -2,7 +2,8 @@
 
 ## Get all companies
 
-Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,6 +14,10 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainIds": [
+        "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+        "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+    ],
     "Ids": [
         "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
         "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
@@ -32,10 +37,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
         "12345",
         "4312343"
     ],
-    "Limitation": {
-        "Count": 100,
-        "Cursor": "8a98965a-7c03-48a1-a28c-ab1b009b53c8" 
-    }
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -44,6 +46,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `Ids` | array of string | optional, max 1000 items | Unique identifiers of [Companies](#company). |
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](#company). |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Company](#company) creation date and time. |
@@ -58,6 +61,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
     "Companies": [
         {
             "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+            "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
             "Name": "Sample Company 1",
             "IsActive": true,
             "Number": 11,
@@ -93,6 +97,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
         },
         {
             "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
+            "ChainId": "5fcd1933-22f2-40b9-84da-7db04cbecec2",
             "Name": "Sample Company 2",
             "IsActive": true,
             "Number": 12,
@@ -141,6 +146,7 @@ Returns all company profiles of the enterprise, possibly filtered by identifiers
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the company. |
+| `ChainId` | string | required | Unique identifier of the chain. |
 | `Name` | string | required | Name of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Number`| number | required | Unique number of the company. |

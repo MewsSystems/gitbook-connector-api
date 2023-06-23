@@ -3,6 +3,7 @@
 ## Get all rules
 
 Returns all rules applied with the reservations.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,6 +14,10 @@ Returns all rules applied with the reservations.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
@@ -23,7 +28,8 @@ Returns all rules applied with the reservations.
         "RateGroups": true,
         "ResourceCategories": true,
         "BusinessSegments": true
-    }
+    },
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -34,6 +40,7 @@ Returns all rules applied with the reservations.
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `Extent` | [Rule extent](#rule-extent) | required | Extent of data to be returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 #### Rule extent
 
@@ -100,7 +107,8 @@ Returns all rules applied with the reservations.
     ],
     "RateGroups": [],
     "ResourceCategories": [],
-    "BusinessSegments": []
+    "BusinessSegments": [],
+    "Cursor": "13638b12-53f1-4b35-baab-ac1e006ed8cb"
 }
 ```
 
@@ -112,6 +120,7 @@ Returns all rules applied with the reservations.
 | `RateGroups` | array of [Rate group](rates.md#rate-group) | required | Rate groups used in conditions. |
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | required | Resource categories used in conditions. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | required | Business segments used in conditions. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Rule
 

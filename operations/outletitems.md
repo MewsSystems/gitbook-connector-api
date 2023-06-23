@@ -2,7 +2,8 @@
 
 ## Get all outlet items
 
-Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all outlet items of the enterprise that were consumed \(posted\) or will be consumed within the specified interval. If the `Currency` is specified, costs of the items are converted to that currency. 
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,6 +14,10 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ConsumedUtc": {
         "StartUtc": "2020-01-05T00:00:00Z",
         "EndUtc": "2020-01-10T00:00:00Z"
@@ -26,10 +31,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
         "EndUtc": "2020-01-10T00:00:00Z"
     },
     "Currency": "EUR",
-    "Limitation": {
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 100
-    }
+    "Limitation": { "Count": 100 }
 }
 ```
 
@@ -38,6 +40,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ConsumedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet item](#outlet-item) was consumed. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was updated. |
@@ -51,6 +54,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
     "OutletItems": [  
         {  
             "Id": "f29821b7-1659-4c96-a8c7-3725d0f1509b",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "BillId": "5c82a9bd-729c-4f80-af48-a56ab3aebbf6",
             "AccountingCategoryId": "1131ddd1-fa2b-4150-bbf6-7fce94941f65",
             "Type": "Revenue",
@@ -58,7 +62,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
             "UnitCount": 4,
             "UnitAmount": {  
                 "Currency": "EUR",
-                "GrossValue": 11,~~~~
+                "GrossValue": 11,
                 "NetValue": 11,
                 "TaxValues": []
             },
@@ -70,6 +74,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
         },
         {  
             "Id": "dfec07c6-e278-4ed0-932f-41bbd1f38039",
+            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "BillId": "7bdd3b53-7bb3-419d-8ff2-c9bde65d0c7e",
             "AccountingCategoryId": "7EDAB816-BF4E-40CC-8936-7BC0B222908D",
             "Type": "Payment",
@@ -121,6 +126,7 @@ Returns all outlet items of the enterprise that were consumed \(posted\) or will
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the item. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `BillId` | string | required | Unique identifier of the [Outlet bill](#outlet-bill) the item belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
 | `Type` | string [Outlet item type](#outlet-item-type) | required | Type of the item. |

@@ -3,6 +3,7 @@
 ## Get all company contracts
 
 Returns all contracts between the enterprise and other companies.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,10 +14,17 @@ Returns all contracts between the enterprise and other companies.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "Limitation": {
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 10
-    }
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
+    "CompanyIds": [
+        "bfd5667b-533f-424f-860d-af150065f4d6"
+    ],
+    "ServiceIds": [
+        "c8f88563-dc60-47f3-aca3-af150065d951"
+    ],
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -25,10 +33,11 @@ Returns all contracts between the enterprise and other companies.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of company contract data returned (using cursor pagination). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service) where the Travel agency contract belong to. |
 | `CompanyIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) assigned with Travel agency contracts. |
 | `CompanyContractIds` | array of string | optional, max 1000 items | Unique identifier of the Travel agency contract to fetch. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
 

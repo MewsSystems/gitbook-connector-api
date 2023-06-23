@@ -3,6 +3,7 @@
 ## Get all restrictions
 
 Returns all restrictions of the default service provided by the enterprise.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,6 +14,10 @@ Returns all restrictions of the default service provided by the enterprise.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+      "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
@@ -33,7 +38,8 @@ Returns all restrictions of the default service provided by the enterprise.
     "UpdatedUtc": {
         "StartUtc": "2020-02-05T00:00:00Z",
         "EndUtc": "2020-02-15T00:00:00Z"
-    }
+    },
+   "Limitation": { "Count": 10 }
 }
 ```
 
@@ -42,6 +48,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the restrictions are requested. |
 | `ResourceCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource categories](resources.md#resource-category). |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns all restrictions that affect the given rates, i.e. ones without any [Restriction Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate groups](rates.md#rate-group) of specified rates, or ones inherited from base rates. |
@@ -50,6 +57,7 @@ Returns all restrictions of the default service provided by the enterprise.
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was updated. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
 
@@ -119,13 +127,15 @@ Returns all restrictions of the default service provided by the enterprise.
             "MaxPrice": null
          }
       }
-   ]
+   ],
+   "Cursor": "b40ac4a8-f5da-457d-88fe-7a895e1580ab"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Restrictions` | array of [Restriction](#restriction) | required | Restrictions of the default service. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Restriction
 

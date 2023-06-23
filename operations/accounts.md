@@ -53,8 +53,8 @@ Merges two or more accounts of the same account type together. The given source 
 
 ### Account type
 
-* `Customer`
-* `Company`
+* [Company](companies.md#company)
+* [Customer](customers.md#customer)
 * ...
 
 ### Response

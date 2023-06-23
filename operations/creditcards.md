@@ -3,6 +3,7 @@
 ## Get all credit cards 
 
 Returns all credit cards, possibly filtered by identifiers, [Customers](customers.md#customer) or other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -13,12 +14,17 @@ Returns all credit cards, possibly filtered by identifiers, [Customers](customer
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "CreditCardIds": [
         "f1d94a32-b4be-479b-9e47-a9fcb03d5196"
     ],
     "CustomerIds": [
         "5cbbd97d-5f19-4010-9abf-ab0400a3366a"
-    ]
+    ],
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -27,8 +33,10 @@ Returns all credit cards, possibly filtered by identifiers, [Customers](customer
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `CreditCardIds` | array of string | optional, max 1000 items | Unique identifiers of the [Credit cards](#credit-card). Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
 
@@ -36,6 +44,7 @@ Returns all credit cards, possibly filtered by identifiers, [Customers](customer
 {
     "CreditCards": [
         {
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "CreatedUtc": "2018-05-24T13:45:29Z",
             "CustomerId": "a3c90426-43f2-4b53-8482-446dfc724bd2",
             "Expiration": "2020-11",
@@ -47,19 +56,22 @@ Returns all credit cards, possibly filtered by identifiers, [Customers](customer
             "State": "Enabled",
             "Type": "Visa"
         }
-    ]
+    ],
+    "Cursor": "f1d94a32-b4be-479b-9e47-a9fcb03d5196"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | CreditCards | array of [Credit cards](#credit-card) | required | The credit cards. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Credit card
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the credit card. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `CustomerId` | string | required | Unique identifier of the credit card [owner](customers.md#customer). |
 | `CreatedUtc` | string | required | Creation date and time of the credit card in UTC timezone in ISO 8601 format. |
 | `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`. |

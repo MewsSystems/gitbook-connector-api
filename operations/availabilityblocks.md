@@ -5,6 +5,7 @@
 > This feature is being actively developed, features and behavior of this operation may change at short notice.
 
 Returns all availability blocks filtered by services, unique identifiers and other filters.
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -15,6 +16,10 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "AvailabilityBlockIds": [
         "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
     ],
@@ -51,7 +56,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
         "Adjustments": true,
         "ServiceOrders": false,
         "Rates": false
-    }
+    },
+    "Limitation": { "Count": 10 }
 }
 ```
 
@@ -60,6 +66,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](#availability-block). |
 | `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service) to which [Availability blocks](#availability-block) are assigned. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were created. |
@@ -68,7 +75,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are released. |
 | `States` | array of string [Availability block state](#availability-block-state) | optional | States the availability blocks should be in. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems. |
-| `ActivityStates` | array of string [Activity state](vouchers.md#activity-state) | required | Whether return only active, only deleted or both records. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned. E.g. it is possible to specify that related service orders (for example [Reservations](reservations.md#reservation)) are returned. |
 
 #### Availability block state
@@ -159,7 +166,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
             "UnitCount": 6,
             "ActivityState": "Active"
         }
-    ]
+    ],
+     "Cursor": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
 }
 ```
 
@@ -168,6 +176,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
 | `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservations](reservations.md#reservation)) linked to availability blocks. |
 | `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Availability block
 
