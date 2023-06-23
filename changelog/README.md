@@ -1,5 +1,13 @@
 # Changelog
 
+## 23th June 2023
+
+* Extended [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) response with `AssignmentTargetType` parameter.
+* Extended [Add routing rules](../operations/routingrules.md#add-routing-rules) with `AssignmentTargetType` parameter.
+* Extended [Add routing rules](../operations/routingrules.md#add-routing-rules) response with `AssignmentTargetType` parameter.
+* Extended [Update routing rules](../operations/routingrules.md#update-routing-rules) with `AssignmentTargetType` parameter.
+* Extended [Update routing rules](../operations/routingrules.md#update-routing-rules) response with `AssignmentTargetType` parameter.
+
 ## 9th June 2023
 
 * Extended [Add order](../operations/orders.md#add-order) with `BillId` parameter.
