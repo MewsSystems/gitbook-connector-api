@@ -248,7 +248,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 
 ## Get all reservations 2023-06-06
 
-Returns all reservations associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all reservations associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md)..
 
 ### Request
 

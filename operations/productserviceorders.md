@@ -2,7 +2,7 @@
 
 ## Get all product service orders
 
-Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md)..
 
 ### Request
 
