@@ -1,5 +1,12 @@
 # Changelog
 
+## 23rd June 2023
+
+* Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
+* Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
+* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) should be used instead.
+* Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
 ## 21st June 2023
 
 * Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.
