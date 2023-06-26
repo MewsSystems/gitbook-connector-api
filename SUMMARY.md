@@ -73,6 +73,7 @@
   * [Payment requests](operations/paymentrequests.md)
   * [Preauthorizations](operations/preauthorizations.md)
   * [Product categories](operations/productcategories.md)
+  * [Product service orders](operations/productserviceorders.md)
   * [Products](operations/products.md)
   * [Rates](operations/rates.md)
   * [Reservations](operations/reservations.md)

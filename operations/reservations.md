@@ -1,6 +1,9 @@
 # Reservations
 
-## Get all reservations
+## ~~Get all reservations~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md), please use [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) instead.
 
 Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -454,7 +457,10 @@ Returns all reservations associated with the given enterprise. This operation us
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | required | Reservation data for QR code generation. |
 
-## Get all reservation items
+## ~~Get all reservation items~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md), please use [Get all order items](../operations/orderitems.md#get-all-order-items) instead.
 
 Returns all revenue items associated with the specified reservations.
 
