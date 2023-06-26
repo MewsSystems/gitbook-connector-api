@@ -86,4 +86,15 @@ Dictionary is a collection of key-value pairs.
 
 ### Localized text
 
-An object where keys are the [Language](languages.md#language) codes and values texts in respective languages.
+A [Dictionary](#dictionary) object where the keys are [Language](languages.md#language) codes and the corresponding values are versions of the text in the respective language. For example:
+
+```javascript
+{
+    "cs-CZ": "Děti",
+    "da-DK": "Børn",
+    "de-CH": "Kinder",
+    "de-DE": "Kinder",
+    "el-GR": "Παιδιά",
+    "en-GB": "Children"
+}
+```

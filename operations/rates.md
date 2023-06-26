@@ -118,7 +118,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
-| `ExternalNames` | [Localized text](resources.md#localized-text) | required | All translations of the external name of the rate. |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the external name of the rate. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 
 #### Rate group

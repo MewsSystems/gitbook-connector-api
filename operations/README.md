@@ -132,8 +132,9 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
-| [Get all reservations](reservations.md#get-all-reservations) | Returns all reservations specified by any identifier, customer or other filter |
-| [Get all reservation items](reservations.md#get-all-reservation-items) | Returns all revenue items associated with the specified reservations |
+| ~~[Get all reservations](reservations.md#get-all-reservations)~~ | ~~Returns all reservations specified by any identifier, customer or other filter~~ |
+| [Get all reservations 2023-06-06](reservations.md#get-all-reservations-2023-06-06) | Returns all reservations specified by filters |
+| ~~[Get all reservation items](reservations.md#get-all-reservation-items)~~ | ~~Returns all revenue items associated with the specified reservations~~ |
 | [Price reservations](reservations.md#price-reservations) | Returns prices of reservations with the specified parameters |
 | [Add reservations](reservations.md#add-reservations) | Adds the specified reservations as a single group |
 | [Update reservations](reservations.md#update-reservations) | Updates information about the specified reservations |
@@ -163,6 +164,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation or Endpoint</div> | Description |
 | :-- | :-- |
+| [Get all product service orders](serviceorders.md#get-all-product-service-orders) | Returns all product service orders |
 | [Get all service order notes](serviceordernotes.md#get-all-service-order-notes) | Returns all notes associated with the given service orders |
 | [Add service order notes](serviceordernotes.md#add-service-order-notes) | Adds service order notes to a given service order |
 | [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes |
