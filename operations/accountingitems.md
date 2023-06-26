@@ -220,7 +220,7 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the item. |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
-| `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation) which is a special type of order\) the item belongs to. |
+| `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation-2023-06-06) which is a special type of order\) the item belongs to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
 | `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |

@@ -174,7 +174,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
-| `ServiceOrders` | array of [Reservation](reservations.md#reservation) | optional | Service orders (for example [Reservations](reservations.md#reservation)) linked to availability blocks. |
+| `ServiceOrders` | array of [Reservation](reservations.md#reservation-2023-06-06) | optional | Service orders (for example [Reservations](reservations.md#reservation)) linked to availability blocks. |
 | `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 

@@ -92,7 +92,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`BillCounters`~~ | ~~array of [Counter](#counter)~~ | ~~required~~ | ~~The counters used to count closed [Bills](bills.md#bill).~~ **Deprecated!** |
 | ~~`ProformaCounters`~~ | ~~array of [Counter](#counter)~~ | ~~required~~ | ~~The counters used to count Pro Forma invoices for [Bills](bills.md#bill).~~ **Deprecated!** |
 | ~~`BillPreviewCounters`~~ | ~~array of [Counter](#counter)~~ | ~~required~~ | ~~The counters used to count bill previews for [Bills](bills.md#bill).~~ **Deprecated!** |
-| ~~`ServiceOrderCounters`~~ | ~~array of [Counter](#counter)~~ | ~~required~~ | ~~The counters used to count service orders (for example a [Reservation](reservations.md#reservation)).~~ **Deprecated!** |
+| ~~`ServiceOrderCounters`~~ | ~~array of [Counter](#counter)~~ | ~~required~~ | ~~The counters used to count service orders (for example a [Reservation](reservations.md#reservation-2023-06-06)).~~ **Deprecated!** |
 | ~~`RegistrationCardCounters`~~ | ~~array of [Counter](#counter)~~ | ~~required~~ | ~~The counters used to count registration cards.~~ **Deprecated!** |
 
 #### Counter

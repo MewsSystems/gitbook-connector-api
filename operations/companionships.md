@@ -83,7 +83,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Companionships` | array of [Companionship](#companionship) | required | Companionships. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
-| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
+| `Reservations` | array of [Reservation](reservations.md#reservation-2023-06-06) | optional | The accompanied reservations. |
 | `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
@@ -93,5 +93,5 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of [Companionship](#companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
-| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation-2023-06-06). |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
