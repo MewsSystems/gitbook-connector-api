@@ -88,7 +88,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `Client` | string | required | Name and version of the client application. |
 | `TaskIds` | array of string | optional, max 1000 items | Unique identifiers of [Tasks](#task). |
 | `DepartmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Departments](departments.md#department). Not possible to be used standalone, needs to be used in combination with other filters. |
-| `ServiceOrderIds` | array of string  | optional, max 1000 items | Unique identifiers of service orders (reservations and/or product service orders). |
+| `ServiceOrderIds` | array of string  | optional, max 1000 items | Unique identifiers of service orders (reservations or product service orders). |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was created. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was closed. |
 | `DeadlineUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) has a deadline. |
