@@ -320,7 +320,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customer` | [Customer](#customer) | required | The found customer. |
-| `Reservation` | [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | Reservation of the customer in case he currently stays in the enterprise. |
+| `Reservation` | [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | Reservation of the customer in case they are currently staying in the property. |
 
 ## Get customers open items
 
