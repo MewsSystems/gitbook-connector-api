@@ -304,9 +304,12 @@ Returns all reservations associated with the given enterprise. This operation us
             "EnterpriseId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
             "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+            "AccountType": "Customer",
             "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+            "StartUtc": "2023-04-23T14:00:00Z",
+            "EndUtc": "2023-04-24T14:00:00Z",
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
@@ -364,8 +367,11 @@ Returns all reservations associated with the given enterprise. This operation us
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that reservation is made againts. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the reservation. |
+| `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
+| `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
