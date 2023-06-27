@@ -93,5 +93,5 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of [Companionship](#companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
-| `ReservationId` | string | optional | Unique identifier of reservations. |
+| `ReservationId` | string | optional | Unique identifier of reservation. |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |
