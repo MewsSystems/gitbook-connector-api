@@ -1,14 +1,18 @@
 # Changelog
 
+## 27th June 2023
+
+* Documentation-only changes to add clarity around endpoint versioning. Deprecated version of 'Get all reservations' now called [Get all reservations \(ver 9999-99-99\)](../operations/reservations.md#get-all-reservations-ver-9999-99-99) and new version called [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
+
 ## 26th June 2023
 
 * Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).
 
 ## 23rd June 2023
 
-* Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
+* Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
 * Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
-* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) should be used instead.
+* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations-ver-9999-99-99). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06) should be used instead.
 * Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
 
 ## 21st June 2023

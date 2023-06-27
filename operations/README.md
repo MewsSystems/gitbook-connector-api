@@ -4,7 +4,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Accounts
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
 | [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
@@ -13,7 +13,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Configuration
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get configuration](configuration.md#get-configuration) | Returns configuration of the enterprise and the client |
 | [Get all countries](countries.md#get-all-countries) | Returns all countries supported by the API |
@@ -26,7 +26,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Customers
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all customers](customers.md#get-all-customers) | Returns all customers filtered by identifiers, emails, names and other filters |
 | [Search customers](customers.md#search-customers) | Searches for customers that are active at the moment in the enterprise, e.g. companions of checked-in reservations or paymasters |
@@ -38,7 +38,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Device integrations
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all devices](devices.md#get-all-devices) | Returns all devices in the enterprise |
 | [Get all commands](commands.md#get-all-commands) | Returns all commands the are still active from the client application point of view |
@@ -50,7 +50,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Enterprises
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all enterprises](enterprises.md#get-all-enterprises) | Returns all enterprises accessible to a supplied access token. |
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
@@ -74,7 +74,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Finance
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all exchange rates](exchangerates.md#get-all-exchange-rates) | Returns all available exchange rates among currencies of the enterprise |
 | [Get all cashiers](cashiers.md#get-all-cashiers) | Returns all cashiers in the enterprise |
@@ -104,7 +104,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Loyalty
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all loyalty programs](loyaltyprograms.md#get-all-loyalty-programs) | Returns all loyalty programs of the enterprise |
 | [Add loyalty programs](loyaltyprograms.md#add-loyalty-programs) | Adds new loyalty programs |
@@ -121,7 +121,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Messages
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all message threads](messagethreads.md#get-all-message-threads) | Get all message threads that you have created |
 | [Add message thread](messagethreads.md#add-message-thread) | Creates a new message thread on behalf of the specified customer |
@@ -130,11 +130,11 @@ This section describes all operations supported by the API, organised here by th
 
 ## Reservations
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
-| ~~[Get all reservations](reservations.md#get-all-reservations)~~ | ~~Returns all reservations specified by any identifier, customer or other filter~~ |
-| [Get all reservations 2023-06-06](reservations.md#get-all-reservations-2023-06-06) | Returns all reservations specified by filters |
-| ~~[Get all reservation items](reservations.md#get-all-reservation-items)~~ | ~~Returns all revenue items associated with the specified reservations~~ |
+| [Get all reservations \(ver 2023-06-06\)](reservations.md#get-all-reservations-ver-2023-06-06) | Returns all reservations specified by filters |
+| [~~Get all reservations \(ver 9999-99-99\)~~](reservations.md#get-all-reservations-ver-9999-99-99) | **Deprecated!** Please use [Get all reservations \(ver 2023-06-06\)](reservations.md#get-all-reservations-ver-2023-06-06) instead. |
+| [~~Get all reservation items~~](reservations.md#get-all-reservation-items) | **Deprecated!** Please use [Get all order items](orderitems.md#get-all-order-items) instead. |
 | [Price reservations](reservations.md#price-reservations) | Returns prices of reservations with the specified parameters |
 | [Add reservations](reservations.md#add-reservations) | Adds the specified reservations as a single group |
 | [Update reservations](reservations.md#update-reservations) | Updates information about the specified reservations |
@@ -153,7 +153,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Routing rules
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all routing rules](routingrules.md#get-all-routing-rules) | Returns all routing rules of the enterprise |
 | [Add routing rules](routingrules.md#add-routing-rules) | Adds new routing rules |
@@ -162,7 +162,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Service orders
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all product service orders](productserviceorders.md#get-all-product-service-orders) | Returns all product service orders |
 | [Get all service order notes](serviceordernotes.md#get-all-service-order-notes) | Returns all notes associated with the given service orders |
@@ -172,7 +172,7 @@ This section describes all operations supported by the API, organised here by th
 
 ## Services
 
-| <div style="width:200px">Operation or Endpoint</div> | Description |
+| <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all services](services.md#get-all-services) | Returns all services offered by the enterprise |
 | [Get service availability](services.md#get-service-availability) | Returns availability of a bookable service in the specified interval |
