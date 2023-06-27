@@ -1,5 +1,10 @@
 # Changelog
 
+## 28th June 2023
+
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter.
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) response with `LinkedUtc` parameter.
+
 ## 26th June 2023
 
 * Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).

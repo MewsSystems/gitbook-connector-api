@@ -19,6 +19,10 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
     "ExternalIdentifiers": [
         "Enterprise2023"
     ],
+    "LinkedUtc": {
+        "StartUtc": "2023-06-01T00:00:00Z",
+        "EndUtc": "2023-06-06T00:00:00Z"
+    },
     "Limitation": {
         "Count": 10
     }
@@ -32,6 +36,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](#enterprise). If not specified, all enterprises within scope of the Access Token are returned. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of the [Enterprise](#enterprise) from external system. |
+| `LinkedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Enterprise](#enterprise) were added to the portfolio. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of enterprises returned. |
 
 ### Response
@@ -44,6 +49,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "ExternalIdentifier": "Enterprise2023",
       "ChainId": "2f6be44e-9881-4b12-aefe-afce011a9d67",
       "CreatedUtc": "2022-03-23T17:12:06Z",
+      "LinkedUtc": "2023-06-01T00:00:00Z",
       "Name": "Sample Portfolio Hotel",
       "TimeZoneIdentifier": "Europe/Budapest",
       "LegalEnvironmentCode": "DE-2020-1",
@@ -79,6 +85,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the enterprise from external system. |
 | `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
+| `LinkedUtc` | string | required | Date and time when enterprise was added to the portfolio in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
 | `TimeZoneIdentifier` | string | required | IANA timezone identifier of the enterprise. |
 | `LegalEnvironmentCode` | string | required | Unique identifier of the legal environment where the enterprise resides. |
