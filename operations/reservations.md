@@ -211,7 +211,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | required | Reservation data for QR code generation. |
 
-## ~~Get all reservations (ver 9999-99-99)~~
+## ~~Get all reservations (ver 2017-04-12)~~
 
 > ### Deprecated!
 > This operation is [deprecated](../deprecations/README.md), please use [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
@@ -268,14 +268,14 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `StartUtc` | string | optional, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the `TimeFilter` or `States` search parameter.|
 | `EndUtc` | string | optional, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the `TimeFilter` or `States` search parameter.|
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the reservations are requested. |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservations](#reservation-ver-9999-99-99). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservations](#reservation-ver-2017-04-12). |
 | `GroupIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservation groups](#reservation-group). |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer) which own the reservations. |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Resources](resources.md#resource) assigned to the reservations. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate) assigned to the reservations. |
 | `ChannelNumbers` | array of string | optional, max 1000 items | Set of numbers or references used by the Channel \(i.e. OTA, GDS, CRS, etc.\) in case the reservation group originates there, e.g. Booking.com confirmation numbers. |
 | `BusinessSegmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Business segments](businesssegments.md#business-segment) assigned to the reservations. |
-| `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](#reservation-ver-9999-99-99). |
+| `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](#reservation-ver-2017-04-12). |
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
@@ -414,7 +414,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateGroups` | array of [Rate group](rates.md#rate-group) | optional | Rate groups of the reservation rates. |
 | `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
 | `ReservationGroups` | array of [Reservation group](#reservation-group) | optional | Reservation groups that the reservations are members of. |
-| `Reservations` | array of [Reservation](#reservation-ver-9999-99-99) | optional | The reservations that collide with the specified interval. |
+| `Reservations` | array of [Reservation](#reservation-ver-2017-04-12) | optional | The reservations that collide with the specified interval. |
 | `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
 | `Resources` | array of [Resource](resources.md#resource) | optional | Assigned resources of the reservations. |
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
@@ -423,7 +423,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest reservation returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older reservations. |
 
-#### Reservation (ver 9999-99-99)
+#### Reservation (ver 2017-04-12)
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -811,7 +811,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `Reservation` | [Reservation](#reservation-ver-9999-99-99) | required | The added reservation. |
+| `Reservation` | [Reservation](#reservation-ver-2017-04-12) | required | The added reservation. |
 
 ## Update reservations
 

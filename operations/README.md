@@ -133,7 +133,7 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all reservations \(ver 2023-06-06\)](reservations.md#get-all-reservations-ver-2023-06-06) | Returns all reservations specified by filters |
-| [~~Get all reservations \(ver 9999-99-99\)~~](reservations.md#get-all-reservations-ver-9999-99-99) | **Deprecated!** Please use [Get all reservations \(ver 2023-06-06\)](reservations.md#get-all-reservations-ver-2023-06-06) instead. |
+| [~~Get all reservations \(ver 2017-04-12\)~~](reservations.md#get-all-reservations-ver-2017-04-12) | **Deprecated!** Please use [Get all reservations \(ver 2023-06-06\)](reservations.md#get-all-reservations-ver-2023-06-06) instead. |
 | [~~Get all reservation items~~](reservations.md#get-all-reservation-items) | **Deprecated!** Please use [Get all order items](orderitems.md#get-all-order-items) instead. |
 | [Price reservations](reservations.md#price-reservations) | Returns prices of reservations with the specified parameters |
 | [Add reservations](reservations.md#add-reservations) | Adds the specified reservations as a single group |

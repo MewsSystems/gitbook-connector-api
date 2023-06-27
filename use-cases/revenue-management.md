@@ -7,8 +7,8 @@ A recommended approach for implementing an RMS integration is described below. F
 
 * Performed once when setting up the connection, because the RMS needs to obtain historical data
 
-The RMS should obtain the reservations in time-limited batches using [Get all reservations](../operations/reservations.md#get-all-reservations) with [Reservation time filter](../operations/reservations.md#reservation-time-filter) set to `Start` \(that will give you all reservations with arrival time colliding with the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and will work well even for big hotels \(1000+ units\).
-For example, in order to get reservations for the past year, the RMS should call [Get all reservations](../operations/reservations.md#get-all-reservations) sequentially 52 times \(one call for each week in the past year\). That would give the RMS all reservations that have arrival within the past year.
+The RMS should obtain the reservations in time-limited batches using [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) with [Reservation time filter](../operations/reservations.md#reservation-time-filter) set to `Start` \(that will give you all reservations with arrival time colliding with the selected interval\). Size of the batches depends on size of the hotel and its occupancy, but in general **weekly batches** are recommended and will work well even for big hotels \(1000+ units\).
+For example, in order to get reservations for the past year, the RMS should call [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) sequentially 52 times \(one call for each week in the past year\). That would give the RMS all reservations that have arrival within the past year.
 
 To obtain revenue items associated with reservations, `Items` should be set to `true` in the `Extent` parameter. Please note that there are four accounting item states in which reservation `Items` will be returned. See [Accounting item state](../operations/accountingitems.md#accounting-item-state) for the specific definitions.
 
@@ -25,9 +25,9 @@ If done the other way around, there is a possibility that the RMS receives a res
 ### Periodic updates and syncing reservation data
 
 To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull, then use [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) to listen for reservation events.
-When you receive a reservation event, use `ReservationId` obtained from the event to fetch the details of the reservation with [Get all reservations](../operations/reservations.md#get-all-reservations).
+When you receive a reservation event, use `ReservationId` obtained from the event to fetch the details of the reservation with [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
 
-> Note: In case of WebSocket disconnection, use [Get all reservations](../operations/reservations.md#get-all-reservations) to perform a full resync of reservations that have been updated within the time period since the last full reservation data pull.
+> Note: In case of WebSocket disconnection, use [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) to perform a full resync of reservations that have been updated within the time period since the last full reservation data pull.
 
 Suggested frequency is 30 minutes for business intelligence solutions. Adjust the frequency of the periodic reservation syncing depending on your use case. For example, a mobile key integration would rely more on real-time accuracy of reservation data to provide correct door access to the guest, whereas a 30-minute to one-hour (or longer) interval reservation synce might suffice for a business intelligence solution aimed at providing daily statistical insight to a property's business operations.
 

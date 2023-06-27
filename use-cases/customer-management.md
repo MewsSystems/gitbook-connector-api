@@ -8,10 +8,10 @@ While new profiles can be created in Mews without a reservation, the communicati
 
 Integration partners can listen for newly-created reservations using [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\).
 A new event occurs with every change to the reservation state, meaning partners are informed of any change that might lead to communication from their side, e.g. sending a custom welcome message or a post-stay survey.
-The reservation events contain the unique identifiers for affected reservations, these can then be used as the filter in a [Get all reservations](../operations/reservations.md#get-all-reservations) request to retrieve the required information about the customer and their stay.
+The reservation events contain the unique identifiers for affected reservations, these can then be used as the filter in a [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request to retrieve the required information about the customer and their stay.
 You can test your Webhooks or WebSockets integration by creating new reservations in Mews, which will trigger these notification events.
 
-If Webhooks or WebSockets cannot be configured, reservation information can instead be requested using [Get all reservations](../operations/reservations.md#get-all-reservations) with specified [Reservation states](../operations/reservations.md#reservation-state) and [Reservation time filters](../operations/reservations.md#reservation-time-filter).
+If Webhooks or WebSockets cannot be configured, reservation information can instead be requested using [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) with specified [Reservation states](../operations/reservations.md#reservation-state) and [Reservation time filters](../operations/reservations.md#reservation-time-filter).
 For example, using the `Updated` time filter will return all reservations modified during the time interval specified in the request.
 
 ### Offering additional products or services
