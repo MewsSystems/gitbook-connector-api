@@ -1,5 +1,10 @@
 # Changelog
 
+## 28th June 2023
+
+* Extended [Get all payments](../operations/payments.md#get-all-payments) with `SettlementUtc` filter.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) response with `SettlementUtc` and `AccountType` parameter.
+
 ## 26th June 2023
 
 * Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).
