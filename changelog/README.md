@@ -2,7 +2,7 @@
 
 ## 28th June 2023
 
-* Documentation-only changes to add clarity around endpoint versioning. The deprecated version of `Get all reservations` is now called [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12), and the new version is called [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06). All relevant links updated.
+* Documentation-only changes to add clarity around endpoint versioning. The deprecated version of `Get all reservations` is now called [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) and the new version is called [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06). All relevant links have been updated.
 
 ## 26th June 2023
 
