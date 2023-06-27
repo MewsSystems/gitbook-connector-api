@@ -2,7 +2,7 @@
 
 ## Get all reservations (ver 2023-06-06)
 
-Returns all reservations within scope of the Access Token, filtered according to the specified parameters. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all reservations within scope of the Access Token, filtered according to the specified parameters. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
