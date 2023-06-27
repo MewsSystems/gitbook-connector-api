@@ -18,6 +18,10 @@
   * [Update accounting item](../operations/accountingitems.md#update-accounting-items).
   * [Add bill](../operations/bills.md#add-bill).
   * [Add payment request](../operations/paymentrequests.md#add-payment-requests).
+  * [Add customer](../operations/customers.md#add-customer).
+  * [Update customer](../operations/customers.md#update-customer).
+  * [Add company](../operations/companies.md#add-company).
+  * [Update company](../operations/companies.md#update-company).
 
 * Extended requests for following endpoints:
   * [Add loyalty program](../operations/loyaltyprograms.md#add-loyalty-programs) with `ChainId` parameter.
@@ -35,6 +39,10 @@
   * [Update accounting item](../operations/accountingitems.md#update-accounting-items) with `EnterpriseId` parameter.
   * [Add bill](../operations/bills.md#add-bill) with `EnterpriseId` parameter.
   * [Add payment request](../operations/paymentrequests.md#add-payment-requests) with `EnterpriseId` parameter.
+  * [Add customer](../operations/customers.md#add-customer) with `ChainId` parameter.
+  * [Update customer](../operations/customers.md#update-customer) with `ChainId` parameter.
+  * [Add company](../operations/companies.md#add-company) with `ChainId` parameter.
+  * [Update company](../operations/companies.md#update-company) with `ChainId` parameter.
 
 ## 26th June 2023
 
