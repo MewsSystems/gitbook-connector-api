@@ -115,7 +115,7 @@ Returns all commands the are still active from the client application point of v
 | :-- | :-- | :-- | :-- |
 | `PassportScannerId` | string | optional | Identifier of the passport scanner. |
 | `CustomerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) who should be processed. |
-| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation) whose companions should be processed. |
+| `ReservationId` | string | optional | Unique identifier of the reservation whose companions should be processed. |
 
 #### Fiscal machine command data
 
@@ -134,7 +134,7 @@ Returns all commands the are still active from the client application point of v
 | `KeyCutterId` | string | optional | Identifier of the key cutter. |
 | `KeyCutterData` | string | optional | Custom JSON data. |
 | `ApiUrl` | string | optional | URL of the key cutter server API. |
-| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation). |
+| `ReservationId` | string | optional | Unique identifier of the reservation. |
 | `ReservationNumber` | string | optional | Confirmation number of the reservation in Mews. |
 | `StartUtc` | string | required | Reservation start. |
 | `EndUtc` | string | required | Reservation end. |
@@ -240,7 +240,7 @@ Adds a new key cutter command representing cutting of a key for the specified re
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `KeyCutterId` | string | required | Unique identifier of the `KeyCutter` [Device](devices.md#device) where to encode the key. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](reservations.md#reservation) to encode the key for. |
+| `ReservationId` | string | required | Unique identifier of the reservation to encode the key for. |
 | `KeyCount` | int | required | Count of keys to encode. |
 
 ### Response

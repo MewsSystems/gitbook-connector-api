@@ -29,7 +29,7 @@ Adds a new task to the enterprise, optionally to a specified department.
 | `Name` | string | required | Name \(or title\) of the task. |
 | `Description` | string | optional | Further decription of the task. |
 | `DeadlineUtc` | string | required | Deadline of the task in UTC timezone in ISO 8601 format. |
-| `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or Product order) the task is linked with. |
+| `ServiceOrderId` | string | optional | Unique identifier of the service order (reservation or product service order) the task is linked with. |
 | `DepartmentId` | string | optional | Unique identifier of the [Department](departments.md#department) the task is addressed to. |
 
 ### Response
@@ -88,7 +88,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `Client` | string | required | Name and version of the client application. |
 | `TaskIds` | array of string | optional, max 1000 items | Unique identifiers of [Tasks](#task). |
 | `DepartmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Departments](departments.md#department). Not possible to be used standalone, needs to be used in combination with other filters. |
-| `ServiceOrderIds` | array of string  | optional, max 1000 items | Unique identifiers of Service orders (for example a [Reservation](reservations.md#reservation) or Product order). |
+| `ServiceOrderIds` | array of string  | optional, max 1000 items | Unique identifiers of service orders (reservations and/or product service orders). |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was created. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) was closed. |
 | `DeadlineUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Task](#task) has a deadline. |
@@ -126,7 +126,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `State` | string [Task state](#task-state) | required | State of the task. |
 | `Description` | string | optional | Further decription of the task. |
 | `DepartmentId` | string | optional | Unique identifier of the [Department](departments.md#department) the task is addressed to. |
-| `ServiceOrderId` | string | optional | Unique identifier of the order (for example a [Reservation](reservations.md#reservation) or Product order) the task is linked with. |
+| `ServiceOrderId` | string | optional | Unique identifier of the service order (reservation or product service order) the task is linked with. |
 | `CreatedUtc` | string | required | Creation date and time of the task in UTC timezone in ISO 8601 format. |
 | `DeadlineUtc` | string | required | Deadline date and time of the task in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the task in UTC timezone in ISO 8601 format. |

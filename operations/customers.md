@@ -269,7 +269,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
-| `ResourceId` | string | optional | Identifier of [Resource](resources.md#resource) to search by \(members of [Reservation](reservations.md#reservation) assigned there will be returned\). |
+| `ResourceId` | string | optional | Identifier of [Resource](resources.md#resource) to search by \(members of reservation assigned there will be returned\). |
 | `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
 
 ### Response
@@ -320,7 +320,7 @@ Searches for customers that are active at the moment in the enterprise \(e.g. co
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customer` | [Customer](#customer) | required | The found customer. |
-| `Reservation` | [Reservation](reservations.md#reservation) | optional | Reservation of the customer in case he currently stays in the enterprise. |
+| `Reservation` | [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | Reservation of the customer in case he currently stays in the enterprise. |
 
 ## Get customers open items
 
