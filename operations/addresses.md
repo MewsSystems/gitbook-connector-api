@@ -94,6 +94,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 ## Add addresses
 
 Adds one or more new addresses to the system and assign them to specified accounts.
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -104,6 +105,7 @@ Adds one or more new addresses to the system and assign them to specified accoun
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "Addresses": [
         {
             "AccountId": "3db2c989-7d95-42b4-a502-a9f246db1634",
@@ -125,6 +127,7 @@ Adds one or more new addresses to the system and assign them to specified accoun
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `Addresses` | array of [Account address parameters](#account-address-parameters), max 1000 items | required | Collection of addresses to be created. |
 
 #### Account address parameters
@@ -170,6 +173,7 @@ Adds one or more new addresses to the system and assign them to specified accoun
 ## Update addresses
 
 Updates one or more existing addresses in the system, assigned to specified accounts.
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -180,6 +184,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "AddressUpdates" : [
         {
             "AddressId" : "fc7b2df3-de66-48a6-907d-af4600ecd892",
@@ -200,6 +205,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `AddressUpdates` | array of [Account address updates](#account-address-update-parameters), max 1000 items | required | Collection of addresses to be updated. |
 
 #### Account address update parameters

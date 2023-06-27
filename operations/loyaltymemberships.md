@@ -184,6 +184,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 ## Add loyalty memberships
 
 Adds loyalty memberships to the enterprise.
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -194,6 +195,7 @@ Adds loyalty memberships to the enterprise.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "LoyaltyMemberships": [
         {
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
@@ -215,6 +217,7 @@ Adds loyalty memberships to the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `LoyaltyMemberships` | array of [Loyalty membership parameters](#loyalty-membership-parameters) | required, max 1000 items | Loyalty memberships to be added. |
 
 #### Loyalty membership parameters
@@ -259,6 +262,7 @@ Adds loyalty memberships to the enterprise.
 ## Update loyalty memberships
 
 Updates information about the specified loyalty memberships.
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -268,6 +272,7 @@ Updates information about the specified loyalty memberships.
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "Client": "Sample Client 1.0.0",
     "LoyaltyMembershipUpdates": [
         {
@@ -297,6 +302,7 @@ Updates information about the specified loyalty memberships.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. |
 | `LoyaltyMembershipUpdates` | array of [Loyalty membership update parameters](#loyalty-membership-update-parameters) | required, max 1000 items | Loyalty memberships to be updated. |
 
 #### Loyalty membership update parameters

@@ -1,5 +1,41 @@
 # Changelog
 
+## 28th June 2023
+
+* Enabled Portfolio Access Tokens for following operations:
+  * [Add loyalty program](../operations/loyaltyprograms.md#add-loyalty-programs).
+  * [Update loyalty program](../operations/loyaltyprograms.md#update-loyalty-programs).
+  * [Add loyalty membership](../operations/loyaltymemberships.md#add-loyalty-memberships).
+  * [Update loyalty membership](../operations/loyaltymemberships.md#update-loyalty-memberships).
+  * [Add loyalty tier](../operations/loyaltytiers.md#add-loyalty-tiers).
+  * [Add addresses](../operations/addresses.md#add-addresses).
+  * [Update addresses](../operations/addresses.md#update-addresses).
+  * [Add external payment](../operations/payments.md#add-external-payment).
+  * [Update reservation](../operations/reservations.md#update-reservations).
+  * [Start reservation](../operations/reservations.md#start-reservation).
+  * [Process reservation](../operations/reservations.md#process-reservation).
+  * [Cancel reservation](../operations/reservations.md#cancel-reservation).
+  * [Update accounting item](../operations/accountingitems.md#update-accounting-items).
+  * [Add bill](../operations/bills.md#add-bill).
+  * [Add payment request](../operations/paymentrequests.md#add-payment-requests).
+
+* Extended requests for following endpoints:
+  * [Add loyalty program](../operations/loyaltyprograms.md#add-loyalty-programs) with `ChainId` parameter.
+  * [Update loyalty program](../operations/loyaltyprograms.md#update-loyalty-programs) with `ChainId` parameter.
+  * [Add loyalty membership](../operations/loyaltymemberships.md#add-loyalty-memberships) with `ChainId` parameter.
+  * [Update loyalty membership](../operations/loyaltymemberships.md#update-loyalty-memberships)equest with `ChainId` parameter.
+  * [Add loyalty tier](../operations/loyaltytiers.md#add-loyalty-tiers) with `ChainId` parameter.
+  * [Add addresses](../operations/addresses.md#add-addresses) with `ChainId` parameter.
+  * [Update addresses](../operations/addresses.md#update-addresses) with `ChainId` parameter.
+  * [Add external payment](../operations/payments.md#add-external-payment) with `EnterpriseId` parameter.
+  * [Update reservation](../operations/reservations.md#update-reservations) with `EnterpriseId` parameter.
+  * [Start reservation](../operations/reservations.md#start-reservation) with `EnterpriseId` parameter.
+  * [Process reservation](../operations/reservations.md#process-reservation) with `EnterpriseId` parameter.
+  * [Cancel reservation](../operations/reservations.md#cancel-reservation) with `EnterpriseId` parameter.
+  * [Update accounting item](../operations/accountingitems.md#update-accounting-items) with `EnterpriseId` parameter.
+  * [Add bill](../operations/bills.md#add-bill) with `EnterpriseId` parameter.
+  * [Add payment request](../operations/paymentrequests.md#add-payment-requests) with `EnterpriseId` parameter.
+
 ## 26th June 2023
 
 * Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).

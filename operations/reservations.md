@@ -817,6 +817,8 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 
 Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
 
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/update`
@@ -825,6 +827,7 @@ Updates information about the specified reservations. Note that if any of the fi
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "Client": "Sample Client 1.0.0",
     "Reason": "Testing",
     "CheckOverbooking": true,
@@ -914,6 +917,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
 | `CheckRateApplicability ` | bool | optional | Indicates whether the system will check and prevent a booking being made using a restricted rate, e.g. a private rate. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
 | `CheckOverbooking` | bool | optional | Indicates whether the system will check and prevent a booking being made in the case of an overbooking, i.e. where there is an insufficient number of resources available to meet the request<sup>\*1</sup>. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
@@ -1008,6 +1012,8 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 
 Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting conditions are met \(the reservation has the `Confirmed` state, does not have start set to future, has an inspected room assigned etc\).
 
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/start`
@@ -1017,6 +1023,7 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b"
 }
 ```
@@ -1026,6 +1033,7 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to start. |
 
 ### Response
@@ -1037,6 +1045,8 @@ Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting
 ## Process reservation
 
 Marks a reservation as `Processed` \(= checked out\). Succeeds only if all processing conditions are met \(the reservation has the `Started` state, balance of all reservation members is zero etc\).
+
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Conditions
 
@@ -1056,6 +1066,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
     "CloseBills": false,
     "AllowOpenBalance": false,
@@ -1068,6 +1079,7 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to process. |
 | `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
 | `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
@@ -1083,6 +1095,8 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 
 Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable.
 
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/reservations/cancel`
@@ -1092,6 +1106,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "ReservationIds": [
         "5ca70705-cbb7-48c4-8cc4-abb900aa278c"
     ],
@@ -1105,6 +1120,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ReservationIds` | array of string | required | Unique identifiers of the [Reservations](#reservation) to cancel. |
 | `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |
