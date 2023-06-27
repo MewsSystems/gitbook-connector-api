@@ -6,6 +6,9 @@
 
 ## 26th June 2023
 
+* Enabled Portfolio Access Tokens for the following operations:
+  * [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
+  * [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
 * Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).
 
 ## 23rd June 2023

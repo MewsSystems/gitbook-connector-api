@@ -2,7 +2,7 @@
 
 ## Get all product service orders
 
-Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md)..
 
 ### Request
 
@@ -37,10 +37,10 @@ Returns all product service orders orders associated with the given enterprise. 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
-| `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](serviceorders.md#product-service-order). |
+| `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](#product-service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of product service order states to filter by. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](serviceorders.md#product-service-order) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](#product-service-order) were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
