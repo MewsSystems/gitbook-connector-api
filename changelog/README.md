@@ -2,8 +2,7 @@
 
 ## 28th June 2023
 
-* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter.
-* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) response with `LinkedUtc` parameter.
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter and response with `LinkedUtc` field.
 
 ## 26th June 2023
 
