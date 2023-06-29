@@ -95,4 +95,4 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the age category belongs to. |
 | `MinimalAge` | number | optional | Minimal age for the age category. |
 | `MaximalAge` | number | optional | Maximal age for the age category. |
-| `Names` | [Localized text](resources.md#localized-text) | required | All translations of the name of the age category. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the age category. |
