@@ -150,7 +150,9 @@ Updates one or more given service order notes with new text.
     "ServiceOrderNoteUpdates": [
         {
             "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "Text": "Sample text"
+            "Text": {
+            "Value": "Sample text"
+        }
         }
     ]
 }
