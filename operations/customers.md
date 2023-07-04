@@ -133,7 +133,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Number": "123456",
             "Expiration": "2020-01-01",
             "Issuance": "2016-01-01",
-            "IssuingCountryCode": "CZ"
+            "IssuingCountryCode": "CZ",
             "IssuingCity": ""
         }
     ],
@@ -204,7 +204,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Expiration` | string | optional | Expiration date in ISO 8601 format. |
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `IssuingCity` |
+| `IssuingCity` | string | optional | City from which document issued |
 
 #### Document type
 
@@ -445,7 +445,7 @@ Adds a new customer to the system and returns details of the added customer. If 
         "Number": "123456",
         "Expiration": "2020-01-01",
         "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
+        "IssuingCountryCode": "US",
         "IssuingCity": ""
     },
     "Passport": null,
@@ -538,7 +538,7 @@ Updates personal information of a customer. Note that if any of the fields is le
         "Number": "123456",
         "Expiration": "2020-01-01",
         "Issuance": "2016-01-01",
-        "IssuingCountryCode": "US"
+        "IssuingCountryCode": "US",
         "IssuingCity": 
     },
     "Passport": null,
