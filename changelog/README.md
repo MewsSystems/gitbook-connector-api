@@ -2,6 +2,7 @@
 
 ## 4th July 2023
 
+* Extended [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06) and [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) response with `StartUtc`, `EndUtc` and `AccountType`.
 * Extended [Get all payments](../operations/payments.md#get-all-payments) with `SettlementUtc` filter.
 * Extended [Get all payments](../operations/payments.md#get-all-payments) response with `SettlementUtc` and `AccountType` parameter.
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter and response with `LinkedUtc` field.
