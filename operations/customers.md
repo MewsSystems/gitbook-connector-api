@@ -134,7 +134,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Expiration": "2020-01-01",
             "Issuance": "2016-01-01",
             "IssuingCountryCode": "CZ",
-            "IssuingCity": ""
+            "IssuingCity": "Prague"
         }
     ],
     "Cursor": "35d4b117-4e60-44a3-9580-c582117eff98"
@@ -446,7 +446,7 @@ Adds a new customer to the system and returns details of the added customer. If 
         "Expiration": "2020-01-01",
         "Issuance": "2016-01-01",
         "IssuingCountryCode": "US",
-        "IssuingCity": ""
+        "IssuingCity": "Seattle"
     },
     "Passport": null,
     "Visa": null,
@@ -539,7 +539,7 @@ Updates personal information of a customer. Note that if any of the fields is le
         "Expiration": "2020-01-01",
         "Issuance": "2016-01-01",
         "IssuingCountryCode": "US",
-        "IssuingCity": 
+        "IssuingCity": "Seattle"
     },
     "Passport": null,
     "Visa": null,
