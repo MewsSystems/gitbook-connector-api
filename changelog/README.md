@@ -1,6 +1,6 @@
 # Changelog
 
-## 28th June 2023
+## 4th July 2023
 
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter and response with `LinkedUtc` field.
 
