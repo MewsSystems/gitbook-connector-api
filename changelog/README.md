@@ -1,6 +1,6 @@
 # Changelog
 
-## 28th June 2023
+## 4th July 2023
 
 * Extended [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06) and [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) response with `StartUtc`, `EndUtc` and `AccountType`.
 
