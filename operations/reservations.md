@@ -78,20 +78,19 @@ Returns all reservations within scope of the Access Token, filtered according to
                 "AllCompanionsCheckedIn": true,
                 "AnyCompanionCheckedIn": true,
                 "ConnectorCheckIn": true
-            }
+            },
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "CreditCardId": null,
             "GroupId": null,
             "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714"
+            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
             "AvailabilityBlockId": null,
             "PartnerCompanyId": null,
             "TravelAgencyId": null,
             "AssignedResourceLocked": false,
             "ChannelNumber": "TW48ZP",
             "ChannelManager": "",
-            "Purpose": "Leisure",
-            "UpdatedUtc": "2023-04-23T14:58:02Z",            
+            "Purpose": "Leisure",        
             "PersonCounts": [
                 {
                     "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
