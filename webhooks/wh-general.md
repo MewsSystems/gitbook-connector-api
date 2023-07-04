@@ -92,7 +92,7 @@ As a consequence of this, note that if you subscribe to Customer events, then wh
 
 | Discriminator | Description | Value | Fetch operation |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderUpdated` | A [Reservation](../operations/reservations.md#reservation) or other Service Order was updated. | [Entity updated data](#entity-updated-data) | [Get all reservations](../operations/reservations.md#get-all-reservations) |
+| `ServiceOrderUpdated` | A [Reservation](../operations/reservations.md#reservation-ver-2023-06-06) or other Service Order was updated. | [Entity updated data](#entity-updated-data) | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) |
 | `ResourceUpdated` | A [Resource](../operations/resources.md#resource) (for example a guest room or other space) was updated. | [Entity updated data](#entity-updated-data) | [Get all resources](../operations/resources.md#get-all-resources) |
 | `MessageAdded` | A [Message](../operations/messages.md#message) was added. | [Entity updated data](#entity-updated-data) | [Get all messages](../operations/messages.md#get-all-messages) |
 | `ResourceBlockUpdated` | A [Resource block](../operations/resourceblocks.md#resource-block) was updated. | [Entity updated data](#entity-updated-data) | [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) |

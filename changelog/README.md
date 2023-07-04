@@ -3,16 +3,26 @@
 ## 4th July 2023
 
 * Extended [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06) and [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) response with `StartUtc`, `EndUtc` and `AccountType`.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) with `SettlementUtc` filter.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) response with `SettlementUtc` and `AccountType` parameter.
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter and response with `LinkedUtc` field.
+
+## 29th June 2023
+
+* Documentation-only changes to add clarity around endpoint versioning. The deprecated version of `Get all reservations` is now called [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) and the new version is called [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06). All relevant links have been updated.
 
 ## 26th June 2023
 
+* Enabled Portfolio Access Tokens for the following operations:
+  * [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
+  * [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
 * Enabled Portfolio Access Tokens for [Get rate pricing](../operations/rates.md#get-rate-pricing).
 
 ## 23rd June 2023
 
-* Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06).
+* Added operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
 * Added operation [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders).
-* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) should be used instead.
+* Deprecated operation [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12). Operation [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-ver-2023-06-06) should be used instead.
 * Deprecated operation [Get all reservation items](../operations/reservations.md#get-all-reservation-items). Operation [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
 
 ## 21st June 2023

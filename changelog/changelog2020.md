@@ -15,7 +15,7 @@
 * Added operation [Update service availability](../operations/services.md#update-service-availability).
 
 ## 29th September 2020
-* Replaced `Gender` property with `Sex` for operations [Add customer](../operations/customers.md#add-customer), [Update customer](../operations/customers.md#update-customer), [Get all customers](../operations/customers.md#get-all-customer), [Search customers](../operations/customers.md#search-customers) and [Get all reservations](../operations/reservations.md#get-all-reservations) and all other usages.
+* Replaced `Gender` property with `Sex` for operations [Add customer](../operations/customers.md#add-customer), [Update customer](../operations/customers.md#update-customer), [Get all customers](../operations/customers.md#get-all-customer), [Search customers](../operations/customers.md#search-customers) and [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) and all other usages.
 
 ## 24th September 2020
 
@@ -61,7 +61,7 @@
 * Extended operations [Get all products](../operations/products.md#get-all-products) with property `ExternalName`.
 * Extended operations [Add customer](../operations/customers.md#add-customer) and [Update customer](../operations/customers.md#update-customer) with optional parameters `ItalianFiscalCode` and `ItalianDestinationCode`.
 * Removed value of [Tax rate](../operations/taxations.md#tax-rate).
-* Fixed filtering by `ReservationIds` in [Get all reservations](../operations/reservations.md#get-all-reservations) operation.
+* Fixed filtering by `ReservationIds` in [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) operation.
 
 ## 2nd July 2020
 
@@ -83,8 +83,8 @@ However we'd like to ask you to update your clients as soon as possible, we're n
 * Added [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) that is replacing Get all space blocks.
 * Added [Add resource blocks](../operations/resourceblocks.md#add-resource-block) that is replacing Add space block.
 * Added [Delete resource blocks](../operations/resourceblocks.md#delete-resource-blocks) that is replacing Delete space blocks.
-* Extended [Get all reservations](../operations/reservations.md#get-all-reservations) parameters with required `ServiceIds` and `AssignedResourceIds` that is replacing `SpaceIds`.
-* Extended [Get all reservations](../operations/reservations.md#get-all-reservations) response with `Resources`, `ResourceCategories` that is replacing `Spaces`, `SpaceCategories` and `ResourceCategoryAssignments`.
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) parameters with required `ServiceIds` and `AssignedResourceIds` that is replacing `SpaceIds`.
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response with `Resources`, `ResourceCategories` that is replacing `Spaces`, `SpaceCategories` and `ResourceCategoryAssignments`.
 * Extended [Reservation extent](../operations/reservations.md#reservation-extent) with `ResourceCategories`, `ResourceCategoryAssignments` and `Resources` that is replacing the `Spaces`.
 * Extended [Reservation](../operations/reservations.md#reservation) with `AssignedResourceId` and `AssignedResourceLocked` that is replacing `AssignedSpaceId` and `AssignedSpaceLocked`.
 * Extended [Update reservation](../operations/reservations.md#update-reservation) parameters with `AssignedResourceId` that is replacing Update reservation space.
@@ -107,7 +107,7 @@ However we'd like to ask you to update your clients as soon as possible, we're n
 ## 6th June 2020
 
 * Extended [Add restrictions](../operations/restrictions.md#add-restrictions) and [Get all restrictions](../operations/restrictions.md#get-all-restrictions) parameters with `ExternalIdentifier`.
-* Extended [Get all reservations](../operations/reservations.md#get-all-reservations) parameters with `ReservationIds`, `GroupIds`, `CustomerIds`, `SpaceIds`, `RateIds`, `BusinessSegmentIds` and `Numbers`. 
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) parameters with `ReservationIds`, `GroupIds`, `CustomerIds`, `SpaceIds`, `RateIds`, `BusinessSegmentIds` and `Numbers`. 
 * Updated [Add reservations](../operations/reservations.md#add-reservations), [Update reservation](../operations/reservations.md#update-reservation), [Confirm reservation](../operations/reservations.md#confirm-reservation) and [Cancel reservation](../operations/reservations.md#cancel-reservation) by allowing an array of reservations to be specified in each request.
 * Extended [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments) with new `Discriminator` to allow both `Flat` and `Relative` [Tax rate strategy](../operations/taxations.md#tax-rate-strategy).
 * Extents changed from optional to required for [Space extent](../operations/resources.md#space-extent), [Accounting item extent](../operations/accountingitems.md#accounting-item-extent), [Bill extent](../operations/bills.md#bill-extent), [Rate extent](../operations/rates.md#rate-extent) and [Companionship extent](../operations/companionships.md#companionship-extent).    
