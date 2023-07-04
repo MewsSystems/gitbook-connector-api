@@ -18,37 +18,37 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| `reservations/getAll` | Replaced by [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) | 23 June 2023 | 23 June 2024 |
-| `reservations/getAllItems` | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 23 June 2023 | 23 June 2024 |
-| `accountingItems/getAll` | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 April 2023 | 19 April 2024 |
-| `companies/getAllByName` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
-| `customers/merge` | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 01 Dec 2023 |
-| `bills/getAllByIds` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
-| `bills/getAllByCustomers` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
-| `bills/getAllClosed` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
-| `creditCards/getAllByIds` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | 01 Jan 2020 | - |
-| `creditCards/getAllByCustomers` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | 01 Jan 2020 | - |
-| `reservations/getAllByIds` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | 01 Jan 2020 | - |
-| `reservations/getAllByCustomers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | 01 Jan 2020 | - |
-| `reservations/getAllByNumbers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations) | 01 Jan 2020 | - |
-| `customers/getAllByIds` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
-| `customers/getAllByEmails` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
-| `customers/getAllByName` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
+| [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 23 Jun 2024 |
+| [Get all reservation items](../operations/reservations.md#get-all-reservation-items) | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 23 Jun 2023 | 23 Jun 2024 |
+| [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 Apr 2023 | 19 Apr 2024 |
+| [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 01 Dec 2023 |
+| `Get all companies by name` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
+| `Get all bills by Id` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
+| `Get all bills by customer` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
+| `Get all closed bills` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
+| `Get all credit cards by Id` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | 01 Jan 2020 | - |
+| `Get all credit cards by customer` | Replaced by [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | 01 Jan 2020 | - |
+| `Get all reservations by Id` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) | 01 Jan 2020 | - |
+| `Get all reservations by customer` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) | 01 Jan 2020 | - |
+| `Get all reservations by numbers` | Replaced by [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) | 01 Jan 2020 | - |
+| `Get all customers by Ids` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
+| `Get all customers by emails` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
+| `Get all customers by name` | Replaced by [Get all customers](../operations/customers.md#get-all-customers) | 01 Jan 2020 | - |
 
 ## Deprecated properties
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters`<br>in [Get all counters](../operations/counters.md#get-all-counters) | Replaced by `Counters` | 21 June 2023 | 21 Dec 2023 |
+| `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters`<br>in [Get all counters](../operations/counters.md#get-all-counters) | Replaced by `Counters` | 21 Jun 2023 | 21 Dec 2023 |
 | `CustomerId`<br>in [Add external payment](../operations/payments.md#add-external-payment) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
 | `CustomerId`<br>in [Add order](../operations/orders.md#add-order) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
 | `CustomerId` in [Bill](../operations/bills.md#bill) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
 | Extent `ResourceCategories`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) instead | 23 May 2023 | 23 May 2024 |
 | `Address` in [Enterprise](../operations/configuration.md#enterprise) | Replaced by `AddressId` | 17 Apr 2023 | 17 Oct 2023 |
-| `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 April 2023 | 11 Oct 2023 
+| `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 Apr 2023 | 11 Oct 2023 
 | `AssigneeData` in [Get all bills ](../operations/bills.md#get-all-bills) | Replaced by [Owner data](../operations/bills.md#bill-owner-data) | 20 Feb 2023 | 20 Feb 2024 |
 | `ItalianFiscalCode`, `ItalianLotteryCode` <br>in [Get all bills](../operations/bills.md#response) | Retrievable in LegalIdentifiers [Bill customer data](../operations/bills.md#bill-customer-data) | 20 Feb 2023 | 20 Feb 2024 |
-| `Address`<br>in [Company](../operations/companies.md#company) | Replaced by `AddressId` | 18 Jan 2023 | 18 July 2023 |
+| `Address`<br>in [Company](../operations/companies.md#company) | Replaced by `AddressId` | 18 Jan 2023 | 18 Jul 2023 |
 | `BasePrices`<br>in [Get rate pricing](../operations/rates.md#get-rate-pricing) | Replaced by `BaseAmountPrices` | 18 Jan 2023 | 18 Jul 2023 |
 | `Prices`<br>in [Resource category pricing](../operations/rates.md#resource-category-pricing) | Replaced by `AmountPrices` | 18 Jan 2023 | 18 Jul 2023 |
 | `Entities`<br>in [General webhook request body](../webhooks/wh-general.md#request-body) | Fetch data per corresponding [Event discriminator](../webhooks/wh-general.md#event-discriminator) | 23 Aug 2022 | - |
@@ -95,7 +95,7 @@ The table columns have the following meanings:
 * [Update customer](../operations/customers.md#update-customer)
 * [Get all customers](../operations/customers.md#get-all-customer)
 * [Search customers](../operations/customers.md#search-customers)
-* [Get all reservations](../operations/reservations.md#get-all-reservations)
+* [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
 
 ## Deprecated functionality
 

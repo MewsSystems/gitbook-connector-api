@@ -14,7 +14,7 @@ The [Get all accounting categories](../operations/accountingcategories.md#get-al
 Guest technology integrations require information on changes to [reservation state](../operations/reservations.md#reservation-state).
 Rather than polling the Mews API for state changes, it is better to subscribe to notification events using [Webhooks](../webhooks/README.md) or [WebSockets](../websockets/README.md).
 Both methods support changes to reservations. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md).
-Once a reservation update event is received, use the reservation ID in a [Get all reservations](../operations/reservations.md#get-all-reservations) request to retrieve all information about the reservation and customer.
+Once a reservation update event is received, use the reservation ID in a [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request to retrieve all information about the reservation and customer.
 
 > Note: The customer classification `Cashlist` is used when charges cannot be sent to the customer bill. This is commonly known as ‘No Post’.
 
