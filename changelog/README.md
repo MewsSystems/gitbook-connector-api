@@ -2,6 +2,8 @@
 
 ## 4th July 2023
 
+* Extended [Get all payments](../operations/payments.md#get-all-payments) with `SettlementUtc` filter.
+* Extended [Get all payments](../operations/payments.md#get-all-payments) response with `SettlementUtc` and `AccountType` parameter.
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) with `LinkedUtc` filter and response with `LinkedUtc` field.
 
 ## 29th June 2023
