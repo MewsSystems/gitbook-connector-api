@@ -65,9 +65,8 @@ If you are receiving `429 Too Many Requests` errors, then we would also recommen
 ## Request timeouts
 
 In rare circumstances, you may receive a `408 Request Timeout` response if the request puts a large demand on the system and we are unable to prepare the data within a reasonable timeframe.
-There are numerous scenarios in which that might occur, the most common of which are related to [Get all reservations](../operations/reservations.md#get-all-reservations).
-There can be a large number of reservations on the system, they can carry a lot of information, and the greater the use of [Reservation extent](../operations/reservations.md#reservation-extent) then the more workload is put on the system to prepare the response data.
-You should be prepared to receive this error response and have a mitigation solution in place.
+There are numerous scenarios in which that might occur, the most common of which are related to [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
+There can be a large number of reservations on the system, and they can carry a lot of information. You should be prepared to receive this error response and have a mitigation solution in place.
 
 What should you do if you receive a 408 error? The error indicates that the load required to prepare the response is too great, so the best solution is to lessen the load.
 If you are asking for reservations over a period of time, instead make multiple requests over shorter periods of time.

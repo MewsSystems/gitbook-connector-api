@@ -101,7 +101,7 @@ If the integration is configured to receive reservation updates, it will receive
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | string `Reservation` | required | Type of the event. |
-| `Id` | string | required | Unique identifier of the [Reservation](../operations/reservations.md#reservation). |
+| `Id` | string | required | Unique identifier of the reservation. |
 | `State` | string [Reservation state](../operations/reservations.md#reservation-state) | required | State of the reservation. |
 | `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
