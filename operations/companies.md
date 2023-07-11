@@ -242,7 +242,7 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../gu
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `Name` | string | required | Name of the company. |
 | `Options` | [Company options parameters](#company-options-parameters) | required | Options of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
