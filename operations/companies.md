@@ -277,9 +277,7 @@ Same structure as in [Get all companies](#get-all-companies) operation.
 
 ## Update company
 
-Updates information of the company.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information of the company. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
