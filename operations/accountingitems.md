@@ -401,7 +401,7 @@ Updates specified accounting items. Allows to change to which account or bill th
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `AccountingItemUpdates` | array of [Accounting item update](#accounting-item-update) | required | List of requested updates. |
 
 #### Accounting item update

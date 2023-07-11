@@ -134,7 +134,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `LoyaltyPrograms` | array of [Loyalty program parameters](#loyalty-program-parameters) | required, max 1000 items | Loyalty programs to be added. |
 
 #### Loyalty program parameters
@@ -204,7 +204,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `LoyaltyProgramUpdates` | array of [Loyalty program update parameters](#loyalty-program-update-parameters) | required, max 1000 items | Loyalty programs to be updated. |
 
 #### Loyalty program update parameters

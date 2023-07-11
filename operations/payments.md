@@ -97,7 +97,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |

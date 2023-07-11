@@ -917,7 +917,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
 | `CheckRateApplicability ` | bool | optional | Indicates whether the system will check and prevent a booking being made using a restricted rate, e.g. a private rate. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
 | `CheckOverbooking` | bool | optional | Indicates whether the system will check and prevent a booking being made in the case of an overbooking, i.e. where there is an insufficient number of resources available to meet the request<sup>\*1</sup>. The default is `true`, i.e. the system will normally check for this unless the property is set to `false`. |
@@ -1033,7 +1033,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to start. |
 
 ### Response
@@ -1079,7 +1079,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to process. |
 | `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
 | `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
@@ -1120,7 +1120,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required | Unique identifiers of the [Reservations](#reservation) to cancel. |
 | `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |

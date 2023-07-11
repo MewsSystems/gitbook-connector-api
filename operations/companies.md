@@ -354,7 +354,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `CompanyId` | string | required | Unique identifier of the [Company](#company). |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
 | `Options` | [Options update value](#company-options-update-value) | optional | Options of the company. |

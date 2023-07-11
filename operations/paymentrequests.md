@@ -157,7 +157,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `PaymentRequests` | array of [Payment request parameters](#payment-request-parameters) | required, max 1000 items | Payment requests to be added. |
 
 #### Payment request parameters

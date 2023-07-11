@@ -126,7 +126,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `LoyaltyTiers` | array of [Loyalty tier parameters](#loyalty-tier-parameters) | required, max 1000 items | Loyalty tiers to be added. |
 
 #### Loyalty tier parameters

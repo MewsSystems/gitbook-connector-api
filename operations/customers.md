@@ -468,7 +468,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `OverwriteExisting` | bool | required | Whether an existing customer should be overwritten in case of duplicity. This applies only to basic personal information \(`Title`, `FirstName`, `LastName`, ...\). |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
@@ -558,7 +558,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](#customer). |
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |

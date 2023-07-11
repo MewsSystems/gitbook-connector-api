@@ -217,7 +217,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `LoyaltyMemberships` | array of [Loyalty membership parameters](#loyalty-membership-parameters) | required, max 1000 items | Loyalty memberships to be added. |
 
 #### Loyalty membership parameters
@@ -302,7 +302,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `LoyaltyMembershipUpdates` | array of [Loyalty membership update parameters](#loyalty-membership-update-parameters) | required, max 1000 items | Loyalty memberships to be updated. |
 
 #### Loyalty membership update parameters

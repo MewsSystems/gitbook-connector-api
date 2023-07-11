@@ -323,7 +323,7 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `Bills` | array of [Bill parameters](#bill-parameters) | required, max 1000 items | Information about bills to be created. |
 
 #### Bill parameters
