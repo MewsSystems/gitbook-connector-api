@@ -2,47 +2,49 @@
 
 ## 11th July 2023
 
-* Enabled Portfolio Access Tokens for following operations:
-  * [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs).
-  * [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs).
-  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships).
-  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships).
-  * [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers).
-  * [Add addresses](../operations/addresses.md#add-addresses).
-  * [Update addresses](../operations/addresses.md#update-addresses).
-  * [Add external payment](../operations/payments.md#add-external-payment).
-  * [Update reservations](../operations/reservations.md#update-reservations).
-  * [Start reservation](../operations/reservations.md#start-reservation).
-  * [Process reservation](../operations/reservations.md#process-reservation).
-  * [Cancel reservation](../operations/reservations.md#cancel-reservation).
-  * [Update accounting items](../operations/accountingitems.md#update-accounting-items).
-  * [Add bill](../operations/bills.md#add-bill).
-  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests).
-  * [Add customer](../operations/customers.md#add-customer).
-  * [Update customer](../operations/customers.md#update-customer).
-  * [Add company](../operations/companies.md#add-company).
-  * [Update company](../operations/companies.md#update-company).
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs)
+  * [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs)
+  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+  * [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers)
+  * [Add addresses](../operations/addresses.md#add-addresses)
+  * [Update addresses](../operations/addresses.md#update-addresses)
+  * [Add external payment](../operations/payments.md#add-external-payment)
+  * [Update reservations](../operations/reservations.md#update-reservations)
+  * [Start reservation](../operations/reservations.md#start-reservation)
+  * [Process reservation](../operations/reservations.md#process-reservation)
+  * [Cancel reservation](../operations/reservations.md#cancel-reservation)
+  * [Update accounting items](../operations/accountingitems.md#update-accounting-items)
+  * [Add bill](../operations/bills.md#add-bill)
+  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests)
+  * [Add customer](../operations/customers.md#add-customer)
+  * [Update customer](../operations/customers.md#update-customer)
+  * [Add company](../operations/companies.md#add-company)
+  * [Update company](../operations/companies.md#update-company)
 
-* Extended requests for following endpoints:
-  * [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) with `ChainId` parameter.
-  * [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs) with `ChainId` parameter.
-  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) with `ChainId` parameter.
-  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) with `ChainId` parameter.
-  * [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers) with `ChainId` parameter.
-  * [Add addresses](../operations/addresses.md#add-addresses) with `ChainId` parameter.
-  * [Update addresses](../operations/addresses.md#update-addresses) with `ChainId` parameter.
-  * [Add external payment](../operations/payments.md#add-external-payment) with `EnterpriseId` parameter.
-  * [Update reservations](../operations/reservations.md#update-reservations) with `EnterpriseId` parameter.
-  * [Start reservation](../operations/reservations.md#start-reservation) with `EnterpriseId` parameter.
-  * [Process reservation](../operations/reservations.md#process-reservation) with `EnterpriseId` parameter.
-  * [Cancel reservation](../operations/reservations.md#cancel-reservation) with `EnterpriseId` parameter.
-  * [Update accounting items](../operations/accountingitems.md#update-accounting-items) with `EnterpriseId` parameter.
-  * [Add bill](../operations/bills.md#add-bill) with `EnterpriseId` parameter.
-  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests) with `EnterpriseId` parameter.
-  * [Add customer](../operations/customers.md#add-customer) with `ChainId` parameter.
-  * [Update customer](../operations/customers.md#update-customer) with `ChainId` parameter.
-  * [Add company](../operations/companies.md#add-company) with `ChainId` parameter.
-  * [Update company](../operations/companies.md#update-company) with `ChainId` parameter.
+* Extended the following operations by adding `ChainId` to the request parameters:
+  * [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs)
+  * [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs)
+  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+  * [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers)
+  * [Add addresses](../operations/addresses.md#add-addresses)
+  * [Update addresses](../operations/addresses.md#update-addresses)
+  * [Add customer](../operations/customers.md#add-customer)
+  * [Update customer](../operations/customers.md#update-customer)
+  * [Add company](../operations/companies.md#add-company)
+  * [Update company](../operations/companies.md#update-company)
+ 
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Add external payment](../operations/payments.md#add-external-payment)
+  * [Update reservations](../operations/reservations.md#update-reservations)
+  * [Start reservation](../operations/reservations.md#start-reservation)
+  * [Process reservation](../operations/reservations.md#process-reservation)
+  * [Cancel reservation](../operations/reservations.md#cancel-reservation)
+  * [Update accounting items](../operations/accountingitems.md#update-accounting-items)
+  * [Add bill](../operations/bills.md#add-bill)
+  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests)
 
 ## 26th June 2023
 
