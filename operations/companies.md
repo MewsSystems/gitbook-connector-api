@@ -196,9 +196,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add company
 
-Adds a new company to the chain.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new company to the specified chain. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
