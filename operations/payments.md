@@ -238,7 +238,11 @@ Returns all payments in the system, filtered by various parameters. At least one
     "ClosedUtc": {
         "StartUtc": "2023-03-01T00:00:00Z",
         "EndUtc": "2023-03-31T00:00:00Z"
-    },    
+    },
+    "SettlementUtc": {
+        "StartUtc": "2023-03-01T00:00:00Z",
+        "EndUtc": "2023-03-31T00:00:00Z"
+    },
     "AccountingStates": [
         "Closed",
         "Open"
@@ -268,6 +272,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
 | `ChargedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was closed. Required if no other filter is provided. |
+| `SettlementUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Payments](#payment) were settled. |
 | `AccountingStates` | array of string [Accounting state](#accounting-item-state) | optional | Accounting state of the item. |
 | `States` | array of string [Payment state](#payment-state) | optional | Payment state of the item. | |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
@@ -283,6 +288,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "Id": "f6313945-94c1-4e27-b402-031c2a8c989f",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
+            "AccountType" : "Company",
             "BillId": "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
             "AccountingCategoryId": null,
             "Amount": {
@@ -340,6 +346,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "AccountId": "4ce18db7-3444-460a-b8af-afb900c92864",
+            "AccountType" : "Customer",
             "BillId": "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4",
             "AccountingCategoryId": null,
             "Amount": {
@@ -402,6 +409,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Id` | string | required | Unique identifier of the payment. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
+| `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the payment is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the payment belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Payment's amount, negative amount represents either rebate or a payment. |
@@ -413,6 +421,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `ChargedUtc` | string | optional | Charged date and time of the payment in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the payment created in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the payment in UTC timezone in ISO 8601 format. |
+| `SettlementUtc` | string | required | Date and time of the payment settlement in UTC timezone in ISO 8601 format. |
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the payment. |
 | `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
 | `Identifier` | string | optional | Additional unique identifier of the payment. |

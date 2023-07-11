@@ -46,7 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `CompanionshipIds` | array of string | optional, max 1000 items | Unique identifiers of [Companionship](#companionship). |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of [Customers](customers.md#customer). |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservations](reservations.md#reservation). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of reservations. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Companionship](#companionship) was updated. |
 | `Extent` | [Companionship extent](#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
@@ -83,7 +83,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Companionships` | array of [Companionship](#companionship) | required | Companionships. |
 | `Customers` | array of [Customer](customers.md#customer) | optional | Customers that belong to the companionships. |
-| `Reservations` | array of [Reservation](reservations.md#reservation) | optional | The accompanied reservations. |
+| `Reservations` | array of [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | The accompanied reservations. |
 | `ReservationGroups` | array of [Reservation group](reservations.md#reservation-group) | optional | The accompanied reservation groups. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
@@ -93,5 +93,5 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of [Companionship](#companionship). |
 | `CustomerId` | string | required | Unique identifier of [Customer](customers.md#customer). |
-| `ReservationId` | string | optional | Unique identifier of [Reservation](reservations.md#reservation). |
+| `ReservationId` | string | optional | Unique identifier of reservation. |
 | `ReservationGroupId` | string | required | Unique identifier of [Reservation group](reservations.md#reservation-group). |

@@ -2,7 +2,7 @@
 
 ## Get all product service orders
 
-Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md)..
 
 ### Request
 
@@ -37,10 +37,10 @@ Returns all product service orders orders associated with the given enterprise. 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
-| `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](serviceorders.md#product-service-order). |
+| `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](#product-service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of product service order states to filter by. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](serviceorders.md#product-service-order) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](#product-service-order) were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -52,9 +52,12 @@ Returns all product service orders orders associated with the given enterprise. 
             "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",            
             "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
             "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+            "AccountType": "Customer",
             "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+            "StartUtc": "2023-04-23T14:00:00Z",
+            "EndUtc": "2023-04-24T14:00:00Z",
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
@@ -88,8 +91,11 @@ Returns all product service orders orders associated with the given enterprise. 
 | `Id` | string | required | Unique identifier of the product service order. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that product service order is made againts. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the product service order. |
+| `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
+| `StartUtc` | string | required | Product service order start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | Product service order end in UTC timezone in ISO 8601 format. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the service order was made. |
 | `Number` | string | required | Confirmation number of the service order in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the product service order. |

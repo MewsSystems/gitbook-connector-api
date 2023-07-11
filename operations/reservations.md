@@ -1,9 +1,226 @@
 # Reservations
 
-## ~~Get all reservations~~
+## Get all reservations (ver 2023-06-06)
+
+Returns all reservations within scope of the Access Token, filtered according to the specified parameters. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/getAll/2023-06-06`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ReservationIds": [
+        "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+    ],
+    "ServiceIds": [
+        "ae8da28c-e8a4-4141-9df0-8c998976c691",
+        "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
+    ],
+    "AccountIds": [
+        "94843f6f-3be3-481b-a1c7-06458774c3df"
+    ],
+    "UpdatedUtc": {
+      "StartUtc": "2023-04-01T00:00:00Z",
+       "EndUtc": "2023-05-05T00:00:00Z"
+    },
+    "Limitation":{
+        "Cursor": "819e3435-7d5e-441f-bc68-76d89c69b8f5", 
+        "Count": 10
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](#reservation-ver-2023-06-06). |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
+| `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-ver-2023-06-06) were updated. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-ver-2023-06-06) are active. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+
+### Response
+
+```javascript
+{
+    "Reservations": [
+        {
+            "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
+            "EnterpriseId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
+            "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+            "AccountType": "Customer",
+            "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+            "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+            "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+            "StartUtc": "2023-04-23T14:00:00Z",
+            "EndUtc": "2023-04-24T14:00:00Z",
+            "Number": "52",
+            "State": "Confirmed",
+            "Origin": "Connector",
+            "OriginDetails": null,
+            "CreatedUtc": "2023-04-23T14:58:02Z",
+            "UpdatedUtc": "2023-04-23T14:58:02Z",
+            "CancelledUtc": null,
+            "VoucherId": null,
+            "BusinessSegmentId": null,
+            "Options": {
+                "OwnerCheckedIn": true,
+                "AllCompanionsCheckedIn": true,
+                "AnyCompanionCheckedIn": true,
+                "ConnectorCheckIn": true
+            }
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "CreditCardId": null,
+            "GroupId": null,
+            "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714"
+            "AvailabilityBlockId": null,
+            "PartnerCompanyId": null,
+            "TravelAgencyId": null,
+            "AssignedResourceLocked": false,
+            "ChannelNumber": "TW48ZP",
+            "ChannelManager": "",
+            "Purpose": "Leisure",
+            "UpdatedUtc": "2023-04-23T14:58:02Z",            
+            "PersonCounts": [
+                {
+                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                    "Count": 2
+                },
+                {
+                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                    "Count": 2
+                }
+            ]
+        }
+    ],
+    "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Reservations` | array of [Reservations](#reservation-ver-2023-06-06) | required | The reservations of the enterprise. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
+
+#### Reservation (ver 2023-06-06)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the reservation. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that reservation is made againts. |
+| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the reservation. |
+| `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
+| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
+| `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
+| `Number` | string | required | Confirmation number of the reservation in Mews. |
+| `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
+| `Origin` | string [Service order origin](#service-order-origin) | required | Origin of the reservation. |
+| `OriginDetails`| string | optional | Details about the reservation [Origin](#service-order-origin). |
+| `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
+| `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
+| `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create reservation. |
+| `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment). |
+| `RateId` | string | required | Identifier of the reservation [Rate](rates.md#rate). |
+| `CreditCardId` | string | optional | Unique identifier of the [Credit card](creditcards.md#credit-card). |
+| `GroupId` | string | required | Unique identifier of the [Reservation group](#reservation-group). |
+| `RequestedResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
+| `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](resources.md#resource). |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
+| `CompanyId` | string | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made. |
+| `TravelAgencyId` | string | optional | Identifier of the [Company](companies.md#company) that mediated the reservation. | 
+| `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](resources.md#resource) and cannot be moved. |
+| `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
+| `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
+| `CancellationReason` | string [Cancellation reason](#reservation-cancellation-reason) | optional | Cancellation reason of the reservation. |
+| `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
+| `Purpose` | string [Reservation purpose](#reservation-purpose) | optional | Purpose of the reservation. |
+| `Options` | string [Service order options](serviceorders.md#service-order-options) | optional | Options of the reservations. |
+| `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the reservation was booked for. |
+
+#### Person count
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AgeCategoryId` | string | required | Unique identifier of the [Age category](agecategories.md#age-category). |
+| `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
+
+#### Reservation state
+
+* `Enquired` - Confirmed neither by the customer nor enterprise.
+* `Requested` - Confirmed by the customer but not by the enterprise \(waitlist\).
+* `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding resource for the guest\).
+* `Confirmed` - Confirmed by both parties, before check-in.
+* `Started` - Checked in.
+* `Processed` - Checked out.
+* `Canceled` - Canceled.
+
+#### Reservation origin
+
+* `Distributor` - Reservation from the Mews Booking Engine or Booking Engine API
+* `ChannelManager` - Reservation from a channel integration
+* `Commander` - Reservation from Mews Operations
+* `Import` - Reservation from an import process
+* `Connector` - Reservation from the Mews Connector API
+* `Navigator` - Reservation from Mews Guest Services
+* ...
+
+#### Reservation purpose
+
+* `Leisure`
+* `Business`
+* `Student`
+* ...
+
+#### Reservation group
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the reservation group. |
+| `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
+
+#### Order note
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the note. |
+| `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation-ver-2023-06-06). |
+| `Text` | string | required | Value of the note. |
+| `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
+| `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
+
+#### Order note type
+
+* `General`
+* `ChannelManager`
+* ...
+
+#### QrCode data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `Data` | string | required | Reservation data for QR code generation. |
+
+## ~~Get all reservations (ver 2017-04-12)~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md), please use [Get all reservations 2023-06-06](../operations/reservations.md#get-all-reservations-2023-06-06) instead.
+> This operation is [deprecated](../deprecations/README.md), please use [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
 
 Returns all reservations specified by any identifier, customer or other filter. At least one filter must be present. Note this operation uses [Pagination](../guidelines/pagination.md).
 
@@ -57,14 +274,14 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `StartUtc` | string | optional, max length 3 months | Start of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the `TimeFilter` or `States` search parameter.|
 | `EndUtc` | string | optional, max length 3 months | End of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the `TimeFilter` or `States` search parameter.|
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the reservations are requested. |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservations](#reservation). |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservations](#reservation-ver-2017-04-12). |
 | `GroupIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Reservation groups](#reservation-group). |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer) which own the reservations. |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of [Resources](resources.md#resource) assigned to the reservations. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate) assigned to the reservations. |
 | `ChannelNumbers` | array of string | optional, max 1000 items | Set of numbers or references used by the Channel \(i.e. OTA, GDS, CRS, etc.\) in case the reservation group originates there, e.g. Booking.com confirmation numbers. |
 | `BusinessSegmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Business segments](businesssegments.md#business-segment) assigned to the reservations. |
-| `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](#reservation). |
+| `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](#reservation-ver-2017-04-12). |
 | `States` | array of string [Reservation state](#reservation-state) | optional | States the reservations should be in. If not specified, reservations in `Confirmed`, `Started` or `Processed` states or reservations specified by `ReservationIds` regardless of state are returned. |
 | `Extent` | [Reservation extent](#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
@@ -203,7 +420,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `RateGroups` | array of [Rate group](rates.md#rate-group) | optional | Rate groups of the reservation rates. |
 | `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
 | `ReservationGroups` | array of [Reservation group](#reservation-group) | optional | Reservation groups that the reservations are members of. |
-| `Reservations` | array of [Reservation](#reservation) | optional | The reservations that collide with the specified interval. |
+| `Reservations` | array of [Reservation](#reservation-ver-2017-04-12) | optional | The reservations that collide with the specified interval. |
 | `Services` | array of [Service](services.md#service) | optional | Services that have been reserved. |
 | `Resources` | array of [Resource](resources.md#resource) | optional | Assigned resources of the reservations. |
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
@@ -212,7 +429,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `QrCodeData` | array of [QrCode data](#qrcode-data) | optional | QR code data of the reservations. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest reservation returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older reservations. |
 
-#### Reservation
+#### Reservation (ver 2017-04-12)
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -226,7 +443,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `ChannelManager` | string | optional | Name of the Channel manager \(e.g. AvailPro, SiteMinder, TravelClick, etc\). |
 | `State` | string [Reservation state](#reservation-state) | required | State of the reservation. |
 | `Origin` | string [Reservation origin](#reservation-origin) | required | Origin of the reservation. |
-| `OriginDetail`| string | optional | Details about the reservation [origin](#reservation-origin). |
+| `OriginDetail`| string | optional | Details about the [reservation origin](#reservation-origin). |
 | `Purpose` | string [Reservation purpose](#reservation-purpose) | optional | Purpose of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
@@ -245,217 +462,6 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create reservation. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer) who owns the reservation. |
 | `PersonCounts` | array of [Age category](agecategories.md#age-category) | required | Number of people per age category the reservation was booked for. |
-
-## Get all reservations 2023-06-06
-
-Returns all reservations associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/getAll/2023-06-06`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationIds": [
-        "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
-    ],
-    "ServiceIds": [
-        "ae8da28c-e8a4-4141-9df0-8c998976c691",
-        "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
-    ],
-    "AccountIds": [
-        "94843f6f-3be3-481b-a1c7-06458774c3df"
-    ],
-    "UpdatedUtc": {
-      "StartUtc": "2023-04-01T00:00:00Z",
-       "EndUtc": "2023-05-05T00:00:00Z"
-    },
-    "Limitation":{
-        "Cursor": "819e3435-7d5e-441f-bc68-76d89c69b8f5", 
-        "Count": 10
-    }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](#reservation-2023-06-06). |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
-| `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-06) were updated. |
-| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-2023-06-06) are active. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-
-### Response
-
-```javascript
-{
-    "Reservations": [
-        {
-            "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
-            "EnterpriseId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
-            "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
-            "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
-            "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
-            "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
-            "Number": "52",
-            "State": "Confirmed",
-            "Origin": "Connector",
-            "OriginDetails": null,
-            "CreatedUtc": "2023-04-23T14:58:02Z",
-            "UpdatedUtc": "2023-04-23T14:58:02Z",
-            "CancelledUtc": null,
-            "VoucherId": null,
-            "BusinessSegmentId": null,
-            "Options": {
-                "OwnerCheckedIn": true,
-                "AllCompanionsCheckedIn": true,
-                "AnyCompanionCheckedIn": true,
-                "ConnectorCheckIn": true
-            }
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "CreditCardId": null,
-            "GroupId": null,
-            "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-            "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714"
-            "AvailabilityBlockId": null,
-            "PartnerCompanyId": null,
-            "TravelAgencyId": null,
-            "AssignedResourceLocked": false,
-            "ChannelNumber": "TW48ZP",
-            "ChannelManager": "",
-            "Purpose": "Leisure",
-            "UpdatedUtc": "2023-04-23T14:58:02Z",            
-            "PersonCounts": [
-                {
-                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
-                    "Count": 2
-                },
-                {
-                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
-                    "Count": 2
-                }
-            ]
-        }
-    ],
-    "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Reservations` | array of [Reservations](#reservation-2023-06-06) | required | The reservations of the enterprise. |
-| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-
-#### Reservation 2023-06-06
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the reservation. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that reservation is made againts. |
-| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the reservation. |
-| `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
-| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
-| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
-| `Number` | string | required | Confirmation number of the reservation in Mews. |
-| `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
-| `Origin` | string [Service order origin](#service-order-origin) | required | Origin of the reservation. |
-| `OriginDetails`| string | optional | Details about the reservation [Origin](#service-order-origin). |
-| `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
-| `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
-| `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create reservation. |
-| `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment). |
-| `RateId` | string | required | Identifier of the reservation [Rate](rates.md#rate). |
-| `CreditCardId` | string | optional | Unique identifier of the [Credit card](creditcards.md#credit-card). |
-| `GroupId` | string | required | Unique identifier of the [Reservation group](reservations.md#reservation-group). |
-| `RequestedResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](resources.md#resource). |
-| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
-| `CompanyId` | string | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made. |
-| `TravelAgencyId` | string | optional | Identifier of the [Company](companies.md#company) that mediated the reservation. | 
-| `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](resources.md#resource) and cannot be moved. |
-| `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
-| `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
-| `CancellationReason` | string [Cancellation reason](#reservation-cancellation-reason) | optional | Cancellation reason of the reservation. |
-| `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
-| `Purpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
-| `Options` | string [Service order options](serviceorders.md#service-order-options) | optional | Options of the reservations. |
-| `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the reservation was booked for. |
-
-#### Person count
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AgeCategoryId` | string | required | Unique identifier of the [Age category](agecategories.md#age-category). |
-| `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
-
-#### Reservation state
-
-* `Enquired` - Confirmed neither by the customer nor enterprise.
-* `Requested` - Confirmed by the customer but not by the enterprise \(waitlist\).
-* `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding resource for the guest\).
-* `Confirmed` - Confirmed by both parties, before check-in.
-* `Started` - Checked in.
-* `Processed` - Checked out.
-* `Canceled` - Canceled.
-
-#### Reservation origin
-
-* `Distributor` - Reservation from the Mews Booking Engine or Booking Engine API
-* `ChannelManager` - Reservation from a channel integration
-* `Commander` - Reservation from Mews Operations
-* `Import` - Reservation from an import process
-* `Connector` - Reservation from the Mews Connector API
-* `Navigator` - Reservation from Mews Guest Services
-* ...
-
-#### Reservation purpose
-
-* `Leisure`
-* `Business`
-* `Student`
-* ...
-
-#### Reservation group
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the reservation group. |
-| `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
-
-#### Order note
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the note. |
-| `OrderId` | string | required | Unique identifier of the order or [Reservation](#reservation). |
-| `Text` | string | required | Value of the note. |
-| `Type` | string [Order note type](#order-note-type) | required | Type of the note. |
-| `CreatedUtc` | string | required | Creation date and time of the note in UTC timezone in ISO 8601 format. |
-
-#### Order note type
-
-* `General`
-* `ChannelManager`
-* ...
-
-#### QrCode data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
-| `Data` | string | required | Reservation data for QR code generation. |
 
 ## ~~Get all reservation items~~
 
@@ -488,7 +494,7 @@ Returns all revenue items associated with the specified reservations.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | required, max 1000 items | Unique identifiers of the [Reservations](#reservation). |
+| `ReservationIds` | array of string | required, max 1000 items | Unique identifiers of the reservation. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `AccountingStates` | array of string [Accounting item state](accountingitems.md#Accounting-item-state) | optional | States the items should be in. If not specified, items in `Open` or `Closed` states are returned. |
 
@@ -551,7 +557,7 @@ Returns all revenue items associated with the specified reservations.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The items associated with the reservation. |
 
 ## Price reservations
@@ -811,7 +817,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `Reservation` | [Reservation](#reservation) | required | The added reservation. |
+| `Reservation` | [Reservation](#reservation-ver-2017-04-12) | required | The added reservation. |
 
 ## Update reservations
 
@@ -930,7 +936,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 #### Reservation updates
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
 | `StartUtc` | [String update value](_objects.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. \(or `null` if the start time should not be updated). |
 | `EndUtc` | [String update value](_objects.md#string-update-value) | optional | Reservation end in UTC timezone in ISO 8601 format. \(or `null` if the end time should not be updated). |
 | `AssignedResourceId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the assigned [Resource](resources.md#resource). |
@@ -995,7 +1001,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | required | Unique identifier of the [Reservations](#reservation) to confirm. |
+| `ReservationIds` | array of string | required | Unique identifier of the reservations to confirm. |
 | `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
 
 ### Response
@@ -1034,7 +1040,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to start. |
+| `ReservationId` | string | required | Unique identifier of the reservation to start. |
 
 ### Response
 
@@ -1080,7 +1086,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to process. |
+| `ReservationId` | string | required | Unique identifier of the reservation to process. |
 | `CloseBills` | bool | optional | Whether closable bills of the reservation members should be automatically closed. |
 | `AllowOpenBalance` | bool | optional | Whether non-zero consumed balance of all reservation members is allowed. |
 | `Notes` | string | optional | Required if `AllowOpenBalance` set to `true`. Used to provide reason for closing with unbalanced bill. |
@@ -1121,7 +1127,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationIds` | array of string | required | Unique identifiers of the [Reservations](#reservation) to cancel. |
+| `ReservationIds` | array of string | required | Unique identifiers of the reservation to cancel. |
 | `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |
 
@@ -1158,7 +1164,7 @@ Updates customer of a reservation.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to be updated. |
+| `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
@@ -1192,7 +1198,7 @@ Updates reservation interval \(start, end or both\).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to be updated. |
+| `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
 | `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially canceled nights. |
@@ -1226,7 +1232,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
@@ -1258,7 +1264,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
 ### Response
@@ -1300,7 +1306,7 @@ Adds a new product order of the specified product to the reservation.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation). |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `Count` | int | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
 | `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. |

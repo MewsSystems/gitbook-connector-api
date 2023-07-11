@@ -61,7 +61,7 @@
 
 ## 20th June 2018
 
-* Extended [Get all reservations](../operations/reservations.md#get-all-reservations) with possibility to retrieve notes.
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12) with possibility to retrieve notes.
 
 ## 13th June 2018
 

@@ -24,7 +24,7 @@ If they already have an existing profile but need to update their information (e
 
 ### Retrieving reservations
 
-If they already made a reservation in advance, the integration should allow them to search for their reservation by specifying any one of the identifiers possible via the [Get all reservations](../operations/reservations.md#get-all-reservations) endpoint. Please note that searching by multiple identifiers is not supported as it's too resource-heavy. Therefore a search by `ChannelNumber` for example should be done in the following manner:
+If they already made a reservation in advance, the integration should allow them to search for their reservation by specifying any one of the identifiers possible via the [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) endpoint. Please note that searching by multiple identifiers is not supported as it's too resource-heavy. Therefore a search by `ChannelNumber` for example should be done in the following manner:
 
 1. Retrieve all arrivals for the chosen day.
 2. Filter reservation by name of guest.
