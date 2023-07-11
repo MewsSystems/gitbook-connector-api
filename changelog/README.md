@@ -76,82 +76,82 @@
 * Added operation [Get all product categories](../operations/productcategories.md#get-all-product-categories) to retrieve product categories.
 
 * Enabled Portfolio Access Tokens for the following operations:
-  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
-  * [Get all addresses](../operations/addresses.md#get-all-addresses).
-  * [Get all age categories](../operations/agecategories.md#get-all-age-categories).
-  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
-  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks).
-  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments).
-  * [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies).
-  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers).
-  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions).
-  * [Get all companies](../operations/companies.md#get-all-companies).
-  * [Get all companionships](../operations/companionships.md#get-all-companionships).
-  * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts).
-  * [Get all counters](../operations/counters.md#get-all-counters).
-  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards).
-  * [Get all customers](../operations/customers.md#get-all-customers).
-  * [Get all departments](../operations/departments.md#get-all-departments).
-  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships).
-  * [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs).
-  * [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers).
-  * [Get all outlet items](../operations/outletitems.md#get-all-outlet-items).
-  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests).
-  * [Get all product categories](../operations/productcategories.md#get-all-product-categories).
-  * [Get all rates](../operations/rates.md#get-all-rates).
-  * [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups).
-  * [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens).
-  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
-  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions).
-  * [Get all resources](../operations/resources.md#get-all-resources).
-  * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules).
-  * [Get all rules](../operations/rules.md#get-all-rules).
-  * [Get all services](../operations/services.md#get-all-services).
+  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories)
+  * [Get all addresses](../operations/addresses.md#get-all-addresses)
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories)
+  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments)
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments)
+  * [Get all cancellation policies](../operations/cancellationpolicies.md#get-all-cancellation-policies)
+  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers)
+  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions)
+  * [Get all companies](../operations/companies.md#get-all-companies)
+  * [Get all companionships](../operations/companionships.md#get-all-companionships)
+  * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts)
+  * [Get all counters](../operations/counters.md#get-all-counters)
+  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards)
+  * [Get all customers](../operations/customers.md#get-all-customers)
+  * [Get all departments](../operations/departments.md#get-all-departments)
+  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
+  * [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs)
+  * [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers)
+  * [Get all outlet items](../operations/outletitems.md#get-all-outlet-items)
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
+  * [Get all product categories](../operations/productcategories.md#get-all-product-categories)
+  * [Get all rates](../operations/rates.md#get-all-rates)
+  * [Get all reservation groups](../operations/reservationgroups.md#get-all-reservation-groups)
+  * [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens)
+  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks)
+  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions)
+  * [Get all resources](../operations/resources.md#get-all-resources)
+  * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules)
+  * [Get all rules](../operations/rules.md#get-all-rules)
+  * [Get all services](../operations/services.md#get-all-services)
 
 * Added pagination to the following operations:
-  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
-  * [Get all addresses](../operations/addresses.md#get-all-addresses).
-  * [Get all age categories](../operations/agecategories.md#get-all-age-categories).
-  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments).
+  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories)
+  * [Get all addresses](../operations/addresses.md#get-all-addresses)
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories)
+  * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments)
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
-  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments).
-  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers).
-  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions).
-  * [Get all companionships](../operations/companionships.md#get-all-companionships).
-  * [Get all counters](../operations/counters.md#get-all-counters).
-  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards).
-  * [Get all departments](../operations/departments.md#get-all-departments).
-  * [Get all rates](../operations/rates.md#get-all-rates).
-  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks).
-  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions).
-  * [Get all resources](../operations/resources.md#get-all-resources).
-  * [Get all rules](../operations/rules.md#get-all-rules).
-  * [Get all services](../operations/services.md#get-all-services).
+  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments)
+  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers)
+  * [Get all cashier transactions](../operations/cashiertransactions.md#get-all-cashier-transactions)
+  * [Get all companionships](../operations/companionships.md#get-all-companionships)
+  * [Get all counters](../operations/counters.md#get-all-counters)
+  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards)
+  * [Get all departments](../operations/departments.md#get-all-departments)
+  * [Get all rates](../operations/rates.md#get-all-rates)
+  * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks)
+  * [Get all restrictions](../operations/restrictions.md#get-all-restrictions)
+  * [Get all resources](../operations/resources.md#get-all-resources)
+  * [Get all rules](../operations/rules.md#get-all-rules)
+  * [Get all services](../operations/services.md#get-all-services)
   
 * Extended response objects with `EnterpriseId` for following:
-  * [Accounting category](../operations/accountingcategories.md#accounting-category).
-  * [Age category](../operations/agecategories.md#age-category).
-  * [Cashier](../operations/cashiers.md#cashier).
-  * [Cashier transaction](../operations/cashiertransactions.md#cashier-transaction).
-  * [Counter](../operations/counters.md#counter).
-  * [Credit card](../operations/creditcards.md#credit-card).
-  * [Department](../operations/departments.md#department).
-  * [Outlet item](../operations/outletitems.md#outlet-item).
-  * [Payment request](../operations/paymentrequests.md#payment-request).
-  * [Reservation group](../operations/reservationgroups.md#reservation-group).
-  * [Resource access token](../operations/resourceaccesstokens.md#resource-access-token).
-  * [Resource block](../operations/resourceblocks.md#resource-block).
-  * [Resource](../operations/resources.md#resource).
-  * [Routing rule](../operations/routingrules.md#routing-rule).
-  * [Service](../operations/services.md#service).
+  * [Accounting category](../operations/accountingcategories.md#accounting-category)
+  * [Age category](../operations/agecategories.md#age-category)
+  * [Cashier](../operations/cashiers.md#cashier)
+  * [Cashier transaction](../operations/cashiertransactions.md#cashier-transaction)
+  * [Counter](../operations/counters.md#counter)
+  * [Credit card](../operations/creditcards.md#credit-card)
+  * [Department](../operations/departments.md#department)
+  * [Outlet item](../operations/outletitems.md#outlet-item)
+  * [Payment request](../operations/paymentrequests.md#payment-request)
+  * [Reservation group](../operations/reservationgroups.md#reservation-group)
+  * [Resource access token](../operations/resourceaccesstokens.md#resource-access-token)
+  * [Resource block](../operations/resourceblocks.md#resource-block)
+  * [Resource](../operations/resources.md#resource)
+  * [Routing rule](../operations/routingrules.md#routing-rule)
+  * [Service](../operations/services.md#service)
 
 * Extended response objects with `ChainId` for following:
-  * [Address](../operations/addresses.md#addresses).
-  * [Company](../operations/companies.md#company).
-  * [Customer](../operations/customers.md#customer).
-  * [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership).
-  * [Loyalty program](../operations/loyaltyprograms.md#loyalty-program).
-  * [Loyalty tier](../operations/loyaltytiers.md#loyalty-tier).
+  * [Address](../operations/addresses.md#addresses)
+  * [Company](../operations/companies.md#company)
+  * [Customer](../operations/customers.md#customer)
+  * [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership)
+  * [Loyalty program](../operations/loyaltyprograms.md#loyalty-program)
+  * [Loyalty tier](../operations/loyaltytiers.md#loyalty-tier)
 
 * Extended requests for following endpoints:
   * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) request with `EnterpriseIds`, `AccountingCategoryIds`, `ActivityStates` parameters.
