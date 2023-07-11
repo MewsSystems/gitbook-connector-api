@@ -298,9 +298,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 ## Add bill
 
-Creates new empty bill assigned to specified account.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
