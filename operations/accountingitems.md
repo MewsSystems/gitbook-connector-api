@@ -370,9 +370,7 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 
 ## Update accounting items
 
-Updates specified accounting items. Allows to change to which account or bill the item is assigned to.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates specified accounting items. Allows to change to which account or bill the item is assigned to. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
