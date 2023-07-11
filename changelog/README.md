@@ -1,6 +1,6 @@
 # Changelog
 
-## 28th June 2023
+## 11th July 2023
 
 * Enabled Portfolio Access Tokens for following operations:
   * [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs).
