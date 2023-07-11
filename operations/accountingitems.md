@@ -370,7 +370,7 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 
 ## Update accounting items
 
-Updates specified accounting items. Allows to change to which account or bill the item is assigned to.
+Updates specified accounting items. You can use this operation to assign an accounting item to a different account or bill. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -381,6 +381,7 @@ Updates specified accounting items. Allows to change to which account or bill th
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "AccountingItemUpdates": [
         {
             "AccountingItemId": "6c2897de-620a-4f48-af1e-ada8004202bd",
@@ -400,6 +401,7 @@ Updates specified accounting items. Allows to change to which account or bill th
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `AccountingItemUpdates` | array of [Accounting item update](#accounting-item-update) | required | List of requested updates. |
 
 #### Accounting item update

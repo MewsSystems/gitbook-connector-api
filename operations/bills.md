@@ -298,7 +298,7 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 ## Add bill
 
-Creates new empty bill assigned to specified account.
+Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -309,6 +309,7 @@ Creates new empty bill assigned to specified account.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "Bills": [
         {
             "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7"
@@ -322,6 +323,7 @@ Creates new empty bill assigned to specified account.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `Bills` | array of [Bill parameters](#bill-parameters) | required, max 1000 items | Information about bills to be created. |
 
 #### Bill parameters

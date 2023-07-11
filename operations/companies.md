@@ -196,7 +196,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add company
 
-Adds a new company to the enterprise.
+Adds a new company. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -207,6 +207,7 @@ Adds a new company to the enterprise.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "Name": "Mews",
     "Options": {
         "Invoiceable": true,
@@ -241,6 +242,7 @@ Adds a new company to the enterprise.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `Name` | string | required | Name of the company. |
 | `Options` | [Company options parameters](#company-options-parameters) | required | Options of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
@@ -275,7 +277,7 @@ Same structure as in [Get all companies](#get-all-companies) operation.
 
 ## Update company
 
-Updates information of the company.
+Updates information of the company. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -286,6 +288,7 @@ Updates information of the company.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "CompanyId": "7a1e4d67-d6a2-4a4c-a464-ab1100bea786",
     "Name": {
         "Value": "Sample company name"
@@ -349,6 +352,7 @@ Updates information of the company.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `CompanyId` | string | required | Unique identifier of the [Company](#company). |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the company \(or `null` if the name should not be updated\). |
 | `Options` | [Options update value](#company-options-update-value) | optional | Options of the company. |

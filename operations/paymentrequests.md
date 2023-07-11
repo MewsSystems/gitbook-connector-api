@@ -121,7 +121,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add payment requests
 
-Creates a payment request to the specified [Customer](customers.md#customer).
+Creates a payment request to the specified [Customer](customers.md#customer). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -132,6 +132,7 @@ Creates a payment request to the specified [Customer](customers.md#customer).
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "PaymentRequests": [
         {
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
@@ -154,6 +155,7 @@ Creates a payment request to the specified [Customer](customers.md#customer).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `PaymentRequests` | array of [Payment request parameters](#payment-request-parameters) | required, max 1000 items | Payment requests to be added. |
 
 #### Payment request parameters

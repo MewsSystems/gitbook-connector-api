@@ -68,7 +68,7 @@ The bill can then be closed manually by a Mews user, or automatically via API wi
 
 ## Add external payment
 
-Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system.
+Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -80,6 +80,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "Amount": { 
         "Currency": "GBP",
         "GrossValue": 100
@@ -95,6 +96,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
