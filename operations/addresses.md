@@ -172,8 +172,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 
 ## Update addresses
 
-Updates one or more existing addresses in the system, assigned to specified accounts.
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
