@@ -93,7 +93,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add addresses
 
-Adds one or more new addresses to the system and assign them to specified accounts.
+Adds one or more new addresses to the system and assigns them to specified accounts.
 Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
