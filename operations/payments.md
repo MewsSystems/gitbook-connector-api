@@ -68,8 +68,7 @@ The bill can then be closed manually by a Mews user, or automatically via API wi
 
 ## Add external payment
 
-Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system.
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

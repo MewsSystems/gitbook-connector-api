@@ -183,8 +183,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add loyalty memberships
 
-Adds loyalty memberships to the enterprise.
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds loyalty memberships to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -261,8 +260,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 
 ## Update loyalty memberships
 
-Updates information about the specified loyalty memberships.
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information about the specified loyalty memberships. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

@@ -121,9 +121,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add payment requests
 
-Creates a payment request to the specified [Customer](customers.md#customer).
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates a payment request to the specified [Customer](customers.md#customer). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

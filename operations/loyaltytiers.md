@@ -97,8 +97,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add loyalty tiers
 
-Adds loyalty tiers to a loyalty program of the enterprise chain.
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds loyalty tiers to a loyalty program of the enterprise chain. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

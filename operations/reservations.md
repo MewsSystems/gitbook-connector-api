@@ -821,9 +821,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 
 ## Update reservations
 
-Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1016,9 +1014,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 
 ## Start reservation
 
-Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting conditions are met \(the reservation has the `Confirmed` state, does not have start set to future, has an inspected room assigned etc\).
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Marks a reservation as `Started` \(= checked in\). Succeeds only if all starting conditions are met \(the reservation has the `Confirmed` state, does not have start set to future, has an inspected room assigned etc\). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1050,9 +1046,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 
 ## Process reservation
 
-Marks a reservation as `Processed` \(= checked out\). Succeeds only if all processing conditions are met \(the reservation has the `Started` state, balance of all reservation members is zero etc\).
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Marks a reservation as `Processed` \(= checked out\). Succeeds only if all processing conditions are met \(the reservation has the `Started` state, balance of all reservation members is zero etc\). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Conditions
 
@@ -1099,9 +1093,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 
 ## Cancel reservation
 
-Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
