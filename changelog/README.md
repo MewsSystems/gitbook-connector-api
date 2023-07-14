@@ -1,5 +1,9 @@
 # Changelog
 
+## 14th July 2023
+
+* Added operation [Refund payment](../operations/payments.md#payment-refund).
+
 ## 11th July 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
