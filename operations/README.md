@@ -11,6 +11,15 @@ This section describes all operations supported by the API, organised here by th
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
 
+## Account notes
+
+| <div style="width:200px">Operation</div> | Description |
+| :-- | :-- |
+| [Get all account notes](accountnotes.md#get-all-account-notes) | Returns all the accounts associated with the specified accounts within the chain. |
+| [Add account notes](accountnotes.md#add-account-notes) | Adds new account notes to the system and assigns it to specified accounts. |
+| [Update account notes](accountnotes.md#update-account-notes) | Updates existing account notes. |
+| [Delete account notes](accountnotes.md#delete-account-notes) | Deletes selected account notes. |
+
 ## Configuration
 
 | <div style="width:200px">Operation</div> | Description |

@@ -1,5 +1,12 @@
 # Changelog
 
+## 17th July 2023
+
+* Added operation [Get all account notes](../operations/accountnotes.md#get-all-account-notes) to retrieve account notes.
+* Added operation [Add account notes](../operations/accountnotes.md#add-account-notes) to add account notes.
+* Added operation [Update account note](../operations/accountnotes.md#update-account-notes) to update account notes.
+* Added operation [Delete account notes](../operations/accountnotes.md#delete-account-notes) to delete account notes.
+
 ## 11th July 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
