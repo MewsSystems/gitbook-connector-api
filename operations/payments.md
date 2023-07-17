@@ -331,6 +331,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "State": "Charged",
             "Identifier": "ch_764309db-4bcd-4f2c-ad6a-1c178089deec",
             "PaymentType": "CreditCardPayment",
+            "Kind": "Payment",
             "Data": {
                 "Discriminator": "CreditCard",
                 "CreditCard": {
@@ -389,6 +390,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "State": "Charged",
             "Identifier": "",
             "Type": "CashPayment",
+            "Kind": "Payment",
             "Data": null
         }
     ],
@@ -403,7 +405,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 ## Refund payment
 
-Refunds a specified payment.
+Refunds a specified payment, only alternative or credit card payments can be refunded. For more information about refund use [Get all payments](payments.md#get-all-payments) using `RefundId`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -478,6 +480,7 @@ Refunds a specified payment.
 | `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
 | `Identifier` | string | optional | Additional unique identifier of the payment. |
 | `Type` | string [Payment type](#payment-type) | required | Payment type, e.g. whether credit card or cash. |
+| `Kind` | string [Payment kind](#payment-kind) | required | Payment kind, e.g. whether payment or refund. |
 | `Data` | object [Payment data](#payment-data) | optional | Additional payment data. |
 
 #### Payment data
@@ -552,6 +555,14 @@ Refunds a specified payment.
 * `CashPayment`
 * `InvoicePayment`
 * `ExternalPayment`
+* ...
+
+#### Payment kind
+
+* `Payment`
+* `Chargeback`
+* `ChargebackReversal`
+* `Refund`
 * ...
 
 #### External payment type
