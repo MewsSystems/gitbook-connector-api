@@ -403,7 +403,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 ## Refund payment
 
-Refunds payment.
+Refunds a specified payment.
 
 ### Request
 
@@ -428,10 +428,10 @@ Refunds payment.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `PaymentId` | string | required | Unique identifiers of specific [Payment](payments.md#payment). |
+| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
 | `Reason` | string | required | Refund reason. |
-| `ValueToRefund` | decimal | required | Refund amount. If not provided the whole payment will be refunded. |
+| `ValueToRefund` | decimal | optional | Refund amount. If not provided, the whole payment will be refunded. |
 
 ### Response
 
@@ -447,8 +447,10 @@ Refunds payment.
 }
 ```
 
-| `PaymentId` | string | required | Unique identifiers of specific [Payment](payments.md#payment). |
-| `RefundId` | string | required | Unique identifiers of refund. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
+| `RefundId` | string | required | Unique identifier of refund. |
 | `Type` | [Refund type](#refund-type) | required | Type of refund. |
 | `Amount` | [Amount](accountingitems.md#currency-value) | required | Amount that was refunded. |
 

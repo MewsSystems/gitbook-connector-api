@@ -101,7 +101,7 @@ This section describes all operations supported by the API, organised here by th
 | [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 | [Get all order items](orderitems.md#get-all-order-items) | **Restricted!** Returns all order items |
-| [Refund payment](payments.md#refund-payment) | Refunds payment. |
+| [Refund payment](payments.md#refund-payment) | Refunds payment |
 
 ## Loyalty
 

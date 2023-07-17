@@ -1,8 +1,8 @@
 # Changelog
 
-## 14th July 2023
+## 17th July 2023
 
-* Added operation [Refund payment](../operations/payments.md#payment-refund).
+* Added operation [Refund payment](../operations/payments.md#refund-payment).
 
 ## 11th July 2023
 
