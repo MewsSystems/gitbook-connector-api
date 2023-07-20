@@ -2,7 +2,7 @@
 
 ## Get all account notes
 
-Returns all account notes of an account (in the given activity state), optionally filtered by account identifiers by specific account note identifiers or other filter parameters.
+Returns all account notes of an account, optionally filtered by activity state, account identifiers, specific account note identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -46,7 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
-| `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of [Account note](#account-note). |
+| `AccountNoteIds` | array of string | optional, max 1000 items | Unique identifiers of [Account note](#account-note). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Account note](#account-note) last update date and time. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
@@ -100,7 +100,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | The account note of the account within the chain. |
+| `AccountNotes` | array of [Account note](#account-note) | required | The set of requested account notes. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Account note
@@ -199,7 +199,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
                 "Discriminator": "Integration",
                 "EnterpriseProfile": null
             }
-        },
+        }
     ],
 }
 ```
@@ -236,7 +236,7 @@ Updates information about the specified account notes.
                 "Housekeeping": {
                     "Value": false
                 }
-            },
+            }
         }
     ]
 }
@@ -254,8 +254,8 @@ Updates information about the specified account notes.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNoteId` | string | required | Unique identifier of the account note. |
-| `Content` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Content of the account note \(or `null` if the name should not be updated\). |
-| `Classifications` | [Customer note classifications update parameters](#customer-note-classifications-update-parameters), [[Company note classifications update parameters](#company-note-classifications-update-parameters)] | required | Classification of the account note |
+| `Content` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Content of the account note \(or `null` if the content should not be updated\). |
+| `Classifications` | [Customer note classifications update parameters](#customer-note-classifications-update-parameters) or [Company note classifications update parameters](#company-note-classifications-update-parameters) | required | Classification of the account note |
 
 #### Customer note classifications update parameters
 
@@ -313,7 +313,7 @@ Updates information about the specified account notes.
 
 ## Delete account notes
 
-Deletes account notes. 
+Deletes specified account notes. 
 
 ### Request
 
@@ -336,7 +336,7 @@ Deletes account notes.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `AccountNoteIds` | array of string | required, max 1000 items | Unique identifier of the account notes to be deleted. |
+| `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of the account notes to be deleted. |
 
 ### Response
 
