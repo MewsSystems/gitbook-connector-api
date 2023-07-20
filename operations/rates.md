@@ -116,10 +116,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
-| `Type` | string | required | Type of the rate (Public, Private, AvailabilityBlock, etc.) |
+| `Type` | string [Rate type](#rate-type) | required | Type of the rate (Public, Private, etc.) |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the external name of the rate. |
+| `Description` | [Localized text](_objects.md#localized-text) | required | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 
 #### Rate group
