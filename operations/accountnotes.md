@@ -1,6 +1,6 @@
-# Loyalty tiers
+# Account notes
 
-## Get all loyalty tiers
+## Get all account notes
 
 Returns all account notes of an account (in the given activity state), optionally filtered by account identifiers by specific account note identifiers or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
@@ -48,7 +48,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of [Account note](#account-note). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Loyalty tier](#loyalty-tier) last update date and time. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of [Account note](#account-note) last update date and time. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -107,14 +107,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the loyalty tier. |
+| `Id` | string | required | Unique identifier of the account note. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Content` | required | required | The content of the account note. |
 | `AccountType` | string [Account type](#account-type)| required | Specifying types of accounts provided ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)). |
-| `Classifications` | Array of string | required | Specifying the classifactions of the note bases on account type ([Customer note classification](#customer-note-classifications)), [Company note classifications](#company-note-classifications). |
+| `Classifications` | array of string | required | Specifying the classifactions of the note based on account type ([Customer note classification](#customer-note-classifications), [Company note classifications](#company-note-classifications)). |
 | `IsActive` | boolean | required | Whether the account note is till active. |
-| `CreatorProfile` | [Profile data](#profile-data) | required | The profile data of the user who created the loyalty membership. |
-| `UpdaterProfile` | [Profile data](#profile-data) | required | The profile data of the user who updated the loyalty membership. |
+| `CreatorProfile` | [Profile data](#profile-data) | required | The profile data of the user who created the account note. |
+| `UpdaterProfile` | [Profile data](#profile-data) | required | The profile data of the user who updated the account note. |
 
 #### Customer note classifications
 
@@ -155,9 +155,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
         {
             "AccountId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
             "Content": "Brother of the CEO",
-            "Classifications": {
-                "FamilyRelations": true
-            }
+            "Classifications": ["FamilyRelations"]
         }
     ]
 }
@@ -177,30 +175,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required | Unique identifier of the account ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)) the account note belongs to. |
 | `Content` | string | required, max length 1000 characters | Content of the account note. |
-| `Classifications` | [Customer note classifications](#customer-note-classifications-add-parameters), [Company note classifications](#company-note-classifications-add-parameters) | required, max length 1 | Classification of the account note. |
-
-#### Customer note classifications add parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `General` | boolean | optional | Account note is classified as general. |
-| `FoodAndBeverage` | boolean | optional | Account note is classified as food and beverage.  |
-| `FrontOffice` | boolean | optional | Account note is classified as front office. |
-| `Reservations` | boolean | optional | Account note is classified as reservations. |
-| `Housekeeping` | boolean | optional | Account note is classified as housekeeping. |
-| `Maintenance` | boolean | optional | Account note is classified as maintenance. |
-| `PreviousStay` | boolean | optional | Account note is classified as previous stay. |
-| `FamilyRelations` | boolean | optional | Account note is classified as family relations. |
-| `Gifts` | boolean | optional | Account note is classified as gifts. |
-| `Accounting` | boolean | optional | Account note is classified as accounting. |
-| `Complaints` | boolean | optional | Account note is classified as complaints. |
-| `Other` | boolean | optional | Account note is classified as other. |
-
-#### Company note classifications add parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `General` | boolean | optional | Account note is classified as general. |
+| `Classifications` | array of string | required, max length 1 | Classification of the account note based on account type ([Customer note classification](#customer-note-classifications), [Company note classifications](#company-note-classifications)). |
 
 ### Response
 
@@ -280,7 +255,7 @@ Updates information about the specified account notes.
 | :-- | :-- | :-- | :-- |
 | `AccountNoteId` | string | required | Unique identifier of the account note. |
 | `Content` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Content of the account note \(or `null` if the name should not be updated\). |
-| `Classifications` | [Customer note classifications update parameters](#customer-note-classifications-update-parameters), [[Company note classifications update parameters](#company-note-classifications-update-parameters)] | required| Classification of the account note |
+| `Classifications` | [Customer note classifications update parameters](#customer-note-classifications-update-parameters), [[Company note classifications update parameters](#company-note-classifications-update-parameters)] | required | Classification of the account note |
 
 #### Customer note classifications update parameters
 
