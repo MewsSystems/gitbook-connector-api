@@ -2,7 +2,7 @@
 
 ## 21st July 2023
 
-* Added missing properties `Type` and `Description` to the documentation for [Get all rates](../operations/rates.md#get-all-rates)
+* Added missing properties `Type` and `Description` to the response for [Get all rates](../operations/rates.md#get-all-rates) (change to documentation only)
 
 ## 29th June 2023
 
