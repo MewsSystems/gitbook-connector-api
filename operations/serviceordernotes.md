@@ -151,8 +151,8 @@ Updates one or more given service order notes with new text.
         {
             "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Text": {
-            "Value": "Sample text"
-        }
+               "Value": "Sample text"
+            }
         }
     ]
 }
