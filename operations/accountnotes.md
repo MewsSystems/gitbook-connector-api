@@ -137,8 +137,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add account notes
 
-> This feature is being actively developed, features and behavior of this operation may change at short notice. Currently we support only one classification per account note.
-
 Adds account notes to an account of the enterprise chain. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -209,8 +207,6 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | `AccountNotes` | array of [Account notes](#account-note) | required | Added account notes. |
 
 ## Update account notes
-
-> This feature is being actively developed, features and behavior of this operation may change at short notice. Currently we support only one classification per account note. When changing the classification of a note, the current classification must be removed.
 
 Updates information about the specified account notes.
 
