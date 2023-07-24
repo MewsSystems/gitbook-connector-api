@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th July 2023
+
+* Updated [Kiosk use case](../use-cases/kiosk.md), especially to clarify payment options
+
 ## 11th July 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
