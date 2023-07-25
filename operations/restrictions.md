@@ -397,7 +397,6 @@ This reduces the overall number of restrictions and improves system performance.
 
 ### Affected restrictions
 
-Merging algorithm will also replace _all_ exceptions with exceptions defined in the request. It will also remove exception if null is sent. This can potentially remove exceptions defined in Mews but not supported in other applications.
 
 Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
 
