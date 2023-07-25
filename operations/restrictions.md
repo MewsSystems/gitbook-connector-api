@@ -397,7 +397,6 @@ This reduces the overall number of restrictions and improves system performance.
 
 ### Affected restrictions
 
-
 Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
 
 ### Request
