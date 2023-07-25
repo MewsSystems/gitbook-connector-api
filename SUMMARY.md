@@ -34,6 +34,7 @@
   * [Accounting categories](operations/accountingcategories.md)
   * [Accounting items](operations/accountingitems.md)
   * [Accounts](operations/accounts.md)
+  * [Account notes](operations/accountnotes.md)
   * [Addresses](operations/addresses.md)
   * [Age categories](operations/agecategories.md)
   * [Availability adjustments](operations/availabilityadjustments.md)
