@@ -1,6 +1,6 @@
 # Changelog
 
-## 24th July 2023
+## 25th July 2023
 
 * Added operation [Get all account notes](../operations/accountnotes.md#get-all-account-notes) to retrieve account notes.
 * Added operation [Add account notes](../operations/accountnotes.md#add-account-notes) to add account notes.
