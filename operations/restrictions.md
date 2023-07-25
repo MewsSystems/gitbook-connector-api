@@ -399,7 +399,7 @@ This reduces the overall number of restrictions and improves system performance.
 
 Merging algorithm will also replace _all_ exceptions with exceptions defined in the request. It will also remove exception if null is sent. This can potentially remove exceptions defined in Mews but not supported in other applications.
 
-To avoid that, only restrictions created through the connector API are affected. Similiarly, if user creates restriction in Mews, the user will not affect restrictions created through the API.
+Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
 
 ### Request
 
@@ -506,7 +506,7 @@ The original restriction A is deleted, and in its place new restriction B is cre
 
 ### Affected restrictions
 
-To avoid deleting user defined restrictions, the [Clear restrictions](#clear-restrictions) operation only affect restrictions created through the [Set restrictions](#clear-restrictions) or the [Clear restrictions](#clear-restrictions) operation. 
+To avoid deleting user defined restrictions, the [Clear restrictions](#clear-restrictions) operation only affects restrictions created through the [Set restrictions](#clear-restrictions) operation or the [Clear restrictions](#clear-restrictions) operation. 
 
 
 ### Request
