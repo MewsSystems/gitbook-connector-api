@@ -395,6 +395,10 @@ This reduces the overall number of restrictions and improves system performance.
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
    2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
 
+### Affected restrictions
+
+Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/set`
@@ -497,6 +501,10 @@ An existing restriction in the system applies from 5th January to 25th January. 
 If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction time interval of 10th January to 20th January, i.e. within the original restriction A, then the time interval of restriction A is split into three separate intervals.
 
 The original restriction A is deleted, and in its place new restriction B is created for the period of time from 5th January to 9th January inclusive, and new restriction C is created for the period of time from 21st January to 25th January. Thus the period 10th January to 20th January has been cleared, but without affecting other time periods.
+
+### Affected restrictions
+
+To avoid deleting user defined restrictions, the [Clear restrictions](#clear-restrictions) operation only affects restrictions created through the [Set restrictions](#clear-restrictions) operation or the [Clear restrictions](#clear-restrictions) operation. 
 
 
 ### Request
