@@ -27,6 +27,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "RateIds": [
         "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     ],
+    "Origin": "Integration",
     "CollidingUtc": {
         "StartUtc": "2020-02-15T00:00:00Z",
         "EndUtc": "2020-02-20T00:00:00Z"
@@ -54,6 +55,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns all restrictions that affect the given rates, i.e. ones without any [Restriction Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate groups](rates.md#rate-group) of specified rates, or ones inherited from base rates. |
 | `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `BaseRateId` set in [Restriction Conditions](#restriction-conditions). |
 | `ExactRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `ExactRateId` set in [Restriction Conditions](#restriction-conditions). |
+| `Origin` | string | required | [Restriction origin](#restriction-origin). |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was updated. |
@@ -144,6 +146,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the restriction. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
+| `Origin` | string | required | [Restriction origin](#restriction-origin) |
 | `Conditions` | [Restriction Conditions](#restriction-conditions) | required | The conditions or rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | [Restriction Exceptions](#restriction-exceptions) | optional | The rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
@@ -187,6 +190,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Stay` - guests can't stay within specified dates.
 * `Start`- guests can't check in within specified dates.
 * `End` - guests can't check out within specified dates.
+
+#### Restriction origin
+
+* `User` - Restriction was created by a user in Mews.
+* `Integration`- Restriction was created by a 3rd-party integration.
 
 ## Add restrictions
 
