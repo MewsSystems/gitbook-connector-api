@@ -1,11 +1,18 @@
 # Changelog
 
+## 27th July 2023
+
+* Extended operation [Get all restrictions](../operations/restrictions.md#get-all-restrictions):
+  * Added filtering by restriction origin
+  * Added restriction origin property to the response
+
 ## 25th July 2023
 
 * Added operation [Get all account notes](../operations/accountnotes.md#get-all-account-notes) to retrieve account notes.
 * Added operation [Add account notes](../operations/accountnotes.md#add-account-notes) to add account notes.
 * Added operation [Update account notes](../operations/accountnotes.md#update-account-notes) to update account notes.
 * Added operation [Delete account notes](../operations/accountnotes.md#delete-account-notes) to delete account notes.
+* Extended behavior of operations [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions). These operation now only affects restrictions created by 3rd-party integrations.  
 
 ## 11th July 2023
 
