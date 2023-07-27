@@ -55,7 +55,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns all restrictions that affect the given rates, i.e. ones without any [Restriction Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate groups](rates.md#rate-group) of specified rates, or ones inherited from base rates. |
 | `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `BaseRateId` set in [Restriction Conditions](#restriction-conditions). |
 | `ExactRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `ExactRateId` set in [Restriction Conditions](#restriction-conditions). |
-| `Origin` | string | required | [Restriction origin](#restriction-origin). |
+| `Origin` | string | optional | [Restriction origin](#restriction-origin). Returns only those restrictions which have matching Origin or all if not specified. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was updated. |
@@ -70,6 +70,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
          "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
          "ExternalIdentifier": "5678",
+         "Origin": "Integration",
          "Conditions": {  
             "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
@@ -103,6 +104,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
          "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
          "ExternalIdentifier": "5678",
+         "Origin": "Integration",
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": null,
