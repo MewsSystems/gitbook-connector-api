@@ -1,5 +1,19 @@
 # Changelog
 
+## 28th July 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Close bill](../operations/bills.md#close-bill)
+  * [Delete bill](../operations/bills.md#delete-bill)
+  * [Add keycutter command](../operations/commands.md#add-key-cutter-command)
+  * [Add printer command](../operations/commands.md#add-printer-command)
+
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Close bill](../operations/bills.md#close-bill)
+  * [Delete bill](../operations/bills.md#delete-bill)
+  * [Add keycutter command](../operations/commands.md#add-key-cutter-command)
+  * [Add printer command](../operations/commands.md#add-printer-command)
+
 ## 27th July 2023
 
 * Extended operation [Get all restrictions](../operations/restrictions.md#get-all-restrictions):
