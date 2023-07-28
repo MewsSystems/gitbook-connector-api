@@ -8,6 +8,12 @@
   * [Add keycutter command](../operations/commands.md#add-key-cutter-command)
   * [Add printer command](../operations/commands.md#add-printer-command)
 
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Close bill](../operations/bills.md#close-bill)
+  * [Delete bill](../operations/bills.md#delete-bill)
+  * [Add keycutter command](../operations/commands.md#add-key-cutter-command)
+  * [Add printer command](../operations/commands.md#add-printer-command)
+
 ## 25th July 2023
 
 * Added operation [Get all account notes](../operations/accountnotes.md#get-all-account-notes) to retrieve account notes.
