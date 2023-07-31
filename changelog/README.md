@@ -5,6 +5,34 @@
 * Added operation [Refund payment](../operations/payments.md#refund-payment).
 * Extended [Get all payments](../operations/payments.md#get-all-payments) response with `Kind` parameter.
 
+## 28th July 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Close bill](../operations/bills.md#close-bill)
+  * [Delete bill](../operations/bills.md#delete-bill)
+  * [Add keycutter command](../operations/commands.md#add-key-cutter-command)
+  * [Add printer command](../operations/commands.md#add-printer-command)
+
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Close bill](../operations/bills.md#close-bill)
+  * [Delete bill](../operations/bills.md#delete-bill)
+  * [Add keycutter command](../operations/commands.md#add-key-cutter-command)
+  * [Add printer command](../operations/commands.md#add-printer-command)
+
+## 27th July 2023
+
+* Extended operation [Get all restrictions](../operations/restrictions.md#get-all-restrictions):
+  * Added filtering by restriction origin
+  * Added restriction origin property to the response
+
+## 25th July 2023
+
+* Added operation [Get all account notes](../operations/accountnotes.md#get-all-account-notes) to retrieve account notes.
+* Added operation [Add account notes](../operations/accountnotes.md#add-account-notes) to add account notes.
+* Added operation [Update account notes](../operations/accountnotes.md#update-account-notes) to update account notes.
+* Added operation [Delete account notes](../operations/accountnotes.md#delete-account-notes) to delete account notes.
+* Extended behavior of operations [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions). These operations now only affect restrictions created by 3rd-party integrations.  
+
 ## 11th July 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
@@ -61,6 +89,7 @@
 ## 29th June 2023
 
 * Documentation-only changes to add clarity around endpoint versioning. The deprecated version of `Get all reservations` is now called [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) and the new version is called [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06). All relevant links have been updated.
+* Extended [Add bill](../operations/payments.md#get-all-payments#add-bill) with `Name` request parameter to name the newly created bill.
 
 ## 26th June 2023
 

@@ -177,7 +177,7 @@ Same structure as in [Get all commands](#get-all-commands) operation.
 
 ## Add printer command
 
-Adds a new printer command representing printing of the specified document on a printer.
+Adds a new printer command representing printing of the specified document on a printer. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -189,6 +189,7 @@ Adds a new printer command representing printing of the specified document on a 
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "PrinterId": "d117866d-78de-4459-9077-42d7ea0120e3",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "CopyCount": 1,
     "Data": "JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G"
 }
@@ -199,6 +200,7 @@ Adds a new printer command representing printing of the specified document on a 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `PrinterId` | string | required | Uniqque identifier of the `Printer` [Device](devices.md#device) where to print the document. |
 | `CopyCount` | int | required | Count of copies to be printed. |
 | `Data` | string | required | Base64 encoded data of PDF document to print. |
@@ -217,7 +219,7 @@ Adds a new printer command representing printing of the specified document on a 
 
 ## Add key cutter command
 
-Adds a new key cutter command representing cutting of a key for the specified reservation.
+Adds a new key cutter command representing cutting of a key for the specified reservation. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -228,6 +230,7 @@ Adds a new key cutter command representing cutting of a key for the specified re
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "KeyCutterId": "7dafffff-a727-4917-a203-bd53995f21bf",
     "ReservationId": "be35b39e-ad7e-460a-8de9-4c7581e016a2",
     "KeyCount": 1
@@ -239,6 +242,7 @@ Adds a new key cutter command representing cutting of a key for the specified re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `KeyCutterId` | string | required | Unique identifier of the `KeyCutter` [Device](devices.md#device) where to encode the key. |
 | `ReservationId` | string | required | Unique identifier of the reservation to encode the key for. |
 | `KeyCount` | int | required | Count of keys to encode. |

@@ -312,7 +312,8 @@ Creates new empty bill assigned to specified account. Note this operation suppor
     "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "Bills": [
         {
-            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7"
+            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+            "Name": "Bill of Joe Doe"
         }
     ]
 }
@@ -331,6 +332,7 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. Company billing may not be enabled for your integration. |
+| `Name` | string | optional | Name of the newly created bill |
 
 ### Response
 
@@ -365,7 +367,7 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 
 ## Delete bill
 
-Removes selected bills. Bill must be empty, otherwise it's not possible to delete it.
+Removes selected bills. Bill must be empty, otherwise it's not possible to delete it. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -378,7 +380,8 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
     "Client": "Sample Client 1.0.0",
     "BillIds": [
         "177966b7-f3d9-42b7-ba49-abd80057329b"
-    ]
+    ],
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
 }
 ```
 
@@ -388,6 +391,7 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `BillIds` | array of string | required | Unique identifiers of the [Bill](#bill)s to be deleted. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 
 ### Response
 
@@ -397,7 +401,7 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 
 ## Close bill
 
-Closes a bill so no further modification to it is possible.
+Closes a bill so no further modification to it is possible. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -409,6 +413,7 @@ Closes a bill so no further modification to it is possible.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "Type": "Receipt",
     "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
     "FiscalMachineId": null,
@@ -445,6 +450,7 @@ Closes a bill so no further modification to it is possible.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `BillId` | string | required | Unique identifier of the [Bill](#bill) to be closed. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `Type` | string [Bill type](#bill-type) | required | Specifies the mode bill should be closed in. |
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](counters.md#counter) to be used for closing. Default one is used when no value is provided. |
 | `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](devices.md#device) to be used for closing. Default one is used when no value is provided. |
