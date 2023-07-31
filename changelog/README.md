@@ -1,6 +1,6 @@
 # Changelog
 
-## 17th July 2023
+## 31st July 2023
 
 * Added operation [Refund payment](../operations/payments.md#refund-payment).
 * Extended [Get all payments](../operations/payments.md#get-all-payments) response with `Kind` parameter.
