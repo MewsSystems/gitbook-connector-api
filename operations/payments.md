@@ -405,7 +405,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 ## Refund payment
 
-Refunds a specified payment, only alternative or credit card payments can be refunded. For more information about refund use [Get all payments](payments.md#get-all-payments) using `RefundId`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Refunds a specified payment. Note only credit card or alternative payments can be refunded. For more information about the refunded payment, use [Get all payments](#get-all-payments) with `PaymentIds`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
