@@ -1,8 +1,8 @@
 # Changelog
 
-## 25th July 2023
+## 2nd August 2023
 
-* Updated [Kiosk use case](../use-cases/kiosk.md), especially to clarify payment options
+* Re-write of [Kiosk use case](../use-cases/kiosk.md), including clarification of payment options
 
 ## 11th July 2023
 
