@@ -1,5 +1,10 @@
 # Changelog
 
+## 2nd August 2023
+
+* Added operation [Refund payment](../operations/payments.md#refund-payment).
+* Extended [Get all payments](../operations/payments.md#get-all-payments) response with `Kind` parameter.
+
 ## 28th July 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
