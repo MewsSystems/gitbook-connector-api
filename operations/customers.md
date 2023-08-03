@@ -625,7 +625,7 @@ Merges one customer to another. All entities attached to the source customer \(e
 
 ## Add customer file
 
-Attaches the specified file to the customer profile. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Attaches the specified file to the customer profile. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
