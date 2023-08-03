@@ -9,7 +9,7 @@
   * [Add customer file](../operations/customers.md#add-customer-file)
 
 * Extended the following operation by adding `ReservationGroupIds` to the request parameters:
-  * [Get all reservations](../operations/reservations.md#Get-all-reservations)
+  * [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06)
 
 
 ## 2nd August 2023
