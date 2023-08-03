@@ -24,7 +24,7 @@ Returns all reservations within scope of the Access Token, filtered according to
         "94843f6f-3be3-481b-a1c7-06458774c3df"
     ],
     "ReservationGroupIds": [
-        "53683s6d-6bg3-641b-12cd-0s332774c8vf"
+        "94843f6f-3be3-481b-a1c7-06458774c3df"
     ],
     "UpdatedUtc": {
       "StartUtc": "2023-04-01T00:00:00Z",
