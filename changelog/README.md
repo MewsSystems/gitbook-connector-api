@@ -1,5 +1,17 @@
 # Changelog
 
+## 3rd August 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Add customer file](../operations/customers.md#add-customer-file)
+
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Add customer file](../operations/customers.md#add-customer-file)
+
+* Extended the following operation by adding `ReservationGroupIds` to the request parameters:
+  * [Get all reservations](../operations/reservations.md#Get-all-reservations)
+
+
 ## 2nd August 2023
 
 * Added operation [Refund payment](../operations/payments.md#refund-payment).
