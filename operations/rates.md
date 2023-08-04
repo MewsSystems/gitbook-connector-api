@@ -63,23 +63,26 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 {
     "Rates": [
         {
+            "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "GroupId": "c8b866b3-be2e-4a47-9486-034318e9f393",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "BaseRateId": null,
             "BusinessSegmentId": null,
-            "GroupId": "c8b866b3-be2e-4a47-9486-034318e9f393",
-            "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "IsActive": true,
+            "IsActive": false,
             "IsEnabled": true,
             "IsPublic": true,
-            "Name": "Fully Flexible",
-            "ShortName": "FF",
-            "ExternalNames": {
-                "en-US": "Long Stay Flexible Rate"
-            },
-            "ExternalIdentifier": "D001"
+            "Type": "Public",
+            "Name": "Fully Flexible Rate",
+            "ShortName": "FLEXFLEX",
+            "ExternalNames": {},
+            "Description": {},
+            "ExternalIdentifier": null,
+            "Options": {
+                "HidePriceFromGuest": false,
+                "IsBonusPointsEligible": false
+            }
         }
-    ],
-    "RateGroups": [
+    ],    "RateGroups": [
         {
             "Id": "c8b866b3-be2e-4a47-9486-034318e9f393",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -122,6 +125,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the external name of the rate. |
 | `Description` | [Localized text](_objects.md#localized-text) | required | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
+| `Options` |[Localized text](_objects.md#localized-text)| required | Rate options. |
 
 #### Rate group
 
