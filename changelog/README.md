@@ -1,5 +1,9 @@
 # Changelog
 
+## 7th August 2023
+
+* Re-write of [Kiosk use case](../use-cases/kiosk.md), including clarification of payment options
+
 ## 3rd August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
@@ -10,7 +14,6 @@
 
 * Extended the following operation by adding `ReservationGroupIds` to the request parameters:
   * [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06)
-
 
 ## 2nd August 2023
 
