@@ -27,6 +27,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "RateIds": [
         "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     ],
+    "Origin": "Integration",
     "CollidingUtc": {
         "StartUtc": "2020-02-15T00:00:00Z",
         "EndUtc": "2020-02-20T00:00:00Z"
@@ -54,6 +55,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns all restrictions that affect the given rates, i.e. ones without any [Restriction Conditions](#restriction-conditions), ones assigned directly to specified rates, ones assigned to [Rate groups](rates.md#rate-group) of specified rates, or ones inherited from base rates. |
 | `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `BaseRateId` set in [Restriction Conditions](#restriction-conditions). |
 | `ExactRateIds` | array of string | optional, max 1000 items | Unique identifiers of [Rates](rates.md#rate). Returns only those restrictions which have matching `ExactRateId` set in [Restriction Conditions](#restriction-conditions). |
+| `Origin` | string | optional | [Restriction origin](#restriction-origin). Returns only those restrictions which have matching `Origin` or all if not specified. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) is active. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Restriction](#restriction) was updated. |
@@ -68,6 +70,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
          "Id": "40c24757-c16e-4094-91d3-4ca952e488a1",
          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
          "ExternalIdentifier": "5678",
+         "Origin": "Integration",
          "Conditions": {  
             "Type": "Stay",
             "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
@@ -101,6 +104,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
          "Id": "b40ac4a8-f5da-457d-88fe-7a895e1580ab",
          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
          "ExternalIdentifier": "5678",
+         "Origin": "Integration",
          "Conditions": {  
             "Type": "Start",
             "ExactRateId": null,
@@ -144,6 +148,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the restriction. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `ExternalIdentifier` | string | optional | External identifier of the restriction. |
+| `Origin` | string | required | [Restriction origin](#restriction-origin) |
 | `Conditions` | [Restriction Conditions](#restriction-conditions) | required | The conditions or rules that must be met by a reservation for the restriction to apply. |
 | `Exceptions` | [Restriction Exceptions](#restriction-exceptions) | optional | The rules that prevent the restriction from applying to a reservation, even when all conditions have been met. |
 
@@ -187,6 +192,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Stay` - guests can't stay within specified dates.
 * `Start`- guests can't check in within specified dates.
 * `End` - guests can't check out within specified dates.
+
+#### Restriction origin
+
+* `User` - Restriction was created by a user in Mews.
+* `Integration`- Restriction was created by a 3rd-party integration.
 
 ## Add restrictions
 
@@ -395,6 +405,10 @@ This reduces the overall number of restrictions and improves system performance.
    1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
    2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
 
+### Affected restrictions
+
+Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/restrictions/set`
@@ -497,6 +511,10 @@ An existing restriction in the system applies from 5th January to 25th January. 
 If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction time interval of 10th January to 20th January, i.e. within the original restriction A, then the time interval of restriction A is split into three separate intervals.
 
 The original restriction A is deleted, and in its place new restriction B is created for the period of time from 5th January to 9th January inclusive, and new restriction C is created for the period of time from 21st January to 25th January. Thus the period 10th January to 20th January has been cleared, but without affecting other time periods.
+
+### Affected restrictions
+
+To avoid deleting user defined restrictions, the [Clear restrictions](#clear-restrictions) operation only affects restrictions created through the [Set restrictions](#clear-restrictions) operation or the [Clear restrictions](#clear-restrictions) operation. 
 
 
 ### Request

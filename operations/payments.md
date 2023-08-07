@@ -331,6 +331,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "State": "Charged",
             "Identifier": "ch_764309db-4bcd-4f2c-ad6a-1c178089deec",
             "PaymentType": "CreditCardPayment",
+            "Kind": "Payment",
             "Data": {
                 "Discriminator": "CreditCard",
                 "CreditCard": {
@@ -389,6 +390,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "State": "Charged",
             "Identifier": "",
             "Type": "CashPayment",
+            "Kind": "Payment",
             "Data": null
         }
     ],
@@ -400,6 +402,59 @@ Returns all payments in the system, filtered by various parameters. At least one
 | :-- | :-- | :-- | :-- |
 | `Payments` | array of [Payment](#payment) | required | The list of filtered payments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest payment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of payments. |
+
+## Refund payment
+
+Refunds a specified payment. Note only credit card or alternative payments can be refunded. The refund is itself a payment, so to get more information about the refund, use [Get all payments](#get-all-payments) with the identifier from `RefundId`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/refund`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
+    "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "Reason": "Sample reason",
+    "ValueToRefund": 110.5,
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
+| `Reason` | string | required | Refund reason. |
+| `ValueToRefund` | decimal | optional | Refund amount. If not provided, the whole payment will be refunded. |
+
+### Response
+
+```javascript
+{
+    "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
+    "RefundId": "1d65c488-111a-4719-b3ea-e1a9969c6069",
+    "Type": "CreditCardPayment",
+    "Amount": { 
+        "Currency": "GBP",
+        "Value": 100
+    },
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
+| `RefundId` | string | required | Unique identifier of refund. |
+| `Type` | [Refund type](#refund-type) | required | Type of refund. |
+| `Amount` | [Amount](accountingitems.md#currency-value) | required | Amount that was refunded. |
 
 #### Payment
 
@@ -425,6 +480,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `State` | string [Payment state](#payment-state) | required | Payment state of the payment. |
 | `Identifier` | string | optional | Additional unique identifier of the payment. |
 | `Type` | string [Payment type](#payment-type) | required | Payment type, e.g. whether credit card or cash. |
+| `Kind` | string [Payment kind](#payment-kind) | required | Payment kind, e.g. whether payment or refund. |
 | `Data` | object [Payment data](#payment-data) | optional | Additional payment data. |
 
 #### Payment data
@@ -501,6 +557,14 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `ExternalPayment`
 * ...
 
+#### Payment kind
+
+* `Payment`
+* `Chargeback`
+* `ChargebackReversal`
+* `Refund`
+* ...
+
 #### External payment type
 
 * `Unspecified`
@@ -546,4 +610,10 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `DepositCash`
 * `DepositCreditCard`
 * `DepositWireTransfer`
+* ...
+
+#### Refund type
+
+* `CreditCardPayment`
+* `AlternativePayment`
 * ...
