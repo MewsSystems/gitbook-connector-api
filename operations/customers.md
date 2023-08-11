@@ -230,6 +230,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Cashlist`
 * `DisabledPerson`
 * `Military`
+* `InRoom`
+* `WaitingForRoom`
 * ...
 
 #### Customer option
