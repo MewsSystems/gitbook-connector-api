@@ -62,7 +62,7 @@ Returns all products offered together with the specified services.
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount": {
+            "Price": {
                 "GrossValue": 25,
                 "Currency": "EUR",
                 "TaxValues": [
@@ -104,7 +104,7 @@ Returns all products offered together with the specified services.
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount": {
+            "Price": {
                 "GrossValue": 25,
                 "Currency": "EUR",
                 "TaxValues": [
