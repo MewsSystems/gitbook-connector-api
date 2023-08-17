@@ -1,6 +1,6 @@
 # Changelog
 
-## 14th August 2023
+## 17th August 2023
 
 * Extended [Customer Classification](../operations/customers.md/#customer-classification) with `InRoom` and `WaitingForRoom` classifications.
 
