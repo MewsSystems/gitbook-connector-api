@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th August 2023
+
+* Extended [Customer Classification](../operations/customers.md/#customer-classification) with `InRoom` and `WaitingForRoom` classifications.
+
 ## 7th August 2023
 
 * Re-write of [Kiosk use case](../use-cases/kiosk.md), including clarification of payment options
