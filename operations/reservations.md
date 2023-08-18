@@ -134,7 +134,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
 | `Origin` | string [Service order origin](productserviceorders.md#service-order-origin) | required | Origin of the reservation. |
-| `CommanderOrigin` | string [Commander origin](#commander-origin) | optional | Specificication of origin in case of Origin is `Commander`. |
+| `CommanderOrigin` | string [Commander origin](#commander-origin) | optional | Specification of origin in case of Origin is `Commander`. |
 | `OriginDetails`| string | optional | Details about the reservation [Origin](productserviceorders.md#service-order-origin). |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
