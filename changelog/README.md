@@ -1,7 +1,7 @@
 # Changelog
 
 
-## 21st August 2023
+## 22nd August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
   * [Update reservation customer](../operations/reservations.md#update-reservation-customer)
@@ -27,7 +27,7 @@
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
   * [Add customer file](../operations/customers.md#add-customer-file)
 
-* Extended the following operations by adding `EnterpriseId` to the request parameters:
+* Extended the following operations by adding `ChainId` to the request parameters:
   * [Add customer file](../operations/customers.md#add-customer-file)
 
 * Extended the following operation by adding `ReservationGroupIds` to the request parameters:
