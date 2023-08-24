@@ -1,6 +1,6 @@
 # Changelog
 
-## 21st August 2023
+## 24th August 2023
 
 * Extended [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
 
