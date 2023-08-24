@@ -1,5 +1,9 @@
 # Changelog
 
+## 24th August 2023
+
+* Extended [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
+
 ## 17th August 2023
 
 * Extended [Customer Classification](../operations/customers.md/#customer-classification) with `InRoom` and `WaitingForRoom` classifications.
