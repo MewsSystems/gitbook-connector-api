@@ -71,6 +71,7 @@ Returns all reservations within scope of the Access Token, filtered according to
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
+            "CommanderOrigin": null,
             "OriginDetails": null,
             "CreatedUtc": "2023-04-23T14:58:02Z",
             "UpdatedUtc": "2023-04-23T14:58:02Z",
@@ -132,8 +133,9 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
-| `Origin` | string [Service order origin](#service-order-origin) | required | Origin of the reservation. |
-| `OriginDetails`| string | optional | Details about the reservation [Origin](#service-order-origin). |
+| `Origin` | string [Service order origin](productserviceorders.md#service-order-origin) | required | Origin of the reservation. |
+| `CommanderOrigin` | string [Commander origin](#commander-origin) | optional | Further detail about origin in case of Origin `Commander`. |
+| `OriginDetails`| string | optional | Details about the reservation [Origin](productserviceorders.md#service-order-origin). |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
@@ -1323,3 +1325,14 @@ Adds a new product order of the specified product to the reservation.
     ]
 }
 ```
+
+#### Commander origin
+
+* `InPerson`
+* `Channel`
+* `Phone`
+* `Email`
+* `Website`
+* `Message`
+* `CallCenter`
+* ...
