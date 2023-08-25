@@ -1,6 +1,6 @@
 # Changelog
 
-## 24th August 2023
+## 25th August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
   * [Update reservation customer](../operations/reservations.md#update-reservation-customer)
