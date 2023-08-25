@@ -567,7 +567,7 @@ Returns all revenue items associated with the specified reservations.
 
 ## Price reservations
 
-Returns prices of reservations with the specified parameters.
+Returns prices of reservations with the specified parameters. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -578,6 +578,7 @@ Returns prices of reservations with the specified parameters.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "Reservations": [
         {
@@ -612,6 +613,7 @@ Returns prices of reservations with the specified parameters.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be priced. |
 | `Reservations` | array of [Reservation parameters](#reservation-parameters) | required | Parameters of the reservations to price. Note that `CustomerId` is not required when pricing reservations. |
 
@@ -1140,7 +1142,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 
 ## Update reservation customer
 
-Updates customer of a reservation.
+Updates customer of a reservation. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1151,6 +1153,7 @@ Updates customer of a reservation.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
@@ -1161,6 +1164,7 @@ Updates customer of a reservation.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
@@ -1172,7 +1176,7 @@ Updates customer of a reservation.
 
 ## Update reservation interval
 
-Updates reservation interval \(start, end or both\).
+Updates reservation interval \(start, end or both\). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1183,6 +1187,7 @@ Updates reservation interval \(start, end or both\).
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
     "StartUtc": "2017-08-12T15:00:00Z",
     "EndUtc": "2017-08-15T12:00:00Z",
@@ -1195,6 +1200,7 @@ Updates reservation interval \(start, end or both\).
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |

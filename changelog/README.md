@@ -1,5 +1,17 @@
 # Changelog
 
+## 25th August 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Update reservation customer](../operations/reservations.md#update-reservation-customer)
+  * [Update reservation interval](../operations/reservations.md#update-reservation-interval)
+  * [Price reservations](../operations/reservations.md#price-reservations)
+
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Update reservation customer](../operations/reservations.md#update-reservation-customer)
+  * [Update reservation interval](../operations/reservations.md#update-reservation-interval)
+  * [Price reservations](../operations/reservations.md#price-reservations)
+
 ## 24th August 2023
 
 * Extended [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
@@ -17,7 +29,7 @@
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
   * [Add customer file](../operations/customers.md#add-customer-file)
 
-* Extended the following operations by adding `EnterpriseId` to the request parameters:
+* Extended the following operations by adding `ChainId` to the request parameters:
   * [Add customer file](../operations/customers.md#add-customer-file)
 
 * Extended the following operation by adding `ReservationGroupIds` to the request parameters:
