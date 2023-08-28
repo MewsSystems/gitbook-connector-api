@@ -344,8 +344,24 @@ Updates information about the specified [Availability block](#availability-block
 ### Response
 
 ```javascript
-{}
+{
+    "AvailabilityBlocks": [
+        {
+            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
+            "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
+            "ReleasedUtc": "2020-11-04T00:00:00Z",
+            "ExternalIdentifier": "Block-0001"
+        }
+    ]
+}
 ```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
 
 ## Delete availability blocks
 
