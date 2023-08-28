@@ -204,7 +204,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 > This feature is being actively developed, features and behavior of this operation might change on short notice.
 
-Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized.
+Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -215,6 +215,7 @@ Adds availability blocks which are used to group related [Availability updates](
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "AvailabilityBlocks": [
         {
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -243,6 +244,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `AvailabilityBlocks` | array of [Availability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks to be added. |
 
 #### Availability block parameters
@@ -306,6 +308,7 @@ Updates information about the specified [Availability block](#availability-block
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "AvailabilityBlocks": [
         {
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
@@ -324,6 +327,7 @@ Updates information about the specified [Availability block](#availability-block
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `AvailabilityBlocks` | array of [Availability block update parameters](#availability-block-update-parameters) | required, max 1000 items | Availability blocks to be updated. |
 
 #### Availability block update parameters
@@ -356,6 +360,7 @@ Delete availability blocks. Note that an availability block containing active re
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "AvailabilityBlockIds": [
         "e5a4654a4a94-86da-4f96-9efc-bd26d8db",
         "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
@@ -368,6 +373,7 @@ Delete availability blocks. Note that an availability block containing active re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `AvailabilityBlockIds` | array of string | required, max 1000 items | Unique identifier of the Availability block to delete. |
 
 ### Response

@@ -1,5 +1,17 @@
 # Changelog
 
+## 29th August 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
+  * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
+  * [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks)
+
+* Extended the following operations by adding `EnterpriseId` to the request parameters:
+  * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
+  * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
+  * [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks)
+
 ## 25th August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
