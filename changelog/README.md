@@ -1,5 +1,11 @@
 # Changelog
 
+## 31st August 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Get all message threads](../operations/messagethreads.md#get-all-message-threads)
+  * [Get all messages](../operations/messages.md#get-all-messages)
+
 ## 29th August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
