@@ -67,6 +67,8 @@ Returns all reservations within scope of the Access Token, filtered according to
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
             "StartUtc": "2023-04-23T14:00:00Z",
+            "ScheduledStartUtc": "2023-04-23T14:00:00Z",
+            "ActualStartUtc": null,
             "EndUtc": "2023-04-24T14:00:00Z",
             "Number": "52",
             "State": "Confirmed",
@@ -131,7 +133,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
 | `StartUtc` | string | required | Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format. |
 | `ScheduledStartUtc` | string | required | Scheduled start time of reservation in UTC timezone in ISO 8601 format. |
-| `ActualStartUtc` | string | required | Time of check-in for started reservations in UTC timezone in ISO 8601 format. |
+| `ActualStartUtc` | string | optional | Time of check-in for started reservations in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
