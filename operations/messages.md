@@ -13,6 +13,10 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "MessageThreadIds": [
         "c1478ff9-80b7-4ea2-94fc-ae4e009e1463"
     ],
@@ -32,7 +36,7 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `MessageThreadIds` | array of string | required, max 1000 items | Unique identifiers of [Message threads](messagethreads.md#message-thread) from where to return messages. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 1 months | Interval in which the [Message](#message) was created. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of message data returned (using cursor pagination). |
