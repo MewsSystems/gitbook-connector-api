@@ -2,7 +2,7 @@
 
 ## 31st August 2023
 
-* Extended [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06) response with `ScheduledStartUtc` and `ActualStartUtc`.
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response with `ScheduledStartUtc` and `ActualStartUtc`.
   * Clarified behavior of `StartUtc`, which returns either reservation's scheduled time, or the time of check-in, whichever is earlier.
 
 ## 29th August 2023
