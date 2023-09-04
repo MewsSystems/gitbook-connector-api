@@ -32,7 +32,7 @@
 
 ## 24th August 2023
 
-* Extended [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
 
 ## 17th August 2023
 
