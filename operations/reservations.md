@@ -47,7 +47,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (for example [Customers](customers.md#customer) or [Companies](companies.md#company)) the reservation is associated with. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](#reservation-group). |
-| `States` | array of string [Service order state](#service-order-state) | optional | A list of service order states to filter by. |
+| `States` | array of string [Service order state](./productserviceorders.md#service-order-state) | optional | A list of service order states to filter by. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-ver-2023-06-06) were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](#reservation-ver-2023-06-06) are active. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -132,7 +132,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
-| `State` | string [Service order state](#service-order-state) | required | State of the reservation. |
+| `State` | string [Service order state](./productserviceorders.md#service-order-state) | required | State of the reservation. |
 | `Origin` | string [Service order origin](productserviceorders.md#service-order-origin) | required | Origin of the reservation. |
 | `CommanderOrigin` | string [Commander origin](#commander-origin) | optional | Further detail about origin in case of Origin `Commander`. |
 | `OriginDetails`| string | optional | Details about the reservation [Origin](productserviceorders.md#service-order-origin). |
