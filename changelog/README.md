@@ -1,5 +1,9 @@
 # Changelog
 
+## 4th September 2023
+
+* Deprecated `StartUtc` property in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06). Use more explicit `ScheduledStartUtc` and `ActualStartUtc` properties instead. No discontinuation date has been set for now.
+
 ## 31st August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
