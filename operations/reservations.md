@@ -163,7 +163,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AgeCategoryId` | string | required | Unique identifier of the [Age category](agecategories.md#age-category). |
-| `Count` | string | required | Number of people of a given age category. Only positive value is accepted. |
+| `Count` | integer | required | Number of people of a given age category. Only positive value is accepted. |
 
 #### Reservation state
 
