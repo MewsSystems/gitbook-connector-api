@@ -1,16 +1,17 @@
 # Changelog
 
-## 4th September 2023
+## 5th September 2023
 
-* Deprecated `StartUtc` property in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06). Use more explicit `ScheduledStartUtc` and `ActualStartUtc` properties instead. No discontinuation date has been set for now.
+* In [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response:
+  * Clarified behavior of `StartUtc` property, which is either the reservation's scheduled time, or the actual customer check-in time, whichever is earlier.
+  * Added new properties `ScheduledStartUtc` and `ActualStartUtc`, intended ultimately to replace `StartUtc`.
+  * Deprecated `StartUtc`, but no discontinuation date has been set for now.
 
 ## 31st August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
   * [Get all message threads](../operations/messagethreads.md#get-all-message-threads)
   * [Get all messages](../operations/messages.md#get-all-messages)
-* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response with `ScheduledStartUtc` and `ActualStartUtc`.
-  * Clarified behavior of `StartUtc`, which returns either reservation's scheduled time, or the time of check-in, whichever is earlier.
 
 ## 29th August 2023
 
