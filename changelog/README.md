@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th September 2023
+
+* Added operation [Delete products](../operations/products.md#delete-products).
+
 ## 31st August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
