@@ -1,5 +1,11 @@
 # Changelog
 
+## 6th September 2023
+
+* Updated [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) documentation:
+  * Removed `StartUtc` and `EndUtc` properties which were never exposed.
+  * Added documentation for `CommanderOrigin` property.
+
 ## 31st August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:

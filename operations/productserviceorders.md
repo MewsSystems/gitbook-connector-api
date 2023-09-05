@@ -56,11 +56,10 @@ Returns all product service orders orders associated with the given enterprise. 
             "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
-            "StartUtc": "2023-04-23T14:00:00Z",
-            "EndUtc": "2023-04-24T14:00:00Z",
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
+            "CommanderOrigin": null,
             "OriginDetails": null,
             "CreatedUtc": "2023-04-23T14:58:02Z",
             "UpdatedUtc": "2023-04-23T14:58:02Z",
@@ -94,12 +93,11 @@ Returns all product service orders orders associated with the given enterprise. 
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
-| `StartUtc` | string | required | Product service order start in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | Product service order end in UTC timezone in ISO 8601 format. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the service order was made. |
 | `Number` | string | required | Confirmation number of the service order in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the product service order. |
 | `Origin` | string [Service order origin](#service-order-origin) | required | Origin of the product service order. |
+| `CommanderOrigin` | string [Commander origin](./reservations.md#commander-origin) | optional | Further detail about origin in case of Origin `Commander`. |
 | `OriginDetails`| string | optional | Details about the product service order [Origin](#service-order-origin). |
 | `CreatedUtc` | string | required | Creation date and time of the product service order in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the product service order in UTC timezone in ISO 8601 format. |
