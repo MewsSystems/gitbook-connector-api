@@ -1,7 +1,10 @@
 # Changelog
 
-## 5th September 2023
+## 6th September 2023
 
+* Updated [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) documentation:
+  * Removed `StartUtc` and `EndUtc` properties which were never exposed.
+  * Added documentation for `CommanderOrigin` property.
 * In [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response:
   * Clarified behavior of `StartUtc` property, which is either the reservation's scheduled time, or the actual customer check-in time, whichever is earlier.
   * Added new properties `ScheduledStartUtc` and `ActualStartUtc`, intended ultimately to replace `StartUtc`.
@@ -39,7 +42,7 @@
 
 ## 24th August 2023
 
-* Extended [Get all reservations](../operations/reservations.md#Get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
+* Extended [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response with `CommanderOrigin`.
 
 ## 17th August 2023
 
