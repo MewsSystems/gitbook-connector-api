@@ -104,6 +104,123 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AvailabilityBlockAssignments` | array of [Availability block assignment](#availability-block-assignment) | optional | Shows which rates relate to which availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
+## Add rates
+
+Adds rates the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rates/add`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Rates":[
+      {
+          "Names": { "EN": "My rate" },
+          "Type": "Public",
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+          "RateGroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",          
+          "AccountingCategoryId": "3620c660-a4ec-4e0f-a0bc-b06f008eb8bf",
+          "PricingType": "DependentRatePricing",
+          "Pricing": {
+              "DependentRatePricing": {
+                  "BaseRateId": "1a1ddd3b-e106-4a70-aef1-54a75b483943",
+                  "RelativeAdjustment": 0.15,
+                  "AbsoluteAdjustment": 10
+              }
+          }
+      }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `Rates` | array of [Rate parameters](#rate-parameters) | required, max 1000 items | Information about rates to be created. |
+
+#### Rate parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ServiceId` | string | require | Unique identifiers of the [Services](services.md#service). |
+| `RateGroupId` | string | required | Unique identifier of the [Rate group](rates.md#rate-group) under which rate is assigned. |
+| `IsEnabled` | bool | optional | Whether the rate is available to customers. `False` will be used as a default when not provided. |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the rate belongs to. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
+| `Name` | [Localized text](_objects.md#localized-text) | required | Name of the rate. |
+| `ShortName` | [Localized text](_objects.md#localized-text) | optional | Short name of the rate. |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
+| `PricingType` | [Pricing type](rates.md#pricing-type) | required | Discriminator in which field inside `Pricing` contains additional data. |
+| `Pricing` | [Pricing](rates.md#rate-pricing-parameters) | required | Contains additional data about pricing of the rate. |
+
+### Rate pricing parameters
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BaseRatePricing` | [Base rate pricing](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. |
+| `DependentRatePricing` | [Base rate pricing](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. |
+
+### Base rate pricing parameters
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Amount` | [Amount parameters](#amount-parameters) | required | Unit amount of the product that overrides the amount defined in Mews. |
+| `EmptyCapacityAdjustment` | decimal | required |  |
+| `ExtraCapacityAdjustment` | decimal | required |  |
+
+### Dependent rate pricing parameters
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BaseRateId` | string | required |  |
+| `RelativeAdjustment` | string | required |  |
+| `AbsoluteAdjustment` | string | required |  |
+
+#### Amount parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `GrossValue` | decimal | optional | Amount including tax. Required for Gross [Pricing](configuration.md#pricing) environments. |
+| `NetValue` | decimal | optional | Amount excluding tax. Required for Net [Pricing](configuration.md#pricing) environments. |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `TaxCodes` | array of string | required | Codes of [Tax rates](taxations.md#tax-rate) to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
+
+### Response
+
+```javascript
+{
+    "Rates": [
+        {
+            "BaseRateId": null,
+            "BusinessSegmentId": null,
+            "GroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",
+            "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "IsActive": true,
+            "IsEnabled": true,
+            "IsPublic": true,
+            "Name": "My rate",
+            "ShortName": "FF",
+            "ExternalNames": {
+                "en-US": "Long Stay Flexible Rate"
+            },
+            "ExternalIdentifier": "D001"
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Rates` | array of [Rate](#rate) | required | Rates that has been added. |
+
 #### Rate
 
 | Property | Type | Contract | Description |
@@ -116,9 +233,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate |
 | `Name` | string | required | Name of the rate. |
 | `ShortName` | string | required | Short name of the rate. |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the external name of the rate. |
+| `Description` | [Localized text](_objects.md#localized-text) | required | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 
 #### Rate group
@@ -366,3 +485,14 @@ Note that prices are defined daily, so when the server receives the UTC interval
 ```javascript
 {}
 ```
+
+#### Rate type
+* `Public`
+* `Private`
+* `AvailabilityBlock`
+* ...
+
+#### Pricing type
+* `BaseRatePricing`
+* `DependentRatePricing`
+* ...

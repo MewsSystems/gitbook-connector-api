@@ -1,5 +1,9 @@
 # Changelog
 
+## 7th September 2023
+  * [Add rates](../operations/rates.md#add-rates)
+  * Adjusted [Rate](../operations/rates.md#rate) to be up to date.
+
 ## 31st August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
