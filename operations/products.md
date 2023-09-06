@@ -200,7 +200,7 @@ Deletes specified products. Note this operation supports [Portfolio Access Token
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ProductIds` | array of string | required, max 1000 items | Unique identifiers of the Products(#product) to delete. |
+| `ProductIds` | array of string | required, max 1000 items | Unique identifiers of the [Products](#product) to delete. |
 
 ### Response
 
