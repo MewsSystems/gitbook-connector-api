@@ -4,6 +4,17 @@
   * Added operation [Add rates](../operations/rates.md#add-rates)
   * Adjusted [Rate](../operations/rates.md#rate) to be up to date.
 
+## 6th September 2023
+
+* Added operation [Delete products](../operations/products.md#delete-products).
+* Updated [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) documentation:
+  * Removed `StartUtc` and `EndUtc` properties which were never exposed.
+  * Added documentation for `CommanderOrigin` property.
+* In [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response:
+  * Clarified behavior of `StartUtc` property, which is either the reservation's scheduled time, or the actual customer check-in time, whichever is earlier.
+  * Added new properties `ScheduledStartUtc` and `ActualStartUtc`, intended ultimately to replace `StartUtc`.
+  * Deprecated `StartUtc`, but no discontinuation date has been set for now.
+
 ## 31st August 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:

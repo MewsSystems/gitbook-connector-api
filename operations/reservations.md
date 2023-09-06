@@ -67,6 +67,8 @@ Returns all reservations within scope of the Access Token, filtered according to
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
             "StartUtc": "2023-04-23T14:00:00Z",
+            "ScheduledStartUtc": "2023-04-23T14:00:00Z",
+            "ActualStartUtc": null,
             "EndUtc": "2023-04-24T14:00:00Z",
             "Number": "52",
             "State": "Confirmed",
@@ -129,7 +131,9 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
-| `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
+| ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead. |
+| `ScheduledStartUtc` | string | required | Scheduled start time of reservation in UTC timezone in ISO 8601 format. |
+| `ActualStartUtc` | string | optional | Actual customer check-in time of reservation in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | string [Service order state](./productserviceorders.md#service-order-state) | required | State of the reservation. |
@@ -453,7 +457,7 @@ Returns all reservations specified by any identifier, customer or other filter. 
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
-| `StartUtc` | string | required | Start of the reservation \(arrival\) in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | required | Start of the reservation in UTC timezone in ISO 8601 format. This is either the scheduled reservation start time, or the actual customer check-in time if this is earlier than the scheduled start time. |
 | `EndUtc` | string | required | End of the reservation \(departure\) in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Resource category](resources.md#resource-category). |
