@@ -153,7 +153,7 @@ Adds rates the enterprise. Note this operation supports [Portfolio Access Tokens
 | `ServiceId` | string | require | Unique identifiers of the [Services](services.md#service). |
 | `RateGroupId` | string | required | Unique identifier of the [Rate group](rates.md#rate-group) under which rate is assigned. |
 | `IsEnabled` | bool | optional | Whether the rate is available to customers. `False` will be used as a default when not provided. |
-| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
+| `Type` | [Add Rate type](rates.md#add-rate-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
 | `Name` | [Localized text](_objects.md#localized-text) | required | Name of the rate. |
@@ -485,6 +485,11 @@ Note that prices are defined daily, so when the server receives the UTC interval
 ```javascript
 {}
 ```
+
+#### Add Rate type
+* `Public`
+* `Private`
+* ...
 
 #### Rate type
 * `Public`

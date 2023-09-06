@@ -1,7 +1,7 @@
 # Changelog
 
 ## 7th September 2023
-  * [Add rates](../operations/rates.md#add-rates)
+  * Added operation [Add rates](../operations/rates.md#add-rates)
   * Adjusted [Rate](../operations/rates.md#rate) to be up to date.
 
 ## 31st August 2023
