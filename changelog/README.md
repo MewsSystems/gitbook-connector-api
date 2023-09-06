@@ -2,6 +2,7 @@
 
 ## 6th September 2023
 
+* Added operation [Delete products](../operations/products.md#delete-products).
 * Updated [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) documentation:
   * Removed `StartUtc` and `EndUtc` properties which were never exposed.
   * Added documentation for `CommanderOrigin` property.

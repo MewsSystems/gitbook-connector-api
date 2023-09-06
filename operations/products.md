@@ -2,7 +2,7 @@
 
 ## Get all products
 
-Returns all products offered together with the specified services.
+Returns all products offered together with the specified services. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -173,3 +173,37 @@ Returns all products offered together with the specified services.
 | `Beverage` | boolean | required | Product is classified as beverage. |
 | `Wellness` | boolean | required | Product is classified as wellness. |
 | `CityTax` | boolean | required | Product is classified as city tax. |
+
+## Delete products
+
+Deletes specified products. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/products/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "aff75fbb-5cce-4fae-8039-b07000d16650",
+    "ProductIds": [
+        "1f60b9de-c042-4841-bcab-b07000d2201f"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `ProductIds` | array of string | required, max 1000 items | Unique identifiers of the [Products](#product) to delete. |
+
+### Response
+
+```javascript
+{}
+```
