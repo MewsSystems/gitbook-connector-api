@@ -106,7 +106,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add rates
 
-Adds rates the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds rates to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -122,7 +122,7 @@ Adds rates the enterprise. Note this operation supports [Portfolio Access Tokens
       {
           "Names": { "EN": "My rate" },
           "Type": "Public",
-          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
           "RateGroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",          
           "AccountingCategoryId": "3620c660-a4ec-4e0f-a0bc-b06f008eb8bf",
           "PricingType": "DependentRatePricing",
@@ -150,7 +150,7 @@ Adds rates the enterprise. Note this operation supports [Portfolio Access Tokens
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceId` | string | require | Unique identifiers of the [Services](services.md#service). |
+| `ServiceId` | string | required | Unique identifiers of the [Services](services.md#service). |
 | `RateGroupId` | string | required | Unique identifier of the [Rate group](rates.md#rate-group) under which rate is assigned. |
 | `IsEnabled` | bool | optional | Whether the rate is available to customers. `False` will be used as a default when not provided. |
 | `Type` | [Add Rate type](rates.md#add-rate-type) | required | Type of the rate. |
@@ -219,7 +219,7 @@ Adds rates the enterprise. Note this operation supports [Portfolio Access Tokens
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Rates` | array of [Rate](#rate) | required | Rates that has been added. |
+| `Rates` | array of [Rate](#rate) | required | Rates that have been added. |
 
 #### Rate
 
