@@ -2,7 +2,7 @@
 
 ## Add order
 
-Creates a new order, with the specified products and items. Only positive charges are permitted by default. In order to post negative charges (rebates), the integration must be configured in **Mews Operations** to permit this. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time.
+Creates a new order, with the specified products and items. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time.
 
 ### Request
 
