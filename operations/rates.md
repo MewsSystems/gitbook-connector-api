@@ -106,7 +106,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add rates
 
-Adds rates to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds rates to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md). Rate type of `AvailabilityBlock` cannot be created via this operation.
 
 ### Request
 
@@ -120,11 +120,12 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
     "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "Rates":[
       {
-          "Names": { "EN": "My rate" },
-          "Type": "Public",
           "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-          "RateGroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",          
+          "RateGroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",
+          "IsEnabled": true,
+          "Type": "Public",
           "AccountingCategoryId": "3620c660-a4ec-4e0f-a0bc-b06f008eb8bf",
+          "Names": { "EN": "My rate" },
           "PricingType": "DependentRatePricing",
           "Pricing": {
               "DependentRatePricing": {
@@ -156,8 +157,8 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `Type` | [Add Rate type](rates.md#add-rate-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
-| `Name` | [Localized text](_objects.md#localized-text) | required | Name of the rate. |
-| `ShortName` | [Localized text](_objects.md#localized-text) | optional | Short name of the rate. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations short name of the rate. |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Pricing type](rates.md#pricing-type) | required | Discriminator in which field inside `Pricing` contains additional data. |
@@ -206,6 +207,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
             "IsActive": true,
             "IsEnabled": true,
             "IsPublic": true,
+            "Type": "Public",
             "Name": "My rate",
             "ShortName": "FF",
             "ExternalNames": {
