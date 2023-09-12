@@ -2,7 +2,7 @@
 
 ## 12th September 2023
 
-* Removed 'AccountingCounter' as a discriminator from [Counter Type Discriminator](../operations/counters.md#counter-type-discriminator) since it would never get returned nor it exists in our database.
+* Removed `AccountingCounter` from [Counter Type Discriminator](../operations/counters.md#counter-type-discriminator) since it is never used.
 
 ## 6th September 2023
 
