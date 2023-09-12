@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th September 2023
+
+* Removed `AccountingCounter` from [Counter Type Discriminator](../operations/counters.md#counter-type-discriminator) since it is never used.
+
 ## 6th September 2023
 
 * Added operation [Delete products](../operations/products.md#delete-products).

@@ -109,7 +109,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 #### Counter type discriminator
 
 * `Counter` - Any type of counter
-* `AccountingCounter`
 * `AvailabilityBlockCounter`
 * `BillCounter`
 * `BillPreviewCounter`
