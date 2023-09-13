@@ -174,15 +174,15 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Amount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the product. Note this overrides any previously defined amount. |
-| `NegativeOccupancyAdjustment` | decimal | required | This is the amount added to the price when occupancy of the space is less than the Space Category _Capacity_. To provide a discount price for under-occupancy, simply use a negative value. |
-| `ExtraOccupancyAdjustment` | decimal | required | This is the amount added to the price when the Space Category _Capacity_ is exceeded. |
+| `NegativeOccupancyAdjustment` | decimal | optional | This is the amount added to the price when occupancy of the space is less than the Space Category _Capacity_. To provide a discount price for under-occupancy, simply use a negative value. |
+| `ExtraOccupancyAdjustment` | decimal | optional | This is the amount added to the price when the Space Category _Capacity_ is exceeded. |
 
 ### Dependent rate pricing parameters
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BaseRateId` | string | required | Unique identifier of the rate on which this dependent rate is based. |
-| `RelativeAdjustment` | decimal | required | This value is multiplied by the base rate to calculate an adjustment added to the base rate, e.g. a value of `1.0` means add 100% of the base rate to the base rate, effectively doubling the price. To subtract an amount, simply use a negative value, e.g. a value of `-0.1` means subtract 10% of the base rate from the base rate. |
-| `AbsoluteAdjustment` | decimal | required | This value is simply added to the base rate to obtain the new price. To subtract an amount, use a negative value. |
+| `RelativeAdjustment` | decimal | optional | This value is multiplied by the base rate to calculate an adjustment added to the base rate, e.g. a value of `1.0` means add 100% of the base rate to the base rate, effectively doubling the price. To subtract an amount, simply use a negative value, e.g. a value of `-0.1` means subtract 10% of the base rate from the base rate. |
+| `AbsoluteAdjustment` | decimal | optional | This value is simply added to the base rate to obtain the new price. To subtract an amount, use a negative value. |
 
 ### Response
 
