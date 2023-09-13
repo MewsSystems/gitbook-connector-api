@@ -1,8 +1,8 @@
 # Changelog
 
-## 7th September 2023
+## 14th September 2023
   * Added operation [Add rates](../operations/rates.md#add-rates)
-  * Adjusted [Rate](../operations/rates.md#rate) to be up to date.
+  * Extended [Rate](../operations/rates.md#rate) with new properties `Type` and `Descriptions`
 
 ## 6th September 2023
 
