@@ -220,7 +220,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of [Rate group](#rate-group) where the rate belongs. |
-| `BaseRateId` | string | required | Unique identifier of the base [Rate](#rate). |
+| `BaseRateId` | string | optional | Unique identifier of the base [Rate](#rate). |
 | `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
