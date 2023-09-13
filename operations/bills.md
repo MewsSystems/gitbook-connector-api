@@ -186,7 +186,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `Number` | string | required | Number of the bill. |
 | `VariableSymbol` | string | optional | Variable symbol of the bill. |
 | `CreatedUtc` | string | required | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
-| `IssuedUtc` | string | required | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
+| `IssuedUtc` | string | optional | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | optional | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
 | `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
