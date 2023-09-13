@@ -131,7 +131,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
               "DependentRatePricing": {
                   "BaseRateId": "1a1ddd3b-e106-4a70-aef1-54a75b483943",
                   "RelativeAdjustment": 0.15,
-                  "AbsoluteAdjustment": 10
+                  "AbsoluteAdjustment": 10.0
               }
           }
       }
@@ -151,18 +151,18 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceId` | string | required | Unique identifiers of the [Services](services.md#service). |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `RateGroupId` | string | required | Unique identifier of the [Rate group](rates.md#rate-group) under which rate is assigned. |
 | `IsEnabled` | bool | optional | Whether the rate is available to customers. `False` will be used as a default when not provided. |
 | `Type` | [Add Rate type](rates.md#add-rate-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
-| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations short name of the rate. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the rate. |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Pricing type](rates.md#pricing-type) | required | Discriminator in which field inside `Pricing` contains additional data. |
-| `Pricing` | [Pricing](rates.md#rate-pricing-parameters) | required | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate pricing](rates.md#rate-pricing-parameters) | required | Contains additional data about pricing of the rate. |
 
 ### Rate pricing parameters
 | Property | Type | Contract | Description |
@@ -190,10 +190,10 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 {
     "Rates": [
         {
-            "BaseRateId": null,
-            "BusinessSegmentId": null,
-            "GroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",
             "Id": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "GroupId": "b9f25a45-9b9a-4b33-99bd-b06f008eb6f5",
+            "BaseRateId": "1a1ddd3b-e106-4a70-aef1-54a75b483943",
+            "BusinessSegmentId": null,
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "IsEnabled": true,
@@ -227,10 +227,10 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate |
-| `Name` | string | required | Name of the rate. |
-| `ShortName` | string | required | Short name of the rate. |
-| `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the external name of the rate. |
-| `Description` | [Localized text](_objects.md#localized-text) | required | All translations of the description of the rate. |
+| `Name` | string | required | Name of the rate (in the default language). |
+| `ShortName` | string | optional | Short name of the rate (in the default language). |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
+| `Description` | [Localized text](_objects.md#localized-text) | optional | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 
 #### Rate group
