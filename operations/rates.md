@@ -164,20 +164,20 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `PricingType` | [Pricing type](rates.md#pricing-type) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `Pricing` | [Rate pricing](rates.md#rate-pricing-parameters) | required | Contains additional data about pricing of the rate. |
 
-### Rate pricing parameters
+#### Rate pricing parameters
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BaseRatePricing` | [Base rate pricing](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. |
 | `DependentRatePricing` | [Base rate pricing](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. |
 
-### Base rate pricing parameters
+#### Base rate pricing parameters
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Amount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the product. Note this overrides any previously defined amount. |
 | `NegativeOccupancyAdjustment` | decimal | optional | This is the amount added to the price when occupancy of the space is less than the Space Category _Capacity_. To provide a discount price for under-occupancy, simply use a negative value. |
 | `ExtraOccupancyAdjustment` | decimal | optional | This is the amount added to the price when the Space Category _Capacity_ is exceeded. |
 
-### Dependent rate pricing parameters
+#### Dependent rate pricing parameters
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BaseRateId` | string | required | Unique identifier of the rate on which this dependent rate is based. |
