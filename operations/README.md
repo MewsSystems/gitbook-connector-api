@@ -190,6 +190,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all rules](rules.md#get-all-rules) | Returns all rules applied with the reservations |
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
 | [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) and rate groups \(condition settings\) of the default service provided by the enterprise |
+| [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
