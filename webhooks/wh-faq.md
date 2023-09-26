@@ -34,7 +34,7 @@ To confirm that a request to your Webhook endpoint originates from Mews, we can 
 ### Figure 1: Webhook Authentication
 ![Webhook authentication](../.gitbook/assets/webhook-auth.png)
 
-To use this authentication, let us know the details via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+To use this authentication, send us the token you wish to use via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
 The token should be kept secret and not shared with anyone except Mews.
 
 ## How should the server respond to a Webhook request?
