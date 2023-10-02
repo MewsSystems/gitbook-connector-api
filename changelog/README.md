@@ -1,5 +1,8 @@
 # Changelog
 
+## 3rd October 2023
+  * Updated [Pagination](../guidelines/pagination.md) documentation
+
 ## 14th September 2023
   * Added operation [Add rates](../operations/rates.md#add-rates)
   * Extended [Rate](../operations/rates.md#rate) with new properties `Type` and `Descriptions`
