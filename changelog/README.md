@@ -1,5 +1,16 @@
 # Changelog
 
+## 11th October 2023
+* Extended [Voucher](../operations/vouchers.md#voucher) with new property `Type`
+* Added operations:
+  * [Add vouchers](../operations/vouchers.md#add-vouchers)
+  * [Update vouchers](../operations/vouchers.md#update-vouchers)
+  * [Delete vouchers](../operations/vouchers.md#delete-vouchers)
+  * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
+  * [Add voucher codes](../operations/vouchercodes.md#add-voucher-codes)
+  * [Delete voucher codes](../operations/vouchercodes.md#delete-voucher-codes)
+* Deprecated operation extent `VoucherCodes` and `Companies` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers). [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) should be used instead.
+
 ## 14th September 2023
   * Added operation [Add rates](../operations/rates.md#add-rates)
   * Extended [Rate](../operations/rates.md#rate) with new properties `Type` and `Descriptions`
