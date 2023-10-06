@@ -1,6 +1,6 @@
 # Changelog
 
-## 3rd October 2023
+## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 
 ## 14th September 2023
