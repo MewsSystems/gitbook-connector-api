@@ -2,7 +2,7 @@
 
 ## Get all voucher codes
 
-Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other filter parameters.
+Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other filter parameters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -82,6 +82,7 @@ Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other fi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `Id` | string | required |  Unique identifier of the voucher code. |
 | `VoucherId` | string | required | Unique identifier of [Voucher](#voucher) the code belongs to. |
 | `Value` | string | required | Value of voucher code used by customers. |
 | `ValidityStartUtc` | string | optional | If specified, marks the beginning of interval in which the code can be used. |
@@ -92,7 +93,7 @@ Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other fi
 
 ## Add voucher codes
 
-Adds a voucher codes to the assigned [Voucher](vouchers.md#voucher).
+Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -127,7 +128,7 @@ Adds a voucher codes to the assigned [Voucher](vouchers.md#voucher).
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `VoucherCodeParameters` | array of [Voucher code parameters](#voucher-code-parameters) | required, max 1000 items | Vouchers to be added. |
+| `VoucherCodeParameters` | array of [Voucher code parameters](#voucher-code-parameters) | required, max 1000 items | Voucher codes to be added. |
 
 #### Voucher code parameters
 
@@ -173,7 +174,7 @@ Adds a voucher codes to the assigned [Voucher](vouchers.md#voucher).
 
 ## Delete voucher codes
 
-Delete specified voucher codes.
+Delete specified voucher codes. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

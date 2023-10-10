@@ -2,7 +2,7 @@
 
 ## Get all vouchers
 
-Returns all rate vouchers filtered by [Service](services.md#service), voucher code or voucher identifier.
+Returns all rate vouchers filtered by [Service](services.md#service), voucher code or voucher identifier. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -119,7 +119,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Vouchers` | array of [Voucher](#voucher) | optional | Main information about voucher. |
+| `Vouchers` | array of [Voucher](#voucher) | optional | Details about vouchers added to the system. |
 | `VoucherCodes` | array of [Voucher code](vouchercodes.md#voucher-code) | optional | Information about voucher codes used by customers. |
 | `VoucherAssignments` | array of [Voucher assignment](#voucher-assignment) | optional | The assignments between vouchers and [Rates](rates.md#rate). |
 | `Rates` | array of [Rate](rates.md#rate) | optional | The assigned rates. |
@@ -150,7 +150,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 
 ## Add vouchers
 
-Adds a vouchers to the assigned [Service](services.md#service).
+Adds the specified vouchers to the specified [Services](services.md#service). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -209,10 +209,10 @@ Adds a vouchers to the assigned [Service](services.md#service).
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the voucher belongs to. |
 | `Name` | string | required, max 128 characters | Internal name of the voucher. |
 | `Type` | string [Voucher type](#voucher-type)| required | Type of the voucher. |
-| `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the voucher is related to. Must be provided only for voucher type of `PartnerCompany` and `TravelAgency` in `Type` property. |
+| `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) \(Company or Travel Agency\) the voucher is related to. This is _required_ for [Type](#voucher-type) of `PartnerCompany` or `TravelAgency`. |
 | `AssignedRateIds` | array of string | optional, max 5 items | Unique identifiers of [Rates](rates.md#rate). |
 | `OccupiableIntervalStartUtc` | string | required | Start of the interval in which the voucher can be applied. |
-| `OccupiableIntervalEndUtc` | string | required | End of the internval in which the voucher can be applied. |
+| `OccupiableIntervalEndUtc` | string | required | End of the interval in which the voucher can be applied. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the voucher from external system. |
 
 ### Response
@@ -254,11 +254,11 @@ Adds a vouchers to the assigned [Service](services.md#service).
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Vouchers` | array of [Voucher](#voucher) | optional | Main information about voucher. |
+| `Vouchers` | array of [Voucher](#voucher) | optional | Details about vouchers added to the system. |
 
 ## Update vouchers
 
-Updates information about the specified vouchers.
+Updates information about the specified vouchers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -311,7 +311,7 @@ Updates information about the specified vouchers.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `VoucherUpdates` | array of [Voucher update parameters](#vouchers-update-parameters) | required, max 1000 items | Vouchers to be added. |
+| `VoucherUpdates` | array of [Voucher update parameters](#vouchers-update-parameters) | required, max 1000 items | Details of voucher updates. |
 
 #### Vouchers update parameters
 
@@ -319,8 +319,8 @@ Updates information about the specified vouchers.
 | :-- | :-- | :-- | :-- |
 | `VoucherId` | string | required | Unique identifier of the [Voucher](#voucher). |
 | `Name` | [String update value](_objects.md#string-update-value), max 128 characters | optional | Internal name of the voucher \(or `null` if the name should not be updated\). |
-| `Type` | [String update value](_objects.md#string-update-value) [Type](#voucher-type), max 128 characters | optional | type of the voucher \(or `null` if the name should not be updated\). |
-| `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) \(or `null` should it not be updated\). Required when updating `Type`. |
+| `Type` | [String update value](_objects.md#string-update-value), max 128 characters | optional | [Type](#voucher-type) of the voucher \(or `null` if the type should not be updated\). |
+| `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of [Company](companies.md#company) \(Company or Travel Agency\) the voucher is related to. This is _required_ for [Type](#voucher-type) of `PartnerCompany` or `TravelAgency`. Use `null` if Company should not be updated. |
 | `AssignedRateIds` | [Array string update value](_objects.md#array-of-strings-update-value), max 5 items | optional | Unique identifiers of [Rates](rates.md#rate) \(or `null` should it not be updated\). |
 | `OccupiableIntervalStartUtc` | [String update value](_objects.md#string-update-value) | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). |
 | `OccupiableIntervalEndUtc` | [String update value](_objects.md#string-update-value) | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). |
@@ -365,11 +365,11 @@ Updates information about the specified vouchers.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Vouchers` | array of [Voucher](#voucher) | optional | Main information about voucher. |
+| `Vouchers` | array of [Voucher](#voucher) | optional | Details about vouchers added to the system. |
 
 ## Delete vouchers
 
-Delete specified vouchers.
+Delete specified vouchers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

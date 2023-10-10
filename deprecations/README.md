@@ -39,6 +39,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| Extent `VoucherCodes` and `Companies` <br>in [Get all vouchers](../operations/vouchers.md#get-all-vouchers) | Use [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) instead | 12 October 2023 | 12 October 2024 |
 | `StartUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledStartUtc` and `ActualStartUtc` | 6 Sep 2023 | - |
 | `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters`<br>in [Get all counters](../operations/counters.md#get-all-counters) | Replaced by `Counters` | 21 Jun 2023 | 21 Dec 2023 |
 | `CustomerId`<br>in [Add external payment](../operations/payments.md#add-external-payment) | Replaced by `AccountId` | 24 May 2023 | 24 May 2024 |
