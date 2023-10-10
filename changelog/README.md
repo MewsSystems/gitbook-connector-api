@@ -11,6 +11,9 @@
   * [Delete voucher codes](../operations/vouchercodes.md#delete-voucher-codes)
 * Deprecated operation extent `VoucherCodes` and `Companies` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers). [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) should be used instead.
 
+## 6th October 2023
+  * Updated [Pagination](../guidelines/pagination.md) documentation
+
 ## 14th September 2023
   * Added operation [Add rates](../operations/rates.md#add-rates)
   * Extended [Rate](../operations/rates.md#rate) with new properties `Type` and `Descriptions`
