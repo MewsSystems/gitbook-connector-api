@@ -232,6 +232,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Military`
 * `InRoom`
 * `WaitingForRoom`
+* `Student`
 * ...
 
 #### Customer option

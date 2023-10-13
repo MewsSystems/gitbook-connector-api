@@ -1,5 +1,9 @@
 # Changelog
 
+## 16th October 2023
+
+* Extended [Customer Classification](../operations/customers.md/#customer-classification) with `Student` classification.
+
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 
