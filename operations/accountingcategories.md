@@ -22,6 +22,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "0cf7aa90-736f-43e9-a7dc-787704548d86",
         "0b9560fb-055d-47d3-a6d4-e579c44ca558"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
@@ -34,6 +38,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `AccountingCategoryIds` | string | optional, max 1000 items | Unique identifiers of the requested [Accounting categories](#accounting-category). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Accounting category](#accounting-category) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -52,7 +57,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "IsActive": true,
             "LedgerAccountCode": "311100",
             "Name": "Accommodation",
-            "PostingAccountCode": "602020"
+            "PostingAccountCode": "602020",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         },
         {
             "Classification": null,
@@ -64,7 +71,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "IsActive": true,
             "LedgerAccountCode": "311100",
             "Name": "Alcoholic Beverage",
-            "PostingAccountCode": "602020"
+            "PostingAccountCode": "602020",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         }
     ],
     "Cursor": "0b9560fb-055d-47d3-a6d4-e579c44ca558"
@@ -90,6 +99,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `LedgerAccountCode` | string | optional | Code of the ledger account \(double entry accounting\). |
 | `PostingAccountCode` | string | optional | Code of the posting account \(double entry accounting\). |
 | `CostCenterCode` | string | optional | Code of cost center. |
+| `CreatedUtc` | string | required | Creation date and time of the accounting category in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the accounting category in UTC timezone in ISO 8601 format. |
 
 #### Accounting category classification
 

@@ -1,5 +1,44 @@
 # Changelog
 
+## 18th October 2023
+
+*  Added `UpdatedUtc` filter for following operations:
+  * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules)
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
+  * [Get all resource access tokens](../operations/resourceaccesstokens.md#get-all-resource-access-tokens)
+  * [Get all services](../operations/resourceaccesstokens.md#get-all-resource-access-tokens)
+  * [Get all rules](../operations/rules.md#get-all-rules)
+  * [Get all counters](../operations/counters.md#get-all-counters)
+  * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts)
+  * [Get all products](../operations/products.md#get-all-products)
+  * [Get all credit cards](../operations/creditcards.md#get-all-credit-cards)
+  * [Get all departments](../operations/departments.md#get-all-departments)
+  * [Get all business segments](../operations/businesssegments.md#get-all-business-segments)
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories)
+  * [Get all cashiers](../operations/cashiers.md#get-all-cashiers)
+  * [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories)
+  * [Get all enterprises](../operations/enterprises.md#get-all-enterprises)
+
+* Extended following responses with new properties `CreatedUtc` and `UpdatedUtc`:
+  * [Routing rule](../operations/routingrules.md#routing-rule)
+  * [Payment request](../operations/paymentrequests.md#payment-request)
+  * [Resource access token](../operations/resourceaccesstokens.md#resource-access-token)
+  * [Service](../operations/services.md#service)
+  * [Rule](../operations/rules.md#rule)
+  * [Counter](../operations/counters.md#counter)
+  * [Travel agency contract](../operations/companycontracts.md#travel-agency-contract)
+  * [Product](../operations/products.md#product)
+  * [Department](../operations/departments.md#department)
+  * [Business segment](../operations/businesssegments.md#business-segment)
+  * [Age category](../operations/agecategories.md#age-category)
+  * [Cashier](../operations/cashiers.md#cashier)
+  * [Accouting category](../operations/accountingcategories.md#accounting-category)
+
+* Extended following responses with new property `UpdatedUtc`:
+  * [Credit card](../operations/creditcards.md#credit-card)
+  * [Enterprise](../operations/enterprises.md#enterprise)
+  * [Configuration enterprise](../operations/configuration.md#enterprise)
+
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 

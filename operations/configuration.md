@@ -33,6 +33,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
         "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
         "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
         "CreatedUtc": "2015-07-07T13:33:17Z",
+        "UpdatedUtc": "2015-07-07T13:33:17Z",
         "Name": "Connector API Hotel",
         "TimeZoneIdentifier": "Europe/Budapest",
         "LegalEnvironmentCode": "UK",
@@ -81,6 +82,9 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "Service":
     {
         "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+        "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "CreatedUtc": "2023-10-01T11:48:57Z",
+        "UpdatedUtc": "2023-10-28T11:48:57Z",
         "IsActive": true,
         "Name": "Accommodation",
         "StartTime": "PT14H",
@@ -112,6 +116,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
 | `TimeZoneIdentifier` | string | required | IANA timezone identifier of the enterprise. |
 | `LegalEnvironmentCode` | string | required | Unique identifier of the legal environment where the enterprise resides. |
