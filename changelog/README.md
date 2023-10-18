@@ -1,5 +1,8 @@
 # Changelog
 
+## 20th October 2023
+* Deprecated operation `Extent` in [Get all bills](../operations/bills.md#get-all-bills). [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 
