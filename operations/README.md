@@ -76,6 +76,13 @@ This section describes all operations supported by the API, organised here by th
 | [Get all tasks](tasks.md#get-all-tasks) | Returns all tasks of the enterprise, filtered by identifiers or other filters |
 | [Get all resouce categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
 
+## Exports
+
+| <div style="width:200px">Operation</div> | Description |
+| :-- | :-- |
+| [Get all exports](exports.md#get-all-exports) | Returns all exports. |
+| [Add export](./exports.md#add-export) | Create a pending export. |
+
 ## Finance
 
 | <div style="width:200px">Operation</div> | Description |
