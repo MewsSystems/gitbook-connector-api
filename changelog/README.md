@@ -1,5 +1,8 @@
 # Changelog
 
+## 20th October 2023
+  * Added [Exports](../operations/exports.md) operations.
+
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 
