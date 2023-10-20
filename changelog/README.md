@@ -11,6 +11,9 @@
   * [Delete voucher codes](../operations/vouchercodes.md#delete-voucher-codes)
 * Deprecated operation extent `VoucherCodes` and `Companies` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers). [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) should be used instead.
 
+## 20th October 2023
+* Deprecated operation `Extent` in [Get all bills](../operations/bills.md#get-all-bills). [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 
