@@ -1,5 +1,8 @@
 # Exports
 
+> ### Restricted!
+> These operations are currently in beta-test and as such are subject to change.
+
 ## Get all exports
 
 Get exports created by any integration for the enterprise associated with the provided access token. Only exports with status of `Pending`, `Processing`, and `Success` are returned, unless the exports are retrieved using the `ExportIds` property. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
