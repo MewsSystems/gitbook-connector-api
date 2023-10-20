@@ -26,6 +26,10 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
     "VoucherCodeValues": [
         "TEST-VOUCHER-CODE"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-10T00:00:00Z",
+        "EndUtc": "2023-10-17T00:00:00Z"
+    },
     "Extent": {
         "Vouchers": true,
         "VoucherCodes": true,
@@ -49,6 +53,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) where the vouchers belong to. |
 | `VoucherIds` | array of string | optional, max 1000 items | Unique identifiers of vouchers. |
 | `VoucherCodeValues` | array of string | optional, max 1000 items | Value of voucher codes used by customers. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Voucher](#voucher) was updated. |
 | `Extent` | [Voucher extent](#voucher-extent) | required | Extent of data to be returned. Whether only specific voucher info should be returned or related items as well. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
