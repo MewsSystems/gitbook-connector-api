@@ -111,7 +111,7 @@ Get exports created by any integration for the enterprise associated with the pr
 
 Create a pending export. Export will include all entities of the specified `EntityType` from all enterprises accessible for the integration (if [Portfolio Access Tokens](../guidelines/multi-property.md) is used).
 
-If there is already an export with status `Pending` or `Processing`, request for new export will be rejected.
+If there is already an export with status `Pending` or `Processing` for the specified entity type, request for new export will be rejected.
 
 ### Request
 
