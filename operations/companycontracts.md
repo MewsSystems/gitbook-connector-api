@@ -24,6 +24,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ServiceIds": [
         "c8f88563-dc60-47f3-aca3-af150065d951"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Limitation": { "Count": 10 }
 }
 ```
@@ -37,6 +41,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service) where the Travel agency contract belong to. |
 | `CompanyIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) assigned with Travel agency contracts. |
 | `CompanyContractIds` | array of string | optional, max 1000 items | Unique identifier of the Travel agency contract to fetch. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Travel agency contract](#travel-agency-contract) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -48,6 +53,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "0078f370-3787-43dc-a615-af150066bb88",
             "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
             "CompanyId": "bfd5667b-533f-424f-860d-af150065f4d6",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsActive": true,
             "CommissionIncluded": null,
             "Commission": null,
@@ -82,6 +89,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the contract. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the contract is related to. |
 | `CompanyId` | string | required | Unique identifier of the contracted [Company](companies.md#company). |
+| `CreatedUtc` | string | required | Creation date and time of the travel agency contract in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the travel agency contract in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the contract is still active. |
 | `CommissionIncluded` | boolean | optional | Whether commission of the travel agency is included in the rate. When `CommissionIncluded` is not provided in the response, that means commission is unspecified, when set to true it means the the commission is included in the rate and false means the commission in not included in the rate. |
 | `Commission` | number | optional | Commission of the travel agency. |
@@ -117,25 +126,26 @@ Adds one or more company contracts.
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "TravelAgencyContracts": [
-    {
-        "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
-        "CompanyId": "896e9313-477d-4306-9d37-af150065f4d6",
-        "CommissionIncluded": true,
-        "Commission": 0.1,
-        "ChannelManagerAbsoluteAdjustment": 10,
-        "ChannelManagerRelativeAdjustment": 0.15,
-        "Options": {
-            "IncludeCancellationFeeInCommissionEstimate": false,
-            "SkipAutomaticSettlement": false
-        },
-        "AccountingCode": "P2DT23H",
-        "InvoiceDueInterval": "P0M15DT0H0M0S",
-        "ChannelManagerBusinessSegmentId": "1289d3c8-3c83-4169-b756-af150066bb87",
-        "ContactPerson": "Sample person",
-        "ContactEmail": "sample-person@email.com",
-        "AdditionalContactInfo": null,
-        "Notes": null
-    }
+        {
+            "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
+            "CompanyId": "896e9313-477d-4306-9d37-af150065f4d6",
+            "CommissionIncluded": true,
+            "Commission": 0.1,
+            "ChannelManagerAbsoluteAdjustment": 10,
+            "ChannelManagerRelativeAdjustment": 0.15,
+            "Options": {
+                "IncludeCancellationFeeInCommissionEstimate": false,
+                "SkipAutomaticSettlement": false
+            },
+            "AccountingCode": "P2DT23H",
+            "InvoiceDueInterval": "P0M15DT0H0M0S",
+            "ChannelManagerBusinessSegmentId": "1289d3c8-3c83-4169-b756-af150066bb87",
+            "ContactPerson": "Sample person",
+            "ContactEmail": "sample-person@email.com",
+            "AdditionalContactInfo": null,
+            "Notes": null
+        }
+    ]
 }
 ```
 
@@ -174,6 +184,8 @@ Adds one or more company contracts.
             "Id": "0078f370-3787-43dc-a615-af150066bb88",
             "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
             "CompanyId": "896e9313-477d-4306-9d37-af150065f4d6",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsActive": true,
             "CommissionIncluded": true,
             "Commission": 0.1,
@@ -275,6 +287,8 @@ Updates one or more company contracts.
             "Id": "0078f370-3787-43dc-a615-af150066bb88",
             "ServiceId": "c8f88563-dc60-47f3-aca3-af150065d951",
             "CompanyId": "bfd5667b-533f-424f-860d-af150065f4d6",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsActive": true,
             "CommissionIncluded": true,
             "Commission": 0.1,
