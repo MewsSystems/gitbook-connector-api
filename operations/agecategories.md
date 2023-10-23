@@ -25,6 +25,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
         "ab58c939-be30-4a60-8f75-ae1600c60c9f"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
@@ -38,6 +42,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) where the age category belong to. |
 | `AgeCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Age categories](#age-category). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Rule](#rule) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -50,6 +55,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "MinimalAge": null,
             "MaximalAge": null,
             "Names": {
@@ -65,6 +72,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "MinimalAge": 0,
             "MaximalAge": 18,
             "Names": {
@@ -93,6 +102,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of age category. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the age category belongs to. |
+| `CreatedUtc` | string | required | Creation date and time of the age category in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the age category in UTC timezone in ISO 8601 format. |
 | `MinimalAge` | number | optional | Minimal age for the age category. |
 | `MaximalAge` | number | optional | Maximal age for the age category. |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the age category. |

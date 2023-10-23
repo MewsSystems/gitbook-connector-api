@@ -23,6 +23,10 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
         "StartUtc": "2023-06-01T00:00:00Z",
         "EndUtc": "2023-06-06T00:00:00Z"
     },
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Limitation": {
         "Count": 10
     }
@@ -37,6 +41,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](#enterprise). If not specified, all enterprises within scope of the Access Token are returned. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of the [Enterprise](#enterprise) from external system. |
 | `LinkedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Enterprise](#enterprise) was added to the portfolio. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Enterprise](#enterprise) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of enterprises returned. |
 
 ### Response
@@ -49,6 +54,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "ExternalIdentifier": "Enterprise2023",
       "ChainId": "2f6be44e-9881-4b12-aefe-afce011a9d67",
       "CreatedUtc": "2022-03-23T17:12:06Z",
+      "UpdatedUtc": "2022-03-23T17:12:06Z",
       "LinkedUtc": "2023-06-01T00:00:00Z",
       "Name": "Sample Portfolio Hotel",
       "TimeZoneIdentifier": "Europe/Budapest",

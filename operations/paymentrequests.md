@@ -24,6 +24,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "AccountIds": [
         "8466DFDD-0964-4002-8719-AFA900D0F1BA"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
     "States": [ "Pending", "Expired" ],
     "Limitation": { "Count": 10 }
 }
@@ -37,6 +41,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `PaymentRequestIds` | string | optional, max 1000 items | Unique identifiers of the requested [Payment requests](#payment-request). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer) accounts to which payment requests were issued. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Payment request](#payment-request) was updated. |
 | `States` | [Payment request state](#payment-request-state) | optional | A list of payment request states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of payment requests returned (using cursor pagination). |
 
@@ -49,6 +54,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "ReservationGroupId": null,
             "State": "Pending",
             "Amount": {
@@ -89,6 +96,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the payment request. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request was issued. |
+| `CreatedUtc` | string | required | Creation date and time of the payment request in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the payment request in UTC timezone in ISO 8601 format. |
 | `ReservationGroupId` | string | optional | Unique identifier of the [Reservation group](reservations#reservation-group). |
 | `State` | [Payment request state](#payment-request-state) | required | A payment request state. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the payment request. |
@@ -185,6 +194,8 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
         {
             "Id": "6282d17b-a068-4a9f-83d3-afae00c39bfb",
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "ReservationGroupId": null,
             "State": "Pending",
             "Amount": {
@@ -250,6 +261,8 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
         {
             "Id": "6282d17b-a068-4a9f-83d3-afae00c39bfb",
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "ReservationGroupId": null,
             "State": "Canceled",
             "Amount": {
