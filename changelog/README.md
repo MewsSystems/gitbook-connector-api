@@ -1,6 +1,6 @@
 # Changelog
 
-## 23th October 2023
+## 23rd October 2023
 
 *  Added `UpdatedUtc` filter for following operations:
   * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules)
