@@ -2,6 +2,17 @@
 
 ## 23rd October 2023
 
+* Extended [Voucher](../operations/vouchers.md#voucher) with new property `Type`
+* Added operations:
+  * [Add vouchers](../operations/vouchers.md#add-vouchers)
+  * [Update vouchers](../operations/vouchers.md#update-vouchers)
+  * [Delete vouchers](../operations/vouchers.md#delete-vouchers)
+  * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
+  * [Add voucher codes](../operations/vouchercodes.md#add-voucher-codes)
+  * [Delete voucher codes](../operations/vouchercodes.md#delete-voucher-codes)
+* Deprecated operation extent `VoucherCodes` and `Companies` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers). [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) should be used instead.
+* Added new parameter field `UpdatedUtc` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers).
+
 * Added `UpdatedUtc` filter for following operations:
   * [Get all routing rules](../operations/routingrules.md#get-all-routing-rules)
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
@@ -38,18 +49,6 @@
   * [Credit card](../operations/creditcards.md#credit-card)
   * [Enterprise](../operations/enterprises.md#enterprise)
   * [Configuration enterprise](../operations/configuration.md#enterprise)
-
-## 20th October 2023
-* Extended [Voucher](../operations/vouchers.md#voucher) with new property `Type`
-* Added operations:
-  * [Add vouchers](../operations/vouchers.md#add-vouchers)
-  * [Update vouchers](../operations/vouchers.md#update-vouchers)
-  * [Delete vouchers](../operations/vouchers.md#delete-vouchers)
-  * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
-  * [Add voucher codes](../operations/vouchercodes.md#add-voucher-codes)
-  * [Delete voucher codes](../operations/vouchercodes.md#delete-voucher-codes)
-* Deprecated operation extent `VoucherCodes` and `Companies` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers). [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) should be used instead.
-* Added new parameter field `UpdatedUtc` in [Get all vouchers](../operations/vouchers.md#get-all-vouchers).
 
 ## 20th October 2023
 * Deprecated operation `Extent` in [Get all bills](../operations/bills.md#get-all-bills). [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
