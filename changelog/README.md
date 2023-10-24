@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th October 2023
+
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.
+
 ## 23rd October 2023
 
 * Extended [Voucher](../operations/vouchers.md#voucher) with new property `Type`
