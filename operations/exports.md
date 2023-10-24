@@ -5,7 +5,7 @@
 
 ## Get all exports
 
-Get exports created by any integration for the enterprise associated with the provided access token. Only exports with status of `Pending`, `Processing`, and `Success` are returned, unless the exports are retrieved using the `ExportIds` property. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Get exports by provided `ExportIds`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -18,13 +18,10 @@ Get exports created by any integration for the enterprise associated with the pr
     "Client": "Sample Client 1.0.0",
     "ExportIds": [
         "3fa85f64-5717-4562-b3fd-2c963f66afa6",
-        "09708665-0e31-4b23-b337-b0a000be0df0"
-    ],
-    "EntityType": "OrderItem",
-    "Limitation":{
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 10
-    }
+        "09708665-0e31-4b23-b337-b0a000be0df0",
+        "706dc6d5-9511-4751-825e-538ce99da2ce",
+        "f776f20a-6f1a-4ddf-93f4-9dae95261415"
+    ]
 }
 ```
 
@@ -43,44 +40,49 @@ Get exports created by any integration for the enterprise associated with the pr
 {
     "Exports": [
         {
-            "Id": "09708665-0e31-4b23-b337-b0a000be0df0",
+            "Id": "3fa85f64-5717-4562-b3fd-2c963f66afa6",
             "Status": "Success",
             "EntityType": "OrderItem",
             "ExpiresUtc": "2023-10-26T11:42:28Z",
             "Files": [
                 {
-                    "Url": "https://example.com/exports/b876d46d-9290-43b3-bb80-af3400da102a-1.jsonl?example=signature",
+                    "Url": "https://example.com/exports/3fa85f64-5717-4562-b3fd-2c963f66afa6-1.jsonl?example=signature",
                     "SizeInBytes": 1215279
                 },
                 {
-                    "Url": "https://example.com/exports/b876d46d-9290-43b3-bb80-af3400da102a-2.jsonl?example=signature",
+                    "Url": "https://example.com/exports/3fa85f64-5717-4562-b3fd-2c963f66afa6-2.jsonl?example=signature",
                     "SizeInBytes": 1398362
                 },
             ]
         },
         {
-            "Id": "f327f6d7-a0c8-43ff-b62a-b09700cd8de9",
+            "Id": "09708665-0e31-4b23-b337-b0a000be0df0",
             "Status": "Pending",
             "EntityType": "OrderItem",
             "Files": [],
             "ExpiresUtc": null
         },
         {
-            "Id": "f327f6d8-a0c8-43ff-b62a-b09700cd8dee",
+            "Id": "706dc6d5-9511-4751-825e-538ce99da2ce",
             "Status": "Processing",
             "EntityType": "OrderItem",
             "Files": [],
             "ExpiresUtc": null
+        },
+        {
+            "Id": "706dc6d5-9511-4751-825e-538ce99da2ce",
+            "Status": "Expired",
+            "EntityType": "OrderItem",
+            "Files": [],
+            "ExpiresUtc": "2023-10-24T14:12:30Z"
         }
-    ],
-    "Cursor": "f327f6d8-a0c8-43ff-b62a-b09700cd8dee"
+    ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Exports` | array of [Exports](#export) | required | The filtered exports. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest export returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older messages. |
+| `Exports` | array of [Exports](#export) | required | Requested exports. |
 
 #### Export
 
