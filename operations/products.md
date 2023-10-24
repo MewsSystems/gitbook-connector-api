@@ -16,6 +16,10 @@ Returns all products offered together with the specified services. Note this ope
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Limitation": { "Count" : 10 }
 }
 ```
@@ -26,6 +30,7 @@ Returns all products offered together with the specified services. Note this ope
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Product](#product) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of products returned. |
 
 ### Response
@@ -36,6 +41,8 @@ Returns all products offered together with the specified services. Note this ope
         {
             "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "CategoryId": null,
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
@@ -78,6 +85,8 @@ Returns all products offered together with the specified services. Note this ope
         {
             "Id": "198bc308-c1f2-4a1c-a827-c41d99d52f3d",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "CategoryId": null,
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
@@ -132,6 +141,8 @@ Returns all products offered together with the specified services. Note this ope
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the product. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
+| `CreatedUtc` | string | required | Creation date and time of the product in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the product in UTC timezone in ISO 8601 format. |
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
 | `AccountingCategoryId` | string | optional | Unique identifier of [Accounting Category](accountingcategories.md#accounting-category). |
 | `IsActive` | boolean | required | Whether the product is still active. |

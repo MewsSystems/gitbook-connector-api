@@ -212,6 +212,12 @@ This section describes all operations supported by the API, organised here by th
 | [Update resource access tokens](resourceaccesstokens.md#update-resource-access-tokens) | Updates resource access token validity intervals and permissions |
 | [Delete resource access tokens](resourceaccesstokens.md#delete-resource-access-tokens) | Delete specified resource access tokens |
 | [Get all vouchers](vouchers.md#get-all-vouchers) | Returns all rate vouchers filtered by service, voucher code or voucher identifier |
+| [Add vouchers](vouchers.md#add-vouchers) | Adds new vouchers with the specified data |
+| [Update vouchers](vouchers.md#update-vouchers) | Updates information about the specified vouchers |
+| [Delete vouchers](vouchers.md#delete-vouchers) | Delete vouchers |
+| [Get all voucher codes](vouchercodes.md#get-all-voucher-codes) | Returns all voucher codes filtered by voucher or other filters |
+| [Add voucher codes](vouchercodes.md#add-voucher-codes) | Adds new voucher codes to the voucher |
+| [Delete voucher codes](vouchercodes.md#delete-voucher-codes) | Delete voucher codes |
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
 | [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |
 | [Get all products](products.md#get-all-products) | Returns all products filtered by services or product identifier |

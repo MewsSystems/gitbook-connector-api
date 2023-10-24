@@ -21,6 +21,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Extent": 
     {
         "RuleActions": true,
@@ -39,6 +43,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Rule](#rule) was updated. |
 | `Extent` | [Rule extent](#rule-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -75,7 +80,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
                 "TravelAgencyId": null,
                 "MinimumTimeUnitCount": null,
                 "MaximumTimeUnitCount": null
-            }
+            },
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         }
     ],
     "RuleActions": [
@@ -128,6 +135,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rule. |
 | `Conditions` | [Rule conditions](#rule-conditions) | required | Conditions of the rule. |
+| `CreatedUtc` | string | required | Creation date and time of the rule in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the rule in UTC timezone in ISO 8601 format. |
 
 #### Rule conditions
 

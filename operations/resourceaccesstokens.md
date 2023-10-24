@@ -28,6 +28,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "StartUtc": "2020-02-15T00:00:00Z",
         "EndUtc": "2020-02-20T00:00:00Z"
     },
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
     "ActivityStates": [
         "Active"
     ],
@@ -47,6 +51,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access tokens](#resource-access-token). Required if no other filter is provided. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example reservations). Required if no other filter is provided. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Resource access token](#resource-access-token) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of tokens returned. |
 
@@ -66,6 +71,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "Permissions":
             {
                 "Bed": true,
@@ -98,6 +105,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `SerialNumber` | string | optional | Serial number of [Resource access token type](#resource-access-token-type). |
 | `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
 | `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
+| `CreatedUtc` | string | required | Creation date and time of the resource access token in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the resource access token in UTC timezone in ISO 8601 format. |
 | `Permissions` | [Resource access token permissions](#resource-access-token-permissions) | required | Specify permissions of [Resource access token](#resource-access-token). |
 
 #### Resource access token type
@@ -194,6 +203,8 @@ Adds new resource access tokens with the specified data.
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "Permissions":
             {
                 "Bed": true,
@@ -271,6 +282,8 @@ Updates the [Resource access token](#resource-access-token) validity interval an
             "SerialNumber": null,
             "ValidityStartUtc": "2020-10-09T22:00:00Z",
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "Permissions":
             {
                 "Bed": true,

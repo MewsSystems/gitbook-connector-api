@@ -25,6 +25,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ServiceIds": [
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "ActivityStates": [ "Active" ],
     "Limitation": { "Count": 10 }
 }
@@ -38,6 +42,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Ids` | string | optional, max 1000 items | Unique identifiers of the requested [Bussiness segment](#business-segment). |
 | `ServiceIds` | array of string | required | Unique identifiers of the [Services](services.md#service) from which the business segments are requested. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Business segment](#business-segment) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -50,13 +55,17 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "7760b5cb-a666-41bb-9758-76bf5d1df399",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
-            "Name": "Business"
+            "Name": "Business",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         },
         {
             "Id": "54ec08b6-e6fc-48e9-b8ae-02943e0ac693",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
-            "Name": "Leisure"
+            "Name": "Leisure",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         }
     ],
     "Cursor": "54ec08b6-e6fc-48e9-b8ae-02943e0ac693"
@@ -76,3 +85,5 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
 | `IsActive` | boolean | required | Whether the business segment is still active. |
 | `Name` | string | required | Name of the segment. |
+| `CreatedUtc` | string | required | Creation date and time of the business segment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the business segment in UTC timezone in ISO 8601 format. |

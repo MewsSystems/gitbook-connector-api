@@ -95,6 +95,7 @@
   * [Tax environments](operations/taxenvironments.md)
   * [Taxations](operations/taxations.md)
   * [Vouchers](operations/vouchers.md)
+  * [Voucher codes](operations/vouchercodes.md)
 * [Webhooks](webhooks/README.md)
   * [General Webhooks](webhooks/wh-general.md)
   * [Integration Webhooks](webhooks/wh-integration.md)

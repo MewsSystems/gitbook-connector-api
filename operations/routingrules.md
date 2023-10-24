@@ -28,6 +28,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "cd441e1a-6f19-4960-887a-af2a00d5d5f8",
         "ddc23f8d-131d-44d6-b150-af2a00d5d5f8"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Limitation": { "Count": 10 }
 }
 ```
@@ -40,6 +44,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `RoutingRuleIds` | array of string | required, max 1000 items | Unique identifier of the [Routing rule](routingrules.md#routing-rule). |
 | `CompanyIds` | array of string | required, max 1000 items | Unique identifier of the [Company](companies.md#company). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Routing rule](#route-rule) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -54,7 +59,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "CompanyRelation": "PartnerCompany",
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "PrepaidOnly",
-            "RouteType": "AllStayItems"
+            "RouteType": "AllStayItems",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
         },
         {
             "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
@@ -64,6 +71,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "SelectedStayItems":
             {
                 "Nights" : true,
@@ -95,6 +104,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Applicability` | string [Applicability](routingrules.md#applicability) | required | Determines if routing rule applies to all future reservations with this company or travel agency, or only future reservations that are prepaid. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) routing rule is assigned to. |
 | `RouteType` | string [Route type](routingrules.md#route-type) | required | Determines to which stay items the routing rule applies. |
+| `CreatedUtc` | string | required | Creation date and time of the routing rule in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the routing rule in UTC timezone in ISO 8601 format. |
 | `SelectedStayItems` | [Selected stay items](routingrules.md#selected-stay-items) | optional | Specific items to which the routing rule applies. Returns only if RouteType value is SelectedStayItems. |
 
 #### Company relation
@@ -195,7 +206,9 @@ Adds a new routing rules.
             "CompanyRelation": "PartnerCompany",
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "PrepaidOnly",
-            "RouteType": "AllStayItems"
+            "RouteType": "AllStayItems",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
         },
         {
             "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
@@ -204,6 +217,8 @@ Adds a new routing rules.
             "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "SelectedStayItems":
             {
                 "Nights" : true,
@@ -311,7 +326,9 @@ Updates routing rules.
             "CompanyRelation": "PartnerCompany",
             "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
             "Applicability": "Always",
-            "RouteType": "AllStayItems"
+            "RouteType": "AllStayItems",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
         },
         {
             "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
@@ -320,6 +337,8 @@ Updates routing rules.
             "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
             "Applicability": "Always",
             "RouteType": "SelectedStayItems",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "SelectedStayItems":
             {
                 "Nights" : false,

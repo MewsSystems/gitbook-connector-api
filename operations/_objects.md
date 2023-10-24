@@ -64,6 +64,22 @@ These are JSON object definitions and other JSON entities shared by operations a
 | :-- | :-- | :-- | :-- |
 | `Value` | integer | optional | Value which is to be updated. |
 
+### Array of strings update value
+
+```javascript
+{
+    "Value": 
+    [
+        "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
+        "4a1a7f12-4024-41ba-9289-f90448682d3a"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of strings | optional | Value which is to be updated. |
+
 ### Dictionary
 
 Dictionary is a collection of key-value pairs.
