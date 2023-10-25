@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th October 2023
+
+* Extended [Customer Classification](../operations/customers.md/#customer-classification) with `Student` classification.
+
 ## 23rd October 2023
 
 * Extended [Voucher](../operations/vouchers.md#voucher) with new property `Type`
