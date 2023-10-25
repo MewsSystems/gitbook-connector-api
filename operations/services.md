@@ -22,6 +22,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "fc79a518-bc69-45b8-93bd-83326201bd14",
         "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2020-01-05T00:00:00Z",
+        "EndUtc": "2020-01-10T00:00:00Z"
+    },
     "Limitation":{ "Count": 10 }
 }
 ```
@@ -33,6 +37,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource categories for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Services](#service) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -43,6 +48,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         {
             "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsActive": true,
             "Name": "Restaurant",
             "Options": {
@@ -66,6 +73,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         {
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsActive": true,
             "Name": "Accommodation",
             "Options": {
@@ -99,6 +108,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the service. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `CreatedUtc` | string | required | Creation date and time of the service in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the service in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the service is still active. |
 | `Name` | string | required | Name of the service. |
 | `Options` | [Service options](#service-options) | required | Options of the service. |

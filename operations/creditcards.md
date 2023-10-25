@@ -24,6 +24,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "CustomerIds": [
         "5cbbd97d-5f19-4010-9abf-ab0400a3366a"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Limitation": { "Count": 10 }
 }
 ```
@@ -36,6 +40,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `CreditCardIds` | array of string | optional, max 1000 items | Unique identifiers of the [Credit cards](#credit-card). Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Credit card](#credit-card) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -44,12 +49,13 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 {
     "CreditCards": [
         {
+            "Id": "f1d94a32-b4be-479b-9e47-a9fcb03d5196",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "CreatedUtc": "2018-05-24T13:45:29Z",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
             "CustomerId": "a3c90426-43f2-4b53-8482-446dfc724bd2",
             "Expiration": "2020-11",
-            "Format": "Physical",
-            "Id": "f1d94a32-b4be-479b-9e47-a9fcb03d5196",
+            "Format": "Physical",            
             "IsActive": true,
             "Kind": "Gateway",
             "ObfuscatedNumber": "************1111",
@@ -74,6 +80,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `CustomerId` | string | required | Unique identifier of the credit card [owner](customers.md#customer). |
 | `CreatedUtc` | string | required | Creation date and time of the credit card in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the credit card in UTC timezone in ISO 8601 format. |
 | `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`. |
 | `IsActive` | boolean | required | Whether the credit card is still active. |
 | `ObfuscatedNumber` | string | optinal | Obfuscated credit card number. At most first six digits and last four digits can be specified, otherwise the digits are replaced with `*`. |

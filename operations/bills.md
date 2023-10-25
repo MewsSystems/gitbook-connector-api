@@ -62,7 +62,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was updated. |
 | `DueUtc` | [Time interval](_objects.md#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
 | `PaidUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
-| `Extent` | [Bill extent](#bill-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. |
+| ~~`Extent`~~ | ~~[Bill extent](#bill-extent)~~ | ~~required~~ | ~~Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned.~~ **Deprecated!** |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of bill data returned. |
 
 #### Bill state
@@ -74,7 +74,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Items` | bool | required | Whether the response should contain payments and revenue items. |
+| ~~`Items`~~ | ~~bool~~ | ~~required~~ | ~~Whether the response should contain payments and revenue items.~~ **Deprecated!** |
 
 ### Response
 

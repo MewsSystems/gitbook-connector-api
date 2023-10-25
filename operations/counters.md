@@ -18,6 +18,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "4d0201db-36f5-428b-8d11-4f0a65e960cc"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Type": "Counter",
     "Limitation": { "Count": 10 }
 }
@@ -29,6 +33,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Counter](#counter) was updated. |
 | `Type` | string [Counter type](#counter-type-discriminator) | optional | Type of the counter. If not specified, the operation returns all types. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -41,6 +46,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "b7e4b68a-026e-41f3-ad2f-35325aa5dcbf",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Name": "Normal",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsDefault": false,
             "Value": 67,
             "Format": "NORMAL{0:0000}",
@@ -51,6 +58,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "Name": "Events",
             "IsDefault": true,
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "Value": 1575,
             "Format": "E2018{0:0000}",
             "Type": "BillCounter"
@@ -59,6 +68,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "3362d7d5-a52f-4077-b2b4-4ec2476e6e19",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Name": "Default",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsDefault": true,
             "Value": 171,
             "Format": "",
@@ -68,6 +79,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "1162d7d5-a52f-4077-b2b4-4ec2476e6e19",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Name": "Default",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsDefault": true,
             "Value": 911,
             "Format": "",
@@ -77,6 +90,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "a9fd7868-1ed0-4e96-8dd9-580708c200ea",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Name": "Default",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z",
             "IsDefault": true,
             "Value": 25797,
             "Format": null,
@@ -101,6 +116,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the counter. |
 | `Name` | string | required | Name of the counter. |
+| `CreatedUtc` | string | required | Creation date and time of the counter in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the counter in UTC timezone in ISO 8601 format. |
 | `IsDefault` | boolean | required | Whether the counter is used by default. |
 | `Value` | number | required | Current value the counter. |
 | `Format` | string | required | Format the counter is displayed in. |

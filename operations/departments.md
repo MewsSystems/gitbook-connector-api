@@ -22,6 +22,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "98776d06-60e4-495f-82f1-95ab2f644d63",
         "915fbb82-de35-48a0-9e9b-f4a7eac711bb"
     ],
+    "UpdatedUtc": {
+        "StartUtc": "2023-10-01T00:00:00Z",
+        "EndUtc": "2023-10-31T00:00:00Z"
+    },
     "Limitation": { "Count": 10 }
 }
 ```
@@ -33,6 +37,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `DepartmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Department](#department). |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Department](#department) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -44,13 +49,17 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "98776d06-60e4-495f-82f1-95ab2f644d63",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "IsActive": true,
-            "Name": "Sales"
+            "Name": "Sales",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         },
         {
             "Id": "915fbb82-de35-48a0-9e9b-f4a7eac711bb",
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "IsActive": true,
-            "Name": "Housekeeping"
+            "Name": "Housekeeping",
+            "CreatedUtc": "2023-10-01T11:48:57Z",
+            "UpdatedUtc": "2023-10-28T11:48:57Z"
         }
     ],
     "Cursor": "915fbb82-de35-48a0-9e9b-f4a7eac711bb"
@@ -70,3 +79,5 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `IsActive` | boolean | required | Whether the department is still active. |
 | `Name` | string | required | Name of the department. |
+| `CreatedUtc` | string | required | Creation date and time of the department in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the department in UTC timezone in ISO 8601 format. |
