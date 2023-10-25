@@ -30,7 +30,7 @@ Get exports by provided `ExportIds`. Note this operation supports [Portfolio Acc
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ExportIds` | array of string | optional, max 1000 items | Unique identifiers of the [Exports](#export). |
+| `ExportIds` | array of string | required, max 1000 items | Unique identifiers of the [Exports](#export). |
 | `EntityType` | string [Entity type](#entity-type) | optional | Return only exports with the provided [Entity type](#entity-type). |
 
 ### Response
