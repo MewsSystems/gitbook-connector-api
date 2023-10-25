@@ -2,7 +2,9 @@
 
 ## 24th October 2023
 
-* Added [Exports](../operations/exports.md) operations.
+* Added [Exports](../operations/exports.md) operations, currently in beta-testing:
+  * [Get all exports](../operations/exports.md#get-all-exports)
+  * [Add export](../operations/exports.md#add-export)
 
 ## 23rd October 2023
 

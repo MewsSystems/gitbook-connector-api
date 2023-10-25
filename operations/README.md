@@ -80,7 +80,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
-| [Get all exports](exports.md#get-all-exports) | Returns exports by ID. |
+| [Get all exports](exports.md#get-all-exports) | Returns all exports filtered by their unique identifiers. |
 | [Add export](./exports.md#add-export) | Create a pending export. |
 
 ## Finance
