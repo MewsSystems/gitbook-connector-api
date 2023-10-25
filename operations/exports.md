@@ -91,7 +91,7 @@ Get exports by provided `ExportIds`. Note this operation supports [Portfolio Acc
 | `Status` | string [Export status](#export-status) | required | Current status of the export. |
 | `EntityType` | string [Entity type](#entity-type) | required | Type of exported entities. |
 | `Files` | array of [Exported files](#exported-file) | required | Files with exported data. Empty if no files are available. |
-| `ExpiresUtc` | string | optional | Expiration date and time of the export in UTC timezone in ISO 8601 format. After this time the [exported files](#exported-file) may no longer be available for download. |
+| `ExpiresUtc` | string | optional | Expiration date and time of the export in UTC timezone in ISO 8601 format. After this time the [Exported files](#exported-file) may no longer be available for download. |
 
 #### Export status
 
