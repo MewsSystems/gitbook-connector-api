@@ -77,6 +77,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
             "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "Type": "Public",
             "Name": "Weekend Voucher",
             "CreatedUtc": "2018-11-29T08:17:05Z",
             "UpdatedUtc": "2020-10-30T13:38:49Z",
@@ -138,6 +139,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `Id` | string | required | Unique identifier of voucher. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the voucher belongs to. |
+| `Type` | string [Voucher type](#voucher-type)| required | Type of the voucher. |
 | `Name` | string | required | Internal name of the voucher. |
 | `CreatedUtc` | string | required | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
