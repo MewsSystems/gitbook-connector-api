@@ -1,10 +1,15 @@
 # Changelog
 
-## 24th October 2023
+## 26th October 2023
 
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.
 * Added [Exports](../operations/exports.md) operations, currently in beta-testing:
   * [Get all exports](../operations/exports.md#get-all-exports)
   * [Add export](../operations/exports.md#add-export)
+
+## 25th October 2023
+
+* Extended [Customer Classification](../operations/customers.md/#customer-classification) with `Student` classification.
 
 ## 23rd October 2023
 
