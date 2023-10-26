@@ -3,6 +3,9 @@
 ## 26th October 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.
+* Added [Exports](../operations/exports.md) operations, currently in beta-testing:
+  * [Get all exports](../operations/exports.md#get-all-exports)
+  * [Add export](../operations/exports.md#add-export)
 
 ## 25th October 2023
 
@@ -59,7 +62,7 @@
   * [Configuration enterprise](../operations/configuration.md#enterprise)
 
 ## 20th October 2023
-* Deprecated operation `Extent` in [Get all bills](../operations/bills.md#get-all-bills). [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
+  * Deprecated operation `Extent` in [Get all bills](../operations/bills.md#get-all-bills). [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) should be used instead.
 
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation

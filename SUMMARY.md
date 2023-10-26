@@ -58,6 +58,7 @@
   * [Devices](operations/devices.md)
   * [Enterprises](operations/enterprises.md)
   * [Exchange rates](operations/exchangerates.md)
+  * [Exports](operations/exports.md)
   * [Images](operations/images.md)
   * [Languages](operations/languages.md)
   * [Loyalty memberships](operations/loyaltymemberships.md)
