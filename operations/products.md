@@ -69,7 +69,7 @@ Returns all products offered together with the specified services. Note this ope
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount": {
+            "Price": {
                 "GrossValue": 25,
                 "Currency": "EUR",
                 "TaxValues": [
@@ -113,7 +113,7 @@ Returns all products offered together with the specified services. Note this ope
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount": {
+            "Price": {
                 "GrossValue": 25,
                 "Currency": "EUR",
                 "TaxValues": [
@@ -155,7 +155,7 @@ Returns all products offered together with the specified services. Note this ope
 | `Options` | [Product options](#product-options) | required | Options of the product. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 | `Classifications` | [Product classifications](#product-classifications) | required | Classifications of the service. |
-| `UnitAmount` | [Amount value](accountingitems.md#amount-value) | required | Unit amount representing price of the product. |
+| `Price` | [Amount value](accountingitems.md#amount-value) | required | Price representing price of the product. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the product from external system. |
 
 #### Product charging mode
