@@ -31,7 +31,6 @@ Get exports for the given `ExportIds`. Note this operation supports [Portfolio A
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ExportIds` | array of string | required, max 1000 items | Unique identifiers of the [Exports](#export). |
-| `EntityType` | string [Entity type](#entity-type) | optional | Return only exports with the provided [Entity type](#entity-type). |
 
 ### Response
 
@@ -111,7 +110,6 @@ Get exports for the given `ExportIds`. Note this operation supports [Portfolio A
 ## Add export
 
 Create a pending export. Export all entities of the specified `EntityType` within the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md) but doesn't have filtering by `EnterpriseIds` or `ChainIds`, so will return entities from all enterprises within the scope of the portfolio.
-
 If there is already an export with status `Pending` or `Processing` for the specified entity type, the request for a new export will be rejected. Successful exports remain available for download until the expiration date specified in `ExpiresUtc`.
 
 ### Request
