@@ -5,7 +5,7 @@
 
 ## Get all exports
 
-Get exports by provided `ExportIds`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Get exports for the given `ExportIds`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -95,7 +95,7 @@ Get exports by provided `ExportIds`. Note this operation supports [Portfolio Acc
 
 #### Export status
 
-* `Pending` - export was created and didn't start yet.
+* `Pending` - export created but hasn't started yet.
 * `Processing` - export process has started.
 * `Success` - export has been successfully finished and [Exported files](#exported-file) are available for download.
 * `Expired` - export has expired and exported files are no longer available.
@@ -110,9 +110,9 @@ Get exports by provided `ExportIds`. Note this operation supports [Portfolio Acc
 
 ## Add export
 
-Create a pending export. Export all entities of the specified `EntityType` within the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md) but don't have filtering by `EnterpriseIds` or `ChainIds` and will include entities from all enterprises within the scope of the portfolio.
+Create a pending export. Export all entities of the specified `EntityType` within the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md) but doesn't have filtering by `EnterpriseIds` or `ChainIds`, so will return entities from all enterprises within the scope of the portfolio.
 
-If there is already an export with status `Pending` or `Processing` for the specified entity type, request for new export will be rejected. Successful exports remain available for download until the expiration date specified in `ExpiresUtc`.
+If there is already an export with status `Pending` or `Processing` for the specified entity type, the request for a new export will be rejected. Successful exports remain available for download until the expiration date specified in `ExpiresUtc`.
 
 ### Request
 
