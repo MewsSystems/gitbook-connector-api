@@ -1,7 +1,6 @@
 # Data export
 
-The _Data export_ feature of the **Mews Connector API** provides a streamlined method for retrieving bulk data.
-This feature is designed for users who require access to a substantial amount of data, such as [Order items](../operations/orderitems.md#order-item), without the hassle of making multiple paginated requests subject to timeouts and other constraints.
+The _Data export_ feature of the **Mews Connector API** provides a streamlined method for retrieving bulk data. This feature is designed for users who require access to a substantial amount of data, such as [Order items](../operations/orderitems.md#order-item), without the hassle of making multiple paginated requests subject to timeouts and other constraints.
 
 ### User scenarios
 
@@ -20,8 +19,7 @@ This feature is designed for users who require access to a substantial amount of
 
 > ### Restricted!
 >
-> This feature is currently under beta test and is subject to change.
-> If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+> This feature is currently under beta test and is subject to change. If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
 
 ## Initiate the export
 
@@ -41,8 +39,7 @@ To monitor the progress of the export and retrieve the exported data, use the [G
 
 ## Download exported data
 
-Once the export status changes to `Success`, you can download the exported data from the provided [file URLs](../operations/exports.md#exported-file).
-For example:
+Once the export status changes to `Success`, you can download the exported data from the provided [file URLs](../operations/exports.md#exported-file). For example:
 
 ```javascript
 {
@@ -76,14 +73,11 @@ Depending on user demand, the **Mews Connector API** may be expanded to support 
 
 ### How often should I check for updates?
 
-We do not provide specific guidance on this because the export duration can vary enormously.
-The current mechanism is considered a trial which may be enhanced in future.
-For example, we may move to a model whereby a webhook event is generated when the export is ready.
+We do not provide specific guidance on this because the export duration can vary enormously. The current mechanism is considered a trial which may be enhanced in future. For example, we may move to a model whereby a webhook event is generated when the export is ready.
 
 ### Can I export data from multiple enterprises in one request?
 
-Yes, you can use a [Portfolio Access Token](../guidelines/multi-property.md) to request data from multiple enterprises.
-Doing so will generate an export of data for all enterprises within scope of the Access Token.
+Yes, you can use a [Portfolio Access Token](../guidelines/multi-property.md) to request data from multiple enterprises. Doing so will generate an export of data for all enterprises within scope of the Access Token.
 
 ### What happens if I request a data export when there is already an export pending?
 
