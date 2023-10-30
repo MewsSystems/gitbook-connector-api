@@ -1,7 +1,6 @@
 # Data export
 
-The _Data export_ feature of the **Mews Connector API** provides a streamlined method for retrieving bulk data.
-This feature is designed for users who require access to a substantial amount of data, such as [Order items](../operations/orderitems.md#order-item), without the hassle of making multiple paginated requests subject to timeouts and other constraints.
+The _Data export_ feature of the **Mews Connector API** provides a streamlined method for retrieving bulk data. This feature is designed for users who require access to a substantial amount of data, such as [Order items](../operations/orderitems.md#order-item), without the hassle of making multiple paginated requests subject to timeouts and other constraints.
 
 ### User scenarios
 
@@ -20,12 +19,11 @@ This feature is designed for users who require access to a substantial amount of
 
 > ### Restricted!
 >
-> This feature is currently under beta test and is subject to change.
-> If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+> This feature is currently under beta test and is subject to change. If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
 
 ## Initiate the export
 
-To initiate a bulk data export, use the [Add export](../operations/exports.md#add-export) operation, specifying the data _Entity type_, e.g. `OrderItem`.
+To initiate a bulk data export, use the [Add export](../operations/exports.md#add-export) operation, specifying the data _Entity type_, e.g. `OrderItem`. The operation returns an [Export](../operations/exports.md#export) object containing the Export `Id` to use in the next step. If there is already an export pending, the operation returns a 400 HTTP error code.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
@@ -33,7 +31,7 @@ To initiate a bulk data export, use the [Add export](../operations/exports.md#ad
 
 ## Check export status
 
-To monitor the progress of the export and retrieve the exported data, use the [Get all exports](../operations/exports.md#get-all-exports) operation. This operation provides a list of all ongoing and completed exports, including their status.
+To monitor the progress of the export and retrieve the exported data, use the [Get all exports](../operations/exports.md#get-all-exports) operation. This operation returns details of exports for the `Id`s you specify, including their status. You can repeatedly check the status of an export while its status is `Pending` or `Processing`, for example every 5 minutes.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
@@ -41,8 +39,7 @@ To monitor the progress of the export and retrieve the exported data, use the [G
 
 ## Download exported data
 
-Once the export status changes to `Success`, you can download the exported data from the provided [file URLs](../operations/exports.md#exported-file).
-For example:
+Once the export status changes to `Success`, you can download the exported data from the provided [file URLs](../operations/exports.md#exported-file). For example:
 
 ```javascript
 {
@@ -76,15 +73,12 @@ Depending on user demand, the **Mews Connector API** may be expanded to support 
 
 ### How often should I check for updates?
 
-We do not provide specific guidance on this because the export duration can vary enormously.
-The current mechanism is considered a trial which may be enhanced in future.
-For example, we may move to a model whereby a webhook event is generated when the export is ready.
+Export duration can vary enormously, but checking status every 5 minutes is a reasonable frequency. The current mechanism is considered a trial which may be enhanced in future.
 
 ### Can I export data from multiple enterprises in one request?
 
-Yes, you can use a [Portfolio Access Token](../guidelines/multi-property.md) to request data from multiple enterprises.
-Doing so will generate an export of data for all enterprises within scope of the Access Token.
+Yes, you can use a [Portfolio Access Token](../guidelines/multi-property.md) to request data from multiple enterprises. Doing so will generate an export of data for all enterprises within scope of the Access Token.
 
-### What happens if I request a data export when there is already an export pending?
+### For how long are export files available to download?
 
-The [Add export](../operations/exports.md#add-export) operation returns a 400 HTTP error code in that case.
+Export files are available to download for a limited period, typically 1 week. The expiry time is specified by `ExpiresUtc` in the [Export](../operations/exports.md#export) object.
