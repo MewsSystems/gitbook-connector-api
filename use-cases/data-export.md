@@ -19,7 +19,7 @@ The _Data export_ feature of the **Mews Connector API** provides a streamlined m
 
 > ### Restricted!
 >
-> This feature is currently under beta test and is subject to change. If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+> This feature is currently under beta test and is subject to change. If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
 
 ## Initiate the export
 
