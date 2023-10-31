@@ -39,6 +39,10 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| Extent `ResourceCategoryAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
+| Extent `ResourceCategoryImageAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
+| Extent `ResourceFeatures`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead | 1 Nov 2023 | 1 Nov 2024 |
+| Extent `ResourceFeatureAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
 | Extent `VoucherCodes` and `Companies` <br>in [Get all vouchers](../operations/vouchers.md#get-all-vouchers) | Use [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) instead | 23 October 2023 | 23 October 2024 |
 | `Extent`<br>in [Get all bills](../operations/bills.md#get-all-bills) | Use [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) instead | 20 October 2023 | 20 October 2024 |
 | `StartUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledStartUtc` and `ActualStartUtc` | 6 Sep 2023 | - |

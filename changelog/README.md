@@ -1,15 +1,23 @@
 # Changelog
 
-## 26th October 2023
+## 1st November 2023
+* Added operations:
+  * [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments)
+  * [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments)
+  * [Get all resource features](../operations/resourcefeatures.md#resource-features)
+  * [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments)
 
-* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.
-* Added [Exports](../operations/exports.md) operations, currently in beta-testing:
+* Deprecated operation extents
+  * `ResourceCategoryAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead.
+  * `ResourceCategoryImageAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead.
+  * `ResourceFeatures` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource features](../operations/resourcefeatures.md#resource-features) instead.
+  * `ResourceFeaturesAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead.
+
+## 24th October 2023
+
+* Added [Exports](../operations/exports.md) operations.
   * [Get all exports](../operations/exports.md#get-all-exports)
   * [Add export](../operations/exports.md#add-export)
-
-## 25th October 2023
-
-* Extended [Customer Classification](../operations/customers.md/#customer-classification) with `Student` classification.
 
 ## 23rd October 2023
 

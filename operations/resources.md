@@ -61,10 +61,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Resources` | bool | optional | Whether the response should contain resources. |
 | ~~`ResourceCategories`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Please use [Get all resource categories](resourcecategories.md#get-all-resource-categories) |
-| `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
-| `ResourceCategoryImageAssignments` | bool | optional | Whether the response should contain assignments of the images to categories. |
-| `ResourceFeatures` | bool | optional | Whether the response should contain resource features. |
-| `ResourceFeatureAssignments` | bool | optional | Whether the response should contain assignments of the resources to features. |
+| ~~`ResourceCategoryAssignments`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to categories.~~ **Deprecated!** Please use [Get all resource category assignments](resourcecategories.md#get-all-resource-category-assignments) |
+| ~~`ResourceCategoryImageAssignments`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain assignments of the images to categories.~~ **Deprecated!** Please use [Get all resource category image assignments](resourcecategories.md#get-all-resource-category-image-assignments) |
+| ~~`ResourceFeatures`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain resource features.~~ **Deprecated!** Please use [Get all resource features](resourcefeatures.md#get-all-resource-features) |
+| ~~`ResourceFeatureAssignments`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to features.~~ **Deprecated!** Please use [Get all resource feature assignments](resourcefeatures.md#get-all-resource-feature-assignments) |
 | `Inactive` | bool | optional | Whether the response should contain inactive entities. |
 
 ### Response
