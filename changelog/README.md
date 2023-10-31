@@ -1,6 +1,6 @@
 # Changelog
 
-## 30th October 2023
+## 31st October 2023
 
 * Added new use case [Data export](../use-cases/data-export.md)
 
