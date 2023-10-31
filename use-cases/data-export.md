@@ -31,7 +31,7 @@ To initiate a bulk data export, use the [Add export](../operations/exports.md#ad
 
 ## Check export status
 
-To monitor the progress of the export and retrieve the exported data, use the [Get all exports](../operations/exports.md#get-all-exports) operation. This operation returns details of exports for the `Id`s you specify, including their status. You can repeatedly check the status of an export while its status is `Pending` or `Processing`, for example every 5 minutes.
+To monitor the progress of the export and retrieve the exported data, use the [Get all exports](../operations/exports.md#get-all-exports) operation. This operation returns details of exports for the `ExportIds` you specify, including their status. You can repeatedly check the status of an export while its status is `Pending` or `Processing`, for example every 5 minutes.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
