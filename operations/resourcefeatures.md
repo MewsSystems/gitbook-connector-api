@@ -42,7 +42,7 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource features for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) to which the resource features belong. |
-| `ResourceFeatureIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature](resources.md#resource-feature). |
+| `ResourceFeatureIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature](#resource-feature). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource feature were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource feature returned. |
@@ -72,7 +72,7 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceFeatures` | array of [Resource feature](resources.md#resource-feature) | optional | Resource features. |
+| `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Resource features. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource features returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource feature. |
 
 ## Get all resource feature assignments
@@ -116,8 +116,8 @@ Returns all resource feature assignments. This operation uses [Pagination](../gu
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource feature assignments for all enterprises within scope of the Access Token. |
-| `ResourceFeatureIds` | array of string | required, max 1000 items | Unique identifiers of [Resource feature](resources.md#resource-feature) to which the resource feature assignments belong. |
-| `ResourceFeatureAssignmentsIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature assignment](resources.md#resource-category-assignment). |
+| `ResourceFeatureIds` | array of string | required, max 1000 items | Unique identifiers of [Resource feature](#resource-feature) to which the resource feature assignments belong. |
+| `ResourceFeatureAssignmentsIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature assignment](resourcecategories.md#resource-category-assignment). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource feature assignment were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource feature assignments returned. |
@@ -142,5 +142,52 @@ Returns all resource feature assignments. This operation uses [Pagination](../gu
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceFeatureAssignments` | array of [Resource feature assignment](resources.md#resource-feature-assignment) | optional | Resource feature assignments. |
+| `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Resource feature assignments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource features returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource feature. |
+
+#### Resource feature
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the feature. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
+| `IsActive` | bool | required | Whether the resource feature is still active. |
+| `Classification` | string [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
+
+#### Resource feature classification
+
+* `AccessibleBathroom`
+* `AccessibleRoom`
+* `AirConditioning`
+* `Balcony`
+* `DoubleBed`
+* `ElevatorAccess`
+* `EnsuiteRoom`
+* `HighFloor`
+* `Kitchenette`
+* `LowerBed`
+* `OceanView`
+* `PrivateBathroom`
+* `PrivateJacuzzi`
+* `PrivateSauna`
+* `RiverView`
+* `RollawayBed`
+* `SharedBathroom`
+* `TwinBeds`
+* `UpperBed`
+* `SeaView`
+* `...`
+
+#### Resource feature assignment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
+| `ResourceId` | string | required | Unique identifier of the [Resource](resources.md#resource). |
+| `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature) assigned to the Resource. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |

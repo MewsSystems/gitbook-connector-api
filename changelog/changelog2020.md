@@ -39,9 +39,9 @@
 * Extended [Bill](../operations/bills.md#bill) object with [Bill assignee data](../operations/bills.md#bill-assignee-data).
 * Extended [Promotions](../operations/services.md#promotions) object with `DuringCheckOut` property.
 * Extended [Resource](../operations/resources#resource) with `CreatedUtc` and `UpdatedUtc`.
-* Extended [Resource category assignment](../operations/resources#resource-category-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
-* Extended [Resource category image assignment](../operations/resources#resource-category-image-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
-* Extended [Resource feature assignment](../operations/resources#resource-feature-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
+* Extended [Resource category assignment](../operations/resourcecategories.md#resource-category-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
+* Extended [Resource category image assignment](../operations/resourcecategories.md#resource-category-image-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
+* Extended [Resource feature assignment](../operations/resourcefeatures.md#resource-feature-assignment) with `Id`, `IsActive`, `CreatedUtc` and `UpdatedUtc`.
 
 ## 5th August 2020
 
@@ -73,7 +73,7 @@ However we'd like to ask you to update your clients as soon as possible, we're n
 
 * Added [Resource](../operations/resources.md#resource) that is replacing the Space. It can have multiple categories through multiple services. Note that Resource does not need to be assigned to any category.
 * Added [Resource category](../operations/resources.md#resource-category) that is replacing the Space category.
-* Added [Resource category image assignment](../operations/resources.md#resource-category-image-assignment) that links an image to a category.
+* Added [Resource category image assignment](../operations/resourcecategories.md#resource-category-image-assignment) that links an image to a category.
 * Added [Resource category assignment](../operations/resources.md#resource-category-assignment) that links a resource to a category. Note that resource can be assigned only to a single category within the same service.
 * Added [Resource feature](../operations/resources.md#resource-feature) that is replacing the Space feature and now is within the service context.
 * Added [Resource feature assignment](../operations/resources.md#resource-feature-assignment) that is replacing the Space feature assignment.

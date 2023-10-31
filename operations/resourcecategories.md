@@ -158,7 +158,7 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource category assignments for all enterprises within scope of the Access Token. |
 | `ResourceCategoryIds` | array of string | required, max 1000 items | Unique identifiers of [Resource categories](#resource-category) to which the resource category assignment belong. |
-| `ResourceCategoryAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category assignment](resources.md#resource-category-assignment).|
+| `ResourceCategoryAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category assignment](resourcecategories.md#resource-category-assignment).|
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource category assignments were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource category assignments returned. |
@@ -191,7 +191,7 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceCategoryAssignments` | array of [Resource category assignment](resources.md#resource-category-assignment) | optional | Resource category assignment. |
+| `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Resource category assignment. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource category assignment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource category assignments. |
 
 ## Get all resource category image assignments
@@ -238,7 +238,7 @@ Returns all resource category image assignments. This operation uses [Pagination
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource category image assignments for all enterprises within scope of the Access Token. |
 | `ResourceCategoryIds` | array of string | required, max 1000 items | Unique identifiers of [Resource category](resources.md#resource-category) to which the resource category image assignment belong. |
-| `ResourceCategoryImageAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category image assignment](resources.md#resource-category-image-assignment). |
+| `ResourceCategoryImageAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource category image assignments were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource category image assignments returned. |
@@ -271,8 +271,30 @@ Returns all resource category image assignments. This operation uses [Pagination
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceCategoryImageAssignments` | array of [Resource category image assignment](resources.md#resource-category-image-assignment) | optional | Resource category image assignments. |
+| `ResourceCategoryImageAssignments` | array of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment) | optional | Resource category image assignments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource category image assignment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource category image assignments. |
+
+#### Resource category assignment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) assigned to the Resource category. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
+
+#### Resource category image assignment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
+| `ImageId` | string | required | Unique identifier of the image assigned to the Resource category. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
 #### Resource category type
 
