@@ -182,8 +182,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`ResourceCategories`~~ | ~~array of [Resource category](#resource-category)~~ | ~~optional~~ | ~~Categories of resources in the enterprise.~~ **Deprecated!** |
 | ~~`ResourceCategoryAssignments`~~ | ~~array of [Resource category assignment](resourcecategories.md#resource-category-assignment)~~ | ~~optional~~ | ~~Assignments of resources to categories.~~ **Deprecated!** |
 | ~~`ResourceCategoryImageAssignments`~~ | ~~array of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment)~~ | ~~optional~~ | ~~Assignments of images to categories.~~ **Deprecated!** |
-| ~~`ResourceFeatures`~~ | ~~array of [Resource feature](#resource-feature)~~ | ~~optional~~ | ~~Features of resources in the enterprise.~~ **Deprecated!** |
-| ~~`ResourceFeatureAssignments`~~ | ~~array of [Resource feature assignment](#resource-feature-assignment)~~ | ~~optional~~ | ~~Assignments of resource features to resources.~~ **Deprecated!** |
+| ~~`ResourceFeatures`~~ | ~~array of [Resource feature](resourcefeatures.md#resource-feature)~~ | ~~optional~~ | ~~Features of resources in the enterprise.~~ **Deprecated!** |
+| ~~`ResourceFeatureAssignments`~~ | ~~array of [Resource feature assignment](resourcefeatures.md#resource-feature-assignment)~~ | ~~optional~~ | ~~Assignments of resource features to resources.~~ **Deprecated!** |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Resource
