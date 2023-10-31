@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st November 2023
+
+* Extended [Add rate](../operations/rates.md#add-rate) with `ExternalIdentifier` parameter.
+
 ## 26th October 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.

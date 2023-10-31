@@ -126,7 +126,8 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
           "Type": "Public",
           "AccountingCategoryId": "3620c660-a4ec-4e0f-a0bc-b06f008eb8bf",
           "Names": { "EN": "My rate" },
-          "PricingType": "DependentRatePricing",
+          "ExternalIdentifier": "D001",
+          "PricingType": "DependentRatePricing",          
           "Pricing": {
               "DependentRatePricing": {
                   "BaseRateId": "1a1ddd3b-e106-4a70-aef1-54a75b483943",
@@ -161,6 +162,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the rate. |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 | `PricingType` | [Pricing type](rates.md#pricing-type) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `Pricing` | [Rate pricing](rates.md#rate-pricing-parameters) | required | Contains additional data about pricing of the rate. |
 
