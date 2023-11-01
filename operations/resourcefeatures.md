@@ -42,7 +42,7 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource features for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) to which the resource features belong. |
-| `ResourceFeatureIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature](#resource-feature). |
+| `ResourceFeatureIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource features](#resource-feature). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource feature were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource features returned. |
