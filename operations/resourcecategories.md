@@ -191,7 +191,7 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Resource category assignment. |
+| `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Resource category assignments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource category assignment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource category assignments. |
 
 #### Resource category assignment
