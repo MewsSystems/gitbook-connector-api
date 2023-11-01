@@ -154,7 +154,7 @@ Returns all resource feature assignments. This operation uses [Pagination](../gu
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource feature assignments for all enterprises within scope of the Access Token. |
 | `ResourceFeatureIds` | array of string | required, max 1000 items | Unique identifiers of [Resource features](#resource-feature) to which the resource feature assignments belong. |
 | `ResourceFeatureAssignmentsIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature assignment](resourcecategories.md#resource-category-assignment). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource feature assignment were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource feature assignments were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource feature assignments returned. |
 
