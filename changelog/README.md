@@ -14,6 +14,10 @@
   * `ResourceFeatures` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource features](../operations/resourcefeatures.md#resource-features) instead.
   * `ResourceFeaturesAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead.
 
+## 31st October 2023
+
+* Added new use case [Data export](../use-cases/data-export.md)
+
 ## 26th October 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.
