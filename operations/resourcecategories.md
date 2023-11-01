@@ -249,7 +249,7 @@ Returns all resource category image assignments. This operation uses [Pagination
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource category image assignments for all enterprises within scope of the Access Token. |
 | `ResourceCategoryIds` | array of string | required, max 1000 items | Unique identifiers of [Resource categories](resources.md#resource-category) to which the resource category image assignments belong. |
-| `ResourceCategoryImageAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment). |
+| `ResourceCategoryImageAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category image assignments](resourcecategories.md#resource-category-image-assignment). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource category image assignments were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource category image assignments returned. |
