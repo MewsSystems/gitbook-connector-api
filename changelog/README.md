@@ -5,7 +5,7 @@
 * Added operations:
   * [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments)
   * [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments)
-  * [Get all resource features](../operations/resourcefeatures.md#resource-features)
+  * [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features)
   * [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments)
 
 * Deprecated operation extents
