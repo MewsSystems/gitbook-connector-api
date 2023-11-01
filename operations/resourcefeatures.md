@@ -45,7 +45,7 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | `ResourceFeatureIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource feature](#resource-feature). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource feature were updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource feature returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource features returned. |
 
 ### Response
 
