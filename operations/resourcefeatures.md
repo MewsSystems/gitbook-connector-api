@@ -179,7 +179,7 @@ Returns all resource feature assignments. This operation uses [Pagination](../gu
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Resource feature assignments. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest resource features returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource feature. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest resource feature assignments returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource feature assignments. |
 
 #### Resource feature assignment
 
