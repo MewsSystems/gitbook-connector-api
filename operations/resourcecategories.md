@@ -194,6 +194,17 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Resource category assignment. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource category assignment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource category assignments. |
 
+#### Resource category assignment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | bool | required | Whether the assignment is still active. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
+| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) assigned to the Resource category. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
+
 ## Get all resource category image assignments
 
 Returns all resource category image assignments. This operation uses [Pagination](../guidelines/pagination.md).
@@ -273,17 +284,6 @@ Returns all resource category image assignments. This operation uses [Pagination
 | :-- | :-- | :-- | :-- |
 | `ResourceCategoryImageAssignments` | array of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment) | optional | Resource category image assignments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource category image assignment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource category image assignments. |
-
-#### Resource category assignment
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the assignment. |
-| `IsActive` | bool | required | Whether the assignment is still active. |
-| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) assigned to the Resource category. |
-| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
 #### Resource category image assignment
 

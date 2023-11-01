@@ -75,6 +75,42 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Resource features. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource features returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource feature. |
 
+#### Resource feature
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the feature. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
+| `IsActive` | bool | required | Whether the resource feature is still active. |
+| `Classification` | string [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
+
+#### Resource feature classification
+
+* `AccessibleBathroom`
+* `AccessibleRoom`
+* `AirConditioning`
+* `Balcony`
+* `DoubleBed`
+* `ElevatorAccess`
+* `EnsuiteRoom`
+* `HighFloor`
+* `Kitchenette`
+* `LowerBed`
+* `OceanView`
+* `PrivateBathroom`
+* `PrivateJacuzzi`
+* `PrivateSauna`
+* `RiverView`
+* `RollawayBed`
+* `SharedBathroom`
+* `TwinBeds`
+* `UpperBed`
+* `SeaView`
+* `...`
+
 ## Get all resource feature assignments
 
 Returns all resource feature assignments. This operation uses [Pagination](../guidelines/pagination.md).
@@ -144,42 +180,6 @@ Returns all resource feature assignments. This operation uses [Pagination](../gu
 | :-- | :-- | :-- | :-- |
 | `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Resource feature assignments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest resource features returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource feature. |
-
-#### Resource feature
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the feature. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
-| `IsActive` | bool | required | Whether the resource feature is still active. |
-| `Classification` | string [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
-| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
-
-#### Resource feature classification
-
-* `AccessibleBathroom`
-* `AccessibleRoom`
-* `AirConditioning`
-* `Balcony`
-* `DoubleBed`
-* `ElevatorAccess`
-* `EnsuiteRoom`
-* `HighFloor`
-* `Kitchenette`
-* `LowerBed`
-* `OceanView`
-* `PrivateBathroom`
-* `PrivateJacuzzi`
-* `PrivateSauna`
-* `RiverView`
-* `RollawayBed`
-* `SharedBathroom`
-* `TwinBeds`
-* `UpperBed`
-* `SeaView`
-* `...`
 
 #### Resource feature assignment
 

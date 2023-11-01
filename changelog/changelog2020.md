@@ -75,8 +75,8 @@ However we'd like to ask you to update your clients as soon as possible, we're n
 * Added [Resource category](../operations/resources.md#resource-category) that is replacing the Space category.
 * Added [Resource category image assignment](../operations/resourcecategories.md#resource-category-image-assignment) that links an image to a category.
 * Added [Resource category assignment](../operations/resources.md#resource-category-assignment) that links a resource to a category. Note that resource can be assigned only to a single category within the same service.
-* Added [Resource feature](../operations/resources.md#resource-feature) that is replacing the Space feature and now is within the service context.
-* Added [Resource feature assignment](../operations/resources.md#resource-feature-assignment) that is replacing the Space feature assignment.
+* Added [Resource feature](../operations/resourcefeatures.md#resource-feature) that is replacing the Space feature and now is within the service context.
+* Added [Resource feature assignment](../operations/resourcefeatures.md#resource-feature-assignment) that is replacing the Space feature assignment.
 * Added [Resource block](../operations/resources.md#resource-block) that is replacing the Space block. Note that a resource without any category can be assigned to a block.
 * Added [Get all resources](../operations/resources.md#get-all-resources) that is replacing Get all spaces.
 * Added [Update resources](../operations/resources.md#update-resources).
