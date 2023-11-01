@@ -11,7 +11,7 @@
 * Deprecated operation extents
   * `ResourceCategoryAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead.
   * `ResourceCategoryImageAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead.
-  * `ResourceFeatures` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource features](../operations/resourcefeatures.md#resource-features) instead.
+  * `ResourceFeatures` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead.
   * `ResourceFeaturesAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead.
 
 ## 31st October 2023
