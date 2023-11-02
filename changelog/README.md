@@ -14,6 +14,8 @@
   * `ResourceFeatures` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead.
   * `ResourceFeaturesAssignments` in [Get all resources](../operations/resources.md#get-all-resources). Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead.
 
+* Extended [Add rate](../operations/rates.md#add-rate) with `ExternalIdentifier` parameter.
+
 ## 31st October 2023
 
 * Added new use case [Data export](../use-cases/data-export.md)
