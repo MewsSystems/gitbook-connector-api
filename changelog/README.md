@@ -2,7 +2,8 @@
 
 ## 2nd November 2023
 
-* Add `DepositWireTransfer` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
+* Added `DepositWireTransfer` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
+* Extended [Get all order items](../operations/orderitems.md#get-all-order-items) response with `ServiceId` parameter.
 
 ## 1st November 2023
 
