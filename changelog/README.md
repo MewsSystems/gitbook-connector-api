@@ -1,6 +1,6 @@
 # Changelog
 
-## 3rd November 2023
+## 2nd November 2023
 
 * Extended [Get all order items](../operations/orderitems.md#get-all-order-items) response with `ServiceId` parameter.
 
