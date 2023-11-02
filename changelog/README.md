@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st November 2023
+
+* Extended [Add rate](../operations/rates.md#add-rate) with `ExternalIdentifier` parameter.
+
 ## 31st October 2023
 
 * Added new use case [Data export](../use-cases/data-export.md)
