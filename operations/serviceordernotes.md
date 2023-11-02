@@ -4,7 +4,7 @@
 
 ## Get all service order notes
 
-Returns all notes associated with the given service orders. Service orders can be reservations or product orders. This operation uses [Pagination](../guidelines/pagination.md).
+Returns all notes associated with the given service orders. Service orders can be reservations or product orders. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -15,6 +15,10 @@ Returns all notes associated with the given service orders. Service orders can b
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "ServiceOrderIds": [
         "1dc0c6bf-2ce6-4a9f-af97-af5c01676720"
     ],
@@ -30,6 +34,7 @@ Returns all notes associated with the given service orders. Service orders can b
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of [Service order](#service-order). Reservation IDs or Order IDs can be used as service order identifiers. |
 | `ServiceOrderNoteIds` | array of string | optional, max 1000 items | Unique identifiers of [Service order notes](#service-order-note). Use this property if you want to fetch specific service order notes. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of Service order notes returned. |
