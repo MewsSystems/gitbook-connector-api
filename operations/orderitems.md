@@ -104,7 +104,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
             "Id": "53896156-f25b-4949-b55b-afd3007b1146",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
-            "AccountType": "Customer"
+            "AccountType": "Customer",
+            "ServiceId": "294c7859-63ba-46ad-a8bf-34fad2019383",
             "ServiceOrderId": "ac5ef5eb-c5b2-4083-879f-83f04a5ebda5",
             "BillId": "d27ffe99-ff92-4afb-ac03-9268f24f0556",
             "AccountingCategoryId": "c0610937-0165-4091-a79c-44eb34173daf",
@@ -186,7 +187,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
             "Id": "bd11dc4a-8f9e-442b-bb1e-f5361b31dfa2",
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
-            "AccountType": "Company"
+            "AccountType": "Company",
+            "ServiceId": "05089c0c-5d55-4756-827b-c4bcee1edf00",
             "ServiceOrderId": "dd01a673-ee6e-4f10-9c93-afcd00759ddd",
             "BillId": "297de6f8-bd67-4ebd-98b6-ecc1cd8f920c",
             "AccountingCategoryId": "c5819fe7-d67c-4c24-b02e-6ce84a1d3b1d",
@@ -289,6 +291,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the order item is assigned to. |
 | `ServiceOrderId` | string | optional | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the order item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the order item belongs to. |
