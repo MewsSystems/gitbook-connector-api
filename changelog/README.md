@@ -4,6 +4,10 @@
 
 * Extended [Add rate](../operations/rates.md#add-rate) with `ExternalIdentifier` parameter.
 
+## 31st October 2023
+
+* Added new use case [Data export](../use-cases/data-export.md)
+
 ## 26th October 2023
 
 * Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the [Add order](../operations/orders.md#add-order) operation.

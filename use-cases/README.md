@@ -6,6 +6,7 @@ The following types of system are described here:
 
 * [Accounting](accounting.md)
 * [Customer management](customer-management.md)
+* [Data export](data-export.md)
 * [Device integrations](device-integrations.md)
 * [Event management](event-management.md)
 * [Guest technology](guest-technology.md)

@@ -232,7 +232,7 @@ You will have to either create and manage customer profiles, or work with a shar
 
 ## Testing
 
-To test your workflow implementation with an actual Mews Terminal device, please contact our Partner Support team - they can be contacted at [partnersuccess@mews.com](mailto://partnersuccess@mews.com). They will supply you with the necessary details to connect to a test configuration:
+To test your workflow implementation with an actual Mews Terminal device, please contact our Partner Support team - they can be contacted at [partnersuccess@mews.com](mailto:partnersuccess@mews.com). They will supply you with the necessary details to connect to a test configuration:
 
 - **Mews Operations**
   - Mews Operations platform address, for the appropriate test server
@@ -273,4 +273,4 @@ There are a number of articles on Mews Help that may also provide additional ass
 - [The Device Commands Queue](https://help.mews.com/s/article/device-commands-queue)
 - [Create a customer profile](https://help.mews.com/s/article/create-a-customer-profile?language=en_US)
 
-If you still require assistance, please get in touch at [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+If you still require assistance, please get in touch at [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
