@@ -45,7 +45,7 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
 | `ResourceCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource categories](#resource-category). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) to which the resource categories belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource categories were updated. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of customers returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of resource categories returned. |
 
 ### Response
 
