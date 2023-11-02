@@ -61,10 +61,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Resources` | bool | optional | Whether the response should contain resources. |
 | ~~`ResourceCategories`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Please use [Get all resource categories](resourcecategories.md#get-all-resource-categories) |
-| `ResourceCategoryAssignments` | bool | optional | Whether the response should contain assignments of the resources to categories. |
-| `ResourceCategoryImageAssignments` | bool | optional | Whether the response should contain assignments of the images to categories. |
-| `ResourceFeatures` | bool | optional | Whether the response should contain resource features. |
-| `ResourceFeatureAssignments` | bool | optional | Whether the response should contain assignments of the resources to features. |
+| ~~`ResourceCategoryAssignments`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to categories.~~ **Deprecated!** Please use [Get all resource category assignments](resourcecategories.md#get-all-resource-category-assignments) |
+| ~~`ResourceCategoryImageAssignments`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain assignments of the images to categories.~~ **Deprecated!** Please use [Get all resource category image assignments](resourcecategories.md#get-all-resource-category-image-assignments) |
+| ~~`ResourceFeatures`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain resource features.~~ **Deprecated!** Please use [Get all resource features](resourcefeatures.md#get-all-resource-features) |
+| ~~`ResourceFeatureAssignments`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to features.~~ **Deprecated!** Please use [Get all resource feature assignments](resourcefeatures.md#get-all-resource-feature-assignments) |
 | `Inactive` | bool | optional | Whether the response should contain inactive entities. |
 
 ### Response
@@ -180,10 +180,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Resources` | array of [Resource](#resource) | optional | The resources of the enterprise. |
 | ~~`ResourceCategories`~~ | ~~array of [Resource category](#resource-category)~~ | ~~optional~~ | ~~Categories of resources in the enterprise.~~ **Deprecated!** |
-| `ResourceCategoryAssignments` | array of [Resource category assignment](#resource-category-assignment) | optional | Assignments of resources to categories. |
-| `ResourceCategoryImageAssignments` | array of [Resource category assignment](#resource-category-image-assignment) | optional | Assignments of images to categories. |
-| `ResourceFeatures` | array of [Resource feature](#resource-feature) | optional | Features of resources in the enterprise. |
-| `ResourceFeatureAssignments` | array of [Resource feature assignment](#resource-feature-assignment) | optional | Assignments of resource features to resources. |
+| ~~`ResourceCategoryAssignments`~~ | ~~array of [Resource category assignment](resourcecategories.md#resource-category-assignment)~~ | ~~optional~~ | ~~Assignments of resources to categories.~~ **Deprecated!** |
+| ~~`ResourceCategoryImageAssignments`~~ | ~~array of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment)~~ | ~~optional~~ | ~~Assignments of images to categories.~~ **Deprecated!** |
+| ~~`ResourceFeatures`~~ | ~~array of [Resource feature](resourcefeatures.md#resource-feature)~~ | ~~optional~~ | ~~Features of resources in the enterprise.~~ **Deprecated!** |
+| ~~`ResourceFeatureAssignments`~~ | ~~array of [Resource feature assignment](resourcefeatures.md#resource-feature-assignment)~~ | ~~optional~~ | ~~Assignments of resource features to resources.~~ **Deprecated!** |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Resource
@@ -258,75 +258,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Dorm`
 * `Bed`
 * ...
-
-#### Resource category assignment
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the assignment. |
-| `IsActive` | bool | required | Whether the assignment is still active. |
-| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource) assigned to the Resource category. |
-| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
-
-#### Resource category image assignment
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the assignment. |
-| `IsActive` | bool | required | Whether the assignment is still active. |
-| `CategoryId` | string | required | Unique identifier of the [Resource category](#resource-category). |
-| `ImageId` | string | required | Unique identifier of the image assigned to the Resource category. |
-| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
-
-#### Resource feature
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the feature. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
-| `IsActive` | bool | required | Whether the resource feature is still active. |
-| `Classification` | string [Resource feature classification](#resource-feature-classification) | required | Classification of the feature. |
-| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
-| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the short name. |
-| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the description. |
-
-#### Resource feature classification
-
-* `AccessibleBathroom`
-* `AccessibleRoom`
-* `AirConditioning`
-* `Balcony`
-* `DoubleBed`
-* `ElevatorAccess`
-* `EnsuiteRoom`
-* `HighFloor`
-* `Kitchenette`
-* `LowerBed`
-* `OceanView`
-* `PrivateBathroom`
-* `PrivateJacuzzi`
-* `PrivateSauna`
-* `RiverView`
-* `RollawayBed`
-* `SharedBathroom`
-* `TwinBeds`
-* `UpperBed`
-* `SeaView`
-* `...`
-
-#### Resource feature assignment
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the assignment. |
-| `IsActive` | bool | required | Whether the assignment is still active. |
-| `ResourceId` | string | required | Unique identifier of the [Resource](#resource). |
-| `FeatureId` | string | required | Unique identifier of the [Resource feature](#resource-feature) assigned to the Resource. |
-| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
 
 ## Update resources
 

@@ -74,7 +74,11 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource blocks](resourceblocks.md#delete-resource-blocks) | Removes specified resource blocks from the resources |
 | [Add task](tasks.md#add-task) | Adds a new task to the enterprise, optionally to a specified department |
 | [Get all tasks](tasks.md#get-all-tasks) | Returns all tasks of the enterprise, filtered by identifiers or other filters |
-| [Get all resouce categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
+| [Get all resource categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
+| [Get all resource category assignments](resourcecategories.md#get-all-resource-category-assignments) | Returns all resource category assignments of an enterprise associated with the connector integration |
+| [Get all resource category image assignments](resourcecategories.md#get-all-resource-category-image-assignments) | Returns all resource category image assignments of an enterprise associated with the connector integration |
+| [Get all resource features](resourcefeatures.md#get-all-resource-features) | Returns all resource features of an enterprise associated with the connector integration |
+| [Get all resource feature assignments](resourcefeatures.md#get-all-resource-feature-assignments) | Returns all resource feature assignments of an enterprise associated with the connector integration |
 
 ## Exports
 
