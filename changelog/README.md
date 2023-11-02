@@ -1,5 +1,9 @@
 # Changelog
 
+## 2nd November 2023
+
+* Add `DepositWireTransfer` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
+
 ## 31st October 2023
 
 * Added new use case [Data export](../use-cases/data-export.md)
