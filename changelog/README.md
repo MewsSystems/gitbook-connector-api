@@ -1,5 +1,9 @@
 # Changelog
 
+## 9th November 2023
+
+* Extended [Order item type](../operations/orderitems.md#order-item-type) with `TaxCorrection`.
+
 ## 2nd November 2023
 
 * Added `DepositWireTransfer` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
