@@ -461,7 +461,7 @@ Adds a new customer to the system and returns details of the added customer. If 
         "City": "Havířov",
         "PostalCode": "736 01",
         "CountryCode": "CZ",
-        "CountrySubdivisionCode": null,
+        "CountrySubdivisionCode": null
     },
     "ItalianDestinationCode": "1234567"
 }
