@@ -179,7 +179,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Customer](customers.md#customer) the bill is issued to.~~ **Deprecated!** |
-| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to. |
+| ~~`CompanyId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to.~~ **Deprecated!** |
+| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the [Customers](customers.md#customer) or [Companies](companies.md#company) that are associated to the bill. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
 | `State` | string [Bill state](#bill-state) | required | State of the bill. |
 | `Type` | string [Bill type](#bill-type) | required | Type of the bill. |
@@ -197,7 +198,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
-| `CompanyDetails` | [Bill company data](#bill-company-data) | optional | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. |
+| ~~`CompanyDetails`~~ | ~~[Bill company data](#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ |
+| `AssociatedAccountData` | array of [Associated account data](#bill-associated-account-data) | optional | Additional information about the associated account of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -227,6 +229,19 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 * `BillCustomerData` - Owner data specific to a [Customer](customers.md#customer).
 * `BillCompanyData` - Owner data specific to a [Company](companies.md#company).
+
+#### Bill associated account data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Bill associated account data discriminator](#bill-associated-account-data-discriminator) | required | Determines type of value. |
+| `BillCustomerData` | object | required | Associated account bill data of type [Bill customer data](#bill-customer-data). |
+| `BillCompanyData` | object | required | Associated account bill data of type [Bill company data](#bill-company-data). |
+
+#### Bill associated account data discriminator
+
+* `BillCustomerData` - Associated account data specific to a [Customer](customers.md#customer).
+* `BillCompanyData` - Associated account data specific to a [Company](companies.md#company).
 
 #### Bill customer data
 

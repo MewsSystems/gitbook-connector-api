@@ -39,6 +39,8 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `CompanyId` in [Bill](../operations/bills.md#bill) | Replaced by `AssociatedAccountIds` | 15 Nov 2023 | 15 Nov 2024 |
+| `CompanyDetails` in [Bill](../operations/bills.md#get-all-bills) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 15 Nov 2023 | 15 Nov 2024 |
 | Extent `ResourceCategoryAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
 | Extent `ResourceCategoryImageAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
 | Extent `ResourceFeatures`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead | 1 Nov 2023 | 1 Nov 2024 |
