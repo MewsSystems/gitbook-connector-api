@@ -922,6 +922,9 @@ Updates information about the specified reservations. Note that if any of the fi
             "AvailabilityBlockId": {
                 "Value": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
             }
+            "Options":{
+                "OwnerCheckedIn": { "Value": true }
+            }            
         }
     ]
 }
