@@ -198,7 +198,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
-| ~~`CompanyDetails`~~ | ~~[Bill company data](#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ |
+| ~~`CompanyDetails`~~ | ~~[Bill company data](#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ **Deprecated!** |
 | `AssociatedAccountData` | array of [Associated account data](#bill-associated-account-data) | optional | Additional information about the associated account of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
