@@ -1,5 +1,9 @@
 # Changelog
 
+## 17th November 2023
+
+* Extended [Update reservation](../operations/reservations.md#reservation-updates) with `Options` parameter.
+
 ## 2nd November 2023
 
 * Added `DepositWireTransfer` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
