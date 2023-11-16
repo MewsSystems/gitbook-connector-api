@@ -473,10 +473,13 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | `TaxedDate` | [String update value](_objects.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `DueDate` | [String update value](_objects.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `VariableSymbol` | [String update value](_objects.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
+| ~~`TaxIdentifier`~~ | ~~[String update value](_objects.md#string-update-value)~~ | ~~optional~~ | ~~Tax identifier of account to be put on a bill.~~ |
+| `AccountTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
 | `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
-| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+| ~~`Address`~~ | ~~[Address parameters](customers.md#address-parameters)~~ | ~~optional~~ | ~~Address of the account to be displayed on bill. Overrides the default one taken from account profile.~~ |
+| `AccountAddress` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+| `AssociatedAccountData` | array of [Bill close account parameters](#bill-close-account-parameters) | optional | Account data of the associated account on a bill. Currently one object is supported. |
 
 #### Bill options parameters
 
@@ -484,6 +487,14 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | :-- | :-- | :-- | :-- |
 | `DisplayCustomer` | [Bool update value](_objects.md#bool-update-value) | required | Display customer information on a bill. |
 | `DisplayTaxation` | [Bool update value](_objects.md#bool-update-value) | required | Display taxation detail on a bill. |
+
+#### Bill close account parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to |
+| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of the assosicated account to be put on a bill. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the associated account to be displayed on bill. Overrides the default one taken from account profile. |
 
 ### Response
 

@@ -1,10 +1,13 @@
 # Changelog
 
-## 15th November 2023
+## 16th November 2023
 
 * Extended [Get all bills](../operations/bills.md#get-all-bills) response with `AssociatedAccountIds` and [AssociatedAccountData](../operations/bills.md#bill-associated-account-data).
 * Deprecated `CompanyId` in [Bill](../operations/bills.md#bill). Use `AssociatedAccountIds` instead.
 * Deprecated `CompanyDetails` in [Bill](../operations/bills.md#bill). Use [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) instead.
+* Extended [Close bill](../operations/bills.md#close-bill) parameters with [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) and [AccountAddress](../operations/customers.md#address-parameters).
+* Deprecated `TaxIdentifier` in [Close bill](../operations/bills.md#close-bill). Use `AccountTaxIdentifier` or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
+* Deprecated [Address](../operations/customers.md#address-parameters) in [Close bill](../operations/bills.md#close-bill). Use [AccountAddress](../operations/customers.md#address-parameters) or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
 
 ## 2nd November 2023
 
