@@ -1,6 +1,6 @@
 # Changelog
 
-## 9th November 2023
+## 20th November 2023
 
 * Extended [Order item type](../operations/orderitems.md#order-item-type) with `TaxCorrection`.
 
