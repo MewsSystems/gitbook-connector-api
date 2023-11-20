@@ -473,7 +473,7 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | `TaxedDate` | [String update value](_objects.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `DueDate` | [String update value](_objects.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `VariableSymbol` | [String update value](_objects.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| ~~`TaxIdentifier`~~ | ~~[String update value](_objects.md#string-update-value)~~ | ~~optional~~ | ~~Tax identifier of account to be put on a bill.~~ |
+| ~~`TaxIdentifier`~~ | ~~[String update value](_objects.md#string-update-value)~~ | ~~optional~~ | ~~Tax identifier of account to be put on a bill.~~ **Deprecated!** |
 | `AccountTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
 | `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
