@@ -477,7 +477,7 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | `AccountTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
 | `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
-| ~~`Address`~~ | ~~[Address parameters](customers.md#address-parameters)~~ | ~~optional~~ | ~~Address of the account to be displayed on bill. Overrides the default one taken from account profile.~~ |
+| ~~`Address`~~ | ~~[Address parameters](customers.md#address-parameters)~~ | ~~optional~~ | ~~Address of the account to be displayed on bill. Overrides the default one taken from account profile.~~ **Deprecated!** |
 | `AccountAddress` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
 | `AssociatedAccountData` | array of [Bill close account parameters](#bill-close-account-parameters) | optional | Account data of the associated account on a bill. Currently one object is supported and only populated when the bill is closed. |
 
