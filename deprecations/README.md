@@ -40,7 +40,7 @@ The table columns have the following meanings:
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | `TaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountTaxIdentifier` | 16 Nov 2023 | 16 Nov 2024 |
-| `TaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 16 Nov 2023 | 16 Nov 2024 |
+| `CompanyTaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 16 Nov 2023 | 16 Nov 2024 |
 | `Address` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountAddress` | 16 Nov 2023 | 16 Nov 2024 |
 | `CompanyAddress` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 16 Nov 2023 | 16 Nov 2024 |
 | `CompanyId` in [Get all bills](../operations/bills.md#get-all-bills) | Replaced by `AssociatedAccountIds` | 16 Nov 2023 | 16 Nov 2024 |
