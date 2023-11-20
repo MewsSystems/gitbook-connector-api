@@ -10,7 +10,7 @@
 * Deprecated properties in [Close bill](../operations/bills.md#close-bill)
   * `TaxIdentifier`. Use `AccountTaxIdentifier` or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
   * `CompanyTaxIdentifier`. Use [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
-  * [Address]. Use [AccountAddress](../operations/customers.md#address-parameters) or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
+  * `Address`. Use [AccountAddress](../operations/customers.md#address-parameters) or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
   * [CompanyAddress]. Use [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
 
 ## 2nd November 2023
