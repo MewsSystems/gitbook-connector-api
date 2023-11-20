@@ -240,8 +240,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 #### Bill associated account data discriminator
 
-* `BillCustomerData` - Associated account data specific to a [Customer](customers.md#customer).
-* `BillCompanyData` - Associated account data specific to a [Company](companies.md#company).
+* `BillCustomerData` - Associated account bill data of type [Bill customer data](#bill-customer-data).
+* `BillCompanyData` - Associated account bill data of type [Bill company data](#bill-company-data).
 
 #### Bill customer data
 
@@ -479,7 +479,7 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
 | ~~`Address`~~ | ~~[Address parameters](customers.md#address-parameters)~~ | ~~optional~~ | ~~Address of the account to be displayed on bill. Overrides the default one taken from account profile.~~ |
 | `AccountAddress` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
-| `AssociatedAccountData` | array of [Bill close account parameters](#bill-close-account-parameters) | optional | Account data of the associated account on a bill. Currently one object is supported. |
+| `AssociatedAccountData` | array of [Bill close account parameters](#bill-close-account-parameters) | optional | Account data of the associated account on a bill. Currently one object is supported and only populated when the bill is closed. |
 
 #### Bill options parameters
 
@@ -492,7 +492,7 @@ Closes a bill so no further modification to it is possible. Note this operation 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to |
+| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is associated to |
 | `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of the assosicated account to be put on a bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the associated account to be displayed on bill. Overrides the default one taken from account profile. |
 
