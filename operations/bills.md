@@ -492,7 +492,7 @@ Closes a bill so no further modification to it is possible. Note this operation 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is associated to |
+| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is associated to. |
 | `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of the assosicated account to be put on a bill. |
 | `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the associated account to be displayed on bill. Overrides the default one taken from account profile. |
 
