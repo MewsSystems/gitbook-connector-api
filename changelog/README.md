@@ -13,6 +13,10 @@
   * `Address`. Use [AccountAddress](../operations/customers.md#address-parameters) or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
   * `CompanyAddress`. Use [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
 
+## 20th November 2023
+
+* Extended [Order item type](../operations/orderitems.md#order-item-type) with `TaxCorrection`.
+
 ## 2nd November 2023
 
 * Added `DepositWireTransfer` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.

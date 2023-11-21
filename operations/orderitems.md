@@ -357,6 +357,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `SpaceOrder`
 * `ProductOrder`
 * `Surcharge`
+* `TaxCorrection`
 * ...
 
 #### Revenue type
