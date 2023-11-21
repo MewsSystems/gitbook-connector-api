@@ -1,6 +1,6 @@
 # Changelog
 
-## 16th November 2023
+## 21st November 2023
 
 * Extended [Bill](../operations/bills.md#bill) with `AssociatedAccountIds` and [AssociatedAccountData](../operations/bills.md#bill-associated-account-data).
 * Deprecated properties in [Bill](../operations/bills.md#bill)
