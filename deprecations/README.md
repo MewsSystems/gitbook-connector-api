@@ -39,6 +39,12 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `TaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountTaxIdentifier` | 21 Nov 2023 | 21 Nov 2024 |
+| `CompanyTaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | 21 Nov 2024 |
+| `Address` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountAddress` | 21 Nov 2023 | 21 Nov 2024 |
+| `CompanyAddress` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | 21 Nov 2024 |
+| `CompanyId` in [Get all bills](../operations/bills.md#get-all-bills) | Replaced by `AssociatedAccountIds` | 21 Nov 2023 | 21 Nov 2024 |
+| `CompanyDetails` in [Get all bills](../operations/bills.md#get-all-bills) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | 21 Nov 2024 |
 | Extent `ResourceCategoryAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
 | Extent `ResourceCategoryImageAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead | 1 Nov 2023 | 1 Nov 2024 |
 | Extent `ResourceFeatures`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead | 1 Nov 2023 | 1 Nov 2024 |

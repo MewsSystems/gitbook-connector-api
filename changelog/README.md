@@ -1,5 +1,18 @@
 # Changelog
 
+## 21st November 2023
+
+* Extended [Bill](../operations/bills.md#bill) with `AssociatedAccountIds` and [AssociatedAccountData](../operations/bills.md#bill-associated-account-data).
+* Deprecated properties in [Bill](../operations/bills.md#bill)
+  * `CompanyId`. Use `AssociatedAccountIds` instead.
+  * `CompanyDetails`. Use [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) instead.
+* Extended [Close bill](../operations/bills.md#close-bill) parameters with [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) and [AccountAddress](../operations/customers.md#address-parameters).
+* Deprecated properties in [Close bill](../operations/bills.md#close-bill)
+  * `TaxIdentifier`. Use `AccountTaxIdentifier` or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
+  * `CompanyTaxIdentifier`. Use [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
+  * `Address`. Use [AccountAddress](../operations/customers.md#address-parameters) or [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
+  * `CompanyAddress`. Use [AssociatedAccountData](../operations/bills.md#bill-close-account-parameters) instead.
+
 ## 20th November 2023
 
 * Extended [Order item type](../operations/orderitems.md#order-item-type) with `TaxCorrection`.
