@@ -971,7 +971,7 @@ Updates information about the specified reservations. Note that if any of the fi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `OwnerCheckedIn` | [Bool update value](_objects.md#bool-update-value) | required |  Owner of the reservation checked in. |
+| `OwnerCheckedIn` | [Bool update value](_objects.md#bool-update-value) | required |  True if the owner of the reservation is checked in. |
 
 #### Time unit amount update value
 
