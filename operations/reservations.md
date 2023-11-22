@@ -922,6 +922,9 @@ Updates information about the specified reservations. Note that if any of the fi
             "AvailabilityBlockId": {
                 "Value": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
             }
+            "Options":{
+                "OwnerCheckedIn": { "Value": true }
+            }            
         }
     ]
 }
@@ -962,6 +965,13 @@ Updates information about the specified reservations. Note that if any of the fi
 | `PersonCounts` | array of [Person counts update value](#person-counts-update-value) | optional | Number of people per age category the reservation is for. Is supplied the person counts will be replaced. \(or `null` if the person counts should not be updated). |
 | `CreditCardId` | [String update value](_objects.md#string-update-value) | optional | Identifier of [Credit card](creditcards.md#credit-card) belonging to [Customer](customers.md#customer) who owns the reservation.  \(or `null` if the credit card should not be updated). |
 | `AvailabilityBlockId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
+| `Options` | [Reservations options parameters](#reservations-options-parameters) | optional  | Options of the reservations. |
+
+#### Reservations options parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `OwnerCheckedIn` | [Bool update value](_objects.md#bool-update-value) | required |  True if the owner of the reservation is checked in. |
 
 #### Time unit amount update value
 

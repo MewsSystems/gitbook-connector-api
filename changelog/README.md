@@ -1,5 +1,9 @@
 # Changelog
 
+## 22nd November 2023
+
+* Extended [Update reservations](../operations/reservations.md#reservation-updates) with `Options` parameter.
+
 ## 21st November 2023
 
 * Extended [Bill](../operations/bills.md#bill) with `AssociatedAccountIds` and [AssociatedAccountData](../operations/bills.md#bill-associated-account-data).
