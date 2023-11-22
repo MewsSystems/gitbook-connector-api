@@ -2,7 +2,7 @@
 
 ## 22nd November 2023
 
-* Extended [Update reservation](../operations/reservations.md#reservation-updates) with `Options` parameter.
+* Extended [Update reservations](../operations/reservations.md#reservation-updates) with `Options` parameter.
 
 ## 21st November 2023
 
