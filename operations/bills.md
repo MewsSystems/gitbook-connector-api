@@ -88,6 +88,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
             "CompanyId": null,
             "CounterId": null,
+            "AssociatedAccountIds": ["26afba60-06c3-455b-92db-0e3983be0b1d"],
             "State": "Closed",
             "Type": "Invoice",
             "Number": "29",
@@ -450,15 +451,39 @@ Closes a bill so no further modification to it is possible. Note this operation 
     "VariableSymbol": {
         "Value": "5343"
     },
-    "TaxIdentifier": {
+    "AccountTaxIdentifier": {
         "Value": "446768"
+    },
+    "AccountAddress": {
+        "Line1": "Astronautů 2",
+        "Line2": "",
+        "City": "Havířov",
+        "PostalCode": "736 01",
+        "CountryCode": "CZ",
+        "CountrySubdivisionCode": null
     },
     "PurchaseOrderNumber": {
         "Value": "XX-123"
     },
     "Notes": {
         "Value": "Bill closing note"
-    }
+    },
+    "AssociatedAccountData": [
+        {
+            "Id": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+            "TaxIdentifier": {
+                "Value": "123459" 
+            },
+            "Address": {
+                "Line1": "Astronautů 2",
+                "Line2": "",
+                "City": "Havířov",
+                "PostalCode": "736 01",
+                "CountryCode": "CZ",
+                "CountrySubdivisionCode": null
+            }
+        }
+    ]
 }
 ```
 
