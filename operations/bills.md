@@ -152,8 +152,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "Name": "Company Name Inc.",
                     "FiscalIdentifier": "Fiscal identifier",
                     "AdditionalTaxIdentifier": "Additional tax identifier"
-                },
-                "BillCustomerData": {}
+                }
             ],
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
@@ -238,8 +237,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Bill associated account data discriminator](#bill-associated-account-data-discriminator) | required | Determines type of value. |
-| `BillCustomerData` | object | required | Associated account bill data of type [Bill customer data](#bill-customer-data). |
-| `BillCompanyData` | object | required | Associated account bill data of type [Bill company data](#bill-company-data). |
+| `BillCustomerData` | object | optional | Associated account bill data of type [Bill customer data](#bill-customer-data). |
+| `BillCompanyData` | object | optional | Associated account bill data of type [Bill company data](#bill-company-data). |
 
 #### Bill associated account data discriminator
 
