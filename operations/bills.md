@@ -152,7 +152,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "Name": "Company Name Inc.",
                     "FiscalIdentifier": "Fiscal identifier",
                     "AdditionalTaxIdentifier": "Additional tax identifier"
-                }
+                },
+                "BillCustomerData": {}
             ],
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
