@@ -85,9 +85,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CompanyId": null,
             "CounterId": null,
+            "AssociatedAccountIds": ["26afba60-06c3-455b-92db-0e3983be0b1d"],
             "State": "Closed",
             "Type": "Invoice",
             "Number": "29",
@@ -133,25 +132,28 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
             },
-            "CompanyDetails": {
-                "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                "Address": {
-                    "Line1": "Joe Doe street",
-                    "Line2": "Very long ave",
-                    "City": "Townston",
-                    "PostalCode": "154 00",
-                    "SubdivisionCode": "AU-NSW",
-                    "CountryCode": "AU"
-                },
-                "LegalIdentifiers": {
-                    "TaxIdentifier": "CZ8810310963",
-                    "CityOfRegistration": "Prague",
-                },
-                "BillingCode": "billing code value",
-                "Name": "Company Name Inc.",
-                "FiscalIdentifier": "Fiscal identifier",
-                "AdditionalTaxIdentifier": "Additional tax identifier"
-            },
+            "AssociatedAccountData": [
+                "Discriminator": "BillCompanyData",
+                "BillCompanyData" : {
+                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                    "Address": {
+                        "Line1": "Joe Doe street",
+                        "Line2": "Very long ave",
+                        "City": "Townston",
+                        "PostalCode": "154 00",
+                        "SubdivisionCode": "AU-NSW",
+                        "CountryCode": "AU"
+                    },
+                    "LegalIdentifiers": {
+                        "TaxIdentifier": "CZ8810310963",
+                        "CityOfRegistration": "Prague",
+                    },
+                    "BillingCode": "billing code value",
+                    "Name": "Company Name Inc.",
+                    "FiscalIdentifier": "Fiscal identifier",
+                    "AdditionalTaxIdentifier": "Additional tax identifier"
+                }
+            ],
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
                 CompanyName: "The Sample Hotel Group AS",
@@ -235,8 +237,8 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Bill associated account data discriminator](#bill-associated-account-data-discriminator) | required | Determines type of value. |
-| `BillCustomerData` | object | required | Associated account bill data of type [Bill customer data](#bill-customer-data). |
-| `BillCompanyData` | object | required | Associated account bill data of type [Bill company data](#bill-company-data). |
+| `BillCustomerData` | object | optional | Associated account bill data of type [Bill customer data](#bill-customer-data). |
+| `BillCompanyData` | object | optional | Associated account bill data of type [Bill company data](#bill-company-data). |
 
 #### Bill associated account data discriminator
 
@@ -447,15 +449,39 @@ Closes a bill so no further modification to it is possible. Note this operation 
     "VariableSymbol": {
         "Value": "5343"
     },
-    "TaxIdentifier": {
+    "AccountTaxIdentifier": {
         "Value": "446768"
+    },
+    "AccountAddress": {
+        "Line1": "Astronautů 2",
+        "Line2": "",
+        "City": "Havířov",
+        "PostalCode": "736 01",
+        "CountryCode": "CZ",
+        "CountrySubdivisionCode": null
     },
     "PurchaseOrderNumber": {
         "Value": "XX-123"
     },
     "Notes": {
         "Value": "Bill closing note"
-    }
+    },
+    "AssociatedAccountData": [
+        {
+            "Id": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+            "TaxIdentifier": {
+                "Value": "123459" 
+            },
+            "Address": {
+                "Line1": "Astronautů 2",
+                "Line2": "",
+                "City": "Havířov",
+                "PostalCode": "736 01",
+                "CountryCode": "CZ",
+                "CountrySubdivisionCode": null
+            }
+        }
+    ]
 }
 ```
 
