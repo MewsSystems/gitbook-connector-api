@@ -133,35 +133,38 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                 }
             },
             "AssociatedAccountData": [
-                "Discriminator": "BillCompanyData",
-                "BillCompanyData" : {
-                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                    "Address": {
-                        "Line1": "Joe Doe street",
-                        "Line2": "Very long ave",
-                        "City": "Townston",
-                        "PostalCode": "154 00",
-                        "SubdivisionCode": "AU-NSW",
-                        "CountryCode": "AU"
+                {
+                    "Discriminator": "BillCompanyData",
+                    "BillCompanyData": {
+                        "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                        "Address": {
+                            "Line1": "Joe Doe street",
+                            "Line2": "Very long ave",
+                            "City": "Townston",
+                            "PostalCode": "154 00",
+                            "SubdivisionCode": "AU-NSW",
+                            "CountryCode": "AU"
+                        },
+                        "LegalIdentifiers": {
+                            "TaxIdentifier": "CZ8810310963",
+                            "CityOfRegistration": "Prague",
+                        },
+                        "BillingCode": "billing code value",
+                        "Name": "Company Name Inc.",
+                        "FiscalIdentifier": "Fiscal identifier",
+                        "AdditionalTaxIdentifier": "Additional tax identifier"
                     },
-                    "LegalIdentifiers": {
-                        "TaxIdentifier": "CZ8810310963",
-                        "CityOfRegistration": "Prague",
-                    },
-                    "BillingCode": "billing code value",
-                    "Name": "Company Name Inc.",
-                    "FiscalIdentifier": "Fiscal identifier",
-                    "AdditionalTaxIdentifier": "Additional tax identifier"
+                    "BillCustomerData": null
                 }
             ],
             "EnterpriseData": {
-                AdditionalTaxIdentifier: "XY00112233445",
-                CompanyName: "The Sample Hotel Group AS",
-                BankAccount: "CZ3808000000000012345678",
-                BankName: "CESKA SPORITELNA A.S.",
-                Iban: "CZ6508000000192000145399",
-                Bic: "GIBACZPX"
-            }            
+                "AdditionalTaxIdentifier": "XY00112233445",
+                "CompanyName": "The Sample Hotel Group AS",
+                "BankAccount": "CZ3808000000000012345678",
+                "BankName": "CESKA SPORITELNA A.S.",
+                "Iban": "CZ6508000000192000145399",
+                "Bic": "GIBACZPX"
+            }
         }
     ],
     "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
