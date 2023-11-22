@@ -133,25 +133,28 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
             },
-            "CompanyDetails": {
-                "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                "Address": {
-                    "Line1": "Joe Doe street",
-                    "Line2": "Very long ave",
-                    "City": "Townston",
-                    "PostalCode": "154 00",
-                    "SubdivisionCode": "AU-NSW",
-                    "CountryCode": "AU"
-                },
-                "LegalIdentifiers": {
-                    "TaxIdentifier": "CZ8810310963",
-                    "CityOfRegistration": "Prague",
-                },
-                "BillingCode": "billing code value",
-                "Name": "Company Name Inc.",
-                "FiscalIdentifier": "Fiscal identifier",
-                "AdditionalTaxIdentifier": "Additional tax identifier"
-            },
+            "AssociatedAccountData": [
+                "Discrimator": "BillCompanyData",
+                "Value" : {
+                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                    "Address": {
+                        "Line1": "Joe Doe street",
+                        "Line2": "Very long ave",
+                        "City": "Townston",
+                        "PostalCode": "154 00",
+                        "SubdivisionCode": "AU-NSW",
+                        "CountryCode": "AU"
+                    },
+                    "LegalIdentifiers": {
+                        "TaxIdentifier": "CZ8810310963",
+                        "CityOfRegistration": "Prague",
+                    },
+                    "BillingCode": "billing code value",
+                    "Name": "Company Name Inc.",
+                    "FiscalIdentifier": "Fiscal identifier",
+                    "AdditionalTaxIdentifier": "Additional tax identifier"
+                }
+            ],
             "EnterpriseData": {
                 AdditionalTaxIdentifier: "XY00112233445",
                 CompanyName: "The Sample Hotel Group AS",
