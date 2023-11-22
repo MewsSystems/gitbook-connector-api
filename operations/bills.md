@@ -85,8 +85,6 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CompanyId": null,
             "CounterId": null,
             "AssociatedAccountIds": ["26afba60-06c3-455b-92db-0e3983be0b1d"],
             "State": "Closed",
@@ -135,8 +133,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                 }
             },
             "AssociatedAccountData": [
-                "Discrimator": "BillCompanyData",
-                "Value" : {
+                "Discriminator": "BillCompanyData",
+                "BillCompanyData" : {
                     "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
                     "Address": {
                         "Line1": "Joe Doe street",
