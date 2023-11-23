@@ -244,3 +244,38 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Addresses` | array of [Account address](#account-address) | required | Updated addresses. |
+
+## Delete addresses
+
+Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/addresses/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+    "AddressIds" : [
+        "cefa640f-43fa-4a02-8d20-f97f68e19ed5",
+        "44108366-8e9b-4007-844b-8ebcca4ac009"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `AddressIds` | array of string | required, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise to be deleted. |
+
+### Response
+
+```javascript
+{}
+```
