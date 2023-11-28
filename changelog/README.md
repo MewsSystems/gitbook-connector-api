@@ -1,6 +1,6 @@
 # Changelog
 
-## 23rd November 2023
+## 28th November 2023
 * Added operation [Delete addresses](../operations/addresses.md#delete-addresses).
 
 ## 22nd November 2023
