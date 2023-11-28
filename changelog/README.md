@@ -1,5 +1,8 @@
 # Changelog
 
+## 28th November 2023
+* Added operation [Delete addresses](../operations/addresses.md#delete-addresses).
+
 ## 22nd November 2023
 
 * Extended [Update reservations](../operations/reservations.md#reservation-updates) with `Options` parameter.
