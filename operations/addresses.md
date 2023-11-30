@@ -62,7 +62,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "CountryCode": "DE",
             "CountrySubdivisionCode": null,
             "Latitude": null,
-            "Longitude": null
+            "Longitude": null,
+            "UpdatedUtc": "2023-11-29T14:49:29.982Z",
+            "IsActive": true			
         }
     ],
     "Cursor": "fc7b2df3-de66-48a6-907d-af4600ecd892"
@@ -90,6 +92,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
+| `UpdatedUtc` | string | optional | Last update date and time of the address in UTC timezone in ISO 8601 format. |
+| `IsActive` | boolean | optional | Whether the address is still active. |
+
 
 ## Add addresses
 
@@ -159,7 +164,9 @@ Adds one or more new addresses to the system and assigns them to specified accou
             "CountryCode": "DE",
             "CountrySubdivisionCode": null,
             "Latitude": null,
-            "Longitude": null
+            "Longitude": null,
+            "UpdatedUtc": "2023-11-29T14:49:29.982Z",
+            "IsActive": true
         }
     ]
 }
@@ -235,7 +242,9 @@ Updates one or more existing addresses in the system, assigned to specified acco
             "CountryCode": "CZ",
             "CountrySubdivisionCode": null,
             "Latitude": null,
-            "Longitude": null
+            "Longitude": null,
+            "UpdatedUtc": "2023-11-29T14:49:29.982Z",
+            "IsActive": true
         }
     ]
 }
