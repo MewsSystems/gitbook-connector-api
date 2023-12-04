@@ -91,3 +91,4 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `UnitCount` | int | required | Adjustment value applied on the interval. |
 | `ActivityState` | string [Activity state](_objects.md#activity-state) | required | Shows whether the availability adjustment is active or deleted. |
+| `UpdatedUtc` | string | required | Last update date and time of the adjustment in UTC timezone in ISO 8601 format. |
