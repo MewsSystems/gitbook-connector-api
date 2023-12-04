@@ -164,7 +164,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "UnitCount": 6,
-            "ActivityState": "Active"
+            "ActivityState": "Active",
+            "UpdatedUtc": "2021-10-21T13:32:32Z"
         }
     ],
      "Cursor": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"

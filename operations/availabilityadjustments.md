@@ -59,7 +59,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2023-02-21T23:00:00Z",
             "LastTimeUnitStartUtc": "2023-02-21T23:00:00Z",
             "UnitCount": -3,
-            "ActivityState": "Active"
+            "ActivityState": "Active",
+            "UpdatedUtc": "2023-02-28T23:00:00Z"
         },
         {
             "Id": "7413724a-6c48-46d4-ab3a-afae01280999",
@@ -68,7 +69,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2023-02-19T23:00:00Z",
             "LastTimeUnitStartUtc": "2023-02-23T23:00:00Z",
             "UnitCount": 5,
-            "ActivityState": "Deleted"
+            "ActivityState": "Deleted",
+            "UpdatedUtc": "2023-02-28T23:00:00Z"
         }
     ],
     "Cursor": "7413724a-6c48-46d4-ab3a-afae01280999"
