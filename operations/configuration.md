@@ -124,7 +124,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](languages.md#language). |
 | ~~`EditableHistoryInterval`~~ | ~~string~~ | ~~required~~ | ~~Editable history interval in ISO 8601 duration format.~~ **Deprecated!** |
 | `AccountingEditableHistoryInterval` | string | required | Editable history interval for accounting data in ISO 8601 duration format. |
-| `OperationalEditableHistoryInterval` | string | required | Editable history interval for oprational data in ISO 8601 duration format. |
+| `OperationalEditableHistoryInterval` | string | required | Editable history interval for operational data in ISO 8601 duration format. |
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |
