@@ -1,5 +1,8 @@
 # Changelog
 
+## 6th December 2023
+* Extended [Add export](../operations/exports.md#add-export) with `Payment` and `Reservation` entity types.
+
 ## 5th December 2023
 * Extended [Availability adjustment](../operations/availabilityadjustments.md#availability-adjustment) with `UpdatedUtc` property.
 
