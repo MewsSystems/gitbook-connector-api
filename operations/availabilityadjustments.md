@@ -59,7 +59,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2023-02-21T23:00:00Z",
             "LastTimeUnitStartUtc": "2023-02-21T23:00:00Z",
             "UnitCount": -3,
-            "ActivityState": "Active"
+            "ActivityState": "Active",
+            "UpdatedUtc": "2023-02-28T23:00:00Z"
         },
         {
             "Id": "7413724a-6c48-46d4-ab3a-afae01280999",
@@ -68,7 +69,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2023-02-19T23:00:00Z",
             "LastTimeUnitStartUtc": "2023-02-23T23:00:00Z",
             "UnitCount": 5,
-            "ActivityState": "Deleted"
+            "ActivityState": "Deleted",
+            "UpdatedUtc": "2023-02-28T23:00:00Z"
         }
     ],
     "Cursor": "7413724a-6c48-46d4-ab3a-afae01280999"
@@ -91,3 +93,4 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `UnitCount` | int | required | Adjustment value applied on the interval. |
 | `ActivityState` | string [Activity state](_objects.md#activity-state) | required | Shows whether the availability adjustment is active or deleted. |
+| `UpdatedUtc` | string | required | Last update date and time of the adjustment in UTC timezone in ISO 8601 format. |

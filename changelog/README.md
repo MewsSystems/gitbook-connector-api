@@ -1,7 +1,9 @@
 # Changelog
 
 ## 5th December 2023
+
 * Deprecated `EditableHistoryInterval` property in [Get configuration](../operations/configuration.md#get-configuration) and [Get all enterprises](../operations/enterprises.md#get-all-enterprises). Use `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval` instead.
+* Extended [Availability adjustment](../operations/availabilityadjustments.md#availability-adjustment) with `UpdatedUtc` property.
 
 ## 29th November 2023
 * Extended [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) response with `Name` and `Notes` parameters.
