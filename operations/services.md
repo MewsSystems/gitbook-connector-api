@@ -186,7 +186,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 
 ## Get service availability
 
-Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on [service's time unit](#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
+Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
 
 ### Request
 
@@ -210,7 +210,7 @@ Returns availability of a bookable service for a specified time interval includi
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on [service's time unit](./services.md#time-unit): 367 hours, 367 days, or 24 months. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 
 
 ### Response
@@ -295,7 +295,7 @@ Updates the number of available resources in [Resource category](resources.md#re
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on [service's time unit](./services.md#time-unit): 367 hours, 367 days, or 24 months. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
