@@ -39,6 +39,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `EditableHistoryInterval` in [Get configuration](../operations/configuration.md#get-configuration) and [Get all enterprises](../operations/enterprises.md#get-all-enterprises) | Replaced by `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval` | 5 Dec 2023 | 5 Dec 2024 |
 | `TaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountTaxIdentifier` | 21 Nov 2023 | 21 Nov 2024 |
 | `CompanyTaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | 21 Nov 2024 |
 | `Address` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountAddress` | 21 Nov 2023 | 21 Nov 2024 |

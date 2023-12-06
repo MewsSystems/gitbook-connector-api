@@ -38,7 +38,8 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
         "TimeZoneIdentifier": "Europe/Budapest",
         "LegalEnvironmentCode": "UK",
         "DefaultLanguageCode": "en-US",
-        "EditableHistoryInterval": "P0M3DT0H0M0S",
+        "AccountingEditableHistoryInterval": "P0M7DT0H0M0S",
+        "OperationalEditableHistoryInterval": "P0M5DT0H0M0S",
         "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral",
         "Email": "charging-api@mews.li",
         "Phone": "00000 123 456 789",
@@ -121,7 +122,9 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `TimeZoneIdentifier` | string | required | IANA timezone identifier of the enterprise. |
 | `LegalEnvironmentCode` | string | required | Unique identifier of the legal environment where the enterprise resides. |
 | `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](languages.md#language). |
-| `EditableHistoryInterval` | string | required | Editable history interval in ISO 8601 duration format. |
+| ~~`EditableHistoryInterval`~~ | ~~string~~ | ~~required~~ | ~~Editable history interval in ISO 8601 duration format.~~ **Deprecated!** |
+| `AccountingEditableHistoryInterval` | string | required | Editable history interval for accounting data in ISO 8601 duration format. |
+| `OperationalEditableHistoryInterval` | string | required | Editable history interval for operational data in ISO 8601 duration format. |
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |
