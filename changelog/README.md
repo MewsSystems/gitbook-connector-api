@@ -1,5 +1,8 @@
 # Changelog
 
+## 8th December 2023
+* Extended [Add export](../operations/exports.md#add-export) with `Payment` and `Reservation` entity types.
+
 ## 5th December 2023
 
 * Deprecated `EditableHistoryInterval` property in [Get configuration](../operations/configuration.md#get-configuration) and [Get all enterprises](../operations/enterprises.md#get-all-enterprises). Use `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval` instead.

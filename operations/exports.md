@@ -134,7 +134,9 @@ If there is already an export with status `Pending` or `Processing` for the spec
 
 #### Entity type
 
-* `OrderItem` - [Order items](./orderitems.md)
+* `OrderItem` - [Order items](./orderitems.md#order-item)
+* `Payment` - [Payments](./payments.md#payment)
+* `Reservation` - [Reservations](./reservations.md#reservation-ver-2023-06-06)
 * ...
 
 ### Response
