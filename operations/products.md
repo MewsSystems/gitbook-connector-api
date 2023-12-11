@@ -47,9 +47,21 @@ Returns all products offered together with the specified services. Note this ope
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
             "Name": "Breakfast",
+            "Names": {
+                "en-US": "Breakfast"
+            },
             "ExternalName": "Breakfast",
+            "ExternalNames": {
+                "en-US": "Breakfast"
+            },
             "ShortName": "BFST",
+            "ShortNames": {
+                "en-US": "BFST"
+            },
             "Description": "Nice continental breakfast.",
+            "Descriptions": {
+                "en-US": "Nice continental breakfast."
+            },
             "ChargingMode": "PerPersonPerTimeUnit",
             "PostingMode": "Once",
             "Options": {
@@ -91,9 +103,21 @@ Returns all products offered together with the specified services. Note this ope
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
             "Name": "Breakfast",
+            "Names": {
+                "en-US": "Breakfast"
+            },
             "ExternalName": "Breakfast",
+            "ExternalNames": {
+                "en-US": "Breakfast"
+            },
             "ShortName": "BFST",
+            "ShortNames": {
+                "en-US": "BFST"
+            },
             "Description": "Nice continental breakfast.",
+            "Descriptions": {
+                "en-US": "Nice continental breakfast."
+            },
             "ChargingMode": "PerPersonPerTimeUnit",
             "PostingMode": "Once",
             "Options": {
@@ -147,9 +171,13 @@ Returns all products offered together with the specified services. Note this ope
 | `AccountingCategoryId` | string | optional | Unique identifier of [Accounting Category](accountingcategories.md#accounting-category). |
 | `IsActive` | boolean | required | Whether the product is still active. |
 | `Name` | string | required | Name of the product.  |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the product name. |
 | `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the product name meant to be displayed to customer. |
 | `ShortName` | string | required | Short name of the product. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the product short name. |
 | `Description` | string | optional | Description of the product. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the product description. |
 | `ChargingMode` | string [Product charging mode](#product-charging-mode) | required | Charging mode of the product. |
 | `PostingMode` | string [Product posting mode](#product-posting-mode) | required | Posting mode of the product. |
 | `Options` | [Product options](#product-options) | required | Options of the product. |
