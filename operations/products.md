@@ -170,14 +170,14 @@ Returns all products offered together with the specified services. Note this ope
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
 | `AccountingCategoryId` | string | optional | Unique identifier of [Accounting Category](accountingcategories.md#accounting-category). |
 | `IsActive` | boolean | required | Whether the product is still active. |
-| `Name` | string | required | Name of the product.  |
+| ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the product.~~ **Deprecated!** Please use `Names`  |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the product name. |
-| `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
+| ~~`ExternalName`~~ | ~~string~~ | ~~required~~ | ~~Name of the product meant to be displayed to customer.~~ **Deprecated!** Please use `ExternalNames` |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the product name meant to be displayed to customer. |
-| `ShortName` | string | required | Short name of the product. |
+| ~~`ShortName`~~ | ~~string~~ | ~~required~~ | ~~Short name of the product.~~ **Deprecated!** Please use `ShortNames` |
 | `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the product short name. |
-| `Description` | string | optional | Description of the product. |
-| `Descriptions` | [Localized text](_objects.md#localized-text) | required | All translations of the product description. |
+| ~~`Description`~~ | ~~string~~ | ~~optional~~ | ~~Description of the product.~~ **Deprecated!** Please use `Descriptions` |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the product description. |
 | `ChargingMode` | string [Product charging mode](#product-charging-mode) | required | Charging mode of the product. |
 | `PostingMode` | string [Product posting mode](#product-posting-mode) | required | Posting mode of the product. |
 | `Options` | [Product options](#product-options) | required | Options of the product. |
