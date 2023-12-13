@@ -46,19 +46,15 @@ Returns all products offered together with the specified services. Note this ope
             "CategoryId": null,
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
-            "Name": "Breakfast",
             "Names": {
                 "en-US": "Breakfast"
             },
-            "ExternalName": "Breakfast",
             "ExternalNames": {
                 "en-US": "Breakfast"
             },
-            "ShortName": "BFST",
             "ShortNames": {
                 "en-US": "BFST"
             },
-            "Description": "Nice continental breakfast.",
             "Descriptions": {
                 "en-US": "Nice continental breakfast."
             },
@@ -102,19 +98,15 @@ Returns all products offered together with the specified services. Note this ope
             "CategoryId": null,
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
-            "Name": "Breakfast",
             "Names": {
                 "en-US": "Breakfast"
             },
-            "ExternalName": "Breakfast",
             "ExternalNames": {
                 "en-US": "Breakfast"
             },
-            "ShortName": "BFST",
             "ShortNames": {
                 "en-US": "BFST"
             },
-            "Description": "Nice continental breakfast.",
             "Descriptions": {
                 "en-US": "Nice continental breakfast."
             },
