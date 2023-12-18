@@ -137,6 +137,8 @@ If there is already an export with status `Pending` or `Processing` for the spec
 * `OrderItem` - [Order items](./orderitems.md#order-item)
 * `Payment` - [Payments](./payments.md#payment)
 * `Reservation` - [Reservations](./reservations.md#reservation-ver-2023-06-06)
+* `Customer` - [Customer](./customers.md#customer)
+* `Company` - [Company](./companies.md#company)
 * ...
 
 ### Response

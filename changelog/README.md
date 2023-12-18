@@ -1,5 +1,8 @@
 # Changelog
 
+## 19th December 2023
+* Extended [Add export](../operations/exports.md#add-export) with `Customer` and `Company` entity types.
+
 ## 12th December 2023
 * Extended [Product](../operations/products.md#product) with `Names`, `ExternalNames`, `ShortNames` and `Descriptions`.
 * Deprecated properties in [Product](../operations/products.md#product)
