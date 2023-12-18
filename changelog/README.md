@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th December 2023
+
+* Added `Twint` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
+
 ## 12th December 2023
 * Extended [Product](../operations/products.md#product) with `Names`, `ExternalNames`, `ShortNames` and `Descriptions`.
 * Deprecated properties in [Product](../operations/products.md#product)

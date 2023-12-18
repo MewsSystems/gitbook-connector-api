@@ -114,6 +114,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 * `WireTransfer`
 * `Bacs`
 * `CrossSettlement`
+* `Twint`
 * `DepositWireTransfer`
 
 ### Response
