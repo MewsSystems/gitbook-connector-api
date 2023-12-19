@@ -1,7 +1,7 @@
 # Changelog
 
 ## 19th December 2023
-
+* Extended [Add export](../operations/exports.md#add-export) with `Customer` and `Company` entity types.
 * Added `Twint` payment type option to [Add external payment](../operations/payments.md#add-external-payment) request.
 
 ## 12th December 2023
