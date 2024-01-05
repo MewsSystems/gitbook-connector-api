@@ -93,7 +93,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
 | `UpdatedUtc` | string | optional | Last update date and time of the address in UTC timezone in ISO 8601 format. |
-| `IsActive` | boolean | optional | Whether the address is still active. |
+| `IsActive` | boolean | required | Whether the address is still active. |
 
 
 ## Add addresses
