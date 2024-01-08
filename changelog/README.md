@@ -1,5 +1,8 @@
 # Changelog
 
+## 10th January 2024
+* Added operation [Delete companies](../operations/companies.md#delete-companies).
+
 | Changelog by year |
 | :-- |
 | [Changelog 2023](changelog2023.md) |
