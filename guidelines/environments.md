@@ -24,8 +24,10 @@ Use the below logins for accessing the demo enterprises ([Gross Pricing Environm
 ### Request limits
 
 * 2000 requests per `ClientToken` within 15 minutes
-* 1000 requests per `AccessToken` within 15 minutes
-* 500 requests per endpoint per `AccessToken` within 15 minutes
+* 500 requests per `AccessToken` within 15 minutes
+* 250 requests per endpoint per `AccessToken` within 15 minutes
+
+> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md), have their limits increased by 10 times.
 
 ### Gross Pricing Environment
 
@@ -85,9 +87,11 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 
 ### Request limits
 
-* 3600 requests per `ClientToken` within 15 minutes
-* 1600 requests per `AccessToken` within 15 minutes
-* 800 requests per endpoint per `AccessToken` within 15 minutes
+* 15000 requests per `ClientToken` within 15 minutes
+* 3000 requests per `AccessToken` within 15 minutes
+* 1500 requests per endpoint per `AccessToken` within 15 minutes
+
+> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md), have their limits increased by 10 times.
 
 ## Taxations
 
