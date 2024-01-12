@@ -27,7 +27,7 @@ Use the below logins for accessing the demo enterprises ([Gross Pricing Environm
 * 500 requests per `AccessToken` within 15 minutes
 * 250 requests per endpoint per `AccessToken` within 15 minutes
 
-> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md), have their limits increased by 10 times.
+> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md) have their limits increased by 10 times.
 
 ### Gross Pricing Environment
 
@@ -91,7 +91,7 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 * 3000 requests per `AccessToken` within 15 minutes
 * 1500 requests per endpoint per `AccessToken` within 15 minutes
 
-> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md), have their limits increased by 10 times.
+> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md) have their limits increased by 10 times.
 
 ## Taxations
 
