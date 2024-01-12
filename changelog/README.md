@@ -1,7 +1,8 @@
 # Changelog
 
 ## 15th January 2024
-* Updated [Request limits](../guidelines/README.md#request-limits) for both Demo and Production environment.
+* Updated [Request limits](../guidelines/README.md#request-limits) for both Demo and Production environments.
+
 
 | Changelog by year |
 | :-- |
