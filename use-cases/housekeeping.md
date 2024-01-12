@@ -1,6 +1,6 @@
-## Housekeeping
+# Housekeeping
 
-A housekeeping integration pulls live information about the physical state of a resource, allows the housekeeping staff to update it from the housekeeping software and pushes this data back into Mews. The sections below contain guidelines regarding the relevant endpoints used.
+A Housekeeping integration pulls live information about the physical state of a resource, allows the housekeeping staff to update it from the housekeeping software and pushes this data back into Mews. The sections below contain guidelines regarding the relevant endpoints used.
 
 ### Initial configuration
 
