@@ -61,6 +61,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
+| [Delete companies](companies.md#delete-companies) | Deletes selected companies |
 | [Get all company contracts](companycontracts.md#get-all-company-contracts) | Returns all contracts between the enterprise and other companies |
 | [Add company contracts](companycontracts.md#add-company-contracts) | Adds new company contracts to the enterprise |
 | [Update company contracts](companycontracts.md#update-company-contracts) | Updates selected company contracts |
