@@ -14,8 +14,8 @@ The below addresses should be used for testing and development of the client app
 Use the below logins for accessing the demo enterprises ([Gross Pricing Environment](#gross-pricing-environment) and [Net Pricing Environment](#net-pricing-environment)).
 
 * **MewsWebApplicationAddress** - `https://app.mews-demo.com`
-* **Email** - connector-api@mews.li
-* **Password** - connector-API-2021
+* **Email** - connector-api-demo@mews.com
+* **Password** - connector-API-2024
 
 ### Security Policy
 
