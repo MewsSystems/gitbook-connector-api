@@ -406,7 +406,7 @@ Deletes specified companies.
     "Client": "Sample Client 1.0.0",
     "CompanyIds": [
         "eb02cbff-353d-48ec-97da-7def2305a5c5",
-		"63551515-1740-49b3-914e-309a8b1429f0"
+	"63551515-1740-49b3-914e-309a8b1429f0"
     ]
 }
 ```
