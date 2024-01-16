@@ -1,7 +1,10 @@
 # Changelog
 
-## 15th January 2024
+## 16th January 2024
 * Added operation [Delete companies](../operations/companies.md#delete-companies).
+
+## 15th January 2024
+* Updated [Request limits](../guidelines/README.md#request-limits) for both Demo and Production environments.
 
 | Changelog by year |
 | :-- |
