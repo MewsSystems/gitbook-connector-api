@@ -49,7 +49,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access tokens](#resource-access-token). Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example reservations). Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of reservations. Required if no other filter is provided. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Resource access token](#resource-access-token) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
@@ -98,7 +98,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of [Resource access token](#resource-access-token). |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `ServiceOrderId` | string | required | Unique identifier of a service order (for example a reservation). |
+| `ServiceOrderId` | string | required | Unique identifier of a reservations. |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](companionships.md#companionship). |
 | `ResourceId` | string | optional | Unique identifier of [Resource](resources.md#resource). |
 | `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
@@ -171,7 +171,7 @@ Adds new resource access tokens with the specified data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderId` | string | required | Unique identifier of a service order (for example a reservation). |
+| `ServiceOrderId` | string | required | Unique identifier of a reservation. |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](companionships.md#companionship). |
 | `ResourceId` | string | optional | Unique identifier of [Resource](resources.md#resource). |
 | `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
