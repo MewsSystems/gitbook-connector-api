@@ -91,6 +91,7 @@ Updates one or more existing accounts in the system. Note this operation support
                 "Name": { "Value": "Example company" },
                 "MotherCompanyId":  { "Value": "839e9d92-aa8b-48bf-8384-b0ec0081bb34" },        
                 "WebsiteUrl": { "Value": "https://www.example.com" },
+                "InvoiceDueInterval": { "Value": null },
                 "CreditRatingBasic": { "Value": "CreditOk" },
                 "Department": { "Value": "Accounting" },
                 "DunsNumber": { "Value": "987654321" },
@@ -462,8 +463,8 @@ Updates one or more existing accounts in the system. Note this operation support
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
-| `Sex` | string [Sex](#sex) | optional | Sex of the customer. |
-| `Title` | string [Title](#title) | optional | Title prefix of the customer. |
+| `Sex` | string [Sex](customers.md#sex) | optional | Sex of the customer. |
+| `Title` | string [Title](customers.md#title) | optional | Title prefix of the customer. |
 | `PreferredLanguageCode` | string | optional | Language and culture code of the customers preferred language. E.g. `en-US` or `fr-FR`. |
 | `Options` | [Customer options](#customer-options) | required | Options of the customer. |
 | `Classifications` | [Customer classifications](#customer-classifications) | required | Classifications of the customer. |
@@ -475,7 +476,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `ChainId` | string | required | Unique identifier of the chain. |
 | `CreatedUtc` | string | optional | Date of [Company](#company) creation date and time. |
 | `UpdatedUtc` | string | optional | Date of [Company](#company) last update date and time. |
-| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the companies. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the company. |
 | `Email` | string | optional | Email address of the company. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `BillingCode` | string | optional | Billing code of the company. |
@@ -497,7 +498,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `Iata` | string | optional | Iata of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
 | `SourceId` | string | optional | Unique identifier of the [Source](sources.md#source). |
-| `Classifications` | [Company classifications](#company-classifications) | required | Options of the company. |
+| `Classifications` | [Company classifications](#company-classifications) | required | Classifications of the company. |
 | `Options` | [Company options](companies.md#company-options) | required | Options of the company. |
 
 #### Customer options
