@@ -80,7 +80,7 @@ Updates one or more existing accounts in the system. Note this operation support
         {
             "Id": "3ff104e6-3ba8-4dfc-8d35-b0ec00c5fd4c",
             "Discriminator": "Company",
-            "Customer" = null
+            "Customer": null,
             "Company": 
             {
                 "Email": { "Value": "example@example.com" },
@@ -111,18 +111,18 @@ Updates one or more existing accounts in the system. Note this operation support
                     "OnlineTravelAgency": { "Value": true },
                     "GlobalDistributionSystem": { "Value": true },
                     "Marketing": { "Value": true },
-                    "Inactive": { "Value": true },
+                    "Inactive": { "Value": true }
                 },
                 "Options": {
                     "Invoiceable": { "Value": "true" },
-                    "AddFeesToInvoices": { "Value": "false" }
-                },
+                    "AddFeesToInvoices": { "Value": "true" }
+                }
             }
         },
         {
-            "Id": "3ff104e6-3ba8-4dfc-8d35-b0ec00c5fd4c",
+            "Id": "71db411f-c1d6-4e1c-9cd7-44e8bf45f936",
             "Discriminator": "Customer",
-            "Company" = null,
+            "Company": null,
             "Customer": 
             {
                 "Email": { "Value": "example@example.com" },
@@ -148,7 +148,7 @@ Updates one or more existing accounts in the system. Note this operation support
                 {
                     "SendMarketingEmails": { "Value": true },
                     "Invoiceable": { "Value": true },
-                    "BillAddressObjection": { "Value": true },
+                    "BillAddressObjection": { "Value": true }
                 },
                 "Classifications":
                 {
@@ -175,7 +175,7 @@ Updates one or more existing accounts in the system. Note this operation support
                 },
                 "LegalEntityIdentifiers":
                 {
-                    "ItDestinationCode": { "Value": null }
+                    "ItDestinationCode": { "Value": null },
                     "ItFiscalCode": { "Value": null }
                 }
             }
@@ -195,7 +195,7 @@ Updates one or more existing accounts in the system. Note this operation support
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the category. |
+| `Id` | string | required | Unique identifier of the account. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `Discriminator` | string [Account type discriminator](#account-type) | required | Type of the account. |
 | `Customer` | [Customer update parameters](#customer-update-parameters) | optional | Customer data to be updated. Required when `Discriminator` is `Customer`. |
@@ -225,8 +225,8 @@ Updates one or more existing accounts in the system. Note this operation support
 | `Title` | [String update value](_objects.md#string-update-value) | optional | Title \(or `null` if the title should not be updated\). |
 | `PreferredLanguageCode` | [String update value](_objects.md#string-update-value) | optional | Preferred language code \(or `null` if the preferred language code should not be updated\). |
 | `Options` | [Customer update options](#customer-update-options) | optional | Options of the customer. |
-| `Classifications` | [Customer update classifications](#customer-update-classifications) | optional | Options of the customer. |
-| `LegalEntityIdentifiers` | [Customer update legal entity identifiers](#customer-update-legal-entity-identifiers) | optional | Options of the customer. |
+| `Classifications` | [Customer update classifications](#customer-update-classifications) | optional | Classifications of the customer. |
+| `LegalEntityIdentifiers` | [Customer update legal entity identifiers](#customer-update-legal-entity-identifiers) | optional | Legal entity identifiers of the customer. |
 
 #### Customer update options
 | Property | Type | Contract | Description |
@@ -262,7 +262,7 @@ Updates one or more existing accounts in the system. Note this operation support
 #### Customer update legal entity identifiers
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ItDestinationCode` | [String update value](_objects.md#string-update-value) | optional | Italian destination code \(or `null` if the italian destination code should not be updated\). |
+| `ItDestinationCode` | [String update value](_objects.md#string-update-value) | optional | Italian destination code \(or `null` if the Italian destination code should not be updated\). |
 | `ItFiscalCode` | [String update value](_objects.md#string-update-value) | optional | Italian fiscal code \(or `null` if the Italian fiscal code should not be updated\). |
 
 #### Company update parameters
@@ -274,9 +274,9 @@ Updates one or more existing accounts in the system. Note this operation support
 | `AccountingCode` | [String update value](_objects.md#string-update-value) | optional | Accounting code \(or `null` if the accounting code should not be updated\). |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes \(or `null` if the notes should not be updated\). |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name \(or `null` if the name should not be updated\). |
-| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Mother company \(or `null` if the name should not be updated\). |
+| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Mother company \(or `null` if the mother company should not be updated\). |
 | `WebsiteUrl` | [String update value](_objects.md#string-update-value) | optional | Website url \(or `null` if the website url should not be updated\). |
-| `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | Invoice due interval \(or `null` if the name should not be updated\). |
+| `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | Invoice due interval \(or `null` if the invoice due interval should not be updated\). |
 | `CreditRatingBasic` | [String update value](_objects.md#string-update-value) | optional | [Basic credit rating](countries.md#country) \(or `null` if the basic credit rating should not be updated\). |
 | `Department` | [String update value](_objects.md#string-update-value) | optional | Department \(or `null` if the department should not be updated\). |
 | `DunsNumber` | [String update value](_objects.md#string-update-value) | optional | Duns number \(or `null` if the duns number should not be updated\). |
@@ -290,7 +290,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `Telephone` | [String update value](_objects.md#string-update-value) | optional | Telephone \(or `null` if the telephone should not be updated\). |
 | `SourceId` | [String update value](_objects.md#string-update-value) | optional | [Source](sources.md#source) \(or `null` if the source should not be updated\). |
 | `Options` | [Company update options](#company-update-options) | optional | Options of the company. |
-| `Classifications` | [Company update classifications](#company-update-classifications) | optional | Options of the company. |
+| `Classifications` | [Company update classifications](#company-update-classifications) | optional | Classifications of the company. |
 
 #### Company update options
 | Property | Type | Contract | Description |
@@ -313,24 +313,113 @@ Updates one or more existing accounts in the system. Note this operation support
 
 ```javascript
 {
-    "Accounts": [
+    "Accounts": [        
         {
-            "Id": "bbe29c21-401a-4746-b97d-af1f00e1bb8b",
-            "Discriminator": "Customer",
-            "Customer": 
-            {
-
-            },
-            "Company": null
+            "Id": "3ff104e6-3ba8-4dfc-8d35-b0ec00c5fd4c",
+            "Discriminator": "Company",
+            "Customer": null,
+            "Company": {
+                "ChainId": "79fa3c17-bec6-454f-b3be-b0ec00818acd",
+                "CreatedUtc": "2024-01-03T07:52:20Z",
+                "UpdatedUtc": "2024-01-18T10:20:31Z",
+                "UpdaterProfileId": "93f03906-ed13-4a26-b8dc-b0ec0082194f",
+                "Email": "example@example.com",
+                "TaxIdentifier": "CZ8810310963",
+                "BillingCode": null,
+                "AccountingCode": null,
+                "Notes": "Example notes",
+                "Name": "Example company",
+                "MotherCompanyId": "839e9d92-aa8b-48bf-8384-b0ec0081bb34",
+                "WebsiteUrl": "https://www.example.com",
+                "InvoiceDueInterval": null,
+                "CreditRatingBasic": "CreditOk",
+                "Department": "Accounting",
+                "DunsNumber": "987654321",
+                "ReferenceId": null,
+                "ExternalIdentifier": "COM-123",
+                "AdditionalTaxIdentifier": "XY00112233445",
+                "Contact": "Sample contact",
+                "ContactPerson": "Sample person",
+                "FiscalIdentifier": "FiscalIdentifier",
+                "Iata": "PAO",
+                "Telephone": "111-222-333",
+                "SourceId": "F42098A0-8507-4963-ACC9-B0EC00821949",
+                "Classifications": {
+                    "Corporate": true,
+                    "Internal": true,
+                    "Private": true,
+                    "OnlineTravelAgency": true,
+                    "GlobalDistributionSystem": true,
+                    "Marketing": true,
+                    "Inactive": true
+                },
+                "Options": {
+                    "Invoiceable": true,
+                    "AddFeesToInvoices": true
+                }
+            }
         },
         {
-            "Id": "bbe29c21-401a-4746-b97d-af1f00e1bb8b",
-            "Discriminator": "Company",
-            "Company": 
+            "Id": "71db411f-c1d6-4e1c-9cd7-44e8bf45f936",
+            "Discriminator": "Customer",
+            "Customer":
             {
-
+                "ChainId": "79fa3c17-bec6-454f-b3be-b0ec00818acd",
+                "CreatedUtc": "2024-01-03T07:52:19Z",
+                "UpdatedUtc": "2024-01-18T10:25:41Z",
+                "UpdaterProfileId": "93f03906-ed13-4a26-b8dc-b0ec0082194f",
+                "Email": "example@example.com",
+                "TaxIdentifier": "CZ8810310963",
+                "BillingCode": null,
+                "AccountingCode": null,
+                "Notes": "Example notes",
+                "LastName": "Sample",
+                "FirstName": "Sample",
+                "SecondLastName": null,
+                "BirthPlace": "Sample place",
+                "Telephone": "111-222-333",
+                "Occupation": null,
+                "CarRegistrationNumber": null,
+                "LoyaltyCode": null,
+                "NationalityCode": "US",
+                "CompanyId": "839e9d92-aa8b-48bf-8384-b0ec0081bb34",
+                "BirthDate": "2000-01-01T00:00:00Z",
+                "Sex": "Male",
+                "Title": "Mister",
+                "PreferredLanguageCode": null,
+                "Options": {
+                    "SendMarketingEmails": true,
+                    "Invoiceable": true,
+                    "BillAddressObjection": true
+                },
+                "Classifications": {
+                    "PaymasterAccount": true,
+                    "Blacklist": true,
+                    "Media": true,
+                    "LoyaltyProgram": true,
+                    "PreviousComplaint": true,
+                    "Returning": true,
+                    "Staff": true,
+                    "FriendOrFamily": true,
+                    "TopManagement": true,
+                    "Important": true,
+                    "VeryImportant": true,
+                    "Problematic": true,
+                    "Cashlist": true,
+                    "DisabledPerson": true,
+                    "Military": true,
+                    "Airline": true,
+                    "HealthCompliant": true,
+                    "InRoom": true,
+                    "WaitingForRoom": true,
+                    "Student": true
+                },
+                "LegalEntityIdentifiers": {
+                    "ItDestinationCode": null,
+                    "ItFiscalCode": null
+                }
             },
-            "Customer": null
+            "Company": null
         }
     ]
 }
@@ -344,10 +433,10 @@ Updates one or more existing accounts in the system. Note this operation support
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the category. |
+| `Id` | string | required | Unique identifier of the account. |
 | `Discriminator` | string [Account type discriminator](#account-type) | required | Type of the account. |
-| `Customer` | [Customer](#customer) | required | Customer data to be updated. |
-| `Company` | [Company](#company) | required | Company data to be updated. |
+| `Customer` | [Customer](#customer) | required | Updated customer data. |
+| `Company` | [Company](#company) | required | Updated company data. |
 
 #### Customer
 
