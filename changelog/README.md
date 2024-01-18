@@ -1,4 +1,6 @@
 # Changelog
+## 18th January 2024
+* [Password](../guidelines/environments)Update for Demo Environment.
 
 ## 16th January 2024
 * Added operation [Delete companies](../operations/companies.md#delete-companies).
