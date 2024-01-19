@@ -64,6 +64,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "Rules": [
         {
             "Id": "13638b12-53f1-4b35-baab-ac1e006ed8cb",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "Conditions": {
                 "RateId": {
                     "Value": "8a13f4e8-0274-4bcc-b2d4-ac1c00d1cd3f",
