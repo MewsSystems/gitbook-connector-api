@@ -1,5 +1,8 @@
 # Changelog
 
+## 22nd January 2024
+* Extended [Rule](../operations/rules.md#rule) with `ServiceId`.
+
 ## 16th January 2024
 * Added operation [Delete companies](../operations/companies.md#delete-companies).
 

@@ -134,6 +134,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rule. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the rule is assigned to. |
 | `Conditions` | [Rule conditions](#rule-conditions) | required | Conditions of the rule. |
 | `CreatedUtc` | string | required | Creation date and time of the rule in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the rule in UTC timezone in ISO 8601 format. |
