@@ -1,4 +1,4 @@
-## Guest technology
+# Guest technology
 
 Guest technology integrations, such as telephone systems or entertainment systems, are used to identify guests on telephones or TVs and to generate revenue by charging guests for outside phone calls.
 

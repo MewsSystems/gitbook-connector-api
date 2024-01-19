@@ -40,7 +40,7 @@ Caveats aside, the functionality is available and documented, and certification 
 
 ## Taking payments
 
-Mews Terminals are considered _devices_, and you communicate with them using [device integration commands](device-integrations.md).
+Mews Terminals are considered _devices_, and you communicate with them using [device integration commands](device-integration.md).
 
 The most important API Operation you will need to use is [Add payment command](../operations/commands.md#add-payment-command). This adds a device integration command to the device command queue, with an instruction to take a payment from a specified Mews Terminal device for a specified customer.
 
@@ -263,7 +263,7 @@ Within the Connector API documentation, the following sections may be helpful:
 
 - [Add payment command](../operations/commands.md#add-payment-command)
 - [WebSockets](../websockets/README.md)
-- [Use cases - Device integrations](device-integrations.md)
+- [Use cases - Device integration](device-integration.md)
 - [Use cases - Kiosk](kiosk.md)
 - [Use cases - Point of sale](point-of-sale.md)
 

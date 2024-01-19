@@ -1,4 +1,4 @@
-## Revenue management
+# Revenue management
 
 Revenue Management Systems (RMSs) obtain information about reservations, revenue and pricing from Mews. Based on this data, they may recommend or directly update rate prices, give future revenue estimates, predict occupancy, etc. In bigger hotels, there might be more than 50,000 reservations in a year, so it is necessary to always limit the operations in terms of potential data size, in order to avoid timeouts, network errors, etc.
 A recommended approach for implementing an RMS integration is described below. Following these guidelines should ensure that both our servers and the RMS are not unnecessarily overutilized.

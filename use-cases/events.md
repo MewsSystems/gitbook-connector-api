@@ -1,6 +1,6 @@
-## Event management
+# Events
 
-An event management integration can pull live information about rates and availability, create availability blocks (also known as room blocks or group blocks), affect property inventory, push contracted revenue to the relevant guest’s profile in Mews, and allow users to manage the group reservations (already pushed into Mews) from the event management software. The sections below contain guidelines regarding the relevant endpoints used.
+An Events integration can pull live information about rates and availability, create availability blocks (also known as room blocks or group blocks), affect property inventory, push contracted revenue to the relevant guest’s profile in Mews, and allow users to manage the group reservations (already pushed into Mews) from the event management software. The sections below contain guidelines regarding the relevant endpoints used.
 
 ### Enterprise information
 
@@ -87,7 +87,7 @@ When an availability block is no longer needed in Mews, remove it from Mews by c
 
 ### Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. In addition to this, and specific to Event Management integrations:
+Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. In addition to this, and specific to Events integrations:
 
 If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation, or related customer profile](https://help.mews.com/s/article/search-in-mews-operations?language=en_US) or using the [Mews Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US).
 To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  
