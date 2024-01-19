@@ -1,10 +1,10 @@
-## Upselling
+# Upsell
 
-An upselling integration pulls information about customers, reservations, products and services for specified intervals in order to automate upselling of personalised room upgrades, add-ons and experiences to the guests.
+An Upsell integration pulls information about customers, reservations, products and services for specified intervals in order to automate upselling of personalised room upgrades, add-ons and experiences to the guests.
 
 ### Data pull
 
-Each Mews property creates a unique set of services and related products based on what they offer to their guests. Upselling integrations pull the relevant product information (e.g. name, unique identifier, price) and store it in their system for future use. A list of all the services a property offers can be requested using [Get all services](../operations/services.md#get-all-services). The response contains a unique identifier which can then be used to pull all related products using [Get all products](../operations/products.md#get-all-products). 
+Each Mews property creates a unique set of services and related products based on what they offer to their guests. Upsell integrations pull the relevant product information (e.g. name, unique identifier, price) and store it in their system for future use. A list of all the services a property offers can be requested using [Get all services](../operations/services.md#get-all-services). The response contains a unique identifier which can then be used to pull all related products using [Get all products](../operations/products.md#get-all-products). 
 
 If the integration is offering room upgrades to guests, it is important to take availability of the resources into account. After mapping the configuration of the property in your system, resource availability is returned per resource category in the response to [Get service availability](../operations/services.md#get-service-availability).
 
@@ -22,8 +22,8 @@ To ensure correct reporting, all revenue items posted into Mews must be associat
 
 If a product being added to a reservation may require further action from the hotel staff, create reminders and assign responsiblities using [Add task](../operations/tasks.md#add-task) to ensure no aspect of the guest experience is forgotten. Learn more about [how tasks are created and managed](https://help.mews.com/s/article/create-and-manage-tasks?language=en_US).
 
-### Testing your Upselling integration
+### Testing your Upsell integration
 
-Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to upselling integrations
+Ensure you follow our general [guidelines](../guidelines) for testing integrations. In addition to this, and specific to upsell integrations
 
 Check whether you are correctly managing the stay product postings by reviewing the Items tab of the reservation you have posted it to or review the product column of the [Reservation report](https://help.mews.com/s/article/reservation-report?language=en_US) which has `Include products` selected in the Options section. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the Mews [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  

@@ -1,4 +1,4 @@
-## Customer management
+# Customer management
 
 Customer management integrations pull live information about reservations, customers, products and services for specified intervals. These types of solutions allow properties to manage the entire customer journey, from automating targeted marketing and driving sales to guest communication and engagement.
 
@@ -16,7 +16,7 @@ For example, using the `Updated` time filter will return all reservations modifi
 
 ### Offering additional products or services
 
-Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upselling](upselling.md) integration use case.
+Each Mews property creates a unique set of services and related products which they can offer to their guests. For more information on how to retrieve relevant product information from Mews, search for customers and correctly post orders to their profile, please review the [Upsell](upsell.md) integration use case.
 
 ### Testing your integration
 
