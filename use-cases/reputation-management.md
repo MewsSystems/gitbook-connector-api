@@ -1,6 +1,6 @@
-## Reputation management
+# Reputation management
 
-Typically, reputation management systems require reservation information, customer profile information, and the ability to update customer profiles.
+Typically, Reputation management systems require reservation information, customer profile information, and the ability to update customer profiles.
 
 ### Retrieving Reservations
 

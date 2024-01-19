@@ -2,6 +2,7 @@
 
 ## 19th January 2024
 * Extended [Resource access token](../operations/resourceaccesstokens.md#resource-access-token) with `IsActive`.
+* Updated the [Demo environment](../guidelines/environments.md#demo-environments) credentials.
 
 ## 16th January 2024
 * Added operation [Delete companies](../operations/companies.md#delete-companies).
