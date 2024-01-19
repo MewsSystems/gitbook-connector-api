@@ -1,5 +1,8 @@
 # Changelog
 
+## 22nd January 2024
+* Updated the [Accounting](../use-cases/accounting.md) use case.
+
 ## 19th January 2024
 * Updated the [Demo environment](../guidelines/environments.md#demo-environments) credentials.
 
