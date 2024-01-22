@@ -98,7 +98,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of [Resource access token](#resource-access-token). |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `ServiceOrderId` | string | required | Unique identifier of a reservations. |
+| `ServiceOrderId` | string | required | Unique identifier of a reservation. |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](companionships.md#companionship). |
 | `ResourceId` | string | optional | Unique identifier of [Resource](resources.md#resource). |
 | `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
