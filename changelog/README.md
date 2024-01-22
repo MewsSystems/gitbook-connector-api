@@ -1,5 +1,8 @@
 # Changelog
 
+## 22nd January 2024
+* Extended [Resource access token](../operations/resourceaccesstokens.md#resource-access-token) with `IsActive`.
+
 ## 19th January 2024
 * Updated the [Demo environment](../guidelines/environments.md#demo-environments) credentials.
 
