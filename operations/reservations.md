@@ -97,7 +97,7 @@ Returns all reservations within scope of the Access Token, filtered according to
             "TravelAgencyId": null,
             "AssignedResourceLocked": false,
             "ChannelNumber": "TW48ZP",
-            "ChannelManager": "",
+            "ChannelManagerNumber": "",
             "CancellationReason": null,
             "Purpose": "Leisure",        
             "PersonCounts": [
