@@ -1,5 +1,8 @@
 # Changelog
 
+## 25th January 2024
+* Updated the [Customer management](../use-cases/customer-management.md) use case and the [Upsell](../use-cases/upsell.md) use case.
+
 ## 19th January 2024
 * Updated the [Demo environment](../guidelines/environments.md#demo-environments) credentials.
 
