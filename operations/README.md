@@ -7,6 +7,7 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
+| [Update accounts](accounts.md#update-accounts) | Updates one or more existing accounts, i.e. customer, company. |
 | [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
