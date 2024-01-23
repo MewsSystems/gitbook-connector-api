@@ -41,7 +41,7 @@ This section describes all operations supported by the API, organised here by th
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
 
-## Device integrations
+## Device integration
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
@@ -137,7 +137,7 @@ This section describes all operations supported by the API, organised here by th
 | [Update loyalty tiers](loyaltytiers.md#update-loyalty-tiers) | Updates selected loyalty tiers |
 | [Delete loyalty tiers](loyaltytiers.md#delete-loyalty-tiers) | Deletes selected loyalty tiers |
 
-## Messages
+## Customer messaging
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |

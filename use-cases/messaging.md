@@ -1,4 +1,4 @@
-## Messaging
+# Customer messaging
 
 Enable guests to send messages to the enterprise and receive replies, by connecting your chatbot or instant messaging app into the customer messaging system of __Mews Operations__.
 You can do this through the API with the [Messages](../operations/README.md#messages) collection of API operations, in conjunction with the `MessageAdded` [General Webhook](../webhooks/wh-general.md).
