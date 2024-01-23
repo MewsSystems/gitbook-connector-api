@@ -59,7 +59,6 @@ Returns all reservations within scope of the Access Token, filtered according to
     "Reservations": [
         {
             "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
-            "EnterpriseId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
             "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
             "AccountType": "Customer",
@@ -77,6 +76,7 @@ Returns all reservations within scope of the Access Token, filtered according to
             "OriginDetails": null,
             "CreatedUtc": "2023-04-23T14:58:02Z",
             "UpdatedUtc": "2023-04-23T14:58:02Z",
+            "ReleasedUtc": null,
             "CancelledUtc": null,
             "VoucherId": null,
             "BusinessSegmentId": null,
@@ -86,6 +86,7 @@ Returns all reservations within scope of the Access Token, filtered according to
                 "AnyCompanionCheckedIn": true,
                 "ConnectorCheckIn": true
             },
+            "QrCodeData": null,
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "CreditCardId": null,
             "GroupId": null,
@@ -97,6 +98,7 @@ Returns all reservations within scope of the Access Token, filtered according to
             "AssignedResourceLocked": false,
             "ChannelNumber": "TW48ZP",
             "ChannelManager": "",
+            "CancellationReason": null,
             "Purpose": "Leisure",        
             "PersonCounts": [
                 {
@@ -124,7 +126,6 @@ Returns all reservations within scope of the Access Token, filtered according to
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that reservation is made againts. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the reservation. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
@@ -151,7 +152,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `RequestedResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
 | `AssignedResourceId` | string | optional | Identifier of the assigned [Resource](resources.md#resource). |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) the reservation is assigned to. |
-| `CompanyId` | string | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made. |
+| `PartnerCompanyId` | string | optional | Identifier of the [Company](companies.md#company) on behalf of which the reservation was made. |
 | `TravelAgencyId` | string | optional | Identifier of the [Company](companies.md#company) that mediated the reservation. | 
 | `AssignedResourceLocked` | bool | required | Whether the reservation is locked to the assigned [Resource](resources.md#resource) and cannot be moved. |
 | `ChannelNumber` | string | optional | Number of the reservation within the Channel \(i.e. OTA, GDS, CRS, etc\) in case the reservation group originates there \(e.g. Booking.com confirmation number\). |
@@ -160,6 +161,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ReleasedUtc` | string | optional | Date when the optional reservation is released in UTC timezone in ISO 8601 format. |
 | `Purpose` | string [Reservation purpose](#reservation-purpose) | optional | Purpose of the reservation. |
 | `Options` | string [Service order options](serviceorders.md#service-order-options) | optional | Options of the reservations. |
+| `QrCodeData` | string | optional | Reservation data for QR code generation. |
 | `PersonCounts` | array of [Person count](#person-count) | required | Number of people per age category the reservation was booked for. |
 
 #### Person count

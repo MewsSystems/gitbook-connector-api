@@ -1,5 +1,10 @@
 # Changelog
 
+## 24th January 2024
+* Updated documentation of [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) to reflect actual state:
+  * Renamed `PartnerCompanyId` from `CompanyId` in the response example.
+  * Added `QrDataCode` and `CancellationReason` to the response.
+
 ## 22nd January 2024
 * Extended [Resource access token](../operations/resourceaccesstokens.md#resource-access-token) with `IsActive`.
 
