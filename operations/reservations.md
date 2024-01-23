@@ -128,8 +128,8 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that reservation is made againts. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the reservation. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
-| `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
-| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the reservation. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the reservation. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the reservation was made. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead. |
 | `ScheduledStartUtc` | string | required | Scheduled start time of reservation in UTC timezone in ISO 8601 format. |
