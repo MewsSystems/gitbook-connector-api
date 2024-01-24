@@ -1,7 +1,8 @@
 # Changelog
 
 ## 23rd January 2024
-* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameters `ExternalIdentifiers`.
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameter `ExternalIdentifiers`.
+
 * Extended [Get all vouchers](../operations/vouchers.md#get-all-vouchers) with filtering parameters `ExternalIdentifiers`.
 
 ## 22nd January 2024
