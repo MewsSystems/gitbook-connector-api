@@ -1,10 +1,15 @@
 # Changelog
 
-## 23rd January 2024
+## 24th January 2024
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameter `ExternalIdentifiers`.
-
 * Extended [Get all vouchers](../operations/vouchers.md#get-all-vouchers) with filtering parameter `ExternalIdentifiers`.
+* Fixed description (documentation only, no changes in API functionality) of [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Renamed `PartnerCompanyId` from `CompanyId` in the property list.
+  * Added `QrDataCode` and `CancellationReason` to the response.
+  * Removed `EnterpriseId` from the response (it was never part of the response).
 
+## 23rd January 2024
+* Added operation [Update accounts](../operations/accounts.md#update-accounts).
 
 ## 22nd January 2024
 * Extended [Resource access token](../operations/resourceaccesstokens.md#resource-access-token) with `IsActive`.
