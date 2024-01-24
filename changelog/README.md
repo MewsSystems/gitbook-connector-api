@@ -1,5 +1,11 @@
 # Changelog
 
+## 24th January 2024
+* Fixed description (documentation only, no changes in API functionality) of [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Renamed `PartnerCompanyId` from `CompanyId` in the property list.
+  * Added `QrDataCode` and `CancellationReason` to the response.
+  * Removed `EnterpriseId` from the response (it was never part of the response).
+
 ## 23rd January 2024
 * Added operation [Update accounts](../operations/accounts.md#update-accounts).
 
