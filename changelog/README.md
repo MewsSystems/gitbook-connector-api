@@ -1,6 +1,8 @@
 # Changelog
 
 ## 24th January 2024
+* Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameter `ExternalIdentifiers`.
+* Extended [Get all vouchers](../operations/vouchers.md#get-all-vouchers) with filtering parameter `ExternalIdentifiers`.
 * Fixed description (documentation only, no changes in API functionality) of [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
   * Renamed `PartnerCompanyId` from `CompanyId` in the property list.
   * Added `QrDataCode` and `CancellationReason` to the response.
