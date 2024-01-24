@@ -1,7 +1,8 @@
 # Changelog
 
 ## 24th January 2024
-* Extended [Rule](../operations/rules.md#rule) with `ServiceId`.
+* Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects following operations:
+  * [Get all rules](../operations/rules.md#get-all-rules)
 
 ## 22nd January 2024
 * Extended [Resource access token](../operations/resourceaccesstokens.md#resource-access-token) with `IsActive`.
