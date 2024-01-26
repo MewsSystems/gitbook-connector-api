@@ -1,6 +1,6 @@
 # Changelog
 
-## 24th January 2024
+## 26th January 2024
 * Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
 
   * [Get all rules](../operations/rules.md#get-all-rules)
