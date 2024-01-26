@@ -1,5 +1,9 @@
 # Changelog
 
+## 26th January 2024
+* Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
+  * [Get all rules](../operations/rules.md#get-all-rules)
+
 ## 24th January 2024
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameter `ExternalIdentifiers`.
 * Extended [Get all vouchers](../operations/vouchers.md#get-all-vouchers) with filtering parameter `ExternalIdentifiers`.
