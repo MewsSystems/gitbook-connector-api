@@ -207,6 +207,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
+| [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters. |
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |

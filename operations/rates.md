@@ -59,7 +59,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
-| `RateGroups` | bool | optional | Whether the response should contain rate groups. |
+| ~~`RateGroups`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain rate groups.~~ **Deprecated!** |
 | `AvailabilityBlockAssignments` | bool | optional | Whether the response should contain availability block assignments. |
 
 ### Response

@@ -33,7 +33,9 @@ Suggested frequency is 30 minutes for business intelligence solutions. Adjust th
 
 ### Rate pricing
 
-To get rate information, there are two relevant operations. [Get all rates](../operations/rates.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, rate groups and restrictions.
+To get rate information, there are tree relevant operations.
+[Get all rates](../operations/rates.md#get-all-rates) can give you information about the names \(and ids\) of the rates in the property, their status, restrictions.
+[Get all rate groups](../operations/rategroups.md#get-all-rate-groups) can give you information rate groups.
 [Get rate pricing](../operations/rates.md#get-rate-pricing) can give you the pricing of a specific rate for a specific time period.
 In order to update rate prices, use [Update rate price](../operations/rates.md#update-rate-price).
 Individual rate, resource category and time span can be selected.
