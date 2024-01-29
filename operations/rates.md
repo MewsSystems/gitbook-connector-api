@@ -105,7 +105,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | array of [Rate](#rate) | required | Rates of the default service. |
-| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups of the default service. |
+| ~~`RateGroups`~~ | ~~array of [Rate group](#rate-group)~~ | ~~required~~ | ~~Rate groups of the default service.~~ **Deprecated!** |
 | `AvailabilityBlockAssignments` | array of [Availability block assignment](#availability-block-assignment) | optional | Shows which rates relate to which availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
