@@ -32,6 +32,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "Rate-001",
         "Rate-002"
     ],
+    "ActivityStates": [
+        "Active"
+    ],
     "Extent": {
         "Rates": true,
         "RateGroups": true,
@@ -51,6 +54,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](#rate) from external systems. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
