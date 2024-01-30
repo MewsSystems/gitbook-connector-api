@@ -1,5 +1,12 @@
 # Changelog
 
+## 1st February 2024
+
+* Updated these use cases (documentation only):
+  * [Guest technology](../use-cases/guest-technology.md)
+  * [Housekeeping](../use-cases/housekeeping.md)
+  * [Reputation management](../use-cases/reputation-management.md)
+
 ## 24th January 2024
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameter `ExternalIdentifiers`.
 * Extended [Get all vouchers](../operations/vouchers.md#get-all-vouchers) with filtering parameter `ExternalIdentifiers`.
