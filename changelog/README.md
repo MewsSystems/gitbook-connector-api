@@ -1,5 +1,11 @@
 # Changelog
 
+## 1st February 2024
+* Updated these use cases (documentation only):
+  * [Device integration](../use-cases/device-integration.md)
+  * [Customer messaging](../use-cases/messaging.md)
+  * [Point of sale](../use-cases/point-of-sale.md)
+
 ## 26th January 2024
 * Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
   * [Get all rules](../operations/rules.md#get-all-rules)
