@@ -17,7 +17,7 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
         "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "4d0201db-36f5-428b-8d11-4f0a65e960cc"
     ],
-    "Ids": [
+    "RateGroupIds": [
         "6b3f718a-b537-45b0-a8ee-d30897723834"
     ],
     "ServiceIds": [
@@ -46,7 +46,7 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `Ids` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](#rate-group). Required if `ServiceIds` filter is not provided. |
+| `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](#rate-group). Required if `ServiceIds` filter is not provided. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service). Required if `Ids` filter is not provided. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Rate group](#rate-group) from external systems. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rate group](#rate-group) was updated. |

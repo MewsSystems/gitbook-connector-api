@@ -1,6 +1,6 @@
 # Changelog
 
-## 30th January 2024
+## 2nd February 2024
 * Added operation [Get all rate groups](../operations/rategroups.md#get-all-rate-groups).
 * Deprecated operation extent `RateGroups` in [Get all rate groups](../operations/rates.md#get-all-rates). Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead.
 
