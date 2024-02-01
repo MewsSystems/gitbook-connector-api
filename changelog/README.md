@@ -1,5 +1,9 @@
 # Changelog
 
+## 2nd February 2024
+* Extended [Order item](../operations/orderitems.md#order-item) response object with `Options`, this affects the following operations:
+  * [Get all order items](../operations/orderitems.md#get-all-order-items)
+
 ## 26th January 2024
 * Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
   * [Get all rules](../operations/rules.md#get-all-rules)

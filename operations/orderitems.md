@@ -181,7 +181,10 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
             "ClosedUtc": null,
             "StartUtc": "2023-03-30T22:00:00Z",
             "AccountingState": "Open",
-            "Type": "CityTax",            
+            "Type": "CityTax",   
+            "Options": {
+                "CanceledWithReservation": false
+            },         
             "Data": null
         },
         {
@@ -265,7 +268,10 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
             "ClosedUtc": null,
             "StartUtc": "2023-03-30T22:00:00Z",
             "AccountingState": "Open",
-            "Type": "SpaceOrder",            
+            "Type": "SpaceOrder", 
+            "Options": {
+                "CanceledWithReservation": false
+            },           
             "Data": {
                 "Discriminator": "Product",
                 "Rebate": null,
@@ -313,6 +319,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `StartUtc` | string | required | Start of the order item in UTC timezone in ISO 8601 format. |
 | `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the order item. |
 | `Type` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
+| `Options` | [Order item options](#order-item-options) | required | Options of the order item. |
 | `Data` | object [Order item data](#order-item-data) | optional | Additional order item data. |
 
 #### Order item data
@@ -335,6 +342,12 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
+
+#### Order item options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CanceledWithReservation` | bool | required | Order item was cancelled with reservation cancelation. |
 
 
 #### Accounting item state
