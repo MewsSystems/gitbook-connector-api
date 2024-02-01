@@ -1,6 +1,6 @@
 # Changelog
 
-## 30th January 2024
+## 2nd February 2024
 * Extended [Get all rates](../operations/rates.md#get-all-rates) request with `ActivityStates` parameters.
 
 ## 26th January 2024
