@@ -18,7 +18,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 23 Jun 2024 |
+| [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 10 Jan 2025 |
 | [Get all reservation items](../operations/reservations.md#get-all-reservation-items) | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 23 Jun 2023 | 10 Jan 2025 |
 | [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 Apr 2023 | 10 Jan 2025 |
 | [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 10 Jan 2025 |
