@@ -238,6 +238,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 #### Customer option
 
 * `SendMarketingEmails`
+* `Invoiceable`
 * ...
 
 #### Activity State
