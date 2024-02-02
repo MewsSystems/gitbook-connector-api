@@ -1,11 +1,18 @@
 # Changelog
 
-## 1st February 2024
-
+## 2nd February 2024
 * Updated these use cases (documentation only):
   * [Guest technology](../use-cases/guest-technology.md)
   * [Housekeeping](../use-cases/housekeeping.md)
   * [Reputation management](../use-cases/reputation-management.md)
+  * [Accounting](../use-cases/accounting.md)
+
+## 1st February 2024
+* Pushed back discontinued dates for [deprecated features](../deprecations/README.md)
+
+## 26th January 2024
+* Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
+  * [Get all rules](../operations/rules.md#get-all-rules)
 
 ## 24th January 2024
 * Extended [Get all rates](../operations/rates.md#get-all-rates) with filtering parameter `ExternalIdentifiers`.
