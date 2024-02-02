@@ -3,6 +3,9 @@
 ## 2nd February 2024
 * Extended [Get all rates](../operations/rates.md#get-all-rates) request with `ActivityStates` parameters.
 
+## 1st February 2024
+* Pushed back discontinued dates for [deprecated features](../deprecations/README.md)
+
 ## 26th January 2024
 * Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
   * [Get all rules](../operations/rules.md#get-all-rules)
