@@ -1,10 +1,14 @@
 # Changelog
 
 ## 2nd February 2024
+* Updated these use cases (documentation only):
+  * [Device integration](../use-cases/device-integration.md)
+  * [Customer messaging](../use-cases/messaging.md)
+  * [Point of sale](../use-cases/point-of-sale.md)
+  * [Accounting](../use-cases/accounting.md)
 * Extended [Get all rates](../operations/rates.md#get-all-rates) request with `ActivityStates` parameter.
 * Added operation [Get all rate groups](../operations/rategroups.md#get-all-rate-groups).
 * Deprecated operation extent `RateGroups` in [Get all rates](../operations/rates.md#get-all-rates). Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead.
-* Updated the [Accounting](../use-cases/accounting.md) use case.
 
 ## 1st February 2024
 * Pushed back discontinued dates for [deprecated features](../deprecations/README.md)
