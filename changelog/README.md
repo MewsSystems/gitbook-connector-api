@@ -1,6 +1,6 @@
 # Changelog
 
-## 22nd January 2024
+## 2nd February 2024
 * Updated the [Accounting](../use-cases/accounting.md) use case.
 
 ## 19th January 2024
