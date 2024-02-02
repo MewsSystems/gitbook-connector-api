@@ -63,7 +63,8 @@ To get rate information, there are two relevant operations. [Get all rates](../o
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to get all configured rates and rate groups | [Get all rates](../operations/rates.md#get-all-rates) |
+| How to get all configured rates | [Get all rates](../operations/rates.md#get-all-rates) |
+| How to get all configured rate groups | [Get all rate groups](../operations/rates.md#get-all-rate-groups) |
 | How to get the price for a specific rate and time period | [Get rate pricing](../operations/rates.md#get-rate-pricing) |
 | How to listen for changes to rate prices | [WebSockets](../websockets/README.md) \(`PriceUpdate` event\) |
 
