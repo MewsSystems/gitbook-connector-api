@@ -2,6 +2,7 @@
 
 ## 2nd February 2024
 * Updated these use cases (documentation only):
+  * [Revenue managament](../use-cases/revenue-management.md)
   * [Customer management](../use-cases/customer-management.md)
   * [Upsell](../use-cases/upsell.md)
   * [Guest technology](../use-cases/guest-technology.md)
