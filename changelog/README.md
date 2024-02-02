@@ -1,7 +1,8 @@
 # Changelog
 
 ## 2nd February 2024
-* Extended [Get all rates](../operations/rates.md#get-all-rates) request with `ActivityStates` parameters.
+* Extended [Get all rates](../operations/rates.md#get-all-rates) request with `ActivityStates` parameter.
+
 * Added operation [Get all rate groups](../operations/rategroups.md#get-all-rate-groups).
 * Deprecated operation extent `RateGroups` in [Get all rates](../operations/rates.md#get-all-rates). Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead.
 * Updated the [Accounting](../use-cases/accounting.md) use case.
