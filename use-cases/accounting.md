@@ -1,55 +1,70 @@
 # Accounting
 
-Accounting systems are created to record and process accounting transactions for internal and external review and auditing. Accounting systems must include core modules such as accounts payable, accounts receivable, general ledger, and billing. Additional non-core modules could include reconciliation, inventory, a document approval system, expense tracking, reporting and electronic payment processing for added value. 
+Accounting systems are created to record and process accounting transactions for internal and external review and auditing. Accounting systems include core modules such as accounts payable, accounts receivable, general ledger, and billing. Additional non-core modules could include reconciliation, inventory, a document approval system, expense tracking, reporting and electronic payment processing for added value. 
 
-### Initial configuration
+## Initial configuration
 
-The integration must first retrieve all configured accounting categories using [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) which returns all ids and codes required to ensure revenue, payments and costs are correctly assigned to their designated accounting categories. Accounting categories should be created by the property in cooperation with their accountant and following [these instructions](https://help.mews.com/s/article/create-an-accounting-category?language=en_US). 
+An Accounting integration must first retrieve all configured accounting categories, i.e. all the IDs and codes required to ensure that revenue, payments and costs are correctly assigned to their designated accounting categories. Accounting categories should be created by the property in co-operation with their accountants.
 
-To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. Mews properties configure their Editable History Window via their [Accounting configurations](https://help.mews.com/s/article/what-is-the-accounting-configuration?language=en_US) to determine how long after a bill or invoice has been closed can it be amended. Accounting integrations retrieve this information from `EditableHistoryInterval` using [Get configuration](../operations/configuration.md#get-configuration). If debtor tracking is to be done in the external system instead of Mews, the property must have the Accounting configuration option "Receivable tracking enabled" unchecked.
+| <div style="width:350px">'How to' use case</div> | API Operations |
+| :-- | :-- |
+| How to get accounting categories | [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) |
 
-### Periodic update
+To ensure accuracy, only data that is no longer editable by the property can be retrieved by the integration. This is determined by a period of time called the Editable History Window, which is the length of time after a bill or invoice has been closed during which it can still be amended. In fact there are two values, one for Accounting purposes and one for Operational purposes, so take the longest of the two values to ensure the data cannot be changed. Use API operation [Get configuration](../operations/configuration.md#get-configuration) to fetch the configuration for your enterprise or property. This will include two fields representing the two windows, `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval`.
 
-The integration should call [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) with the accounting item time filter `Consumed` at regular (at least daily) intervals to return all accounting items of the enterprise that have been consumed within the selected time period. The same must be done with all outlet items using [Get all outlet items](../operations/outletitems.md#get-all-outlet-items) with the time filter `Consumed`. For both calls, if the `Currency` is specified, the cost of the items will be converted to that currency. When retrieving the accounting items, the extent should include `CreditCardTransactions`. In order to retrieve all bills and invoices that must be paid and reconciled within the accounting software, the integration should use [Get all bills](../operations/bills.md#get-all-bills). These can be filtered by a specific customer, date of creation, consumption, payment or, in the case of invoices, due date.
+| <div style="width:350px">'How to' use case</div> | API Operations |
+| :-- | :-- |
+| How to get editable history window | [Get configuration](../operations/configuration.md#get-configuration) |
 
-It's important to understand that in Mews, accounting items are posted directly to the guest profile instead of being attached to a specific reservation. Products created under the Stay/Accommodation service are used to create stay packages, while products related to any other service are used for all other postings. If the integration uses [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items), only Stay/Accommodation products can be related back to a specific reservation by matching their `OrderId` with the unique identifier of the relevant reservation. If products are created under any other service configured at the property, they are not related to the reservation. In order to retrieve a complete list of revenue items of a specific reservation, partners can use [Get all reservation items](../operations/reservations.md#get-all-reservation-items). 
+> **Editable History Window**: For a full description and links to further information, see the [Mews Glossary for Open API users](https://help.mews.com/s/article/Mews-Glossary-for-Open-API-users?language=en_US).
 
-Accounting items will always be assigned one of the four following [states](../operations/accountingitems.md#accounting-item-state):
-* **Open**: Items that have been posted to the guest profile and remain on a bill that has not been closed yet.
-* **Closed**: Items that were assigned to a bill that has already been paid or an already issued invoice.
-* **Inactive**: Items that have the value of 0 and have no impact on the overall total.
-* **Canceled**: Items that were posted to the guest profile but have since been canceled.
+> **Debtor tracking**: If debtor tracking is to be done in the external system instead of Mews, the property must have the Accounting configuration option "Receivable tracking enabled" unchecked in Mews. See [Receivable tracking - enabled or disabled?](https://help.mews.com/s/article/Receivable-tracking-enabled-or-disabled?language=en_US).
 
-When testing the integration, you can cross-check whether you are correctly requesting all of the accounting information via the API by matching your data with the Mews Accounting Report. For reconciliation of all bills and invoices, you can use the Bills and invoice report. You can easily create export schedules to a specific target and in desired format for both of these reports. 
+## Periodic update
 
-Before assisting any new client with connecting to your accounting integration, it's recommend you check that they have completed their configuration to ensure a smoother onboarding experience.
+An Accounting integration should fetch accounting items and outlet items at regular intervals, at least daily. In both cases, if `Currency` is specified, the cost of the items will be converted to that currency. The integration should also fetch all bills and invoices that must be paid and reconciled within the accounting software. These can be filtered by a specific customer, by date of creation, consumption or payment, or, in the case of invoices, by due date.
 
-### Testing your integration
+| <div style="width:350px">'How to' use case</div> | API Operations |
+| :-- | :-- |
+| How to get accounting items consumed over a period | [Get all payments](../operations/payments.md#get-all-payments), [Get all order items](../operations/orderitems.md#get-all-order-items) |
+| How to get order items consumed over a period | [Get all order items](../operations/orderitems.md#get-all-order-items) |
+| How to get payment items paid over a period | [Get all payments](../operations/payments.md#get-all-payments) |
+| How to get outlet items consumed over a period | [Get all outlet items](../operations/outletitems.md#get-all-outlet-items) |
+| How to get bills and invoices | [Get all bills](../operations/bills.md#get-all-bills) |
 
-Ensure you follow our general [guidelines](../guidelines) for testing integrations.
+## Accounting items and reservations
 
-### Working with rebates
+It is important to understand that in Mews, accounting items are posted directly to the guest profile instead of being attached to a specific reservation. Products created under the 'Stay' service (i.e. accommodation) are used to create stay packages, while products related to any other service are used for all other postings. Only Stay products can be related back to a specific reservation, by matching their `OrderId` with the unique identifier of the relevant reservation. If products are created under any other service configured at the property, they are not related to the reservation. To retrieve a complete list of revenue items for a specific reservation, use [Get all order items](../operations/orderitems.md#get-all-order-items) and pass the Reservation ID as parameter `ServiceOrderId` (A reservation is a type of Service Order).
 
-#### For a given order item, how can I tell if it has been rebated?
+| <div style="width:350px">'How to' use case</div> | API Operations |
+| :-- | :-- |
+| How to get a list of revenue items for a reservation | [Get all order items](../operations/orderitems.md#get-all-order-items) |
 
-To find out if an individual order item has been rebated, use [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) with the `RebatedItemIds` filter parameter set to the value of the item ID for that order item. If the operation returns any items, these are rebate items relating to the original order item. If no items are returned, then the original order item has not been rebated. You can also search for rebates against multiple order items, by including all of the item IDs in the `RebatedItemIds` filter parameter.
+> **Accounting item states**: Accounting items will always be assigned one of four [accounting item states](../operations/accountingitems.md#accounting-item-state) (`Open`, `Closed`, `Inactive`, `Canceled`).
 
-#### For a given rebate item, how can I find the original order item that has been rebated?
+## Working with rebates
 
-If an accounting item is a rebate item, then the ID for the original order item which is rebated will be stored in the item data. Specifically, an order item with Data Discriminator set to "Rebate" will have Data Value set to the `RebatedItemId`. You can then use [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) with the `ItemIds` filter parameter set to this ID to fetch the details about the item. Note that a rebate item can rebate another rebate item, so it may be necessary to recursively call [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) to find the original order item in the chain.
+If an accounting item is a rebate item, then the ID for the original order item which is rebated will be stored in the item data. Specifically, an [Order item](../operations/orderitems.md#order-item) with `Data` `Discriminator` set to "Rebate" will have `Data` `Rebate` set to the value of the `RebatedItemId`. You can then use [Get all order items](../operations/orderitems.md#get-all-order-items) with the `OrderItemIds` filter parameter set to this ID to fetch the details about the item. Note that a rebate item can rebate another rebate item, so it may be necessary to recursively call [Get all order items](../operations/orderitems.md#get-all-order-items) to find the original order item in the chain.
 
-#### How can I tell if an entire Bill has been rebated
+| <div style="width:350px">'How to' use case</div> | API Operations |
+| :-- | :-- |
+| How to find the original order item for a rebate item | [Get all order items](../operations/orderitems.md#get-all-order-items) |
 
-Rebates are on an individual item-by-item basis, so if every individual order item on a Bill has been rebated then this is equivalent to the entire Bill being rebated.
+> **How can I tell if an entire Bill has been rebated?** Rebates are on an individual item-by-item basis, so if every individual order item on a Bill has been rebated then this is equivalent to the entire Bill being rebated.
 
-#### For a given bill, how can I tell if any order items on the bill have been rebated?
+## Testing your integration
 
-First use [Get all bills](../operations/bills.md#get-all-bills) to get a list of the order items on the bill. Then search for rebates against any of these order items, as described above.
+Please follow our general [Guidelines](../guidelines/README.md) for testing integrations.
+When testing an Accounting integration, you can cross-check whether you are correctly requesting all of the accounting information via the API by matching your data with the Mews Accounting Report. For reconciliation of all bills and invoices, you can use the Bills and Invoices Report. You can easily create export schedules to a specific target and in a desired format for both of these reports. 
 
-### Additional Help for working with the demo environment
+Before assisting any new enterprise client with connecting to your accounting integration, it's recommended that you check that they have first completed their configuration, to ensure a smoother onboarding experience.
 
-- [How to set up a Stay/Accommodation service](https://help.mews.com/s/article/set-up-a-bookable-service?language=en_US)
-- [How to view the Accounting report](https://help.mews.com/s/article/accounting-report?language=en_US)
-- [How to view the Bills and invoice report](https://help.mews.com/s/article/bills-and-invoices-report?language=en_US)
-- [How to schedule report exports](https://help.mews.com/s/article/schedule-report-exports?language=en_US)
-- [How to connect my accounting integration](https://help.mews.com/s/article/how-can-i-connect-my-accounting-integration?language=en_US)
+## Additional help for working with the demo environment
+
+> **Help Guides**:
+> * [Creating an accounting category](https://help.mews.com/s/article/create-an-accounting-category?language=en_US)
+> * [Set up a bookable service](https://help.mews.com/s/article/set-up-a-bookable-service?language=en_US)
+> * [The Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US)
+> * [The Bills and Invoices Report](https://help.mews.com/s/article/bills-and-invoices-report?language=en_US)
+> * [Scheduling report exports](https://help.mews.com/s/article/schedule-report-exports?language=en_US)
+> * [How can I connect my accounting integration?](https://help.mews.com/s/article/how-can-i-connect-my-accounting-integration?language=en_US)
