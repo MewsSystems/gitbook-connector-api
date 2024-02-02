@@ -90,7 +90,7 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rate group. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the rate group belongs to. |
-| `IsActive` | boolean | required | Whether the rate group is till active. |
+| `IsActive` | boolean | required | Whether the rate group is still active. |
 | `CreatedUtc` | string | required | Creation date and time of the rate group in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the rate group in UTC timezone in ISO 8601 format. |
 | `Ordering` | number | required | Ordering of the rate group. |
