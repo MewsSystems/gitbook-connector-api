@@ -5,7 +5,14 @@
   * [Guest technology](../use-cases/guest-technology.md)
   * [Housekeeping](../use-cases/housekeeping.md)
   * [Reputation management](../use-cases/reputation-management.md)
+  * [Events](../use-cases/events.md)
+  * [Device integration](../use-cases/device-integration.md)
+  * [Customer messaging](../use-cases/messaging.md)
+  * [Point of sale](../use-cases/point-of-sale.md)
   * [Accounting](../use-cases/accounting.md)
+* Extended [Get all rates](../operations/rates.md#get-all-rates) request with `ActivityStates` parameter.
+* Added operation [Get all rate groups](../operations/rategroups.md#get-all-rate-groups).
+* Deprecated operation extent `RateGroups` in [Get all rates](../operations/rates.md#get-all-rates). Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead.
 
 ## 1st February 2024
 * Pushed back discontinued dates for [deprecated features](../deprecations/README.md)

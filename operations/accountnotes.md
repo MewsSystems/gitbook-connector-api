@@ -112,7 +112,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Content` | required | required | The content of the account note. |
 | `AccountType` | string [Account type](accounts.md#account-type)| required | Specifying types of accounts provided ([Customer](../operations/customers.md#customer), [Company](../operations/companies.md#company)). |
 | `Classifications` | array of string | required | Specifying the classifactions of the note based on account type ([Customer note classification](#customer-note-classifications), [Company note classifications](#company-note-classifications)). |
-| `IsActive` | boolean | required | Whether the account note is till active. |
+| `IsActive` | boolean | required | Whether the account note is still active. |
 | `CreatorProfile` | [Profile data](#profile-data) | required | The profile data of the user who created the account note. |
 | `UpdaterProfile` | [Profile data](#profile-data) | required | The profile data of the user who updated the account note. |
 
