@@ -47,7 +47,7 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](#rate-group). Required if `ServiceIds` filter is not provided. |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service). Required if `Ids` filter is not provided. |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Service](services.md#service). Required if `RateGroupIds` filter is not provided. |
 | `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Rate group](#rate-group) from external systems. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rate group](#rate-group) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
