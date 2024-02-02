@@ -2,6 +2,8 @@
 
 ## 2nd February 2024
 * Updated these use cases (documentation only):
+  * [Customer management](../use-cases/customer-management.md)
+  * [Upsell](../use-cases/upsell.md)
   * [Guest technology](../use-cases/guest-technology.md)
   * [Housekeeping](../use-cases/housekeeping.md)
   * [Reputation management](../use-cases/reputation-management.md)
