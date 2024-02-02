@@ -28,6 +28,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "StartUtc": "2022-10-15T00:00:00Z",
         "EndUtc": "2022-10-20T00:00:00Z"
     },
+    "ExternalIdentifiers": [
+        "Rate-001",
+        "Rate-002"
+    ],
     "Extent": {
         "Rates": true,
         "RateGroups": true,
@@ -46,6 +50,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](#rate) from external systems. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
