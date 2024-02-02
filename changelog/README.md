@@ -2,6 +2,9 @@
 
 ## 2nd February 2024
 * Updated these use cases (documentation only):
+  * [Guest technology](../use-cases/guest-technology.md)
+  * [Housekeeping](../use-cases/housekeeping.md)
+  * [Reputation management](../use-cases/reputation-management.md)
   * [Events](../use-cases/events.md)
   * [Device integration](../use-cases/device-integration.md)
   * [Customer messaging](../use-cases/messaging.md)
