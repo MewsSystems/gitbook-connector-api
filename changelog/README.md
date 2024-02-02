@@ -2,7 +2,8 @@
 
 ## 2nd February 2024
 * Added operation [Get all rate groups](../operations/rategroups.md#get-all-rate-groups).
-* Deprecated operation extent `RateGroups` in [Get all rate groups](../operations/rates.md#get-all-rates). Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead.
+* Deprecated operation extent `RateGroups` in [Get all rates](../operations/rates.md#get-all-rates). Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead.
+
 
 ## 26th January 2024
 * Extended [Rule](../operations/rules.md#rule) response object with `ServiceId`, this affects the following operations:
