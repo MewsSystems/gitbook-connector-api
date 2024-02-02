@@ -39,7 +39,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| Extent `RateGroups`<br>in [Get all rates](../operations/rates.md#get-all-rates) | Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead | 30 Dec 2024 | 30 Dec 2025 |
+| Extent `RateGroups`<br>in [Get all rates](../operations/rates.md#get-all-rates) | Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead | 2 Feb 2024 | 10 Jan 2026 |
 | `Name` in [Product](../operations/products.md#product) | Replaced by `Names` | 12 Dec 2023 | 10 Jan 2025 |
 | `ExternalName` in [Product](../operations/products.md#product) | Replaced by `ExternalNames` | 12 Dec 2023 | 10 Jan 2025 |
 | `ShortName` in [Product](../operations/products.md#product) | Replaced by `ShortNames` | 12 Dec 2023 | 10 Jan 2025 |
