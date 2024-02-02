@@ -1,5 +1,8 @@
 # Changelog
 
+## 2nd February 2024
+* Updated the [Accounting](../use-cases/accounting.md) use case.
+
 ## 1st February 2024
 * Pushed back discontinued dates for [deprecated features](../deprecations/README.md)
 
