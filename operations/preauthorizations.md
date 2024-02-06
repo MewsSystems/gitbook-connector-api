@@ -42,6 +42,7 @@ Returns all preauthorizations of specified customers.
             "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
             "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
             "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
+            "ServiceOrderId": null,
             "IsActive": false,
             "State": "Cancelled"
         },
@@ -77,6 +78,7 @@ Returns all preauthorizations of specified customers.
 | `CreditCardId` | string | required | Unique identifier of the credit card. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Value of the preauthorization. |
 | `State` | string [Preauthorization state](#preauthorization-state) | required | State of the preauthorization. |
+| `ServiceOrderId` | string | optional | Unique identifier of the [ServiceOrder](orders.md) the payment request belongs to. |
 | `Code` | string | optional | Code of the preauthorization. |
 
 #### Preauthorization state
