@@ -1,5 +1,9 @@
 # Changelog
 
+## 8th February 2024
+
+* Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
+
 ## 2nd February 2024
 * Updated these use cases (documentation only):
   * [Revenue managament](../use-cases/revenue-management.md)
