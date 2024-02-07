@@ -32,6 +32,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "Rate-001",
         "Rate-002"
     ],
+    "ActivityStates": [
+        "Active"
+    ],
     "Extent": {
         "Rates": true,
         "RateGroups": true,
@@ -51,6 +54,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](#rate) from external systems. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -59,7 +63,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
-| `RateGroups` | bool | optional | Whether the response should contain rate groups. |
+| ~~`RateGroups`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain rate groups.~~ **Deprecated!** |
 | `AvailabilityBlockAssignments` | bool | optional | Whether the response should contain availability block assignments. |
 
 ### Response
@@ -105,7 +109,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | array of [Rate](#rate) | required | Rates of the default service. |
-| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups of the default service. |
+| ~~`RateGroups`~~ | ~~array of [Rate group](#rate-group)~~ | ~~required~~ | ~~Rate groups of the default service.~~ **Deprecated!** |
 | `AvailabilityBlockAssignments` | array of [Availability block assignment](#availability-block-assignment) | optional | Shows which rates relate to which availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
