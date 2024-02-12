@@ -347,7 +347,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CanceledWithReservation` | bool | required | Order item was cancelled with reservation cancelation. |
+| `CanceledWithReservation` | bool | required | Order item was canceled with reservation cancelation. |
 
 
 #### Accounting item state
