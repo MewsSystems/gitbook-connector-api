@@ -1,6 +1,6 @@
 # Changelog
 
-## 7th February 2024
+## 12th February 2024
 * Extended [Order item](../operations/orderitems.md#order-item) response object with `Options`, this affects the following operations:
   * [Get all order items](../operations/orderitems.md#get-all-order-items)
 
