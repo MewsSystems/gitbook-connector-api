@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th February 2024
+* Extended [Order item](../operations/orderitems.md#order-item) response object with `Options`, this affects the following operations:
+  * [Get all order items](../operations/orderitems.md#get-all-order-items)
+
 ## 2nd February 2024
 * Updated these use cases (documentation only):
   * [Revenue management](../use-cases/revenue-management.md)
