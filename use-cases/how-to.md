@@ -120,7 +120,7 @@ This page summarises all of our 'how to' use cases, together with the main use c
 | How to get the list of property services | [Get all services](../operations/services.md#get-all-services) | [Guest technology](guest-technology.md) |
 | How to get the list of services offered | [Get all services](../operations/services.md#get-all-services) | [Events](events.md), [Upsell](upsell.md), [Point of sale](point-of-sale.md) |
 | How to get the list of products linked to services | [Get all products](../operations/products.md#get-all-products) | [Events](events.md), [Upsell](upsell.md) |
-| How to get the list of available products | [Get all products](../operations/services.md#get-all-products) | [Events](events.md) |
+| How to get the list of available products | [Get all products](../operations/products.md#get-all-products) | [Events](events.md) |
 | How to get configured rates | [Get all rates](../operations/rates.md#get-all-rates) | [Revenue management](revenue-management.md), [Kiosk](kiosk.md), [Events](events.md) |
 | How to get configured rate groups | [Get all rate groups](../operations/rates.md#get-all-rate-groups) | [Revenue management](revenue-management.md) |
 | How to get rate pricing | [Get rate pricing](../operations/rates.md#get-rate-pricing) | [Kiosk](kiosk.md) |
