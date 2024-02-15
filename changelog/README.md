@@ -1,6 +1,6 @@
 # Changelog
 
-## 8th February 2024
+## 15th February 2024
 
 * Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
 
