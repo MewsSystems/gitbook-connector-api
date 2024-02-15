@@ -1,5 +1,9 @@
 # Changelog
 
+## 15th February 2024
+
+* Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
+
 ## 12th February 2024
 * Extended [Order item](../operations/orderitems.md#order-item) response object with `Options`, this affects the following operations:
   * [Get all order items](../operations/orderitems.md#get-all-order-items)

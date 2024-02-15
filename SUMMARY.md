@@ -30,6 +30,7 @@
   * [Upsell](use-cases/upsell.md)
   * [Payment automation](use-cases/payment-automation/README.md)
     * [Using tokenized credit cards](use-cases/payment-automation/using-tokenized-credit-cards.md)
+  * ['How to' use cases](use-cases/how-to.md)
 * [API Operations](operations/README.md)
   * [Common objects](operations/_objects.md)
   * [Accounting categories](operations/accountingcategories.md)
