@@ -186,7 +186,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 
 ## Get service availability (ver 2024-01-22)
 
-Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
+Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one time unit for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two time units for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
 
 ### Request
 
@@ -263,8 +263,8 @@ Returns availability of a bookable service for a specified time interval includi
 
 #### Service availability metrics
 
-* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category (resource block).
-* `PublicAvailabilityAdjustment` - Number of resources marked as manual availability adjustments (availability adjustment).
+* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category ([resource block](./resourceblocks.md)).
+* `PublicAvailabilityAdjustment` - Number of resources marked as manual [availability adjustments](./availabilityadjustments.md).
 * `OtherServiceReservationCount` - Number of resources occupied by another service.
 * `Occupied` - Number of bookings that have been assigned to the resource category (i.e. reservations and blocks).
 * `ConfirmedReservations` - Number of confirmed reservations that have been assigned to the resource category.
@@ -279,8 +279,7 @@ Returns availability of a bookable service for a specified time interval includi
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Availabilities` | array of number | required | Absolute availabilities of the resource category in the covered dates. |
-| `Adjustments` | array of number | required | Relative availability adjustments set for resource category in the covered dates. |
+| `Metrics` | object | required | Object with [Service availability metrics](#service-availability-metrics). Key corresponds to the metric name, value is array of numbers with metric values for covered dates. |
 
 ## Get service availability
 
