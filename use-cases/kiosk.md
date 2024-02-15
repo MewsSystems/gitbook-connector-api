@@ -54,7 +54,7 @@ A PDF version of the bill can be fetched for printing or display purposes.
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to get the guest bill | [Get all bills](../operations/bills.md#get-all-bills) |
-| How to get a printable bill | [Get bill PDF](../operations/bills.md#close-bill) |
+| How to get a printable bill | [Get bill PDF](../operations/bills.md#get-bill-pdf) |
 | How to get the list of open revenue items for a guest | [Get customer open items](../operations/customers.md#get-customers-open-items) |
 | How to create a new bill | [Add bill](../operations/bills.md#add-bill) |
 | How to move bill items to a new bill | [Update accounting items](../operations/accountingitems.md#update-accounting-items) |

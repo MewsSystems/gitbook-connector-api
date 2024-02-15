@@ -4,9 +4,13 @@
 
 * Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
 
+## 12th February 2024
+* Extended [Order item](../operations/orderitems.md#order-item) response object with `Options`, this affects the following operations:
+  * [Get all order items](../operations/orderitems.md#get-all-order-items)
+
 ## 2nd February 2024
 * Updated these use cases (documentation only):
-  * [Revenue managament](../use-cases/revenue-management.md)
+  * [Revenue management](../use-cases/revenue-management.md)
   * [Customer management](../use-cases/customer-management.md)
   * [Upsell](../use-cases/upsell.md)
   * [Guest technology](../use-cases/guest-technology.md)
