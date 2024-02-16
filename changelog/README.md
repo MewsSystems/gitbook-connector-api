@@ -1,5 +1,8 @@
 # Changelog
 
+## 16th February 2024
+* Added operation [Get service availability, version 2024-01-22](../operations/services.md#get-service-availability-ver-2024-01-22).
+
 ## 15th February 2024
 
 * Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
