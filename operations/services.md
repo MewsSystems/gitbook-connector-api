@@ -202,7 +202,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
     "Client": "Sample Client 1.0.0",
     "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "FirstTimeUnitStartUtc": "2024-02-01T23:00:00.000Z",
-	"LastTimeUnitStartUtc": "2024-02-05T23:00:00.000Z"
+    "LastTimeUnitStartUtc": "2024-02-05T23:00:00.000Z",
     "Metrics": [
         "OutOfOrderBlocks",
         "PublicAvailabilityAdjustment",
@@ -226,7 +226,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
-| `Metrics` | array of string | required | Set of [Service availability metrics](#service-availability-metrics) to be returned. |
+| `Metrics` | array of [Service availability metrics](#service-availability-metrics) | required | Set of [Service availability metrics](#service-availability-metrics) to be returned. |
 
 ### Response
 
