@@ -282,7 +282,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Metrics` | object | required | Object with [Service availability metrics](#service-availability-metrics). Key corresponds to the metric name, value is array of numbers with metric values for covered dates. |
+| `Metrics` | dictionary | required | Dictionary with [Service availability metrics](#service-availability-metrics). Key corresponds to the metric name, value is an array of numbers with metric values for covered dates. |
 
 ## Get service availability
 
