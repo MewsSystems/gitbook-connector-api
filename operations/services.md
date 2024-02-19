@@ -276,6 +276,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 * `AllocatedBlockAvailability` - Number of blocked resources that are in a deducting state (from an availability block / allotment).
 * `ActiveResources` - Number of active resources.
 * `UsableResources` - Number of usable resources (i.e. which are not out of order).
+* …
 
 #### Resource category availability (ver 2024-01-22)
 
