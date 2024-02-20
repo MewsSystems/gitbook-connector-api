@@ -1,7 +1,7 @@
 # Changelog
 
 ## 17th February 2024
-* Extended [Get all rates](../operations/resourcecategories.md#get-all-resource-categories) request with `ActivityStates` parameter.
+* Extended [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) request with `ActivityStates` parameter.
 
 ## 15th February 2024
 * Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
