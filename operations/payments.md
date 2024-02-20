@@ -101,7 +101,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `ReservationId` | string | optional | Unique identifier of the service order the payment belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
 | `Type` | string [Add external payment type](#add-external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
@@ -165,7 +165,7 @@ Adds a new alternative payment to a specified customer.
 | `Method` | string [Alternative payment method](#alternative-payment-methods) | required | Payment method to use for the alternative payment. |
 | `RedirectUrl` | string | required | URL where the customer will be redirected after completing their payment. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the alternative payment. |
-| `ReservationId` | string | optional | Unique identifier of the service order the payment belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
 
 #### Alternative payment methods
 
