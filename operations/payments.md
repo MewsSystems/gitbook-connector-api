@@ -39,7 +39,7 @@ The bill can then be closed manually by a Mews user, or automatically via API wi
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `ServiceOrderId` | string | optional | Unique identifier of the service order the payment belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the credit card payment. |
 | `CreditCard` | [Credit card parameters](#credit-card-parameters) | required | Credit card details. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the credit card payment. |
@@ -101,7 +101,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `ServiceOrderId` | string | optional | Unique identifier of the service order the payment belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the service order the payment belongs to. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
 | `Type` | string [Add external payment type](#add-external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
@@ -165,7 +165,7 @@ Adds a new alternative payment to a specified customer.
 | `Method` | string [Alternative payment method](#alternative-payment-methods) | required | Payment method to use for the alternative payment. |
 | `RedirectUrl` | string | required | URL where the customer will be redirected after completing their payment. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the alternative payment. |
-| `ServiceOrderId` | string | optional | Unique identifier of the service order the payment belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the service order the payment belongs to. |
 
 #### Alternative payment methods
 
@@ -227,7 +227,7 @@ Returns all payments in the system, filtered by various parameters. At least one
         "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
         "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4"
     ],
-    "ServiceOrderIds": 
+    "ReservationIds": 
     [
         "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
         "b7a3f5cb-1e69-4a5f-a069-10f461996d7f"
@@ -277,7 +277,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the payments for all enterprises within scope of the Access Token. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of specific [ServiceOrder](orders.md) to which payments belong to. Required if no other filter is provided. |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservation](reservations.md#reservation-ver-2023-06-06) to which payments belong to. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
 | `ChargedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |
@@ -300,7 +300,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
             "AccountType" : "Company",
             "BillId": "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
-            "ServiceOrderId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
+            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "AccountingCategoryId": null,
             "Amount": {
                 "Currency": "EUR",
@@ -360,7 +360,7 @@ Returns all payments in the system, filtered by various parameters. At least one
             "AccountId": "4ce18db7-3444-460a-b8af-afb900c92864",
             "AccountType" : "Customer",
             "BillId": "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4",
-            "ServiceOrderId": "b7a3f5cb-1e69-4a5f-a069-10f461996d7f",
+            "ReservationId": "b7a3f5cb-1e69-4a5f-a069-10f461996d7f",
             "AccountingCategoryId": null,
             "Amount": {
                 "Currency": "EUR",
@@ -478,7 +478,7 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the payment is assigned to. |
-| `ServiceOrderId` | string | optional | Unique identifier of the [ServiceOrder](orders.md) the payment belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the payment belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the payment belongs to. |
 | `Amount` | [Amount value](#amount-value) | required | Payment's amount, negative amount represents either rebate or a payment. |
 | `OriginalAmount` | [Amount value](#amount-value) | required | Payment's original amount, negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
