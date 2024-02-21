@@ -1,6 +1,6 @@
 # Changelog
 
-## 20th February 2024
+## 21st February 2024
 * Extended [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) request with `ActivityStates` parameter.
 
 ## 15th February 2024
