@@ -1,11 +1,12 @@
 # Changelog
 
-## 16th February 2024
+## 22nd February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
 
+## 21st February 2024
+* Extended [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) request with `ActivityStates` parameter.
 
 ## 15th February 2024
-
 * Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
 
 ## 12th February 2024
