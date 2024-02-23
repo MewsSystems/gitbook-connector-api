@@ -22,7 +22,7 @@ Returns all reservation groups, filtered by unique identifiers and other filters
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-27T11:48:57Z",
-        "EndUtc": "2023-04-27T11:48:57Z",
+        "EndUtc": "2023-04-27T11:48:57Z"
     },
     "Limitation":{
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
