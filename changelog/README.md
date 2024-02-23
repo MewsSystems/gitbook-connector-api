@@ -1,5 +1,15 @@
 # Changelog
 
+## 23rd February 2024
+* Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
+  * Extended [Preauthorization](../operations/preauthorizations.md#preauthorization) response object with `ReservationId`, this affects the following operations:
+  * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers)
+  * Extended [Payment](../operations/payments.md#payment) response object with `ReservationId`, this affects the following operations:
+  * [Get all payments](../operations/payments.md#get-all-payments)
+  * Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
+  * Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
+
 ## 2nd February 2024
 * Updated these use cases (documentation only):
   * [Revenue management](../use-cases/revenue-management.md)
