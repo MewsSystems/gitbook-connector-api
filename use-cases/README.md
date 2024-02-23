@@ -23,3 +23,7 @@ Even if you are integrating a different type of system, it serves as a good star
 * [Customer messaging](messaging.md)
 * [Payments - Mews Payment Terminals](mews-terminals.md)
 * [Payments - Payment automation](payment-automation/README.md)
+
+## 'How to' use cases
+
+* ['How to' use cases](how-to.md)

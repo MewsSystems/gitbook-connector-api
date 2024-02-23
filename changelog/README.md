@@ -1,6 +1,5 @@
 # Changelog
 
-## 23rd February 2024
 * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
   * Extended [Preauthorization](../operations/preauthorizations.md#preauthorization) response object with `ReservationId`, this affects the following operations:
@@ -9,6 +8,16 @@
   * [Get all payments](../operations/payments.md#get-all-payments)
   * Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
   * Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
+
+## 21st February 2024
+* Extended [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) request with `ActivityStates` parameter.
+
+## 15th February 2024
+* Added ['how to' use cases](../use-cases/how-to.md) page (documentation only)
+
+## 12th February 2024
+* Extended [Order item](../operations/orderitems.md#order-item) response object with `Options`, this affects the following operations:
+  * [Get all order items](../operations/orderitems.md#get-all-order-items)
 
 ## 2nd February 2024
 * Updated these use cases (documentation only):
