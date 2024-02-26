@@ -194,6 +194,7 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all services](services.md#get-all-services) | Returns all services offered by the enterprise |
+| [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22) | **Restricted!** Returns selected availability and occupancy metrics of a bookable service in the specified time interval |
 | [Get service availability](services.md#get-service-availability) | Returns availability of a bookable service in the specified interval |
 | [Update service availability](services.md#update-service-availability) | Updates the number of available resources in the specified resource category by a certain amount |
 | [Get all availability blocks](availabilityblocks.md#get-all-availability-blocks) | Returns all availability blocks filtered by services, unique identifiers and other filter |

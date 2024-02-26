@@ -184,6 +184,107 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 | `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 | `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
 
+## Get service availability (ver 2024-01-22)
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Returns selected availability and occupancy metrics of a bookable service for a specified time interval, similar to [the availability & occupancy report](https://help.mews.com/s/article/Availability-Occupancy-report). Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one time unit for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two time units for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/services/getAvailability/2024-01-22`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "FirstTimeUnitStartUtc": "2024-02-01T23:00:00.000Z",
+    "LastTimeUnitStartUtc": "2024-02-05T23:00:00.000Z",
+    "Metrics": [
+        "OutOfOrderBlocks",
+        "PublicAvailabilityAdjustment",
+        "OtherServiceReservationCount",
+        "Occupied",
+        "ConfirmedReservations",
+        "OptionalReservations",
+        "BlockAvailability",
+        "AllocatedBlockAvailability",
+        "UsableResources",
+        "ActiveResources"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
+| `Metrics` | array of [Service availability metrics](#service-availability-metrics) | required | Set of [Service availability metrics](#service-availability-metrics) to be returned. |
+
+### Response
+
+```javascript
+{
+  "TimeUnitStartsUtc": [
+    "2024-01-31T23:00:00Z",
+    "2024-02-01T23:00:00Z",
+    "2024-02-02T23:00:00Z",
+    "2024-02-03T23:00:00Z",
+    "2024-02-04T23:00:00Z"
+  ],
+  "ResourceCategoryAvailabilities": [
+    {
+      "ResourceCategoryId": "d1801d11-fe8d-404b-a26f-af170189605a",
+      "Metrics": {
+        "OutOfOrderBlocks": [0, 1, 0, 0, 1],
+        "PublicAvailabilityAdjustment": [7, 5, 4, 3, 4],
+        "OtherServiceReservationCount": [0, 0, 1, 0, 0],
+        "Occupied": [7, 5, 4, 3, 4],
+        "ConfirmedReservations": [7, 5, 4, 3, 4],
+        "OptionalReservations": [0, 2, 0, 0, 1],
+        "BlockAvailability": [0, 0, 1, 0, 0],
+        "AllocatedBlockAvailability": [0, 0, 0, 1, 0],
+        "UsableResources": [8, 8, 8, 8, 8],
+        "ActiveResources": [8, 8, 8, 8, 8]
+      }
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
+| `ResourceCategoryAvailabilities` | array of [Resource category availability](#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
+
+#### Service availability metrics
+
+* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category ([resource block](./resourceblocks.md)).
+* `PublicAvailabilityAdjustment` - Number of resources marked as manual [availability adjustments](./availabilityadjustments.md).
+* `OtherServiceReservationCount` - Number of resources occupied by another service.
+* `Occupied` - Number of bookings that have been assigned to the resource category (i.e. reservations and blocks).
+* `ConfirmedReservations` - Number of confirmed reservations that have been assigned to the resource category.
+* `OptionalReservations` - Number of optional reservations that have been assigned to the resource category.
+* `BlockAvailability` - Number of blocked resources (from an availability block / allotment).
+* `AllocatedBlockAvailability` - Number of blocked resources that are in a deducting state (from an availability block / allotment).
+* `ActiveResources` - Number of active resources.
+* `UsableResources` - Number of usable resources (i.e. which are not out of order).
+* …
+
+#### Resource category availability (ver 2024-01-22)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
+| `Metrics` | [Dictionary of integers](_objects.md#dictionary-of-integers) | required | Dictionary keys are names of [Service availability metrics](#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
+
 ## Get service availability
 
 Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
@@ -239,7 +340,7 @@ Returns availability of a bookable service for a specified time interval includi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CategoryAvailabilities` | array of [Resource category availability](resources.md#resource-category-availability) | required | Resource category availabilities. |
+| `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 
 #### Resource category availability

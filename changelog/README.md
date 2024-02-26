@@ -1,7 +1,7 @@
 # Changelog
 
-## 23rd February 2024
-* Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
+## 27th February 2024
+  * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
   * Extended [Preauthorization](../operations/preauthorizations.md#preauthorization) response object with `ReservationId`, this affects the following operations:
   * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers)
@@ -9,6 +9,9 @@
   * [Get all payments](../operations/payments.md#get-all-payments)
   * Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
   * Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
+
+## 26th February 2024
+* Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
 
 ## 21st February 2024
 * Extended [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) request with `ActivityStates` parameter.
