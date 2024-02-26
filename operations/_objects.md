@@ -95,6 +95,21 @@ Dictionary is a collection of key-value pairs.
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
+### Dictionary of integers
+
+Dictionary of integers is a collection of key-value pairs, where keys are strings and the values are arrays of integer.
+
+```javascript
+{
+    "OutOfOrderBlocks": [0, 1, 0, 0, 1],
+    "PublicAvailabilityAdjustment": [7, 5, 4, 3, 4]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | array of integer | optional | A set of integer values corresponding to the ?Key? unique identifier. Cannot be null. |
+
 ### Activity state
 
 * `Active` - indicates active record.
