@@ -82,7 +82,7 @@ These are JSON object definitions and other JSON entities shared by operations a
 
 ### Dictionary
 
-Dictionary is a collection of key-value pairs.
+Dictionary is a collection of key-value pairs, where both keys and values are strings.
 
 ```javascript
 {
