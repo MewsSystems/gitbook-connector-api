@@ -277,7 +277,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the payments for all enterprises within scope of the Access Token. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Payments](payments.md#payment). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Bills](bills.md#bill) to which payments are assigned. Required if no other filter is provided. |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservation](reservations.md#reservation-ver-2023-06-06) to which payments belong to. Required if no other filter is provided. |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservations](reservations.md#reservation-ver-2023-06-06) to which payments belong. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was updated. Required if no other filter is provided. |
 | `ChargedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the [Payment](#payment) was charged. Required if no other filter is provided. |

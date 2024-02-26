@@ -45,7 +45,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `PaymentRequestIds` | string | optional, max 1000 items | Unique identifiers of the requested [Payment requests](#payment-request). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer) accounts to which payment requests were issued. |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservation](reservations.md#reservation-ver-2023-06-06) to which payment requests belong to. |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservations](reservations.md#reservation-ver-2023-06-06) to which payment requests belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Payment request](#payment-request) was updated. |
 | `States` | [Payment request state](#payment-request-state) | optional | A list of payment request states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of payment requests returned (using cursor pagination). |

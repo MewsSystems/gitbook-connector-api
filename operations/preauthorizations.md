@@ -78,7 +78,7 @@ Returns all preauthorizations of specified customers.
 | `CreditCardId` | string | required | Unique identifier of the credit card. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Value of the preauthorization. |
 | `State` | string [Preauthorization state](#preauthorization-state) | required | State of the preauthorization. |
-| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the payment request belongs to. |
+| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the preauthorization belongs to. |
 | `Code` | string | optional | Code of the preauthorization. |
 
 #### Preauthorization state

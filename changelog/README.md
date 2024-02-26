@@ -1,14 +1,19 @@
 # Changelog
 
 ## 27th February 2024
-  * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
+* Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
-  * Extended [Preauthorization](../operations/preauthorizations.md#preauthorization) response object with `ReservationId`, this affects the following operations:
+  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests)
+  * [Cancel payment requests](../operations/paymentrequests.md#cancel-payment-requests)
+* Extended [Preauthorization](../operations/preauthorizations.md#preauthorization) response object with `ReservationId`, this affects the following operations:
   * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers)
-  * Extended [Payment](../operations/payments.md#payment) response object with `ReservationId`, this affects the following operations:
+* Extended [Payment](../operations/payments.md#payment) response object with `ReservationId`, this affects the following operations:
   * [Get all payments](../operations/payments.md#get-all-payments)
-  * Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
-  * Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
+  * [Add credit card payment](../operations/payments.md#add-credit-card-payment)
+  * [Add external payment](../operations/payments.md#add-external-payment)
+  * [Add alternative payment](../operations/payments.md#add-alternative-payment)
+* Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
+* Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
 
 ## 26th February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
