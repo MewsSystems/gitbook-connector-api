@@ -1,6 +1,6 @@
 # Changelog
 
-## 22nd February 2024
+## 26th February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
 
 ## 21st February 2024
