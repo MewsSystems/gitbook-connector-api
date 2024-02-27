@@ -1,5 +1,8 @@
 # Changelog
 
+## 1st March 2024
+* Added operation [Get product pricing](../operations/products.md#get-product-pricing).
+
 ## 26th February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
 
