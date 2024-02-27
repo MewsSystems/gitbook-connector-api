@@ -1,5 +1,8 @@
 # Changelog
 
+## 27th February 2024
+* Unused [reservation state](../operations/reservations.md#reservation-state) `Requested` removed from the documentation.
+
 ## 26th February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
 

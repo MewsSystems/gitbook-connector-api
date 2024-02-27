@@ -174,7 +174,6 @@ Returns all reservations within scope of the Access Token, filtered according to
 #### Reservation state
 
 * `Enquired` - Confirmed neither by the customer nor enterprise.
-* `Requested` - Confirmed by the customer but not by the enterprise \(waitlist\).
 * `Optional` - Confirmed by enterprise but not by the guest \(the enterprise is holding resource for the guest\).
 * `Confirmed` - Confirmed by both parties, before check-in.
 * `Started` - Checked in.
