@@ -1,6 +1,6 @@
 # Changelog
 
-## 1st Match 2024
+## 1st March 2024
 * Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledStartUtc` parameter.
 
 ## 26th February 2024
