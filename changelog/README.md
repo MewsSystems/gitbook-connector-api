@@ -1,5 +1,8 @@
 # Changelog
 
+## 1st March 2024
+* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledStartUtc` parameter.
+
 ## 26th February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
 
