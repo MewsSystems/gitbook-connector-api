@@ -1,6 +1,6 @@
 # Changelog
 
-## 1st March 2024
+## 5th March 2024
 * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
   * [Add payment requests](../operations/paymentrequests.md#add-payment-requests)
@@ -14,6 +14,9 @@
   * [Add alternative payment](../operations/payments.md#add-alternative-payment)
 * Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
 * Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
+
+## 1st March 2024
+* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledStartUtc` parameter.
 
 ## 26th February 2024
 * Added operation [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22).
