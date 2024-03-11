@@ -1,5 +1,8 @@
 # Changelog
 
+## 15th March 2024
+* Added new restricted operation [Get product pricing](../operations/products.md#get-product-pricing).
+
 ## 5th March 2024
 * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
