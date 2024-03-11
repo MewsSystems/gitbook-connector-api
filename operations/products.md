@@ -153,6 +153,9 @@ Returns all products offered together with the specified services. Note this ope
 
 ## Get product pricing
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
 Returns prices for a given product for a specified time interval. UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](./services.md#time-unit): 100 hours if hours, 100 days if days, or 24 months if months. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -188,6 +191,7 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 
 ```javascript
 {
+    "ProductId": "6b97a38b-0043-41e0-afbd-3f083bdbc0d2",
     "TimeUnitStartsUtc": [
         "2024-03-01T23:00:00Z",
         "2024-03-02T23:00:00Z",
@@ -287,6 +291,7 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `ProductId` | string | required | Unique identifier of the [Product](#product). |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `BaseAmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Base prices of the product for each time unit covered by the time interval. |
 | `AgeCategoryPrices` | array of [Age category price](#age-category-price) | required | Age category prices. |
