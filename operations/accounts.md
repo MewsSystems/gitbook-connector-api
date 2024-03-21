@@ -51,10 +51,10 @@ Merges two or more accounts of the same account type together. The given source 
 | `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source accounts ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 | `TargetAccountId` | string | required | Unique identifier of the target account ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 
-### Account type
+#### Account type
 
-* [Company](companies.md#company)
-* [Customer](customers.md#customer)
+* Company
+* Customer
 * ...
 
 ### Response
