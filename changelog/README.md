@@ -1,9 +1,10 @@
 # Changelog
 
 ## 12th April 2024
+* Extended [Add order](../operations/orders.md#add-order) request with `LinkedReservationId` parameter.
 * Extended [Product service order](../operations/productserviceorders.md#product-service-order) response object with `LinkedReservationId`, this affects the following operations:
   * [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders)
-  * [Add order](../operations/orders.md#add-order)
+* Extended [Add payment command](../operations/commands.md#add-payment-command) request with `ReservationId` parameter.
 
 ## 12th March 2024
 * Unused [reservation state](../operations/reservations.md#reservation-state) `Requested` removed from the documentation.
