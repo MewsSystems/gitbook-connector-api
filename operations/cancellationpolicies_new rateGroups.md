@@ -59,14 +59,28 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "CancellationPolicyConfigurations": [
         {
             "RateGroupId": "769fc613-838f-41a7-ac2a-aff100c3189f",
-            "DefaultCancellationPolicy": {
-                "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
-                "Version": 2
-            },
+            "DefaultCancellationPolicies": [
+                {
+                    "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                    "Version": 2
+                },
+                {
+                    "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                    "Version": 3
+                },
+            ],
             "CancellationPolicyExceptions": [
                 {
-                    "CancellationPolicyId": "769fc613-838f-41a7-ac2a-aff100c3189f",                    
-                    "Version": 3,
+                    "CancellationPolicies": [
+                        {
+                            "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                            "Version": 2
+                        },
+                        {
+                            "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                            "Version": 3
+                        }
+                    ],
                     "RateIds": [
                         "769fc613-838f-41a7-ac2a-aff100c3189f",
                         "769fc613-838f-41a7-ac2a-aff100c3189f"
@@ -75,8 +89,16 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
                     "ValidTo": "2023-04-27T11:48:57Z"
                 },
                 {
-                    "CancellationPolicyId": "769fc613-838f-41a7-ac2a-aff100c3189f",
-                    "Version": 3,
+                    "CancellationPolicies": [
+                        {
+                            "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                            "Version": 2
+                        },
+                        {
+                            "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                            "Version": 3
+                        }
+                    ],
                     "RateIds": [],
                     "ValidFrom": "2023-04-27T11:48:57Z",
                     "ValidTo": "2023-04-27T11:48:57Z"
@@ -98,17 +120,23 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `RateGroupId` | string | required | Unique identifier of the rate group. |
-| `DefaultCancellationPolicy` | [Cancellation Policy](#cancellation-policy) | required | The cancellation policy set as default for this rate group. |
+| `DefaultCancellationPolicies` | array of [Cancellation Policy Link](#cancellation-policy-link) | required | Links to the cancellation policies and their corresponding versions which are set as default for the given rate group. |
 | `CancellationPolicyExceptions` | array of [Cancellation Policy Exception](#cancellation-policy-exception) | required | Filtered array of cancellation policy exception for current rate group. |
 
 #### Cancellation Policy Exception
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CancellationPolicyId` | string | required | Unique identifier of the cancellation policy. |
-| `Version` | int | required | The version of the cancellation policy assigned to this exception. |
+| `CancellationPolicies` | array of [Cancellation Policy Link](#cancellation-policy-link) | required | Links to the cancellation policies and their corresponding versions for which the exception is set up for. |
 | `RateIds` | array of Unique identifiers | optional | Array of rate ids for which the exception applies to, when the array is empty the exception applies to whole rate group.  |
 | `ValidFromUtc` | string | required | Date and time of the exception start in UTC timezone in ISO 8601 format. |
 | `ValidToUtc` | string | required | Date and time of the exception end in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Date and time of the cancellation policy creation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Date and time of the cancellation policy update in UTC timezone in ISO 8601 format. |
+
+#### Cancellation Policy Link
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CancellationPolicyId` | string | required | Unique identifier of the cancellation policy. |
+| `Version` | int | required | The version of the cancellation policy assigned to this exception. |
