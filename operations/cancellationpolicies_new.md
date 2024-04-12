@@ -54,6 +54,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "CancellationPolicies": [
         {
             "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+            "Name": "Name of the cancellation policy"
             "CreatedUtc": "2023-04-27T11:48:57Z",
             "UpdatedUtc": "2023-04-27T11:48:57Z",
             "Applicability": "Creation",
@@ -85,6 +86,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the cancellation policy. |
+| `Name` | string | required | Name of the cancellation policy. |
 | `RateGroupId` | string | required | Unique identifier of the rate group the cancellation policy belongs to. |
 | `CreatedUtc` | string | required | Date and time of the cancellation policy creation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Date and time of the cancellation policy update in UTC timezone in ISO 8601 format. |

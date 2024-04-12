@@ -25,6 +25,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ServiceIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
     ],
+    "CancellationPolicyIds": [
+        "fe7951296-0b64-445b-89ed-c032563f2bac", 
+        "fe7951296-0b64-445b-89ed-c032563f2bac"
+    ],
     "RateGroupIds": [
         "fe795f96-0b64-445b-89ed-c032563f2bac"
     ],
@@ -56,7 +60,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ```javascript
 {
-    "CancellationPolicyConfigurations": [
+    "PaymentPolicyConfigurations": [
         {
             "RateGroupId": "769fc613-838f-41a7-ac2a-aff100c3189f",
             "DefaultCancellationPolicies": [
@@ -69,7 +73,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
                     "Version": 3
                 },
             ],
-            "CancellationPolicyExceptions": [
+            "PaymentPolicyExceptions": [
                 {
                     "CancellationPolicies": [
                         {
@@ -112,18 +116,18 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CancellationPolicyConfigurations` | array of [Cancellation Policy Configuration](#cancellation-policy-configuration) | required | The filtered cancellation policy configurations for given rate groups and rates. |
+| `PaymentPolicyConfigurations` | array of [Payment Policy Configuration](#payment-policy-configuration) | required | The filtered payment policy configurations for given rate groups and rates. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest rate group returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older cancellation policies. |
 
-#### Cancellation Policy Configuration
+#### Payment Policy Configuration
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `RateGroupId` | string | required | Unique identifier of the rate group. |
 | `DefaultCancellationPolicies` | array of [Cancellation Policy Link](#cancellation-policy-link) | required | Links to the cancellation policies and their corresponding versions which are set as default for the given rate group. |
-| `CancellationPolicyExceptions` | array of [Cancellation Policy Exception](#cancellation-policy-exception) | required | Filtered array of cancellation policy exception for current rate group. |
+| `PaymentPolicyExceptions` | array of [Payment Policy Exception](#payment-policy-exception) | required | Filtered array of payment policy exceptions for current rate group. |
 
-#### Cancellation Policy Exception
+#### Payment Policy Exception
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
