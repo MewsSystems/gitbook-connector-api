@@ -1,16 +1,17 @@
 # Cancellation policies
 
-## Get all cancellation policies
+## Get version history of cancellation policies
 
-> ### DEPRECATED!
-> This operation is deprecated. When the property is using granular cancellation policies feature e.g. shares cancellation policies for multiple rate groups or even rates, API will return bad not supported response code.
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
 
-Returns all cancellation policies, filtered by services, rate groups and other filters. 
+Returns all versions of cancellation policies, filtered by cancellationPolicyIds, services, and other filters. Use this API when you need to evaluate cancellation policies for past reservations.
+
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/cancellationPolicies/getAll`
+`[PlatformAddress]/api/connector/v2/cancellationPolicies/getHistory`
 
 ```javascript
 {
@@ -24,11 +25,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ServiceIds": [
         "e654f217-d1b5-46be-a820-e93ba568dfac"
     ],
-    "CancellationPolicyIds": [
+    "CancellationPolicyIds":
         "fe795f96-0b64-445b-89ed-c032563f2bac"
-    ],
-    "RateGroupIds": [
-        "deb9444e-6897-4f2a-86b4-aff100c2896e"
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-27T11:48:57Z",
@@ -54,24 +52,47 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ```javascript
 {
-    "CancellationPolicies": [
+    "CancellationPoliciesHistory": [
         {
-            "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
-            "RateGroupId": "deb9444e-6897-4f2a-86b4-aff100c2896e",
-            "CreatedUtc": "2023-04-27T11:48:57Z",
-            "UpdatedUtc": "2023-04-27T11:48:57Z",
-            "Applicability": "Creation",
-            "FeeExtent": [
-                "TimeUnits",
-                "Products"
-            ],
-            "ApplicabilityOffset": "0M0D0:0:0.0",
-            "FeeMaximumTimeUnits": 0,
-            "AbsoluteFee": {
-                "Currency": "EUR",
-                "Value": 15.00
-            },
-            "RelativeFee": 0.00000000
+            "CancellationPolicyId": "769fc613-838f-41a7-ac2a-aff100c3189f",
+            "Versions" : [
+                {
+                    "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                    "Version": 1,
+                    "Applicability": "Creation",
+                    "FeeExtent": [
+                        "TimeUnits",
+                        "Products"
+                    ],
+                    "ApplicabilityOffset": "0M0D0:0:0.0",
+                    "FeeMaximumTimeUnits": 0,
+                    "AbsoluteFee": {
+                        "Currency": "EUR",
+                        "Value": 15.00
+                    },
+                    "RelativeFee": 0.00000000,
+                    "CreatedUtc": "2023-04-27T11:48:57Z",
+                    "UpdatedUtc": "2023-04-27T11:48:57Z"
+                },
+                {
+                    "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
+                    "Version": 2,
+                    "Applicability": "Creation",
+                    "FeeExtent": [
+                        "TimeUnits",
+                        "Products"
+                    ],
+                    "ApplicabilityOffset": "0M0D0:0:0.0",
+                    "FeeMaximumTimeUnits": 0,
+                    "AbsoluteFee": {
+                        "Currency": "EUR",
+                        "Value": 15.00
+                    },
+                    "RelativeFee": 0.00000000,                    
+                    "CreatedUtc": "2023-04-27T11:48:57Z",
+                    "UpdatedUtc": "2023-04-27T11:48:57Z"
+                }
+            ]
         }
     ],
     "Cursor": "769fc613-838f-41a7-ac2a-aff100c3189f"
@@ -80,15 +101,22 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CancellationPolicies` | array of [Cancellation Policy](#cancellation-policy) | required | The filtered cancellation policies. |
+| `CancellationPolicyHistory` | array of [Cancellation Policy History](#cancellation-policy-history) | required | The filtered array with versioned history of all cancellation policies. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest cancellation policy returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older cancellation policies. |
+
+#### Cancellation Policy History
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CancellationPolicyId` | string | required | Unique identifier of the cancellation policy. |
+| `Versions` | array of [Cancellation Policy](#cancellation-policy) | required | Array of all versions of the cancellation policy. |
 
 #### Cancellation Policy
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the cancellation policy. |
-| `RateGroupId` | string | required | Unique identifier of the rate group the cancellation policy belongs to. |
+| `Version` | int | required | Version number of the cancellation policy. |
 | `CreatedUtc` | string | required | Date and time of the cancellation policy creation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Date and time of the cancellation policy update in UTC timezone in ISO 8601 format. |
 | `Applicability` | string [Applicability](#cancellation-policy-applicability) | required | Applicability mode of the cancellation policy. |
@@ -97,6 +125,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `FeeMaximumTimeUnits` | int | required | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | optional | Absolute value of the fee. |
 | `RelativeFee` | decimal | required | Relative value of the fee, as a percentage of the reservation price. |
+| `CurrentVersion` | int | required | The current version of the cancellation policy. |
 
 #### Cancellation Policy Applicability
 

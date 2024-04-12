@@ -2,15 +2,16 @@
 
 ## Get all cancellation policies
 
-> ### DEPRECATED!
-> This operation is deprecated. When the property is using granular cancellation policies feature e.g. shares cancellation policies for multiple rate groups or even rates, API will return bad not supported response code.
+>### RESTRICTED!
+>This operation is currently in beta-test and as such it is subject to change.
 
-Returns all cancellation policies, filtered by services, rate groups and other filters. 
+Returns latest versions of all cancellation policies, filtered by services, and other filters. If you need to fetch older versions use [cancellationPolicyVersions](./cancellationpolicies_new_versions.md) API.
+
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/cancellationPolicies/getAll`
+`[PlatformAddress]/api/connector/v2/cancellationPolicies/getAll`
 
 ```javascript
 {
@@ -26,9 +27,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     ],
     "CancellationPolicyIds": [
         "fe795f96-0b64-445b-89ed-c032563f2bac"
-    ],
-    "RateGroupIds": [
-        "deb9444e-6897-4f2a-86b4-aff100c2896e"
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-27T11:48:57Z",
@@ -46,7 +44,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service). |
 | `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). Required if no other filter is provided. |
-| `RateGroupIds` | array of string | optional, max 1000 items | Unique identifiers of the [Rate group](rates.md#rategroup). Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellation-policy) was updated. Required if no other filter is provided. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of cancellation policies returned. |
 
@@ -57,7 +54,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "CancellationPolicies": [
         {
             "Id": "769fc613-838f-41a7-ac2a-aff100c3189f",
-            "RateGroupId": "deb9444e-6897-4f2a-86b4-aff100c2896e",
             "CreatedUtc": "2023-04-27T11:48:57Z",
             "UpdatedUtc": "2023-04-27T11:48:57Z",
             "Applicability": "Creation",
@@ -71,7 +67,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
                 "Currency": "EUR",
                 "Value": 15.00
             },
-            "RelativeFee": 0.00000000
+            "RelativeFee": 0.00000000,
+            "CurrentVersion": "3"
         }
     ],
     "Cursor": "769fc613-838f-41a7-ac2a-aff100c3189f"
@@ -97,6 +94,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `FeeMaximumTimeUnits` | int | required | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | optional | Absolute value of the fee. |
 | `RelativeFee` | decimal | required | Relative value of the fee, as a percentage of the reservation price. |
+| `CurrentVersion` | int | required | The current version of the cancellation policy where 0 means the original version, for later modifications the version increses. |
 
 #### Cancellation Policy Applicability
 
