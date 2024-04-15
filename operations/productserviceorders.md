@@ -103,7 +103,8 @@ Returns all product service orders orders associated with the given enterprise. 
 | `UpdatedUtc` | string | required | Last update date and time of the product service order in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create product service order. |
-| `BusinessSegmentId` | string | optional | Identifier of the product service order [Business segment](businesssegments.md#business-segment). |
+| `BusinessSegmentId` | string | optional | Identifier of the [Business segment](businesssegments.md#business-segment). |
+| `LinkedReservationId` | string | optional | Identifier of the linked [Reservation](reservations.md#reservation-ver-2023-06-06). |
 | `Options` | [Service order options](#service-order-options) | required | Options of the service order. |
 
 #### Service order options
