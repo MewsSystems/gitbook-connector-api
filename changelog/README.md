@@ -1,5 +1,8 @@
 # Changelog
 
+## 19th April 2024
+* Deprecated `EndUtc` in [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response object and replaced with `ActualEndUtc` and  `ScheduledEndUtc` parameter.
+
 ## 12th April 2024
 * Extended [Add order](../operations/orders.md#add-order) request with `LinkedReservationId` parameter.
 * Extended [Product service order](../operations/productserviceorders.md#product-service-order) response object with `LinkedReservationId`, this affects the following operations:
