@@ -74,6 +74,8 @@ Returns all reservations within scope of the Access Token, filtered according to
             "ScheduledStartUtc": "2023-04-23T14:00:00Z",
             "ActualStartUtc": null,
             "EndUtc": "2023-04-24T14:00:00Z",
+            "ScheduledEndUtc": "2023-04-24T14:00:00Z",
+            "ActualEndUtc": null,
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
@@ -140,7 +142,9 @@ Returns all reservations within scope of the Access Token, filtered according to
 | ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead. |
 | `ScheduledStartUtc` | string | required | Scheduled start time of reservation in UTC timezone in ISO 8601 format. |
 | `ActualStartUtc` | string | optional | Actual customer check-in time of reservation in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | required | Scheduled end time of reservation in UTC timezone in ISO 8601 format. |
+| ~~`EndUtc`~~ | ~~string~~ | ~~required~~ | ~~Scheduled end time of reservation in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledEndUtc` and `ActualEndUtc` instead. |
+| `ScheduledEndUtc` | string | required | Scheduled end time of reservation in UTC timezone in ISO 8601 format. |
+| `ActualEndUtc` | string | optional | Actual customer check-out time of reservation in UTC timezone in ISO 8601 format. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | string [Service order state](./productserviceorders.md#service-order-state) | required | State of the reservation. |
 | `Origin` | string [Service order origin](productserviceorders.md#service-order-origin) | required | Origin of the reservation. |
