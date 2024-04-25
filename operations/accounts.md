@@ -149,7 +149,10 @@ Updates one or more existing accounts in the system. Note this operation support
                 {
                     "SendMarketingEmails": { "Value": true },
                     "Invoiceable": { "Value": true },
-                    "BillAddressObjection": { "Value": true }
+                    "BillAddressObjection": { "Value": true },
+                    "SendMarketingPostalMail": { "Value": true },
+                    "SendPartnerMarketingEmails": { "Value": true }
+                    "SendPartnerMarketingPostalMail": { "Value": true }
                 },
                 "Classifications":
                 {
@@ -235,6 +238,9 @@ Updates one or more existing accounts in the system. Note this operation support
 | `SendMarketingEmails` | [Bool update value](_objects.md#bool-update-value) | optional | Send marketing email \(or `null` if the value should not be updated\). |
 | `Invoiceable` | [Bool update value](_objects.md#bool-update-value) | optional | Invoiceable \(or `null` if the value should not be updated\). |
 | `BillAddressObjection` | [Bool update value](_objects.md#bool-update-value) | optional | Bill address objection \(or `null` if the value should not be updated\). |
+| `SendMarketingPostalMail` | [Bool update value](_objects.md#bool-update-value) | optional | Send marketing postal mail \(or `null` if the value should not be updated\). |
+| `SendPartnerMarketingEmails` | [Bool update value](_objects.md#bool-update-value) | optional | Send partner marketing emails \(or `null` if the value should not be updated\). |
+| `SendPartnerMarketingPostalMail` | [Bool update value](_objects.md#bool-update-value) | optional | Send partner marketing postal mail \(or `null` if the value should not be updated\). |
 
 #### Customer update classifications
 | Property | Type | Contract | Description |
@@ -391,7 +397,10 @@ Updates one or more existing accounts in the system. Note this operation support
                 "Options": {
                     "SendMarketingEmails": true,
                     "Invoiceable": true,
-                    "BillAddressObjection": true
+                    "BillAddressObjection": true,
+                    "SendMarketingPostalMail": true,
+                    "SendPartnerMarketingEmails": true,
+                    "SendPartnerMarketingPostalMail": true                
                 },
                 "Classifications": {
                     "PaymasterAccount": true,
@@ -508,6 +517,9 @@ Updates one or more existing accounts in the system. Note this operation support
 | `SendMarketingEmails` | bool | required | Send marketing emails. |
 | `Invoiceable` | bool | required | Invoiceable. |
 | `BillAddressObjection` | bool | required | Bill address objection. |
+| `SendMarketingPostalMail` | bool | required | Send marketing postal mail. |
+| `SendPartnerMarketingEmails` | bool | required | Send partner marketing emails. |
+| `SendPartnerMarketingPostalMail` | bool | required | Send partner marketing postal mail. |
 
 #### Customer classifications
 

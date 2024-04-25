@@ -1,5 +1,9 @@
 # Changelog
 
+## 26th April 2024
+* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Get all customers](../operations/customers.md#get-all-customers) response.
+* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Update customer](../operations/customers.md#update-customer) resquest.
+
 ## 19th April 2024
 * Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:
   * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06)
