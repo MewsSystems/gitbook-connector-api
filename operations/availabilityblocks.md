@@ -118,6 +118,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "ReleasedUtc": "2021-10-13T00:00:00Z",
+            "RollingReleaseOffset":null,
             "ExternalIdentifier": "Block-0001",
             "Name": "Wedding group",
             "Notes": "Have a nice stay"
