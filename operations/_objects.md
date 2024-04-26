@@ -64,9 +64,25 @@ These are JSON object definitions and other JSON entities shared by operations a
 | :-- | :-- | :-- | :-- |
 | `Value` | integer | optional | Value which is to be updated. |
 
+### Array of strings update value
+
+```javascript
+{
+    "Value": 
+    [
+        "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
+        "4a1a7f12-4024-41ba-9289-f90448682d3a"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of strings | optional | Value which is to be updated. |
+
 ### Dictionary
 
-Dictionary is a collection of key-value pairs.
+Dictionary is a collection of key-value pairs, where both keys and values are strings.
 
 ```javascript
 {
@@ -78,6 +94,21 @@ Dictionary is a collection of key-value pairs.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
+
+### Dictionary of integers
+
+Dictionary of integers is a collection of key-value pairs, where keys are strings and the values are arrays of integer.
+
+```javascript
+{
+    "OutOfOrderBlocks": [0, 1, 0, 0, 1],
+    "PublicAvailabilityAdjustment": [7, 5, 4, 3, 4]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | array of integer | optional | A set of integer values corresponding to the ?Key? unique identifier. Cannot be null. |
 
 ### Activity state
 

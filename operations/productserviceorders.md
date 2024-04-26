@@ -91,8 +91,8 @@ Returns all product service orders orders associated with the given enterprise. 
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that product service order is made againts. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or a [Company](companies.md#company) who owns the product service order. |
 | `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
-| `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
-| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the product service order. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who updated the product service order. |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the service order was made. |
 | `Number` | string | required | Confirmation number of the service order in Mews. |
 | `State` | string [Service order state](#service-order-state) | required | State of the product service order. |
@@ -103,7 +103,8 @@ Returns all product service orders orders associated with the given enterprise. 
 | `UpdatedUtc` | string | required | Last update date and time of the product service order in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create product service order. |
-| `BusinessSegmentId` | string | optional | Identifier of the product service order [Business segment](businesssegments.md#business-segment). |
+| `BusinessSegmentId` | string | optional | Identifier of the [Business segment](businesssegments.md#business-segment). |
+| `LinkedReservationId` | string | optional | Identifier of the linked [Reservation](reservations.md#reservation-ver-2023-06-06). |
 | `Options` | [Service order options](#service-order-options) | required | Options of the service order. |
 
 #### Service order options

@@ -7,9 +7,11 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
+| [Update accounts](accounts.md#update-accounts) | Updates one or more existing accounts, i.e. customer, company. |
 | [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
+| [Delete addresses](addresses.md#delete-addresses) | Deletes selected addresses |
 | [Get all account notes](accountnotes.md#get-all-account-notes) | Returns all the account notes associated with the specified accounts within the chain. |
 | [Add account notes](accountnotes.md#add-account-notes) | Adds new account notes to the system and assigns it to specified accounts. |
 | [Update account notes](accountnotes.md#update-account-notes) | Updates existing account notes. |
@@ -40,7 +42,7 @@ This section describes all operations supported by the API, organised here by th
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
 
-## Device integrations
+## Device integration
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
@@ -60,6 +62,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
+| [Delete companies](companies.md#delete-companies) | Deletes selected companies |
 | [Get all company contracts](companycontracts.md#get-all-company-contracts) | Returns all contracts between the enterprise and other companies |
 | [Add company contracts](companycontracts.md#add-company-contracts) | Adds new company contracts to the enterprise |
 | [Update company contracts](companycontracts.md#update-company-contracts) | Updates selected company contracts |
@@ -74,7 +77,18 @@ This section describes all operations supported by the API, organised here by th
 | [Delete resource blocks](resourceblocks.md#delete-resource-blocks) | Removes specified resource blocks from the resources |
 | [Add task](tasks.md#add-task) | Adds a new task to the enterprise, optionally to a specified department |
 | [Get all tasks](tasks.md#get-all-tasks) | Returns all tasks of the enterprise, filtered by identifiers or other filters |
-| [Get all resouce categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
+| [Get all resource categories](resourcecategories.md#get-all-resource-categories) | Returns all resource categories of an enterprise associated with the connector integration |
+| [Get all resource category assignments](resourcecategories.md#get-all-resource-category-assignments) | Returns all resource category assignments of an enterprise associated with the connector integration |
+| [Get all resource category image assignments](resourcecategories.md#get-all-resource-category-image-assignments) | Returns all resource category image assignments of an enterprise associated with the connector integration |
+| [Get all resource features](resourcefeatures.md#get-all-resource-features) | Returns all resource features of an enterprise associated with the connector integration |
+| [Get all resource feature assignments](resourcefeatures.md#get-all-resource-feature-assignments) | Returns all resource feature assignments of an enterprise associated with the connector integration |
+
+## Exports
+
+| <div style="width:200px">Operation</div> | Description |
+| :-- | :-- |
+| [Get all exports](exports.md#get-all-exports) | **Restricted!** Returns all exports filtered by their unique identifiers. |
+| [Add export](./exports.md#add-export) | **Restricted!** Create a pending export. |
 
 ## Finance
 
@@ -101,7 +115,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add alternative payment](payments.md#add-alternative-payment) | Adds a new alternative payment to a specified customer |
 | [Get all payments](payments.md#get-all-payments) | **Restricted!** Returns all payments, filtered by various parameters |
 | [Get all payment requests](paymentrequests.md#get-all-payment-requests) | Returns all payment requests |
-| [Add payment requests](/paymentrequests.md#add-payment-requests) | Adds new payment requests for specified customers |
+| [Add payment requests](paymentrequests.md#add-payment-requests) | Adds new payment requests for specified customers |
 | [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 | [Get all order items](orderitems.md#get-all-order-items) | **Restricted!** Returns all order items |
@@ -124,7 +138,7 @@ This section describes all operations supported by the API, organised here by th
 | [Update loyalty tiers](loyaltytiers.md#update-loyalty-tiers) | Updates selected loyalty tiers |
 | [Delete loyalty tiers](loyaltytiers.md#delete-loyalty-tiers) | Deletes selected loyalty tiers |
 
-## Messages
+## Customer messaging
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
@@ -180,6 +194,7 @@ This section describes all operations supported by the API, organised here by th
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
 | [Get all services](services.md#get-all-services) | Returns all services offered by the enterprise |
+| [Get service availability (ver 2024-01-22)](../operations/services.md#get-service-availability-ver-2024-01-22) | **Restricted!** Returns selected availability and occupancy metrics of a bookable service in the specified time interval |
 | [Get service availability](services.md#get-service-availability) | Returns availability of a bookable service in the specified interval |
 | [Update service availability](services.md#update-service-availability) | Updates the number of available resources in the specified resource category by a certain amount |
 | [Get all availability blocks](availabilityblocks.md#get-all-availability-blocks) | Returns all availability blocks filtered by services, unique identifiers and other filter |
@@ -189,10 +204,11 @@ This section describes all operations supported by the API, organised here by th
 | [Get all availability adjustments](operations/availabilityadjustments.md#get-all-availability-adjustments) | Get all availability adjustments |
 | [Get all rules](rules.md#get-all-rules) | Returns all rules applied with the reservations |
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
-| [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) and rate groups \(condition settings\) of the default service provided by the enterprise |
+| [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) of the default service provided by the enterprise |
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
+| [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters. |
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
 | [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
 | [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
@@ -205,6 +221,12 @@ This section describes all operations supported by the API, organised here by th
 | [Update resource access tokens](resourceaccesstokens.md#update-resource-access-tokens) | Updates resource access token validity intervals and permissions |
 | [Delete resource access tokens](resourceaccesstokens.md#delete-resource-access-tokens) | Delete specified resource access tokens |
 | [Get all vouchers](vouchers.md#get-all-vouchers) | Returns all rate vouchers filtered by service, voucher code or voucher identifier |
+| [Add vouchers](vouchers.md#add-vouchers) | Adds new vouchers with the specified data |
+| [Update vouchers](vouchers.md#update-vouchers) | Updates information about the specified vouchers |
+| [Delete vouchers](vouchers.md#delete-vouchers) | Delete vouchers |
+| [Get all voucher codes](vouchercodes.md#get-all-voucher-codes) | Returns all voucher codes filtered by voucher or other filters |
+| [Add voucher codes](vouchercodes.md#add-voucher-codes) | Adds new voucher codes to the voucher |
+| [Delete voucher codes](vouchercodes.md#delete-voucher-codes) | Delete voucher codes |
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
 | [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |
 | [Get all products](products.md#get-all-products) | Returns all products filtered by services or product identifier |

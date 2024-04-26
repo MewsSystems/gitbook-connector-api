@@ -390,3 +390,36 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 ### Response
 
 Same structure as in [Get all companies](#get-all-companies) operation.
+
+## Delete companies
+
+Deletes specified companies. 
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/companies/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CompanyIds": [
+        "eb02cbff-353d-48ec-97da-7def2305a5c5",
+	"63551515-1740-49b3-914e-309a8b1429f0"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CompanyIds` | array of string | required, max 1000 items | Unique identifiers of the companies to be deleted. |
+
+### Response
+
+```javascript
+{}
+```

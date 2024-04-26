@@ -30,7 +30,7 @@ Independently of portfolios, properties can be grouped into chains. Chains are u
 
 ### How can I obtain a Portfolio Access Token?
 
-The **Mews Multi-Property** feature is not available for all customers, it depends on system configuration. For more information, please get in touch via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+The **Mews Multi-Property** feature is not available for all customers, it depends on system configuration. For more information, please get in touch via [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
 
 ### How can I tell if an Access Token is single enterprise or multi-enterprise in scope?
 

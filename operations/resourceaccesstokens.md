@@ -49,7 +49,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ResourceAccessTokenIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource access tokens](#resource-access-token). Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (for example reservations). Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of reservations. Required if no other filter is provided. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resource access token](#resource-access-token) is valid. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Resource access token](#resource-access-token) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
@@ -73,6 +73,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
             "CreatedUtc": "2023-10-01T11:48:57Z",
             "UpdatedUtc": "2023-10-28T11:48:57Z",
+            "IsActive": true,
             "Permissions":
             {
                 "Bed": true,
@@ -97,7 +98,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of [Resource access token](#resource-access-token). |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `ServiceOrderId` | string | required | Unique identifier of a service order (for example a reservation). |
+| `ServiceOrderId` | string | required | Unique identifier of a reservation. |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](companionships.md#companionship). |
 | `ResourceId` | string | optional | Unique identifier of [Resource](resources.md#resource). |
 | `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
@@ -107,6 +108,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
 | `CreatedUtc` | string | required | Creation date and time of the resource access token in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the resource access token in UTC timezone in ISO 8601 format. |
+| `IsActive` | boolean | required | Whether the resource access token is still active. |
 | `Permissions` | [Resource access token permissions](#resource-access-token-permissions) | required | Specify permissions of [Resource access token](#resource-access-token). |
 
 #### Resource access token type
@@ -169,7 +171,7 @@ Adds new resource access tokens with the specified data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOrderId` | string | required | Unique identifier of a service order (for example a reservation). |
+| `ServiceOrderId` | string | required | Unique identifier of a reservation. |
 | `CompanionshipId` | string | optional | Unique identifier of [Companionship](companionships.md#companionship). |
 | `ResourceId` | string | optional | Unique identifier of [Resource](resources.md#resource). |
 | `Type` | [Resource access token type](#resource-access-token-type) | required | Type of stored value. |
@@ -195,6 +197,7 @@ Adds new resource access tokens with the specified data.
     "ResourceAccessTokens": [
         {
             "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceOrderId": "35d4b117-4e60-44a3-9580-c582117eff98",
             "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
             "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
@@ -205,6 +208,7 @@ Adds new resource access tokens with the specified data.
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
             "CreatedUtc": "2023-10-01T11:48:57Z",
             "UpdatedUtc": "2023-10-28T11:48:57Z",
+            "IsActive": true,
             "Permissions":
             {
                 "Bed": true,
@@ -274,6 +278,7 @@ Updates the [Resource access token](#resource-access-token) validity interval an
     "ResourceAccessTokens": [
         {
             "Id": "72d4b117-1f84-44a3-1f84-8b2c0635ac60",
+            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "ServiceOrderId": "35d4b117-4e60-44a3-9580-c582117eff98",
             "CompanionshipId": "25d4b117-4e60-44a3-9580-c582117eff98",
             "ResourceId": "65d4b117-4e60-44a3-9580-c582117eff98",
@@ -284,6 +289,7 @@ Updates the [Resource access token](#resource-access-token) validity interval an
             "ValidityEndUtc": "2020-10-10T22:00:00Z",
             "CreatedUtc": "2023-10-01T11:48:57Z",
             "UpdatedUtc": "2023-10-28T11:48:57Z",
+            "IsActive": true,
             "Permissions":
             {
                 "Bed": true,

@@ -46,10 +46,18 @@ Returns all products offered together with the specified services. Note this ope
             "CategoryId": null,
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
-            "Name": "Breakfast",
-            "ExternalName": "Breakfast",
-            "ShortName": "BFST",
-            "Description": "Nice continental breakfast.",
+            "Names": {
+                "en-US": "Breakfast"
+            },
+            "ExternalNames": {
+                "en-US": "Breakfast"
+            },
+            "ShortNames": {
+                "en-US": "BFST"
+            },
+            "Descriptions": {
+                "en-US": "Nice continental breakfast."
+            },
             "ChargingMode": "PerPersonPerTimeUnit",
             "PostingMode": "Once",
             "Options": {
@@ -69,7 +77,7 @@ Returns all products offered together with the specified services. Note this ope
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount": {
+            "Price": {
                 "GrossValue": 25,
                 "Currency": "EUR",
                 "TaxValues": [
@@ -90,10 +98,18 @@ Returns all products offered together with the specified services. Note this ope
             "CategoryId": null,
             "AccountingCategoryId": "6535e19e-1077-49d9-a338-67bf4ffecb14",
             "IsActive": true,
-            "Name": "Breakfast",
-            "ExternalName": "Breakfast",
-            "ShortName": "BFST",
-            "Description": "Nice continental breakfast.",
+            "Names": {
+                "en-US": "Breakfast"
+            },
+            "ExternalNames": {
+                "en-US": "Breakfast"
+            },
+            "ShortNames": {
+                "en-US": "BFST"
+            },
+            "Descriptions": {
+                "en-US": "Nice continental breakfast."
+            },
             "ChargingMode": "PerPersonPerTimeUnit",
             "PostingMode": "Once",
             "Options": {
@@ -113,7 +129,7 @@ Returns all products offered together with the specified services. Note this ope
                 "Wellness": false,
                 "CityTax": false
             },
-            "UnitAmount": {
+            "Price": {
                 "GrossValue": 25,
                 "Currency": "EUR",
                 "TaxValues": [
@@ -146,16 +162,20 @@ Returns all products offered together with the specified services. Note this ope
 | `CategoryId` | string | optional | Unique identifier of the Product category. |
 | `AccountingCategoryId` | string | optional | Unique identifier of [Accounting Category](accountingcategories.md#accounting-category). |
 | `IsActive` | boolean | required | Whether the product is still active. |
-| `Name` | string | required | Name of the product.  |
-| `ExternalName` | string | required | Name of the product meant to be displayed to customer. |
-| `ShortName` | string | required | Short name of the product. |
-| `Description` | string | optional | Description of the product. |
+| ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the product.~~ **Deprecated!** Please use `Names`  |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the product name. |
+| ~~`ExternalName`~~ | ~~string~~ | ~~required~~ | ~~Name of the product meant to be displayed to customer.~~ **Deprecated!** Please use `ExternalNames` |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | required | All translations of the product name meant to be displayed to customer. |
+| ~~`ShortName`~~ | ~~string~~ | ~~required~~ | ~~Short name of the product.~~ **Deprecated!** Please use `ShortNames` |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | required | All translations of the product short name. |
+| ~~`Description`~~ | ~~string~~ | ~~optional~~ | ~~Description of the product.~~ **Deprecated!** Please use `Descriptions` |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the product description. |
 | `ChargingMode` | string [Product charging mode](#product-charging-mode) | required | Charging mode of the product. |
 | `PostingMode` | string [Product posting mode](#product-posting-mode) | required | Posting mode of the product. |
 | `Options` | [Product options](#product-options) | required | Options of the product. |
 | `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 | `Classifications` | [Product classifications](#product-classifications) | required | Classifications of the service. |
-| `UnitAmount` | [Amount value](accountingitems.md#amount-value) | required | Unit amount representing price of the product. |
+| `Price` | [Amount value](accountingitems.md#amount-value) | required | Price representing price of the product. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the product from external system. |
 
 #### Product charging mode

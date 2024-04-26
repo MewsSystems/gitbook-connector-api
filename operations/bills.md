@@ -85,9 +85,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CustomerId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CompanyId": null,
             "CounterId": null,
+            "AssociatedAccountIds": ["26afba60-06c3-455b-92db-0e3983be0b1d"],
             "State": "Closed",
             "Type": "Invoice",
             "Number": "29",
@@ -133,33 +132,39 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
                     "AdditionalTaxIdentifier": "Additional tax identifier"
                 }
             },
-            "CompanyDetails": {
-                "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                "Address": {
-                    "Line1": "Joe Doe street",
-                    "Line2": "Very long ave",
-                    "City": "Townston",
-                    "PostalCode": "154 00",
-                    "SubdivisionCode": "AU-NSW",
-                    "CountryCode": "AU"
-                },
-                "LegalIdentifiers": {
-                    "TaxIdentifier": "CZ8810310963",
-                    "CityOfRegistration": "Prague",
-                },
-                "BillingCode": "billing code value",
-                "Name": "Company Name Inc.",
-                "FiscalIdentifier": "Fiscal identifier",
-                "AdditionalTaxIdentifier": "Additional tax identifier"
-            },
+            "AssociatedAccountData": [
+                {
+                    "Discriminator": "BillCompanyData",
+                    "BillCompanyData": {
+                        "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+                        "Address": {
+                            "Line1": "Joe Doe street",
+                            "Line2": "Very long ave",
+                            "City": "Townston",
+                            "PostalCode": "154 00",
+                            "SubdivisionCode": "AU-NSW",
+                            "CountryCode": "AU"
+                        },
+                        "LegalIdentifiers": {
+                            "TaxIdentifier": "CZ8810310963",
+                            "CityOfRegistration": "Prague"
+                        },
+                        "BillingCode": "billing code value",
+                        "Name": "Company Name Inc.",
+                        "FiscalIdentifier": "Fiscal identifier",
+                        "AdditionalTaxIdentifier": "Additional tax identifier"
+                    },
+                    "BillCustomerData": null
+                }
+            ],
             "EnterpriseData": {
-                AdditionalTaxIdentifier: "XY00112233445",
-                CompanyName: "The Sample Hotel Group AS",
-                BankAccount: "CZ3808000000000012345678",
-                BankName: "CESKA SPORITELNA A.S.",
-                Iban: "CZ6508000000192000145399",
-                Bic: "GIBACZPX"
-            }            
+                "AdditionalTaxIdentifier": "XY00112233445",
+                "CompanyName": "The Sample Hotel Group AS",
+                "BankAccount": "CZ3808000000000012345678",
+                "BankName": "CESKA SPORITELNA A.S.",
+                "Iban": "CZ6508000000192000145399",
+                "Bic": "GIBACZPX"
+            }
         }
     ],
     "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
@@ -179,7 +184,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Customer](customers.md#customer) the bill is issued to.~~ **Deprecated!** |
-| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to. |
+| ~~`CompanyId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to.~~ **Deprecated!** |
+| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the [Customers](customers.md#customer) or [Companies](companies.md#company) that are associated to the bill. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
 | `State` | string [Bill state](#bill-state) | required | State of the bill. |
 | `Type` | string [Bill type](#bill-type) | required | Type of the bill. |
@@ -197,7 +203,8 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
 | `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
 | `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
-| `CompanyDetails` | [Bill company data](#bill-company-data) | optional | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. |
+| ~~`CompanyDetails`~~ | ~~[Bill company data](#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ **Deprecated!** |
+| `AssociatedAccountData` | array of [Associated account data](#bill-associated-account-data) | optional | Additional information about the associated account of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
 | `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 
 #### Bill type
@@ -227,6 +234,19 @@ A bill is either a `Receipt` which means that it has been fully paid, or `Invoic
 
 * `BillCustomerData` - Owner data specific to a [Customer](customers.md#customer).
 * `BillCompanyData` - Owner data specific to a [Company](companies.md#company).
+
+#### Bill associated account data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Bill associated account data discriminator](#bill-associated-account-data-discriminator) | required | Determines type of value. |
+| `BillCustomerData` | object | optional | Associated account bill data of type [Bill customer data](#bill-customer-data). |
+| `BillCompanyData` | object | optional | Associated account bill data of type [Bill company data](#bill-company-data). |
+
+#### Bill associated account data discriminator
+
+* `BillCustomerData` - Associated account bill data of type [Bill customer data](#bill-customer-data).
+* `BillCompanyData` - Associated account bill data of type [Bill company data](#bill-company-data).
 
 #### Bill customer data
 
@@ -432,15 +452,39 @@ Closes a bill so no further modification to it is possible. Note this operation 
     "VariableSymbol": {
         "Value": "5343"
     },
-    "TaxIdentifier": {
+    "AccountTaxIdentifier": {
         "Value": "446768"
+    },
+    "AccountAddress": {
+        "Line1": "Astronautů 2",
+        "Line2": "",
+        "City": "Havířov",
+        "PostalCode": "736 01",
+        "CountryCode": "CZ",
+        "CountrySubdivisionCode": null
     },
     "PurchaseOrderNumber": {
         "Value": "XX-123"
     },
     "Notes": {
         "Value": "Bill closing note"
-    }
+    },
+    "AssociatedAccountData": [
+        {
+            "Id": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+            "TaxIdentifier": {
+                "Value": "123459" 
+            },
+            "Address": {
+                "Line1": "Astronautů 2",
+                "Line2": "",
+                "City": "Havířov",
+                "PostalCode": "736 01",
+                "CountryCode": "CZ",
+                "CountrySubdivisionCode": null
+            }
+        }
+    ]
 }
 ```
 
@@ -458,10 +502,13 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | `TaxedDate` | [String update value](_objects.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `DueDate` | [String update value](_objects.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
 | `VariableSymbol` | [String update value](_objects.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
+| ~~`TaxIdentifier`~~ | ~~[String update value](_objects.md#string-update-value)~~ | ~~optional~~ | ~~Tax identifier of account to be put on a bill.~~ **Deprecated!** |
+| `AccountTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
 | `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
-| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+| ~~`Address`~~ | ~~[Address parameters](customers.md#address-parameters)~~ | ~~optional~~ | ~~Address of the account to be displayed on bill. Overrides the default one taken from account profile.~~ **Deprecated!** |
+| `AccountAddress` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
+| `AssociatedAccountData` | array of [Bill close account parameters](#bill-close-account-parameters) | optional | Account data of the associated account on a bill. Currently one object is supported and only populated when the bill is closed. |
 
 #### Bill options parameters
 
@@ -469,6 +516,14 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | :-- | :-- | :-- | :-- |
 | `DisplayCustomer` | [Bool update value](_objects.md#bool-update-value) | required | Display customer information on a bill. |
 | `DisplayTaxation` | [Bool update value](_objects.md#bool-update-value) | required | Display taxation detail on a bill. |
+
+#### Bill close account parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is associated to. |
+| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of the assosicated account to be put on a bill. |
+| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the associated account to be displayed on bill. Overrides the default one taken from account profile. |
 
 ### Response
 

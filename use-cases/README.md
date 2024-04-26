@@ -2,19 +2,28 @@
 
 This section describes how to use the __Mews Connector API__ in order to implement well-known scenarios.
 Even if you are integrating a different type of system, it serves as a good starting point for API usage patterns and practices.
-The following types of system are described here:
+
+## by Business category
 
 * [Accounting](accounting.md)
 * [Customer management](customer-management.md)
-* [Device integrations](device-integrations.md)
-* [Event management](event-management.md)
+* [Events](events.md)
 * [Guest technology](guest-technology.md)
 * [Housekeeping](housekeeping.md)
 * [Kiosk](kiosk.md)
-* [Messaging](messaging.md)
-* [Mews Payment Terminals](mews-terminals.md)
 * [Point of sale](point-of-sale.md)
 * [Reputation management](reputation-management.md)
 * [Revenue management](revenue-management.md)
-* [Upselling](upselling.md)
-* [Payment automation](payment-automation/README.md)
+* [Upsell](upsell.md)
+
+## by Function
+
+* [Data export](data-export.md)
+* [Device integration](device-integration.md)
+* [Customer messaging](messaging.md)
+* [Payments - Mews Payment Terminals](mews-terminals.md)
+* [Payments - Payment automation](payment-automation/README.md)
+
+## 'How to' use cases
+
+* ['How to' use cases](how-to.md)

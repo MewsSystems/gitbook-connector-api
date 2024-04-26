@@ -62,7 +62,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "CountryCode": "DE",
             "CountrySubdivisionCode": null,
             "Latitude": null,
-            "Longitude": null
+            "Longitude": null,
+            "UpdatedUtc": "2023-11-29T14:49:29.982Z",
+            "IsActive": true			
         }
     ],
     "Cursor": "fc7b2df3-de66-48a6-907d-af4600ecd892"
@@ -90,6 +92,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
+| `UpdatedUtc` | string | optional | Last update date and time of the address in UTC timezone in ISO 8601 format. |
+| `IsActive` | boolean | required | Whether the address is still active. |
+
 
 ## Add addresses
 
@@ -159,7 +164,9 @@ Adds one or more new addresses to the system and assigns them to specified accou
             "CountryCode": "DE",
             "CountrySubdivisionCode": null,
             "Latitude": null,
-            "Longitude": null
+            "Longitude": null,
+            "UpdatedUtc": "2023-11-29T14:49:29.982Z",
+            "IsActive": true
         }
     ]
 }
@@ -235,7 +242,9 @@ Updates one or more existing addresses in the system, assigned to specified acco
             "CountryCode": "CZ",
             "CountrySubdivisionCode": null,
             "Latitude": null,
-            "Longitude": null
+            "Longitude": null,
+            "UpdatedUtc": "2023-11-29T14:49:29.982Z",
+            "IsActive": true
         }
     ]
 }
@@ -244,3 +253,38 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Addresses` | array of [Account address](#account-address) | required | Updated addresses. |
+
+## Delete addresses
+
+Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/addresses/delete`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+    "AddressIds" : [
+        "cefa640f-43fa-4a02-8d20-f97f68e19ed5",
+        "44108366-8e9b-4007-844b-8ebcca4ac009"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `AddressIds` | array of string | required, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise to be deleted. |
+
+### Response
+
+```javascript
+{}
+```

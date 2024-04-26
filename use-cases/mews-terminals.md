@@ -40,7 +40,7 @@ Caveats aside, the functionality is available and documented, and certification 
 
 ## Taking payments
 
-Mews Terminals are considered _devices_, and you communicate with them using [device integration commands](device-integrations.md).
+Mews Terminals are considered _devices_, and you communicate with them using [device integration commands](device-integration.md).
 
 The most important API Operation you will need to use is [Add payment command](../operations/commands.md#add-payment-command). This adds a device integration command to the device command queue, with an instruction to take a payment from a specified Mews Terminal device for a specified customer.
 
@@ -232,7 +232,7 @@ You will have to either create and manage customer profiles, or work with a shar
 
 ## Testing
 
-To test your workflow implementation with an actual Mews Terminal device, please contact our Partner Support team - they can be contacted at [partnersuccess@mews.com](mailto://partnersuccess@mews.com). They will supply you with the necessary details to connect to a test configuration:
+To test your workflow implementation with an actual Mews Terminal device, please contact our Partner Support team - they can be contacted at [partnersuccess@mews.com](mailto:partnersuccess@mews.com). They will supply you with the necessary details to connect to a test configuration:
 
 - **Mews Operations**
   - Mews Operations platform address, for the appropriate test server
@@ -263,7 +263,7 @@ Within the Connector API documentation, the following sections may be helpful:
 
 - [Add payment command](../operations/commands.md#add-payment-command)
 - [WebSockets](../websockets/README.md)
-- [Use cases - Device integrations](device-integrations.md)
+- [Use cases - Device integration](device-integration.md)
 - [Use cases - Kiosk](kiosk.md)
 - [Use cases - Point of sale](point-of-sale.md)
 
@@ -273,4 +273,4 @@ There are a number of articles on Mews Help that may also provide additional ass
 - [The Device Commands Queue](https://help.mews.com/s/article/device-commands-queue)
 - [Create a customer profile](https://help.mews.com/s/article/create-a-customer-profile?language=en_US)
 
-If you still require assistance, please get in touch at [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+If you still require assistance, please get in touch at [partnersuccess@mews.com](mailto:partnersuccess@mews.com).

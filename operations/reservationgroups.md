@@ -22,7 +22,7 @@ Returns all reservation groups, filtered by unique identifiers and other filters
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-27T11:48:57Z",
-        "EndUtc": "2023-04-27T11:48:57Z",
+        "EndUtc": "2023-04-27T11:48:57Z"
     },
     "Limitation":{
         "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
@@ -51,8 +51,7 @@ Returns all reservation groups, filtered by unique identifiers and other filters
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "Name": "Mr and Mrs smith wedding",
             "ChannelManager": "2023-04-27T11:48:57Z",
-            "ChannelManagerGroupNumber": "152fg645-834f-63a7-he6a-vsy845c4753a",
-            "EnterpriseId": "Creation"
+            "ChannelManagerGroupNumber": "152fg645-834f-63a7-he6a-vsy845c4753a"
         }
     ],
     "Cursor": "723jd664-235f-36a4-tg6d-gfy850c645f"
@@ -69,8 +68,7 @@ Returns all reservation groups, filtered by unique identifiers and other filters
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation group. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise) the reservation group belongs to. |
 | `Name` | string | optional | Name of the reservation group, might be empty or same for multiple groups. |
 | `ChannelManager` | string | optional | Name of the corresponding channel manager. |
 | `ChannelManagerGroupNumber` | string | optional | Identifier of the channel manager. |
-| `EnterpriseId` | string | required | Unique identifier of an enterprise the reservation group belongs to. |

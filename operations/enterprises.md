@@ -63,7 +63,8 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "AccountingEnvironmentCode": "DE",
       "TaxEnvironmentCode": "DE-2020-1",
       "DefaultLanguageCode": "en-US",
-      "EditableHistoryInterval": "P0M7DT0H0M0S",
+      "AccountingEditableHistoryInterval": "P0M7DT0H0M0S",
+      "OperationalEditableHistoryInterval": "P0M5DT0H0M0S",
       "WebsiteUrl": "https://www.sample-portfolio-hotel-10004.com/",
       "Email": "email@sample-portfolio-hotel.com",
       "Phone": "(555) 555-1234",
@@ -99,7 +100,9 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `AccountingEnvironmentCode` | string | optional | Unique identifier of the enterprise's accounting environment. |
 | `TaxEnvironmentCode` | string | optional | Unique identifier of the enterprise's tax environment. |
 | `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default [Language](languages.md#language). |
-| `EditableHistoryInterval` | string | required | Editable history interval in ISO 8601 duration format. |
+| ~~`EditableHistoryInterval`~~ | ~~string~~ | ~~required~~ | ~~Editable history interval in ISO 8601 duration format.~~ **Deprecated!** |
+| `AccountingEditableHistoryInterval` | string | required | Editable history interval for accounting data in ISO 8601 duration format. |
+| `OperationalEditableHistoryInterval` | string | required | Editable history interval for operational data in ISO 8601 duration format. |
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |

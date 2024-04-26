@@ -28,6 +28,13 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "StartUtc": "2022-10-15T00:00:00Z",
         "EndUtc": "2022-10-20T00:00:00Z"
     },
+    "ExternalIdentifiers": [
+        "Rate-001",
+        "Rate-002"
+    ],
+    "ActivityStates": [
+        "Active"
+    ],
     "Extent": {
         "Rates": true,
         "RateGroups": true,
@@ -46,6 +53,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `RateIds` | array of [Rates](#rate) | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Rates](rates.md#rates) were updated. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](#rate) from external systems. |
+| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
 | `Extent` | [Rate extent](#rate-extent) | required | Extent of data to be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
@@ -54,7 +63,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | bool | optional | Whether the response should contain rates. |
-| `RateGroups` | bool | optional | Whether the response should contain rate groups. |
+| ~~`RateGroups`~~ | ~~bool~~ | ~~optional~~ | ~~Whether the response should contain rate groups.~~ **Deprecated!** |
 | `AvailabilityBlockAssignments` | bool | optional | Whether the response should contain availability block assignments. |
 
 ### Response
@@ -100,7 +109,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | array of [Rate](#rate) | required | Rates of the default service. |
-| `RateGroups` | array of [Rate group](#rate-group) | required | Rate groups of the default service. |
+| ~~`RateGroups`~~ | ~~array of [Rate group](#rate-group)~~ | ~~required~~ | ~~Rate groups of the default service.~~ **Deprecated!** |
 | `AvailabilityBlockAssignments` | array of [Availability block assignment](#availability-block-assignment) | optional | Shows which rates relate to which availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
@@ -126,7 +135,8 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
           "Type": "Public",
           "AccountingCategoryId": "3620c660-a4ec-4e0f-a0bc-b06f008eb8bf",
           "Names": { "EN": "My rate" },
-          "PricingType": "DependentRatePricing",
+          "ExternalIdentifier": "D001",
+          "PricingType": "DependentRatePricing",          
           "Pricing": {
               "DependentRatePricing": {
                   "BaseRateId": "1a1ddd3b-e106-4a70-aef1-54a75b483943",
@@ -161,6 +171,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the rate. |
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
+| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the rate from external system. |
 | `PricingType` | [Pricing type](rates.md#pricing-type) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `Pricing` | [Rate pricing](rates.md#rate-pricing-parameters) | required | Contains additional data about pricing of the rate. |
 
@@ -252,7 +263,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 ## Get rate pricing
 
-Returns prices for a given rate for a specified time interval. Prices will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ is 100 time units or 2 years, whichever is the shorter amount of time.
+Returns prices for a given rate for a specified time interval. Prices will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
 
 The price in the response is dependent on the enterprise's [pricing](configuration.md#pricing) setting. If the enterprise is set to a Gross pricing environment, then the price returned is the gross price (inclusive of tax). If the enterprise is set to a Net pricing environment, the price returned is the net price (excluding tax). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
@@ -277,8 +288,8 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string | required | Unique identifier of the [Rate](#rate) whose prices should be returned. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 
 ### Response
 
@@ -469,8 +480,8 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | optional | Unique identifier of the [Resource category](resources.md#resource-category) whose prices to update. If not specified, base price is updated. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval is 100 time units or 2 years, whichever is the shorter amount of time. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 
 ### Response

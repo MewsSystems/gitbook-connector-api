@@ -6,7 +6,7 @@ To make a quick start and get a feel for the API, see [Getting started](getting-
 All of the API operations are detailed in [API Operations](operations/README.md). In addition, we support [Webhooks](webhooks/README.md) and [WebSockets](websockets/README.md).
 Not sure which to use? See [Ways to communicate](guidelines/communicate.md). For specific guidance on using the API for different scenarios, have a look at [Use cases](use-cases/README.md) which will help you through your implementation.
 
-If you encounter any issues using the API, or you have a question or special request, please get in touch via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+If you encounter any issues using the API, or you have a question or special request, please get in touch via [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
 
 > ### Changes to this API
 > * For the history of changes to the API, see the [Changelog](changelog/README.md)
