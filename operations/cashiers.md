@@ -39,7 +39,6 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 
 
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -53,7 +52,28 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Ids` | array of string | optional, max 1000 items | Unique identifiers of the requested [Cashier](https://mews-systems.gitbook.io/connector-api/operations/#cashier). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
-| `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
+| `ActivityStates` | array of [ActivityStates](#X-Ref-Name-ActivityStates) | optional | Whether to return only active, only deleted or both records. |
+
+
+#### ActivityStates
+
+
+
+
+
+- `Deleted`
+- `Active`
+
+
+#### ActivityStates
+
+
+
+
+
+- `Deleted`
+- `Active`
+
 
 ### Response
 
@@ -78,14 +98,13 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 
 
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Cashiers` | array of [Cashier](#Cashier) | optional | Cashiers in the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-#### Cashier {#Cashier}
 
+#### Cashier
 
 
 
