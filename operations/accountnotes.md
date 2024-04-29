@@ -1,11 +1,11 @@
 # Account notes
 
-## Get all account notes {#accountNotes_getAll}
+## Get all account notes
 
 Returns all account notes of an account, optionally filtered by activity state, account identifiers, specific account note identifiers or other filter parameters.
 Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/) and supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
-### Request {#accountNotes_getAll_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/accountNotes/getAll`
 
@@ -62,7 +62,7 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
 | `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
 
-### Response {#accountNotes_getAll_response}
+### Response
 
 ```javascript
 {
@@ -160,11 +160,12 @@ The profile data of the user who updated the loyalty membership.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ProfileId` | string | required |  |
-## Add account notes {#accountNotes_add}
+
+## Add account notes
 
 Adds account notes to an account of the enterprise chain. Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
-### Request {#accountNotes_add_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/accountNotes/add`
 
@@ -216,7 +217,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | `Content` | string | required |  |
 | `Classifications` | array of string | required, max 1 items |  |
 
-### Response {#accountNotes_add_response}
+### Response
 
 ```javascript
 {
@@ -254,11 +255,12 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | Added account notes. |
-## Update account notes {#accountNotes_update}
+
+## Update account notes
 
 Updates information about the specified account notes.
 
-### Request {#accountNotes_update_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/accountNotes/update`
 
@@ -357,7 +359,7 @@ Updates information about the specified account notes.
 | :-- | :-- | :-- | :-- |
 | `Value` | boolean | required |  |
 
-### Response {#accountNotes_update_response}
+### Response
 
 ```javascript
 {
@@ -395,11 +397,12 @@ Updates information about the specified account notes.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | Updated account notes. |
-## Delete account notes {#accountNotes_delete}
+
+## Delete account notes
 
 Deletes specified account notes.
 
-### Request {#accountNotes_delete_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/accountNotes/delete`
 
@@ -433,7 +436,7 @@ Deletes specified account notes.
 | `ChainId` | string | optional |  |
 | `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of the account notes to be deleted. |
 
-### Response {#accountNotes_delete_response}
+### Response
 
 ```javascript
 {}

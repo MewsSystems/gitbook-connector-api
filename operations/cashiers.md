@@ -1,11 +1,11 @@
 # Cashiers
 
-## Get all cashiers {#cashiers_getAll}
+## Get all cashiers
 
 Returns all cashiers in the enterprise.
 Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/) and supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
-### Request {#cashiers_getAll_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/cashiers/getAll`
 
@@ -55,7 +55,7 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
 | `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
 
-### Response {#cashiers_getAll_response}
+### Response
 
 ```javascript
 {

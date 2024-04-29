@@ -1,10 +1,10 @@
 # Voucher codes
 
-## Get all voucher codes {#voucherCodes_getAll}
+## Get all voucher codes
 
 Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/connector-api/operations/vouchers/#voucher) or other filter parameters. Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/) and supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
-### Request {#voucherCodes_getAll_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/voucherCodes/getAll`
 
@@ -55,7 +55,7 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 | `VoucherIds` | array of string | required, max 1000 items | Unique identifiers of vouchers. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
 
-### Response {#voucherCodes_getAll_response}
+### Response
 
 ```javascript
 {
@@ -94,11 +94,12 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 | :-- | :-- | :-- | :-- |
 | `VoucherCodes` | array of [Voucher code](#VoucherCode) | required, max 1000 items | Information about voucher codes used by customers. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-## Add voucher codes {#voucherCodes_add}
+
+## Add voucher codes
 
 Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/connector-api/operations/vouchers/#voucher). Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
-### Request {#voucherCodes_add_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/voucherCodes/add`
 
@@ -156,7 +157,7 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 | `ValidityStartUtc` | string | optional |  |
 | `ValidityEndUtc` | string | optional |  |
 
-### Response {#voucherCodes_add_response}
+### Response
 
 ```javascript
 {
@@ -212,11 +213,12 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 | `CreatedUtc` | string | optional | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | optional | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `ActivityState` | string | optional | Whether voucher code is active or deleted. |
-## Delete voucher codes {#voucherCodes_delete}
+
+## Delete voucher codes
 
 Delete specified voucher codes. Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
-### Request {#voucherCodes_delete_request}
+### Request
 
 `[PlatformAddress]/api/connector/v1/voucherCodes/delete`
 
@@ -251,7 +253,7 @@ Delete specified voucher codes. Note this operation supports [Portfolio Access T
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
 | `VoucherCodeIds` | array of string | required, max 1000 items | Unique identifiers of the voucher codes to be deleted. |
 
-### Response {#voucherCodes_delete_response}
+### Response
 
 ```javascript
 {}
