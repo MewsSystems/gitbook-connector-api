@@ -36,9 +36,6 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -54,21 +51,13 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
 | `ActivityStates` | array of [ActivityStates](#X-Ref-Name-ActivityStates) | optional | Whether to return only active, only deleted or both records. |
 
-
 #### ActivityStates
-
-
-
 
 
 - `Deleted`
 - `Active`
 
-
 #### ActivityStates
-
-
-
 
 
 - `Deleted`
@@ -95,18 +84,12 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Cashiers` | array of [Cashier](#Cashier) | optional | Cashiers in the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-
 #### Cashier
-
-
 
 
 | Property | Type | Contract | Description |

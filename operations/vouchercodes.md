@@ -36,9 +36,6 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -86,9 +83,6 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `VoucherCodes` | array of [Voucher code](#VoucherCode) | required, max 1000 items | Information about voucher codes used by customers. |
@@ -128,9 +122,6 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -143,10 +134,7 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
 | `VoucherCodeParameters` | array of [VoucherCodeAddParameters](#VoucherCodeAddParameters) | required, max 1000 items | Voucher codes to be added. |
 
-
 #### VoucherCodeAddParameters
-
-
 
 
 | Property | Type | Contract | Description |
@@ -188,18 +176,12 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `VoucherCodes` | array of [Voucher code](#VoucherCode) | required, max 1000 items | Information about voucher codes used by customers. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-
 #### Voucher code
-
-
 
 
 | Property | Type | Contract | Description |
@@ -234,9 +216,6 @@ Delete specified voucher codes. Note this operation supports [Portfolio Access T
   ]
 }
 ```
-
-
-
 
 
 

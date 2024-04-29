@@ -42,9 +42,6 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -61,11 +58,7 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
 | `ActivityStates` | array of [ActivityStates](#X-Ref-Name-ActivityStates) | optional | Whether to return only active, only deleted or both records. |
 
-
 #### ActivityStates
-
-
-
 
 
 - `Deleted`
@@ -124,18 +117,12 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | The set of requested account notes. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-
 #### Account note
-
-
 
 
 | Property | Type | Contract | Description |
@@ -149,21 +136,13 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 | `CreatorProfile` | object | required | The profile data of the user who updated the loyalty membership. |
 | `UpdaterProfile` | object | required | The profile data of the user who updated the loyalty membership. |
 
-
 #### AccountType
-
-
-
 
 
 - `Company`
 - `Customer`
 
-
 #### AccountNoteClassification
-
-
-
 
 
 - `General`
@@ -179,21 +158,15 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 - `Complaints`
 - `Other`
 
-
 #### ProfileData
-
 The profile data of the user who updated the loyalty membership.
-
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Discriminator` | undefined | optional |  |
 | `EnterpriseProfile` | object | required |  |
 
-
 #### EnterpriseProfileData
-
-
 
 
 | Property | Type | Contract | Description |
@@ -229,9 +202,6 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -244,10 +214,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
 | `AccountNotes` | array of [AccountNoteAddParameters](#AccountNoteAddParameters) | required, max 1000 items | Account notes to be added. |
 
-
 #### AccountNoteAddParameters
-
-
 
 
 | Property | Type | Contract | Description |
@@ -285,9 +252,6 @@ Adds account notes to an account of the enterprise chain. Note this operation su
   ]
 }
 ```
-
-
-
 
 
 
@@ -330,9 +294,6 @@ Updates information about the specified account notes.
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -345,10 +306,7 @@ Updates information about the specified account notes.
 | `ChainId` | string | optional |  |
 | `AccountNoteUpdates` | array of [AccountNoteUpdateParameters](#AccountNoteUpdateParameters) | required, max 1000 items | Account notes to be updated. |
 
-
 #### AccountNoteUpdateParameters
-
-
 
 
 | Property | Type | Contract | Description |
@@ -357,10 +315,7 @@ Updates information about the specified account notes.
 | `Content` | object | required |  |
 | `Classifications` | object | required |  |
 
-
 #### AccountNoteUpdateClassifications
-
-
 
 
 | Property | Type | Contract | Description |
@@ -410,9 +365,6 @@ Updates information about the specified account notes.
 
 
 
-
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | Updated account notes. |
@@ -437,9 +389,6 @@ Deletes specified account notes.
   ]
 }
 ```
-
-
-
 
 
 
