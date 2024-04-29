@@ -358,16 +358,6 @@ Updates information about the specified account notes.
 | `Classifications` | object | required |  |
 
 
-#### StringUpdateValue
-
-
-
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | string | optional |  |
-
-
 #### AccountNoteUpdateClassifications
 
 
@@ -387,16 +377,6 @@ Updates information about the specified account notes.
 | `Accounting` | object | required |  |
 | `Complaints` | object | required |  |
 | `Other` | object | required |  |
-
-
-#### BooleanUpdateValue
-
-
-
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | boolean | required |  |
 
 
 ### Response
