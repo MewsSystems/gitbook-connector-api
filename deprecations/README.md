@@ -39,6 +39,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `Method`, `RedirectUrl`<br>in [Add alternative payment](../operations/payments.md#add-alternative-payment) | Use [Alternative payment method data](../operations/payments.md#alternative-payment-method-data) instead | 29 Apr 2024 | - |
 | `EndUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledEndUtc` and `ActualEndUtc` | 19 Apr 2024 | - |
 | Extent `RateGroups`<br>in [Get all rates](../operations/rates.md#get-all-rates) | Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead | 2 Feb 2024 | 10 Jan 2026 |
 | `Name` in [Product](../operations/products.md#product) | Replaced by `Names` | 12 Dec 2023 | |
