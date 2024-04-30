@@ -34,8 +34,6 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -50,7 +48,6 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 | `VoucherCodeIds` | array of string | optional, max 1000 items | Unique identifiers of the voucher codes. |
 | `VoucherIds` | array of string | required, max 1000 items | Unique identifiers of vouchers. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
-
 
 ### Response
 
@@ -81,13 +78,10 @@ Returns all voucher codes filtered by [Voucher](https://mews-systems.gitbook.io/
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `VoucherCodes` | array of [Voucher code](#VoucherCode) | required, max 1000 items | Information about voucher codes used by customers. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-
 
 ## Add voucher codes
 
@@ -120,8 +114,6 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -136,14 +128,12 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 
 #### VoucherCodeAddParameters
 
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `VoucherId` | string | required |  |
 | `Value` | string | required |  |
 | `ValidityStartUtc` | string | optional |  |
 | `ValidityEndUtc` | string | optional |  |
-
 
 ### Response
 
@@ -174,15 +164,12 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `VoucherCodes` | array of [Voucher code](#VoucherCode) | required, max 1000 items | Information about voucher codes used by customers. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Voucher code
-
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -194,7 +181,6 @@ Adds voucher codes to the specified [Vouchers](https://mews-systems.gitbook.io/c
 | `CreatedUtc` | string | optional | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | optional | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `ActivityState` | string | optional | Whether voucher code is active or deleted. |
-
 
 ## Delete voucher codes
 
@@ -217,8 +203,6 @@ Delete specified voucher codes. Note this operation supports [Portfolio Access T
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -230,7 +214,6 @@ Delete specified voucher codes. Note this operation supports [Portfolio Access T
 | `MaskedClientToken` | string | optional |  |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
 | `VoucherCodeIds` | array of string | required, max 1000 items | Unique identifiers of the voucher codes to be deleted. |
-
 
 ### Response
 

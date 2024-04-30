@@ -40,8 +40,6 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -60,10 +58,8 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 #### ActivityStates
 
-
 - `Deleted`
 - `Active`
-
 
 ### Response
 
@@ -115,15 +111,12 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | The set of requested account notes. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Account note
-
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -138,12 +131,10 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 #### AccountType
 
-
 - `Company`
 - `Customer`
 
 #### AccountNoteClassification
-
 
 - `General`
 - `FoodAndBeverage`
@@ -168,11 +159,9 @@ The profile data of the user who updated the loyalty membership.
 
 #### EnterpriseProfileData
 
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ProfileId` | string | required |  |
-
 
 ## Add account notes
 
@@ -200,8 +189,6 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -216,13 +203,11 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 
 #### AccountNoteAddParameters
 
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required |  |
 | `Content` | string | required |  |
 | `Classifications` | array of [AccountNoteClassification](#X-Ref-Name-AccountNoteClassification) | required, max 1 items |  |
-
 
 ### Response
 
@@ -253,12 +238,9 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | Added account notes. |
-
 
 ## Update account notes
 
@@ -292,8 +274,6 @@ Updates information about the specified account notes.
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -308,7 +288,6 @@ Updates information about the specified account notes.
 
 #### AccountNoteUpdateParameters
 
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNoteId` | string | required |  |
@@ -316,7 +295,6 @@ Updates information about the specified account notes.
 | `Classifications` | object | required |  |
 
 #### AccountNoteUpdateClassifications
-
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -332,7 +310,6 @@ Updates information about the specified account notes.
 | `Accounting` | object | required |  |
 | `Complaints` | object | required |  |
 | `Other` | object | required |  |
-
 
 ### Response
 
@@ -363,12 +340,9 @@ Updates information about the specified account notes.
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNotes` | array of [Account note](#AccountNote) | optional | Updated account notes. |
-
 
 ## Delete account notes
 
@@ -390,8 +364,6 @@ Deletes specified account notes.
 }
 ```
 
-
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
@@ -403,7 +375,6 @@ Deletes specified account notes.
 | `MaskedClientToken` | string | optional |  |
 | `ChainId` | string | optional |  |
 | `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of the account notes to be deleted. |
-
 
 ### Response
 
