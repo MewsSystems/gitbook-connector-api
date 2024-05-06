@@ -154,8 +154,16 @@ The profile data of the user who updated the loyalty membership.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | undefined | optional |  |
+| `Discriminator` | [ProfileDataDiscriminator](#X-Ref-Name-ProfileDataDiscriminator) | required |  |
 | `EnterpriseProfile` | object | required |  |
+
+#### ProfileDataDiscriminator
+
+- `Personal`
+- `Enterprise`
+- `Platform`
+- `Static`
+- `Integration`
 
 #### EnterpriseProfileData
 
