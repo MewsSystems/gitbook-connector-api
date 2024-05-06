@@ -2,7 +2,7 @@
 
 ## Get all bills
 
-Returns all bills, optionally filtered by customers, identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all bills, optionally filtered by customers, identifiers and other filters. Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/).
 
 ### Request
 
@@ -10,315 +10,768 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseIds": [
-        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-    ],
-    "BillIds": [
-        "e654f217-d1b5-46be-a820-e93ba568dfac"
-    ],
-    "CustomerIds": [
-        "fe795f96-0b64-445b-89ed-c032563f2bac"
-    ],
-    "State": "Closed",
-    "ClosedUtc": {
-        "StartUtc": "2020-02-05T00:00:00Z",
-        "EndUtc": "2020-02-10T00:00:00Z"
-    },
-    "CreatedUtc": {
-        "StartUtc": "2020-02-05T00:00:00Z",
-        "EndUtc": "2020-02-10T00:00:00Z"
-    },
-    "UpdatedUtc": {
-        "StartUtc": "2020-02-05T00:00:00Z",
-        "EndUtc": "2020-02-10T00:00:00Z"
-    },
-    "DueUtc": null,
-    "PaidUtc": null,
-    "Extent": {
-        "Items": false
-    },
-    "Limitation":{
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 100
-    }
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "BillIds": [
+    "e654f217-d1b5-46be-a820-e93ba568dfac"
+  ],
+  "CustomerIds": [
+    "fe795f96-0b64-445b-89ed-c032563f2bac"
+  ],
+  "State": "Closed",
+  "ClosedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "CreatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "UpdatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "DueUtc": null,
+  "PaidUtc": null,
+  "Extent": {
+    "Items": false
+  },
+  "Limitation": {
+    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+    "Count": 100
+  }
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](#bill). Required if no other filter is provided. |
-| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
-| `State` | string | optional | [Bill state](#bill-state) the bills should be in. If not specified `Open` and `Closed` bills are returned. |
-| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was closed. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was created. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was updated. |
-| `DueUtc` | [Time interval](_objects.md#time-interval) | optional , max length 3 months| Interval in which the [Bill](#bill) is due to be paid. |
-| `PaidUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Bill](#bill) was paid. |
-| ~~`Extent`~~ | ~~[Bill extent](#bill-extent)~~ | ~~required~~ | ~~Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned.~~ **Deprecated!** |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of bill data returned. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Extent` | object | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. **Deprecated!** |
+| ~~`TimeFilter`~~ | string | optional |  |
+| ~~`StartUtc`~~ | string | optional |  |
+| ~~`EndUtc`~~ | string | optional |  |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `PaidUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `DueUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](https://mews-systems.gitbook.io/connector-api/operations/#bill). Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer). |
+| `State` | [BillState](#X-Ref-Name-BillState) | required | [Bill state](https://mews-systems.gitbook.io/connector-api/operations/#bill-state) the bills should be in. If not specified Open and Closed bills are returned. |
+| `CorrectionState` | array of [BillCorrectionStateEnum](#X-Ref-Name-BillCorrectionStateEnum) | optional |  |
 
-#### Bill state
-
-* `Open`
-* `Closed`
-
-#### Bill extent
+#### BillExtent
+Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. **Deprecated!**
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| ~~`Items`~~ | ~~bool~~ | ~~required~~ | ~~Whether the response should contain payments and revenue items.~~ **Deprecated!** |
+| `Items` | boolean | required |  |
+
+#### BillState
+
+- `Open`
+- `Closed`
+
+#### BillCorrectionStateEnum
+Bill
+
+CorrectiveBill
+
+- `Bill`
+- `CorrectiveBill`
 
 ### Response
 
 ```javascript
 {
-    "Bills": [
-        {
-            "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CounterId": null,
-            "AssociatedAccountIds": ["26afba60-06c3-455b-92db-0e3983be0b1d"],
-            "State": "Closed",
-            "Type": "Invoice",
-            "Number": "29",
-            "VariableSymbol": null,
-            "CreatedUtc": "2017-01-31T10:48:06Z",
-            "IssuedUtc": "2017-01-31T10:58:06Z",
-            "UpdatedUtc": null,
-            "TaxedUtc": null,
-            "PaidUtc": null,
-            "DueUtc": null,
-            "PurchaseOrderNumber": "XX-123",
-            "Notes": "",
-            "Options": {
-                "DisplayCustomer": true,
-                "DisplayTaxation": true,
-                "TrackReceivable": true,
-                "DisplayCid": false
-            },
-            "OrderItems": [],
-            "PaymentItems": [],
-            "OwnerData": {
-                "Discriminator": "BillCustomerData",
-                "Value": {
-                    "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                    "Address": {
-                        "Line1": "Joe Doe street",
-                        "Line2": "Very long ave",
-                        "City": "Townston",
-                        "PostalCode": "154 00",
-                        "SubdivisionCode": "AU-NSW",
-                        "CountryCode": "AU"
-                    },
-                    "LegalIdentifiers": {
-                        "TaxIdentifier": "CZ8810310963",
-                        "CityOfRegistration": "Prague"
-                    },
-                    "BillingCode": "Billing code value",
-                    "LastName": "Doe",
-                    "FirstName": "John",
-                    "SecondLastName": "Vincent",
-                    "TitlePrefix": "Mistress",
-                    "FiscalIdentifier": "Fiscal identifier",
-                    "AdditionalTaxIdentifier": "Additional tax identifier"
-                }
-            },
-            "AssociatedAccountData": [
-                {
-                    "Discriminator": "BillCompanyData",
-                    "BillCompanyData": {
-                        "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
-                        "Address": {
-                            "Line1": "Joe Doe street",
-                            "Line2": "Very long ave",
-                            "City": "Townston",
-                            "PostalCode": "154 00",
-                            "SubdivisionCode": "AU-NSW",
-                            "CountryCode": "AU"
-                        },
-                        "LegalIdentifiers": {
-                            "TaxIdentifier": "CZ8810310963",
-                            "CityOfRegistration": "Prague"
-                        },
-                        "BillingCode": "billing code value",
-                        "Name": "Company Name Inc.",
-                        "FiscalIdentifier": "Fiscal identifier",
-                        "AdditionalTaxIdentifier": "Additional tax identifier"
-                    },
-                    "BillCustomerData": null
-                }
-            ],
-            "EnterpriseData": {
-                "AdditionalTaxIdentifier": "XY00112233445",
-                "CompanyName": "The Sample Hotel Group AS",
-                "BankAccount": "CZ3808000000000012345678",
-                "BankName": "CESKA SPORITELNA A.S.",
-                "Iban": "CZ6508000000192000145399",
-                "Bic": "GIBACZPX"
-            }
-        }
-    ],
-    "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Bills` | array of [Bill](#bill) | required | The filtered bills. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older bills. |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |
 
 #### Bill
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the bill. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. |
-| ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Customer](customers.md#customer) the bill is issued to.~~ **Deprecated!** |
-| ~~`CompanyId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the [Company](companies.md#company) specified in `CompanyDetails` or the [Company](companies.md#company) the bill is issued to.~~ **Deprecated!** |
-| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the [Customers](customers.md#customer) or [Companies](companies.md#company) that are associated to the bill. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). |
+| `AccountId` | string | required | Unique identifier of the account ([Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) or [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company)) the bill is issued to. |
+| ~~`CustomerId`~~ | string | optional | Unique identifier of the [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) the bill is issued to. **Deprecated!** |
+| ~~`CompanyId`~~ | string | optional | Unique identifier of the [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company) specified in CompanyDetails or the [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company) the bill is issued to. **Deprecated!** |
+| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the [Customers](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) or [Companies](https://mews-systems.gitbook.io/connector-api/operations/companies/#company) that are associated to the bill. |
 | `CounterId` | string | optional | Unique identifier of the bill Counter. |
-| `State` | string [Bill state](#bill-state) | required | State of the bill. |
-| `Type` | string [Bill type](#bill-type) | required | Type of the bill. |
-| `Number` | string | required | Number of the bill. |
+| `State` | string | optional | State of the bill. |
+| `Type` | string | optional | Type of the bill. |
+| `Number` | string | optional | Number of the bill. |
 | `VariableSymbol` | string | optional | Variable symbol of the bill. |
-| `CreatedUtc` | string | required | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
+| `CreatedUtc` | string | optional | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
 | `IssuedUtc` | string | optional | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | optional | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
 | `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | optional | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | string | optional | Additional notes. |
-| `Options` | [Bill options](#bill-options) | required | Options of the bill. |
-| `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The order items (consumed items such as nights or products) on the bill. |
-| `PaymentItems` | array of [Payment item](accountingitems.md#payment-item) | required | The payment items (such as cash, credit card payments or invoices) on the bill. |
-| `OwnerData` | [Bill owner data](#bill-owner-data) | optional | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
-| ~~`CompanyDetails`~~ | ~~[Bill company data](#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ **Deprecated!** |
-| `AssociatedAccountData` | array of [Associated account data](#bill-associated-account-data) | optional | Additional information about the associated account of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
-| `EnterpriseData` | [Bill enterprise data](#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
+| `Options` | object | required | Options of the bill. |
+| ~~`Revenue`~~ | array of [AccountingItem](#AccountingItem) | optional |  |
+| ~~`Payments`~~ | array of [AccountingItem](#AccountingItem) | optional |  |
+| ~~`OrderItems`~~ | array of [Order item](#OrderItemOld) | optional | The order items (consumed items such as nights or products) on the bill. |
+| ~~`PaymentItems`~~ | array of [Payment item](#PaymentItemOld) | optional | The payment items (such as cash, credit card payments or invoices) on the bill. |
+| ~~`AssigneeData`~~ | object | required |  |
+| `OwnerData` | object | required | Additional information about owner of the bill. Can be a [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) or [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company). Persisted at the time of closing of the bill. |
+| `CompanyDetails` | object | required | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. **Deprecated!** |
+| `AssociatedAccountData` | array of [BillAccountData](#BillAccountData) | optional | Additional information about the associated account of the bill. Can be a [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) or [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company). Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
+| `EnterpriseData` | object | required | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
+| `CorrectionState` | [BillCorrectionStateEnum](#X-Ref-Name-BillCorrectionStateEnum) | required | 
 
-#### Bill type
+Bill
 
-A bill is either a `Receipt` which means that it has been fully paid, or `Invoice` that is supposed to be paid in the future.
+CorrectiveBill |
+| `CorrectionType` | [CorrectionType](#X-Ref-Name-CorrectionType) | required |  |
+| `CorrectedBillId` | string | optional |  |
 
-* `Receipt` - the bill has already been fully paid.
-* `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
-
-#### Bill options
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `DisplayCustomer` | boolean | required | Display customer information on a bill. |
-| `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
-| `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `Invoice`. |
-| `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `Invoice`. |
-
-#### Bill owner data
+#### BillOptions
+Options of the bill.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Bill owner data discriminator](#bill-owner-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Bill owner data discriminator](#bill-owner-data-discriminator). Can be either of type [Bill customer data](#bill-customer-data) or [Bill company data](#bill-company-data). |
+| `DisplayCustomer` | boolean | required |  |
+| `DisplayTaxation` | boolean | required |  |
+| `TrackReceivable` | boolean | required |  |
+| `DisplayCid` | boolean | required |  |
+| ~~`Rebated`~~ | boolean | required |  |
 
-#### Bill owner data discriminator
-
-* `BillCustomerData` - Owner data specific to a [Customer](customers.md#customer).
-* `BillCompanyData` - Owner data specific to a [Company](companies.md#company).
-
-#### Bill associated account data
+#### AccountingItem
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Bill associated account data discriminator](#bill-associated-account-data-discriminator) | required | Determines type of value. |
-| `BillCustomerData` | object | optional | Associated account bill data of type [Bill customer data](#bill-customer-data). |
-| `BillCompanyData` | object | optional | Associated account bill data of type [Bill company data](#bill-company-data). |
+| `Id` | string | required |  |
+| `AccountId` | string | required |  |
+| ~~`CustomerId`~~ | string | optional |  |
+| `OrderId` | string | optional |  |
+| `ServiceId` | string | optional |  |
+| `ProductId` | string | optional |  |
+| `BillId` | string | optional |  |
+| `InvoiceId` | string | optional |  |
+| `AccountingCategoryId` | string | optional |  |
+| `CreditCardId` | string | optional |  |
+| `Type` | string | optional |  |
+| `SubType` | string | optional |  |
+| `Name` | string | optional |  |
+| `Notes` | string | optional |  |
+| `ConsumptionUtc` | string | optional |  |
+| `ClosedUtc` | string | optional |  |
+| `State` | string | optional |  |
+| `SubState` | string | optional |  |
+| `Amount` | object | required | Price representing price of the product. |
 
-#### Bill associated account data discriminator
-
-* `BillCustomerData` - Associated account bill data of type [Bill customer data](#bill-customer-data).
-* `BillCompanyData` - Associated account bill data of type [Bill company data](#bill-company-data).
-
-#### Bill customer data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string  | required | ID of the [Customer](customers.md#customer) to whom the bill was assigned. |
-| `Address` | [Bill address](#bill-address) | optional | Address of the customer. |
-| `LegalIdentifiers` | [Dictionary](_objects.md#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the customer. |
-| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the customer. |
-| `LastName` | string  | required | Last name of the customer. |
-| `FirstName` | string  | optional | First name of the customer. |
-| `SecondLastName` | string  | optional | Second last name of the customer. |
-| `TitlePrefix` | [Title](customers.md#Title)  | optional | Title prefix of the customer. |
-
-#### Bill company data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string  | required | ID of the [Company](companies.md#company). |
-| `Address` | [Bill address](#bill-address) | optional | Address of the company. |
-| `LegalIdentifiers` | [Dictionary](_objects.md#dictionary) | optional | The set of [LegalIdentifiers](#legal-identifiers) for the company. |
-| `BillingCode` | string  | optional | A unique code for Mews to list on invoices it sends to the company. |
-| `Name` | string  | required | Name of the company. |
-| `FiscalIdentifier` | string  | optional | Fiscal identifier of the company. |
-| `AdditionalTaxIdentifier` | string  | optional | Additional tax identifier of the company. |
-
-#### Bill enterprise data
+#### ExtendedAmount
+Price representing price of the product.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AdditionalTaxIdentifier` | string  | optional | Enterprise additional tax identifier. |
-| `CompanyName` | string  | optional | Enterprise company name. |
-| `BankAccount` | string  | optional | Enterprise bank account. |
-| `BankName` | string  | optional | Enterprise bank name. |
-| `Iban` | string  | optional | Enterprise IBAN (International Bank Account Number). |
-| `Bic` | string  | optional | Enterprise BIC (Bank Identifier Code). |
+| `Currency` | string | optional |  |
+| `NetValue` | number | required |  |
+| `GrossValue` | number | required |  |
+| `TaxValues` | array of [TaxValue](#TaxValue) | optional |  |
+| `Breakdown` | object | required |  |
+| `Value` | number | optional |  |
+| `Net` | number | optional |  |
+| `Tax` | number | optional |  |
+| `TaxRate` | number | optional |  |
 
-#### Bill address
+#### TaxValue
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Line1` | string  | optional | First line of the address. |
-| `Line2` | string  | optional | Second line of the address. |
-| `City` | string  | optional | City of the address. |
-| `Postal Code` | string  | optional | Postal code of the address. |
-| `SubdivisionCode` | string  | optional | ISO 3166-2 code of the administrative division. |
-| `CountryCode` | string  | optional | ISO 3166-1 code of the country. |
+| `Code` | string | optional |  |
+| `Value` | number | required |  |
 
-#### Legal Identifiers
+#### TaxBreakdown
 
-`LegalIdentifiers` is a [Dictionary](_objects.md#dictionary), where the key is the type of legal identifier and the value is the corresponding value of that identifier. Keys are as follows:
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Items` | array of [TaxBreakdownItem](#TaxBreakdownItem) | optional |  |
 
-* `TaxIdentifier`
-* `Siret`
-* `Siren`
-* `NafCode`
-* `RcsCode`
-* `LegalStatus`
-* `RegisteredCapital`
-* `CityOfRegistration`
-* `TradesDirectoryRegistrationNumber`
-* `ItDestinationCode`
-* `ItFiscalCode`
-* `ItLotteryCode`
-* `HungarianVatCode`
-* `HungarianCompanyName`
-* `HungarianTaxPayerIdentifier`
-* ...
+#### TaxBreakdownItem
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `TaxRateCode` | string | optional |  |
+| `NetValue` | number | required |  |
+| `TaxValue` | number | required |  |
+
+#### Order item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the item. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer)) the item belongs to. |
+| `OrderId` | string | required | Unique identifier of the order (or [Reservation](https://mews-systems.gitbook.io/connector-api/operations/reservations/#reservation-ver-2023-06-06) which is a special type of order) the item belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](https://mews-systems.gitbook.io/connector-api/operations/bills/#bill) the item is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](https://mews-systems.gitbook.io/connector-api/operations/accountingcategories/#accounting-category) the item belongs to. |
+| `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
+| `UnitAmount` | object | required | Value of the preauthorization. |
+| `Amount` | object | required | Price representing price of the product. |
+| `OriginalAmount` | object | required | Price representing price of the product. |
+| `RevenueType` | string | optional | Revenue type of the item. |
+| `CreatorProfileId` | string | required |  |
+| `UpdaterProfileId` | string | required |  |
+| `CreatedUtc` | string | optional |  |
+| `UpdatedUtc` | string | optional |  |
+| `ConsumedUtc` | string | optional | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `CanceledUtc` | string | optional |  |
+| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
+| `StartUtc` | string | optional |  |
+| `AccountingState` | string | optional | Accounting state of the item. |
+| `Data` | object | required | Additional data specific to particular order item. |
+
+#### Amount
+Value of the preauthorization.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | optional |  |
+| `NetValue` | number | required |  |
+| `GrossValue` | number | required |  |
+| `TaxValues` | array of [TaxValue](#TaxValue) | optional |  |
+| `Breakdown` | object | required |  |
+
+#### Data
+Additional data specific to particular order item.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discriminator` | [OrderItemTypeOld](#X-Ref-Name-OrderItemTypeOld) | required |  |
+| `value` | undefined | required |  |
+
+#### OrderItemTypeOld
+
+- `CancellationFee`
+- `Rebate`
+- `Deposit`
+- `ExchangeRateDifference`
+- `CustomItem`
+- `Surcharge`
+- `SurchargeDiscount`
+- `SpaceOrder`
+- `ProductOrder`
+- `Other`
+- `TaxCorrection`
+- `ResourceUpgradeFee`
+- `InvoiceFee`
+
+#### OrderItemTypeOld
+
+- `CancellationFee`
+- `Rebate`
+- `Deposit`
+- `ExchangeRateDifference`
+- `CustomItem`
+- `Surcharge`
+- `SurchargeDiscount`
+- `SpaceOrder`
+- `ProductOrder`
+- `Other`
+- `TaxCorrection`
+- `ResourceUpgradeFee`
+- `InvoiceFee`
+
+#### Payment item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the item. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer)) the item belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](https://mews-systems.gitbook.io/connector-api/operations/bills/#bill) the item is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](https://mews-systems.gitbook.io/connector-api/operations/accountingcategories/#accounting-category) the item belongs to. |
+| `Amount` | object | required | Price representing price of the product. |
+| `OriginalAmount` | object | required | Price representing price of the product. |
+| `AmountDefault` | object | required | Price representing price of the product. |
+| `Notes` | string | optional | Additional notes. |
+| `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). |
+| `ConsumedUtc` | string | optional | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
+| `AccountingState` | string | optional | Accounting state of the item. |
+| `State` | string | optional | Payment state of the item. |
+| `Identifier` | string | optional |  |
+| `Data` | object | required | Additional data specific to particular payment item. |
+
+#### Data
+Additional data specific to particular payment item.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discriminator` | [PaymentType](#X-Ref-Name-PaymentType) | required |  |
+| `value` | undefined | required |  |
+
+#### PaymentType
+
+- `CreditCard`
+- `Invoice`
+- `Cash`
+- `Unspecified`
+- `BadDebts`
+- `WireTransfer`
+- `ExchangeRateDifference`
+- `ExchangeRoundingDifference`
+- `BankCharges`
+- `Cheque`
+- `Other`
+
+#### PaymentType
+
+- `CreditCard`
+- `Invoice`
+- `Cash`
+- `Unspecified`
+- `BadDebts`
+- `WireTransfer`
+- `ExchangeRateDifference`
+- `ExchangeRoundingDifference`
+- `BankCharges`
+- `Cheque`
+- `Other`
+
+#### AssigneeData
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discriminator` | [BillAssigneeDataDiscriminator](#X-Ref-Name-BillAssigneeDataDiscriminator) | required |  |
+| `value` | undefined | required |  |
+
+#### BillAssigneeDataDiscriminator
+
+- `BillCustomerData`
+- `BillCompanyData`
+
+#### OwnerData
+Additional information about owner of the bill. Can be a [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) or [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company). Persisted at the time of closing of the bill.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discriminator` | [BillAssigneeDataDiscriminator](#X-Ref-Name-BillAssigneeDataDiscriminator) | required |  |
+| `value` | undefined | required |  |
+
+#### BillCompanyData
+Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. **Deprecated!**
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | optional |  |
+| `Address` | object | required |  |
+| `LegalIdentifiers` | object | optional |  |
+| `BillingCode` | string | optional |  |
+| `Name` | string | optional |  |
+| `FiscalIdentifier` | string | optional |  |
+| `AdditionalTaxIdentifier` | string | optional |  |
+
+#### Address
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Line1` | string | optional |  |
+| `Line2` | string | optional |  |
+| `City` | string | optional |  |
+| `PostalCode` | string | optional |  |
+| `SubdivisionCode` | string | optional |  |
+| `CountryCode` | string | optional |  |
+
+#### BillAccountData
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [BillAssigneeDataDiscriminator](#X-Ref-Name-BillAssigneeDataDiscriminator) | required |  |
+| `BillCustomerData` | object | required |  |
+| `BillCompanyData` | object | required | Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill. **Deprecated!** |
+
+#### BillCustomerData
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | optional |  |
+| `Address` | object | required |  |
+| `LegalIdentifiers` | object | optional |  |
+| `BillingCode` | string | optional |  |
+| `LastName` | string | optional |  |
+| `FirstName` | string | optional |  |
+| `SecondLastName` | string | optional |  |
+| `TitlePrefix` | string | optional |  |
+
+#### BillEnterpriseData
+Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AdditionalTaxIdentifier` | string | optional |  |
+| `CompanyName` | string | optional |  |
+| `BankAccount` | string | optional |  |
+| `BankName` | string | optional |  |
+| `Iban` | string | optional |  |
+| `Bic` | string | optional |  |
+
+#### CorrectionType
+
+- `Cancellation`
+- `Edit`
+- `CreditNote`
+- `Reinstatement`
+- `ReceivablePaymentsBalance`
+
+## ~~undefined~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getAllByIds`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "BillIds": [
+    "e654f217-d1b5-46be-a820-e93ba568dfac"
+  ],
+  "CustomerIds": [
+    "fe795f96-0b64-445b-89ed-c032563f2bac"
+  ],
+  "State": "Closed",
+  "ClosedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "CreatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "UpdatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "DueUtc": null,
+  "PaidUtc": null,
+  "Extent": {
+    "Items": false
+  },
+  "Limitation": {
+    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+    "Count": 100
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Client` | string | required | Name and version of the client application. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Extent` | object | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. **Deprecated!** |
+| ~~`TimeFilter`~~ | string | optional |  |
+| ~~`StartUtc`~~ | string | optional |  |
+| ~~`EndUtc`~~ | string | optional |  |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `PaidUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `DueUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](https://mews-systems.gitbook.io/connector-api/operations/#bill). Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer). |
+| `State` | [BillState](#X-Ref-Name-BillState) | required | [Bill state](https://mews-systems.gitbook.io/connector-api/operations/#bill-state) the bills should be in. If not specified Open and Closed bills are returned. |
+| `CorrectionState` | array of [BillCorrectionStateEnum](#X-Ref-Name-BillCorrectionStateEnum) | optional |  |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |
+
+## ~~undefined~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getAllByCustomers`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "BillIds": [
+    "e654f217-d1b5-46be-a820-e93ba568dfac"
+  ],
+  "CustomerIds": [
+    "fe795f96-0b64-445b-89ed-c032563f2bac"
+  ],
+  "State": "Closed",
+  "ClosedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "CreatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "UpdatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "DueUtc": null,
+  "PaidUtc": null,
+  "Extent": {
+    "Items": false
+  },
+  "Limitation": {
+    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+    "Count": 100
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Client` | string | required | Name and version of the client application. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Extent` | object | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. **Deprecated!** |
+| ~~`TimeFilter`~~ | string | optional |  |
+| ~~`StartUtc`~~ | string | optional |  |
+| ~~`EndUtc`~~ | string | optional |  |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `PaidUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `DueUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](https://mews-systems.gitbook.io/connector-api/operations/#bill). Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer). |
+| `State` | [BillState](#X-Ref-Name-BillState) | required | [Bill state](https://mews-systems.gitbook.io/connector-api/operations/#bill-state) the bills should be in. If not specified Open and Closed bills are returned. |
+| `CorrectionState` | array of [BillCorrectionStateEnum](#X-Ref-Name-BillCorrectionStateEnum) | optional |  |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |
+
+## ~~undefined~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getAllClosed`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "BillIds": [
+    "e654f217-d1b5-46be-a820-e93ba568dfac"
+  ],
+  "CustomerIds": [
+    "fe795f96-0b64-445b-89ed-c032563f2bac"
+  ],
+  "State": "Closed",
+  "ClosedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "CreatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "UpdatedUtc": {
+    "StartUtc": "2020-02-05T00:00:00Z",
+    "EndUtc": "2020-02-10T00:00:00Z"
+  },
+  "DueUtc": null,
+  "PaidUtc": null,
+  "Extent": {
+    "Items": false
+  },
+  "Limitation": {
+    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+    "Count": 100
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Client` | string | required | Name and version of the client application. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Extent` | object | required | Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned. **Deprecated!** |
+| ~~`TimeFilter`~~ | string | optional |  |
+| ~~`StartUtc`~~ | string | optional |  |
+| ~~`EndUtc`~~ | string | optional |  |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `PaidUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `DueUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](https://mews-systems.gitbook.io/connector-api/operations/#bill). Required if no other filter is provided. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the [Customers](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer). |
+| `State` | [BillState](#X-Ref-Name-BillState) | required | [Bill state](https://mews-systems.gitbook.io/connector-api/operations/#bill-state) the bills should be in. If not specified Open and Closed bills are returned. |
+| `CorrectionState` | array of [BillCorrectionStateEnum](#X-Ref-Name-BillCorrectionStateEnum) | optional |  |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |
+
+## Get bill PDF
+
+Creates a PDF version of the specified bill. In case it&#x27;s not possible to return PDF immediately, you must retry the call later while providing the unique event identifier that is returned from the first invocation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getPdf`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "BillPrintEventId": null
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Client` | string | required | Name and version of the client application. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `BillId` | string | required | Unique identifier of the [Bill](https://mews-systems.gitbook.io/connector-api/operations/#bill) to be printed. |
+| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](https://mews-systems.gitbook.io/connector-api/operations/#bill-print-event) returned by previous invocation. |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |
 
 ## Add bill
 
-Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
 ### Request
 
@@ -326,68 +779,60 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "Bills": [
-        {
-            "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
-            "Name": "Bill of Joe Doe"
-        }
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "Bills": [
+    {
+      "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+      "Name": "Bill of Joe Doe"
+    }
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `Bills` | array of [Bill parameters](#bill-parameters) | required, max 1000 items | Information about bills to be created. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
+| `Bills` | array of [BillAddParameters](#BillAddParameters) | required, max 1000 items | Information about bills to be created. |
 
-#### Bill parameters
+#### BillAddParameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountId` | string | required | Unique identifier of the account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is issued to. Company billing may not be enabled for your integration. |
-| `Name` | string | optional | Name of the newly created bill |
+| `AccountId` | string | required |  |
+| `Name` | string | optional |  |
 
 ### Response
 
 ```javascript
 {
-    "Bills": [
-        {
-            "Id": "177966b7-f3d9-42b7-ba49-abd80057329b",
-            "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
-            "CompanyId": null,
-            "CounterId": null,
-            "State": "Open",
-            "Type": "Receipt",
-            "Number": null,
-            "VariableSymbol": null,
-            "CreatedUtc": "2020-06-12T05:17:28Z",
-            "IssuedUtc": null,
-            "TaxedUtc": null,
-            "PaidUtc": null,
-            "DueUtc": null,
-            "Notes": null,
-            "OrderItems": [],
-            "PaymentItems": []
-        }
-    ]
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
 }
-``` 
+```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Bills` | array of [Bill](#bill) | required | The created bills. |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |
 
 ## Delete bill
 
-Removes selected bills. Bill must be empty, otherwise it's not possible to delete it. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Removes selected bills. Bill must be empty, otherwise it&#x27;s not possible to delete it. Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
 ### Request
 
@@ -395,23 +840,27 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "BillIds": [
-        "177966b7-f3d9-42b7-ba49-abd80057329b"
-    ],
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "BillIds": [
+    "177966b7-f3d9-42b7-ba49-abd80057329b"
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `BillIds` | array of string | required | Unique identifiers of the [Bill](#bill)s to be deleted. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
+| `BillIds` | array of string | required | Unique identifiers of the [Bill](https://mews-systems.gitbook.io/connector-api/operations/#bill)s to be deleted. |
 
 ### Response
 
@@ -421,7 +870,7 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 
 ## Close bill
 
-Closes a bill so no further modification to it is possible. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Closes a bill so no further modification to it is possible. Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
 ### Request
 
@@ -429,205 +878,140 @@ Closes a bill so no further modification to it is possible. Note this operation 
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "Type": "Receipt",
-    "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
-    "FiscalMachineId": null,
-    "Options": {
-        "DisplayCustomer": {
-            "Value": false
-        },
-        "DisplayTaxation": null
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "Type": "Receipt",
+  "BillCounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+  "FiscalMachineId": null,
+  "Options": {
+    "DisplayCustomer": {
+      "Value": false
     },
-    "TaxedDate": {
-        "Value": "2020-07-07"
-    },
-    "DueDate": {
-        "Value": "2020-07-14"
-    },
-    "VariableSymbol": {
-        "Value": "5343"
-    },
-    "AccountTaxIdentifier": {
-        "Value": "446768"
-    },
-    "AccountAddress": {
+    "DisplayTaxation": null
+  },
+  "TaxedDate": {
+    "Value": "2020-07-07"
+  },
+  "DueDate": {
+    "Value": "2020-07-14"
+  },
+  "VariableSymbol": {
+    "Value": "5343"
+  },
+  "AccountTaxIdentifier": {
+    "Value": "446768"
+  },
+  "AccountAddress": {
+    "Line1": "Astronautů 2",
+    "Line2": "",
+    "City": "Havířov",
+    "PostalCode": "736 01",
+    "CountryCode": "CZ",
+    "CountrySubdivisionCode": null
+  },
+  "PurchaseOrderNumber": {
+    "Value": "XX-123"
+  },
+  "Notes": {
+    "Value": "Bill closing note"
+  },
+  "AssociatedAccountData": [
+    {
+      "Id": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
+      "TaxIdentifier": {
+        "Value": "123459"
+      },
+      "Address": {
         "Line1": "Astronautů 2",
         "Line2": "",
         "City": "Havířov",
         "PostalCode": "736 01",
         "CountryCode": "CZ",
         "CountrySubdivisionCode": null
-    },
-    "PurchaseOrderNumber": {
-        "Value": "XX-123"
-    },
-    "Notes": {
-        "Value": "Bill closing note"
-    },
-    "AssociatedAccountData": [
-        {
-            "Id": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
-            "TaxIdentifier": {
-                "Value": "123459" 
-            },
-            "Address": {
-                "Line1": "Astronautů 2",
-                "Line2": "",
-                "City": "Havířov",
-                "PostalCode": "736 01",
-                "CountryCode": "CZ",
-                "CountrySubdivisionCode": null
-            }
-        }
-    ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `BillId` | string | required | Unique identifier of the [Bill](#bill) to be closed. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `Type` | string [Bill type](#bill-type) | required | Specifies the mode bill should be closed in. |
-| `BillCounterId` | string | optional | Unique identifier of the [Counter](counters.md#counter) to be used for closing. Default one is used when no value is provided. |
-| `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](devices.md#device) to be used for closing. Default one is used when no value is provided. |
-| `Options` | [Bill options parameters](#bill-options-parameters) | optional  | Options of the bill. If not provided both `DisplayCustomer` and `DisplayTaxation` are set by default. |
-| `TaxedDate` | [String update value](_objects.md#string-update-value) | optional | Date of consumption for tax purposes. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `DueDate` | [String update value](_objects.md#string-update-value) | optional | Deadline when [Bill](#bill) is due to be paid. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| `VariableSymbol` | [String update value](_objects.md#string-update-value) | optional | Optional unique identifier of requested payment. Can be used only with [Bill type](#bill-type) `Invoice`. |
-| ~~`TaxIdentifier`~~ | ~~[String update value](_objects.md#string-update-value)~~ | ~~optional~~ | ~~Tax identifier of account to be put on a bill.~~ **Deprecated!** |
-| `AccountTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of account to be put on a bill. |
-| `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order from the buyer. |
-| `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes to be attached to bill. |
-| ~~`Address`~~ | ~~[Address parameters](customers.md#address-parameters)~~ | ~~optional~~ | ~~Address of the account to be displayed on bill. Overrides the default one taken from account profile.~~ **Deprecated!** |
-| `AccountAddress` | [Address parameters](customers.md#address-parameters) | optional | Address of the account to be displayed on bill. Overrides the default one taken from account profile. |
-| `AssociatedAccountData` | array of [Bill close account parameters](#bill-close-account-parameters) | optional | Account data of the associated account on a bill. Currently one object is supported and only populated when the bill is closed. |
-
-#### Bill options parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `DisplayCustomer` | [Bool update value](_objects.md#bool-update-value) | required | Display customer information on a bill. |
-| `DisplayTaxation` | [Bool update value](_objects.md#bool-update-value) | required | Display taxation detail on a bill. |
-
-#### Bill close account parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the associated account ([Customer](customers.md#customer) or [Company](companies.md#company)) the bill is associated to. |
-| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identifier of the assosicated account to be put on a bill. |
-| `Address` | [Address parameters](customers.md#address-parameters) | optional | Address of the associated account to be displayed on bill. Overrides the default one taken from account profile. |
-
-### Response
-
-```javascript
-{
-    "Bills": [
-        {
-            "Id": "44eba542-193e-47c7-8077-abd7008eb206",
-            "CustomerId": "7eaf9da6-7229-454a-8cb0-abd700804bd2",
-            "CompanyId": null,
-            "CounterId": "84b25778-c1dd-48dc-8c00-ab3a00b6df14",
-            "State": "Closed",
-            "Type": "Receipt",
-            "Number": "84",
-            "VariableSymbol": null,
-            "CreatedUtc": "2020-06-11T08:39:32Z",
-            "IssuedUtc": "2020-06-25T08:49:38Z",
-            "TaxedUtc": "2020-06-25",
-            "PaidUtc": null,
-            "DueUtc": null,
-            "PurchaseOrderNumber": "XX-123",
-            "Notes": null,
-            "Options": {
-                "DisplayCustomer": false,
-                "DisplayTaxation": true,
-                "TrackReceivable": false,
-                "DisplayCid": false
-            },
-            "OrderItems": [],
-            "PaymentItems": []
-        }
-    ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Bills` | array of [Bill](#bill) | required | The closed bill. |
-
-## Get bill PDF
-
-Creates a PDF version of the specified bill. In case it's not possible to return PDF immediately, you must retry the call later while providing the unique event identifier that is returned from the first invocation.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/bills/getPdf`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-    "BillPrintEventId": null
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `BillId` | string | required | Unique identifier of the [Bill](#bill) to be printed. |
-| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](#bill-print-event) returned by previous invocation. |
-
-### Response
-
-```javascript
-{
-    "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-    "Result": {
-        "Discriminator": "BillPdfFile",
-        "Value": {
-            "Base64Data": "JVBER....."
-        }
+      }
     }
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BillId` | string | required | The unique identifier of printed [Bill](#bill). |
-| `Result` | object [Bill PDF result](#bill-pdf-result) | required | The result of operation. |
+| `Client` | string | required | Name and version of the client application. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
+| `BillId` | string | required | Unique identifier of the [Bill](https://mews-systems.gitbook.io/connector-api/operations/#bill) to be closed. |
+| `Type` | string | required | Specifies the mode bill should be closed in. |
+| `BillCounterId` | string | optional | Unique identifier of the [Counter](https://mews-systems.gitbook.io/connector-api/operations/counters/#counter) to be used for closing. Default one is used when no value is provided. |
+| `FiscalMachineId` | string | optional | Unique identifier of the [Fiscal Machine](https://mews-systems.gitbook.io/connector-api/operations/devices/#device) to be used for closing. Default one is used when no value is provided. |
+| `Options` | object | required | Options of the bill. If not provided both DisplayCustomer and DisplayTaxation are set by default. |
+| `SendEmail` | boolean | required |  |
+| `EmailAddress` | string | optional |  |
+| `TaxedDate` | object | required |  |
+| `DueDate` | object | required |  |
+| `VariableSymbol` | object | required |  |
+| `TaxIdentifier` | object | required |  |
+| `AccountTaxIdentifier` | object | required |  |
+| `CompanyTaxIdentifier` | object | required |  |
+| `PurchaseOrderNumber` | object | required |  |
+| `Notes` | object | required |  |
+| `Address` | object | required | New address details. |
+| `AccountAddress` | object | required | New address details. |
+| `CompanyAddress` | object | required | New address details. |
+| `AssociatedAccountData` | array of [BillCloseAccountParameters](#BillCloseAccountParameters) | optional, max 1 items | Account data of the associated account on a bill. Currently one object is supported and only populated when the bill is closed. |
 
-#### Bill PDF result
+#### BillOptionsParameters
+Options of the bill. If not provided both DisplayCustomer and DisplayTaxation are set by default.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Bill PDF result discriminator](#bill-pdf-result-discriminator) | required | Determines type of result. |
-| `Value` | object | required | Structure of object depends on [Bill PDF result discriminator](#bill-pdf-result-discriminator). |
+| `DisplayCustomer` | object | required |  |
+| `DisplayTaxation` | object | required |  |
+| `TrackReceivable` | object | required |  |
+| `DisplayCid` | object | required |  |
 
-#### Bill PDF result discriminator
-
-* `BillPdfFile` - PDF version of a [Bill](#bill) was successfully created, `Value` is [Bill PDF file](#bill-pdf-file).
-* `BillPrintEvent` - PDF version of a [Bill](#bill) couldn't be created at this moment (for example bill haven't been reported to authorities yet), `Value` is [Bill print event](#bill-print-event).
-
-#### Bill PDF file
+#### AddressParameters
+New address details.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Base64Data` | string  | required | BASE64 encoded PDF file. |
+| `Line1` | string | optional |  |
+| `Line2` | string | optional |  |
+| `City` | string | optional |  |
+| `PostalCode` | string | optional |  |
+| `CountryCode` | string | optional |  |
+| `CountrySubdivisionCode` | string | optional |  |
 
-#### Bill print event
+#### BillCloseAccountParameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BillPrintEventId` | string  | required | Unique identifier of print event. Must be used in retry calls to retrieve the PDF. |
+| `Id` | string | required |  |
+| `TaxIdentifier` | object | required |  |
+| `Address` | object | required | New address details. |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](#Bill) | optional | The closed bill. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older bills. |

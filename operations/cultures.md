@@ -1,12 +1,10 @@
-# Devices
+# Cultures
 
-## Get all devices
-
-Returns all devices in the enterprise.
+## undefined
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/devices/getAll`
+`[PlatformAddress]/api/connector/v1/cultures/getAll`
 
 ```javascript
 {
@@ -30,11 +28,10 @@ Returns all devices in the enterprise.
 
 ```javascript
 {
-  "Devices": [
+  "Cultures": [
     {
-      "Id": "d14efcfd-75b9-4bd3-9f10-5657a01f860a",
-      "Name": "Key cutter 1",
-      "Type": "KeyCutter"
+      "Code": "string",
+      "EnglishName": "string"
     }
   ]
 }
@@ -42,13 +39,11 @@ Returns all devices in the enterprise.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Devices` | array of [Device](#Device) | optional | The devices. |
+| `Cultures` | array of [Culture](#Culture) | optional |  |
 
-#### Device
+#### Culture
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required |  |
-| `Type` | string | optional |  |
-| `Name` | string | optional |  |
-| `Identifier` | string | optional |  |
+| `Code` | string | optional |  |
+| `EnglishName` | string | optional |  |

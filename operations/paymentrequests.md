@@ -1,9 +1,9 @@
-# Payment Requests
+# Payment requests
 
 ## Get all payment requests
 
 Get all payment requests belonging to the specified customer accounts. 
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/) and supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
 ### Request
 
@@ -11,133 +11,170 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseIds": [
-        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-    ],
-    "PaymentRequestIds": [
-        "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
-    ],
-    "AccountIds": [
-        "8466DFDD-0964-4002-8719-AFA900D0F1BA"
-    ],
-    "ReservationIds": 
-    [
-        "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b"
-    ],
-    "UpdatedUtc": {
-        "StartUtc": "2020-01-05T00:00:00Z",
-        "EndUtc": "2020-01-10T00:00:00Z"
-    },
-    "States": [ "Pending", "Expired" ],
-    "Limitation": { "Count": 10 }
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "PaymentRequestIds": [
+    "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
+  ],
+  "AccountIds": [
+    "8466DFDD-0964-4002-8719-AFA900D0F1BA"
+  ],
+  "UpdatedUtc": {
+    "StartUtc": "2020-01-05T00:00:00Z",
+    "EndUtc": "2020-01-10T00:00:00Z"
+  },
+  "States": [
+    "Pending",
+    "Expired"
+  ],
+  "Limitation": {
+    "Count": 10
+  }
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `PaymentRequestIds` | string | optional, max 1000 items | Unique identifiers of the requested [Payment requests](#payment-request). |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer) accounts to which payment requests were issued. |
-| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservations](reservations.md#reservation-ver-2023-06-06) to which payment requests belong. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Payment request](#payment-request) was updated. |
-| `States` | [Payment request state](#payment-request-state) | optional | A list of payment request states to filter by. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of payment requests returned (using cursor pagination). |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `PaymentRequestIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Payment requests](https://mews-systems.gitbook.io/connector-api/operations/#payment-request). |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) accounts to which payment requests were issued. |
+| `ReservationIds` | array of string | optional, max 1000 items |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required |  |
+| `States` | array of [PaymentRequestState](#X-Ref-Name-PaymentRequestState) | optional | A list of payment request states to filter by. |
+
+#### PaymentRequestState
+
+- `Pending`
+- `Completed`
+- `Canceled`
+- `Expired`
 
 ### Response
 
 ```javascript
 {
-    "PaymentRequests": [
-        {
-            "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
-            "CreatedUtc": "2023-10-01T11:48:57Z",
-            "UpdatedUtc": "2023-10-28T11:48:57Z",
-            "ReservationGroupId": null,
-            "State": "Pending",
-            "Amount": {
-                "Currency": "EUR",
-                "NetValue": 10,
-                "GrossValue": 10,
-                "TaxValues": [],
-                "Breakdown": {
-                    "Items": [
-                        {
-                            "TaxRateCode": null,
-                            "NetValue": 10,
-                            "TaxValue": 0
-                        }
-                    ]
-                }
-            },
-            "Type": "Payment",
-            "Reason": "PaymentCardDeclined",
-            "ExpirationUtc": "2023-02-23T23:00:00Z",
-            "Description": "Payment required.",
-            "Notes": null
+  "PaymentRequests": [
+    {
+      "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "ReservationGroupId": null,
+      "State": "Pending",
+      "Amount": {
+        "Currency": "EUR",
+        "NetValue": 10,
+        "GrossValue": 10,
+        "TaxValues": [],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": null,
+              "NetValue": 10,
+              "TaxValue": 0
+            }
+          ]
         }
-    ],
-    "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
+      },
+      "Type": "Payment",
+      "Reason": "PaymentCardDeclined",
+      "ExpirationUtc": "2023-02-23T23:00:00Z",
+      "Description": "Payment required.",
+      "Notes": null
+    }
+  ],
+  "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `PaymentRequests` | array of [Payment requests](#payment-request) | required | The filtered payment requests. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest payment request returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older payment requests. |
+| `PaymentRequests` | array of [Payment request](#PaymentRequest) | required | The filtered payment requests. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest payment request returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older payment requests. |
 
 #### Payment request
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the payment request. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request was issued. |
-| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the payment request belongs to. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). |
+| `AccountId` | string | required | Unique identifier of the [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) to which the payment request was issued. |
+| ~~`CustomerId`~~ | string | optional |  |
+| `ReservationGroupId` | string | optional | Unique identifier of the [Reservation group](https://mews-systems.gitbook.io/connector-api/operations/reservations#reservation-group). |
+| `ReservationId` | string | optional |  |
+| `State` | [PaymentRequestState](#X-Ref-Name-PaymentRequestState) | required |  |
+| `Amount` | object | required | Value of the preauthorization. |
+| `Type` | [PaymentRequestType](#X-Ref-Name-PaymentRequestType) | required |  |
+| `Reason` | [PaymentRequestReason](#X-Ref-Name-PaymentRequestReason) | required |  |
+| `ExpirationUtc` | string | required | Date and time of the payment request&#x27;s expiration in ISO 8601 format. |
+| `Description` | string | required | Description of the payment request. |
+| `Notes` | string | optional | Payment request&#x27;s notes. |
 | `CreatedUtc` | string | required | Creation date and time of the payment request in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the payment request in UTC timezone in ISO 8601 format. |
-| `ReservationGroupId` | string | optional | Unique identifier of the [Reservation group](reservations#reservation-group). |
-| `State` | [Payment request state](#payment-request-state) | required | A payment request state. |
-| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the payment request. |
-| `Type` | [Payment request type](#payment-request-type) | required | A payment request type. |
-| `Reason` | [Payment request reason](#payment-request-reason) | required | A payment request reason. |
-| `ExpirationUtc` | string | required | Date and time of the payment request's expiration in ISO 8601 format. |
-| `Description` | string | required | Description of the payment request. |
-| `Notes` | string | optional | Payment request's notes. |
 
-#### Payment request state
+#### Amount
+Value of the preauthorization.
 
-* `Pending` - payment request is active and waiting for completion.
-* `Completed` - payment request was fulfilled.
-* `Canceled` - payment request was canceled.
-* `Expired` - payment request is past its expiration date and no longer active.
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | optional |  |
+| `NetValue` | number | required |  |
+| `GrossValue` | number | required |  |
+| `TaxValues` | array of [TaxValue](#TaxValue) | optional |  |
+| `Breakdown` | object | required |  |
 
-#### Payment request type
+#### TaxValue
 
-* `Payment` - indicates that a payment is requested.
-* `Preauthorization` - indicates that a [Preauthorization](preauthorizations.md#preauthorization) is requested.
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Code` | string | optional |  |
+| `Value` | number | required |  |
 
-#### Payment request reason
+#### TaxBreakdown
 
-* `PaymentCardMissing`
-* `PaymentCardDeclined`
-* `Prepayment`
-* `Fee`
-* `Other`
-* ...
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Items` | array of [TaxBreakdownItem](#TaxBreakdownItem) | optional |  |
+
+#### TaxBreakdownItem
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `TaxRateCode` | string | optional |  |
+| `NetValue` | number | required |  |
+| `TaxValue` | number | required |  |
+
+#### PaymentRequestType
+
+- `Payment`
+- `Preauthorization`
+
+#### PaymentRequestReason
+
+- `Other`
+- `PaymentCardMissing`
+- `PaymentCardDeclined`
+- `Deposit`
+- `Prepayment`
+- `Fee`
 
 ## Add payment requests
 
-Creates a payment request to the specified [Customer](customers.md#customer). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates a payment request to the specified [Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer). Note this operation supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
 ### Request
 
@@ -145,101 +182,107 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "PaymentRequests": [
-        {
-            "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-            "Amount": {
-                "Currency": "EUR",
-                "Value": 10
-            },
-            "Type": "Payment",
-            "Reason": "PaymentCardMissing",
-            "ExpirationUtc": "2023-02-20T12:00:00.000Z",
-            "Description": "Payment required",
-            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
-            "Notes": "Internal notes."
-        }
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "PaymentRequests": [
+    {
+      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+      "Amount": {
+        "Currency": "EUR",
+        "Value": 10
+      },
+      "Type": "Payment",
+      "Reason": "PaymentCardMissing",
+      "ExpirationUtc": "2023-02-20T12:00:00.000Z",
+      "Description": "Payment required",
+      "Notes": "Internal notes."
+    }
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `PaymentRequests` | array of [Payment request parameters](#payment-request-parameters) | required, max 1000 items | Payment requests to be added. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/enterprises/#enterprise). Required when using a [Portfolio Access Token](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/), ignored otherwise. |
+| `PaymentRequests` | array of [PaymentRequestAddParameters](#PaymentRequestAddParameters) | required, max 1000 items | Payment requests to be added. |
 
-#### Payment request parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) account to which the payment request is issued. |
-| `Amount` | [Currency value](#currency-value) | required | Amount of the payment request. |
-| `Type` | [Payment request type](#payment-request-type) | required | A payment request type. |
-| `Reason` | [Payment request reason](#payment-request-reason) | required | A payment request reason. |
-| `ExpirationUtc` | string | required | Date and time of the payment request's expiration in ISO 8601 format. |
-| `Description` | string | required, max 1000 characters | Description of the payment request. |
-| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the payment request belongs to. |
-| `Notes` | string | optional, max 1000 characters | Payment request's notes. |
-
-#### Currency value
+#### PaymentRequestAddParameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `Value` | number | required | Amount in the currency. |
+| `AccountId` | string | required |  |
+| `Amount` | object | required | Absolute value of the fee. |
+| `Type` | [PaymentRequestType](#X-Ref-Name-PaymentRequestType) | required |  |
+| `Reason` | [PaymentRequestReason](#X-Ref-Name-PaymentRequestReason) | required |  |
+| `ExpirationUtc` | string | required |  |
+| `Description` | string | required |  |
+| `Notes` | string | optional |  |
+| `ReservationId` | string | optional |  |
+
+#### CurrencyValue
+Absolute value of the fee.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required |  |
+| `Value` | number | required |  |
 
 ### Response
 
 ```javascript
 {
-    "PaymentRequests": [
-        {
-            "Id": "6282d17b-a068-4a9f-83d3-afae00c39bfb",
-            "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-            "CreatedUtc": "2023-10-01T11:48:57Z",
-            "UpdatedUtc": "2023-10-28T11:48:57Z",
-            "ReservationGroupId": null,
-            "State": "Pending",
-            "Amount": {
-                "Currency": "EUR",
-                "NetValue": 10,
-                "GrossValue": 10,
-                "TaxValues": [],
-                "Breakdown": {
-                    "Items": [
-                        {
-                            "TaxRateCode": null,
-                            "NetValue": 10,
-                            "TaxValue": 0
-                        }
-                    ]
-                }
-            },
-            "Type": "Payment",
-            "Reason": "PaymentCardMissing",
-            "ExpirationUtc": "2023-02-20T12:00:00Z",
-            "Description": "Payment required",
-            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
-            "Notes": "Internal notes."
+  "PaymentRequests": [
+    {
+      "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "ReservationGroupId": null,
+      "State": "Pending",
+      "Amount": {
+        "Currency": "EUR",
+        "NetValue": 10,
+        "GrossValue": 10,
+        "TaxValues": [],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": null,
+              "NetValue": 10,
+              "TaxValue": 0
+            }
+          ]
         }
-    ]
+      },
+      "Type": "Payment",
+      "Reason": "PaymentCardDeclined",
+      "ExpirationUtc": "2023-02-23T23:00:00Z",
+      "Description": "Payment required.",
+      "Notes": null
+    }
+  ],
+  "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
 }
-``` 
+```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `PaymentRequests` | array of [Payment requests](#payment-request) | required | Added payment requests. |
+| `PaymentRequests` | array of [Payment request](#PaymentRequest) | required | The filtered payment requests. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest payment request returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older payment requests. |
 
 ## Cancel payment requests
 
-Cancels specified payment requests. Only payment requests which are in `Pending` state can be canceled.
+Cancels specified payment requests. Only payment requests which are in &#x60;Pending&#x60; state can be canceled.
 
 ### Request
 
@@ -247,60 +290,66 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "PaymentRequestIds": [
-        "6282d17b-a068-4a9f-83d3-afae00c39bfb"
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "PaymentRequestIds": [
+    "6282d17b-a068-4a9f-83d3-afae00c39bfb"
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `LanguageCode` | string | optional |  |
+| `CultureCode` | string | optional |  |
+| `AccessToken` | string | required | Access token of the client application. |
+| `MaskedAccessToken` | string | optional |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `MaskedClientToken` | string | optional |  |
 | `PaymentRequestIds` | array of string | required, max 1000 items | Identifiers of payment requests to be canceled. |
 
 ### Response
 
 ```javascript
 {
-    "PaymentRequests": [
-        {
-            "Id": "6282d17b-a068-4a9f-83d3-afae00c39bfb",
-            "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-            "CreatedUtc": "2023-10-01T11:48:57Z",
-            "UpdatedUtc": "2023-10-28T11:48:57Z",
-            "ReservationGroupId": null,
-            "State": "Canceled",
-            "Amount": {
-                "Currency": "EUR",
-                "NetValue": 10,
-                "GrossValue": 10,
-                "TaxValues": [],
-                "Breakdown": {
-                    "Items": [
-                        {
-                            "TaxRateCode": null,
-                            "NetValue": 10,
-                            "TaxValue": 0
-                        }
-                    ]
-                }
-            },
-            "Type": "Payment",
-            "Reason": "PaymentCardMissing",
-            "ExpirationUtc": "2023-02-20T12:00:00Z",
-            "Description": "Payment required",
-            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
-            "Notes": "Internal notes."
+  "PaymentRequests": [
+    {
+      "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "ReservationGroupId": null,
+      "State": "Pending",
+      "Amount": {
+        "Currency": "EUR",
+        "NetValue": 10,
+        "GrossValue": 10,
+        "TaxValues": [],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": null,
+              "NetValue": 10,
+              "TaxValue": 0
+            }
+          ]
         }
-    ]
+      },
+      "Type": "Payment",
+      "Reason": "PaymentCardDeclined",
+      "ExpirationUtc": "2023-02-23T23:00:00Z",
+      "Description": "Payment required.",
+      "Notes": null
+    }
+  ],
+  "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
 }
-``` 
+```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `PaymentRequests` | array of [Payment requests](#payment-request) | required | Canceled payment requests. |
+| `PaymentRequests` | array of [Payment request](#PaymentRequest) | required | The filtered payment requests. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest payment request returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older payment requests. |
