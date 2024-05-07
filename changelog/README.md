@@ -1,5 +1,9 @@
 # Changelog
 
+## 8th May 2024
+* Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
+* Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
+
 ## 19th April 2024
 * Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:
   * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06)
