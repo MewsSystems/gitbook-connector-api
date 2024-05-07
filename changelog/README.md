@@ -1,6 +1,6 @@
 # Changelog
 
-## 29th April 2024
+## 8th May 2024
 * Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
 * Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
 
