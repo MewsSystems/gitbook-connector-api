@@ -1,5 +1,8 @@
 # Changelog
 
+## 9th May 2024
+* Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
+
 ## 8th May 2024
 * Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
 * Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
