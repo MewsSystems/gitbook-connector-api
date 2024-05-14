@@ -1,8 +1,15 @@
 # Changelog
 
-## 26th April 2024
+## 15th May 2024
 * Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Get all customers](../operations/customers.md#get-all-customers) response.
 * Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Update customer](../operations/customers.md#update-customer) resquest.
+
+## 9th May 2024
+* Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
+
+## 8th May 2024
+* Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
+* Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
 
 ## 19th April 2024
 * Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:
