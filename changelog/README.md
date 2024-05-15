@@ -2,14 +2,14 @@
 
 ## 15th May 2024
 * Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects following operations: 
-  * [Get all customers](../operations/customers.md#get-all-customers) response.
-  * [Update account](../operations/accounts.md#update-accounts) response.
-  * [Search customers](../operations/customers.md#customer) response.
-  * [Add customer](../operations/customers.md#add-customer) response.
-  * [Update customer](../operations/customers.md#update-customer) response.
-  * [Get all companionships](../operations/companionships.md#get-all-companionships) response.
-  * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response.
-  * [Update customer](../operations/customers.md#update-customer) resquest
+  * [Get all customers](../operations/customers.md#get-all-customers) response
+  * [Update account](../operations/accounts.md#update-accounts) response
+  * [Search customers](../operations/customers.md#customer) response
+  * [Add customer](../operations/customers.md#add-customer) response
+  * [Update customer](../operations/customers.md#update-customer) response
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) response
+  * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response
+  * [Update customer](../operations/customers.md#update-customer) request
 
 ## 9th May 2024
 * Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
