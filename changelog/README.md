@@ -1,6 +1,7 @@
 # Changelog
 
-## 15th March 2024
+## 15th May 2024
+
 * Added new restricted operation [Get product pricing](../operations/products.md#get-product-pricing).
 
 ## 5th March 2024
