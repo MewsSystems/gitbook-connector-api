@@ -1,5 +1,8 @@
 # Changelog
 
+## 15th May 2024
+* Added new restricted operation [Get product pricing](../operations/products.md#get-product-pricing).
+
 ## 9th May 2024
 * Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
 
