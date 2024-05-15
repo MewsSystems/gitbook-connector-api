@@ -149,7 +149,7 @@ Updates one or more existing accounts in the system. Note this operation support
                 {
                     "SendMarketingEmails": { "Value": true },
                     "Invoiceable": { "Value": true },
-                    "BillAddressObjection": { "Value": true },
+                    "BillAddressObjection": { "Value": true }
                 },
                 "Classifications":
                 {
