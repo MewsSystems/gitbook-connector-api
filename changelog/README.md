@@ -3,6 +3,27 @@
 ## 15th March 2024
 * Added new restricted operation [Get product pricing](../operations/products.md#get-product-pricing).
 
+## 9th May 2024
+* Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
+
+## 8th May 2024
+* Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
+* Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
+
+## 19th April 2024
+* Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:
+  * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06)
+* Deprecated `EndUtc` in [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response object.
+
+## 12th April 2024
+* Extended [Add order](../operations/orders.md#add-order) request with `LinkedReservationId` parameter.
+* Extended [Product service order](../operations/productserviceorders.md#product-service-order) response object with `LinkedReservationId`, this affects the following operations:
+  * [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders)
+* Extended [Add payment command](../operations/commands.md#add-payment-command) request with `ReservationId` parameter.
+
+## 12th March 2024
+* Unused [reservation state](../operations/reservations.md#reservation-state) `Requested` removed from the documentation.
+
 ## 5th March 2024
 * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)

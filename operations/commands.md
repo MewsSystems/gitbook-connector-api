@@ -281,6 +281,7 @@ The operation instructs a specified terminal device to take a payment from a spe
     "TerminalId": "be35b39e-ad7e-460a-8de9-4c7581e016a2",
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "BillId": null,
+    "ReservationId": null,
     "Amount": {
         "Currency": "EUR",
         "Value": 230.00
@@ -297,6 +298,7 @@ The operation instructs a specified terminal device to take a payment from a spe
 | `TerminalId` | string | required | Unique identifier of the payment terminal. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill). |
+| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06). |
 | `Amount` | [Currency value](accountingitems.md#currency-value) | required | Amount of the payment. |
 
 #### Payment type

@@ -153,6 +153,12 @@ Adds a new alternative payment to a specified customer.
         "Currency": "GBP",
         "GrossValue": 100
     },
+    "Data": { 
+        "Discriminator": "Ideal",
+        "Ideal": {
+             "RedirectUrl": "https://mews.com"
+        }
+    }
 }
 ```
 
@@ -162,14 +168,50 @@ Adds a new alternative payment to a specified customer.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `Method` | string [Alternative payment method](#alternative-payment-methods) | required | Payment method to use for the alternative payment. |
-| `RedirectUrl` | string | required | URL where the customer will be redirected after completing their payment. |
+| ~~`Method`~~ | ~~string [Alternative payment method](#alternative-payment-methods-deprecated)~~ | ~~required~~ | ~~Payment method to use for the alternative payment.~~ **Deprecated!** |
+| ~~`RedirectUrl`~~ | ~~string~~ | ~~required~~ | ~~URL where the customer will be redirected after completing their payment.~~ **Deprecated!** |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the alternative payment. |
 | `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
+| `Data` | object [Alternative payment method data](#alternative-payment-method-data) | required | Data specific to particular alternative payment method. |
 
-#### Alternative payment methods
+
+#### Alternative payment method data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Alternative payment method data discriminator](#alternative-payment-method-data-discriminator) | required | Type of alternative payment method (e.g. `Ideal`). |
+| `Ideal` | object [iDEAL data](#ideal-data) | optional | iDEAL payment method data. Required when `Discriminator` is `Ideal`. |
+| `SepaDirectDebit` | object [SEPA Direct Debit data](#sepa-direct-debit-data) | optional | SEPA Direct Debit payment method data. Required when `Discriminator` is `SepaDirectDebit`. |
+
+
+#### Alternative payment method data discriminator
+  * `Ideal` - [iDEAL data](#ideal-data).
+  * `ApplePay` - no additional data.
+  * `GooglePay` - no additional data.
+  * `SepaDirectDebit` - [SEPA Direct Debit data](#sepa-direct-debit-data).
+
+#### iDEAL data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RedirectUrl` | string | required | URL where the customer will be redirected after completing their iDEAL payment. |
+
+#### SEPA Direct Debit data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Iban` | string | required | The customer's bank account number in IBAN format. |
+| `Name` | string | required | Full name of the customer. |
+| `Email` | string | required | Email address of the customer. |
+| `UserAgent` | string | required | The user agent of the browser from which the Mandate was accepted by the customer. |
+| `RemoteIpAddress` | string | required | The IP address from which the Mandate was accepted by the customer. |
+
+
+#### ~~Alternative payment methods~~ **Deprecated!**
 
 * `Ideal`
+* `ApplePay`
+* `GooglePay`
 
 ### Response
 
