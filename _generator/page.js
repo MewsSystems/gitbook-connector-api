@@ -2,15 +2,9 @@ import { Edge, edgeGlobals } from 'edge.js';
 import { tagToPageName } from './naming.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { EOL } from 'node:os';
 
-import {
-  excludedSchemaIds,
-  getSchemaAnchor,
-  isNestedSchema,
-  propertyContract,
-  propertyType,
-} from './jsonschema.js';
+import { propertyContract, propertyType } from './jsonschema.js';
+import { collectSchemas } from './schema.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -73,96 +67,37 @@ function prepareTemplateData(tagName, oasOperations) {
   const coveredSchemas = new Set();
   const templateOperations = oasOperations
     .map((operation) => {
+      const operationId = operation.getOperationId();
       const request = operation.getRequestBody('application/json');
       const requestExample = request.example || {};
-      const requestSchemas = collectSchemas(
-        request.schema,
-        [],
-        coveredSchemas,
-        true
-      );
+      const requestSchemas = collectSchemas(request.schema, [
+        operationId,
+        'request',
+      ]);
 
       const response =
         operation.getResponseByStatusCode(200).content['application/json'];
       const responseExample = response.example || {};
-      const responseSchemas = collectSchemas(
-        response.schema,
-        [],
-        coveredSchemas,
-        true
-      );
+      const responseSchemas = collectSchemas(response.schema, [
+        operationId,
+        'response',
+      ]);
 
       return {
         summary: operation.getSummary(),
-        operationId: operation.getOperationId(),
+        operationId,
         description: operation.getDescription(),
         path: operation.path,
         method: operation.method,
         deprecated: operation.isDeprecated(),
         requestExample,
-        requestSchemas,
+        requestSchemas: requestSchemas.collectedSchemas,
         responseExample,
-        responseSchemas,
+        responseSchemas: responseSchemas.collectedSchemas,
       };
     })
     .sort(operationsSort);
   return { resourceName: tagName, operations: templateOperations };
-}
-
-/**
- * @param {SchemaObject} schema
- * @returns {SchemaObject[]}
- */
-function collectSchemas(
-  schema,
-  accumulator = [],
-  coveredSchemas = new Set(),
-  forceAddition = false
-) {
-  const schemaId = schema['x-schema-id'];
-  if (
-    excludedSchemaIds.has(schemaId) ||
-    (!forceAddition && schemaId && coveredSchemas.has(schemaId)) ||
-    !isNestedSchema(schema)
-  ) {
-    return accumulator;
-  }
-  const isEnum = schema.type === 'string' && schema.enum?.length > 0;
-  if (isEnum) {
-    const refName = schema['x-readme-ref-name'];
-    const schemaIdSurrogate = schemaId || getSchemaAnchor(schema);
-    schema['x-schema-id'] ??= schemaIdSurrogate;
-    schema.title ??= refName;
-    accumulator.push(schema);
-    coveredSchemas.add(schemaIdSurrogate);
-  }
-  if (schema.properties?.discriminator) {
-    schema.type = 'object'; // FIXME: CON-2034
-    const refName = schema['x-readme-ref-name'];
-    const schemaIdSurrogate = schemaId || getSchemaAnchor(schema);
-    schema['x-schema-id'] ??= schemaIdSurrogate;
-    schema.title ??= refName;
-    accumulator.push(schema);
-    coveredSchemas.add(schemaId);
-  }
-  if (schemaId) {
-    accumulator.push(schema);
-    coveredSchemas.add(schemaId);
-  }
-  if (schema.type === 'object') {
-    for (const key in schema.properties) {
-      collectSchemas(schema.properties[key], accumulator, coveredSchemas);
-    }
-  }
-  if (schema.type === 'array') {
-    collectSchemas(schema.items, accumulator, coveredSchemas);
-  }
-  if (schema.anyOf) {
-    for (const item of schema.anyOf) {
-      collectSchemas(item, accumulator, coveredSchemas);
-    }
-  }
-  return accumulator;
 }
 
 const sortPriority = {
