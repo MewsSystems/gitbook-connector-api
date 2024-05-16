@@ -1,10 +1,4 @@
-import {
-  excludedSchemaIds,
-  isNestedSchema,
-  getSchemaAnchor,
-  propertyContract,
-  propertyType,
-} from './jsonschema.js';
+import { propertyContract, propertyType } from './jsonschema.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -55,7 +49,6 @@ function createTemplateProperty(name, property) {
  * @returns {TemplateSchema}
  */
 function createTemplateSchema(schema, schemaId, path) {
-  console.log('createTemplateSchema', schemaId, schema);
   const properties =
     schema.properties &&
     Object.entries(schema.properties).map(([name, property]) =>
