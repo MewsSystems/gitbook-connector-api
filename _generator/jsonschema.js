@@ -57,7 +57,7 @@ function isEnum(schema) {
 export function getSchemaAnchor(schema) {
   const schemaId = schema['x-schema-id'];
   if (schemaId) {
-    return schemaId;
+    return schemaId.toLowerCase();
   }
   const refName = schema['x-readme-ref-name'];
   if (refName) {
