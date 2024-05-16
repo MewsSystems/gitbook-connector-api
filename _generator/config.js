@@ -44,8 +44,6 @@ export function loadConfig() {
     outputPath: args.output || yamlConfig.output,
     tags: args.tags || yamlConfig.tags || [],
   };
-  console.log(yamlConfig);
-  console.log(config);
   if (!config.oasPath && !config.outputPath) {
     console.error(
       'Usage: node index.js --source <url-or-path-to-openapi> --output <output-folder> [--tags tag1 [--tags "some tag2"]]'
