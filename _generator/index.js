@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { parseArgs } from 'node:util';
-import OASNormalize from 'oas-normalize';
-import Oas from 'oas';
-import { renderPage } from './page.js';
-import { tagToPageName } from './naming.js';
+import OASNormalize from "oas-normalize";
+import Oas from "oas";
+import { renderPage } from "./page.js";
+import { tagToPageName } from "./naming.js";
+import { loadConfig } from "./config.js";
 
 /**
  * @typedef { import("oas/operation").Operation } Operation
@@ -14,27 +14,9 @@ import { tagToPageName } from './naming.js';
  * @typedef { import('oas').default } Oas
  */
 
-const parsedArgs = parseArgs({
-  allowPositionals: true,
-  options: {
-    tags: {
-      type: 'string',
-      alias: 't',
-      multiple: true,
-      default: [],
-    },
-  },
-});
+const config = loadConfig();
 
-const [oasPath, outputPath] = parsedArgs.positionals;
-if (!oasPath && !outputPath) {
-  console.error(
-    'Usage: node generate.js <url-or-path-to-openapi> <output-folder> [--tags tag1 [--tags "some tag2"]]'
-  );
-  process.exit(1);
-}
-
-const oas = new OASNormalize(oasPath, { enablePaths: true });
+const oas = new OASNormalize(config.oasPath, { enablePaths: true });
 /** @type {OASDocument} */
 const definition = await oas.validate();
 const oasWrapper = new Oas(definition);
@@ -56,7 +38,7 @@ function getOperationsByTags(oas, tagValues) {
   const operationsPerTags = {};
   for (const methods of Object.values(oas.getPaths())) {
     for (const operation of Object.values(methods)) {
-      const tag = operation.getTags()[0]?.name || 'Unknown';
+      const tag = operation.getTags()[0]?.name || "Unknown";
       if (onlyIncludedTags && !includedTags.has(tagToPageName(tag))) {
         continue;
       }
@@ -68,12 +50,10 @@ function getOperationsByTags(oas, tagValues) {
 }
 
 await Promise.all(
-  Object.entries(getOperationsByTags(oasWrapper, parsedArgs.values.tags)).map(
+  Object.entries(getOperationsByTags(oasWrapper, config.tags)).map(
     ([tag, operations]) => {
       console.info(`Rendering ${tag}...`);
-      return renderPage(tag, operations, outputPath);
+      return renderPage(tag, operations, config.outputPath);
     }
   )
 );
-
-// console.log(getOperationsByTags(oas));

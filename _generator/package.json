@@ -12,6 +12,7 @@
   "dependencies": {
     "edge.js": "^6.0.2",
     "oas": "^24.2.2",
-    "oas-normalize": "^11.0.4"
+    "oas-normalize": "^11.0.4",
+    "yaml": "^2.4.2"
   }
 }
