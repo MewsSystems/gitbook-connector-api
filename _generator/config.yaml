@@ -22,7 +22,7 @@ tags:
   # - counters
   # - countries
   # - creditcards
-  # - currencies
+  - currencies
   # - customers
   # - departments
   # - devices
