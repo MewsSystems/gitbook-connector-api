@@ -1,0 +1,24 @@
+@let(schemaId = schema['x-schema-id'])
+
+@unless(hideTitle)
+#### {{ schema.title }}{{-- {#{{ schemaId }}} --}}
+@end
+{{ schema.description?.trim() || '' }}
+
+@if(schema.properties)
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+@each((prop, propName) in schema.properties)
+@let(deprecatedMark = prop.deprecated ? '~~' : '')
+| {{deprecatedMark}}`{{ propName }}`{{deprecatedMark}} | {{
+helpers.propertyType(prop) }} | {{
+helpers.propertyContract(prop) }} | {{
+prop.description || ''
+}} |
+@end
+@end
+@if(schema.enum)
+@each(enumValue in schema.enum)
+- `{{ enumValue }}`
+@end
+@end
