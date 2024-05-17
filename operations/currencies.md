@@ -42,11 +42,11 @@ Returns all currencies supported by the API.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Currencies` | array of [Currency](#currency) | optional | The supported currencies. |
+| `Currencies` | array of [Currency](#currency) | required | The supported currencies. |
 
 #### Currency
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Code` | string | optional | ISO-4217 three-letter code, e.g. USD or GBP. |
+| `Code` | string | required | ISO-4217 three-letter code, e.g. USD or GBP. |
 | `Precision` | integer | required | Precision of the currency (count of decimal places). |
