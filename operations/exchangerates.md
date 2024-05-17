@@ -46,7 +46,7 @@ Returns all available exchange rates among currencies of the [Enterprise](https:
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ExchangeRates` | array of [Exchange rate](#exchangerate) | required | The available exchange rates. |
+| `ExchangeRates` | array of [Exchange rate](#exchange-rate) | required | The available exchange rates. |
 
 #### Exchange rate
 
