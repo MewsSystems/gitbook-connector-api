@@ -25,7 +25,7 @@ tags:
   - currencies
   # - customers
   # - departments
-  # - devices
+  - devices
   # - enterprises
   - exchangerates
   # - exports

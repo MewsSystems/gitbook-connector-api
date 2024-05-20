@@ -4,18 +4,12 @@
  */
 
 import { slugify } from './naming.js';
+import { loadYaml } from './utils.js';
 
-const schemaTypeOverides = {
-  Limitation: '[Limitation](../guidelines/pagination.md#limitation)',
-  TimeFilterInterval: '[Time interval](_objects.md#time-interval)',
-};
+const overrides = loadYaml('./overrides.yaml');
 
-export const excludedSchemaIds = new Set([
-  'StringUpdateValue',
-  'BooleanUpdateValue',
-  'GuidUpdateValue',
-  'GuidNullableUpdateValue',
-]);
+const schemaTypeOverides = overrides.types;
+const excludedSchemaIds = new Set(overrides.excludedSchemaIds);
 
 /**
  * @param {SchemaObject} schema
@@ -48,7 +42,7 @@ export function isNestedSchema(schema) {
  * @param {SchemaObject} schema
  * @returns boolean
  */
-function isEnum(schema) {
+export function isEnum(schema) {
   return schema.type === 'string' && schema.enum?.length > 0;
 }
 
@@ -138,6 +132,14 @@ export function propertyContract(schema) {
     result.push(`max ${schema.maxItems} items`);
   }
   return result.join(', ');
+}
+
+export function propertyDescription(propertyName, schema) {
+  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
+  if (schemaId && schemaId in overrides.properties) {
+    return overrides.properties[schemaId];
+  }
+  return schema.description?.trim() || '';
 }
 
 // /**
