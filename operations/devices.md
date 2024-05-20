@@ -48,6 +48,7 @@ Returns all devices in the enterprise.
 | `Id` | string | required | Unique identifier of the device. |
 | `Type` | [Device type](#device-type) | required | Type of device. |
 | `Name` | string | required | Name of the device. |
+| `Identifier` | string | optional | Device identifier (for internal purposes). |
 
 #### Device type
 Device type corresponds to the respective [Command data](https://mews-systems.gitbook.io/connector-api/operations/commands#command-data).
