@@ -52,8 +52,8 @@ Returns all available exchange rates among currencies of the [Enterprise](https:
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required |  |
-| `EnterpriseId` | string | required |  |
+| `Id` | string | required | Unique identifier of the Exchange Rate. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/configuration/#enterprise) to which the Exchange Rate belongs. |
 | `SourceCurrency` | string | required | ISO-4217 code of the source [Currency](https://mews-systems.gitbook.io/connector-api/operations/currencies/#currency). |
 | `TargetCurrency` | string | required | ISO-4217 code of the target [Currency](https://mews-systems.gitbook.io/connector-api/operations/currencies/#currency). |
 | `Value` | number | required | The exchange rate from the source currency to the target currency. |
