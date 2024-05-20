@@ -17,6 +17,6 @@ prop.description
 @end
 @if(schema.enum)
 @each(entry in schema.enum)
-- `{{ entry.value }}`{{ entry.description ? ` - ${entry.description}` : '' }}
+* `{{ entry.value }}`{{ entry.description ? ` - ${entry.description}` : '' }}
 @end
 @end
