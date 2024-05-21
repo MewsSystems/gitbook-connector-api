@@ -1,4 +1,10 @@
-import { propertyContract, propertyType } from './jsonschema.js';
+import {
+  isEnum,
+  propertyContract,
+  propertyDescription,
+  propertyType,
+} from './jsonschema.js';
+import { firstLine } from './naming.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -7,6 +13,8 @@ import { propertyContract, propertyType } from './jsonschema.js';
  * @typedef { import('openapi-types').OpenAPIV3.Document } OASDocument
  * @typedef { import('oas').default } Oas
  * @typedef { import('./types.js').TemplateSchema } TemplateSchema
+ * @typedef { import('./types.js').TemplateProperty } TemplateProperty
+ * @typedef { import('./types.js').TemplateEnumEntry } TemplateEnumEntry
  */
 
 class SchemasAccumulator {
@@ -37,10 +45,35 @@ class SchemasAccumulator {
 function createTemplateProperty(name, property) {
   return {
     name: name,
-    description: property.description?.trim() ?? '',
+    description: propertyDescription(name, property),
     type: propertyType(property),
     contract: propertyContract(property),
     deprecated: property.deprecated ?? false,
+  };
+}
+
+/**
+ * Handles enums for display. Currently we have a Swashbuckle extension which passess enum descriptions to extension properties (which is good),
+ * but also appends list of enums to schema description (which is bad). So we're picking up just the first line of description.
+ * @param {SchemaObject} schema
+ * @returns {{ description: string, enum: TemplateEnumEntry[] }}
+ */
+function createEnumTemplateSchema(schema) {
+  const entries = [];
+  for (let i = 0; i < schema.enum.length; i++) {
+    const value = schema.enum[i];
+    const description = schema['x-enumDescriptions']?.[i];
+    const name = schema['x-enumNames']?.[i];
+    const entry = {
+      value,
+      description,
+      name: name === value ? undefined : name,
+    };
+    entries.push(entry);
+  }
+  return {
+    enum: entries,
+    description: '', // blank out description since it'd be the same as in property tables
   };
 }
 
@@ -54,6 +87,10 @@ function createTemplateSchema(schema, schemaId, path) {
     Object.entries(schema.properties).map(([name, property]) =>
       createTemplateProperty(name, property)
     );
+  let baseObject = {};
+  if (isEnum(schema)) {
+    baseObject = createEnumTemplateSchema(schema, schemaId, path);
+  }
   return {
     path: [...path],
     id: schemaId,
@@ -62,6 +99,7 @@ function createTemplateSchema(schema, schemaId, path) {
     enum: schema.enum,
     deprecated: schema.deprecated ?? false,
     properties,
+    ...baseObject,
   };
 }
 

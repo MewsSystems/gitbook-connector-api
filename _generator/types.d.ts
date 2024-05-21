@@ -3,7 +3,7 @@ export type TemplateSchema = {
   id: string;
   title: string;
   description?: string;
-  enum: string[];
+  enum: TemplateEnumEntry[];
   deprecated: boolean;
   properties?: TemplateProperty[];
 }
@@ -14,4 +14,10 @@ export type TemplateProperty = {
   type: string;
   contract: string;
   description: string;
+}
+
+export type TemplateEnumEntry = {
+  value: string;
+  description?: string;
+  name?: string;
 }

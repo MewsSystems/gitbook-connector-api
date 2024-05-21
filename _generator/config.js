@@ -1,6 +1,5 @@
 import { parseArgs } from 'node:util';
-import fs from 'node:fs';
-import YAML from 'yaml';
+import { loadYaml } from './utils.js';
 
 const CONFIG_PATH = './config.yaml';
 
@@ -30,10 +29,6 @@ function loadArgs() {
     output: parsedArgs.values.output || undefined,
     tags,
   };
-}
-
-function loadYaml(path) {
-  return YAML.parse(fs.readFileSync(path, 'utf8'));
 }
 
 export function loadConfig() {

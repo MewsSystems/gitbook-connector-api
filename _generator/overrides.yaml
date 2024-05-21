@@ -1,0 +1,11 @@
+excludedSchemaIds:
+  - StringUpdateValue
+  - BooleanUpdateValue
+  - GuidUpdateValue
+  - GuidNullableUpdateValue
+
+types:
+  Limitation: '[Limitation](../guidelines/pagination.md#limitation)'
+  TimeFilterInterval: '[Time interval](_objects.md#time-interval)'
+
+properties: {}
