@@ -1,7 +1,8 @@
 # Changelog
 
 ## 21st May 2024
-* Added new response code 409 - Conflict to the list of [Response codes](../guidelines/responses.md#response-codes). Response code will be return only in these following operations:
+* Added new response code `409 Conflict` to the list of [Response codes](../guidelines/responses.md#response-codes).
+* Introduced `409 Conflict` error for the following restricted operations:
   * [Set restrictions](../operations/restrictions.md#set-restrictions)
   * [Clear restrictions](../operations/restrictions.md#clear-restrictions)
 
