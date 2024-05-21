@@ -14,6 +14,8 @@ The API responds with `Content-Type` set to `application/json` and JSON content.
   * Server error that should be reported to the end user of the client app. Happens for example when the server-side validation fails or when a business-logic check is violated.
 * **408 Request Timeout**
   * Error caused by heavy request that takes too long to process (typically tens of seconds). To get around this, request data in smaller batches. For more information, see [Request timeouts](requests.md#request-timeouts).
+* **409 Conflict**
+  * The request cannot be completed because the data has changed. To get around this error, try refreshing the data on the client and resubmitting the request.
 * **429 Too Many Requests**
   * Error caused by too many requests sent in a given amount of time. Response contains `Retry-After` header indicating how long the user agent should wait before making a follow-up request. For more information, see [Request limits](requests.md#request-limits).
 * **500 Internal Server Error**
