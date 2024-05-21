@@ -1,3 +1,4 @@
+<!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Countries
 
 ## Get all countries
@@ -10,84 +11,96 @@ Returns all countries supported by the API.
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0"
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0"
 }
 ```
 
 | Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
+| :-- | :-- | :-- | :-- |
 | `Client` | string | required | Name and version of the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ClientToken` | string | required | Token identifying the client application. |
 
 ### Response
 
 ```javascript
 {
-    "Countries": [
-        {
-            "Code": "GB",
-            "EnglishName": "United Kingdom of Great Britain and Northern Ireland"
-        },
-        {
-            "Code": "US",
-            "EnglishName": "United States of America"
-        }
-    ],
-    "CountrySubdivisions": [
-        {
-            "Code": "AU-NSW",
-            "CountryCode": "AU",
-            "EnglishName": "New South Wales"
-        },
-        {
-            "Code": "AU-QLD",
-            "CountryCode": "AU",
-            "EnglishName": "Queensland"
-        }
-    ],
-    "CountryAlliances": [
-        {
-            "Code": "SCHENGEN",
-            "EnglishName": "Schengen Area",
-            "CountryCodes":[
-                "AT",
-                "BE",
-                "CZ",
-                ...
-            ]
-        }
-    ]
+  "Countries": [
+    {
+      "Code": "GB",
+      "EnglishName": "United Kingdom of Great Britain and Northern Ireland"
+    },
+    {
+      "Code": "US",
+      "EnglishName": "United States of America"
+    }
+  ],
+  "CountrySubdivisions": [
+    {
+      "Code": "AU-NSW",
+      "CountryCode": "AU",
+      "EnglishName": "New South Wales"
+    },
+    {
+      "Code": "AU-QLD",
+      "CountryCode": "AU",
+      "EnglishName": "Queensland"
+    }
+  ],
+  "CountryAlliances": [
+    {
+      "Code": "SCHENGEN",
+      "EnglishName": "Schengen Area",
+      "CountryCodes": [
+        "AT",
+        "BE",
+        "CZ",
+        "..."
+      ]
+    }
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
+| :-- | :-- | :-- | :-- |
 | `Countries` | array of [Country](#country) | required | The supported countries. |
 | `CountrySubdivisions` | array of [Country subdivision](#country-subdivision) | required | The supported country subdivisions. |
-| `CountryAlliances` | array of [Country alliance](#country-alliance) | required | The supported country alliances. |
+| `CountryRules` | array of [Country rules](#country-rules) | required |  |
+| `CountryGroups` | array of [Country group](#country-group) | required |  |
 
 #### Country
 
 | Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
-| `Code` | string | required | ISO 3166-1 alpha-2 code, e.g. `US` or `GB`. |
-| `EnglishName` | string | required | English name of the country. |
+| :-- | :-- | :-- | :-- |
+| `Code` | string | optional | ISO 3166-1 alpha-2 code, e.g. US or GB. |
+| `SovereignCountryCode` | string | optional |  |
+| `EnglishName` | string | optional | English name of the country. |
 
 #### Country subdivision
 
 | Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
-| `Code` | string | required | ISO 3166-2 code of the administrative division, e.g `AU-QLD`. |
-| `CountryCode` | string | required | ISO 3166-1 code of the [Country](#country). |
-| `EnglishName` | string | required | English name of the country subdivision. |
+| :-- | :-- | :-- | :-- |
+| `Code` | string | optional | ISO 3166-2 code of the administrative division, e.g AU-QLD. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](https://mews-systems.gitbook.io/connector-api/operations/#country). |
+| `EnglishName` | string | optional | English name of the country subdivision. |
 
-#### Country alliance
+#### Country rules
+Country-specific rules
 
 | Property | Type | Contract | Description |
-| :--- | :--- | :--- | :--- |
-| `Code` | string | required | Code of the alliance, e.g `EU`, `SCHENGEN`, `SCHENGEN-VISA`. |
-| `EnglishName` | string | required | English name of the alliance. |
-| `CountryCodes` | array of string | required | ISO 3166-1 codes of the member countries. |
+| :-- | :-- | :-- | :-- |
+| `CountryCode` | string | required | ISO 3166-1 alpha-2 code, e.g. US or GB. |
+| `IdentityCardExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for identity card. |
+| `DriverLicenceExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for driver&#x27;s licence. |
+
+#### Country group
+The supported country groups.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Code` | string | required | Group code, e.g. &#x60;EU&#x60;, &#x60;SCHENGEN&#x60;, &#x60;NORDIC&#x60;... |
+| `EnglishName` | string | required | English name of the country group. |
+| `CountryCodes` | array of string | required | Codes of countries included in the group, in ISO 3166-1 alpha-2 format. |
