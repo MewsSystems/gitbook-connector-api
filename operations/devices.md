@@ -46,12 +46,11 @@ Returns all devices in the enterprise.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the device. |
-| `Type` | [Device type](#device-type) | required | Type of device. |
+| `Type` | [Device type](#device-type) | required | Type of the device. |
 | `Name` | string | required | Name of the device. |
 | `Identifier` | string | optional | Device identifier (for internal purposes). |
 
 #### Device type
-Device type corresponds to the respective [Command data](https://mews-systems.gitbook.io/connector-api/operations/commands#command-data).
 
 * `Printer` - [Printer command data](https://mews-systems.gitbook.io/connector-api/operations/commands#printer-command-data)
 * `PaymentTerminal` - [Payment terminal command data](https://mews-systems.gitbook.io/connector-api/operations/commands#payment-terminal-command-data)

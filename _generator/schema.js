@@ -71,10 +71,9 @@ function createEnumTemplateSchema(schema) {
     };
     entries.push(entry);
   }
-  const description = firstLine(schema.description);
   return {
     enum: entries,
-    description,
+    description: '', // blank out description since it'd be the same as in property tables
   };
 }
 
