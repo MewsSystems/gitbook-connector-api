@@ -3,6 +3,8 @@
  * @typedef { import('openapi-types').OpenAPIV3.SchemaObject } SchemaObject
  */
 
+import { slugify } from './naming.js';
+
 const schemaTypeOverides = {
   Limitation: '[Limitation](../guidelines/pagination.md#limitation)',
   TimeFilterInterval: '[Time interval](_objects.md#time-interval)',
@@ -55,10 +57,16 @@ function isEnum(schema) {
  * @returns {string}
  */
 export function getSchemaAnchor(schema) {
+  const title = schema.title;
+  if (title) {
+    return slugify(title);
+  }
+
   const schemaId = schema['x-schema-id'];
   if (schemaId) {
     return schemaId.toLowerCase();
   }
+
   const refName = schema['x-readme-ref-name'];
   if (refName) {
     return `X-Ref-Name-${refName}`;

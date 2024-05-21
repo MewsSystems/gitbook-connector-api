@@ -27,7 +27,7 @@ tags:
   # - departments
   # - devices
   # - enterprises
-  # - exchangerates
+  - exchangerates
   # - exports
   # - images
   # - languages

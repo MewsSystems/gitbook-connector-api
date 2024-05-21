@@ -5,3 +5,7 @@
 export function tagToPageName(tagName) {
   return tagName.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
+
+export function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '-');
+}
