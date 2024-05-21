@@ -1,22 +1,22 @@
 @unless(hideTitle)
 #### {{ schema.title }}{{-- {#{{ schemaId }}} --}}
 @end
-{{ schema.description }}
+{{{ schema.description }}}
 
 @if(schema.properties)
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 @each(prop in schema.properties)
 @let(deprecatedMark = prop.deprecated ? '~~' : '')
-| {{deprecatedMark}}`{{ prop.name }}`{{deprecatedMark}} | {{
-prop.type }} | {{
-prop.contract }} | {{
+| {{deprecatedMark}}`{{ prop.name }}`{{deprecatedMark}} | {{{
+prop.type }}} | {{{
+prop.contract }}} | {{{
 prop.description
-}} |
+}}} |
 @end
 @end
 @if(schema.enum)
 @each(entry in schema.enum)
-* `{{ entry.value }}`{{ entry.description ? ` - ${entry.description}` : '' }}
+* `{{ entry.value }}`{{{ entry.description ? ` - ${entry.description}` : '' }}}
 @end
 @end
