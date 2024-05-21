@@ -3,8 +3,7 @@
  * @typedef { import('openapi-types').OpenAPIV3.SchemaObject } SchemaObject
  */
 
-import { firstLine, slugify } from './naming.js';
-import { loadYaml } from './utils.js';
+import { firstLine, slugify, loadYaml } from './utils.js';
 
 const overrides = loadYaml('./overrides.yaml');
 
@@ -36,6 +35,11 @@ export function isNestedSchema(schema) {
     return true;
   }
   return false;
+}
+
+export function isExcludedSchema(schema) {
+  const schemaId = schema['x-schema-id'];
+  return schemaId in schemaTypeOverides || excludedSchemaIds.has(schemaId);
 }
 
 /**

@@ -1,5 +1,5 @@
 import { Edge, edgeGlobals } from 'edge.js';
-import { tagToPageName } from './naming.js';
+import { tagToPageName } from './utils.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 

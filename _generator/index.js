@@ -3,7 +3,7 @@
 import OASNormalize from "oas-normalize";
 import Oas from "oas";
 import { renderPage } from "./page.js";
-import { tagToPageName } from "./naming.js";
+import { tagToPageName } from "./utils.js";
 import { loadConfig } from "./config.js";
 
 /**
