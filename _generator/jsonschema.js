@@ -38,7 +38,7 @@ export function isNestedSchema(schema) {
 }
 
 export function isExcludedSchema(schema) {
-  const schemaId = schema['x-schema-id'];
+  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
   return schemaId in schemaTypeOverides || excludedSchemaIds.has(schemaId);
 }
 
@@ -91,6 +91,10 @@ export function propertyType(schema) {
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
+  const schemaOverrideId = schema['x-schema-id'] || schema['x-readme-ref-name'];
+  if (schemaOverrideId && schemaTypeOverides[schemaOverrideId]) {
+    return schemaTypeOverides[schemaOverrideId];
+  }
   if (isEnum(schema)) {
     const title = schema.title || schema['x-readme-ref-name'];
     const anchor = getSchemaAnchor(schema);
@@ -109,10 +113,6 @@ export function propertyType(schema) {
     return `array of ${nestedType}`;
   }
   if (schema.type === 'object') {
-    const schemaId = schema['x-schema-id'];
-    if (schemaTypeOverides[schemaId]) {
-      return schemaTypeOverides[schemaId];
-    }
     return 'object';
   }
   return schema.type;

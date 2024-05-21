@@ -7,6 +7,13 @@ excludedSchemaIds:
 types:
   Limitation: '[Limitation](../guidelines/pagination.md#limitation)'
   TimeFilterInterval: '[Time interval](_objects.md#time-interval)'
+  TimeFilterIntervalMax3: '[Time interval](_objects.md#time-interval)'
+  TimeFilterIntervalMax1: '[Time interval](_objects.md#time-interval)'
   DateTimeIntervalUtc: '[Time interval](_objects.md#time-interval)'
+  ActivityStates: '[Activity state](_objects.md#activity-state)'
 
 properties: {}
+
+propertiesDescriptions:
+  CreatorProfile: 'The profile data of the user who created the record.'
+  UpdaterProfile: 'The profile data of the user who last updated the record.'
