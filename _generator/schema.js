@@ -1,10 +1,10 @@
 import {
   isEnum,
+  isExcludedSchema,
   propertyContract,
   propertyDescription,
   propertyType,
 } from './jsonschema.js';
-import { firstLine } from './naming.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -117,6 +117,10 @@ export function collectSchemas(
 ) {
   const schemaId = getSchemaId(schema);
   const nestedPath = [...path];
+
+  if (isExcludedSchema(schema)) {
+    return accumulator;
+  }
 
   if (schemaId) {
     accumulator.add(schemaId, createTemplateSchema(schema, schemaId, path));
