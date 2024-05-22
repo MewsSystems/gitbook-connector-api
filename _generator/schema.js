@@ -135,10 +135,9 @@ export function collectSchemas(
   if (schema.type === 'array') {
     collectSchemas(schema.items, nestedPath, accumulator);
   }
-  if (schema.anyOf) {
-    for (const item of schema.anyOf) {
-      collectSchemas(item, nestedPath, accumulator);
-    }
+  const composedSchemas = schema.anyOf || schema.oneOf || schema.allOf || [];
+  for (const item of composedSchemas) {
+    collectSchemas(item, nestedPath, accumulator);
   }
   return accumulator;
 }

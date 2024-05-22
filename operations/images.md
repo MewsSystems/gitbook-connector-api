@@ -39,7 +39,7 @@ Returns URLs of the specified images.
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Width` | integer | optional | Desired width of the image. |
 | `Height` | integer | optional | Desired height of the image. |
-| `ResizeMode` | [Image resize mode](#image-resize-mode) | required | Mode how the image should be resized to the desired width and height. |
+| `ResizeMode` | [Image resize mode](#image-resize-mode) | optional | Mode how the image should be resized to the desired width and height. |
 
 #### Image resize mode
 

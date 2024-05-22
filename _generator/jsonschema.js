@@ -47,7 +47,8 @@ export function isExcludedSchema(schema) {
  * @returns boolean
  */
 export function isEnum(schema) {
-  return schema.type === 'string' && schema.enum?.length > 0;
+  const actualSchema = pickSingularComposedSchema(schema) || schema;
+  return actualSchema.type === 'string' && actualSchema.enum?.length > 0;
 }
 
 /**
