@@ -2,7 +2,7 @@
 
 ## Get all cashier transactions
 
-Returns all cashier transactions created within the specified interval.
+Returns all cashier transactions updated within the specified interval.
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -21,7 +21,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "CashierTransactionIds": [
         "177740c3-fec9-4338-a224-a3b03a35b3e1"
     ],
-    "CreatedUtc": {
+    "UpdatedUtc": {
         "StartUtc": "2020-01-05T00:00:00Z",
         "EndUtc": "2020-01-10T00:00:00Z"
     },
@@ -35,7 +35,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required, max length 3 months | Interval in which the [Cashier transaction](#cashier-transaction) was created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required, max length 3 months | Interval in which the [Cashier transaction](#cashier-transaction) was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
