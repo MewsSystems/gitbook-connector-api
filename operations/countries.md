@@ -94,13 +94,13 @@ Country-specific rules
 | :-- | :-- | :-- | :-- |
 | `CountryCode` | string | required | ISO 3166-1 alpha-2 code, e.g. US or GB. |
 | `IdentityCardExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for identity card. |
-| `DriverLicenceExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for driver&#x27;s licence. |
+| `DriverLicenceExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for driver's licence. |
 
 #### Country group
 The supported country groups.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Code` | string | required | Group code, e.g. &#x60;EU&#x60;, &#x60;SCHENGEN&#x60;, &#x60;NORDIC&#x60;... |
+| `Code` | string | required | Group code, e.g. `EU`, `SCHENGEN`, `NORDIC`... |
 | `EnglishName` | string | required | English name of the country group. |
 | `CountryCodes` | array of string | required | Codes of countries included in the group, in ISO 3166-1 alpha-2 format. |
