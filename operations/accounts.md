@@ -391,7 +391,10 @@ Updates one or more existing accounts in the system. Note this operation support
                 "Options": {
                     "SendMarketingEmails": true,
                     "Invoiceable": true,
-                    "BillAddressObjection": true
+                    "BillAddressObjection": true,
+                    "SendMarketingPostalMail": true,
+                    "SendPartnerMarketingEmails": true,
+                    "SendPartnerMarketingPostalMail": true                
                 },
                 "Classifications": {
                     "PaymasterAccount": true,
@@ -508,6 +511,9 @@ Updates one or more existing accounts in the system. Note this operation support
 | `SendMarketingEmails` | bool | required | Send marketing emails. |
 | `Invoiceable` | bool | required | Invoiceable. |
 | `BillAddressObjection` | bool | required | Bill address objection. |
+| `SendMarketingPostalMail` | bool | required | Send marketing postal mail. |
+| `SendPartnerMarketingEmails` | bool | required | Send partner marketing emails. |
+| `SendPartnerMarketingPostalMail` | bool | required | Send partner marketing postal mail. |
 
 #### Customer classifications
 

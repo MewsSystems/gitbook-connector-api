@@ -1,5 +1,15 @@
 # Changelog
 
+## 23rd May 2024
+* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects the following operations: 
+  * [Get all customers](../operations/customers.md#get-all-customers) response
+  * [Update account](../operations/accounts.md#update-accounts) response
+  * [Search customers](../operations/customers.md#customer) response
+  * [Add customer](../operations/customers.md#add-customer) response
+  * [Update customer](../operations/customers.md#update-customer) request and response
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) response
+  * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response
+
 ## 21st May 2024
 * Added new response code `409 Conflict` to the list of [Response codes](../guidelines/responses.md#response-codes).
 * Introduced `409 Conflict` error for the following restricted operations:
