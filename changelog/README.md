@@ -7,7 +7,8 @@
   * [Update account](../operations/accounts.md#update-accounts) response
   * [Search customers](../operations/customers.md#customer) response
   * [Add customer](../operations/customers.md#add-customer) response
-  * [Update customer](../operations/customers.md#update-customer) response
+  * [Update customer](../operations/customers.md#update-customer) request and response
+
   * [Get all companionships](../operations/companionships.md#get-all-companionships) response
   * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response
   * [Update customer](../operations/customers.md#update-customer) request
