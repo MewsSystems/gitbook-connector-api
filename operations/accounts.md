@@ -51,10 +51,10 @@ Merges two or more accounts of the same account type together. The given source 
 | `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source accounts ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 | `TargetAccountId` | string | required | Unique identifier of the target account ([Customer](../operations/customers.md#customer) or [Company](../operations/companies.md#company)). |
 
-### Account type
+#### Account type
 
-* [Company](companies.md#company)
-* [Customer](customers.md#customer)
+* `Company`
+* `Customer`
 * ...
 
 ### Response
@@ -391,7 +391,10 @@ Updates one or more existing accounts in the system. Note this operation support
                 "Options": {
                     "SendMarketingEmails": true,
                     "Invoiceable": true,
-                    "BillAddressObjection": true
+                    "BillAddressObjection": true,
+                    "SendMarketingPostalMail": true,
+                    "SendPartnerMarketingEmails": true,
+                    "SendPartnerMarketingPostalMail": true                
                 },
                 "Classifications": {
                     "PaymasterAccount": true,
@@ -508,6 +511,9 @@ Updates one or more existing accounts in the system. Note this operation support
 | `SendMarketingEmails` | bool | required | Send marketing emails. |
 | `Invoiceable` | bool | required | Invoiceable. |
 | `BillAddressObjection` | bool | required | Bill address objection. |
+| `SendMarketingPostalMail` | bool | required | Send marketing postal mail. |
+| `SendPartnerMarketingEmails` | bool | required | Send partner marketing emails. |
+| `SendPartnerMarketingPostalMail` | bool | required | Send partner marketing postal mail. |
 
 #### Customer classifications
 

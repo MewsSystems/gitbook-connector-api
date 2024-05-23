@@ -24,6 +24,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "AccountIds": [
         "8466DFDD-0964-4002-8719-AFA900D0F1BA"
     ],
+    "ReservationIds": 
+    [
+        "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b"
+    ],
     "UpdatedUtc": {
         "StartUtc": "2020-01-05T00:00:00Z",
         "EndUtc": "2020-01-10T00:00:00Z"
@@ -41,6 +45,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `PaymentRequestIds` | string | optional, max 1000 items | Unique identifiers of the requested [Payment requests](#payment-request). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Customer](customers.md#customer) accounts to which payment requests were issued. |
+| `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservations](reservations.md#reservation-ver-2023-06-06) to which payment requests belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Payment request](#payment-request) was updated. |
 | `States` | [Payment request state](#payment-request-state) | optional | A list of payment request states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of payment requests returned (using cursor pagination). |
@@ -54,6 +59,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
             "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "CreatedUtc": "2023-10-01T11:48:57Z",
             "UpdatedUtc": "2023-10-28T11:48:57Z",
             "ReservationGroupId": null,
@@ -96,6 +102,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the payment request. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) to which the payment request was issued. |
+| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the payment request belongs to. |
 | `CreatedUtc` | string | required | Creation date and time of the payment request in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the payment request in UTC timezone in ISO 8601 format. |
 | `ReservationGroupId` | string | optional | Unique identifier of the [Reservation group](reservations#reservation-group). |
@@ -153,6 +160,7 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
             "Reason": "PaymentCardMissing",
             "ExpirationUtc": "2023-02-20T12:00:00.000Z",
             "Description": "Payment required",
+            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "Notes": "Internal notes."
         }
     ]
@@ -177,6 +185,7 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
 | `Reason` | [Payment request reason](#payment-request-reason) | required | A payment request reason. |
 | `ExpirationUtc` | string | required | Date and time of the payment request's expiration in ISO 8601 format. |
 | `Description` | string | required, max 1000 characters | Description of the payment request. |
+| `ReservationId` | string | optional | Unique identifier of the [Reservation](reservations.md#reservation-ver-2023-06-06) the payment request belongs to. |
 | `Notes` | string | optional, max 1000 characters | Payment request's notes. |
 
 #### Currency value
@@ -217,6 +226,7 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
             "Reason": "PaymentCardMissing",
             "ExpirationUtc": "2023-02-20T12:00:00Z",
             "Description": "Payment required",
+            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "Notes": "Internal notes."
         }
     ]
@@ -284,6 +294,7 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
             "Reason": "PaymentCardMissing",
             "ExpirationUtc": "2023-02-20T12:00:00Z",
             "Description": "Payment required",
+            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "Notes": "Internal notes."
         }
     ]

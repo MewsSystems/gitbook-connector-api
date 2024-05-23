@@ -209,10 +209,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 
 #### Bill type
 
-A bill is either a `Receipt` which means that it has been fully paid, or `Invoice` that is supposed to be paid in the future.
+After a bill is closed, the Bill Type is set to `Receipt` or `Invoice`. `Receipt` indicates that the bill has been fully paid and the balance is zero. `Invoice` indicates that the bill has not yet been fully paid but an invoice has been issued. Prior to closing, Bill Type should not be used.
 
-* `Receipt` - the bill has already been fully paid.
-* `Invoice` - the bill is supposed to be paid in the future. Before closing it is balanced with an invoice payment.
+* `Receipt` (default) - the bill has been paid in full; only applicable after the bill is closed
+* `Invoice` - the bill has not been paid in full but an invoice has been issued to request payment
 
 #### Bill options
 

@@ -46,10 +46,11 @@ Returns all notes associated with the given service orders. Service orders can b
     "ServiceOrderNotes": [
         {
             "Id": "a06a225b-00f7-48c8-a463-af5c016768e9",
-            "ServiceOrderId": "1dc0c6bf-2ce6-4a9f-af97-af5c01676720",
+            "OrderId": "1dc0c6bf-2ce6-4a9f-af97-af5c01676720",
             "Text": "Shaken, not stirred.",
             "Type": "General",
-            "CreatedUtc": "2022-11-29T21:48:32Z"
+            "CreatedUtc": "2022-11-29T21:48:32Z",
+            "UpdatedUtc": "2022-11-30T12:36:37Z"
         }
     ],
     "Cursor": "a06a225b-00f7-48c8-a463-af5c016768e9"

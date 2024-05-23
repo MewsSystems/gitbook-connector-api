@@ -49,7 +49,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `ResourceIds` | string | optional, max 1000 items | Unique identifiers of the requested [Resources](#resource). |
+| `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Resources](#resource). |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resources](#resource) were created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Resources](#resource) were updated. |
 | `Extent` | [Resource extent](#resource-extent) | required | Extent of data to be returned. |

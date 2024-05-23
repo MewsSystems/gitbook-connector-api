@@ -138,6 +138,7 @@ Creates payment for specified customer credit card and charges the credit card v
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](#credit-card). |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
 | `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the credit card payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category). |
 | `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |

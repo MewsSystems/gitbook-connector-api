@@ -4,6 +4,61 @@
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) response object with `PaymentCardPaymentId`, this affects the following operations:
   * [Get outlet items](../operations/outletitems.md#get-all-outlet-items)
 
+## 23rd May 2024
+* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects the following operations: 
+  * [Get all customers](../operations/customers.md#get-all-customers) response
+  * [Update account](../operations/accounts.md#update-accounts) response
+  * [Search customers](../operations/customers.md#customer) response
+  * [Add customer](../operations/customers.md#add-customer) response
+  * [Update customer](../operations/customers.md#update-customer) request and response
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) response
+  * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response
+
+## 21st May 2024
+* Added new response code `409 Conflict` to the list of [Response codes](../guidelines/responses.md#response-codes).
+* Introduced `409 Conflict` error for the following restricted operations:
+  * [Set restrictions](../operations/restrictions.md#set-restrictions)
+  * [Clear restrictions](../operations/restrictions.md#clear-restrictions)
+
+## 15th May 2024
+* Added new restricted operation [Get product pricing](../operations/products.md#get-product-pricing).
+
+## 9th May 2024
+* Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
+
+## 8th May 2024
+* Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
+* Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
+
+## 19th April 2024
+* Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:
+  * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06)
+* Deprecated `EndUtc` in [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) response object.
+
+## 12th April 2024
+* Extended [Add order](../operations/orders.md#add-order) request with `LinkedReservationId` parameter.
+* Extended [Product service order](../operations/productserviceorders.md#product-service-order) response object with `LinkedReservationId`, this affects the following operations:
+  * [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders)
+* Extended [Add payment command](../operations/commands.md#add-payment-command) request with `ReservationId` parameter.
+
+## 12th March 2024
+* Unused [reservation state](../operations/reservations.md#reservation-state) `Requested` removed from the documentation.
+
+## 5th March 2024
+* Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
+  * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
+  * [Add payment requests](../operations/paymentrequests.md#add-payment-requests)
+  * [Cancel payment requests](../operations/paymentrequests.md#cancel-payment-requests)
+* Extended [Preauthorization](../operations/preauthorizations.md#preauthorization) response object with `ReservationId`, this affects the following operations:
+  * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers)
+* Extended [Payment](../operations/payments.md#payment) response object with `ReservationId`, this affects the following operations:
+  * [Get all payments](../operations/payments.md#get-all-payments)
+  * [Add credit card payment](../operations/payments.md#add-credit-card-payment)
+  * [Add external payment](../operations/payments.md#add-external-payment)
+  * [Add alternative payment](../operations/payments.md#add-alternative-payment)
+* Extended [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests) with filtering parameter `ReservationIds`.
+* Extended [Get all payments](../operations/payments.md#payment) with filtering parameter `ReservationIds`.
+
 ## 1st March 2024
 * Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledStartUtc` parameter.
 
