@@ -1,7 +1,8 @@
 # Changelog
 
 ## 15th May 2024
-* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects following operations: 
+* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects the following operations: 
+
   * [Get all customers](../operations/customers.md#get-all-customers) response
   * [Update account](../operations/accounts.md#update-accounts) response
   * [Search customers](../operations/customers.md#customer) response
