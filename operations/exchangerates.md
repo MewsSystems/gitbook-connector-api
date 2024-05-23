@@ -22,7 +22,7 @@ Returns all available exchange rates among currencies of the [Enterprise](https:
 | `Client` | string | required | Name and version of the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
-| `Ids` | array of string | optional |  |
+| `Ids` | array of string | optional | Unique identifiers of the Exchange Rates. If not specified, the operation returns all exchange rates. |
 | `EnterpriseIds` | array of string | optional | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/configuration/#enterprise). If not specified, the operation returns the exchange rates for all enterprises within scope of the Access Token. |
 
 ### Response
