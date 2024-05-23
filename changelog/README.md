@@ -11,7 +11,6 @@
 
   * [Get all companionships](../operations/companionships.md#get-all-companionships) response
   * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response
-  * [Update customer](../operations/customers.md#update-customer) request
 
 ## 9th May 2024
 * Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
