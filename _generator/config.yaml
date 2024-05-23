@@ -20,7 +20,7 @@ tags:
   # - companycontracts
   # - configuration
   # - counters
-  # - countries
+  - countries
   # - creditcards
   - currencies
   # - customers
