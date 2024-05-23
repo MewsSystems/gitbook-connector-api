@@ -68,24 +68,24 @@ Returns all countries supported by the API.
 | :-- | :-- | :-- | :-- |
 | `Countries` | array of [Country](#country) | required | The supported countries. |
 | `CountrySubdivisions` | array of [Country subdivision](#country-subdivision) | required | The supported country subdivisions. |
-| `CountryRules` | array of [Country rules](#country-rules) | required |  |
-| `CountryGroups` | array of [Country group](#country-group) | required |  |
+| `CountryRules` | array of [Country rules](#country-rules) | required | Country-specific rules |
+| `CountryGroups` | array of [Country group](#country-group) | required | The supported country groups. |
 
 #### Country
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Code` | string | required | ISO 3166-1 alpha-2 code, e.g. `CZ` or `SK`. |
-| `SovereignCountryCode` | string | required | ISO 3166-1 alpha-2 code of the sovereign country. May differ from `Code` in case of dependent territories. |
+| `SovereignCountryCode` | string | required | ISO 3166-1 alpha-2 code of the sovereign country. May differ from `Code` for dependent territories. |
 | `EnglishName` | string | required | English name of the country. |
 
 #### Country subdivision
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Code` | string | optional | ISO 3166-2 code of the administrative division, e.g AU-QLD. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](https://mews-systems.gitbook.io/connector-api/operations/countries#country). |
-| `EnglishName` | string | optional | English name of the country subdivision. |
+| `Code` | string | required | ISO 3166-2 code of the administrative division, e.g AU-QLD. |
+| `CountryCode` | string | required | ISO 3166-1 code of the [Country](https://mews-systems.gitbook.io/connector-api/operations/countries#country). |
+| `EnglishName` | string | required | English name of the country subdivision. |
 
 #### Country rules
 Country-specific rules
@@ -94,10 +94,9 @@ Country-specific rules
 | :-- | :-- | :-- | :-- |
 | `CountryCode` | string | required | ISO 3166-1 alpha-2 code, e.g. US or GB. |
 | `IdentityCardExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for identity card. |
-| `DriverLicenceExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for driver's licence. |
+| `DriverLicenceExpirationDateNotRequired` | boolean | required | Whether the country requires expiration date for driver's license. |
 
 #### Country group
-The supported country groups.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
