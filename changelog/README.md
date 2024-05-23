@@ -1,5 +1,9 @@
 # Changelog
 
+## 24th May 2024
+* Extended [Outlet item](../operations/outletitems.md#outlet-item) response object with `PaymentCardPaymentId`, this affects the following operations:
+  * [Get outlet items](../operations/outletitems.md#get-all-outlet-items)
+
 ## 1st March 2024
 * Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledStartUtc` parameter.
 
