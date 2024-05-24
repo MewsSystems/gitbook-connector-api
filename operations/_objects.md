@@ -11,10 +11,10 @@ These are JSON object definitions and other JSON entities shared by operations a
 }
 ```
 
-| Property   | Type   | Contract | Description                                                                                                             |
-| :--------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------- |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format \(see [Datetimes](../guidelines/serialization.md#datetimes)\). |
-| `EndUtc`   | string | required | End of the interval in UTC timezone in ISO 8601 format \(see [Datetimes](../guidelines/serialization.md#datetimes)\).   |
+| `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format \(see [Datetimes](../guidelines/serialization.md#datetimes)\). |
 
 ### String update value
 
@@ -24,9 +24,9 @@ These are JSON object definitions and other JSON entities shared by operations a
 }
 ```
 
-| Property | Type   | Contract | Description                   |
-| :------- | :----- | :------- | :---------------------------- |
-| `Value`  | string | optional | Value which is to be updated. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | string | optional | Value which is to be updated. |
 
 ### Bool update value
 
@@ -36,9 +36,9 @@ These are JSON object definitions and other JSON entities shared by operations a
 }
 ```
 
-| Property | Type    | Contract | Description                   |
-| :------- | :------ | :------- | :---------------------------- |
-| `Value`  | boolean | optional | Value which is to be updated. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | boolean | optional | Value which is to be updated. |
 
 ### Number update value
 
@@ -48,9 +48,9 @@ These are JSON object definitions and other JSON entities shared by operations a
 }
 ```
 
-| Property | Type   | Contract | Description                   |
-| :------- | :----- | :------- | :---------------------------- |
-| `Value`  | number | optional | Value which is to be updated. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | number | optional | Value which is to be updated. |
 
 ### Integer update value
 
@@ -60,15 +60,15 @@ These are JSON object definitions and other JSON entities shared by operations a
 }
 ```
 
-| Property | Type    | Contract | Description                   |
-| :------- | :------ | :------- | :---------------------------- |
-| `Value`  | integer | optional | Value which is to be updated. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | integer | optional | Value which is to be updated. |
 
 ### Array of strings update value
 
 ```javascript
 {
-    "Value":
+    "Value": 
     [
         "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
         "4a1a7f12-4024-41ba-9289-f90448682d3a"
@@ -76,9 +76,9 @@ These are JSON object definitions and other JSON entities shared by operations a
 }
 ```
 
-| Property | Type             | Contract | Description                   |
-| :------- | :--------------- | :------- | :---------------------------- |
-| `Value`  | array of strings | optional | Value which is to be updated. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of strings | optional | Value which is to be updated. |
 
 ### Dictionary
 
@@ -91,9 +91,9 @@ Dictionary is a collection of key-value pairs, where both keys and values are st
 }
 ```
 
-| Property | Type   | Contract | Description                                                              |
-| :------- | :----- | :------- | :----------------------------------------------------------------------- |
-| ?Key?    | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
 ### Dictionary of integers
 
@@ -106,14 +106,14 @@ Dictionary of integers is a collection of key-value pairs, where keys are string
 }
 ```
 
-| Property | Type             | Contract | Description                                                                           |
-| :------- | :--------------- | :------- | :------------------------------------------------------------------------------------ |
-| ?Key?    | array of integer | optional | A set of integer values corresponding to the ?Key? unique identifier. Cannot be null. |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| ?Key? | array of integer | optional | A set of integer values corresponding to the ?Key? unique identifier. Cannot be null. |
 
 ### Activity state
 
-- `Active` - indicates active record.
-- `Deleted`- indicates deleted record.
+* `Active` - indicates active record.
+* `Deleted`- indicates deleted record.
 
 ### Localized text
 
