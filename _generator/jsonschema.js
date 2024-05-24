@@ -91,9 +91,9 @@ export function propertyType(schema) {
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
-  const schemaOverrideId = schema['x-schema-id'] || schema['x-readme-ref-name'];
-  if (schemaOverrideId && schemaTypeOverides[schemaOverrideId]) {
-    return schemaTypeOverides[schemaOverrideId];
+  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
+  if (schemaId && schemaTypeOverides[schemaId]) {
+    return schemaTypeOverides[schemaId];
   }
   if (isEnum(schema)) {
     const title = schema.title || schema['x-readme-ref-name'];
@@ -113,6 +113,9 @@ export function propertyType(schema) {
     return `array of ${nestedType}`;
   }
   if (schema.type === 'object') {
+    if (schemaId) {
+      return `[${schema.title}](#${getSchemaAnchor(schema)})`;
+    }
     return 'object';
   }
   return schema.type;
