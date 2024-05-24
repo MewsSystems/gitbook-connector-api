@@ -3,7 +3,7 @@ output: ../operations
 tags:
   # - accountingcategories
   # - accountingitems
-  # - accountnotes
+  - accountnotes
   # - accounts
   # - addresses
   # - agecategories
