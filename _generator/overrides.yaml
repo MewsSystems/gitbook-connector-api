@@ -11,6 +11,7 @@ types:
   TimeFilterIntervalMax1: '[Time interval](_objects.md#time-interval)'
   DateTimeIntervalUtc: '[Time interval](_objects.md#time-interval)'
   ActivityStates: '[Activity state](_objects.md#activity-state)'
+  ProfileData: '[Profile data](_objects.md#profile-data)'
 
 properties: {}
 
