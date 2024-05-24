@@ -122,7 +122,6 @@ export function collectSchemas(
   const nestedPath = [...path];
 
   if (isExcludedSchema(schema)) {
-    console.log(`Excluded schema: ${schemaId}`);
     return accumulator;
   }
 
