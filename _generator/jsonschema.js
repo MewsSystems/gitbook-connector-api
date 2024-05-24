@@ -134,7 +134,16 @@ export function propertyContract(schema) {
     result.push('required');
   }
   if (schema.maxItems) {
-    result.push(`max ${schema.maxItems} items`);
+    const suffix = schema.maxItems > 1 ? 's' : '';
+    result.push(`max ${schema.maxItems} item${suffix}`);
+  }
+  if (schema.maxLength) {
+    result.push(`max length ${schema.maxLength} characters`);
+  }
+  if (schema['x-max-interval-in-months']) {
+    const maxMonths = schema['x-max-interval-in-months'];
+    const suffix = maxMonths > 1 ? 's' : '';
+    result.push(`max length ${maxMonths} month${suffix}`);
   }
   return result.join(', ');
 }
