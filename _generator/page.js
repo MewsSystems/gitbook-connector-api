@@ -4,7 +4,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
-import { collectSchemas } from './schema.js';
+import { collectSchemas, SchemasAccumulator } from './schema.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -64,24 +64,26 @@ export async function renderPage(tagName, operations, outputPath) {
  * @returns {{ resourceName: string, operations: OperationTemplateData[] }}
  */
 function prepareTemplateData(tagName, oasOperations) {
-  const coveredSchemas = new Set();
+  let knownSchemas = new Map();
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
       const request = operation.getRequestBody('application/json');
       const requestExample = request.example || {};
-      const requestSchemas = collectSchemas(request.schema, [
-        operationId,
-        'request',
-      ]);
+      const requestSchemas = collectSchemas(
+        request.schema,
+        [operationId, 'request'],
+        new SchemasAccumulator(knownSchemas)
+      );
 
       const response =
         operation.getResponseByStatusCode(200).content['application/json'];
       const responseExample = response.example || {};
-      const responseSchemas = collectSchemas(response.schema, [
-        operationId,
-        'response',
-      ]);
+      const responseSchemas = collectSchemas(
+        response.schema,
+        [operationId, 'response'],
+        new SchemasAccumulator(knownSchemas)
+      );
 
       return {
         summary: operation.getSummary(),

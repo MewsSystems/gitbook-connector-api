@@ -17,23 +17,26 @@ import {
  * @typedef { import('./types.js').TemplateEnumEntry } TemplateEnumEntry
  */
 
-class SchemasAccumulator {
-  constructor() {
-    this.map = new Map();
+export class SchemasAccumulator {
+  constructor(knownSchemas = new Map()) {
+    this.knownSchemas = knownSchemas;
     this.collectedSchemas = [];
   }
 
   add(schemaId, schema) {
-    this.map.set(schemaId, schema);
+    if (this.knownSchemas.has(schemaId)) {
+      return;
+    }
+    this.knownSchemas.set(schemaId, schema);
     this.collectedSchemas.push(schema);
   }
 
   get(schemaId) {
-    return this.map.get(schemaId);
+    return this.knownSchemas.get(schemaId);
   }
 
   has(schemaId) {
-    return this.map.has(schemaId);
+    return this.knownSchemas.has(schemaId);
   }
 }
 
