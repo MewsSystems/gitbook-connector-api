@@ -129,3 +129,20 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
     "en-GB": "Children"
 }
 ```
+
+### Profile data
+
+The profile data of the user who created or last updated the record.
+
+| Property            | Type                                                    | Contract | Description               |
+| :------------------ | :------------------------------------------------------ | :------- | :------------------------ |
+| `Discriminator`     | [ProfileDataDiscriminator](#profile-data-discriminator) | required | Type of the profile data. |
+| `EnterpriseProfile` | object                                                  | optional | Enterprise profile data.  |
+
+#### ProfileDataDiscriminator
+
+- `Personal`
+- `Enterprise`
+- `Platform`
+- `Static`
+- `Integration`

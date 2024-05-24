@@ -38,7 +38,7 @@ export function isNestedSchema(schema) {
 }
 
 export function isExcludedSchema(schema) {
-  const schemaId = schema['x-schema-id'];
+  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
   return schemaId in schemaTypeOverides || excludedSchemaIds.has(schemaId);
 }
 
@@ -91,6 +91,10 @@ export function propertyType(schema) {
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
+  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
+  if (schemaId && schemaTypeOverides[schemaId]) {
+    return schemaTypeOverides[schemaId];
+  }
   if (isEnum(schema)) {
     const title = schema.title || schema['x-readme-ref-name'];
     const anchor = getSchemaAnchor(schema);
@@ -109,9 +113,8 @@ export function propertyType(schema) {
     return `array of ${nestedType}`;
   }
   if (schema.type === 'object') {
-    const schemaId = schema['x-schema-id'];
-    if (schemaTypeOverides[schemaId]) {
-      return schemaTypeOverides[schemaId];
+    if (schemaId) {
+      return `[${schema.title}](#${getSchemaAnchor(schema)})`;
     }
     return 'object';
   }
@@ -134,7 +137,16 @@ export function propertyContract(schema) {
     result.push('required');
   }
   if (schema.maxItems) {
-    result.push(`max ${schema.maxItems} items`);
+    const suffix = schema.maxItems > 1 ? 's' : '';
+    result.push(`max ${schema.maxItems} item${suffix}`);
+  }
+  if (schema.maxLength) {
+    result.push(`max length ${schema.maxLength} characters`);
+  }
+  if (schema['x-max-interval-in-months']) {
+    const maxMonths = schema['x-max-interval-in-months'];
+    const suffix = maxMonths > 1 ? 's' : '';
+    result.push(`max length ${maxMonths} month${suffix}`);
   }
   return result.join(', ');
 }
