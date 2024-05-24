@@ -1,6 +1,5 @@
 excludedSchemaIds:
   - StringUpdateValue
-  - BooleanUpdateValue
   - GuidUpdateValue
   - GuidNullableUpdateValue
 
@@ -12,6 +11,7 @@ types:
   DateTimeIntervalUtc: '[Time interval](_objects.md#time-interval)'
   ActivityStates: '[Activity state](_objects.md#activity-state)'
   ProfileData: '[Profile data](_objects.md#profile-data)'
+  BooleanUpdateValue: '[Bool update value](_objects.md#bool-update-value)'
 
 properties: {}
 
