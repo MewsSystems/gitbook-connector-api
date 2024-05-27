@@ -86,7 +86,6 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `BillIds` | array of string | required, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was created. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was updated. Required if no other filter is provided. |
-| `ChargedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was charged. Required if no other filter is provided. |
 | `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was consumed. Required if no other filter is provided. |
 | `CanceledUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was canceled. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was closed. Required if no other filter is provided. |
