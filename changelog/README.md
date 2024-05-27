@@ -1,5 +1,8 @@
 # Changelog
 
+## 28th May 2024
+* Extended [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) with filtering parameter `LinkedReservationIds`.
+
 ## 23rd May 2024
 * Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects the following operations: 
   * [Get all customers](../operations/customers.md#get-all-customers) response

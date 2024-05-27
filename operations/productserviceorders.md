@@ -20,6 +20,11 @@ Returns all product service orders associated with the given enterprise. This op
         "ae8da28c-e8a4-4141-9df0-8c998976c691",
         "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
     ],
+    "LinkedReservationIds": 
+    [
+        "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
+        "b7a3f5cb-1e69-4a5f-a069-10f461996d7f"
+    ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-01T00:00:00Z",
         "EndUtc": "2023-05-05T00:00:00Z"
@@ -39,6 +44,7 @@ Returns all product service orders associated with the given enterprise. This op
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](#product-service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
+| `LinkedReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservations](reservations.md#reservation-ver-2023-06-06) to which product service orders are linked. |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of product service order states to filter by. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](#product-service-order) were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -56,6 +62,7 @@ Returns all product service orders associated with the given enterprise. This op
             "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+            "LinkedReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
