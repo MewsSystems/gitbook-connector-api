@@ -89,7 +89,7 @@ function createTemplateSchema(schema, schemaId, path) {
     schema.properties &&
     Object.entries(schema.properties).map(([name, property]) =>
       createTemplateProperty(name, property)
-    );
+    ).sort(propertiesSort);
   let baseObject = {};
   if (isEnum(schema)) {
     baseObject = createEnumTemplateSchema(schema, schemaId, path);
@@ -104,6 +104,32 @@ function createTemplateSchema(schema, schemaId, path) {
     properties,
     ...baseObject,
   };
+}
+
+const propertySortOrder = {
+  clienttoken: -10,
+  accesstoken: -9,
+  limitation: 999,
+  fallback: 0
+};
+
+/**
+ * @param {TemplateSchema} propertySchema
+ * @returns {number}
+ */
+function getPropertyOrder(propertySchema) {
+  const propertyName = propertySchema.name.toLowerCase();
+  let order = propertySortOrder[propertyName];
+  return order || propertySortOrder.fallback;
+}
+
+/**
+ * @param {TemplateSchema} a
+ * @param {TemplateSchema} b
+ * @returns {number}
+ */
+function propertiesSort(a, b) {
+  return getPropertyOrder(a) - getPropertyOrder(b);
 }
 
 // Traverse schema, collect all nested schemas
