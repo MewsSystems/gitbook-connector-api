@@ -53,6 +53,7 @@ export async function renderPage(tagName, operations, outputPath) {
   const mdAdjusted =
     md
       .trim()
+      .replace(/\([^\(]+connector-api\/operations\/(.+?)\/(.+?)\)/g, '($1.md$2)')
       .replace(/\r\n/g, '\n')
       .replace(/\n{3,}/g, '\n\n') + '\n';
   return fs.writeFile(fileName, mdAdjusted, 'utf-8');
