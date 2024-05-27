@@ -106,32 +106,6 @@ function createTemplateSchema(schema, schemaId, path) {
   };
 }
 
-const propertySortOrder = {
-  clienttoken: -10,
-  accesstoken: -9,
-  limitation: 999,
-  fallback: 0
-};
-
-/**
- * @param {TemplateSchema} propertySchema
- * @returns {number}
- */
-function getPropertyOrder(propertySchema) {
-  const propertyName = propertySchema.name.toLowerCase();
-  let order = propertySortOrder[propertyName];
-  return order || propertySortOrder.fallback;
-}
-
-/**
- * @param {TemplateSchema} a
- * @param {TemplateSchema} b
- * @returns {number}
- */
-function propertiesSort(a, b) {
-  return getPropertyOrder(a) - getPropertyOrder(b);
-}
-
 // Traverse schema, collect all nested schemas
 /**
  * @param {SchemaObject} schema
@@ -185,4 +159,32 @@ export function getSchemaId(schema) {
     return `X-Ref-Name-${refName}`;
   }
   return null;
+}
+
+const propertySortOrder = {
+  clienttoken: -99,
+  accesstoken: -98,
+  client: -97,
+  currency: 98,
+  limitation: 99,
+  fallback: 0
+};
+
+/**
+ * @param {TemplateSchema} propertySchema
+ * @returns {number}
+ */
+function getPropertyOrder(propertySchema) {
+  const propertyName = propertySchema.name.toLowerCase();
+  let order = propertySortOrder[propertyName];
+  return order || propertySortOrder.fallback;
+}
+
+/**
+ * @param {TemplateSchema} a
+ * @param {TemplateSchema} b
+ * @returns {number}
+ */
+function propertiesSort(a, b) {
+  return getPropertyOrder(a) - getPropertyOrder(b);
 }
