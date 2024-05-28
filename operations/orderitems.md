@@ -341,21 +341,21 @@ Additional order item data.
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
 
 #### Order item options
+Options of the order item.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CanceledWithReservation` | bool | required | Order item was canceled with reservation cancelation. |
+| `CanceledWithReservation` | boolean | required | Order item was canceled with reservation cancellation. |
 
+#### Order item accounting state
 
-#### Accounting item state
-
-* `Open` - Accounting items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
-* `Closed` - Accounting items which carry a non-zero value and have been closed on a bill or invoice.
-* `Inactive` - Accounting items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
-* `Canceled` - Accounting items which have been canceled, regardless of whether the item is of zero value.
-* ...
+* `Open` - Order items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
+* `Closed` - Order items which carry a non-zero value and have been closed on a bill or invoice.
+* `Inactive` - Order items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
+* `Canceled` - Order items which have been canceled, regardless of whether the item is of zero value.
 
 #### Order item type
+
 * `CancellationFee`
 * `NightRebate`
 * `ProductOrderRebate`
@@ -370,17 +370,21 @@ Additional order item data.
 * `ProductOrder`
 * `Surcharge`
 * `TaxCorrection`
-* ...
+* `ResourceUpgradeFee`
+* `InvoiceFee`
 
 #### Revenue type
 
 * `Service`
 * `Product`
 * `Additional`
-* ...
 
 #### Order item data discriminator
 
 * `Rebate`
 * `Product`
-* ...
+
+#### Account type
+
+* `Company`
+* `Customer`
