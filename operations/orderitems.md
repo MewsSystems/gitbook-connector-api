@@ -2,11 +2,11 @@
 
 ## Get all order items
 
-Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/) and supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/orderitems/getAll`
+`[PlatformAddress]/api/connector/v1/orderItems/getAll`
 
 ```javascript
 {
@@ -75,17 +75,17 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the order items for all enterprises within scope of the Access Token. |
-| `OrderItemIds` | array of string | required, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
-| `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of the service orders \([product service orders](productserviceorders.md#product-service-order) or [reservations](reservations.md#reservation-ver-2023-06-06)\). Required if no other filter is provided. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
-| `BillIds` | array of string | required, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |
-| `CreatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was created. Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was updated. Required if no other filter is provided. |
-| `ConsumedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was consumed. Required if no other filter is provided. |
-| `CanceledUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was canceled. Required if no other filter is provided. |
-| `ClosedUtc` | [Time interval](#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was closed. Required if no other filter is provided. |
-| `AccountingStates` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
-| `Types` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
+| `OrderItemIds` | array of string | optional, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
+| `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the service orders ([product service orders](productserviceorders.md#product-service-order) or [reservations](reservations.md#reservation-ver-2023-06-06)). Required if no other filter is provided. |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
+| `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was updated. Required if no other filter is provided. |
+| `ConsumedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was consumed. Required if no other filter is provided. |
+| `CanceledUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was canceled. Required if no other filter is provided. |
+| `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was closed. Required if no other filter is provided. |
+| `AccountingStates` | array of [Order item accounting state](#order-item-accounting-state) | optional, max 1000 items | Accounting state of the item. |
+| `Types` | array of [Order item type](#order-item-type) | optional, max 1000 items | Order item type, e.g. whether product order or space order. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
