@@ -291,8 +291,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the order item. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
-| `AccountType` | string | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
+| `AccountId` | string | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
+| `AccountType` | [Account type](#account-type) | optional | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the order item is assigned to. |
 | `ServiceOrderId` | string | optional | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the order item is assigned to. |
