@@ -307,7 +307,6 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
-| `ChargedUtc` | string | optional | Charged date and time of the order item charged in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the order item created in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the order item in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | required | Start of the order item in UTC timezone in ISO 8601 format. |
