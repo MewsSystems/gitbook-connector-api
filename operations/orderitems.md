@@ -298,9 +298,9 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the order item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the order item belongs to. |
 | `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
-| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
-| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
-| `OriginalAmount` | [Amount value](#amount-value) | required | order item's original amount, negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
+| `UnitAmount` | [Amount](_objects.md#amount) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
+| `Amount` | [Amount](_objects.md#amount) | required | Amount of item; note a negative amount represents a rebate or payment. |
+| `OriginalAmount` | [Amount](_objects.md#amount) | required | Order item's original amount. Negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
 | `Notes` | string | optional | Additional notes. |
 | `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
