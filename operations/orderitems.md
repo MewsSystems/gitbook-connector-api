@@ -319,18 +319,19 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Data` | [Order item data](#order-item-data) | optional | Additional order item data. |
 
 #### Order item data
+Additional order item data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Order item data discriminator](#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
-| `Rebate` | object [Rebate data](#rebate-data)| optional | Contains additional data in the case of rebate item. |
-| `Product` | object [Product data](#product-data) | optional | Contains additional data in the case of product item. |
+| `Discriminator` | [Order item data discriminator](#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
+| `Rebate` | [Rebate data](#rebate-data) | optional | Contains additional data in the case of rebate item. |
+| `Product` | [Product data](#product-data) | optional | Contains additional data in the case of product item. |
 
 #### Rebate data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `RebatedItemId` | string | required | Unique identifier of [Order item](orders.md#order-item) which has been rebated by current item. |
+| `RebatedItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been rebated by current item. |
 
 #### Product data
 
