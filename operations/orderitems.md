@@ -293,8 +293,11 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
 | `AccountType` | [Account type](#account-type) | optional | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
+| `ExternalIdentifier` | string | optional | Identifier of the entity from external system. |
+| `CanceledUtc` | string | optional | Cancellation date and time of the order item in UTC timezone in ISO 8601 format. |
+| `ClaimedUtc` | string | optional | Date and time when the order item was claimed in UTC timezone in ISO 8601 format. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the order item is assigned to. |
-| `ServiceOrderId` | string | optional | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
+| `ServiceOrderId` | string | required | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
 | `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the order item is assigned to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the order item belongs to. |
 | `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
@@ -302,18 +305,18 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Amount` | [Amount](_objects.md#amount) | required | Amount of item; note a negative amount represents a rebate or payment. |
 | `OriginalAmount` | [Amount](_objects.md#amount) | required | Order item's original amount. Negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
 | `Notes` | string | optional | Additional notes. |
-| `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
+| `RevenueType` | [Revenue type](#revenue-type) | required | Revenue type of the item. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the order item created in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the order item in UTC timezone in ISO 8601 format. |
-| `StartUtc` | string | required | Start of the order item in UTC timezone in ISO 8601 format. |
-| `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the order item. |
-| `Type` | string [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
+| `StartUtc` | string | optional | Start of the order item in UTC timezone in ISO 8601 format. |
+| `AccountingState` | [Order item accounting state](#order-item-accounting-state) | required | Accounting state of the order item. |
+| `Type` | [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Options` | [Order item options](#order-item-options) | required | Options of the order item. |
-| `Data` | object [Order item data](#order-item-data) | optional | Additional order item data. |
+| `Data` | [Order item data](#order-item-data) | optional | Additional order item data. |
 
 #### Order item data
 
