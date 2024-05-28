@@ -282,8 +282,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `OrderItems` | array of [Order item](#order-item) | required | Set of requested order items. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest order item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older order items. |
+| `OrderItems` | array of [Order item](#order-item) | required, max 1000 items | Set of requested order items. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest order item returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older order items. |
 
 #### Order item
 
