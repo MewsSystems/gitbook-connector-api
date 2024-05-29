@@ -36,7 +36,7 @@ tags:
   # - loyaltytiers
   # - messages
   # - messagethreads
-  # - orderitems
+  - orderitems
   # - orders
   # - outletbills
   # - outletitems
