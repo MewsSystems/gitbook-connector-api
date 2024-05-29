@@ -3,6 +3,10 @@
 ## 28th May 2024
 * Extended [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) with filtering parameter `LinkedReservationIds`.
 
+## 24th May 2024
+* Extended [Outlet item](../operations/outletitems.md#outlet-item) response object with `PaymentCardPaymentId`, this affects the following operations:
+  * [Get outlet items](../operations/outletitems.md#get-all-outlet-items)
+
 ## 23rd May 2024
 * Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects the following operations: 
   * [Get all customers](../operations/customers.md#get-all-customers) response
