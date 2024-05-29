@@ -84,7 +84,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `ConsumedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was consumed. Required if no other filter is provided. |
 | `CanceledUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was canceled. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was closed. Required if no other filter is provided. |
-| `AccountingStates` | array of [Order item accounting state](#order-item-accounting-state) | optional, max 1000 items | Accounting state of the item. |
+| `AccountingStates` | array of [Accounting State](accountingitems#accounting-item-state) | optional, max 1000 items | Accounting state of the item. |
 | `Types` | array of [Order item type](#order-item-type) | optional, max 1000 items | Order item type, e.g. whether product order or space order. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -313,7 +313,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `CreatedUtc` | string | required | Creation date and time of the order item created in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the order item in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | optional | Start of the order item in UTC timezone in ISO 8601 format. |
-| `AccountingState` | [Order item accounting state](#order-item-accounting-state) | required | Accounting state of the order item. |
+| `AccountingState` | [Accounting State](accountingitems#accounting-item-state) | required | Accounting state of the order item. |
 | `Type` | [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Options` | [Order item options](#order-item-options) | required | Options of the order item. |
 | `Data` | [Order item data](#order-item-data) | optional | Additional order item data. |
@@ -346,13 +346,6 @@ Options of the order item.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CanceledWithReservation` | boolean | required | Order item was canceled with reservation cancellation. |
-
-#### Order item accounting state
-
-* `Open` - Order items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
-* `Closed` - Order items which carry a non-zero value and have been closed on a bill or invoice.
-* `Inactive` - Order items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
-* `Canceled` - Order items which have been canceled, regardless of whether the item is of zero value.
 
 #### Order item type
 
