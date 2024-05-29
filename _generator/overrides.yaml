@@ -12,6 +12,7 @@ types:
   ActivityStates: '[Activity state](_objects.md#activity-state)'
   ProfileData: '[Profile data](_objects.md#profile-data)'
   BooleanUpdateValue: '[Bool update value](_objects.md#bool-update-value)'
+  Amount: '[Amount](_objects.md#amount)'
 
 properties: {}
 

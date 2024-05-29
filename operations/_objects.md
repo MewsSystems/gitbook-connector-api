@@ -146,3 +146,34 @@ The profile data of the user who created or last updated the record.
 - `Platform`
 - `Static`
 - `Integration`
+
+### Amount
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `NetValue` | number | required | Net value without taxes. |
+| `GrossValue` | number | required | Gross value including all taxes. |
+| `TaxValues` | array of [Tax value](#tax-value) | required | The tax values applied. |
+| `Breakdown` | [Tax breakdown](#tax-breakdown) | required | Information about individual tax amounts. |
+
+#### Tax value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Code` | string | optional | Code corresponding to tax type. |
+| `Value` | number | required | Amount of tax applied. |
+
+#### Tax breakdown
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Items` | array of [Tax breakdown item](#tax-breakdown-item) | required | Tax breakdown items per each tax rate applied. |
+
+#### Tax breakdown item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `TaxRateCode` | string | optional | Tax rate code for the item. `null` for untaxed amounts. |
+| `NetValue` | number | required | The net value that the tax is calculated from. |
+| `TaxValue` | number | required | The value of the tax. |
