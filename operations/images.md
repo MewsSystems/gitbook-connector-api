@@ -27,9 +27,9 @@ Returns URLs of the specified images.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Images` | array of [Image size parameters](#image-size-parameters) | required | Parameters of images whose URLs should be returned. |
 
 #### Image size parameters

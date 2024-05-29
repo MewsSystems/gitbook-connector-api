@@ -1,5 +1,5 @@
 import { Edge, edgeGlobals } from 'edge.js';
-import { tagToPageName } from './utils.js';
+import { tagToPageName, Comparer } from './utils.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
@@ -66,23 +66,26 @@ export async function renderPage(tagName, operations, outputPath) {
  */
 function prepareTemplateData(tagName, oasOperations) {
   let knownSchemas = new Map();
+  const schemaComparer = new Comparer(schemaSortOrder, function (schema) { return schema.id.toLowerCase().replace('x-ref-name-', '').replace('enum', ''); })
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
-      const request = operation.getRequestBody('application/json');
-      const requestExample = request.example || {};
-      const requestSchemas = collectSchemas(
-        request.schema,
-        [operationId, 'request'],
-        new SchemasAccumulator(knownSchemas)
-      );
 
+      // collect response schemas first so that shared schemas appear next to response
       const response =
         operation.getResponseByStatusCode(200).content['application/json'];
       const responseExample = response.example || {};
       const responseSchemas = collectSchemas(
         response.schema,
         [operationId, 'response'],
+        new SchemasAccumulator(knownSchemas)
+      );
+
+      const request = operation.getRequestBody('application/json');
+      const requestExample = request.example || {};
+      const requestSchemas = collectSchemas(
+        request.schema,
+        [operationId, 'request'],
         new SchemasAccumulator(knownSchemas)
       );
 
@@ -96,7 +99,7 @@ function prepareTemplateData(tagName, oasOperations) {
         requestExample,
         requestSchemas: requestSchemas.collectedSchemas,
         responseExample,
-        responseSchemas: responseSchemas.collectedSchemas,
+        responseSchemas: responseSchemas.collectedSchemas.sort(schemaComparer.compare),
       };
     })
     .sort(operationsSort);
@@ -130,4 +133,18 @@ function getOperationPriority(operation) {
  */
 function operationsSort(a, b) {
   return getOperationPriority(a) - getOperationPriority(b);
+}
+
+const schemaSortOrder = {
+  orderitemresult: 50,
+  orderitem: 60,
+  orderitemdata: 90,
+  orderitemrebatedata: 91,
+  orderitemproductdata: 92,
+  orderitemoptions: 93,
+  accountingstate: 94,
+  orderitemtype: 95,
+  revenuetype: 96,
+  orderitemdatadiscriminator: 97,
+  default: 100
 }

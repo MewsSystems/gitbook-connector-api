@@ -19,9 +19,9 @@ Returns all currencies supported by the API.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 

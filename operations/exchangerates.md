@@ -3,7 +3,7 @@
 
 ## Get all exchange rates
 
-Returns all available exchange rates among currencies of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/configuration/#enterprise).
+Returns all available exchange rates among currencies of the [Enterprise](configuration.md#enterprise).
 
 ### Request
 
@@ -19,11 +19,11 @@ Returns all available exchange rates among currencies of the [Enterprise](https:
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `Ids` | array of string | optional | Unique identifiers of the Exchange Rates. If not specified, the operation returns all exchange rates. |
-| `EnterpriseIds` | array of string | optional | Unique identifiers of the [Enterprises](https://mews-systems.gitbook.io/connector-api/operations/configuration/#enterprise). If not specified, the operation returns the exchange rates for all enterprises within scope of the Access Token. |
+| `EnterpriseIds` | array of string | optional | Unique identifiers of the [Enterprises](configuration.md#enterprise). If not specified, the operation returns the exchange rates for all enterprises within scope of the Access Token. |
 
 ### Response
 
@@ -53,7 +53,7 @@ Returns all available exchange rates among currencies of the [Enterprise](https:
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the Exchange Rate. |
-| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](https://mews-systems.gitbook.io/connector-api/operations/configuration/#enterprise) to which the Exchange Rate belongs. |
-| `SourceCurrency` | string | required | ISO-4217 code of the source [Currency](https://mews-systems.gitbook.io/connector-api/operations/currencies/#currency). |
-| `TargetCurrency` | string | required | ISO-4217 code of the target [Currency](https://mews-systems.gitbook.io/connector-api/operations/currencies/#currency). |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](configuration.md#enterprise) to which the Exchange Rate belongs. |
+| `SourceCurrency` | string | required | ISO-4217 code of the source [Currency](currencies.md#currency). |
+| `TargetCurrency` | string | required | ISO-4217 code of the target [Currency](currencies.md#currency). |
 | `Value` | number | required | The exchange rate from the source currency to the target currency. |

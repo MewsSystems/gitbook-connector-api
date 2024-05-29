@@ -17,3 +17,21 @@ export function slugify(str) {
 export function firstLine(str = '') {
   return str.split(/\r\n|\r|\n/)[0];
 }
+
+export class Comparer {
+  constructor(orderMap, sortValueSelector) {
+    this.orderMap = orderMap;
+    this.sortValueSelector = sortValueSelector;
+    this.compare = this.compare.bind(this)
+  }
+
+  getOrder(obj) {
+    const sortValue = this.sortValueSelector(obj);
+    let order = this.orderMap[sortValue];
+    return order || this.orderMap.default;
+  }
+
+  compare(a, b) {
+    return this.getOrder(a) - this.getOrder(b);
+  }
+}

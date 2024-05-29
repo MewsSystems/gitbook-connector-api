@@ -5,6 +5,7 @@ import {
   propertyDescription,
   propertyType,
 } from './jsonschema.js';
+import { Comparer } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -85,11 +86,13 @@ function createEnumTemplateSchema(schema) {
  * @returns {TemplateSchema}
  */
 function createTemplateSchema(schema, schemaId, path) {
+  const propertyComparer = new Comparer(propertySortOrder, function(propertySchema) { return propertySchema.name.toLowerCase(); })
+
   const properties =
     schema.properties &&
     Object.entries(schema.properties).map(([name, property]) =>
       createTemplateProperty(name, property)
-    ).sort(propertiesSort);
+    ).sort(propertyComparer.compare);
   let baseObject = {};
   if (isEnum(schema)) {
     baseObject = createEnumTemplateSchema(schema, schemaId, path);
@@ -165,26 +168,29 @@ const propertySortOrder = {
   clienttoken: -99,
   accesstoken: -98,
   client: -97,
+  serviceid: 50,
+  serviceorderid: 51,
+  billid: 52,
+  accountingcategoryid: 53,
+  unitcount: 54,
+  unitamount: 55,
+  amount: 56,
+  originalamount: 57,
+  notes: 58,
+  revenuetype: 59,
+  creatorprofileid: 60,
+  updaterprofileid: 61,
+  consumedutc: 62,
+  closedutc: 63,
+  chargedutc: 64,
+  createdutc: 65,
+  updatedutc: 66,
+  startutc: 67,
+  accountingstate: 68,
+  type: 69,
+  options: 70,
+  data: 71,  
   currency: 98,
   limitation: 99,
-  fallback: 0
+  default: 0
 };
-
-/**
- * @param {TemplateSchema} propertySchema
- * @returns {number}
- */
-function getPropertyOrder(propertySchema) {
-  const propertyName = propertySchema.name.toLowerCase();
-  let order = propertySortOrder[propertyName];
-  return order || propertySortOrder.fallback;
-}
-
-/**
- * @param {TemplateSchema} a
- * @param {TemplateSchema} b
- * @returns {number}
- */
-function propertiesSort(a, b) {
-  return getPropertyOrder(a) - getPropertyOrder(b);
-}
