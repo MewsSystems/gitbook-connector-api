@@ -1153,7 +1153,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required | Unique identifiers of the reservation to cancel. |
 | `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
-| `SendEmail` | boolean | required | Whether cancellation email should be sent. The default is `true`. |
+| `SendEmail` | boolean | optional | Whether cancellation email should be sent. The default is `true`. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |
 
 ### Response
