@@ -136,15 +136,5 @@ function operationsSort(a, b) {
 }
 
 const schemaSortOrder = {
-  orderitemresult: 50,
-  orderitem: 60,
-  orderitemdata: 90,
-  orderitemrebatedata: 91,
-  orderitemproductdata: 92,
-  orderitemoptions: 93,
-  accountingstate: 94,
-  orderitemtype: 95,
-  revenuetype: 96,
-  orderitemdatadiscriminator: 97,
-  default: 100
+  default: 0
 }
