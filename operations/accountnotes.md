@@ -43,15 +43,15 @@ Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `AccountNoteIds` | array of string | optional, max 1000 items | Unique identifiers of [Account note](https://mews-systems.gitbook.io/connector-api/operations/#account-note). |
-| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](https://mews-systems.gitbook.io/connector-api/operations/customers/#customer) or [Company](https://mews-systems.gitbook.io/connector-api/operations/companies/#company)). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Account note's last update date and time. |
+| `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](customers.md#customer) or [Company](companies.md#company)). |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Account note's last update date and time. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
 
@@ -169,9 +169,9 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property), ignored otherwise. |
 | `AccountNotes` | array of [Account note parameters](#account-note-parameters) | required, max 1000 items | Account notes to be added. |
 
@@ -250,9 +250,9 @@ Updates information about the specified account notes.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property), ignored otherwise. |
 | `AccountNoteUpdates` | array of [Account note update parameters](#account-note-update-parameters) | required, max 1000 items | Account notes to be updated. |
 
@@ -336,9 +336,9 @@ Deletes specified account notes.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property), ignored otherwise. |
 | `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of the account notes to be deleted. |
 

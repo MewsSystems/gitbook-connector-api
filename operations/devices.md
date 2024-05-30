@@ -19,9 +19,9 @@ Returns all devices in the enterprise.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Client` | string | required | Name and version of the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
 | `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 
 ### Response
 
@@ -46,9 +46,9 @@ Returns all devices in the enterprise.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the device. |
-| `Type` | [Device type](#device-type) | required | Type of the device. |
 | `Name` | string | required | Name of the device. |
 | `Identifier` | string | optional | Device identifier (for internal purposes). |
+| `Type` | [Device type](#device-type) | required | Type of the device. |
 
 #### Device type
 
