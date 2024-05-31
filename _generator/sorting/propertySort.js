@@ -7,7 +7,7 @@ const orderMap = {
   // createdutc: -7,
   // updatedutc: -6,
   limitation: 99,
-  default: 0
+  default: 0,
 };
 
 export function compareProperties(a, b) {

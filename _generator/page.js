@@ -42,7 +42,7 @@ edge.global('helpers', {
 
 function replaceWhitespaceInIntegerArrays(jsonString) {
   return jsonString.replace(/(\[\s*(?:-?\d+\s*,\s*)*-?\d+\s*\])/g, (match) => {
-      return match.replace(/\s+/g, ' ');
+    return match.replace(/\s+/g, ' ');
   });
 }
 
@@ -63,7 +63,10 @@ export async function renderPage(tagName, operations, outputPath) {
   const mdAdjusted =
     md
       .trim()
-      .replace(/\([^\(]+\/connector-api\/(.+?)\/(.+?)[\/#]+([^\/#]*?)\)/g, getRelativeUrl)
+      .replace(
+        /\([^\(]+\/connector-api\/(.+?)\/(.+?)[\/#]+([^\/#]*?)\)/g,
+        getRelativeUrl
+      )
       .replace(/\r\n/g, '\n')
       .replace(/\n{3,}/g, '\n\n') + '\n';
   return fs.writeFile(fileName, mdAdjusted, 'utf-8');
@@ -74,14 +77,14 @@ function getRelativeUrl(url, rootFolder, pathToPage, section) {
     return url;
   }
 
-  section = section ? '#' + section : ''
+  section = section ? '#' + section : '';
 
   if (rootFolder.toLowerCase() === 'operations') {
     return `(${pathToPage}.md${section})`;
   }
 
   if (rootFolder.toLowerCase() === 'guidelines') {
-    return `(../${rootFolder}/${pathToPage}.md${section})`
+    return `(../${rootFolder}/${pathToPage}.md${section})`;
   }
 
   return url;

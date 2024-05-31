@@ -13,7 +13,7 @@ const sortPriority = {
 export function compareOperations(a, b) {
   let opComp = getOperationPriority(a) - getOperationPriority(b);
 
-  if (opComp != 0) { 
+  if (opComp != 0) {
     return opComp;
   }
 

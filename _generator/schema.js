@@ -89,9 +89,9 @@ function createEnumTemplateSchema(schema) {
 function createTemplateSchema(schema, schemaId, path) {
   const properties =
     schema.properties &&
-    Object.entries(schema.properties).map(([name, property]) =>
-      createTemplateProperty(name, property)
-    ).sort(compareProperties);
+    Object.entries(schema.properties)
+      .map(([name, property]) => createTemplateProperty(name, property))
+      .sort(compareProperties);
   let baseObject = {};
   if (isEnum(schema)) {
     baseObject = createEnumTemplateSchema(schema, schemaId, path);
@@ -112,15 +112,19 @@ function createTemplateSchema(schema, schemaId, path) {
  * @param {TemplateSchema} templateSchema
  */
 function fixupCoproductTemplateSchema(templateSchema) {
-  let discriminator = templateSchema.properties.find(p => p.name.toLowerCase() === "discriminator");
+  let discriminator = templateSchema.properties.find(
+    (p) => p.name.toLowerCase() === 'discriminator'
+  );
   if (discriminator) {
-    discriminator.description = 'Determines type of value.'
+    discriminator.description = 'Determines type of value.';
   }
-  
-  let value = templateSchema.properties.find(p => p.name.toLowerCase() === "value");
+
+  let value = templateSchema.properties.find(
+    (p) => p.name.toLowerCase() === 'value'
+  );
   if (value) {
     value.type = 'object';
-    value.description = 'Structure of object depends on `Discriminator`.'
+    value.description = 'Structure of object depends on `Discriminator`.';
   }
 }
 
