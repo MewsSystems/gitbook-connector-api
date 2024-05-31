@@ -1,6 +1,6 @@
 # Changelog
 
-## 31st May 2024
+## 3rd June 2024
 * Extended [Cancel reserevation](../operations/reservations.md#cancel-reservation) request with `SendEmail` parameter.
 
 ## 24th May 2024
