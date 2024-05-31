@@ -6,6 +6,7 @@ import {
   propertyType,
 } from './jsonschema.js';
 import { compareProperties } from './sorting/propertySort.js';
+import { capitalize } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -48,7 +49,7 @@ export class SchemasAccumulator {
  */
 function createTemplateProperty(name, property) {
   return {
-    name: name,
+    name: capitalize(name),
     description: propertyDescription(name, property),
     type: propertyType(property),
     contract: propertyContract(property),
@@ -107,6 +108,22 @@ function createTemplateSchema(schema, schemaId, path) {
   };
 }
 
+/**
+ * @param {TemplateSchema} templateSchema
+ */
+function fixupCoproductTemplateSchema(templateSchema) {
+  let discriminator = templateSchema.properties.find(p => p.name.toLowerCase() === "discriminator");
+  if (discriminator) {
+    discriminator.description = 'Determines type of value.'
+  }
+  
+  let value = templateSchema.properties.find(p => p.name.toLowerCase() === "value");
+  if (value) {
+    value.type = 'object';
+    value.description = 'Structure of object depends on `Discriminator`.'
+  }
+}
+
 // Traverse schema, collect all nested schemas
 /**
  * @param {SchemaObject} schema
@@ -129,6 +146,11 @@ export function collectSchemas(
   if (schemaId) {
     accumulator.add(schemaId, createTemplateSchema(schema, schemaId, path));
     nestedPath.push(schemaId);
+  }
+
+  if (schemaId?.startsWith('coproduct')) {
+    let templateSchema = accumulator.get(schemaId);
+    fixupCoproductTemplateSchema(templateSchema);
   }
 
   if (schema.type === 'object' || schema.properties?.discriminator) {
