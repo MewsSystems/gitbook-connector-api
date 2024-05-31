@@ -32,11 +32,19 @@ const edge = Edge.create();
 edge.mount(new URL('./templates', import.meta.url));
 edge.global('helpers', {
   json(obj) {
-    return edgeGlobals.html.safe(JSON.stringify(obj, null, 2));
+    let jsonString = JSON.stringify(obj, null, 2);
+    jsonString = replaceWhitespaceInIntegerArrays(jsonString);
+    return edgeGlobals.html.safe(jsonString);
   },
   propertyContract,
   propertyType,
 });
+
+function replaceWhitespaceInIntegerArrays(jsonString) {
+  return jsonString.replace(/(\[\s*(?:-?\d+\s*,\s*)*-?\d+\s*\])/g, (match) => {
+      return match.replace(/\s+/g, ' ');
+  });
+}
 
 function outputFileName(outputPath, tagName) {
   return path.join(outputPath, `${tagToPageName(tagName)}.md`);
