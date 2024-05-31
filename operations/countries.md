@@ -84,7 +84,7 @@ Returns all countries supported by the API.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Code` | string | required | ISO 3166-2 code of the administrative division, e.g AU-QLD. |
-| `CountryCode` | string | required | ISO 3166-1 code of the [Country](https://mews-systems.gitbook.io/connector-api/operations/countries#country). |
+| `CountryCode` | string | required | ISO 3166-1 code of the [Country](countries.md#country). |
 | `EnglishName` | string | required | English name of the country subdivision. |
 
 #### Country rules

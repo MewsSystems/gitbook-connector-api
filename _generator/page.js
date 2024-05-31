@@ -63,10 +63,28 @@ export async function renderPage(tagName, operations, outputPath) {
   const mdAdjusted =
     md
       .trim()
-      .replace(/\([^\(]+connector-api\/operations\/(.+?)\/(.+?)\)/g, '($1.md$2)')
+      .replace(/\([^\(]+\/connector-api\/(.+?)\/(.+?)[\/#]+([^\/#]*?)\)/g, getRelativeUrl)
       .replace(/\r\n/g, '\n')
       .replace(/\n{3,}/g, '\n\n') + '\n';
   return fs.writeFile(fileName, mdAdjusted, 'utf-8');
+}
+
+function getRelativeUrl(url, rootFolder, pathToPage, section) {
+  if (!pathToPage) {
+    return url;
+  }
+
+  section = section ? '#' + section : ''
+
+  if (rootFolder.toLowerCase() === 'operations') {
+    return `(${pathToPage}.md${section})`;
+  }
+
+  if (rootFolder.toLowerCase() === 'guidelines') {
+    return `(../${rootFolder}/${pathToPage}.md${section})`
+  }
+
+  return url;
 }
 
 /**
