@@ -37,7 +37,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource categories for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Services](#service) was updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Services](services.md#service) were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -108,31 +108,38 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the service. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
-| `CreatedUtc` | string | required | Creation date and time of the service in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Last update date and time of the service in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the service is still active. |
 | `Name` | string | required | Name of the service. |
 | `Options` | [Service options](#service-options) | required | Options of the service. |
+| `Ordering` | integer | required | Order value for presentation purposes. |
 | `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the service from external system. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the service from external system. |
+| `CreatedUtc` | string | required | Creation date and time of the service in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the service in UTC timezone in ISO 8601 format. |
+| ~~`StartTime`~~ | string | optional | This property is deprecated. |
+| ~~`EndTime`~~ | string | optional | This property is deprecated. |
+| ~~`Promotions`~~ | [Promotions](#promotions) | optional | This property is deprecated. |
+| ~~`Type`~~ | string | optional | This property is deprecated. |
 
 #### Service options
+Options of the service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BillAsPackage` | boolean | required | Products should be displayed as a single package instead of individual items. |
 
 #### Service data
+Additional information about the specific service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Service data discriminator](#service-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on [Service data discriminator](#service-data-discriminator). |
+| `Discriminator` | [Service data discriminator](#service-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on `Discriminator`. |
 
 #### Service data discriminator
 
-* `Bookable` - Data specific to a bookable service.
-* `Additional` - Data specific to an additional service.
+* `Bookable`
+* `Additional`
 
 #### Bookable service data
 
@@ -143,13 +150,13 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](../guidelines/time-units.md) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
 | `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](../guidelines/time-units.md) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
 | `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | The length of time or period represented by a [time unit](../guidelines/time-units.md), for which the service can be booked. |
+| ~~`TimeUnit`~~ | [Time unit period](#time-unit-period) | required | This property is deprecated. |
 
 #### Time unit period
 
-* `Hour`
 * `Day`
 * `Month`
-* ...
+* `Hour`
 
 #### Additional service data
 
@@ -158,6 +165,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
 
 #### Promotions
+Promotions of the service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

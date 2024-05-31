@@ -60,7 +60,7 @@ tags:
   # - routingrules
   # - rules
   # - serviceordernotes
-  # - services
+  - services
   # - sourceassignments
   # - sources
   # - tasks
