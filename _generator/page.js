@@ -59,35 +59,50 @@ function outputFileName(outputPath, tagName) {
 export async function renderPage(tagName, operations, outputPath) {
   const templateData = prepareTemplateData(tagName, operations);
   const md = await edge.render('resource', templateData);
-  const fileName = outputFileName(outputPath, tagName);
-  const mdAdjusted =
+  const outputFile = outputFileName(outputPath, tagName);
+  const mdAdjusted = absoluteMdLinksToRelative(
     md
       .trim()
-      .replace(
-        /\([^\(]+\/connector-api\/(.+?)\/(.+?)[\/#]+([^\/#]*?)\)/g,
-        getRelativeUrl
-      )
       .replace(/\r\n/g, '\n')
-      .replace(/\n{3,}/g, '\n\n') + '\n';
-  return fs.writeFile(fileName, mdAdjusted, 'utf-8');
+      .replace(/\n{3,}/g, '\n\n') + '\n',
+
+    outputFile
+  );
+
+  return fs.writeFile(outputFile, mdAdjusted, 'utf-8');
 }
 
-function getRelativeUrl(url, rootFolder, pathToPage, section) {
-  if (!pathToPage) {
-    return url;
-  }
+// https://davidwells.io/snippets/regex-match-markdown-links
+const regexMdLinks = /\[([^\[]+)\]\(([^\)]+)\)/gm;
 
-  section = section ? '#' + section : '';
+/**
+ * @param {string} markdown
+ * @param {string} outputFile
+ * @returns {string}
+ */
+function absoluteMdLinksToRelative(markdown, outputFile) {
+  const basePath = `/connector-api/operations/`;
+  const currentFile = `${basePath}/${path.basename(outputFile)}`;
 
-  if (rootFolder.toLowerCase() === 'operations') {
-    return `(${pathToPage}.md${section})`;
-  }
+  return markdown.replace(regexMdLinks, (fullMatch, linkText, linkHref) => {
+    if (
+      !linkHref.startsWith('https://mews-systems.gitbook.io/connector-api/')
+    ) {
+      return fullMatch;
+    }
+    const url = new URL(linkHref);
+    let targetPath;
+    if (url.pathname.endsWith('/operations/')) {
+      targetPath = currentFile;
+    } else {
+      targetPath = url.pathname.replace(/\/?$/, '.md');
+    }
 
-  if (rootFolder.toLowerCase() === 'guidelines') {
-    return `(../${rootFolder}/${pathToPage}.md${section})`;
-  }
+    console.log({ basePath, targetPath });
+    const relativePath = path.posix.relative(basePath, targetPath);
 
-  return url;
+    return `[${linkText}](${relativePath}${url.hash})`;
+  });
 }
 
 /**
