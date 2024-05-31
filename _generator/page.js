@@ -98,7 +98,6 @@ function absoluteMdLinksToRelative(markdown, outputFile) {
       targetPath = url.pathname.replace(/\/?$/, '.md');
     }
 
-    console.log({ basePath, targetPath });
     const relativePath = path.posix.relative(basePath, targetPath);
 
     return `[${linkText}](${relativePath}${url.hash})`;
