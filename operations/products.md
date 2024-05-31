@@ -156,7 +156,7 @@ Returns all products offered together with the specified services. Note this ope
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns prices for a given product for a specified time interval. UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](./services.md#time-unit): 100 hours if hours, 100 days if days, or 24 months if months. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns prices for a given product for a specified time interval. UTC timestamps must correspond to the start boundary of a [time unit](../guidelines/time-units.md), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](../guidelines/time-units.md): 100 hours if hours, 100 days if days, or 24 months if months. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -184,8 +184,8 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Client` | string | required | Name and version of the client application. |
 | `ProductId` | string | required | Unique identifier of the [Product](#product) whose prices should be returned. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 100 hours if hours, 100 days if days, or 24 months if months. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 100 hours if hours, 100 days if days, or 24 months if months. |
 
 ### Response
 

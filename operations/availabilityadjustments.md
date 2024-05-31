@@ -89,8 +89,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the [Availability adjustment](#availability-adjustment). |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) which the availability adjustment belongs to. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability is updated. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
 | `UnitCount` | int | required | Adjustment value applied on the interval. |
 | `ActivityState` | string [Activity state](_objects.md#activity-state) | required | Shows whether the availability adjustment is active or deleted. |
 | `UpdatedUtc` | string | required | Last update date and time of the adjustment in UTC timezone in ISO 8601 format. |

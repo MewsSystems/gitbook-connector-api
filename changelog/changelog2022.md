@@ -196,7 +196,7 @@
 ## 8th February 2022
 
 * Extended [Time unit period](../operations/services.md#time-unit-period) with Month.
-* Added [Time unit](../operations/services.md#time-unit).
+* Added [Time unit](../guidelines/time-units).
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) with FirstTimeUnitStartUtc, LastTimeUnitStartUtc and info about max interval length.
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) return value with TimeUnitStartsUtc
 * Removed DatesUtc from [Get rate pricing](../operations/rates.md#get-rate-pricing) return value

@@ -11,6 +11,7 @@
   * [Pagination](guidelines/pagination.md)
   * [Taxation](guidelines/taxation.md)
   * [Multi-property](guidelines/multi-property.md)
+  * [Time units](guidelines/time-units.md)
   * [Best practices](guidelines/best-practices.md)
   * [Certification](guidelines/certification.md)
 * [Use cases](use-cases/README.md)
