@@ -1,10 +1,12 @@
 import { Edge, edgeGlobals } from 'edge.js';
-import { tagToPageName, Comparer } from './utils.js';
+import { tagToPageName } from './utils.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
 import { collectSchemas, SchemasAccumulator } from './schema.js';
+import { compareSchemas } from './sorting/schemaSort.js';
+import { compareOperations } from './sorting/operationSort.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -66,7 +68,6 @@ export async function renderPage(tagName, operations, outputPath) {
  */
 function prepareTemplateData(tagName, oasOperations) {
   let knownSchemas = new Map();
-  const schemaComparer = new Comparer(schemaSortOrder, function (schema) { return schema.id.toLowerCase().replace('x-ref-name-', '').replace('enum', ''); })
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
@@ -99,42 +100,9 @@ function prepareTemplateData(tagName, oasOperations) {
         requestExample,
         requestSchemas: requestSchemas.collectedSchemas,
         responseExample,
-        responseSchemas: responseSchemas.collectedSchemas.sort(schemaComparer.compare),
+        responseSchemas: responseSchemas.collectedSchemas.sort(compareSchemas),
       };
     })
-    .sort(operationsSort);
+    .sort(compareOperations);
   return { resourceName: tagName, operations: templateOperations };
-}
-
-const sortPriority = {
-  getAll: 1,
-  get: 2,
-  add: 3,
-  fallback: 4,
-};
-
-/**
- * @param {OperationTemplateData} operation
- * @returns {number}
- */
-function getOperationPriority(operation) {
-  const opType = operation.operationId.split('_')[1];
-  let priority = sortPriority[opType];
-  if (!priority && opType.startsWith('get')) {
-    priority = sortPriority.get;
-  }
-  return priority || sortPriority.fallback;
-}
-
-/**
- * @param {OperationTemplateData} a
- * @param {OperationTemplateData} b
- * @returns {number}
- */
-function operationsSort(a, b) {
-  return getOperationPriority(a) - getOperationPriority(b);
-}
-
-const schemaSortOrder = {
-  default: 0
 }

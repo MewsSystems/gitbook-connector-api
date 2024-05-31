@@ -5,7 +5,7 @@ import {
   propertyDescription,
   propertyType,
 } from './jsonschema.js';
-import { Comparer } from './utils.js';
+import { compareProperties } from './sorting/propertySort.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -86,13 +86,11 @@ function createEnumTemplateSchema(schema) {
  * @returns {TemplateSchema}
  */
 function createTemplateSchema(schema, schemaId, path) {
-  const propertyComparer = new Comparer(propertySortOrder, function(propertySchema) { return propertySchema.name.toLowerCase(); })
-
   const properties =
     schema.properties &&
     Object.entries(schema.properties).map(([name, property]) =>
       createTemplateProperty(name, property)
-    ).sort(propertyComparer.compare);
+    ).sort(compareProperties);
   let baseObject = {};
   if (isEnum(schema)) {
     baseObject = createEnumTemplateSchema(schema, schemaId, path);
@@ -163,11 +161,3 @@ export function getSchemaId(schema) {
   }
   return null;
 }
-
-const propertySortOrder = {
-  clienttoken: -99,
-  accesstoken: -98,
-  client: -97,
-  limitation: 99,
-  default: 0
-};
