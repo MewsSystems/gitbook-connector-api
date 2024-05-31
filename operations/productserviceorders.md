@@ -44,7 +44,7 @@ Returns all product service orders associated with the given enterprise. This op
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](#product-service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
-| `LinkedReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific [Reservations](reservations.md#reservation-ver-2023-06-06) to which product service orders are linked. |
+| `LinkedReservationIds` | array of string | optional, max 1000 items | Unique identifiers of linked [Reservations](reservations.md#reservation-ver-2023-06-06). |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of product service order states to filter by. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](#product-service-order) were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
