@@ -7,7 +7,7 @@ export function compareSchemas(a, b) {
 }
 
 function getSortKey(schema) {
-  return schema.id.toLowerCase().replace('x-ref-name-', '').replace('enum', '');
+  return schema.id.toLowerCase().replace('enum', '');
 }
 
 function getKeyOrder(obj) {

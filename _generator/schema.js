@@ -4,6 +4,7 @@ import {
   propertyContract,
   propertyDescription,
   propertyType,
+  getSchemaId,
 } from './jsonschema.js';
 import { compareProperties } from './sorting/propertySort.js';
 import { capitalize } from './utils.js';
@@ -170,20 +171,4 @@ export function collectSchemas(
     collectSchemas(item, nestedPath, accumulator);
   }
   return accumulator;
-}
-
-/**
- * @param {SchemaObject} schema
- * @returns {string | null}
- */
-export function getSchemaId(schema) {
-  const schemaId = schema['x-schema-id'];
-  if (schemaId) {
-    return schemaId.toLowerCase();
-  }
-  const refName = schema['x-readme-ref-name'];
-  if (refName) {
-    return `X-Ref-Name-${refName}`;
-  }
-  return null;
 }
