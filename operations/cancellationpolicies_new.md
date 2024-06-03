@@ -5,7 +5,7 @@
 >### RESTRICTED!
 >This operation is currently in beta-test and as such it is subject to change.
 
-Returns latest versions of all cancellation policies, filtered by services, and other filters. If you need to fetch older versions use [cancellationPolicyVersions](./cancellationpolicies_new_versions.md) API.
+Returns latest versions of all cancellation policies, filtered by enterprises, and other filters. If you need to fetch older versions use [cancellationPolicyVersions](./cancellationpolicies_new_versions.md) API.
 
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
@@ -21,9 +21,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "EnterpriseIds": [
         "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-    ],
-    "ServiceIds": [
-        "e654f217-d1b5-46be-a820-e93ba568dfac"
     ],
     "CancellationPolicyIds": [
         "fe795f96-0b64-445b-89ed-c032563f2bac"
