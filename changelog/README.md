@@ -1,5 +1,8 @@
 # Changelog
 
+## 3rd June 2024
+* Updated the maximum size of time interval for [Rates](../operations/rates.md) and [Services](../operations/services.md) from 24 months to 60 months if service's `TimeUnitPeriod` is `Month`.
+
 ## 28th May 2024
 * Extended [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) with filtering parameter `LinkedReservationIds`.
 
