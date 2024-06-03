@@ -128,6 +128,18 @@ Options of the service.
 | :-- | :-- | :-- | :-- |
 | `BillAsPackage` | boolean | required | Products should be displayed as a single package instead of individual items. |
 
+#### Promotions
+Promotions of the service.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
+| `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
+| `DuringStay` | boolean | required | Whether it can be promoted during stay. |
+| `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
+| `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
+| `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. |
+
 #### Service data
 Additional information about the specific service.
 
@@ -163,18 +175,6 @@ Additional information about the specific service.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
-
-#### Promotions
-Promotions of the service.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
-| `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
-| `DuringStay` | boolean | required | Whether it can be promoted during stay. |
-| `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
-| `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
-| `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. | 
 
 ## Get service availability (ver 2024-01-22)
 
