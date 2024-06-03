@@ -271,8 +271,6 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `ResourceCategoryAvailabilities` | array of [Resource category availability (ver 2024-01-22)](#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
 
-
-
 #### Resource category availability (ver 2024-01-22)
 
 | Property | Type | Contract | Description |
@@ -304,10 +302,11 @@ Returns availability of a bookable service for a specified time interval includi
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit] (../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit] (../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
-
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
+| ~~`StartUtc`~~ | string | optional | This property is deprecated. |
+| ~~`EndUtc`~~ | string | optional | This property is deprecated. |
 
 ### Response
 
@@ -335,16 +334,17 @@ Returns availability of a bookable service for a specified time interval includi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
+| `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
+| ~~`DatesUtc`~~ | array of string | optional | This property is deprecated. |
 
 #### Resource category availability
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Availabilities` | array of number | required | Absolute availabilities of the resource category in the covered dates. |
-| `Adjustments` | array of number | required | Relative availability adjustments set for resource category in the covered dates. |
+| `Availabilities` | array of integer | required | Absolute availabilities of the resource category in the covered dates. |
+| `Adjustments` | array of integer | required | Relative availability adjustments set for resource category in the covered dates. |
 
 ## Update service availability
 
@@ -385,18 +385,20 @@ Updates the number of available resources in [Resource category](resources.md#re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service) to update. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to update. |
 | `AvailabilityUpdates` | array of [Availability update](#availability-update) | required, max 1000 items | Availability updates. |
 
 #### Availability update
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit] (../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit] (../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
-| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
+| `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
+| ~~`StartUtc`~~ | string | optional |  |
+| ~~`EndUtc`~~ | string | optional |  |
 
 ### Response
 
