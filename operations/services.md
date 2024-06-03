@@ -269,7 +269,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
-| `ResourceCategoryAvailabilities` | array of [Resource category availability](#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
+| `ResourceCategoryAvailabilities` | array of [Resource category availability (ver 2024-01-22)](#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
 
 
 
@@ -277,8 +277,8 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Metrics` | [Dictionary of integers](_objects.md#dictionary-of-integers) | required | Dictionary keys are names of [Service availability metrics](#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
+| `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
+| `Metrics` | [Dictionary of integers](_objects.md#dictionary-of-integers) | required | Dictionary keys are names of [Service availability metrics](services.md#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
 
 ## Get service availability
 
