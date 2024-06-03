@@ -1,5 +1,38 @@
 # Changelog
 
+## 28th May 2024
+* Extended [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) with filtering parameter `LinkedReservationIds`.
+
+## 24th May 2024
+* Extended [Outlet item](../operations/outletitems.md#outlet-item) response object with `PaymentCardPaymentId`, this affects the following operations:
+  * [Get outlet items](../operations/outletitems.md#get-all-outlet-items)
+
+## 23rd May 2024
+* Added `SendMarketingPostalMail`, `SendPartnerMarketingEmails` and `SendPartnerMarketingPostalMail` options to [Customer option](../operations/customers.md#customer-option), this affects the following operations: 
+  * [Get all customers](../operations/customers.md#get-all-customers) response
+  * [Update account](../operations/accounts.md#update-accounts) response
+  * [Search customers](../operations/customers.md#customer) response
+  * [Add customer](../operations/customers.md#add-customer) response
+  * [Update customer](../operations/customers.md#update-customer) request and response
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) response
+  * [Get all reservations \(ver 2017-04-12\)](../operations/reservations.md#get-all-reservations-ver-2017-04-12) response
+
+## 21st May 2024
+* Added new response code `409 Conflict` to the list of [Response codes](../guidelines/responses.md#response-codes).
+* Introduced `409 Conflict` error for the following restricted operations:
+  * [Set restrictions](../operations/restrictions.md#set-restrictions)
+  * [Clear restrictions](../operations/restrictions.md#clear-restrictions)
+
+## 15th May 2024
+* Added new restricted operation [Get product pricing](../operations/products.md#get-product-pricing).
+
+## 9th May 2024
+* Extended [Charge credit card](../operations/creditcards.md#charge-credit-card) request with `ReservationId` parameter.
+
+## 8th May 2024
+* Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
+* Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
+
 ## 19th April 2024
 * Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:
   * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06)

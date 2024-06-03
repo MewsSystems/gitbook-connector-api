@@ -90,7 +90,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "ConsumedUtc": "2018-07-26T10:11:08Z",
             "UpdatedUtc": "2018-07-26T10:11:08Z",
             "ExternalIdentifier": "PaymentReference123",
-            "Notes": null
+            "Notes": null,
+            "PaymentCardPaymentId": "b1b58a6f-94d4-4497-84a9-469577e5fc4e"
         }
     ],
     "OutletBills": [  
@@ -138,6 +139,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | string | required | Last update date and time of the item in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes. |
+| `PaymentCardPaymentId` | string | optional | Unique identifier of the payment card [Payment](payments.md#payment) this item is linked to. This is only applicable to items of [Type](#outlet-item-type) `Payment`. |
 
 
 #### Outlet item type
