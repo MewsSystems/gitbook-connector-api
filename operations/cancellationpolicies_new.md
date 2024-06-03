@@ -32,6 +32,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "StartUtc": "2023-04-27T11:48:57Z",
         "EndUtc": "2023-04-27T11:48:57Z",
     },
+    "IncludeOlderVersions" : false,
     "Limitation": { "Count": 10 }
 }
 ```
@@ -45,6 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service). |
 | `CancellationPolicyIds` | array of string | optional, max 1000 items | Unique identifiers of the [Cancellation Policy](#cancellationpolicy). Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Cancellation Policy](#cancellation-policy) was updated. Required if no other filter is provided. |
+| `IncludeOlderVersions` | boolean | required | Flag indicating whether the API should return also old versions of the cancellation policy. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of cancellation policies returned. |
 
 ### Response
@@ -69,7 +71,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
                 "Value": 15.00
             },
             "RelativeFee": 0.00000000,
-            "CurrentVersion": "3"
+            "Version": "3"
         }
     ],
     "Cursor": "769fc613-838f-41a7-ac2a-aff100c3189f"
@@ -96,7 +98,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `FeeMaximumTimeUnits` | int | required | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value](../operations/accountingitems.md#currency-value) | optional | Absolute value of the fee. |
 | `RelativeFee` | decimal | required | Relative value of the fee, as a percentage of the reservation price. |
-| `CurrentVersion` | int | required | The current version of the cancellation policy where 0 means the original version, for later modifications the version increses. |
+| `Version` | int | required | The version number of the cancellation policy where 0 means the original version, for later modifications the version increses. |
 
 #### Cancellation Policy Applicability
 
