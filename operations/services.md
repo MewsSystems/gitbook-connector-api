@@ -215,10 +215,23 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit] (../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit] (../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
-| `Metrics` | array of [Service availability metrics](#service-availability-metrics) | required | Set of [Service availability metrics](#service-availability-metrics) to be returned. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
+| `Metrics` | array of [Service availability metrics](#service-availability-metrics) | required | Set of [Service availability metrics](services.md#service-availability-metrics) to be returned. |
+
+#### Service availability metrics
+
+* `OutOfOrderBlocks`
+* `PublicAvailabilityAdjustment`
+* `OtherServiceReservationCount`
+* `Occupied`
+* `ConfirmedReservations`
+* `OptionalReservations`
+* `BlockAvailability`
+* `AllocatedBlockAvailability`
+* `UsableResources`
+* `ActiveResources`
 
 ### Response
 
@@ -256,19 +269,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `ResourceCategoryAvailabilities` | array of [Resource category availability](#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
 
-#### Service availability metrics
 
-* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category ([resource block](./resourceblocks.md)).
-* `PublicAvailabilityAdjustment` - Number of resources marked as manual [availability adjustments](./availabilityadjustments.md).
-* `OtherServiceReservationCount` - Number of resources occupied by another service.
-* `Occupied` - Number of bookings that have been assigned to the resource category (i.e. reservations and blocks).
-* `ConfirmedReservations` - Number of confirmed reservations that have been assigned to the resource category.
-* `OptionalReservations` - Number of optional reservations that have been assigned to the resource category.
-* `BlockAvailability` - Number of blocked resources (from an availability block / allotment).
-* `AllocatedBlockAvailability` - Number of blocked resources that are in a deducting state (from an availability block / allotment).
-* `ActiveResources` - Number of active resources.
-* `UsableResources` - Number of usable resources (i.e. which are not out of order).
-* …
 
 #### Resource category availability (ver 2024-01-22)
 
