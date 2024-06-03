@@ -1,7 +1,8 @@
 # Changelog
 
 ## 3rd June 2024
-* Extended [Cancel reserevation](../operations/reservations.md#cancel-reservation) request with `SendEmail` parameter.
+* Extended [Cancel reservation](../operations/reservations.md#cancel-reservation) request with `SendEmail` parameter.
+
 
 ## 24th May 2024
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) response object with `PaymentCardPaymentId`, this affects the following operations:
