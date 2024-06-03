@@ -21,3 +21,16 @@ export type TemplateEnumEntry = {
   description?: string;
   name?: string;
 };
+
+export type PageContext = {
+  tagName: string;
+  fileName: string;
+  outputPath: string;
+}
+
+export type TypeLink = {
+  id: string;
+  title?: string;
+  file: string;
+  anchor: string;
+}

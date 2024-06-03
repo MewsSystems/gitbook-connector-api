@@ -4,9 +4,10 @@ import {
   propertyContract,
   propertyDescription,
   propertyType,
-  getSchemaId,
 } from './jsonschema.js';
+import { getSchemaId } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
+import { SchemasAccumulator } from './type-links.js';
 import { capitalize } from './utils.js';
 
 /**
@@ -19,29 +20,6 @@ import { capitalize } from './utils.js';
  * @typedef { import('./types.js').TemplateProperty } TemplateProperty
  * @typedef { import('./types.js').TemplateEnumEntry } TemplateEnumEntry
  */
-
-export class SchemasAccumulator {
-  constructor(knownSchemas = new Map()) {
-    this.knownSchemas = knownSchemas;
-    this.collectedSchemas = [];
-  }
-
-  add(schemaId, schema) {
-    if (this.knownSchemas.has(schemaId)) {
-      return;
-    }
-    this.knownSchemas.set(schemaId, schema);
-    this.collectedSchemas.push(schema);
-  }
-
-  get(schemaId) {
-    return this.knownSchemas.get(schemaId);
-  }
-
-  has(schemaId) {
-    return this.knownSchemas.has(schemaId);
-  }
-}
 
 /**
  * @param {string} name
@@ -136,26 +114,21 @@ function fixupCoproductTemplateSchema(templateSchema) {
  * @param {SchemasAccumulator} accumulator
  * @returns {SchemasAccumulator}
  */
-export function collectSchemas(
-  schema,
-  path,
-  accumulator = new SchemasAccumulator()
-) {
+export function collectSchemas(schema, path, accumulator) {
   const schemaId = getSchemaId(schema);
   const nestedPath = [...path];
 
   if (isExcludedSchema(schema)) {
     return accumulator;
   }
-
   if (schemaId) {
-    accumulator.add(schemaId, createTemplateSchema(schema, schemaId, path));
+    const templateSchema = createTemplateSchema(schema, schemaId, path);
+    accumulator.add(schemaId, schema, templateSchema);
     nestedPath.push(schemaId);
-  }
 
-  if (schemaId?.startsWith('coproduct')) {
-    let templateSchema = accumulator.get(schemaId);
-    fixupCoproductTemplateSchema(templateSchema);
+    if (schemaId?.startsWith('coproduct')) {
+      fixupCoproductTemplateSchema(templateSchema);
+    }
   }
 
   if (schema.type === 'object' || schema.properties?.discriminator) {

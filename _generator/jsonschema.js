@@ -3,7 +3,8 @@
  * @typedef { import('openapi-types').OpenAPIV3.SchemaObject } SchemaObject
  */
 
-import { firstLine, slugify, loadYaml } from './utils.js';
+import { resolvePropertyType } from './type-links.js';
+import { getSchemaId, getSchemaAnchor, firstLine, loadYaml } from './utils.js';
 
 const overrides = loadYaml('./overrides.yaml');
 
@@ -51,19 +52,6 @@ export function isEnum(schema) {
   return actualSchema.type === 'string' && actualSchema.enum?.length > 0;
 }
 
-/**
- * @param {SchemaObject} schema
- * @returns {string}
- */
-export function getSchemaAnchor(schema) {
-  const title = schema.title;
-  if (title) {
-    return slugify(title);
-  }
-
-  return getSchemaId(schema) || '';
-}
-
 function pickSingularComposedSchema(schema) {
   const composedSchema = schema.anyOf || schema.oneOf || schema.allOf;
   if (composedSchema?.length === 1) {
@@ -82,9 +70,10 @@ export function propertyType(schema) {
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
-  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
-  if (schemaId && schemaTypeOverides[schemaId]) {
-    return schemaTypeOverides[schemaId];
+  const schemaId = getSchemaId(schema);
+  const resolvedType = resolvePropertyType(schemaId);
+  if (resolvedType) {
+    return resolvedType;
   }
   if (isEnum(schema)) {
     const title = schema.title || schema['x-readme-ref-name'];
@@ -157,32 +146,3 @@ export function propertyDescription(propertyName, schema) {
   }
   return description.trim() || '';
 }
-
-/**
- * @param {SchemaObject} schema
- * @returns {string | null}
- */
-export function getSchemaId(schema) {
-  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
-  if (schemaId) {
-    return schemaId.toLowerCase();
-  }
-  return null;
-}
-
-// /**
-//  * Objects which contain only `BooleanUpdateValue` properties are treated as enums.
-//  * @param {SchemaObject} schema
-//  */
-// function getEnumProperties(schema) {
-//   const allBoolean = schema.properties.every((property) => {
-//     return (
-//       property.type === 'boolean' ||
-//       property['x-schema-id'] === 'BooleanUpdateValue'
-//     );
-//   });
-//   if (!allBoolean) {
-//     return [];
-//   }
-//   return Object.keys(schema.properties);
-// }
