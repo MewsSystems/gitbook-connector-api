@@ -11,22 +11,24 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseIds": [
-        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-    ],
-    "ServiceIds": [
-        "fc79a518-bc69-45b8-93bd-83326201bd14",
-        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
-    ],
-    "UpdatedUtc": {
-        "StartUtc": "2020-01-05T00:00:00Z",
-        "EndUtc": "2020-01-10T00:00:00Z"
-    },
-    "Limitation":{ "Count": 10 }
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "ServiceIds": [
+    "fc79a518-bc69-45b8-93bd-83326201bd14",
+    "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+  ],
+  "UpdatedUtc": {
+    "StartUtc": "2020-01-05T00:00:00Z",
+    "EndUtc": "2020-01-10T00:00:00Z"
+  },
+  "Limitation": {
+    "Count": 10
+  }
 }
 ```
 
@@ -44,56 +46,56 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ```javascript
 {
-    "Services": [
-        {
-            "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "CreatedUtc": "2023-10-01T11:48:57Z",
-            "UpdatedUtc": "2023-10-28T11:48:57Z",
-            "IsActive": true,
-            "Name": "Restaurant",
-            "Options": {
-                "BillAsPackage": false
-            },
-            "Data": {
-                "Discriminator": "Additional",
-                "Value": {
-                    "Promotions": {
-                        "BeforeCheckIn": false,
-                        "AfterCheckIn": false,
-                        "DuringStay": false,
-                        "BeforeCheckOut": false,
-                        "AfterCheckOut": false,
-                        "DuringCheckOut": false
-                    }
-                }
-            },
-            "ExternalIdentifier": "SVCE-Restaurant"
-        },
-        {
-            "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
-            "CreatedUtc": "2023-10-01T11:48:57Z",
-            "UpdatedUtc": "2023-10-28T11:48:57Z",
-            "IsActive": true,
-            "Name": "Accommodation",
-            "Options": {
-                "BillAsPackage": true
-            },
-            "Data": {
-                "Discriminator": "Bookable",
-                "Value": {
-                    "StartOffset": "P0M0DT15H0M0S",
-                    "EndOffset": "P0M0DT12H0M0S",
-                    "OccupancyStartOffset": "P0M0DT15H0M0S",
-                    "OccupancyEndOffset": "P0M0DT12H0M0S",
-                    "TimeUnitPeriod": "Day"
-                }
-            },
-            "ExternalIdentifier": "SVCE-Accomm"
+  "Services": [
+    {
+      "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "IsActive": true,
+      "Name": "Restaurant",
+      "Options": {
+        "BillAsPackage": false
+      },
+      "Data": {
+        "Discriminator": "Additional",
+        "Value": {
+          "Promotions": {
+            "BeforeCheckIn": false,
+            "AfterCheckIn": false,
+            "DuringStay": false,
+            "BeforeCheckOut": false,
+            "AfterCheckOut": false,
+            "DuringCheckOut": false
+          }
         }
-    ],
-    "Cursor": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+      },
+      "ExternalIdentifier": "SVCE-Restaurant"
+    },
+    {
+      "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "IsActive": true,
+      "Name": "Accommodation",
+      "Options": {
+        "BillAsPackage": true
+      },
+      "Data": {
+        "Discriminator": "Bookable",
+        "Value": {
+          "StartOffset": "P0M0DT15H0M0S",
+          "EndOffset": "P0M0DT12H0M0S",
+          "OccupancyStartOffset": "P0M0DT15H0M0S",
+          "OccupancyEndOffset": "P0M0DT12H0M0S",
+          "TimeUnitPeriod": "Day"
+        }
+      },
+      "ExternalIdentifier": "SVCE-Accomm"
+    }
+  ],
+  "Cursor": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
 }
 ```
 
@@ -189,24 +191,24 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-    "FirstTimeUnitStartUtc": "2024-02-01T23:00:00.000Z",
-    "LastTimeUnitStartUtc": "2024-02-05T23:00:00.000Z",
-    "Metrics": [
-        "OutOfOrderBlocks",
-        "PublicAvailabilityAdjustment",
-        "OtherServiceReservationCount",
-        "Occupied",
-        "ConfirmedReservations",
-        "OptionalReservations",
-        "BlockAvailability",
-        "AllocatedBlockAvailability",
-        "UsableResources",
-        "ActiveResources"
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+  "FirstTimeUnitStartUtc": "2024-02-01T23:00:00.000Z",
+  "LastTimeUnitStartUtc": "2024-02-05T23:00:00.000Z",
+  "Metrics": [
+    "OutOfOrderBlocks",
+    "PublicAvailabilityAdjustment",
+    "OtherServiceReservationCount",
+    "Occupied",
+    "ConfirmedReservations",
+    "OptionalReservations",
+    "BlockAvailability",
+    "AllocatedBlockAvailability",
+    "UsableResources",
+    "ActiveResources"
+  ]
 }
 ```
 
@@ -248,16 +250,16 @@ Returns selected availability and occupancy metrics of a bookable service for a 
     {
       "ResourceCategoryId": "d1801d11-fe8d-404b-a26f-af170189605a",
       "Metrics": {
-        "OutOfOrderBlocks": [0, 1, 0, 0, 1],
-        "PublicAvailabilityAdjustment": [7, 5, 4, 3, 4],
-        "OtherServiceReservationCount": [0, 0, 1, 0, 0],
-        "Occupied": [7, 5, 4, 3, 4],
-        "ConfirmedReservations": [7, 5, 4, 3, 4],
-        "OptionalReservations": [0, 2, 0, 0, 1],
-        "BlockAvailability": [0, 0, 1, 0, 0],
-        "AllocatedBlockAvailability": [0, 0, 0, 1, 0],
-        "UsableResources": [8, 8, 8, 8, 8],
-        "ActiveResources": [8, 8, 8, 8, 8]
+        "OutOfOrderBlocks": [ 0, 1, 0, 0, 1 ],
+        "PublicAvailabilityAdjustment": [ 7, 5, 4, 3, 4 ],
+        "OtherServiceReservationCount": [ 0, 0, 1, 0, 0 ],
+        "Occupied": [ 7, 5, 4, 3, 4 ],
+        "ConfirmedReservations": [ 7, 5, 4, 3, 4 ],
+        "OptionalReservations": [ 0, 2, 0, 0, 1 ],
+        "BlockAvailability": [ 0, 0, 1, 0, 0 ],
+        "AllocatedBlockAvailability": [ 0, 0, 0, 1, 0 ],
+        "UsableResources": [ 8, 8, 8, 8, 8 ],
+        "ActiveResources": [ 8, 8, 8, 8, 8 ]
       }
     }
   ]
@@ -288,12 +290,12 @@ Returns availability of a bookable service for a specified time interval includi
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-    "FirstTimeUnitStartUtc":"2017-01-01T23:00:00.000Z",
-    "LastTimeUnitStartUtc":"2017-01-03T23:00:00.000Z"
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+  "FirstTimeUnitStartUtc": "2017-01-01T23:00:00.000Z",
+  "LastTimeUnitStartUtc": "2017-01-03T23:00:00.000Z"
 }
 ```
 
@@ -311,23 +313,23 @@ Returns availability of a bookable service for a specified time interval includi
 
 ```javascript
 {
-    "CategoryAvailabilities": [
-        {
-            "Availabilities": [ 6, 7, 5 ],
-            "Adjustments ": [ 0, 1, -1 ],
-            "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f"
-        },
-        {
-            "Availabilities": [ 7, 7, 7 ],
-            "Adjustments ": [ 1, 0, -1 ],
-            "CategoryId": "a0a7a5c5-c4ef-494a-8b34-6cca97629076"
-        }
-    ],
-    "TimeUnitStartsUtc": [
-        "2017-01-01T23:00:00Z",
-        "2017-01-02T23:00:00Z",
-        "2017-01-03T23:00:00Z"
-    ]
+  "CategoryAvailabilities": [
+    {
+      "Availabilities": [ 6, 7, 5 ],
+      "Adjustments ": [ 0, 1, -1 ],
+      "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f"
+    },
+    {
+      "Availabilities": [ 7, 7, 7 ],
+      "Adjustments ": [ 1, 0, -1 ],
+      "CategoryId": "a0a7a5c5-c4ef-494a-8b34-6cca97629076"
+    }
+  ],
+  "TimeUnitStartsUtc": [
+    "2017-01-01T23:00:00Z",
+    "2017-01-02T23:00:00Z",
+    "2017-01-03T23:00:00Z"
+  ]
 }
 ```
 
@@ -354,25 +356,27 @@ Updates the number of available resources in [Resource category](resources.md#re
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-    "AvailabilityUpdates": [
-        {
-            "FirstTimeUnitStartUtc": "2020-10-05T23:00:00Z",
-            "LastTimeUnitStartUtc": "2020-10-05T23:00:00Z",
-            "AvailabilityBlockId": "23e85a44-d95a-4dcf-9f36-acb000b10abe",
-            "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
-            "UnitCountAdjustment": { "Value": 6 }
-        },
-        {
-            "FirstTimeUnitStartUtc": "2020-10-07T23:00:00Z",
-            "LastTimeUnitStartUtc": "2020-10-08T23:00:00Z",
-            "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
-            "UnitCountAdjustment": { }
-        }
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+  "AvailabilityUpdates": [
+    {
+      "FirstTimeUnitStartUtc": "2020-10-05T23:00:00Z",
+      "LastTimeUnitStartUtc": "2020-10-05T23:00:00Z",
+      "AvailabilityBlockId": "23e85a44-d95a-4dcf-9f36-acb000b10abe",
+      "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
+      "UnitCountAdjustment": {
+        "Value": 6
+      }
+    },
+    {
+      "FirstTimeUnitStartUtc": "2020-10-07T23:00:00Z",
+      "LastTimeUnitStartUtc": "2020-10-08T23:00:00Z",
+      "ResourceCategoryId": "46bc1498-38cf-4d03-b144-aa69012f5d50",
+      "UnitCountAdjustment": {}
+    }
+  ]
 }
 ```
 
