@@ -3,7 +3,7 @@
  * @typedef { import('openapi-types').OpenAPIV3.SchemaObject } SchemaObject
  */
 
-import { resolvePropertyType } from './type-links.js';
+import { resolvePropertyType } from './types-resolver.js';
 import { getSchemaId, getSchemaAnchor, firstLine, loadYaml } from './utils.js';
 
 const overrides = loadYaml('./overrides.yaml');

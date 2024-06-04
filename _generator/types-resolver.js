@@ -14,7 +14,7 @@ import { getSchemaAnchor, getSchemaId, loadYaml, saveYaml } from './utils.js';
 /**
  * @type {Map<string, TypeLink>}
  */
-const KNOWN_TYPES = new Map();
+const DISCOVERED_TYPES = new Map();
 
 const CONFIG_FILE = 'types.yaml';
 
@@ -36,9 +36,9 @@ function schemaToTypeLink(schema, pageContext) {
 
 export class SchemasAccumulator {
   /**
-   * @type {Map<string, SchemaObject>}
+   * @type {Map<string, TypeLink>}
    */
-  #knownSchemas;
+  #discoveredTypes;
 
   /**
    * @type {PageContext}
@@ -47,8 +47,8 @@ export class SchemasAccumulator {
 
   collectedSchemas = [];
 
-  constructor(knownSchemas, pageContext) {
-    this.#knownSchemas = knownSchemas;
+  constructor(discoveredTypes, pageContext) {
+    this.#discoveredTypes = discoveredTypes;
     this.#pageContext = pageContext;
   }
 
@@ -57,7 +57,7 @@ export class SchemasAccumulator {
     if (schemaFile && schemaFile !== this.#pageContext.fileName) {
       return;
     }
-    this.#knownSchemas.set(
+    this.#discoveredTypes.set(
       schemaId,
       schemaToTypeLink(rawSchema, this.#pageContext)
     );
@@ -65,7 +65,7 @@ export class SchemasAccumulator {
   }
 
   #getSchemaFile(schemaId) {
-    return this.#knownSchemas.get(schemaId)?.file;
+    return this.#discoveredTypes.get(schemaId)?.file;
   }
 }
 
@@ -74,7 +74,7 @@ export function resolvePropertyType(schemaId) {
     return null;
   }
 
-  const schema = KNOWN_TYPES.get(schemaId);
+  const schema = DISCOVERED_TYPES.get(schemaId);
   if (!schema) {
     return null;
   }
@@ -85,21 +85,21 @@ export function resolvePropertyType(schemaId) {
 export function getPageResolver(pageContext) {
   return {
     createSchemasAccumulator() {
-      return new SchemasAccumulator(KNOWN_TYPES, pageContext);
+      return new SchemasAccumulator(DISCOVERED_TYPES, pageContext);
     },
   };
 }
 
-export function loadKnownTypes() {
+export function loadDiscoveredTypes() {
   const types = loadConfig();
-  KNOWN_TYPES.clear();
+  DISCOVERED_TYPES.clear();
   for (typeLink of types) {
-    KNOWN_TYPES.set(typeLink.id, typeLink);
+    DISCOVERED_TYPES.set(typeLink.id, typeLink);
   }
 }
 
-export function saveKnownTypes() {
-  return dumpConfig(KNOWN_TYPES);
+export function saveDiscoveredTypes() {
+  return dumpConfig(DISCOVERED_TYPES);
 }
 
 /**
@@ -120,19 +120,19 @@ function loadConfig(configFile = CONFIG_FILE) {
     }));
   } catch (e) {
     console.error(
-      `Failed to load known types from ${configFile}: ${e.message}`
+      `Failed to load discovered types from ${configFile}: ${e.message}`
     );
   }
   return [];
 }
 
 /**
- * @param {Map<string, TypeLink>} knownTypes
+ * @param {Map<string, TypeLink>} discoveredTypes
  * @param {string} configFile
  */
-function dumpConfig(knownTypes, configFile = CONFIG_FILE) {
+function dumpConfig(discoveredTypes, configFile = CONFIG_FILE) {
   const types = {};
-  for (const [key, value] of knownTypes.entries()) {
+  for (const [key, value] of discoveredTypes.entries()) {
     types[key] = {
       title: value.title,
       file: value.file,

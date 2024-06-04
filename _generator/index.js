@@ -5,7 +5,7 @@ import Oas from 'oas';
 import { renderPage } from './page.js';
 import { tagToPageName } from './utils.js';
 import { loadConfig } from './config.js';
-import { loadKnownTypes, saveKnownTypes } from './type-links.js';
+import { loadDiscoveredTypes, saveDiscoveredTypes } from './types-resolver.js';
 
 /**
  * @typedef { import("oas/operation").Operation } Operation
@@ -50,7 +50,7 @@ function getOperationsByTags(oas, tagValues) {
   return operationsPerTags;
 }
 
-loadKnownTypes();
+loadDiscoveredTypes();
 await Promise.all(
   Object.entries(getOperationsByTags(oasWrapper, config.tags)).map(
     ([tag, operations]) => {
@@ -59,4 +59,4 @@ await Promise.all(
     }
   )
 );
-saveKnownTypes();
+saveDiscoveredTypes();

@@ -7,7 +7,6 @@ import {
 } from './jsonschema.js';
 import { getSchemaId } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
-import { SchemasAccumulator } from './type-links.js';
 import { capitalize } from './utils.js';
 
 /**
@@ -19,6 +18,7 @@ import { capitalize } from './utils.js';
  * @typedef { import('./types.js').TemplateSchema } TemplateSchema
  * @typedef { import('./types.js').TemplateProperty } TemplateProperty
  * @typedef { import('./types.js').TemplateEnumEntry } TemplateEnumEntry
+ * @typedef { import('./types-resolver.js').SchemasAccumulator } SchemasAccumulator
  */
 
 /**

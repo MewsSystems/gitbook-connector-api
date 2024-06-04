@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
 import { collectSchemas } from './schema.js';
-import { getPageResolver } from './type-links.js';
+import { getPageResolver } from './types-resolver.js';
 import { compareSchemas } from './sorting/schemaSort.js';
 import { compareOperations } from './sorting/operationSort.js';
 
