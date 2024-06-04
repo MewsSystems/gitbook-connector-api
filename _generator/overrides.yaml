@@ -13,7 +13,9 @@ types:
   AccountingStateEnum: '[Accounting State](accountingitems#accounting-item-state)'
   ProfileData: '[Profile data](_objects.md#profile-data)'
   BooleanUpdateValue: '[Bool update value](_objects.md#bool-update-value)'
+  Int32NullableUpdateValue: '[Number update value](_objects.md#number-update-value)'
   Amount: '[Amount](_objects.md#amount)'
+  ResourceAvailabilityMetricTypeInt32IEnumerableIDictionary: '[Dictionary of integers](_objects.md#dictionary-of-integers)'
 
 properties: {}
 
