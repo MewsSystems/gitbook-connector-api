@@ -119,10 +119,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the service from external system. |
 | `CreatedUtc` | string | required | Creation date and time of the service in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the service in UTC timezone in ISO 8601 format. |
-| ~~`StartTime`~~ | string | optional | This property is deprecated. |
-| ~~`EndTime`~~ | string | optional | This property is deprecated. |
-| ~~`Promotions`~~ | [Promotions](#promotions) | optional | This property is deprecated. |
-| ~~`Type`~~ | string | optional | This property is deprecated. |
+| ~~`StartTime`~~ | string | optional | **Deprecated!** |
+| ~~`EndTime`~~ | string | optional | **Deprecated!** |
+| ~~`Promotions`~~ | [Promotions](#promotions) | optional | **Deprecated!** |
+| ~~`Type`~~ | string | optional | **Deprecated!** |
 
 #### Service options
 Options of the service.
@@ -165,7 +165,7 @@ Additional information about the specific service.
 | `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](../guidelines/time-units.md) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
 | `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](../guidelines/time-units.md) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
 | `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | The length of time or period represented by a [time unit](../guidelines/time-units.md), for which the service can be booked. |
-| ~~`TimeUnit`~~ | [Time unit period](#time-unit-period) | required | This property is deprecated. |
+| ~~`TimeUnit`~~ | [Time unit period](#time-unit-period) | required | **Deprecated!** |
 
 #### Time unit period
 
@@ -305,8 +305,8 @@ Returns availability of a bookable service for a specified time interval includi
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../guidelines/time-units.md): 367 hours if hours, 367 days if days, or 24 months if months. |
-| ~~`StartUtc`~~ | string | optional | This property is deprecated. |
-| ~~`EndUtc`~~ | string | optional | This property is deprecated. |
+| ~~`StartUtc`~~ | string | optional | **Deprecated!** |
+| ~~`EndUtc`~~ | string | optional | **Deprecated!** |
 
 ### Response
 
@@ -336,7 +336,7 @@ Returns availability of a bookable service for a specified time interval includi
 | :-- | :-- | :-- | :-- |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
-| ~~`DatesUtc`~~ | array of string | optional | This property is deprecated. |
+| ~~`DatesUtc`~~ | array of string | optional | **Deprecated!** |
 
 #### Resource category availability
 
