@@ -3,6 +3,12 @@
 ## 4th June 2024
 * Extended [Cancel reservation](../operations/reservations.md#cancel-reservation) request with `SendEmail` parameter.
 
+## 3rd June 2024
+* Updated the maximum size of time interval for [Rates](../operations/rates.md) and [Services](../operations/services.md) from 24 months to 60 months if service's `TimeUnitPeriod` is `Month`.
+
+## 28th May 2024
+* Extended [Get all product service orders](../operations/productserviceorders.md#get-all-product-service-orders) with filtering parameter `LinkedReservationIds`.
+
 ## 24th May 2024
 * Extended [Outlet item](../operations/outletitems.md#outlet-item) response object with `PaymentCardPaymentId`, this affects the following operations:
   * [Get outlet items](../operations/outletitems.md#get-all-outlet-items)
