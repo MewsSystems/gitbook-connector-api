@@ -194,8 +194,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
@@ -256,8 +256,8 @@ Adds availability blocks which are used to group related [Availability updates](
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) to assign block to. |
 | `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](rates.md#rate). |
 | `Name` | string | optional | The name of the block. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations. |
@@ -337,8 +337,8 @@ Updates information about the specified [Availability block](#availability-block
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
-| `FirstTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). |
-| `LastTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../guidelines/time-units.md), in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). |
+| `FirstTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). |
+| `LastTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). |
 | `ReleasedUtc` | [String update value](_objects.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
 | `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
 
