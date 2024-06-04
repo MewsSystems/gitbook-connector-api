@@ -1,5 +1,8 @@
 # Changelog
 
+## 4th June 2024
+* Extended [Cancel reservation](../operations/reservations.md#cancel-reservation) request with `SendEmail` parameter.
+
 ## 3rd June 2024
 * Updated the maximum size of time interval for [Rates](../operations/rates.md) and [Services](../operations/services.md) from 24 months to 60 months if service's `TimeUnitPeriod` is `Month`.
 
