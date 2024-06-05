@@ -118,9 +118,6 @@ export function collectSchemas(schema, path, accumulator) {
   const schemaId = getSchemaId(schema);
   const nestedPath = [...path];
 
-  if (isExcludedSchema(schema)) {
-    return accumulator;
-  }
   if (schemaId) {
     const templateSchema = createTemplateSchema(schema, schemaId, path);
     accumulator.add(schemaId, schema, templateSchema);

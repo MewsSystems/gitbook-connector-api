@@ -50,7 +50,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccountNoteIds` | array of string | optional, max 1000 items | Unique identifiers of [Account note](accountnotes.md#account-note). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](customers.md#customer) or [Company](companies.md#company)). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Account note's last update date and time. |
-| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
+| `ActivityStates` | array of [ActivityStates](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -115,16 +115,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the account note. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Content` | string | required | The content of the account note. |
-| `AccountType` | [Account type](#account-type) | required | Specifying type of associated account. |
-| `Classifications` | array of [Account note classification](#account-note-classification) | required | Specifying the classifications of the note based on account type. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | Specifying type of associated account. |
+| `Classifications` | array of [Account note classification](accountnotes.md#account-note-classification) | required | Specifying the classifications of the note based on account type. |
 | `IsActive` | boolean | required | Whether the account note is still active. |
 | `CreatorProfile` | [Profile data](_objects.md#profile-data) | required | The profile data of the user who created the account note. |
 | `UpdaterProfile` | [Profile data](_objects.md#profile-data) | required | The profile data of the user who updated the account note. |
-
-#### Account type
-
-* `Company`
-* `Customer`
 
 #### Account note classification
 
@@ -181,7 +176,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required |  |
 | `Content` | string | required, max length 1000 characters | The content of the account note. |
-| `Classifications` | array of [Account note classification](#account-note-classification) | required, max 1 item | Specifying the classifications of the note based on account type. |
+| `Classifications` | array of [Account note classification](accountnotes.md#account-note-classification) | required, max 1 item | Specifying the classifications of the note based on account type. |
 
 ### Response
 
@@ -261,8 +256,8 @@ Updates information about the specified account notes.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNoteId` | string | required | Unique identifier of the account note. |
-| `Content` | [StringUpdateValue](#stringupdatevalue) | optional, max length 1000 characters | Content of the account note (or `null` if the content should not be updated). |
-| `Classifications` | [Account note update classifications](#account-note-update-classifications) | required | Classification of the account note. |
+| `Content` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Content of the account note (or `null` if the content should not be updated). |
+| `Classifications` | [Account note update classifications](accountnotes.md#account-note-update-classifications) | required | Classification of the account note. |
 
 #### Account note update classifications
 

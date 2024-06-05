@@ -122,7 +122,6 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
-      const pageSchemasAccumulator = resolver.createPageSchemasAccumulator();
 
       // collect response schemas first so that shared schemas appear next to response
       const response =
@@ -131,7 +130,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
       const responseSchemas = collectSchemas(
         response.schema,
         [operationId, 'response'],
-        pageSchemasAccumulator.createSectionSchemasAccumulator()
+        resolver.createSectionSchemasAccumulator()
       );
 
       const request = operation.getRequestBody('application/json');
@@ -139,7 +138,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
       const requestSchemas = collectSchemas(
         request.schema,
         [operationId, 'request'],
-        pageSchemasAccumulator.createSectionSchemasAccumulator()
+        resolver.createSectionSchemasAccumulator()
       );
 
       return {

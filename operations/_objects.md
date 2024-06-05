@@ -137,7 +137,7 @@ The profile data of the user who created or last updated the record.
 | Property            | Type                                                    | Contract | Description               |
 | :------------------ | :------------------------------------------------------ | :------- | :------------------------ |
 | `Discriminator`     | [ProfileDataDiscriminator](#profile-data-discriminator) | required | Type of the profile data. |
-| `EnterpriseProfile` | object                                                  | optional | Enterprise profile data.  |
+| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data)     | optional | Enterprise profile data.  |
 
 #### ProfileDataDiscriminator
 
@@ -146,6 +146,12 @@ The profile data of the user who created or last updated the record.
 - `Platform`
 - `Static`
 - `Integration`
+
+#### Enterprise profile data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ProfileId` | string | required | Unique identifier of the profile. |
 
 ### Amount
 

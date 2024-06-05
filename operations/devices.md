@@ -46,7 +46,7 @@ Returns all devices in the enterprise.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the device. |
-| `Type` | [Device type](#device-type) | required | Type of the device. |
+| `Type` | [Device type](devices.md#device-type) | required | Type of the device. |
 | `Name` | string | required | Name of the device. |
 | `Identifier` | string | optional | Device identifier (for internal purposes). |
 

@@ -24,10 +24,7 @@ export function isNestedSchema(schema) {
     return true;
   }
   if (schema.type === 'object') {
-    const schemaId = schema['x-schema-id'];
-    if (schemaId && !(schemaId in schemaTypeOverides)) {
-      return true;
-    }
+    return true;
   }
   if (schema.type === 'array') {
     return isNestedSchema(schema.items);

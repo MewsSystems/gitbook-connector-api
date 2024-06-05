@@ -86,8 +86,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `CanceledUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was canceled. Required if no other filter is provided. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Order item](orderitems.md#order-item) was closed. Required if no other filter is provided. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
-| `AccountingStates` | array of [Accounting State](accountingitems#accounting-item-state) | optional, max 1000 items | Accounting state of the item. |
-| `Types` | array of [Order item type](#order-item-type) | optional, max 1000 items | Order item type, e.g. whether product order or space order. |
+| `AccountingStates` | array of [Order item accounting state](orderitems.md#order-item-accounting-state) | optional, max 1000 items | Accounting state of the item. |
+| `Types` | array of [Order item type](orderitems.md#order-item-type) | optional, max 1000 items | Order item type, e.g. whether product order or space order. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -293,7 +293,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Id` | string | required | Unique identifier of the order item. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `AccountId` | string | optional | Unique identifier of the account (for example [Customer](customers.md#customer)) the order item belongs to. |
-| `AccountType` | [Account type](#account-type) | optional | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
+| `AccountType` | [Account type](accounts.md#account-type) | optional | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the order item is assigned to. |
 | `ServiceOrderId` | string | required | Unique identifier of the [Service order](serviceorders.md#service-order) the order item is assigned to. |
 | `Notes` | string | optional | Additional notes. |
@@ -304,7 +304,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `UnitAmount` | [Amount](_objects.md#amount) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
 | `Amount` | [Amount](_objects.md#amount) | required | Amount of item; note a negative amount represents a rebate or payment. |
 | `OriginalAmount` | [Amount](_objects.md#amount) | required | Order item's original amount. Negative amount represents either rebate or a payment. Contains the earliest known value in conversion chain. |
-| `RevenueType` | [Revenue type](#revenue-type) | required | Revenue type of the item. |
+| `RevenueType` | [Revenue type](orderitems.md#revenue-type) | required | Revenue type of the item. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the order item. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the order item. |
 | `CreatedUtc` | string | required | Creation date and time of the order item created in UTC timezone in ISO 8601 format. |
@@ -314,21 +314,23 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
 | `StartUtc` | string | optional | Start of the order item in UTC timezone in ISO 8601 format. |
 | `ClaimedUtc` | string | optional | Date and time when the order item was claimed in UTC timezone in ISO 8601 format. |
-| `AccountingState` | [Accounting State](accountingitems#accounting-item-state) | required | Accounting state of the order item. |
-| `Type` | [Order item type](#order-item-type) | required | Order item type, e.g. whether product order or space order. |
-| `Options` | [Order item options](#order-item-options) | required | Options of the order item. |
-| `Data` | [Order item data](#order-item-data) | optional | Additional order item data. |
-
-#### Account type
-
-* `Company`
-* `Customer`
+| `AccountingState` | [Order item accounting state](orderitems.md#order-item-accounting-state) | required | Accounting state of the order item. |
+| `Type` | [Order item type](orderitems.md#order-item-type) | required | Order item type, e.g. whether product order or space order. |
+| `Options` | [Order item options](orderitems.md#order-item-options) | required | Options of the order item. |
+| `Data` | [Order item data](orderitems.md#order-item-data) | optional | Additional order item data. |
 
 #### Revenue type
 
 * `Service`
 * `Product`
 * `Additional`
+
+#### Order item accounting state
+
+* `Open` - Order items which carry a non-zero value, are open, and have not been closed on a bill or invoice.
+* `Closed` - Order items which carry a non-zero value and have been closed on a bill or invoice.
+* `Inactive` - Order items which are either of zero value and have not been canceled, if the state of the payment item is Pending or Failed, or items of optional reservations. Until the reservation is confirmed, all its accounting items are Inactive.
+* `Canceled` - Order items which have been canceled, regardless of whether the item is of zero value.
 
 #### Order item type
 
@@ -361,9 +363,9 @@ Additional order item data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | [Order item data discriminator](#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
-| `Rebate` | [Rebate data](#rebate-data) | optional | Contains additional data in the case of rebate item. |
-| `Product` | [Product data](#product-data) | optional | Contains additional data in the case of product item. |
+| `Discriminator` | [Order item data discriminator](orderitems.md#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
+| `Rebate` | [Rebate data](orderitems.md#rebate-data) | optional | Contains additional data in the case of rebate item. |
+| `Product` | [Product data](orderitems.md#product-data) | optional | Contains additional data in the case of product item. |
 
 #### Order item data discriminator
 
@@ -374,6 +376,7 @@ Additional order item data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `ProductId` | string | required | Unique identifier of the [Product](products.md#product) of the original rebated [Order item](orderitems.md#order-item). |
 | `RebatedItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been rebated by current item. |
 
 #### Product data

@@ -32,4 +32,5 @@ export type TypeLink = {
   id: string;
   file: string;
   anchor: string;
+  titleOverride: string;
 }

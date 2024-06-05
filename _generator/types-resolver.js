@@ -104,6 +104,19 @@ export class SchemasAccumulator {
   }
 }
 
+export function getPageResolver(pageContext) {
+  const knownPageSchemas = new Set();
+  return {
+    createSectionSchemasAccumulator() {
+      return new SchemasAccumulator(
+        DISCOVERED_TYPES,
+        pageContext,
+        knownPageSchemas
+      );
+    },
+  };
+}
+
 export function resolvePropertyType(schemaId) {
   if (!schemaId) {
     return null;
@@ -114,35 +127,18 @@ export function resolvePropertyType(schemaId) {
     return null;
   }
   const schema = ALL_SCHEMAS.get(schemaId);
-  const title = getSchemaTitle(schema);
+  const title = typeLink.titleOverride || getSchemaTitle(schema);
 
   return `[${title}](${typeLink.file}#${typeLink.anchor})`;
-}
-
-export function getPageResolver(pageContext) {
-  return {
-    createPageSchemasAccumulator() {
-      const knownPageSchemas = new Set();
-      return {
-        createSectionSchemasAccumulator() {
-          return new SchemasAccumulator(
-            DISCOVERED_TYPES,
-            pageContext,
-            knownPageSchemas
-          );
-        },
-      };
-    },
-  };
 }
 
 /**
  * @param {Record<string, ReferenceObject | SchemaObject>} allSchemas
  */
 export function loadDiscoveredTypes(allSchemas) {
-  const types = loadConfig();
   DISCOVERED_TYPES.clear();
-  for (typeLink of types) {
+  const types = loadConfig();
+  for (const typeLink of types) {
     DISCOVERED_TYPES.set(typeLink.id, typeLink);
   }
 
@@ -167,11 +163,9 @@ function loadConfig(configFile = CONFIG_FILE) {
     if (!contents || !contents.types) {
       return [];
     }
-    Object.entries(contents.types).map(([id, value]) => ({
+    return Object.entries(contents.types).map(([id, value]) => ({
+      ...value,
       id,
-      title: value.title,
-      file: value.file,
-      anchor: value.anchor,
     }));
   } catch (e) {
     console.error(
@@ -189,9 +183,8 @@ function dumpConfig(discoveredTypes, configFile = CONFIG_FILE) {
   const types = {};
   for (const [key, value] of discoveredTypes.entries()) {
     types[key] = {
-      title: value.title,
-      file: value.file,
-      anchor: value.anchor,
+      ...value,
+      id: undefined,
     };
   }
   return saveYaml(configFile, { types });
