@@ -9,9 +9,9 @@
 @each(prop in schema.properties)
 @let(deprecatedMark = prop.deprecated ? '~~' : '')
 | {{deprecatedMark}}`{{ prop.name }}`{{deprecatedMark}} | {{{
-prop.type }}} | {{{
-prop.contract }}} | {{{
-prop.description
+helpers.strikeIf(prop.type, prop.deprecated) }}} | {{{
+helpers.strikeIf(prop.contract, prop.deprecated) }}} | {{{
+helpers.strikeIf(prop.description, prop.deprecated) }}}{{{ prop.deprecated ? ' **Deprecated!**' : ''
 }}} |
 @end
 @end
