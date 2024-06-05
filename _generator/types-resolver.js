@@ -1,8 +1,15 @@
-import { getSchemaAnchor, getSchemaId, loadYaml, saveYaml } from './utils.js';
+import {
+  getSchemaAnchor,
+  getSchemaId,
+  getSchemaTitle,
+  loadYaml,
+  saveYaml,
+} from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
  * @typedef { import('openapi-types').OpenAPIV3.SchemaObject } SchemaObject
+ * @typedef { import('openapi-types').OpenAPIV3.ReferenceObject } ReferenceObject
  * @typedef { import('openapi-types').OpenAPIV3.ResponseObject } ResponseObject
  * @typedef { import('openapi-types').OpenAPIV3.Document } OASDocument
  * @typedef { import('oas').default } Oas
@@ -15,6 +22,7 @@ import { getSchemaAnchor, getSchemaId, loadYaml, saveYaml } from './utils.js';
  * @type {Map<string, TypeLink>}
  */
 const DISCOVERED_TYPES = new Map();
+const ALL_SCHEMAS = new Map();
 
 const CONFIG_FILE = 'types.yaml';
 
@@ -24,11 +32,9 @@ const CONFIG_FILE = 'types.yaml';
  */
 function schemaToTypeLink(schema, pageContext) {
   const id = getSchemaId(schema);
-  const title = schema.title || schema['x-readme-ref-name'];
   const anchor = getSchemaAnchor(schema);
   return {
     id,
-    title,
     file: pageContext.fileName,
     anchor,
   };
@@ -45,27 +51,56 @@ export class SchemasAccumulator {
    */
   #pageContext;
 
-  collectedSchemas = [];
+  /**
+   * @type {Set<string>}
+   */
+  #knownPageSchemas;
 
-  constructor(discoveredTypes, pageContext) {
+  #sectionSchemas = new Map();
+
+  constructor(discoveredTypes, pageContext, knownPageSchemas) {
     this.#discoveredTypes = discoveredTypes;
     this.#pageContext = pageContext;
+    this.#knownPageSchemas = knownPageSchemas;
   }
 
   add(schemaId, rawSchema, templateSchema) {
-    const schemaFile = this.#getSchemaFile(schemaId);
-    if (schemaFile && schemaFile !== this.#pageContext.fileName) {
+    if (!this.#shouldAddSchema(schemaId)) {
       return;
     }
+
     this.#discoveredTypes.set(
       schemaId,
       schemaToTypeLink(rawSchema, this.#pageContext)
     );
-    this.collectedSchemas.push(templateSchema);
+    this.#knownPageSchemas.add(schemaId);
+    this.#sectionSchemas.set(schemaId, templateSchema);
+  }
+
+  #shouldAddSchema(schemaId) {
+    // Root schema is typically request / response and must be included
+    if (this.#sectionSchemas.size === 0) {
+      return true;
+    }
+    const schemaFile = this.#getSchemaFile(schemaId);
+    if (schemaFile && schemaFile !== this.#pageContext.fileName) {
+      return false;
+    }
+    if (
+      this.#knownPageSchemas.has(schemaId) ||
+      this.#sectionSchemas.has(schemaId)
+    ) {
+      return false;
+    }
+    return true;
   }
 
   #getSchemaFile(schemaId) {
     return this.#discoveredTypes.get(schemaId)?.file;
+  }
+
+  getCollectedSchemas() {
+    return this.#sectionSchemas.values();
   }
 }
 
@@ -74,27 +109,47 @@ export function resolvePropertyType(schemaId) {
     return null;
   }
 
-  const schema = DISCOVERED_TYPES.get(schemaId);
-  if (!schema) {
+  const typeLink = DISCOVERED_TYPES.get(schemaId);
+  if (!typeLink) {
     return null;
   }
+  const schema = ALL_SCHEMAS.get(schemaId);
+  const title = getSchemaTitle(schema);
 
-  return `[${schema.title || schema.name}](${schema.file}#${schema.anchor})`;
+  return `[${title}](${typeLink.file}#${typeLink.anchor})`;
 }
 
 export function getPageResolver(pageContext) {
   return {
-    createSchemasAccumulator() {
-      return new SchemasAccumulator(DISCOVERED_TYPES, pageContext);
+    createPageSchemasAccumulator() {
+      const knownPageSchemas = new Set();
+      return {
+        createSectionSchemasAccumulator() {
+          return new SchemasAccumulator(
+            DISCOVERED_TYPES,
+            pageContext,
+            knownPageSchemas
+          );
+        },
+      };
     },
   };
 }
 
-export function loadDiscoveredTypes() {
+/**
+ * @param {Record<string, ReferenceObject | SchemaObject>} allSchemas
+ */
+export function loadDiscoveredTypes(allSchemas) {
   const types = loadConfig();
   DISCOVERED_TYPES.clear();
   for (typeLink of types) {
     DISCOVERED_TYPES.set(typeLink.id, typeLink);
+  }
+
+  ALL_SCHEMAS.clear();
+  for (const schema of Object.values(allSchemas)) {
+    const schemaId = getSchemaId(schema);
+    ALL_SCHEMAS.set(schemaId, schema);
   }
 }
 

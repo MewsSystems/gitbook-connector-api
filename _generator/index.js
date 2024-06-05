@@ -49,8 +49,7 @@ function getOperationsByTags(oas, tagValues) {
   }
   return operationsPerTags;
 }
-
-loadDiscoveredTypes();
+loadDiscoveredTypes(oasWrapper.api.components?.schemas);
 await Promise.all(
   Object.entries(getOperationsByTags(oasWrapper, config.tags)).map(
     ([tag, operations]) => {

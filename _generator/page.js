@@ -51,10 +51,6 @@ function replaceWhitespaceInIntegerArrays(jsonString) {
   );
 }
 
-function outputFileName(outputPath, tagName) {
-  return path.join(outputPath, `${tagToPageName(tagName)}.md`);
-}
-
 /**
  * @param {string} tagName
  * @param {Operation[]} operations
@@ -126,6 +122,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
+      const pageSchemasAccumulator = resolver.createPageSchemasAccumulator();
 
       // collect response schemas first so that shared schemas appear next to response
       const response =
@@ -134,7 +131,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
       const responseSchemas = collectSchemas(
         response.schema,
         [operationId, 'response'],
-        resolver.createSchemasAccumulator()
+        pageSchemasAccumulator.createSectionSchemasAccumulator()
       );
 
       const request = operation.getRequestBody('application/json');
@@ -142,7 +139,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
       const requestSchemas = collectSchemas(
         request.schema,
         [operationId, 'request'],
-        resolver.createSchemasAccumulator()
+        pageSchemasAccumulator.createSectionSchemasAccumulator()
       );
 
       return {
@@ -154,9 +151,11 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         deprecated: operation.isDeprecated(),
         restricted: operation.schema['x-restricted'],
         requestExample,
-        requestSchemas: requestSchemas.collectedSchemas,
+        requestSchemas: Array.from(requestSchemas.getCollectedSchemas()),
         responseExample,
-        responseSchemas: responseSchemas.collectedSchemas.sort(compareSchemas),
+        responseSchemas: Array.from(responseSchemas.getCollectedSchemas()).sort(
+          compareSchemas
+        ),
       };
     })
     .sort(compareOperations);

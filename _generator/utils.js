@@ -53,3 +53,16 @@ export function getSchemaId(schema) {
   }
   return null;
 }
+
+/**
+ * @param {SchemaObject} schema
+ * @returns {string}
+ */
+export function getSchemaTitle(schema) {
+  return (
+    schema.title ||
+    schema.name ||
+    schema['x-schema-id'] ||
+    schema['x-readme-ref-name']
+  );
+}

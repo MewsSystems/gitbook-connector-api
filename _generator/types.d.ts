@@ -30,7 +30,6 @@ export type PageContext = {
 
 export type TypeLink = {
   id: string;
-  title?: string;
   file: string;
   anchor: string;
 }
