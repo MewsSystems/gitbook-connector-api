@@ -13,6 +13,8 @@
   * [Multi-property](guidelines/multi-property.md)
   * [Best practices](guidelines/best-practices.md)
   * [Certification](guidelines/certification.md)
+* [Concepts](concepts/README.md)
+  * [Time units](concepts/time-units.md)
 * [Use cases](use-cases/README.md)
   * [Accounting](use-cases/accounting.md)
   * [Customer management](use-cases/customer-management.md)

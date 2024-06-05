@@ -1,5 +1,8 @@
 # Changelog
 
+## 5th June 2024
+* Added new section [Concepts](../concepts/README.md) including an explanation of [Time units](../concepts/time-units.md). Documentation-only.
+
 ## 4th June 2024
 * Extended [Cancel reservation](../operations/reservations.md#cancel-reservation) request with `SendEmail` parameter.
 
