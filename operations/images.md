@@ -30,7 +30,7 @@ Returns URLs of the specified images.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Images` | array of [Image size parameters](#image-size-parameters) | required | Parameters of images whose URLs should be returned. |
+| `Images` | array of [Image size parameters](images.md#image-size-parameters) | required | Parameters of images whose URLs should be returned. |
 
 #### Image size parameters
 
@@ -63,7 +63,7 @@ Returns URLs of the specified images.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ImageUrls` | array of [Image URL](#image-url) | required | URLs of the images. |
+| `ImageUrls` | array of [Image URL](images.md#image-url) | required | URLs of the images. |
 
 #### Image URL
 

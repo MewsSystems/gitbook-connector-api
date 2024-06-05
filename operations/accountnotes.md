@@ -105,7 +105,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | The set of requested account notes. |
+| `AccountNotes` | array of [Account note](accountnotes.md#account-note) | required | The set of requested account notes. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Account note
@@ -168,7 +168,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `AccountNotes` | array of [Account note parameters](#account-note-parameters) | required, max 1000 items | Account notes to be added. |
+| `AccountNotes` | array of [Account note parameters](accountnotes.md#account-note-parameters) | required, max 1000 items | Account notes to be added. |
 
 #### Account note parameters
 
@@ -209,7 +209,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | Added account notes. |
+| `AccountNotes` | array of [Account note](accountnotes.md#account-note) | required | Added account notes. |
 
 ## Update account notes
 
@@ -249,7 +249,7 @@ Updates information about the specified account notes.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `AccountNoteUpdates` | array of [Account note update parameters](#account-note-update-parameters) | required, max 1000 items | Account notes to be updated. |
+| `AccountNoteUpdates` | array of [Account note update parameters](accountnotes.md#account-note-update-parameters) | required, max 1000 items | Account notes to be updated. |
 
 #### Account note update parameters
 
@@ -307,7 +307,7 @@ Updates information about the specified account notes.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | Updated account notes. |
+| `AccountNotes` | array of [Account note](accountnotes.md#account-note) | required | Updated account notes. |
 
 ## Delete account notes
 

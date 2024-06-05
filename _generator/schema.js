@@ -1,6 +1,5 @@
 import {
   isEnum,
-  isExcludedSchema,
   propertyContract,
   propertyDescription,
   propertyType,

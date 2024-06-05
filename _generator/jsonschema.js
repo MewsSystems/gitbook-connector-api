@@ -9,7 +9,6 @@ import { getSchemaId, getSchemaAnchor, firstLine, loadYaml } from './utils.js';
 const overrides = loadYaml('./overrides.yaml');
 
 const schemaTypeOverides = overrides.types;
-const excludedSchemaIds = new Set(overrides.excludedSchemaIds);
 
 /**
  * @param {SchemaObject} schema
@@ -33,11 +32,6 @@ export function isNestedSchema(schema) {
     return true;
   }
   return false;
-}
-
-export function isExcludedSchema(schema) {
-  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
-  return schemaId in schemaTypeOverides || excludedSchemaIds.has(schemaId);
 }
 
 /**
@@ -72,21 +66,16 @@ export function propertyType(schema) {
   if (resolvedType) {
     return resolvedType;
   }
+  // console.log('No resolution for', schemaId, schema);
   if (isEnum(schema)) {
+    console.log('HIT isEnum', schema);
     const title = schema.title || schema['x-readme-ref-name'];
     const anchor = getSchemaAnchor(schema);
 
     return `[${title}](#${anchor})`;
   }
   if (schema.type === 'array') {
-    const nestedSchemaId = schema.items['x-schema-id'];
-    let nestedType = schemaTypeOverides[nestedSchemaId];
-    if (!nestedType && nestedSchemaId) {
-      const nestedTitle = schema.items.title || nestedSchemaId;
-      nestedType = `[${nestedTitle}](#${getSchemaAnchor(schema.items)})`;
-    } else {
-      nestedType = propertyType(schema.items);
-    }
+    const nestedType = propertyType(schema.items);
     return `array of ${nestedType}`;
   }
   if (schema.type === 'object') {

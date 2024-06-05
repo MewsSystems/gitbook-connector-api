@@ -42,7 +42,7 @@ Returns all currencies supported by the API.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Currencies` | array of [Currency](#currency) | required | The supported currencies. |
+| `Currencies` | array of [Currency](currencies.md#currency) | required | The supported currencies. |
 
 #### Currency
 

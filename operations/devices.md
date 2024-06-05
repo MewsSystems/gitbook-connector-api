@@ -39,7 +39,7 @@ Returns all devices in the enterprise.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Devices` | array of [Device](#device) | required | The devices. |
+| `Devices` | array of [Device](devices.md#device) | required | The devices. |
 
 #### Device
 

@@ -66,10 +66,10 @@ Returns all countries supported by the API.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Countries` | array of [Country](#country) | required | The supported countries. |
-| `CountrySubdivisions` | array of [Country subdivision](#country-subdivision) | required | The supported country subdivisions. |
-| `CountryRules` | array of [Country rules](#country-rules) | required | Country-specific rules |
-| `CountryGroups` | array of [Country group](#country-group) | required | The supported country groups. |
+| `Countries` | array of [Country](countries.md#country) | required | The supported countries. |
+| `CountrySubdivisions` | array of [Country subdivision](countries.md#country-subdivision) | required | The supported country subdivisions. |
+| `CountryRules` | array of [Country rules](countries.md#country-rules) | required | Country-specific rules |
+| `CountryGroups` | array of [Country group](countries.md#country-group) | required | The supported country groups. |
 
 #### Country
 
