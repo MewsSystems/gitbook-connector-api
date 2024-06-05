@@ -6,13 +6,12 @@
 @if(schema.properties)
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-@each(prop in schema.properties)
-@let(deprecatedMark = prop.deprecated ? '~~' : '')
-| {{deprecatedMark}}`{{ prop.name }}`{{deprecatedMark}} | {{{
-helpers.strikeIf(prop.type, prop.deprecated) }}} | {{{
-helpers.strikeIf(prop.contract, prop.deprecated) }}} | {{{
-helpers.strikeIf(prop.description, prop.deprecated) }}}{{{ prop.deprecated ? ' **Deprecated!**' : ''
-}}} |
+@each(prop in schema.properties)~
+@if(prop.deprecated)
+@!component('deprecatedProperty', { prop })~
+@else
+@!component('property', { prop })
+@end
 @end
 @end
 @if(schema.enum)
