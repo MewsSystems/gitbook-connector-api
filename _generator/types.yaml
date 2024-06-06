@@ -18,6 +18,7 @@ types:
   activitystates:
     file: _objects.md
     anchor: activity-state
+    titleOverride: Activity state
   stringupdatevalue:
     file: _objects.md
     anchor: string-update-value
