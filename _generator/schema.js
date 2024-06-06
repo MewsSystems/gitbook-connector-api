@@ -153,7 +153,7 @@ export function collectSchemas(
     nestedPath.push(schemaId);
   }
 
-  if (schemaId?.startsWith('coproduct')) {
+  if (schema['x-coproduct']) {
     let templateSchema = accumulator.get(schemaId);
     fixupCoproductTemplateSchema(templateSchema);
   }
