@@ -40,7 +40,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource categories for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Services](services.md#service) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which `Services` were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -102,7 +102,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Services` | array of [Service](#service) | required | Services offered by the enterprise. |
+| `Services` | array of [Service](services.md#service) | required | Services offered by the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Service
@@ -113,15 +113,15 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `IsActive` | boolean | required | Whether the service is still active. |
 | `Name` | string | required | Name of the service. |
-| `Options` | [Service options](#service-options) | required | Options of the service. |
+| `Options` | [Service options](services.md#service-options) | required | Options of the service. |
 | `Ordering` | integer | required | Order value for presentation purposes. |
-| `Data` | [Service data](#service-data) | required | Additional information about the specific service. |
+| `Data` | [Service data](services.md#service-data) | required | Additional information about the specific service. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the service from external system. |
 | `CreatedUtc` | string | required | Creation date and time of the service in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the service in UTC timezone in ISO 8601 format. |
 | ~~`StartTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`Promotions`~~ | ~~[Promotions](#promotions)~~ | ~~optional~~ | ~~Promotions of the service.~~ **Deprecated!** |
+| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | ~~Promotions of the service.~~ **Deprecated!** |
 | ~~`Type`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Service options
@@ -148,7 +148,7 @@ Additional information about the specific service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | [Service data discriminator](#service-data-discriminator) | required | Determines type of value. |
+| `Discriminator` | [Service data discriminator](services.md#service-data-discriminator) | required | Determines type of value. |
 | `Value` | object | required | Structure of object depends on `Discriminator`. |
 
 #### Service data discriminator
@@ -164,8 +164,8 @@ Additional information about the specific service.
 | `EndOffset` | string | required | Offset from the end of the [time unit](../concepts/time-units.md) which defines the default end of the service; expressed in ISO 8601 duration format. |
 | `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](../concepts/time-units.md) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
 | `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](../concepts/time-units.md) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
-| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | The length of time or period represented by a [time unit](../concepts/time-units.md), for which the service can be booked. |
-| ~~`TimeUnit`~~ | ~~[Time unit period](#time-unit-period)~~ | ~~required~~ | **Deprecated!** |
+| `TimeUnitPeriod` | [Time unit period](services.md#time-unit-period) | required | The length of time or period represented by a [time unit](../concepts/time-units.md), for which the service can be booked. |
+| ~~`TimeUnit`~~ | ~~[Time unit period](services.md#time-unit-period)~~ | ~~required~~ | **Deprecated!** |
 
 #### Time unit period
 
@@ -177,7 +177,7 @@ Additional information about the specific service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 
 ## Get service availability (ver 2024-01-22)
 
@@ -221,12 +221,12 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) whose availability should be returned. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months. |
-| `Metrics` | array of [Service availability metrics](#service-availability-metrics) | required | Set of [Service availability metrics](services.md#service-availability-metrics) to be returned. |
+| `Metrics` | array of [Service availability metrics](services.md#service-availability-metrics) | required | Set of [Service availability metrics](services.md#service-availability-metrics) to be returned. |
 
 #### Service availability metrics
 
-* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category ([resource block](./resourceblocks.md)).
-* `PublicAvailabilityAdjustment` - Number of resources marked as manual [availability adjustments](./availabilityadjustments.md).
+* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category (see `Resource Block`).
+* `PublicAvailabilityAdjustment` - Number of resources marked as manual availability adjustments.
 * `OtherServiceReservationCount` - Number of resources occupied by another service.
 * `Occupied` - Number of bookings that have been assigned to the resource category (i.e. reservations and blocks).
 * `ConfirmedReservations` - Number of confirmed reservations that have been assigned to the resource category.
@@ -270,7 +270,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
-| `ResourceCategoryAvailabilities` | array of [Resource category availability (ver 2024-01-22)](#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
+| `ResourceCategoryAvailabilities` | array of [Resource category availability (ver 2024-01-22)](services.md#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
 
 #### Resource category availability (ver 2024-01-22)
 
@@ -336,7 +336,7 @@ Returns availability of a bookable service for a specified time interval includi
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
-| `CategoryAvailabilities` | array of [Resource category availability](#resource-category-availability) | required | Resource category availabilities. |
+| `CategoryAvailabilities` | array of [Resource category availability](services.md#resource-category-availability) | required | Resource category availabilities. |
 | ~~`DatesUtc`~~ | ~~array of string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Resource category availability
@@ -387,7 +387,7 @@ Updates the number of available resources in [Resource category](resources.md#re
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to update. |
-| `AvailabilityUpdates` | array of [Availability update](#availability-update) | required, max 1000 items | Availability updates. |
+| `AvailabilityUpdates` | array of [Availability update](services.md#availability-update) | required, max 1000 items | Availability updates. |
 
 #### Availability update
 
@@ -398,7 +398,7 @@ Updates the number of available resources in [Resource category](resources.md#re
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
-| `PaxCounts` | array of [PaxCount](#paxcount) | optional, max 5 items | Collection of predicted occupancy of availability adjustments. Relates how many adjustments are assigned to each count of guests. |
+| `PaxCounts` | array of [PaxCount](services.md#paxcount) | optional, max 5 items | Collection of predicted occupancy of availability adjustments. Relates how many adjustments are assigned to each count of guests. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 

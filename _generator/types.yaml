@@ -39,6 +39,14 @@ types:
   taxbreakdownitem:
     file: _objects.md
     anchor: tax-breakdown-item
+  int32nullableupdatevalue:
+    file: _objects.md
+    anchor: number-update-value
+    titleOverride: Number update value
+  resourceavailabilitymetrictypeint32ienumerableidictionary:
+    file: _objects.md
+    anchor: dictionary-of-integers
+    titleOverride: Dictionary of integers
   accountnoteresult:
     file: accountnotes.md
     anchor: accountnoteresult
@@ -76,7 +84,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: accountnotes.md
+    file: services.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -171,3 +179,63 @@ types:
   accountingstateenum:
     file: orderitems.md
     anchor: order-item-accounting-state
+  serviceresult:
+    file: services.md
+    anchor: serviceresult
+  service:
+    file: services.md
+    anchor: service
+  serviceoptions:
+    file: services.md
+    anchor: service-options
+  promotions:
+    file: services.md
+    anchor: promotions
+  servicedatadiscriminator:
+    file: services.md
+    anchor: service-data-discriminator
+  bookableservicedata:
+    file: services.md
+    anchor: bookable-service-data
+  timeunitperiodenum:
+    file: services.md
+    anchor: time-unit-period
+  additionalservicedata:
+    file: services.md
+    anchor: additional-service-data
+  servicefilterparameters:
+    file: services.md
+    anchor: servicefilterparameters
+  serviceavailabilityupdateparameters:
+    file: services.md
+    anchor: serviceavailabilityupdateparameters
+  serviceavailabilityupdatedata:
+    file: services.md
+    anchor: availability-update
+  paxcount:
+    file: services.md
+    anchor: paxcount
+  serviceavailabilityresult:
+    file: services.md
+    anchor: serviceavailabilityresult
+  categoryavailability:
+    file: services.md
+    anchor: resource-category-availability
+  serviceavailabilityfilterparameters:
+    file: services.md
+    anchor: serviceavailabilityfilterparameters
+  serviceavailabilityresultv20240122:
+    file: services.md
+    anchor: serviceavailabilityresultv20240122
+  resourcecategoryavailabilityv20240122:
+    file: services.md
+    anchor: resource-category-availability-ver-2024-01-22
+  serviceavailabilityfilterparametersv20240122:
+    file: services.md
+    anchor: serviceavailabilityfilterparametersv20240122
+  resourceavailabilitymetrictypeenum:
+    file: services.md
+    anchor: service-availability-metrics
+  servicedatacoproductofservicedatadiscriminator:
+    file: services.md
+    anchor: service-data
