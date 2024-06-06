@@ -57,8 +57,7 @@ export function propertyType(schema) {
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
-  const schemaId = getSchemaId(schema);
-  const resolvedType = resolvePropertyType(schemaId);
+  const resolvedType = resolvePropertyType(schema);
   if (resolvedType) {
     return resolvedType;
   }

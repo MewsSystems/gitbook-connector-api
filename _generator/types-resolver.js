@@ -117,16 +117,14 @@ export function getPageResolver(pageContext) {
   };
 }
 
-export function resolvePropertyType(schemaId) {
-  if (!schemaId) {
-    return null;
-  }
+export function resolvePropertyType(schema) {
+  const schemaId = getSchemaId(schema);
 
   const typeLink = DISCOVERED_TYPES.get(schemaId);
   if (!typeLink) {
     return null;
   }
-  const schema = ALL_SCHEMAS.get(schemaId);
+  // const schema = ALL_SCHEMAS.get(schemaId);
   const title = typeLink.titleOverride || getSchemaTitle(schema);
 
   return `[${title}](${typeLink.file}#${typeLink.anchor})`;

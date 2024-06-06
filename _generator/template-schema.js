@@ -106,7 +106,7 @@ export function createTemplateSchema(schema) {
     properties,
     ...baseObject,
   };
-  if (schemaId?.startsWith('coproduct')) {
+  if (schema['x-coproduct'] || schemaId?.startsWith('coproduct')) {
     fixupCoproductTemplateSchema(templateSchema);
   }
   return templateSchema;
