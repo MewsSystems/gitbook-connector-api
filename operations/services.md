@@ -40,7 +40,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns the resource categories for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Services](services.md#service) were updated. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which `Services` were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -225,8 +225,8 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 
 #### Service availability metrics
 
-* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category ([resource block](./resourceblocks.md)).
-* `PublicAvailabilityAdjustment` - Number of resources marked as manual [availability adjustments](./availabilityadjustments.md).
+* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category (see `Resource Block`).
+* `PublicAvailabilityAdjustment` - Number of resources marked as manual availability adjustments.
 * `OtherServiceReservationCount` - Number of resources occupied by another service.
 * `Occupied` - Number of bookings that have been assigned to the resource category (i.e. reservations and blocks).
 * `ConfirmedReservations` - Number of confirmed reservations that have been assigned to the resource category.
