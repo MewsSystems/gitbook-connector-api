@@ -183,7 +183,8 @@ Additional information about the specific service.
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
-Returns selected availability and occupancy metrics of a bookable service for a specified time interval, similar to [the availability & occupancy report](https://help.mews.com/s/article/Availability-Occupancy-report). Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one time unit for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two time units for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
+
+Returns selected availability and occupancy metrics of a bookable service for a specified time interval, similar to [the availability & occupancy report](https://help.mews.com/s/article/Availability-Occupancy-report). Availability will be returned for all service [time units] (../concepts/time-units.md) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one time unit for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two time units for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit] (../concepts/time-units.md), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months.
 
 ### Request
 
@@ -224,16 +225,16 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 
 #### Service availability metrics
 
-* `OutOfOrderBlocks`
-* `PublicAvailabilityAdjustment`
-* `OtherServiceReservationCount`
-* `Occupied`
-* `ConfirmedReservations`
-* `OptionalReservations`
-* `BlockAvailability`
-* `AllocatedBlockAvailability`
-* `UsableResources`
-* `ActiveResources`
+* `OutOfOrderBlocks` - Number of resources that are out of order for the resource category ([resource block](./resourceblocks.md)).
+* `PublicAvailabilityAdjustment` - Number of resources marked as manual [availability adjustments](./availabilityadjustments.md).
+* `OtherServiceReservationCount` - Number of resources occupied by another service.
+* `Occupied` - Number of bookings that have been assigned to the resource category (i.e. reservations and blocks).
+* `ConfirmedReservations` - Number of confirmed reservations that have been assigned to the resource category.
+* `OptionalReservations` - Number of optional reservations that have been assigned to the resource category.
+* `BlockAvailability` - Number of blocked resources (from an availability block / allotment).
+* `AllocatedBlockAvailability` - Number of blocked resources that are in a deducting state (from an availability block / allotment).
+* `UsableResources` - Number of usable resources (i.e. which are not out of order).
+* `ActiveResources` - Number of active resources.
 
 ### Response
 
@@ -280,7 +281,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 
 ## Get service availability
 
-Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months.
+Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units] (../concepts/time-units.md) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit] (../concepts/time-units.md), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months.
 
 ### Request
 
@@ -397,8 +398,16 @@ Updates the number of available resources in [Resource category](resources.md#re
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
+| `PaxCounts` | array of [PaxCount](#paxcount) | optional, max 5 items | Collection of predicted occupancy of availability adjustments. Relates how many adjustments are assigned to each count of guests. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
+
+#### PaxCount
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PersonCount` | integer | required | Predicted guest count that will be assigned to the Resource. The guest count must fit within the Resource Category maximum capacity. |
+| `UnitCount` | integer | required | Positive number of adjustments that are assigned to `PersonCount`. The sum of all `UnitCount` in `PaxCounts` should match the adjustment value applied to the interval. |
 
 ### Response
 

@@ -146,6 +146,7 @@ function prepareTemplateData(tagName, oasOperations) {
         path: operation.path,
         method: operation.method,
         deprecated: operation.isDeprecated(),
+        restricted: operation.schema['x-restricted'],
         requestExample,
         requestSchemas: requestSchemas.collectedSchemas,
         responseExample,
