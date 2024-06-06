@@ -251,16 +251,16 @@ Returns selected availability and occupancy metrics of a bookable service for a 
     {
       "ResourceCategoryId": "d1801d11-fe8d-404b-a26f-af170189605a",
       "Metrics": {
-        "OutOfOrderBlocks": [ 0, 1, 0, 0, 1 ],
-        "PublicAvailabilityAdjustment": [ 7, 5, 4, 3, 4 ],
-        "OtherServiceReservationCount": [ 0, 0, 1, 0, 0 ],
-        "Occupied": [ 7, 5, 4, 3, 4 ],
-        "ConfirmedReservations": [ 7, 5, 4, 3, 4 ],
-        "OptionalReservations": [ 0, 2, 0, 0, 1 ],
-        "BlockAvailability": [ 0, 0, 1, 0, 0 ],
-        "AllocatedBlockAvailability": [ 0, 0, 0, 1, 0 ],
-        "UsableResources": [ 8, 8, 8, 8, 8 ],
-        "ActiveResources": [ 8, 8, 8, 8, 8 ]
+        "OutOfOrderBlocks": [0, 1, 0, 0, 1],
+        "PublicAvailabilityAdjustment": [7, 5, 4, 3, 4],
+        "OtherServiceReservationCount": [0, 0, 1, 0, 0],
+        "Occupied": [7, 5, 4, 3, 4],
+        "ConfirmedReservations": [7, 5, 4, 3, 4],
+        "OptionalReservations": [0, 2, 0, 0, 1],
+        "BlockAvailability": [0, 0, 1, 0, 0],
+        "AllocatedBlockAvailability": [0, 0, 0, 1, 0],
+        "UsableResources": [8, 8, 8, 8, 8],
+        "ActiveResources": [8, 8, 8, 8, 8]
       }
     }
   ]
@@ -315,13 +315,13 @@ Returns availability of a bookable service for a specified time interval includi
 {
   "CategoryAvailabilities": [
     {
-      "Availabilities": [ 6, 7, 5 ],
-      "Adjustments ": [ 0, 1, -1 ],
+      "Availabilities": [6, 7, 5],
+      "Adjustments ": [0, 1, -1],
       "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f"
     },
     {
-      "Availabilities": [ 7, 7, 7 ],
-      "Adjustments ": [ 1, 0, -1 ],
+      "Availabilities": [7, 7, 7],
+      "Adjustments ": [1, 0, -1],
       "CategoryId": "a0a7a5c5-c4ef-494a-8b34-6cca97629076"
     }
   ],
