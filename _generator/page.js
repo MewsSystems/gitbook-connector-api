@@ -41,8 +41,8 @@ edge.global('helpers', {
 });
 
 function replaceWhitespaceInIntegerArrays(jsonString) {
-  return jsonString.replace(/(\[\s*(?:-?\d+\s*,\s*)*-?\d+\s*\])/g, (match) => {
-    return match.replace(/\s+/g, ' ');
+  return jsonString.replace(/\[\s*(?:-?\d+\s*,\s*)*-?\d+\s*\]/g, (match) => {
+    return match.replace(/\s+/g, '').replaceAll(',', ', ');
   });
 }
 
@@ -140,6 +140,7 @@ function prepareTemplateData(tagName, oasOperations) {
         path: operation.path,
         method: operation.method,
         deprecated: operation.isDeprecated(),
+        restricted: operation.schema['x-restricted'],
         requestExample,
         requestSchemas: requestSchemas.collectedSchemas,
         responseExample,

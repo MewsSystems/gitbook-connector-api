@@ -9,6 +9,10 @@
 > ### Deprecated!
 > This operation is [deprecated](../deprecations/README.md).
 @end
+@if(operation.restricted)
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+@end
 
 {{{ operation.description?.trim() ?? '' }}}
 
