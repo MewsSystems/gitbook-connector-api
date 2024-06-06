@@ -46,7 +46,7 @@ Returns all available exchange rates among currencies of the [Enterprise](config
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ExchangeRates` | array of [Exchange rate](#exchange-rate) | required | The available exchange rates. |
+| `ExchangeRates` | array of [Exchange rate](exchangerates.md#exchange-rate) | required | The available exchange rates. |
 
 #### Exchange rate
 

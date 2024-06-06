@@ -105,7 +105,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | The set of requested account notes. |
+| `AccountNotes` | array of [Account note](accountnotes.md#account-note) | required | The set of requested account notes. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Account note
@@ -115,16 +115,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the account note. |
 | `AccountId` | string | required | Unique identifier of the account. |
 | `Content` | string | required | The content of the account note. |
-| `AccountType` | [Account type](#account-type) | required | Specifying type of associated account. |
-| `Classifications` | array of [Account note classification](#account-note-classification) | required | Specifying the classifications of the note based on account type. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | Specifying type of associated account. |
+| `Classifications` | array of [Account note classification](accountnotes.md#account-note-classification) | required | Specifying the classifications of the note based on account type. |
 | `IsActive` | boolean | required | Whether the account note is still active. |
 | `CreatorProfile` | [Profile data](_objects.md#profile-data) | required | The profile data of the user who created the account note. |
 | `UpdaterProfile` | [Profile data](_objects.md#profile-data) | required | The profile data of the user who updated the account note. |
-
-#### Account type
-
-* `Company`
-* `Customer`
 
 #### Account note classification
 
@@ -173,7 +168,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `AccountNotes` | array of [Account note parameters](#account-note-parameters) | required, max 1000 items | Account notes to be added. |
+| `AccountNotes` | array of [Account note parameters](accountnotes.md#account-note-parameters) | required, max 1000 items | Account notes to be added. |
 
 #### Account note parameters
 
@@ -181,7 +176,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required |  |
 | `Content` | string | required, max length 1000 characters | The content of the account note. |
-| `Classifications` | array of [Account note classification](#account-note-classification) | required, max 1 item | Specifying the classifications of the note based on account type. |
+| `Classifications` | array of [Account note classification](accountnotes.md#account-note-classification) | required, max 1 item | Specifying the classifications of the note based on account type. |
 
 ### Response
 
@@ -214,7 +209,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | Added account notes. |
+| `AccountNotes` | array of [Account note](accountnotes.md#account-note) | required | Added account notes. |
 
 ## Update account notes
 
@@ -254,15 +249,15 @@ Updates information about the specified account notes.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `AccountNoteUpdates` | array of [Account note update parameters](#account-note-update-parameters) | required, max 1000 items | Account notes to be updated. |
+| `AccountNoteUpdates` | array of [Account note update parameters](accountnotes.md#account-note-update-parameters) | required, max 1000 items | Account notes to be updated. |
 
 #### Account note update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountNoteId` | string | required | Unique identifier of the account note. |
-| `Content` | [StringUpdateValue](#stringupdatevalue) | optional, max length 1000 characters | Content of the account note (or `null` if the content should not be updated). |
-| `Classifications` | [Account note update classifications](#account-note-update-classifications) | required | Classification of the account note. |
+| `Content` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Content of the account note (or `null` if the content should not be updated). |
+| `Classifications` | [Account note update classifications](accountnotes.md#account-note-update-classifications) | required | Classification of the account note. |
 
 #### Account note update classifications
 
@@ -312,7 +307,7 @@ Updates information about the specified account notes.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AccountNotes` | array of [Account note](#account-note) | required | Updated account notes. |
+| `AccountNotes` | array of [Account note](accountnotes.md#account-note) | required | Updated account notes. |
 
 ## Delete account notes
 

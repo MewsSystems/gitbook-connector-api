@@ -4,7 +4,9 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
-import { collectSchemas, SchemasAccumulator } from './schema.js';
+import { collectSchemas } from './collect-schemas.js';
+import { createTemplateSchema } from './template-schema.js';
+import { getPageResolver } from './types-resolver.js';
 import { compareSchemas } from './sorting/schemaSort.js';
 import { compareOperations } from './sorting/operationSort.js';
 
@@ -14,6 +16,8 @@ import { compareOperations } from './sorting/operationSort.js';
  * @typedef { import('openapi-types').OpenAPIV3.ResponseObject } ResponseObject
  * @typedef { import('openapi-types').OpenAPIV3.Document } OASDocument
  * @typedef { import('oas').default } Oas
+ * @typedef { import('./types.js').PageContext } PageContext
+ * @typedef { import('./types.js').TemplateSchema } TemplateSchema
  * @typedef {{
  *    summary: string,
  *    operationId: string,
@@ -46,10 +50,6 @@ function replaceWhitespaceInIntegerArrays(jsonString) {
   });
 }
 
-function outputFileName(outputPath, tagName) {
-  return path.join(outputPath, `${tagToPageName(tagName)}.md`);
-}
-
 /**
  * @param {string} tagName
  * @param {Operation[]} operations
@@ -57,19 +57,25 @@ function outputFileName(outputPath, tagName) {
  * @returns {Promise<void>}
  */
 export async function renderPage(tagName, operations, outputPath) {
-  const templateData = prepareTemplateData(tagName, operations);
+  const outputFileName = `${tagToPageName(tagName)}.md`;
+  const outputFilePath = path.join(outputPath, outputFileName);
+
+  const pageContext = {
+    tagName,
+    fileName: outputFileName,
+    outputPath,
+  };
+  const templateData = prepareTemplateData(tagName, operations, pageContext);
   const md = await edge.render('resource', templateData);
-  const outputFile = outputFileName(outputPath, tagName);
   const mdAdjusted = absoluteMdLinksToRelative(
     md
       .trim()
       .replace(/\r\n/g, '\n')
       .replace(/\n{3,}/g, '\n\n') + '\n',
-
-    outputFile
+    outputFileName
   );
 
-  return fs.writeFile(outputFile, mdAdjusted, 'utf-8');
+  return fs.writeFile(outputFilePath, mdAdjusted, 'utf-8');
 }
 
 // https://davidwells.io/snippets/regex-match-markdown-links
@@ -77,12 +83,12 @@ const regexMdLinks = /\[([^\[]+)\]\(([^\)]+)\)/gm;
 
 /**
  * @param {string} markdown
- * @param {string} outputFile
+ * @param {string} fileName
  * @returns {string}
  */
-function absoluteMdLinksToRelative(markdown, outputFile) {
+function absoluteMdLinksToRelative(markdown, fileName) {
   const basePath = `/connector-api/operations/`;
-  const currentFile = `${basePath}/${path.basename(outputFile)}`;
+  const currentFile = `${basePath}/${fileName}`;
 
   return markdown.replace(regexMdLinks, (fullMatch, linkText, linkHref) => {
     if (
@@ -105,12 +111,26 @@ function absoluteMdLinksToRelative(markdown, outputFile) {
 }
 
 /**
+ * @param {Iterable<SchemaObject>} schemas
+ * @returns {TemplateSchema[]}
+ */
+function prepareTemplateSchemas(schemas) {
+  const templateSchemas = [];
+  for (const schema of schemas) {
+    const templateSchema = createTemplateSchema(schema);
+    templateSchemas.push(templateSchema);
+  }
+  return templateSchemas;
+}
+
+/**
  * @param {string} tagName
  * @param {Operation[]} oasOperations
+ * @param {PageContext} pageContext
  * @returns {{ resourceName: string, operations: OperationTemplateData[] }}
  */
-function prepareTemplateData(tagName, oasOperations) {
-  let knownSchemas = new Map();
+function prepareTemplateData(tagName, oasOperations, pageContext) {
+  const resolver = getPageResolver(pageContext);
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
@@ -122,7 +142,7 @@ function prepareTemplateData(tagName, oasOperations) {
       const responseSchemas = collectSchemas(
         response.schema,
         [operationId, 'response'],
-        new SchemasAccumulator(knownSchemas)
+        resolver.createSectionSchemasAccumulator()
       );
 
       const request = operation.getRequestBody('application/json');
@@ -130,7 +150,7 @@ function prepareTemplateData(tagName, oasOperations) {
       const requestSchemas = collectSchemas(
         request.schema,
         [operationId, 'request'],
-        new SchemasAccumulator(knownSchemas)
+        resolver.createSectionSchemasAccumulator()
       );
 
       return {
@@ -142,9 +162,13 @@ function prepareTemplateData(tagName, oasOperations) {
         deprecated: operation.isDeprecated(),
         restricted: operation.schema['x-restricted'],
         requestExample,
-        requestSchemas: requestSchemas.collectedSchemas,
+        requestSchemas: prepareTemplateSchemas(
+          requestSchemas.getCollectedSchemas()
+        ),
         responseExample,
-        responseSchemas: responseSchemas.collectedSchemas.sort(compareSchemas),
+        responseSchemas: prepareTemplateSchemas(
+          responseSchemas.getCollectedSchemas()
+        ).sort(compareSchemas),
       };
     })
     .sort(compareOperations);

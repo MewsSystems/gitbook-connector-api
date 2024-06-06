@@ -1,11 +1,10 @@
 import {
   isEnum,
-  isExcludedSchema,
   propertyContract,
   propertyDescription,
   propertyType,
-  getSchemaId,
 } from './jsonschema.js';
+import { getSchemaId } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
 import { capitalize } from './utils.js';
 
@@ -18,30 +17,8 @@ import { capitalize } from './utils.js';
  * @typedef { import('./types.js').TemplateSchema } TemplateSchema
  * @typedef { import('./types.js').TemplateProperty } TemplateProperty
  * @typedef { import('./types.js').TemplateEnumEntry } TemplateEnumEntry
+ * @typedef { import('./types-resolver.js').SchemasAccumulator } SchemasAccumulator
  */
-
-export class SchemasAccumulator {
-  constructor(knownSchemas = new Map()) {
-    this.knownSchemas = knownSchemas;
-    this.collectedSchemas = [];
-  }
-
-  add(schemaId, schema) {
-    if (this.knownSchemas.has(schemaId)) {
-      return;
-    }
-    this.knownSchemas.set(schemaId, schema);
-    this.collectedSchemas.push(schema);
-  }
-
-  get(schemaId) {
-    return this.knownSchemas.get(schemaId);
-  }
-
-  has(schemaId) {
-    return this.knownSchemas.has(schemaId);
-  }
-}
 
 /**
  * @param {string} name
@@ -84,32 +61,6 @@ function createEnumTemplateSchema(schema) {
 }
 
 /**
- * @param {SchemaObject} schema
- * @returns {TemplateSchema}
- */
-function createTemplateSchema(schema, schemaId, path) {
-  const properties =
-    schema.properties &&
-    Object.entries(schema.properties)
-      .map(([name, property]) => createTemplateProperty(name, property))
-      .sort(compareProperties);
-  let baseObject = {};
-  if (isEnum(schema)) {
-    baseObject = createEnumTemplateSchema(schema, schemaId, path);
-  }
-  return {
-    path: [...path],
-    id: schemaId,
-    title: schema.title || schema['x-readme-ref-name'],
-    description: schema.description?.trim() ?? '',
-    enum: schema.enum,
-    deprecated: schema.deprecated ?? false,
-    properties,
-    ...baseObject,
-  };
-}
-
-/**
  * @param {TemplateSchema} templateSchema
  */
 function fixupCoproductTemplateSchema(templateSchema) {
@@ -129,46 +80,34 @@ function fixupCoproductTemplateSchema(templateSchema) {
   }
 }
 
-// Traverse schema, collect all nested schemas
 /**
  * @param {SchemaObject} schema
- * @param {string[]} path
- * @param {SchemasAccumulator} accumulator
- * @returns {SchemasAccumulator}
+ * @returns {TemplateSchema}
  */
-export function collectSchemas(
-  schema,
-  path,
-  accumulator = new SchemasAccumulator()
-) {
+export function createTemplateSchema(schema) {
   const schemaId = getSchemaId(schema);
-  const nestedPath = [...path];
-
-  if (isExcludedSchema(schema)) {
-    return accumulator;
+  const path = schema['x-schema-paths'] ?? [];
+  const properties =
+    schema.properties &&
+    Object.entries(schema.properties)
+      .map(([name, property]) => createTemplateProperty(name, property))
+      .sort(compareProperties);
+  let baseObject = {};
+  if (isEnum(schema)) {
+    baseObject = createEnumTemplateSchema(schema, schemaId, path);
   }
-
-  if (schemaId) {
-    accumulator.add(schemaId, createTemplateSchema(schema, schemaId, path));
-    nestedPath.push(schemaId);
-  }
-
-  if (schema['x-coproduct']) {
-    let templateSchema = accumulator.get(schemaId);
+  const templateSchema = {
+    path: [...path],
+    id: schemaId,
+    title: schema.title || schema['x-readme-ref-name'],
+    description: schema.description?.trim() ?? '',
+    enum: schema.enum,
+    deprecated: schema.deprecated ?? false,
+    properties,
+    ...baseObject,
+  };
+  if (schema['x-coproduct'] || schemaId?.startsWith('coproduct')) {
     fixupCoproductTemplateSchema(templateSchema);
   }
-
-  if (schema.type === 'object' || schema.properties?.discriminator) {
-    for (const key in schema.properties) {
-      collectSchemas(schema.properties[key], [...nestedPath, key], accumulator);
-    }
-  }
-  if (schema.type === 'array') {
-    collectSchemas(schema.items, nestedPath, accumulator);
-  }
-  const composedSchemas = schema.anyOf || schema.oneOf || schema.allOf || [];
-  for (const item of composedSchemas) {
-    collectSchemas(item, nestedPath, accumulator);
-  }
-  return accumulator;
+  return templateSchema;
 }

@@ -30,7 +30,7 @@ Returns URLs of the specified images.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Images` | array of [Image size parameters](#image-size-parameters) | required | Parameters of images whose URLs should be returned. |
+| `Images` | array of [Image size parameters](images.md#image-size-parameters) | required | Parameters of images whose URLs should be returned. |
 
 #### Image size parameters
 
@@ -39,7 +39,7 @@ Returns URLs of the specified images.
 | `ImageId` | string | required | Unique identifier of the image. |
 | `Width` | integer | optional | Desired width of the image. |
 | `Height` | integer | optional | Desired height of the image. |
-| `ResizeMode` | [Image resize mode](#image-resize-mode) | optional | Mode how the image should be resized to the desired width and height. |
+| `ResizeMode` | [Image resize mode](images.md#image-resize-mode) | optional | Mode how the image should be resized to the desired width and height. |
 
 #### Image resize mode
 
@@ -63,7 +63,7 @@ Returns URLs of the specified images.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ImageUrls` | array of [Image URL](#image-url) | required | URLs of the images. |
+| `ImageUrls` | array of [Image URL](images.md#image-url) | required | URLs of the images. |
 
 #### Image URL
 
