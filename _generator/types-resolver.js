@@ -64,17 +64,17 @@ export class SchemasAccumulator {
     this.#knownPageSchemas = knownPageSchemas;
   }
 
-  add(schemaId, rawSchema, templateSchema) {
+  add(schemaId, schema) {
     if (!this.#shouldAddSchema(schemaId)) {
       return;
     }
 
     this.#discoveredTypes.set(
       schemaId,
-      schemaToTypeLink(rawSchema, this.#pageContext)
+      schemaToTypeLink(schema, this.#pageContext)
     );
     this.#knownPageSchemas.add(schemaId);
-    this.#sectionSchemas.set(schemaId, templateSchema);
+    this.#sectionSchemas.set(schemaId, schema);
   }
 
   #shouldAddSchema(schemaId) {

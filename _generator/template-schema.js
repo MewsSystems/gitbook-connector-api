@@ -61,32 +61,6 @@ function createEnumTemplateSchema(schema) {
 }
 
 /**
- * @param {SchemaObject} schema
- * @returns {TemplateSchema}
- */
-function createTemplateSchema(schema, schemaId, path) {
-  const properties =
-    schema.properties &&
-    Object.entries(schema.properties)
-      .map(([name, property]) => createTemplateProperty(name, property))
-      .sort(compareProperties);
-  let baseObject = {};
-  if (isEnum(schema)) {
-    baseObject = createEnumTemplateSchema(schema, schemaId, path);
-  }
-  return {
-    path: [...path],
-    id: schemaId,
-    title: schema.title || schema['x-readme-ref-name'],
-    description: schema.description?.trim() ?? '',
-    enum: schema.enum,
-    deprecated: schema.deprecated ?? false,
-    properties,
-    ...baseObject,
-  };
-}
-
-/**
  * @param {TemplateSchema} templateSchema
  */
 function fixupCoproductTemplateSchema(templateSchema) {
@@ -106,38 +80,34 @@ function fixupCoproductTemplateSchema(templateSchema) {
   }
 }
 
-// Traverse schema, collect all nested schemas
 /**
  * @param {SchemaObject} schema
- * @param {string[]} path
- * @param {SchemasAccumulator} accumulator
- * @returns {SchemasAccumulator}
+ * @returns {TemplateSchema}
  */
-export function collectSchemas(schema, path, accumulator) {
+export function createTemplateSchema(schema) {
   const schemaId = getSchemaId(schema);
-  const nestedPath = [...path];
-
-  if (schemaId) {
-    const templateSchema = createTemplateSchema(schema, schemaId, path);
-    accumulator.add(schemaId, schema, templateSchema);
-    nestedPath.push(schemaId);
-
-    if (schemaId?.startsWith('coproduct')) {
-      fixupCoproductTemplateSchema(templateSchema);
-    }
+  const path = schema['x-schema-paths'] ?? [];
+  const properties =
+    schema.properties &&
+    Object.entries(schema.properties)
+      .map(([name, property]) => createTemplateProperty(name, property))
+      .sort(compareProperties);
+  let baseObject = {};
+  if (isEnum(schema)) {
+    baseObject = createEnumTemplateSchema(schema, schemaId, path);
   }
-
-  if (schema.type === 'object' || schema.properties?.discriminator) {
-    for (const key in schema.properties) {
-      collectSchemas(schema.properties[key], [...nestedPath, key], accumulator);
-    }
+  const templateSchema = {
+    path: [...path],
+    id: schemaId,
+    title: schema.title || schema['x-readme-ref-name'],
+    description: schema.description?.trim() ?? '',
+    enum: schema.enum,
+    deprecated: schema.deprecated ?? false,
+    properties,
+    ...baseObject,
+  };
+  if (schemaId?.startsWith('coproduct')) {
+    fixupCoproductTemplateSchema(templateSchema);
   }
-  if (schema.type === 'array') {
-    collectSchemas(schema.items, nestedPath, accumulator);
-  }
-  const composedSchemas = schema.anyOf || schema.oneOf || schema.allOf || [];
-  for (const item of composedSchemas) {
-    collectSchemas(item, nestedPath, accumulator);
-  }
-  return accumulator;
+  return templateSchema;
 }

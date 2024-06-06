@@ -4,7 +4,8 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
-import { collectSchemas } from './schema.js';
+import { collectSchemas } from './collect-schemas.js';
+import { createTemplateSchema } from './template-schema.js';
 import { getPageResolver } from './types-resolver.js';
 import { compareSchemas } from './sorting/schemaSort.js';
 import { compareOperations } from './sorting/operationSort.js';
@@ -16,6 +17,7 @@ import { compareOperations } from './sorting/operationSort.js';
  * @typedef { import('openapi-types').OpenAPIV3.Document } OASDocument
  * @typedef { import('oas').default } Oas
  * @typedef { import('./types.js').PageContext } PageContext
+ * @typedef { import('./types.js').TemplateSchema } TemplateSchema
  * @typedef {{
  *    summary: string,
  *    operationId: string,
@@ -112,6 +114,19 @@ function absoluteMdLinksToRelative(markdown, fileName) {
 }
 
 /**
+ * @param {Iterable<SchemaObject>} schemas
+ * @returns {TemplateSchema[]}
+ */
+function prepareTemplateSchemas(schemas) {
+  const templateSchemas = [];
+  for (const schema of schemas) {
+    const templateSchema = createTemplateSchema(schema);
+    templateSchemas.push(templateSchema);
+  }
+  return templateSchemas;
+}
+
+/**
  * @param {string} tagName
  * @param {Operation[]} oasOperations
  * @param {PageContext} pageContext
@@ -150,11 +165,13 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         deprecated: operation.isDeprecated(),
         restricted: operation.schema['x-restricted'],
         requestExample,
-        requestSchemas: Array.from(requestSchemas.getCollectedSchemas()),
-        responseExample,
-        responseSchemas: Array.from(responseSchemas.getCollectedSchemas()).sort(
-          compareSchemas
+        requestSchemas: prepareTemplateSchemas(
+          requestSchemas.getCollectedSchemas()
         ),
+        responseExample,
+        responseSchemas: prepareTemplateSchemas(
+          responseSchemas.getCollectedSchemas()
+        ).sort(compareSchemas),
       };
     })
     .sort(compareOperations);
