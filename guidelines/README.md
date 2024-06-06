@@ -1,6 +1,6 @@
 # Guidelines
 
-This section provides important guidelines on how to use the __Mews Connector API__. For information about individual endpoints or operations, see [API Operations](../operations/README.md).
+This section provides important guidelines on how to use the __Mews Connector API__. For a deeper understanding of **Mews** concepts, see [Concepts](../concepts/README.md). For information about individual endpoints or operations, see [API Operations](../operations/README.md).
 
 > ### Terminology
 > Some of the terms used in the API, such as *enterprise*, *customer* or *resource* may not be familiar.
