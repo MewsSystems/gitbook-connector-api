@@ -6,7 +6,7 @@ export type TemplateSchema = {
   enum: TemplateEnumEntry[];
   deprecated: boolean;
   properties?: TemplateProperty[];
-}
+};
 
 export type TemplateProperty = {
   name: string;
@@ -14,10 +14,10 @@ export type TemplateProperty = {
   type: string;
   contract: string;
   description: string;
-}
+};
 
 export type TemplateEnumEntry = {
   value: string;
   description?: string;
   name?: string;
-}
+};

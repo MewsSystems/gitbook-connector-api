@@ -12,26 +12,14 @@ export function tagToPageName(tagName) {
   return tagName.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 export function slugify(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  return str
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9\-]/g, '');
 }
 export function firstLine(str = '') {
   return str.split(/\r\n|\r|\n/)[0];
 }
-
-export class Comparer {
-  constructor(orderMap, sortValueSelector) {
-    this.orderMap = orderMap;
-    this.sortValueSelector = sortValueSelector;
-    this.compare = this.compare.bind(this)
-  }
-
-  getOrder(obj) {
-    const sortValue = this.sortValueSelector(obj);
-    let order = this.orderMap[sortValue];
-    return order || this.orderMap.default;
-  }
-
-  compare(a, b) {
-    return this.getOrder(a) - this.getOrder(b);
-  }
+export function capitalize(s) {
+  return s[0].toUpperCase() + s.slice(1);
 }

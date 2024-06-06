@@ -4,8 +4,10 @@ import {
   propertyContract,
   propertyDescription,
   propertyType,
+  getSchemaId,
 } from './jsonschema.js';
-import { Comparer } from './utils.js';
+import { compareProperties } from './sorting/propertySort.js';
+import { capitalize } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -48,7 +50,7 @@ export class SchemasAccumulator {
  */
 function createTemplateProperty(name, property) {
   return {
-    name: name,
+    name: capitalize(name),
     description: propertyDescription(name, property),
     type: propertyType(property),
     contract: propertyContract(property),
@@ -86,13 +88,11 @@ function createEnumTemplateSchema(schema) {
  * @returns {TemplateSchema}
  */
 function createTemplateSchema(schema, schemaId, path) {
-  const propertyComparer = new Comparer(propertySortOrder, function(propertySchema) { return propertySchema.name.toLowerCase(); })
-
   const properties =
     schema.properties &&
-    Object.entries(schema.properties).map(([name, property]) =>
-      createTemplateProperty(name, property)
-    ).sort(propertyComparer.compare);
+    Object.entries(schema.properties)
+      .map(([name, property]) => createTemplateProperty(name, property))
+      .sort(compareProperties);
   let baseObject = {};
   if (isEnum(schema)) {
     baseObject = createEnumTemplateSchema(schema, schemaId, path);
@@ -107,6 +107,26 @@ function createTemplateSchema(schema, schemaId, path) {
     properties,
     ...baseObject,
   };
+}
+
+/**
+ * @param {TemplateSchema} templateSchema
+ */
+function fixupCoproductTemplateSchema(templateSchema) {
+  let discriminator = templateSchema.properties.find(
+    (p) => p.name.toLowerCase() === 'discriminator'
+  );
+  if (discriminator) {
+    discriminator.description = 'Determines type of value.';
+  }
+
+  let value = templateSchema.properties.find(
+    (p) => p.name.toLowerCase() === 'value'
+  );
+  if (value) {
+    value.type = 'object';
+    value.description = 'Structure of object depends on `Discriminator`.';
+  }
 }
 
 // Traverse schema, collect all nested schemas
@@ -133,6 +153,11 @@ export function collectSchemas(
     nestedPath.push(schemaId);
   }
 
+  if (schemaId?.startsWith('coproduct')) {
+    let templateSchema = accumulator.get(schemaId);
+    fixupCoproductTemplateSchema(templateSchema);
+  }
+
   if (schema.type === 'object' || schema.properties?.discriminator) {
     for (const key in schema.properties) {
       collectSchemas(schema.properties[key], [...nestedPath, key], accumulator);
@@ -147,27 +172,3 @@ export function collectSchemas(
   }
   return accumulator;
 }
-
-/**
- * @param {SchemaObject} schema
- * @returns {string | null}
- */
-export function getSchemaId(schema) {
-  const schemaId = schema['x-schema-id'];
-  if (schemaId) {
-    return schemaId.toLowerCase();
-  }
-  const refName = schema['x-readme-ref-name'];
-  if (refName) {
-    return `X-Ref-Name-${refName}`;
-  }
-  return null;
-}
-
-const propertySortOrder = {
-  clienttoken: -99,
-  accesstoken: -98,
-  client: -97,
-  limitation: 99,
-  default: 0
-};

@@ -1,10 +1,12 @@
 import { Edge, edgeGlobals } from 'edge.js';
-import { tagToPageName, Comparer } from './utils.js';
+import { tagToPageName } from './utils.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
 import { collectSchemas, SchemasAccumulator } from './schema.js';
+import { compareSchemas } from './sorting/schemaSort.js';
+import { compareOperations } from './sorting/operationSort.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -30,11 +32,19 @@ const edge = Edge.create();
 edge.mount(new URL('./templates', import.meta.url));
 edge.global('helpers', {
   json(obj) {
-    return edgeGlobals.html.safe(JSON.stringify(obj, null, 2));
+    let jsonString = JSON.stringify(obj, null, 2);
+    jsonString = replaceWhitespaceInIntegerArrays(jsonString);
+    return edgeGlobals.html.safe(jsonString);
   },
   propertyContract,
   propertyType,
 });
+
+function replaceWhitespaceInIntegerArrays(jsonString) {
+  return jsonString.replace(/(\[\s*(?:-?\d+\s*,\s*)*-?\d+\s*\])/g, (match) => {
+    return match.replace(/\s+/g, ' ');
+  });
+}
 
 function outputFileName(outputPath, tagName) {
   return path.join(outputPath, `${tagToPageName(tagName)}.md`);
@@ -49,14 +59,49 @@ function outputFileName(outputPath, tagName) {
 export async function renderPage(tagName, operations, outputPath) {
   const templateData = prepareTemplateData(tagName, operations);
   const md = await edge.render('resource', templateData);
-  const fileName = outputFileName(outputPath, tagName);
-  const mdAdjusted =
+  const outputFile = outputFileName(outputPath, tagName);
+  const mdAdjusted = absoluteMdLinksToRelative(
     md
       .trim()
-      .replace(/\([^\(]+connector-api\/operations\/(.+?)\/(.+?)\)/g, '($1.md$2)')
       .replace(/\r\n/g, '\n')
-      .replace(/\n{3,}/g, '\n\n') + '\n';
-  return fs.writeFile(fileName, mdAdjusted, 'utf-8');
+      .replace(/\n{3,}/g, '\n\n') + '\n',
+
+    outputFile
+  );
+
+  return fs.writeFile(outputFile, mdAdjusted, 'utf-8');
+}
+
+// https://davidwells.io/snippets/regex-match-markdown-links
+const regexMdLinks = /\[([^\[]+)\]\(([^\)]+)\)/gm;
+
+/**
+ * @param {string} markdown
+ * @param {string} outputFile
+ * @returns {string}
+ */
+function absoluteMdLinksToRelative(markdown, outputFile) {
+  const basePath = `/connector-api/operations/`;
+  const currentFile = `${basePath}/${path.basename(outputFile)}`;
+
+  return markdown.replace(regexMdLinks, (fullMatch, linkText, linkHref) => {
+    if (
+      !linkHref.startsWith('https://mews-systems.gitbook.io/connector-api/')
+    ) {
+      return fullMatch;
+    }
+    const url = new URL(linkHref);
+    let targetPath;
+    if (url.pathname.endsWith('/operations/')) {
+      targetPath = currentFile;
+    } else {
+      targetPath = url.pathname.replace(/\/?$/, '.md');
+    }
+
+    const relativePath = path.posix.relative(basePath, targetPath);
+
+    return `[${linkText}](${relativePath}${url.hash})`;
+  });
 }
 
 /**
@@ -66,7 +111,6 @@ export async function renderPage(tagName, operations, outputPath) {
  */
 function prepareTemplateData(tagName, oasOperations) {
   let knownSchemas = new Map();
-  const schemaComparer = new Comparer(schemaSortOrder, function (schema) { return schema.id.toLowerCase().replace('x-ref-name-', '').replace('enum', ''); })
   const templateOperations = oasOperations
     .map((operation) => {
       const operationId = operation.getOperationId();
@@ -99,42 +143,9 @@ function prepareTemplateData(tagName, oasOperations) {
         requestExample,
         requestSchemas: requestSchemas.collectedSchemas,
         responseExample,
-        responseSchemas: responseSchemas.collectedSchemas.sort(schemaComparer.compare),
+        responseSchemas: responseSchemas.collectedSchemas.sort(compareSchemas),
       };
     })
-    .sort(operationsSort);
+    .sort(compareOperations);
   return { resourceName: tagName, operations: templateOperations };
-}
-
-const sortPriority = {
-  getAll: 1,
-  get: 2,
-  add: 3,
-  fallback: 4,
-};
-
-/**
- * @param {OperationTemplateData} operation
- * @returns {number}
- */
-function getOperationPriority(operation) {
-  const opType = operation.operationId.split('_')[1];
-  let priority = sortPriority[opType];
-  if (!priority && opType.startsWith('get')) {
-    priority = sortPriority.get;
-  }
-  return priority || sortPriority.fallback;
-}
-
-/**
- * @param {OperationTemplateData} a
- * @param {OperationTemplateData} b
- * @returns {number}
- */
-function operationsSort(a, b) {
-  return getOperationPriority(a) - getOperationPriority(b);
-}
-
-const schemaSortOrder = {
-  default: 0
 }

@@ -138,27 +138,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `StartOffset` | string | required | Offset from the start of the [time unit](#time-unit) which defines the default start of the service; expressed in ISO 8601 duration format. |
-| `EndOffset` | string | required | Offset from the end of the [time unit](#time-unit) which defines the default end of the service; expressed in ISO 8601 duration format. |
-| `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](#time-unit) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
-| `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](#time-unit) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
-| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | The length of time or period represented by a [time unit](#time-unit), for which the service can be booked. |
-
-#### Time unit
-
-Bookable Services are booked in terms of integer multiples of standard `time units`. The length of a time unit depends on the particular service and is given by `time unit period`, which can be obtained through [Get all services](#get-all-services). For example, a service with a time unit period of "Day" can be booked in multiples of days. This is equivalent to booking a hotel room stay for a specified number of days or a specified number of nights.
-
-A monthly time unit, i.e. a time unit with time unit period of "Month", starts at midnight on the first day of the month and ends at midnight on the first day of the following month.
-
-The service is not assumed to start at the beginning of a time unit, e.g. 00:00 midnight for a "Day", nor end at the end of a time unit, e.g. the following midnight. Instead we define `StartOffset` as the offset from the beginning of the time unit at which the service starts, and `EndOffset` as the offset from the end of the time unit at which the service actually ends - see the illustrations below. Similarly, `OccupancyStartOffset` and `OccupancyEndOffset` define the offsets for which the service is considered occupied.
-
-A positive value for `EndOffset` is normal for a nightly stay and implies that the service ends on the following morning. A negative value for `EndOffset` can be used to specify a daytime service that ends before the end of the day.
-
-#### Figure 1: Illustration of a nightly service
-![](../.gitbook/assets/timeunits-connector-night.png)
-
-#### Figure 2: Illustration of a daytime service
-![](../.gitbook/assets/timeunits-connector-day.png)
+| `StartOffset` | string | required | Offset from the start of the [time unit](../concepts/time-units.md) which defines the default start of the service; expressed in ISO 8601 duration format. |
+| `EndOffset` | string | required | Offset from the end of the [time unit](../concepts/time-units.md) which defines the default end of the service; expressed in ISO 8601 duration format. |
+| `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](../concepts/time-units.md) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
+| `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](../concepts/time-units.md) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
+| `TimeUnitPeriod` | [Time unit period](#time-unit-period) | required | The length of time or period represented by a [time unit](../concepts/time-units.md), for which the service can be booked. |
 
 #### Time unit period
 
@@ -189,7 +173,7 @@ A positive value for `EndOffset` is normal for a nightly stay and implies that t
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns selected availability and occupancy metrics of a bookable service for a specified time interval, similar to [the availability & occupancy report](https://help.mews.com/s/article/Availability-Occupancy-report). Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one time unit for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two time units for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 60 months if months.
+Returns selected availability and occupancy metrics of a bookable service for a specified time interval, similar to [the availability & occupancy report](https://help.mews.com/s/article/Availability-Occupancy-report). Availability will be returned for all service [time units](../concepts/time-units.md) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one time unit for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two time units for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](../concepts/time-units.md), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months.
 
 ### Request
 
@@ -224,8 +208,8 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 60 months if months. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit] (../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months. |
 | `Metrics` | array of [Service availability metrics](#service-availability-metrics) | required | Set of [Service availability metrics](#service-availability-metrics) to be returned. |
 
 ### Response
@@ -287,7 +271,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 
 ## Get service availability
 
-Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](services.md#time-unit) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](services.md#time-unit), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](#time-unit): 367 hours if hours, 367 days if days, or 60 months if months.
+Returns availability of a bookable service for a specified time interval including applied availability adjustments. Availability will be returned for all service [time units](../concepts/time-units.md) that the specified time interval intersects. So, for example, an interval `1st Jan 23:00 UTC - 1st Jan 23:00 UTC` will result in one price for `2nd Jan`, while Interval `1st Jan 23:00 UTC - 2nd Jan 23:00 UTC` will result in two prices for `2nd Jan` and `3rd Jan` (assuming a time unit period of "Day"). UTC timestamps must correspond to the start boundary of a [time unit](../concepts/time-units.md), e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months.
 
 ### Request
 
@@ -310,8 +294,8 @@ Returns availability of a bookable service for a specified time interval includi
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ServiceId` | string | required | Unique identifier of the [Service](#service) whose availability should be returned. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 60 months if months. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit] (../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months. |
 
 
 ### Response
@@ -395,8 +379,8 @@ Updates the number of available resources in [Resource category](resources.md#re
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](./services.md#time-unit): 367 hours if hours, 367 days if days, or 60 months if months. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit] (../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the [Availability block](availabilityblocks.md#availability-block) whose availability to update. |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category) whose availability to update. |
 | `UnitCountAdjustment` | [Number update value](_objects.md#number-update-value) | required | Adjustment value to be applied on the interval, can be both positive and negative (relative adjustment, not an absolute number). If specified without `Value` parameter, removes all adjustments within the interval. |

@@ -61,16 +61,7 @@ export function getSchemaAnchor(schema) {
     return slugify(title);
   }
 
-  const schemaId = schema['x-schema-id'];
-  if (schemaId) {
-    return schemaId.toLowerCase();
-  }
-
-  const refName = schema['x-readme-ref-name'];
-  if (refName) {
-    return `X-Ref-Name-${refName}`;
-  }
-  return '';
+  return getSchemaId(schema) || '';
 }
 
 function pickSingularComposedSchema(schema) {
@@ -165,6 +156,18 @@ export function propertyDescription(propertyName, schema) {
     return firstLine(description);
   }
   return description.trim() || '';
+}
+
+/**
+ * @param {SchemaObject} schema
+ * @returns {string | null}
+ */
+export function getSchemaId(schema) {
+  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
+  if (schemaId) {
+    return schemaId.toLowerCase();
+  }
+  return null;
 }
 
 // /**

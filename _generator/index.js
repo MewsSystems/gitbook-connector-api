@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import OASNormalize from "oas-normalize";
-import Oas from "oas";
-import { renderPage } from "./page.js";
-import { tagToPageName } from "./utils.js";
-import { loadConfig } from "./config.js";
+import OASNormalize from 'oas-normalize';
+import Oas from 'oas';
+import { renderPage } from './page.js';
+import { tagToPageName } from './utils.js';
+import { loadConfig } from './config.js';
 
 /**
  * @typedef { import("oas/operation").Operation } Operation
@@ -38,7 +38,7 @@ function getOperationsByTags(oas, tagValues) {
   const operationsPerTags = {};
   for (const methods of Object.values(oas.getPaths())) {
     for (const operation of Object.values(methods)) {
-      const tag = operation.getTags()[0]?.name || "Unknown";
+      const tag = operation.getTags()[0]?.name || 'Unknown';
       if (onlyIncludedTags && !includedTags.has(tagToPageName(tag))) {
         continue;
       }

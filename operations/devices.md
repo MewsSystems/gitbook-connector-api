@@ -52,8 +52,8 @@ Returns all devices in the enterprise.
 
 #### Device type
 
-* `Printer` - [Printer command data](https://mews-systems.gitbook.io/connector-api/operations/commands#printer-command-data)
-* `PaymentTerminal` - [Payment terminal command data](https://mews-systems.gitbook.io/connector-api/operations/commands#payment-terminal-command-data)
-* `KeyCutter` - [Key cutter command data](https://mews-systems.gitbook.io/connector-api/operations/commands#key-cutter-command-data)
-* `FiscalMachine` - [Fiscal machine command data](https://mews-systems.gitbook.io/connector-api/operations/commands#fiscal-machine-command-data)
-* `PassportScanner` - [Passport scanner command data](https://mews-systems.gitbook.io/connector-api/operations/commands#passport-scanner-command-data)
+* `Printer` - [Printer command data](commands.md#printer-command-data)
+* `PaymentTerminal` - [Payment terminal command data](commands.md#payment-terminal-command-data)
+* `KeyCutter` - [Key cutter command data](commands.md#key-cutter-command-data)
+* `FiscalMachine` - [Fiscal machine command data](commands.md#fiscal-machine-command-data)
+* `PassportScanner` - [Passport scanner command data](commands.md#passport-scanner-command-data)

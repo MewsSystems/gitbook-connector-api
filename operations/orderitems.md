@@ -3,7 +3,7 @@
 
 ## Get all order items
 
-Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/) and supports [Portfolio Access Tokens](https://mews-systems.gitbook.io/connector-api/guidelines/multi-property/).
+Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds` `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ChargedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -284,7 +284,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `OrderItems` | array of [Order item](#order-item) | required, max 1000 items | Set of requested order items. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest order item returned. This can be used in [Limitation](https://mews-systems.gitbook.io/connector-api/guidelines/pagination/#limitation) in a subsequent request to fetch the next batch of older order items. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest order item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older order items. |
 
 #### Order item
 
