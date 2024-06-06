@@ -36,9 +36,6 @@ edge.global('helpers', {
     jsonString = replaceWhitespaceInIntegerArrays(jsonString);
     return edgeGlobals.html.safe(jsonString);
   },
-  strikeIf(str, condition) {
-    return str && condition ? `~~${str}~~` : str;
-  },
   propertyContract,
   propertyType,
 });
