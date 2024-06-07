@@ -9,4 +9,5 @@ This section delves into domain-specific topics related to the **Mews** system. 
 
 ## Contents
 
+* [Taxation](taxation.md)<br>An explanation of the different tax environments and how they impact your integration.
 * [Time units](time-units.md)<br>A detailed explanation of the time units used to describe service reservations.

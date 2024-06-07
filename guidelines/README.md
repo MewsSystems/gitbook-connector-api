@@ -15,7 +15,6 @@ This section provides important guidelines on how to use the __Mews Connector AP
 * [Environments](environments.md)<br>A description of the different environments available and how to access them, including test credentials, request limits and more.
 * [Serialization](serialization.md)<br>Various topics related to data formats.
 * [Pagination](pagination.md)<br>An explanation of the pagination feature and how to use it to fetch data.
-* [Taxation](taxation.md)<br>An explanation of the different tax environments and how it impacts your integration.
 * [Multi-property](multi-property.md)<br>Details of multi-property operation with Portfolio Access Tokens.
 * [Best practices](best-practices.md)<br>Advice on best practices for using the API.
 * [Certification](certification.md)<br>Information about the process of certifying your integration and gaining access to the Mews Marketplace.
