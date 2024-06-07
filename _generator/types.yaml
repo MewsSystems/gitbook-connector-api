@@ -294,41 +294,41 @@ types:
     file: customers.md
     anchor: document
   oldaddress:
-    file: reservations.md
-    anchor: oldaddress
+    file: configuration.md
+    anchor: address
   product:
     file: products.md
     anchor: product
   productoptions:
-    file: reservations.md
-    anchor: productoptions
+    file: products.md
+    anchor: product-options
   productclassifications:
-    file: reservations.md
-    anchor: productclassifications
+    file: products.md
+    anchor: product-classifications
   extendedamount:
-    file: reservations.md
+    file: _objects.md
     anchor: amount
   productpricingcoproductofproductpricing:
-    file: reservations.md
+    file: products.md
     anchor: pricing
   productpricing:
-    file: reservations.md
-    anchor: productpricing
+    file: products.md
+    anchor: product-pricing
   relativeproductprice:
-    file: reservations.md
+    file: products.md
     anchor: relativeproductprice
   productconsumptionmoment:
-    file: reservations.md
+    file: products.md
     anchor: productconsumptionmoment
   resource:
-    file: reservations.md
+    file: resources.md
     anchor: resource
   resourcedatacoproductofspacedataobjectdatapersondata:
-    file: reservations.md
-    anchor: data
+    file: resources.md
+    anchor: resource-data
   spacedata:
-    file: reservations.md
-    anchor: spacedata
+    file: resources.md
+    anchor: space-resource-data
   resourcecategory:
     file: resources.md
     anchor: resource-category
@@ -360,14 +360,14 @@ types:
     file: accountingitems.md
     anchor: order-item
   orderitemolddatacoproductoforderitemtypeold:
-    file: reservations.md
-    anchor: data
+    file: accountingitems.md
+    anchor: order-item-data
   orderitemtypeold:
-    file: reservations.md
-    anchor: orderitemtypeold
+    file: accountingitems.md
+    anchor: order-item-type
   rebateorderitemdata:
-    file: reservations.md
-    anchor: rebateorderitemdata
+    file: accountingitems.md
+    anchor: rebate-order-item-data
   productorderitemdata:
     file: accountingitem.md
     anchor: product-order-item-data
@@ -471,17 +471,17 @@ types:
     file: reservations.md
     anchor: multiplereservationupdateparameters
   int32updatevalue:
-    file: reservations.md
-    anchor: int32updatevalue
+    file: _objects.md
+    anchor: integer-update-value
   reservationpersoncountienumerableupdatevalue:
     file: reservations.md
     anchor: reservationpersoncountienumerableupdatevalue
   guidnullableupdatevalue:
-    file: reservations.md
-    anchor: guidnullableupdatevalue
+    file: _objects.md
+    anchor: string-update-value
   guidupdatevalue:
-    file: reservations.md
-    anchor: guidupdatevalue
+    file: _objects.md
+    anchor: string-update-value
   perunitpriceparametersienumerableupdatevalue:
     file: reservations.md
     anchor: perunitpriceparametersienumerableupdatevalue
