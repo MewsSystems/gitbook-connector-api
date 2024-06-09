@@ -183,3 +183,13 @@ The profile data of the user who created or last updated the record.
 | `TaxRateCode` | string | optional | Tax rate code for the item. `null` for untaxed amounts. |
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
+
+#### Currency value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required |  |
+| `Value` | number | optional |  |
+| `Net` | number | optional |  |
+| `Tax` | number | optional |  |
+| `TaxRate` | number | optional |  |

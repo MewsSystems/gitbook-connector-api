@@ -426,14 +426,15 @@ types:
     file: reservations.md
     anchor: reservation-price
   currencyvalueold:
-    file: reservations.md
-    anchor: currencyvalueold
+    file: _objects.md
+    anchor: currency-value
+    titleOverride: Currency value
   reservationdataparameters:
     file: reservations.md
     anchor: reservationdataparameters
   reservationdata:
     file: reservations.md
-    anchor: reservationdata
+    anchor: reservation-parameters
   serviceorderstate:
     file: reservations.md
     anchor: service-order-state
@@ -473,15 +474,18 @@ types:
   int32updatevalue:
     file: _objects.md
     anchor: integer-update-value
+    titleOverride: Integer update value
   reservationpersoncountienumerableupdatevalue:
     file: reservations.md
     anchor: reservationpersoncountienumerableupdatevalue
   guidnullableupdatevalue:
     file: _objects.md
     anchor: string-update-value
+    titleOverride: String update value
   guidupdatevalue:
     file: _objects.md
     anchor: string-update-value
+    titleOverride: String update value
   perunitpriceparametersienumerableupdatevalue:
     file: reservations.md
     anchor: perunitpriceparametersienumerableupdatevalue
