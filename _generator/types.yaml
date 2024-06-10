@@ -443,12 +443,12 @@ types:
     anchor: amount-parameters
   perunitpriceparameters:
     file: reservations.md
-    anchor: perunitpriceparameters
+    anchor: time-unit-amount-parameters
   productorderadditiondata:
-    file: reservations.md
-    anchor: productorderadditiondata
+    file: products.md
+    anchor: product-order-parameters
   costparameters:
-    file: reservations.md
+    file: _deprecated.md
     anchor: costparameters
   resourceaccesstokenparameters:
     file: reservations.md
@@ -470,14 +470,11 @@ types:
     anchor: reservationadditionparameters
   multiplereservationupdateparameters:
     file: reservations.md
-    anchor: multiplereservationupdateparameters
+    anchor: reservation-updates
   int32updatevalue:
     file: _objects.md
     anchor: integer-update-value
     titleOverride: Integer update value
-  reservationpersoncountienumerableupdatevalue:
-    file: reservations.md
-    anchor: reservationpersoncountienumerableupdatevalue
   guidnullableupdatevalue:
     file: _objects.md
     anchor: string-update-value
@@ -486,15 +483,12 @@ types:
     file: _objects.md
     anchor: string-update-value
     titleOverride: String update value
-  perunitpriceparametersienumerableupdatevalue:
-    file: reservations.md
-    anchor: perunitpriceparametersienumerableupdatevalue
   reservationupdateoptionsparameters:
     file: reservations.md
-    anchor: reservationupdateoptionsparameters
+    anchor: reservations-options-parameters-update-values
   reservationupdateparameters:
     file: reservations.md
-    anchor: reservationupdateparameters
+    anchor: reservation-updates
   multiplereservationresult:
     file: reservations.md
     anchor: multiplereservationresult
@@ -540,3 +534,9 @@ types:
   reservationqrcodedata:
     file: reservations.md
     anchor: reservation-qr-code-data
+  reservationupdatepersoncountparameters:
+    file: reservations.md
+    anchor: person-counts-update-value
+  reservationupdateperunitpriceparameters:
+    file: reservations.md
+    anchor: time-unit-amount-update-value
