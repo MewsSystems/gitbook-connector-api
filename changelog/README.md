@@ -1,5 +1,8 @@
 # Changelog
 
+## 10th June 2024
+* Moved the [Taxation](../concepts/taxation.md) page to the new [Concepts](../concepts/README.md) section. Documentation-only.
+
 ## 5th June 2024
 * Added new section [Concepts](../concepts/README.md) including an explanation of [Time units](../concepts/time-units.md). Documentation-only.
 
