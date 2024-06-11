@@ -5,6 +5,7 @@ export type TemplateSchema = {
   description?: string;
   enum: TemplateEnumEntry[];
   deprecated: boolean;
+  deprecatedMessage: string;
   properties?: TemplateProperty[];
 };
 

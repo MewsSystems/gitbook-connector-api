@@ -26,9 +26,13 @@ import { capitalize } from './utils.js';
  * @returns {TemplateProperty}
  */
 function createTemplateProperty(name, property) {
+  const description = propertyDescription(name, property);
+  const deprecatedMessage = property['x-deprecatedMessage'] ?? '';
+
   return {
     name: capitalize(name),
-    description: propertyDescription(name, property),
+    description: description === deprecatedMessage ? '' : description,
+    deprecatedMessage,
     type: propertyType(property),
     contract: propertyContract(property),
     deprecated: property.deprecated ?? false,
