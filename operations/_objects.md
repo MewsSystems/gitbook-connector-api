@@ -188,8 +188,8 @@ The profile data of the user who created or last updated the record.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Currency` | string | required |  |
-| `Value` | number | optional |  |
-| `Net` | number | optional |  |
-| `Tax` | number | optional |  |
-| `TaxRate` | number | optional |  |
+| `Currency` | string | required | ISO-4217 code of the `Currency`.  |
+| `Value` | number | optional | Amount in the currency. |
+| `Net` | number | optional | The net value that the tax is calculated from. |
+| `Tax` | number | optional | The value of the tax. |
+| `TaxRate` | number | optional | Percentage of the tax rate. |
