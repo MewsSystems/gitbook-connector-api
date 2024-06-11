@@ -579,91 +579,7 @@ Returns all revenue items associated with the specified reservations.
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | The items associated with the reservation. |
 
-## Price reservations
 
-Returns prices of reservations with the specified parameters. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/price`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-    "Reservations": [
-        {
-            "Identifier": "1234",
-            "StartUtc": "2018-01-01T14:00:00Z",
-            "EndUtc": "2018-01-02T10:00:00Z",
-            "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
-            "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
-            "Notes": "Test reservation",
-            "ProductOrders": [
-                {
-                    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
-                }
-            ],
-            "PersonCounts": [
-                {
-                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
-                    "Count": 2
-                },
-                {
-                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
-                    "Count": 2
-                }
-            ]
-        }
-    ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be priced. |
-| `Reservations` | array of [Reservation parameters](#reservation-parameters) | required | Parameters of the reservations to price. Note that `CustomerId` is not required when pricing reservations. |
-
-### Response
-
-```javascript
-{
-    "ReservationPrices": [
-        {
-            "Identifier": "1234",
-            "Total": {
-                "Currency": "GBP",
-                "NetValue": 20,
-                "GrossValue": 23
-                "TaxValues": [
-                    {
-                       "Code":"UK-S",
-                       "Value": 3
-                    }
-                ],
-            }
-        }
-    ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ReservationPrices` | array of [Reservation price](#reservation-price) | required | The reservation prices. |
-
-#### Reservation price
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Identifier` | string | optional | Identifier of the reservation within the transaction. |
-| `Total` | [Currency value](currencies.md#currency-value) | required | Total price of the reservation. |
 
 ## Add reservations
 
@@ -1006,22 +922,25 @@ Updates information about the specified reservations. Note that if any of the fi
 
 Same structure as in [Get all reservations](#get-all-reservations) operation.
 
-## Confirm reservation
 
-Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met \(the reservations have the `Optional` state\).
+## Update reservation interval
+
+Updates reservation interval \(start, end or both\). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/reservations/confirm`
+`[PlatformAddress]/api/connector/v1/reservations/updateInterval`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "ReservationIds": [
-        "9af9d8b0-43ae-414d-80a8-abc1012a2a59"
-    ]
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
+    "StartUtc": "2017-08-12T15:00:00Z",
+    "EndUtc": "2017-08-15T12:00:00Z",
+    "ChargeCancellationFee": false
 }
 ```
 
@@ -1030,17 +949,50 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | required | Unique identifier of the reservations to confirm. |
-| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
+| `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
+| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially canceled nights. |
 
 ### Response
 
 ```javascript
+{}
+```
+
+## Update reservation customer
+
+Updates customer of a reservation. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/updateCustomer`
+
+```javascript
 {
-    "ReservationIds": [
-        "9af9d8b0-43ae-414d-80a8-abc1012a2a59"
-    ]
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
 }
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+
+### Response
+
+```javascript
+{}
 ```
 
 ## Start reservation
@@ -1122,6 +1074,162 @@ Marks a reservation as `Processed` \(= checked out\). Succeeds only if all proce
 {}
 ```
 
+
+## Price reservations
+
+Returns prices of reservations with the specified parameters. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/price`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "Reservations": [
+        {
+            "Identifier": "1234",
+            "StartUtc": "2018-01-01T14:00:00Z",
+            "EndUtc": "2018-01-02T10:00:00Z",
+            "RequestedCategoryId": "0a5da171-3663-4496-a61e-35ecbd78b9b1",
+            "RateId": "33667cab-f17f-4089-ad07-c2cd50fa0df1",
+            "Notes": "Test reservation",
+            "ProductOrders": [
+                {
+                    "ProductId": "3dc5d79b-67ce-48ed-9238-47fcf5d1a59f"
+                }
+            ],
+            "PersonCounts": [
+                {
+                    "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
+                    "Count": 2
+                },
+                {
+                    "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
+                    "Count": 2
+                }
+            ]
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to be priced. |
+| `Reservations` | array of [Reservation parameters](#reservation-parameters) | required | Parameters of the reservations to price. Note that `CustomerId` is not required when pricing reservations. |
+
+### Response
+
+```javascript
+{
+    "ReservationPrices": [
+        {
+            "Identifier": "1234",
+            "Total": {
+                "Currency": "GBP",
+                "NetValue": 20,
+                "GrossValue": 23
+                "TaxValues": [
+                    {
+                       "Code":"UK-S",
+                       "Value": 3
+                    }
+                ],
+            }
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ReservationPrices` | array of [Reservation price](#reservation-price) | required | The reservation prices. |
+
+#### Reservation price
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Identifier` | string | optional | Identifier of the reservation within the transaction. |
+| `Total` | [Currency value](currencies.md#currency-value) | required | Total price of the reservation. |
+
+## Delete reservation companion
+
+Removes customer companionship from the reservation. Note that the customer profile stays untouched, only the relation between the customer and reservation is deleted.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/deleteCompanion`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+
+### Response
+
+```javascript
+{}
+```
+
+## Confirm reservation
+
+Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met \(the reservations have the `Optional` state\).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/confirm`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ReservationIds": [
+        "9af9d8b0-43ae-414d-80a8-abc1012a2a59"
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationIds` | array of string | required | Unique identifier of the reservations to confirm. |
+| `SendConfirmationEmail` | bool | optional | Wheter the confirmation email is sent. Default value is `true`. |
+
+### Response
+
+```javascript
+{
+    "ReservationIds": [
+        "9af9d8b0-43ae-414d-80a8-abc1012a2a59"
+    ]
+}
+```
+
 ## Cancel reservation
 
 Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
@@ -1164,142 +1272,6 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
         "5ca70705-cbb7-48c4-8cc4-abb900aa278c"
     ]
 }
-```
-
-## Update reservation customer
-
-Updates customer of a reservation. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/updateCustomer`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-
-### Response
-
-```javascript
-{}
-```
-
-## Update reservation interval
-
-Updates reservation interval \(start, end or both\). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/updateInterval`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
-    "StartUtc": "2017-08-12T15:00:00Z",
-    "EndUtc": "2017-08-15T12:00:00Z",
-    "ChargeCancellationFee": false
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
-| `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
-| `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
-| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially canceled nights. |
-
-### Response
-
-```javascript
-{}
-```
-
-## Add reservation companion
-
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion \(count of current companions is less than `AdultCount + ChildCount`\).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-
-### Response
-
-```javascript
-{}
-```
-
-## Delete reservation companion
-
-Removes customer companionship from the reservation. Note that the customer profile stays untouched, only the relation between the customer and reservation is deleted.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/deleteCompanion`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-
-### Response
-
-```javascript
-{}
 ```
 
 ## Add reservation product
@@ -1362,3 +1334,35 @@ Adds a new product order of the specified product to the reservation.
 * `Message`
 * `CallCenter`
 * ...
+
+## Add reservation companion
+
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion \(count of current companions is less than `AdultCount + ChildCount`\).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+
+### Response
+
+```javascript
+{}
+```
