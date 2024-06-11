@@ -18,18 +18,7 @@ import { compareOperations } from './sorting/operationSort.js';
  * @typedef { import('oas').default } Oas
  * @typedef { import('./types.js').PageContext } PageContext
  * @typedef { import('./types.js').TemplateSchema } TemplateSchema
- * @typedef {{
- *    summary: string,
- *    operationId: string,
- *    description: string,
- *    path: string,
- *    method: string,
- *    deprecated: boolean,
- *    requestExample: any,
- *    requestSchemas: SchemaObject[],
- *    responseExample: any,
- *    responseSchemas: SchemaObject[],
- * }} OperationTemplateData
+ * @typedef { import('./types.js').TemplateOperation } OperationTemplateData
  */
 
 const edge = Edge.create();
@@ -153,13 +142,17 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         resolver.createSectionSchemasAccumulator()
       );
 
+      const deprecatedMessage = operation.schema['x-deprecatedMessage'] || '';
+      const description = operation.getDescription();
+
       return {
         summary: operation.getSummary(),
         operationId,
-        description: operation.getDescription(),
+        description: description === deprecatedMessage ? '' : description,
         path: operation.path,
         method: operation.method,
         deprecated: operation.isDeprecated(),
+        deprecatedMessage: deprecatedMessage,
         restricted: operation.schema['x-restricted'],
         requestExample,
         requestSchemas: prepareTemplateSchemas(
