@@ -165,7 +165,7 @@ Additional information about the specific service.
 | `OccupancyStartOffset` | string | required | Offset from the start of the [time unit](../concepts/time-units.md) which defines the occupancy start of the service; expressed in ISO 8601 duration format. 'Occupancy start' is used for availability and reporting purposes, it implies the time at which the booked resource is considered occupied. |
 | `OccupancyEndOffset` | string | required | Offset from the end of the [time unit](../concepts/time-units.md) which defines the occupancy end of the service; expressed in ISO 8601 duration format. 'Occupancy end' is used for availability and reporting purposes, it implies the time at which the booked resource is no longer considered occupied. |
 | `TimeUnitPeriod` | [Time unit period](services.md#time-unit-period) | required | The length of time or period represented by a [time unit](../concepts/time-units.md), for which the service can be booked. |
-| ~~`TimeUnit`~~ | ~~[Time unit period](services.md#time-unit-period)~~ | ~~required~~ | **Deprecated!** |
+| ~~`TimeUnit`~~ | ~~[Time unit period](services.md#time-unit-period)~~ | ~~required~~ | **Deprecated!** Use `TimeUnitPeriod` instead.|
 
 #### Time unit period
 
