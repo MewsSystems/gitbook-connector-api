@@ -142,7 +142,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         resolver.createSectionSchemasAccumulator()
       );
 
-      const deprecatedMessage = operation.schema['x-deprecatedMessage'] || '';
+      const deprecatedMessage = operation.schema['x-deprecatedMessage'] ?? '';
       const description = operation.getDescription();
 
       return {

@@ -96,11 +96,14 @@ export function createTemplateSchema(schema) {
   if (isEnum(schema)) {
     baseObject = createEnumTemplateSchema(schema, schemaId, path);
   }
+  const description = schema.description?.trim() ?? '';
+  const deprecatedMessage = schema.deprecatedMessage ?? '';
   const templateSchema = {
     path: [...path],
     id: schemaId,
     title: schema.title || schema['x-readme-ref-name'],
-    description: schema.description?.trim() ?? '',
+    description: description === deprecatedMessage ? '' : description,
+    deprecatedMessage,
     enum: schema.enum,
     deprecated: schema.deprecated ?? false,
     properties,
