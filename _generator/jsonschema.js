@@ -4,7 +4,7 @@
  */
 
 import { resolvePropertyType } from './types-resolver.js';
-import { getSchemaId, getSchemaAnchor, firstLine } from './utils.js';
+import { getSchemaAnchor, firstLine } from './utils.js';
 
 /**
  * @param {SchemaObject} schema
