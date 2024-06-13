@@ -92,4 +92,7 @@ Prefer: return=minimal
 ...
 ```
 
-When the header is present, the API returns `204 No Content` status if the response doesn't contain any entities. For example, the filter criteria doesn't match any entity, client reaches the end of pagination, or the operation normally returns an empty JSON object. If the response contains entities, the API still returns `200 OK` status with the JSON response body.
+When the header is present, the API can return `204 No Content` for the following endpoints:
+
+- All endpoints which support [pagination](pagination.md) and request were to result in an empty page.
+- All endpoints which return an empty JSON object in case of success, e.g. [Delete account notes](../operations/accountnotes.md#delete-account-notes).
