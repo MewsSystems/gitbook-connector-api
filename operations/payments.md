@@ -544,15 +544,17 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Discriminator` | string [Payment data discriminator](#payment-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
-| `CreditCard` | object [Credit card data](#card-data)| optional | Contains additional data in the case of a card payment. |
-| `Invoice` | object [Invoice data](#invoice-data) | optional | Contains additional data in the case of an invoice payment. |
-| `External` | object [External data](#external-data) | optional | Contains additional data in the case of an external payment. |
+| `CreditCard` | object [Credit card data](#creditcard-payment-data)| optional | Contains additional data in the case of a card payment. |
+| `Invoice` | object [Invoice data](#invoice-payment-data) | optional | Contains additional data in the case of an invoice payment. |
+| `External` | object [External data](#external-payment-data) | optional | Contains additional data in the case of an external payment. |
+| `Ghost` | object [Ghost data](#ghost-payment-data) | optional | Contains additional data in the case of a ghost payment. |
 
 #### Payment data discriminator
 
 * `CreditCard`
 * `Invoice`
 * `External`
+* `Ghost`
 * ...
 
 #### CreditCard payment data
@@ -574,6 +576,14 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | :-- | :-- | :-- | :-- |
 | `Type` | string [External payment type](#external-payment-type) | required | Type of the external payment. *Except for enterprises based in the French Legal Environment. `Unspecified` is considered as fraud. |
 | `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
+
+#### Ghost payment data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `OriginalPaymentId` | string | required | Unique identifier of the original payment. |
+| `OriginalPaymentType` | string | required | Original payment type, e.g. whether credit card or cash. |
+| `OriginalPaymentData` | object [Payment data](#payment-data) | optional | Additional data of the original payment. |
 
 #### Credit card transaction
 
