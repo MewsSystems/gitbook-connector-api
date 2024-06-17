@@ -398,77 +398,6 @@ Returns all payments in the system, filtered by various parameters. At least one
             }
         },
         {
-            "Id": "883e7b30-e7ec-4779-b10d-d2921e13290c",
-            "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "AccountId": "c173bb22-6ff8-4ffd-875f-afb900c92865",
-            "AccountType" : "Company",
-            "BillId": "f5fb70b1-9e88-4b6b-9618-e50116aea96e",
-            "ReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
-            "AccountingCategoryId": null,
-            "Amount": {
-                "Currency": "EUR",
-                "NetValue": 3700.00,
-                "GrossValue": 3700.00,
-                "TaxValues": [],
-                "Breakdown": {
-                    "Items": [
-                        {
-                            "TaxRateCode": null,
-                            "NetValue": 3700.00,
-                            "TaxValue": 0.0
-                        }
-                    ]
-                }
-            },
-            "OriginalAmount": {
-                "Currency": "GBP",
-                "NetValue": 3700.0,
-                "GrossValue": 3700.0,
-                "TaxValues": [],
-                "Breakdown": {
-                    "Items": [
-                        {
-                            "TaxRateCode": null,
-                            "NetValue": 3700.0,
-                            "TaxValue": 0.0
-                        }
-                    ]
-                }
-            },
-            "Notes": null,
-            "SettlementId": null,
-            "ClosedUtc": null,
-            "ConsumedUtc": "2023-04-02T12:12:35Z",
-            "ChargedUtc": "2023-04-06T07:31:52Z",
-            "CreatedUtc": "2023-04-06T07:31:51Z",
-            "UpdatedUtc": "2023-04-06T07:31:53Z",
-            "AccountingState": "Open",
-            "State": "Charged",
-            "Identifier": "",
-            "PaymentType": "GhostPayment",
-            "Kind": null,
-            "Data": {
-                "Discriminator": "Ghost",
-                "CreditCard": null,
-                "Invoice": null,
-                "External": null,
-                "Ghost": {
-                    "OriginalPaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
-                    "OriginalPaymentType": "CreditCardPayment",
-                    "OriginalPaymentData": {
-                        "Discriminator": "CreditCard",
-                        "CreditCard": {
-                            "CreditCardId": "c922266b-291d-4e25-9df7-afbd007c1991",
-                            "Transaction": null
-                        },
-                        "Invoice": null,
-                        "External": null,
-                        "Ghost": null
-                    }
-                },
-            }
-        },
-        {
             "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
             "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
             "AccountId": "4ce18db7-3444-460a-b8af-afb900c92864",
@@ -654,8 +583,6 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `OriginalPaymentId` | string | required | Unique identifier of the original payment. |
-| `OriginalPaymentType` | string | required | Type of the original payment, e.g. whether credit card or cash. |
-| `OriginalPaymentData` | object [Payment data](#payment-data) | optional | Additional data of the original payment. |
 
 #### Credit card transaction
 
