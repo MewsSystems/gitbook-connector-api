@@ -1,5 +1,8 @@
 # Changelog
 
+## 17th June 2024
+* Extended [Payment data](../operations/payments.md#payment-data) type with Ghost payment data.
+
 ## 10th June 2024
 * Moved the [Taxation](../concepts/taxation.md) page to the new [Concepts](../concepts/README.md) section. Documentation-only.
 
