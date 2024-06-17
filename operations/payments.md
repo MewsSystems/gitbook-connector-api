@@ -582,7 +582,7 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `OriginalPaymentId` | string | required | Unique identifier of the original payment. |
-| `OriginalPaymentType` | string | required | Original payment type, e.g. whether credit card or cash. |
+| `OriginalPaymentType` | string | required | Type of the original payment, e.g. whether credit card or cash. |
 | `OriginalPaymentData` | object [Payment data](#payment-data) | optional | Additional data of the original payment. |
 
 #### Credit card transaction
