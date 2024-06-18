@@ -1,5 +1,8 @@
 # Changelog
 
+## 18th June 2024
+* Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
 ## 10th June 2024
 * Moved the [Taxation](../concepts/taxation.md) page to the new [Concepts](../concepts/README.md) section. Documentation-only.
 
