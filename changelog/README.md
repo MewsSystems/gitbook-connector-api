@@ -1,5 +1,8 @@
 # Changelog
 
+## 18th June 2024
+* Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
 ## 17th June 2024
 * Extended [Payment data](../operations/payments.md#payment-data) type with Ghost payment data.
 

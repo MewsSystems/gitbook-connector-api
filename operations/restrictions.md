@@ -202,7 +202,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 Adds new restrictions with the specified conditions. Note care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes).
 
-> **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions). The new operation is currently marked as 'Restricted' and subject to change as part of beta testing, but in time we expect that to replace [Add restrictions](#add-restrictions).
+> **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions).
 
 ### Request
 
@@ -387,9 +387,6 @@ Removes restrictions from the service.
 
 ## Set restrictions
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
-
 Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction - see [Merging algorithm](#merging-algorithm). A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [Merging algorithm](#merging-algorithm).
 Note care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). The validation of these properties is stronger in this operation than for [Add restrictions](#add-restrictions).
 
@@ -486,9 +483,6 @@ Only restrictions created through the API are affected by this operation, _not_ 
 | `MaxPrice` | [Currency value](accountingitems.md#currency-value)| optional | Value of the maximum price per time unit. |
 
 ## Clear restrictions
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
 
 Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm). This operation is intended to be used alongside [Set restrictions](#set-restrictions).
 
