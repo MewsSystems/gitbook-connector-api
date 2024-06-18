@@ -167,8 +167,8 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional |  |
 | `QrCodeData` | string | optional | QR code data of the reservation. |
 | `PersonCounts` | array of [Age category parameters](reservations.md#age-category-parameters) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~required~~ | ~~Scheduled end time of reservation in UTC timezone in ISO 8601 format~~ **Deprecated!** |
+| ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead.|
+| ~~`EndUtc`~~ | ~~string~~ | ~~required~~ | ~~Scheduled end time of reservation in UTC timezone in ISO 8601 format~~ **Deprecated!** Use `ScheduledEndUtc` and `ActualEndUtc` instead.|
 
 #### Service order state
 
@@ -242,9 +242,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 ## ~~Get all reservations (ver 2017-04-12)~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md).
-
-Use reservations/getAll/2023-06-06.
+> This operation is [deprecated](../deprecations/README.md). Use reservations/getAll/2023-06-06.
 
 ### Request
 
@@ -506,13 +504,13 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `OwnerId` | string | required | Unique identifier of the Customer or Company who owns the reservation. |
 | `BookerId` | string | optional | Unique identifier of the Customer on whose behalf the reservation was made. |
 | `Options` | [Reservation options](reservations.md#reservation-options) | required | Options of the reservation. |
-| ~~`AssignedSpaceId`~~ | ~~string~~ | ~~optional~~ | ~~Identifier of the assigned Space.~~ **Deprecated!** |
-| ~~`AssignedSpaceLocked`~~ | ~~boolean~~ | ~~required~~ | ~~Whether the reservation is locked to the assigned Space and cannot be moved.~~ **Deprecated!** |
-| ~~`AdultCount`~~ | ~~integer~~ | ~~required~~ | ~~Count of adults the reservation was booked for.~~ **Deprecated!** |
-| ~~`ChildCount`~~ | ~~integer~~ | ~~required~~ | ~~Count of children the reservation was booked for.~~ **Deprecated!** |
-| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the Customer who owns the reservation.~~ **Deprecated!** |
-| ~~`CompanionIds`~~ | ~~array of string~~ | ~~required~~ | ~~Unique identifiers of the `Customer`s that will use the resource.~~ **Deprecated!** |
-| ~~`ChannelManagerId`~~ | ~~string~~ | ~~optional~~ | ~~Channel Manager number.~~ **Deprecated!** |
+| ~~`AssignedSpaceId`~~ | ~~string~~ | ~~optional~~ | ~~Identifier of the assigned Space.~~ **Deprecated!** Use `AssignedResourceId` instead.|
+| ~~`AssignedSpaceLocked`~~ | ~~boolean~~ | ~~required~~ | ~~Whether the reservation is locked to the assigned Space and cannot be moved.~~ **Deprecated!** Use `AssignedResourceLocked` instead.|
+| ~~`AdultCount`~~ | ~~integer~~ | ~~required~~ | ~~Count of adults the reservation was booked for.~~ **Deprecated!** Use `PersonCounts` instead.|
+| ~~`ChildCount`~~ | ~~integer~~ | ~~required~~ | ~~Count of children the reservation was booked for.~~ **Deprecated!** Use `PersonCounts` instead.|
+| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the Customer who owns the reservation.~~ **Deprecated!** Use `OwnerId` instead.|
+| ~~`CompanionIds`~~ | ~~array of string~~ | ~~required~~ | ~~Unique identifiers of the `Customer`s that will use the resource.~~ **Deprecated!** Use `companionships/getAll` instead.|
+| ~~`ChannelManagerId`~~ | ~~string~~ | ~~optional~~ | ~~Channel Manager number.~~ **Deprecated!** Use `ChannelManagerNumber` instead.|
 
 #### CancellationReason
 
@@ -557,9 +555,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 ## ~~Get all reservation items~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md).
-
-Use orderItems/getAll.
+> This operation is [deprecated](../deprecations/README.md). Use orderItems/getAll.
 
 ### Request
 
@@ -929,8 +925,8 @@ Updates information about the specified reservations. Note that if any of the fi
 | `Reprice` | boolean | optional | Whether the price should be updated to latest value for date/rate/category combination set in Mews. If not specified, the reservation price is updated. |
 | `ApplyCancellationFee` | boolean | optional | Whether the cancellation fees should be applied according to rate cancellation policies. If not specified, the cancellation fees are applied. |
 | `Reason` | string | optional | Reason for updating the reservation. Required when updating the price of the reservation. |
-| ~~`CheckOverbooking`~~ | ~~boolean~~ | ~~optional~~ | ~~Indicates whether the system will check and prevent a booking being made in the case of an overbooking, i.e. where there is an insufficient number of resources available to meet the request.~~ **Deprecated!** |
-| ~~`CheckRateApplicability`~~ | ~~boolean~~ | ~~optional~~ | ~~Indicates whether the system will check and prevent a booking being made using a restricted rate, e.g. a private rate. The default is true, i.e. the system will normally check for this unless the property is set to false.~~ **Deprecated!** |
+| ~~`CheckOverbooking`~~ | ~~boolean~~ | ~~optional~~ | ~~Indicates whether the system will check and prevent a booking being made in the case of an overbooking, i.e. where there is an insufficient number of resources available to meet the request.~~ **Deprecated!** The value will be ignored.|
+| ~~`CheckRateApplicability`~~ | ~~boolean~~ | ~~optional~~ | ~~Indicates whether the system will check and prevent a booking being made using a restricted rate, e.g. a private rate. The default is true, i.e. the system will normally check for this unless the property is set to false.~~ **Deprecated!** The value will be ignored.|
 
 #### Person counts update value
 
@@ -1318,8 +1314,8 @@ Returns prices of reservations with the specified parameters. Note this operatio
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](products.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the `AvailabilityBlock` the reservation is assigned to. |
-| ~~`AdultCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** |
-| ~~`ChildCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** |
+| ~~`AdultCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** Use `PersonCounts` instead.|
+| ~~`ChildCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** Use `PersonCounts` instead.|
 
 #### Service order state
 
@@ -1371,7 +1367,7 @@ Returns prices of reservations with the specified parameters. Note this operatio
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `TotalAmount` | [Amount](_objects.md#amount) | required | Total price of the reservation. |
-| ~~`Total`~~ | ~~[Currency value](_objects.md#currency-value)~~ | ~~optional~~ | ~~Total price of the reservation.~~ **Deprecated!** |
+| ~~`Total`~~ | ~~[Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07)~~ | ~~optional~~ | ~~Total price of the reservation.~~ **Deprecated!** Use `TotalAmount` instead.|
 
 ## Delete reservation companion
 
