@@ -184,12 +184,14 @@ The profile data of the user who created or last updated the record.
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
 
-#### Currency value
+#### Currency value (ver 2018-06-07)
+
+Usage of this value is **deprecated**. Where possible, use the properties exposing the [Amount](#amount) instead.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Currency` | string | required | ISO-4217 code of the `Currency`.  |
 | `Value` | number | optional | Amount in the currency. |
-| `Net` | number | optional | The net value that the tax is calculated from. |
-| `Tax` | number | optional | The value of the tax. |
-| `TaxRate` | number | optional | Percentage of the tax rate. |
+| ~~`Net`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+| ~~`Tax`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+| ~~`TaxRate`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |

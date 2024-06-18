@@ -427,8 +427,7 @@ types:
     anchor: reservation-price
   currencyvalueold:
     file: _objects.md
-    anchor: currency-value
-    titleOverride: Currency value
+    anchor: currency-value-ver-2018-06-07
   reservationdataparameters:
     file: reservations.md
     anchor: reservationdataparameters
