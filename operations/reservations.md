@@ -312,14 +312,13 @@ Use reservations/getAll/2023-06-06.
 
 #### Reservation time filter
 
-* `Colliding`
-* `Created`
-* `Updated`
-* `Start`
-* `End`
-* `Overlapping`
-* `Canceled`
-* `Cancelled`
+* `Colliding` - Reservations whose intervals collide with the specified interval.
+* `Created` - Reservations created within the specified interval.
+* `Updated` - Reservations updated within the specified interval.
+* `Start` - Reservations starting (arriving) within the specified interval.
+* `End` - Reservations ending (departing) within the specified interval.
+* `Overlapping` - Reservations whose intervals contain the specified interval.
+* `Canceled` - Reservations canceled within the specified interval.
 
 #### Service order state (ver 2017-04-12)
 
@@ -1324,13 +1323,13 @@ Returns prices of reservations with the specified parameters. Note this operatio
 
 #### Service order state
 
-* `Inquired`
-* `Confirmed`
-* `Started`
-* `Processed`
-* `Canceled`
-* `Optional`
-* `Requested`
+* `Inquired` - Confirmed neither by the customer nor enterprise.
+* `Confirmed` - Confirmed by both parties, before check-in.
+* `Started` - Checked in.
+* `Processed` - Checked out.
+* `Canceled` - Canceled.
+* `Optional` - Confirmed by enterprise but not by the guest (the enterprise is holding resource for the guest).
+* `Requested` - Confirmed by the customer but not by the enterprise (waitlist).
 
 #### Time unit amount parameters
 
