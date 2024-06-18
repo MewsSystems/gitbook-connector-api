@@ -3,6 +3,9 @@
 ## 18th June 2024
 * Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
 
+## 17th June 2024
+* Extended [Payment data](../operations/payments.md#payment-data) type with Ghost payment data.
+
 ## 10th June 2024
 * Moved the [Taxation](../concepts/taxation.md) page to the new [Concepts](../concepts/README.md) section. Documentation-only.
 
