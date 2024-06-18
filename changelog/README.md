@@ -1,5 +1,8 @@
 # Changelog
 
+## 18th June 2024
+* Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
 ## 5th March 2024
 * Extended [Payment request](../operations/paymentrequests.md#payment-request) response object with `ReservationId`, this affects the following operations:
   * [Get all payment requests](../operations/paymentrequests.md#get-all-payment-requests)
