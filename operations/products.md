@@ -151,6 +151,158 @@ Returns all products offered together with the specified services. Note this ope
 | `CustomerProducts` | array of [Product](#product) | required | Products offered specifically to customers. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest product returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older products.
 
+## Get product pricing
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Returns prices for a given product for a specified time interval. UTC timestamps must correspond to the start boundary of a time unit, e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's time unit: 100 hours if hours, 100 days if days, or 24 months if months. For more information about time units, see [Time units](../concepts/time-units.md). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/products/getPricing`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
+    "ProductId": "6b97a38b-0043-41e0-afbd-3f083bdbc0d2",
+    "FirstTimeUnitStartUtc": "2024-03-01T23:00:00.000Z",
+    "LastTimeUnitStartUtc": "2024-03-03T23:00:00.000Z"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Client` | string | required | Name and version of the client application. |
+| `ProductId` | string | required | Unique identifier of the [Product](#product) whose prices should be returned. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). The maximum size of time interval depends on the service's time unit: 100 hours if hours, 100 days if days, or 24 months if months. |
+
+### Response
+
+```javascript
+{
+    "ProductId": "6b97a38b-0043-41e0-afbd-3f083bdbc0d2",
+    "TimeUnitStartsUtc": [
+        "2024-03-01T23:00:00Z",
+        "2024-03-02T23:00:00Z",
+        "2024-03-03T23:00:00Z"
+    ],
+    "BaseAmountPrices": [
+        {
+            "Currency": "EUR",
+            "NetValue": 93.46,
+            "GrossValue": 100.00,
+            "TaxValues": [
+                {
+                    "Code": "DE-2020-1-L",
+                    "Value": 6.54
+                }
+            ],
+            "Breakdown": {
+                "Items": [
+                    {
+                        "TaxRateCode": "DE-2020-1-L",
+                        "NetValue": 93.46,
+                        "TaxValue": 6.54
+                    }
+                ]
+            }
+        },
+        {
+            "Currency": "EUR",
+            "NetValue": 93.46,
+            "GrossValue": 100.00,
+            "TaxValues": [
+                {
+                    "Code": "DE-2020-1-L",
+                    "Value": 6.54
+                }
+            ],
+            "Breakdown": {
+                "Items": [
+                    {
+                        "TaxRateCode": "DE-2020-1-L",
+                        "NetValue": 93.46,
+                        "TaxValue": 6.54
+                    }
+                ]
+            }
+        }
+    ],
+    "AgeCategoryPrices": [
+        {
+            "AgeCategoryId": "7d9d9b11-2c96-4862-9ead-501c6a8ed114",
+            "Prices": [
+                {
+                    "Currency": "EUR",
+                    "NetValue": 93.46,
+                    "GrossValue": 100.00,
+                    "TaxValues": [
+                        {
+                            "Code": "DE-2020-1-L",
+                            "Value": 6.54
+                        }
+                    ],
+                    "Breakdown": {
+                        "Items": [
+                            {
+                                "TaxRateCode": "DE-2020-1-L",
+                                "NetValue": 93.46,
+                                "TaxValue": 6.54
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Currency": "EUR",
+                    "NetValue": 93.46,
+                    "GrossValue": 100.00,
+                    "TaxValues": [
+                        {
+                            "Code": "DE-2020-1-L",
+                            "Value": 6.54
+                        }
+                    ],
+                    "Breakdown": {
+                        "Items": [
+                            {
+                                "TaxRateCode": "DE-2020-1-L",
+                                "NetValue": 93.46,
+                                "TaxValue": 6.54
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ProductId` | string | required | Unique identifier of the [Product](#product). |
+| `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
+| `BaseAmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Base prices of the product for each time unit covered by the time interval. |
+| `AgeCategoryPrices` | array of [Age category price](#age-category-price) | required | Age category prices. |
+
+#### Age category price
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AgeCategoryId` | string | required | Unique identifier of the [Age category](agecategories.md#age-category). |
+| `AmountPrices` | array of [Amount value](accountingitems.md#amount-value) | required | Prices of the product for the resource category in the covered dates. |
+
 #### Product
 
 | Property | Type | Contract | Description |

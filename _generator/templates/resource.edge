@@ -1,0 +1,41 @@
+<!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
+# {{ resourceName }}
+
+@each(operation in operations)
+@let(deprecatedMark = operation.deprecated ? '~~' : '')
+## {{deprecatedMark}}{{ operation.summary }}{{deprecatedMark}}{{-- {#{{ operation.operationId }}} --}}
+
+@if(operation.deprecated)
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). {{ operation.deprecatedMessage }}
+@end
+@if(operation.restricted)
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+@end
+
+{{{ operation.description?.trim() ?? '' }}}
+
+### Request{{-- {#{{ operation.operationId }}_request} --}}
+
+`[PlatformAddress]{{ operation.path }}`
+
+```javascript
+{{ helpers.json(operation.requestExample) }}
+```
+
+@each((schema, i) in operation.requestSchemas)
+@!component('parameters', { schema, hideTitle: i === 0 })
+@end
+
+### Response{{-- {#{{ operation.operationId }}_response} --}}
+
+```javascript
+{{ helpers.json(operation.responseExample) }}
+```
+
+@each((schema, i) in operation.responseSchemas)
+@!component('parameters', { schema, hideTitle: i === 0 })
+@end
+
+@end

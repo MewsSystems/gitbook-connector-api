@@ -239,6 +239,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 * `SendMarketingEmails`
 * `Invoiceable`
+* `BillAddressObjection`
+* `SendMarketingPostalMail`
+* `SendPartnerMarketingEmails`
+* `SendPartnerMarketingPostalMail`
 * ...
 
 #### Activity State

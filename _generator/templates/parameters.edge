@@ -1,0 +1,21 @@
+@unless(hideTitle)
+#### {{ schema.title }}{{-- {#{{ schemaId }}} --}}
+@end
+{{{ schema.description }}}
+
+@if(schema.properties)
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+@each(prop in schema.properties)~
+@if(prop.deprecated)
+@!component('deprecatedProperty', { prop })~
+@else
+@!component('property', { prop })
+@end
+@end
+@end
+@if(schema.enum)
+@each(entry in schema.enum)
+* `{{ entry.value }}`{{{ entry.description ? ` - ${entry.description}` : '' }}}
+@end
+@end

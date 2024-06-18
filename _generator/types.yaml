@@ -1,0 +1,241 @@
+types:
+  profiledata:
+    file: _objects.md
+    anchor: profile-data
+  profiledatadiscriminator:
+    file: _objects.md
+    anchor: profiledatadiscriminator
+  enterpriseprofiledata:
+    file: _objects.md
+    anchor: enterprise-profile-data
+  limitation:
+    file: ../guidelines/pagination.md
+    anchor: limitation
+  timefilterinterval:
+    file: _objects.md
+    anchor: time-interval
+    titleOverride: Time interval
+  activitystates:
+    file: _objects.md
+    anchor: activity-state
+    titleOverride: Activity state
+  stringupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
+    titleOverride: String update value
+  booleanupdatevalue:
+    file: _objects.md
+    anchor: bool-update-value
+    titleOverride: Bool update value
+  amount:
+    file: _objects.md
+    anchor: amount
+  taxvalue:
+    file: _objects.md
+    anchor: tax-value
+  taxbreakdown:
+    file: _objects.md
+    anchor: tax-breakdown
+  taxbreakdownitem:
+    file: _objects.md
+    anchor: tax-breakdown-item
+  int32nullableupdatevalue:
+    file: _objects.md
+    anchor: number-update-value
+    titleOverride: Number update value
+  resourceavailabilitymetrictypeint32ienumerableidictionary:
+    file: _objects.md
+    anchor: dictionary-of-integers
+    titleOverride: Dictionary of integers
+  accountnoteresult:
+    file: accountnotes.md
+    anchor: accountnoteresult
+  accountnote:
+    file: accountnotes.md
+    anchor: account-note
+  accounttypeenum:
+    file: accounts.md
+    anchor: account-type
+  accountnoteclassificationenum:
+    file: accountnotes.md
+    anchor: account-note-classification
+  accountnotefilterparameters:
+    file: accountnotes.md
+    anchor: accountnotefilterparameters
+  accountnoteadditionresult:
+    file: accountnotes.md
+    anchor: accountnoteadditionresult
+  multipleaccountnoteaddparameters:
+    file: accountnotes.md
+    anchor: multipleaccountnoteaddparameters
+  accountnoteaddparameters:
+    file: accountnotes.md
+    anchor: account-note-parameters
+  accountnoteupdateresult:
+    file: accountnotes.md
+    anchor: accountnoteupdateresult
+  multipleaccountnoteupdateparameters:
+    file: accountnotes.md
+    anchor: multipleaccountnoteupdateparameters
+  accountnoteupdateparameters:
+    file: accountnotes.md
+    anchor: account-note-update-parameters
+  accountnoteupdateclassifications:
+    file: accountnotes.md
+    anchor: account-note-update-classifications
+  unit:
+    file: services.md
+    anchor: unit
+  multipleaccountnotedeleteparameters:
+    file: accountnotes.md
+    anchor: multipleaccountnotedeleteparameters
+  countryresult:
+    file: countries.md
+    anchor: countryresult
+  country:
+    file: countries.md
+    anchor: country
+  countrysubdivision:
+    file: countries.md
+    anchor: country-subdivision
+  countryrule:
+    file: countries.md
+    anchor: country-rules
+  countrygroup:
+    file: countries.md
+    anchor: country-group
+  parameters:
+    file: devices.md
+    anchor: parameters
+  currencyresult:
+    file: currencies.md
+    anchor: currencyresult
+  currency:
+    file: currencies.md
+    anchor: currency
+  deviceresult:
+    file: devices.md
+    anchor: deviceresult
+  device:
+    file: devices.md
+    anchor: device
+  devicetypeenum:
+    file: devices.md
+    anchor: device-type
+  exchangerateresult:
+    file: exchangerates.md
+    anchor: exchangerateresult
+  exchangerate:
+    file: exchangerates.md
+    anchor: exchange-rate
+  currencyacceptancefilterparameters:
+    file: exchangerates.md
+    anchor: currencyacceptancefilterparameters
+  imageurlresult:
+    file: images.md
+    anchor: imageurlresult
+  imageurl:
+    file: images.md
+    anchor: image-url
+  imageurlparameters:
+    file: images.md
+    anchor: imageurlparameters
+  imagesizeparameters:
+    file: images.md
+    anchor: image-size-parameters
+  imageresizemodeenum:
+    file: images.md
+    anchor: image-resize-mode
+  orderitemresult:
+    file: orderitems.md
+    anchor: orderitemresult
+  orderitem:
+    file: orderitems.md
+    anchor: order-item
+  revenuetypeenum:
+    file: orderitems.md
+    anchor: revenue-type
+  orderitemtypeenum:
+    file: orderitems.md
+    anchor: order-item-type
+  orderitemoptions:
+    file: orderitems.md
+    anchor: order-item-options
+  orderitemdata:
+    file: orderitems.md
+    anchor: order-item-data
+  orderitemdatadiscriminatorenum:
+    file: orderitems.md
+    anchor: order-item-data-discriminator
+  orderitemrebatedata:
+    file: orderitems.md
+    anchor: rebate-data
+  orderitemproductdata:
+    file: orderitems.md
+    anchor: product-data
+  orderitemfilterparameters:
+    file: orderitems.md
+    anchor: orderitemfilterparameters
+  accountingstateenum:
+    file: orderitems.md
+    anchor: order-item-accounting-state
+  serviceresult:
+    file: services.md
+    anchor: serviceresult
+  service:
+    file: services.md
+    anchor: service
+  serviceoptions:
+    file: services.md
+    anchor: service-options
+  promotions:
+    file: services.md
+    anchor: promotions
+  servicedatadiscriminator:
+    file: services.md
+    anchor: service-data-discriminator
+  bookableservicedata:
+    file: services.md
+    anchor: bookable-service-data
+  timeunitperiodenum:
+    file: services.md
+    anchor: time-unit-period
+  additionalservicedata:
+    file: services.md
+    anchor: additional-service-data
+  servicefilterparameters:
+    file: services.md
+    anchor: servicefilterparameters
+  serviceavailabilityupdateparameters:
+    file: services.md
+    anchor: serviceavailabilityupdateparameters
+  serviceavailabilityupdatedata:
+    file: services.md
+    anchor: availability-update
+  paxcount:
+    file: services.md
+    anchor: paxcount
+  serviceavailabilityresult:
+    file: services.md
+    anchor: serviceavailabilityresult
+  categoryavailability:
+    file: services.md
+    anchor: resource-category-availability
+  serviceavailabilityfilterparameters:
+    file: services.md
+    anchor: serviceavailabilityfilterparameters
+  serviceavailabilityresultv20240122:
+    file: services.md
+    anchor: serviceavailabilityresultv20240122
+  resourcecategoryavailabilityv20240122:
+    file: services.md
+    anchor: resource-category-availability-ver-2024-01-22
+  serviceavailabilityfilterparametersv20240122:
+    file: services.md
+    anchor: serviceavailabilityfilterparametersv20240122
+  resourceavailabilitymetrictypeenum:
+    file: services.md
+    anchor: service-availability-metrics
+  servicedatacoproductofservicedatadiscriminator:
+    file: services.md
+    anchor: service-data

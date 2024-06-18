@@ -2,7 +2,7 @@
 
 ## Get all product service orders
 
-Returns all product service orders orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md)..
+Returns all product service orders associated with the given enterprise. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -19,6 +19,11 @@ Returns all product service orders orders associated with the given enterprise. 
     "ServiceIds": [
         "ae8da28c-e8a4-4141-9df0-8c998976c691",
         "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
+    ],
+    "LinkedReservationIds": 
+    [
+        "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
+        "b7a3f5cb-1e69-4a5f-a069-10f461996d7f"
     ],
     "UpdatedUtc": {
         "StartUtc": "2023-04-01T00:00:00Z",
@@ -39,6 +44,7 @@ Returns all product service orders orders associated with the given enterprise. 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
 | `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the [Product service order](#product-service-order). |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
+| `LinkedReservationIds` | array of string | optional, max 1000 items | Unique identifiers of linked [Reservations](reservations.md#reservation-ver-2023-06-06). |
 | `States` | array of string [Service order state](#service-order-state) | optional | A list of product service order states to filter by. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Product service orders](#product-service-order) were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -56,6 +62,7 @@ Returns all product service orders orders associated with the given enterprise. 
             "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
             "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+            "LinkedReservationId": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
             "Number": "52",
             "State": "Confirmed",
             "Origin": "Connector",
@@ -103,7 +110,8 @@ Returns all product service orders orders associated with the given enterprise. 
 | `UpdatedUtc` | string | required | Last update date and time of the product service order in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) that has been used to create product service order. |
-| `BusinessSegmentId` | string | optional | Identifier of the product service order [Business segment](businesssegments.md#business-segment). |
+| `BusinessSegmentId` | string | optional | Identifier of the [Business segment](businesssegments.md#business-segment). |
+| `LinkedReservationId` | string | optional | Identifier of the linked [Reservation](reservations.md#reservation-ver-2023-06-06). |
 | `Options` | [Service order options](#service-order-options) | required | Options of the service order. |
 
 #### Service order options

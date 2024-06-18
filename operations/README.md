@@ -231,4 +231,5 @@ This section describes all operations supported by the API, organised here by th
 | [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |
 | [Get all products](products.md#get-all-products) | Returns all products filtered by services or product identifier |
 | [Delete products](products.md#delete-products) | Deletes specified products |
+| [Get product pricing](products.md#get-product-pricing) | **Restricted!** Returns prices for a product for a specified time interval |
 | [Get all product categories](productcategories.md#get-all-product-categories) | Returns all products filtered by services or product category identifier |
