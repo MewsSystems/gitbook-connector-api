@@ -1,5 +1,8 @@
 # Changelog
 
+## 21st June 2024
+* Deprecated [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions), use [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions) instead.
+
 ## 18th June 2024
 * Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
 
