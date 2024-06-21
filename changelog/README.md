@@ -1,5 +1,8 @@
 # Changelog
 
+## 27th June 2024
+* Added new page [Restrictions](../concepts/restrictions.md) under [Concepts](../concepts/README.md). Documentation-only.
+
 ## 18th June 2024
 * Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
 
