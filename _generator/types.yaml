@@ -539,3 +539,6 @@ types:
   reservationupdateperunitpriceparameters:
     file: reservations.md
     anchor: time-unit-amount-update-value
+  reservationoldorigin:
+    file: reservations.md
+    anchor: reservation-origin-ver-2017-04-12

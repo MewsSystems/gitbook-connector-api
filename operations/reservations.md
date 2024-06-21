@@ -130,7 +130,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) that reservation is made against. |
+| `ServiceId` | string | required | Unique identifier of the `Service` that reservation is made against. |
 | `AccountId` | string | required | Unique identifier of the Customer or a Company who owns the reservation. |
 | `AccountType` | [Account type](accounts.md#account-type) | required |  |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the reservation. |
@@ -145,7 +145,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone. |
 | `VoucherId` | string | optional | Unique identifier of the `Voucher` that has been used to create reservation. |
-| `BusinessSegmentId` | string | optional | Identifier of the reservation [Business segment](businesssegments.md#business-segment). |
+| `BusinessSegmentId` | string | optional | Identifier of the reservation `BusinessSegment`. |
 | `Options` | [Service Order Options](reservations.md#service-order-options) | required | Options of the reservation. |
 | `RateId` | string | required | Identifier of the reservation `Rate`. |
 | `CreditCardId` | string | optional | Unique identifier of the Credit card. |
@@ -164,9 +164,9 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ActualStartUtc` | string | optional | Actual customer check-in time of reservation in UTC timezone. |
 | `ScheduledEndUtc` | string | required | Scheduled end time of reservation in UTC timezone in ISO 8601 format. |
 | `ActualEndUtc` | string | optional | Actual end time of reservation in UTC timezone in ISO 8601 format. |
-| `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional |  |
+| `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
 | `QrCodeData` | string | optional | QR code data of the reservation. |
-| `PersonCounts` | array of [Age category parameters](reservations.md#age-category-parameters) | required | Number of people per age category the reservation was booked for. At least one category with valid count must be provided. |
+| `PersonCounts` | array of [Age category parameters](reservations.md#age-category-parameters) | required | Number of people per age category the reservation was booked for. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~required~~ | ~~Scheduled end time of reservation in UTC timezone in ISO 8601 format~~ **Deprecated!** Use `ScheduledEndUtc` and `ActualEndUtc` instead.|
 
@@ -317,16 +317,6 @@ Returns all reservations within scope of the Access Token, filtered according to
 * `End` - Reservations ending (departing) within the specified interval.
 * `Overlapping` - Reservations whose intervals contain the specified interval.
 * `Canceled` - Reservations canceled within the specified interval.
-
-#### Service order state (ver 2017-04-12)
-
-* `Enquired`
-* `Confirmed`
-* `Started`
-* `Processed`
-* `Canceled`
-* `Optional`
-* `Requested`
 
 #### Reservation extent
 Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned.
@@ -479,10 +469,10 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
 | `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel manager that transferred the reservation from Channel to Mews. |
 | `ChannelManager` | string | optional | Name of the Channel manager (e.g. AvailPro, SiteMinder, TravelClick, etc). |
-| `State` | string | required | State of the reservation. |
-| `Origin` | string | required | Origin of the reservation. |
+| `State` | [Service order state (ver 2017-04-12)](reservations.md#service-order-state-ver-2017-04-12) | required |  |
+| `Origin` | [Reservation origin (ver 2017-04-12)](reservations.md#reservation-origin-ver-2017-04-12) | required |  |
 | `OriginDetails` | string | optional | Details about the reservation origin. |
-| `Purpose` | string | optional | Purpose of the reservation. |
+| `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | required | Purpose of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
@@ -511,6 +501,37 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the Customer who owns the reservation.~~ **Deprecated!** Use `OwnerId` instead.|
 | ~~`CompanionIds`~~ | ~~array of string~~ | ~~required~~ | ~~Unique identifiers of the `Customer`s that will use the resource.~~ **Deprecated!** Use `companionships/getAll` instead.|
 | ~~`ChannelManagerId`~~ | ~~string~~ | ~~optional~~ | ~~Channel Manager number.~~ **Deprecated!** Use `ChannelManagerNumber` instead.|
+
+#### Service order state (ver 2017-04-12)
+
+* `Enquired`
+* `Confirmed`
+* `Started`
+* `Processed`
+* `Canceled`
+* `Optional`
+* `Requested`
+
+#### Reservation origin (ver 2017-04-12)
+
+* `Distributor` - From the Mews Booking Engine or Booking Engine API.
+* `ChannelManager` - From a channel manager.
+* `Import` - From an import process.
+* `Connector` - From the Mews Connector API.
+* `Navigator` - From Mews Guest Services.
+* `CommanderInPerson` - From Mews Operations, in person.
+* `CommanderChannel` - From Mews Operations, via channel.
+* `CommanderPhone` - From Mews Operations, via telephone.
+* `CommanderEmail` - From Mews Operations, via email.
+* `CommanderWebsite` - From Mews Operations, via website.
+* `CommanderMessage` - From Mews Operations, via message person.
+* `CommanderCallCenter` - From Mews Operations, via call center.
+
+#### Reservation purpose
+
+* `Leisure`
+* `Business`
+* `Student`
 
 #### CancellationReason
 
