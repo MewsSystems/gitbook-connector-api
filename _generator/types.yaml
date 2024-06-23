@@ -239,3 +239,306 @@ types:
   servicedatacoproductofservicedatadiscriminator:
     file: services.md
     anchor: service-data
+  reservationserviceorderresult:
+    file: reservations.md
+    anchor: reservationserviceorderresult
+  reservation:
+    file: reservations.md
+    anchor: reservation-ver-2023-06-06
+  accounttype:
+    file: accounts.md
+    anchor: account-type
+  serviceorderstateenum:
+    file: reservations.md
+    anchor: service-order-state
+  serviceorderoriginenum:
+    file: reservations.md
+    anchor: service-order-origin
+  serviceordercommanderoriginenum:
+    file: reservations.md
+    anchor: commander-origin
+  serviceorderoptions:
+    file: reservations.md
+    anchor: service-order-options
+  serviceordercancellationreasonenum:
+    file: reservations.md
+    anchor: reservation-cancellation-reason
+  reservationpurposeenum:
+    file: reservations.md
+    anchor: reservation-purpose
+  reservationpersoncount:
+    file: reservations.md
+    anchor: age-category-parameters
+  reservationserviceorderfilterparameters:
+    file: reservations.md
+    anchor: reservationserviceorderfilterparameters
+  reservationresult:
+    file: reservations.md
+    anchor: reservationresult
+  reservationold:
+    file: reservations.md
+    anchor: reservation-ver-2017-04-12
+  cancellationreason:
+    file: reservations.md
+    anchor: cancellationreason
+  reservationoptions:
+    file: reservations.md
+    anchor: reservation-options
+  reservationgroupold:
+    file: reservations.md
+    anchor: reservation-groups-ver-2017-04-12
+  customer:
+    file: customers.md
+    anchor: customer
+  document:
+    file: customers.md
+    anchor: document
+  oldaddress:
+    file: configuration.md
+    anchor: address
+  product:
+    file: products.md
+    anchor: product
+  productoptions:
+    file: products.md
+    anchor: product-options
+  productclassifications:
+    file: products.md
+    anchor: product-classifications
+  extendedamount:
+    file: _objects.md
+    anchor: amount
+  productpricingcoproductofproductpricing:
+    file: products.md
+    anchor: pricing
+  productpricing:
+    file: products.md
+    anchor: product-pricing
+  relativeproductprice:
+    file: products.md
+    anchor: relativeproductprice
+  productconsumptionmoment:
+    file: products.md
+    anchor: productconsumptionmoment
+  resource:
+    file: resources.md
+    anchor: resource
+  resourcedatacoproductofspacedataobjectdatapersondata:
+    file: resources.md
+    anchor: resource-data
+  spacedata:
+    file: resources.md
+    anchor: space-resource-data
+  resourcecategory:
+    file: resources.md
+    anchor: resource-category
+  resourcecategorytype:
+    file: resources.md
+    anchor: resource-category-type
+  resourceclassification:
+    file: resourcefeatures.md
+    anchor: resource-feature-classification
+  resourcecategoryassignment:
+    file: resourcecategories.md
+    anchor: resource-category-assignment
+  businesssegment:
+    file: businesssegments.md
+    anchor: business-segment
+  rate:
+    file: rates.md
+    anchor: rate
+  ratetype:
+    file: rates.md
+    anchor: rate-type
+  rategroupold:
+    file: rates.md
+    anchor: rate-group
+  accountingitem:
+    file: accountingitems.md
+    anchor: accounting-item
+  orderitemold:
+    file: accountingitems.md
+    anchor: order-item
+  orderitemolddatacoproductoforderitemtypeold:
+    file: accountingitems.md
+    anchor: order-item-data
+  orderitemtypeold:
+    file: accountingitems.md
+    anchor: order-item-type
+  rebateorderitemdata:
+    file: accountingitems.md
+    anchor: rebate-order-item-data
+  productorderitemdata:
+    file: accountingitem.md
+    anchor: product-order-item-data
+  ordernote:
+    file: serviceordernotes.md
+    anchor: service-order-note
+  ordernotetype:
+    file: serviceordernotes.md
+    anchor: service-order-note-type
+  company:
+    file: companies.md
+    anchor: company
+  companyoptions:
+    file: companies.md
+    anchor: company-options
+  creditrating:
+    file: companies.md
+    anchor: credit-rating
+  resourceaccesstoken:
+    file: resourceaccesstokens.md
+    anchor: resource-access-token
+  resourceaccesstokentype:
+    file: resourceaccesstokens.md
+    anchor: resource-access-token-type
+  resourceaccesstokenpermissions:
+    file: resourceaccesstokens.md
+    anchor: resource-access-token-permissions
+  reservationfilterparameters:
+    file: reservations.md
+    anchor: reservationfilterparameters
+  reservationtimefilter:
+    file: reservations.md
+    anchor: reservation-time-filter
+  serviceorderstateold:
+    file: reservations.md
+    anchor: service-order-state-ver-2017-04-12
+  reservationextent:
+    file: reservations.md
+    anchor: reservation-extent
+  accountingstate:
+    file: accountingitems.md
+    anchor: order-item-accounting-state
+  multiplereservationparameters:
+    file: reservations.md
+    anchor: multiplereservationparameters
+  reservationmultiplecustomerparameters:
+    file: reservations.md
+    anchor: reservationmultiplecustomerparameters
+  reservationconfirmationnumberparameters:
+    file: reservations.md
+    anchor: reservationconfirmationnumberparameters
+  reservationpricingresult:
+    file: reservations.md
+    anchor: reservationpricingresult
+  reservationprice:
+    file: reservations.md
+    anchor: reservation-price
+  currencyvalueold:
+    file: _objects.md
+    anchor: currency-value-ver-2018-06-07
+  reservationdataparameters:
+    file: reservations.md
+    anchor: reservationdataparameters
+  reservationdata:
+    file: reservations.md
+    anchor: reservation-parameters
+  serviceorderstate:
+    file: reservations.md
+    anchor: service-order-state
+  amountparameters:
+    file: orders.md
+    anchor: amount-parameters
+  perunitpriceparameters:
+    file: reservations.md
+    anchor: time-unit-amount-parameters
+  productorderadditiondata:
+    file: products.md
+    anchor: product-order-parameters
+  costparameters:
+    file: _deprecated.md
+    anchor: costparameters
+  resourceaccesstokenparameters:
+    file: reservations.md
+    anchor: resourceaccesstokenparameters
+  resourceaccesstokenpermissionsparameters:
+    file: reservations.md
+    anchor: resourceaccesstokenpermissionsparameters
+  reservationpurpose:
+    file: reservations.md
+    anchor: reservation-purpose
+  reservationadditionresult:
+    file: reservations.md
+    anchor: reservationadditionresult
+  addedreservation:
+    file: reservations.md
+    anchor: added-reservation
+  reservationadditionparameters:
+    file: reservations.md
+    anchor: reservationadditionparameters
+  multiplereservationupdateparameters:
+    file: reservations.md
+    anchor: reservation-updates
+  int32updatevalue:
+    file: _objects.md
+    anchor: integer-update-value
+    titleOverride: Integer update value
+  guidnullableupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
+    titleOverride: String update value
+  guidupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
+    titleOverride: String update value
+  reservationupdateoptionsparameters:
+    file: reservations.md
+    anchor: reservations-options-parameters-update-values
+  reservationupdateparameters:
+    file: reservations.md
+    anchor: reservation-updates
+  multiplereservationresult:
+    file: reservations.md
+    anchor: multiplereservationresult
+  confirmreservationparameters:
+    file: reservations.md
+    anchor: confirmreservationparameters
+  reservationstartparameters:
+    file: reservations.md
+    anchor: reservationstartparameters
+  reservationprocessingparameters:
+    file: reservations.md
+    anchor: reservationprocessingparameters
+  reservationcancellationparameters:
+    file: reservations.md
+    anchor: reservationcancellationparameters
+  reservationsupdatecustomerparameters:
+    file: reservations.md
+    anchor: reservationsupdatecustomerparameters
+  reservationupdateintervalparameters:
+    file: reservations.md
+    anchor: reservationupdateintervalparameters
+  addcompanionshipresult:
+    file: reservations.md
+    anchor: addcompanionshipresult
+  reservationcustomerparameters:
+    file: reservations.md
+    anchor: reservationcustomerparameters
+  addproductitemsresult:
+    file: reservations.md
+    anchor: addproductitemsresult
+  reservationproductparameters:
+    file: reservations.md
+    anchor: reservationproductparameters
+  reservationitemresult:
+    file: reservations.md
+    anchor: reservationitemresult
+  reservationitems:
+    file: reservations.md
+    anchor: reservation-items
+  reservationitemparameters:
+    file: reservations.md
+    anchor: reservationitemparameters
+  reservationqrcodedata:
+    file: reservations.md
+    anchor: reservation-qr-code-data
+  reservationupdatepersoncountparameters:
+    file: reservations.md
+    anchor: person-counts-update-value
+  reservationupdateperunitpriceparameters:
+    file: reservations.md
+    anchor: time-unit-amount-update-value
+  reservationoldorigin:
+    file: reservations.md
+    anchor: reservation-origin-ver-2017-04-12

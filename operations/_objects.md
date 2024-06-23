@@ -183,3 +183,15 @@ The profile data of the user who created or last updated the record.
 | `TaxRateCode` | string | optional | Tax rate code for the item. `null` for untaxed amounts. |
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
+
+#### Currency value (ver 2018-06-07)
+
+Usage of this value is **deprecated**. Where possible, use the properties exposing the [Amount](#amount) instead.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required | ISO-4217 code of the `Currency`.  |
+| `Value` | number | optional | Amount in the currency. |
+| ~~`Net`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+| ~~`Tax`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+| ~~`TaxRate`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |

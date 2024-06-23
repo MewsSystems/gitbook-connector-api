@@ -50,7 +50,7 @@ tags:
   # - rategroups
   # - rates
   # - reservationgroups
-  # - reservations
+  - reservations
   # - resourceaccesstokens
   # - resourceblocks
   # - resourcecategories
