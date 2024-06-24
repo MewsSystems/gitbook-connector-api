@@ -197,11 +197,13 @@ Returns all restrictions of the default service provided by the enterprise. Note
 * `User` - Restriction was created by a user in Mews.
 * `Integration`- Restriction was created by a 3rd-party integration.
 
-## Add restrictions
+## ~~Add restrictions~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md), please use [Set restrictions](restrictions.md#set-restrictions) instead.
 
 Adds new restrictions with the specified conditions. Care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes).
-
-> **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150,000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions).
+**Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150,000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restrictions](#set-restrictions).
 
 ### Request
 
@@ -351,7 +353,10 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 | `Identifier` | string | optional | Identifier of the restriction within the transaction. |
 | `Restriction` | [Restriction](#restriction) | required | The added restriction. |
 
-## Delete restrictions
+## ~~Delete restrictions~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md), please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
 
 Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](#add-restrictions).
 

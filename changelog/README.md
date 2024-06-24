@@ -1,10 +1,14 @@
 # Changelog
 
-## 27th June 2024
+## 24th June 2024
 * Added new page [Restrictions](../concepts/restrictions.md) under [Concepts](../concepts/README.md). Documentation-only.
+* Deprecated [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions), use [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions) instead.
 
 ## 18th June 2024
 * Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
+## 17th June 2024
+* Extended [Payment data](../operations/payments.md#payment-data) type with Ghost payment data.
 
 ## 10th June 2024
 * Moved the [Taxation](../concepts/taxation.md) page to the new [Concepts](../concepts/README.md) section. Documentation-only.
