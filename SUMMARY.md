@@ -13,6 +13,7 @@
   * [Best practices](guidelines/best-practices.md)
   * [Certification](guidelines/certification.md)
 * [Concepts](concepts/README.md)
+  * [Restrictions](concepts/restrictions.md)
   * [Taxation](concepts/taxation.md)
   * [Time units](concepts/time-units.md)
 * [Use cases](use-cases/README.md)

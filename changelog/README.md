@@ -1,6 +1,7 @@
 # Changelog
 
 ## 24th June 2024
+* Added new page [Restrictions](../concepts/restrictions.md) under [Concepts](../concepts/README.md). Documentation-only.
 * Deprecated [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions), use [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions) instead.
 
 ## 18th June 2024

@@ -2,8 +2,7 @@
 
 ## Get all restrictions
 
-Returns all restrictions of the default service provided by the enterprise.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all restrictions of the default service provided by the enterprise. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -359,7 +358,7 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 > ### Deprecated!
 > This operation is [deprecated](../deprecations/README.md), please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
 
-Removes restrictions from the service.
+Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](#add-restrictions).
 
 ### Request
 
@@ -392,22 +391,9 @@ Removes restrictions from the service.
 
 ## Set restrictions
 
-Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction - see [Merging algorithm](#merging-algorithm). A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [Merging algorithm](#merging-algorithm).
-Note care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). The validation of these properties is stronger in this operation than for [Add restrictions](#add-restrictions).
+Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction. A quota of 150,000 restrictions per service applies, although it is unlikely to be exceeded because of the merging algorithm. For more information about the merging algorithm, see [Concepts > Restrictions](../concepts/restrictions.md).
 
-### Merging algorithm
-
-If a restriction already exists with the same conditions, or if multiple supplied restrictions match in all properties but differ in time interval and follow each other chronologically, a merging algorithm is applied to combine them.
-This reduces the overall number of restrictions and improves system performance. The merging algorithm is as follows:
-
-- A. If the exceptions of the new restriction match the old restriction:
-   1) If the new interval is longer than the old one, a new restriction is created joining the two intervals.
-   2) If the new interval is shorter, no changes are made.
-- B. If the exceptions of the new restriction do _not_ match the old restriction:
-   1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
-   2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
-
-### Affected restrictions
+Care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). If migrating from deprecated operation [Add restrictions](#add-restrictions), note that the validation of these properties is stronger in this operation.
 
 Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
 
@@ -489,32 +475,9 @@ Only restrictions created through the API are affected by this operation, _not_ 
 
 ## Clear restrictions
 
-Deletes restrictions that [match the conditions](#matching-conditions) using the [splicing algorithm](#splicing-algorithm). This operation is intended to be used alongside [Set restrictions](#set-restrictions).
+Deletes restrictions that exactly match the specified conditions, using a splicing algorithm. This operation is intended to be used alongside [Set restrictions](#set-restrictions). The specified conditions must be met exactly. The time interval, however, does not need to correspond to an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval. For details about matching conditions and the splicing algorithm, see [Concepts > Restrictions](../concepts/restrictions.md).
 
-The specified conditions must be met exactly - see [Matching conditions](#matching-conditions) below. The time interval, however, does not need to correspond with an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval - see [Time interval splicing](#time-interval-splicing).
-
-### Matching conditions
-
-The specified conditions must be met exactly. For example:
-
-A bookable service has two restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 and to all rates.
-
-If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction condition of resource category C1 but with no rate specified (this defaults to all rates), then only Restriction B is cleared, not Restriction A.
-
-### Time interval splicing
-
-The time interval does not need to correspond to an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval. For example:
-
-An existing restriction in the system applies from 5th January to 25th January. As usual, time intervals are inclusive, meaning that the time interval includes both the 5th January and the 25th January.
-
-If the [Clear restrictions](#clear-restrictions) operation is called, specifying a restriction time interval of 10th January to 20th January, i.e. within the original restriction A, then the time interval of restriction A is split into three separate intervals.
-
-The original restriction A is deleted, and in its place new restriction B is created for the period of time from 5th January to 9th January inclusive, and new restriction C is created for the period of time from 21st January to 25th January. Thus the period 10th January to 20th January has been cleared, but without affecting other time periods.
-
-### Affected restrictions
-
-To avoid deleting user defined restrictions, the [Clear restrictions](#clear-restrictions) operation only affects restrictions created through the [Set restrictions](#clear-restrictions) operation or the [Clear restrictions](#clear-restrictions) operation. 
-
+Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
 
 ### Request
 
