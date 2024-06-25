@@ -16,6 +16,20 @@ These are JSON object definitions and other JSON entities shared by operations a
 | `StartUtc` | string | required | Start of the interval in UTC timezone in ISO 8601 format \(see [Datetimes](../guidelines/serialization.md#datetimes)\). |
 | `EndUtc` | string | required | End of the interval in UTC timezone in ISO 8601 format \(see [Datetimes](../guidelines/serialization.md#datetimes)\). |
 
+### Date interval
+
+```javascript
+{
+    "Start": "2020-01-01",
+    "End": "2020-02-01
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Start` | string | required | Start of the interval in local timezone in ISO 8601 format. |
+| `End` | string | required | End of the interval in local timezone in ISO 8601 format. |
+
 ### String update value
 
 ```javascript
