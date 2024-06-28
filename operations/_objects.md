@@ -132,14 +132,12 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 
 ### Profile data
 
-The profile data of the user who created or last updated the record.
+| Property            | Type                                                      | Contract | Description               |
+| :------------------ | :-------------------------------------------------------- | :------- | :------------------------ |
+| `Discriminator`     | [Profile data discriminator](#profile-data-discriminator) | required | Type of the profile data. |
+| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data)       | optional | Enterprise profile data.  |
 
-| Property            | Type                                                    | Contract | Description               |
-| :------------------ | :------------------------------------------------------ | :------- | :------------------------ |
-| `Discriminator`     | [ProfileDataDiscriminator](#profile-data-discriminator) | required | Type of the profile data. |
-| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data)     | optional | Enterprise profile data.  |
-
-#### ProfileDataDiscriminator
+#### Profile data discriminator
 
 - `Personal`
 - `Enterprise`
@@ -184,7 +182,7 @@ The profile data of the user who created or last updated the record.
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
 
-#### Currency value (ver 2018-06-07)
+### Currency value (ver 2018-06-07)
 
 Usage of this value is **deprecated**. Where possible, use the properties exposing the [Amount](#amount) instead.
 
