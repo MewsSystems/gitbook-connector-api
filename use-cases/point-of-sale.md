@@ -84,7 +84,7 @@ If the POS supports split payments, e.g. one salad divided between two people, i
 
 ## Rebates
 
-Rebates or cancelled items will need to be allowed by the property and can be applied to both orders and outlet bills. It is not permitted to directly cancel or modify the originally posted item, therefore the POS system should use the applicable API operation \([Add order](../operations/orders.md#add-order) or [Add outlet bill](../operations/outletbills.md#add-outlet-bills)\) to post a rebate or cancelled item. Such items should be sent through with __negative__ values, in order to balance out the previously posted amount.
+Rebates or canceled items will need to be allowed by the property and can be applied to both orders and outlet bills. It is not permitted to directly cancel or modify the originally posted item, therefore the POS system should use the applicable API operation \([Add order](../operations/orders.md#add-order) or [Add outlet bill](../operations/outletbills.md#add-outlet-bills)\) to post a rebate or canceled item. Such items should be sent through with __negative__ values, in order to balance out the previously posted amount.
 
 *Example: One salad of €10.00 has been sent to Mews. To rebate this item, send through one salad of -€10.00. For a partial rebate of 50%, send through one salad of -€5.00.*
 

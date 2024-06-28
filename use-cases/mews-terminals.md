@@ -177,7 +177,7 @@ Assuming the State is "Processed", your next steps will be as follows:
 3. Transfer both the payment item and the order items to the bill, so it balances to zero, using [Update accounting items](../operations/accountingitems.md#update-accounting-items)
 4. Close the bill to further changes, using [Close bill](../operations/bills.md#close-bill); Mews will handle fiscalization of the bill, if applicable
 
-> *1 Note that orders can't be cancelled through the API once added, so it's important to do this once the payment is confirmed. Otherwise, if there was a problem with the payment and the customer switched to cash to pay, then the order item would be posted twice, once against the profile and once posted as an outlet bill.
+> *1 Note that orders can't be canceled through the API once added, so it's important to do this once the payment is confirmed. Otherwise, if there was a problem with the payment and the customer switched to cash to pay, then the order item would be posted twice, once against the profile and once posted as an outlet bill.
 
 ![](../.gitbook/assets/mews-terminals-7.png)
 
