@@ -6,9 +6,9 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 [PlatformAddress]/api/connector/v1/[Resource]/[Action]
 ```
 
-* **PlatformAddress** - Base address of the Mews Connector API, this depends on the environment \(e.g. test, demo, production\)
-* **Resource** - Resource or domain entity which is the target of the action, always pluralized \(e.g. bills, reservations\)
-* **Action** - Name of the action to be performed on the resource \(e.g. getAll, add, delete\)
+- **PlatformAddress** - Base address of the Mews Connector API, this depends on the environment \(e.g. test, demo, production\)
+- **Resource** - Resource or domain entity which is the target of the action, always pluralized \(e.g. bills, reservations\)
+- **Action** - Name of the action to be performed on the resource \(e.g. getAll, add, delete\)
 
 ## Body
 
@@ -18,17 +18,17 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
     "LanguageCode": null,
-    "CultureCode": null 
+    "CultureCode": null
 }
 ```
 
-| Property | Type | Contract | Description |
-| --- | --- | --- | --- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
+| Property       | Type   | Contract | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| `ClientToken`  | string | required | Token identifying the client application.                    |
+| `AccessToken`  | string | required | Access token of the client application.                      |
+| `Client`       | string | required | Name and version of the client application.                  |
 | `LanguageCode` | string | optional | Code of the [language](../operations/languages.md#language). |
-| `CultureCode` | string | optional | Code of the culture. |
+| `CultureCode`  | string | optional | Code of the culture.                                         |
 
 All operations of the API require `ClientToken`, `AccessToken` and `Client` to be present in the request. These are used to authenticate incoming requests - see [Authentication](#authentication).
 
@@ -38,9 +38,9 @@ All operations of the API optionally accept `LanguageCode` and `CultureCode`. Th
 
 Each Mews environment (e.g. demo, production) requires a different set of tokens.
 
-* `ClientToken` serves as the unique identifier of the API client, i.e. the integration partner consuming the API
-* `AccessToken` serves to identify the enterprise or enterprises whose data and services you have access to
-* `Client` is the name and version of the client application you are integrating with Mews
+- `ClientToken` serves as the unique identifier of the API client, i.e. the integration partner consuming the API
+- `AccessToken` serves to identify the enterprise or enterprises whose data and services you have access to
+- `Client` is the name and version of the client application you are integrating with Mews
 
 A unique `AccessToken` is generated for each new property or enterprise which uses your connection, and allows the client application to access the data for that enterprise via the API.
 
@@ -72,3 +72,27 @@ What should you do if you receive a 408 error? The error indicates that the load
 If you are asking for reservations over a period of time, instead make multiple requests over shorter periods of time.
 For example, if a single request for reservation data over a period of several days returns a 408 error, instead try multiple requests, each for a separate day;
 if a single request for reservation data over a period of one day returns a 408 error, instead try multiple requests, each for a separate hour.
+
+## Request minimal response
+
+> ### Restricted!
+>
+> This functionality is currently in beta-test and as such it is subject to change.
+
+By default, the API always responds with a `200 OK` status code and a JSON response body containing the result of the operation in case of success. For some use cases, like polling changes and storing responses into a data lake, client may want to opt-in to receiving an empty body with a `204 No Content` status code.
+
+This can be achieved by setting the `Prefer` header to `return=minimal` in the request.
+
+```http
+POST /api/connector/v1/reservations/getAll HTTP/1.1
+Host: api.mews-demo.com
+Content-Type: application/json
+Prefer: return=minimal
+
+...
+```
+
+When the header is present, the API can return `204 No Content` for the following endpoints:
+
+- All endpoints which support [pagination](pagination.md) and request were to result in an empty page.
+- All endpoints which return an empty JSON object in case of success, e.g. [Delete account notes](../operations/accountnotes.md#delete-account-notes).
