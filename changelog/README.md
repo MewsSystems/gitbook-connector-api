@@ -1,5 +1,8 @@
 # Changelog
 
+## 8th July 2024
+* Extended [Payment data](../operations/payments.md#payment-data) type with Invoice payment type.
+
 ## 24th June 2024
 * Added new page [Restrictions](../concepts/restrictions.md) under [Concepts](../concepts/README.md). Documentation-only.
 * Deprecated [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions), use [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions) instead.

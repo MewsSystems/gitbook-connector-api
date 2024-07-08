@@ -570,6 +570,7 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `InvoiceId` | string | optional | Unique identifier of the invoice [Bill](bills.md#bill). |
+| `Type` | string [Invoice payment type](#invoice-payment-type) | required | Type of the invoice payment. |
 
 #### External payment data
 
@@ -629,6 +630,14 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 * `ChargebackReversal`
 * `Refund`
 * ...
+
+#### Invoice payment type
+
+* `Receivable`
+* `Balancing`
+* `UnderpaymentBalancingReceivable`
+* `OverpaymentBalancingReceivable`
+* `Overpayment`
 
 #### External payment type
 
