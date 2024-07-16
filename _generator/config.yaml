@@ -11,7 +11,7 @@ tags:
   # - availabilityblocks
   # - bills
   # - businesssegments
-  # - cancellationpolicies
+  - cancellationpolicies
   # - cashiers
   # - cashiertransactions
   # - commands
