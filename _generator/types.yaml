@@ -542,3 +542,21 @@ types:
   reservationoldorigin:
     file: reservations.md
     anchor: reservation-origin-ver-2017-04-12
+  cancellationpolicyresult:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicyresult
+  cancellationpolicy:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy
+  cancellationpolicyapplicability:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicyapplicability
+  cancellationfeeextent:
+    file: cancellationpolicies.md
+    anchor: cancellationfeeextent
+  currencyvalue:
+    file: cancellationpolicies.md
+    anchor: currency-value-ver-2023-02-02
+  cancellationpolicyfilterparameters:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicyfilterparameters
