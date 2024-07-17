@@ -553,7 +553,7 @@ types:
     anchor: cancellation-policy-applicability
   cancellationfeeextent:
     file: cancellationpolicies.md
-    anchor: cancellationfeeextent
+    anchor: cancellation-fee-extent
   currencyvalue:
     file: cancellationpolicies.md
     anchor: currency-value-ver-2023-02-02
