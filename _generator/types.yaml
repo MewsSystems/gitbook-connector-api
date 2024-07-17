@@ -550,7 +550,7 @@ types:
     anchor: cancellation-policy
   cancellationpolicyapplicability:
     file: cancellationpolicies.md
-    anchor: cancellationpolicyapplicability
+    anchor: cancellation-policy-applicability
   cancellationfeeextent:
     file: cancellationpolicies.md
     anchor: cancellationfeeextent
