@@ -193,3 +193,10 @@ Usage of this value is **deprecated**. Where possible, use the properties exposi
 | ~~`Net`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
 | ~~`Tax`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
 | ~~`TaxRate`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+
+#### Currency value (ver 2023-02-02)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required |  |
+| `Value` | number | required |  |
