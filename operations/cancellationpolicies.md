@@ -98,7 +98,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `FeeExtent` | array of [Cancellation Fee Extent](cancellationpolicies.md#cancellation-fee-extent) | required | Extent for the cancellation fee, i.e. what should be in scope for the automatic payment. |
 | `ApplicabilityOffset` | string | required | Offset for order start (assuming Applicability is set to Start) from which the fee is applied. |
 | `FeeMaximumTimeUnits` | integer | required | Maximum number of time units the cancellation fee is applicable to. |
-| `AbsoluteFee` | [Currency value (ver 2023-02-02)](cancellationpolicies.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
+| `AbsoluteFee` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
 | `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
 | `IsActive` | boolean | required | Whether the cancellation policy is still active. |
 
@@ -112,11 +112,3 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 * `TimeUnits`
 * `Products`
-
-#### Currency value (ver 2023-02-02)
-Absolute value of the fee.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Currency` | string | required |  |
-| `Value` | number | required |  |

@@ -555,7 +555,7 @@ types:
     file: cancellationpolicies.md
     anchor: cancellation-fee-extent
   currencyvalue:
-    file: cancellationpolicies.md
+    file: _objects.md
     anchor: currency-value-ver-2023-02-02
   cancellationpolicyfilterparameters:
     file: cancellationpolicies.md
