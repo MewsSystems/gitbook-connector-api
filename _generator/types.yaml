@@ -560,3 +560,18 @@ types:
   cancellationpolicyfilterparameters:
     file: cancellationpolicies.md
     anchor: cancellationpolicyfilterparameters
+  availabilityadjustmentresult:
+    file: availabilityadjustments.md
+    anchor: availabilityadjustmentresult
+  availabilityadjustment:
+    file: availabilityadjustments.md
+    anchor: availability-adjustment
+  activitystate:
+    file: availabilityadjustments.md
+    anchor: activitystate
+  availabilityadjustmentparameters:
+    file: availabilityadjustments.md
+    anchor: availabilityadjustmentparameters
+  resourcefeatureclassification:
+    file: reservations.md
+    anchor: resource-feature-classification

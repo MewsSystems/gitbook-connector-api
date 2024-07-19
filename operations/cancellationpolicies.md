@@ -84,7 +84,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CancellationPolicies` | array of [Cancellation Policy](cancellationpolicies.md#cancellation-policy) | required, max 1000 items | The filtered cancellation policies. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest cancellation policy returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older cancellation policies. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest cancellation policy returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older cancellation policies. |
 
 #### Cancellation Policy
 
@@ -97,7 +97,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Applicability` | [Cancellation Policy Applicability](cancellationpolicies.md#cancellation-policy-applicability) | required | Applicability mode of the cancellation policy. |
 | `FeeExtent` | array of [Cancellation Fee Extent](cancellationpolicies.md#cancellation-fee-extent) | required | Extent for the cancellation fee, i.e. what should be in scope for the automatic payment. |
 | `ApplicabilityOffset` | string | required | Offset for order start (assuming Applicability is set to Start) from which the fee is applied. |
-| `FeeMaximumTimeUnits` | integer | required | Maximum number of time units the cancellation fee is applicable to. |
+| `FeeMaximumTimeUnits` | integer | optional | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
 | `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
 | `IsActive` | boolean | required | Whether the cancellation policy is still active. |
