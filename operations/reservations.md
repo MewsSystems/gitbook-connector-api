@@ -566,29 +566,6 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group. |
 
-#### Resource Feature Classification
-
-* `SeaView`
-* `RiverView`
-* `OceanView`
-* `TwinBeds`
-* `DoubleBed`
-* `RollawayBed`
-* `UpperBed`
-* `LowerBed`
-* `Balcony`
-* `AccessibleBathroom`
-* `AccessibleRoom`
-* `ElevatorAccess`
-* `HighFloor`
-* `Kitchenette`
-* `AirConditioning`
-* `PrivateJacuzzi`
-* `PrivateSauna`
-* `EnsuiteRoom`
-* `PrivateBathroom`
-* `SharedBathroom`
-
 #### Reservation QR code data
 
 | Property | Type | Contract | Description |

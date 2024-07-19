@@ -573,5 +573,5 @@ types:
     file: availabilityadjustments.md
     anchor: availabilityadjustmentparameters
   resourcefeatureclassification:
-    file: reservations.md
+    file: _objects.md
     anchor: resource-feature-classification
