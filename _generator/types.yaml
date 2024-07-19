@@ -567,8 +567,8 @@ types:
     file: availabilityadjustments.md
     anchor: availability-adjustment
   activitystate:
-    file: availabilityadjustments.md
-    anchor: activitystate
+    file: _objects.md
+    anchor: activity-state
   availabilityadjustmentparameters:
     file: availabilityadjustments.md
     anchor: availabilityadjustmentparameters

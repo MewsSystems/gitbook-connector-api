@@ -223,3 +223,8 @@ Usage of this value is **deprecated**. Where possible, use the properties exposi
 * `EnsuiteRoom`
 * `PrivateBathroom`
 * `SharedBathroom`
+
+#### Activity State
+
+* `Deleted`
+* `Active`
