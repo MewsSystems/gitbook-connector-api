@@ -94,7 +94,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `UnitCount` | integer | required | Adjustment value applied on the interval. |
 | `ActivityState` | [Activity State](_objects.md#activity-state) | required |  |
-| `ReleaseOverrideUtc` | string | optional |  |
+| `ReleaseOverrideUtc` | string | optional | Exact moment the availability adjustment is released; overrides the release strategy of the associated availability block. |
 | `UpdatedUtc` | string | required | Last update date and time of the adjustment in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the cancellation policy is still active. |
 | `PaxCounts` | array of [PaxCount](services.md#paxcount) | optional, max 5 items | Collection of predicted occupancy of availability adjustments. Relates how many adjustments are assigned to each count of guests. |
