@@ -7,7 +7,7 @@ tags:
   # - accounts
   # - addresses
   # - agecategories
-  # - availabilityadjustments
+  - availabilityadjustments
   # - availabilityblocks
   # - bills
   # - businesssegments
