@@ -575,3 +575,6 @@ types:
   resourcefeatureclassification:
     file: _objects.md
     anchor: resource-feature-classification
+  activitystateenum:
+    file: _objects.md
+    anchor: activity-state
