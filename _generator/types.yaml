@@ -84,7 +84,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: services.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -578,3 +578,48 @@ types:
   activitystateenum:
     file: _objects.md
     anchor: activity-state
+  voucherresult:
+    file: vouchers.md
+    anchor: voucherresult
+  voucher:
+    file: vouchers.md
+    anchor: voucher
+  vouchertypeenum:
+    file: vouchers.md
+    anchor: voucher-type
+  vouchercode:
+    file: vouchers.md
+    anchor: voucher-code
+  voucherassignment:
+    file: vouchers.md
+    anchor: voucher-assignment
+  voucherfilterparameters:
+    file: vouchers.md
+    anchor: voucherfilterparameters
+  voucherextent:
+    file: vouchers.md
+    anchor: voucher-extent
+  voucherwriteresult:
+    file: vouchers.md
+    anchor: voucherwriteresult
+  multiplevoucheraddparameters:
+    file: vouchers.md
+    anchor: multiplevoucheraddparameters
+  voucheraddparameters:
+    file: vouchers.md
+    anchor: voucher-parameters
+  multiplevoucherupdateparameters:
+    file: vouchers.md
+    anchor: multiplevoucherupdateparameters
+  voucherupdateparameters:
+    file: vouchers.md
+    anchor: vouchers-update-parameters
+  vouchertypeupdatevalue:
+    file: vouchers.md
+    anchor: vouchertypeupdatevalue
+  guidienumerableupdatevalue:
+    file: vouchers.md
+    anchor: guidienumerableupdatevalue
+  multiplevoucherdeleteparameters:
+    file: vouchers.md
+    anchor: multiplevoucherdeleteparameters
