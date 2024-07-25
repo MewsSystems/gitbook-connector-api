@@ -588,7 +588,7 @@ types:
     file: vouchers.md
     anchor: voucher-type
   vouchercode:
-    file: vouchers.md
+    file: vouchercodes.md
     anchor: voucher-code
   voucherassignment:
     file: vouchers.md

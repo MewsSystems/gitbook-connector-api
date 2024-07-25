@@ -136,7 +136,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Vouchers` | array of [Voucher](vouchers.md#voucher) | optional | Details about vouchers added to the system. |
-| `VoucherCodes` | array of [Voucher code](vouchers.md#voucher-code) | optional | Information about voucher codes used by customers. |
+| `VoucherCodes` | array of [Voucher code](vouchercodes.md#voucher-code) | optional | Information about voucher codes used by customers. |
 | `VoucherAssignments` | array of [Voucher assignment](vouchers.md#voucher-assignment) | optional | The assignments between vouchers and [Rates](rates.md#rate). |
 | `Rates` | array of [Rate](rates.md#rate) | optional | The assigned rates. |
 | `Companies` | array of [Company](companies.md#company) | optional | The related companies and travel agencies. |
@@ -165,20 +165,6 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 * `Public`
 * `PartnerCompany`
 * `TravelAgency`
-
-#### Voucher code
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the voucher code. |
-| `VoucherId` | string | required | Unique identifier of [Voucher](vouchers.md#voucher) the code belongs to. |
-| `Value` | string | optional | Value of voucher code used by customers. |
-| `ValidityStartUtc` | string | optional | If specified, marks the beginning of interval in which the code can be used. |
-| `ValidityEndUtc` | string | optional | If specified, marks the end of interval in which the code can be used. |
-| `CreatedUtc` | string | optional | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | optional | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
-| `IsActive` | boolean | required | Whether the voucher code is still active. |
-| ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~Whether voucher code is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
 #### Voucher assignment
 
