@@ -72,11 +72,11 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Vouchers` | boolean | required | Whether the response should contain main information about vouchers. |
-| `VoucherAssignments` | boolean | required | Whether the response should contain assignments between vouchers and Rates. |
-| `Rates` | boolean | required | Whether the response should contain detail of assigned rates. |
-| ~~`VoucherCodes`~~ | ~~boolean~~ | ~~required~~ | ~~Whether the response should contain voucher codes used by customers.~~ **Deprecated!** Use `voucherCodes/getAll`|
-| ~~`Companies`~~ | ~~boolean~~ | ~~required~~ | ~~Whether the response should contain detail of related companies.~~ **Deprecated!** Use `companies/getAll`|
+| `Vouchers` | boolean | optional | Whether the response should contain main information about vouchers. |
+| `VoucherAssignments` | boolean | optional | Whether the response should contain assignments between vouchers and Rates. |
+| `Rates` | boolean | optional | Whether the response should contain detail of assigned rates. |
+| ~~`VoucherCodes`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain voucher codes used by customers.~~ **Deprecated!** Use `voucherCodes/getAll`|
+| ~~`Companies`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain detail of related companies.~~ **Deprecated!** Use `companies/getAll`|
 
 ### Response
 
