@@ -615,8 +615,8 @@ types:
     file: vouchers.md
     anchor: vouchers-update-parameters
   vouchertypeupdatevalue:
-    file: vouchers.md
-    anchor: vouchertypeupdatevalue
+    file: _objects.md
+    anchor: string-update-value
   guidienumerableupdatevalue:
     file: _object.md
     anchor: array-of-strings-update-value
