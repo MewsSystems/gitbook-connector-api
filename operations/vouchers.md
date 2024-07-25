@@ -375,7 +375,7 @@ Updates information about the specified vouchers. Note this operation supports [
 | `Name` | [String update value](_objects.md#string-update-value) | optional, max length 128 characters | Internal name of the voucher (or `null` if the name should not be updated). |
 | `Type` | [VoucherTypeUpdateValue](vouchers.md#vouchertypeupdatevalue) | optional | Type of the voucher (or `null` if the type should not be updated). |
 | `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of Company (Company or Travel Agency) the voucher is related to. This is required for Type of `PartnerCompany` or `TravelAgency`. Use `null` if Company should not be updated. |
-| `AssignedRateIds` | [GuidIEnumerableUpdateValue](vouchers.md#guidienumerableupdatevalue) | optional, max length 5 characters | Unique identifiers of Rates (or `null` should it not be updated). |
+| `AssignedRateIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 5 characters | Unique identifiers of Rates (or `null` should it not be updated). |
 | `OccupiableIntervalStartUtc` | [String update value](_objects.md#string-update-value) | optional | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format (or `null` if the start time should not be updated). |
 | `OccupiableIntervalEndUtc` | [String update value](_objects.md#string-update-value) | optional | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format (or `null` if the end time should not be updated). |
 | `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Identifier of the voucher from external system (or `null` if the identifier should not be updated). |
@@ -385,12 +385,6 @@ Updates information about the specified vouchers. Note this operation supports [
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Value` | [Voucher Type](vouchers.md#voucher-type) | required |  |
-
-#### GuidIEnumerableUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | array of string | optional |  |
 
 ### Response
 

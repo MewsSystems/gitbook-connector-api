@@ -618,8 +618,8 @@ types:
     file: vouchers.md
     anchor: vouchertypeupdatevalue
   guidienumerableupdatevalue:
-    file: vouchers.md
-    anchor: guidienumerableupdatevalue
+    file: _object.md
+    anchor: array-of-strings-update-value
   multiplevoucherdeleteparameters:
     file: vouchers.md
     anchor: multiplevoucherdeleteparameters
