@@ -623,3 +623,21 @@ types:
   multiplevoucherdeleteparameters:
     file: vouchers.md
     anchor: multiplevoucherdeleteparameters
+  paymentitemold:
+    file: accountingitems.md
+    anchor: payment-item
+  paymentitemolddatacoproductofpaymenttype:
+    file: accountingitems.md
+    anchor: payment-item-data
+  paymenttype:
+    file: accountingitems.md
+    anchor: payment-item-data-discriminator
+  paymentcardpaymentdata:
+    file: accountingitems.md
+    anchor: credit-card-payment-item-data
+  invoicepaymentdata:
+    file: payments.md
+    anchor: invoice-payment-data
+  address:
+    file: addresses.md
+    anchor: account-address
