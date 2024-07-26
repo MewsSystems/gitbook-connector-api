@@ -382,10 +382,10 @@ types:
     anchor: company
   companyoptions:
     file: companies.md
-    anchor: company-options
+    anchor: companyoptions
   creditrating:
     file: companies.md
-    anchor: credit-rating
+    anchor: creditrating
   resourceaccesstoken:
     file: resourceaccesstokens.md
     anchor: resource-access-token
@@ -578,3 +578,42 @@ types:
   activitystateenum:
     file: _objects.md
     anchor: activity-state
+  companyresult:
+    file: companies.md
+    anchor: companyresult
+  companyaddparameters:
+    file: companies.md
+    anchor: companyaddparameters
+  companyoptionsparameters:
+    file: companies.md
+    anchor: companyoptionsparameters
+  creditratingparameters:
+    file: companies.md
+    anchor: creditratingparameters
+  addressparameters:
+    file: companies.md
+    anchor: addressparameters
+  companyupdateparameters:
+    file: companies.md
+    anchor: companyupdateparameters
+  companyoptionupdateparameters:
+    file: companies.md
+    anchor: companyoptionupdateparameters
+  creditratingupdateparameters:
+    file: companies.md
+    anchor: creditratingupdateparameters
+  companyfilterparameters:
+    file: companies.md
+    anchor: companyfilterparameters
+  companytimefilter:
+    file: companies.md
+    anchor: companytimefilter
+  companyextent:
+    file: companies.md
+    anchor: companyextent
+  multiplecompanydeleteparameters:
+    file: companies.md
+    anchor: multiplecompanydeleteparameters
+  companynameparameters:
+    file: companies.md
+    anchor: companynameparameters
