@@ -1,7 +1,18 @@
 # Changelog
 
+## 3rd July 2024
+* Extended [Order item](../operations/orderitems.md#order-item) response object with `BillingName`, this affects the following operations:
+  * [Get all order items](../operations/orderitems.md#get-all-order-items)
+
+## 24th June 2024
+* Added new page [Restrictions](../concepts/restrictions.md) under [Concepts](../concepts/README.md). Documentation-only.
+* Deprecated [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions), use [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions) instead.
+
 ## 18th June 2024
 * Removed **Restricted!** status from [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+
+## 17th June 2024
+* Extended [Payment data](../operations/payments.md#payment-data) type with Ghost payment data.
 
 ## 10th June 2024
 * Moved the [Taxation](../concepts/taxation.md) page to the new [Concepts](../concepts/README.md) section. Documentation-only.

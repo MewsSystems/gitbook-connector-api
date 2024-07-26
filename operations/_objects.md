@@ -132,14 +132,12 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 
 ### Profile data
 
-The profile data of the user who created or last updated the record.
+| Property            | Type                                                      | Contract | Description               |
+| :------------------ | :-------------------------------------------------------- | :------- | :------------------------ |
+| `Discriminator`     | [Profile data discriminator](#profile-data-discriminator) | required | Type of the profile data. |
+| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data)       | optional | Enterprise profile data.  |
 
-| Property            | Type                                                    | Contract | Description               |
-| :------------------ | :------------------------------------------------------ | :------- | :------------------------ |
-| `Discriminator`     | [ProfileDataDiscriminator](#profile-data-discriminator) | required | Type of the profile data. |
-| `EnterpriseProfile` | [Enterprise profile data](#enterprise-profile-data)     | optional | Enterprise profile data.  |
-
-#### ProfileDataDiscriminator
+#### Profile data discriminator
 
 - `Personal`
 - `Enterprise`
@@ -183,3 +181,50 @@ The profile data of the user who created or last updated the record.
 | `TaxRateCode` | string | optional | Tax rate code for the item. `null` for untaxed amounts. |
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
+
+### Currency value (ver 2018-06-07)
+
+Usage of this value is **deprecated**. Where possible, use the properties exposing the [Amount](#amount) instead.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required | ISO-4217 code of the `Currency`.  |
+| `Value` | number | optional | Amount in the currency. |
+| ~~`Net`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+| ~~`Tax`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+| ~~`TaxRate`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+
+#### Currency value (ver 2023-02-02)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required |  |
+| `Value` | number | required |  |
+
+#### Resource Feature Classification
+
+* `SeaView`
+* `RiverView`
+* `OceanView`
+* `TwinBeds`
+* `DoubleBed`
+* `RollawayBed`
+* `UpperBed`
+* `LowerBed`
+* `Balcony`
+* `AccessibleBathroom`
+* `AccessibleRoom`
+* `ElevatorAccess`
+* `HighFloor`
+* `Kitchenette`
+* `AirConditioning`
+* `PrivateJacuzzi`
+* `PrivateSauna`
+* `EnsuiteRoom`
+* `PrivateBathroom`
+* `SharedBathroom`
+
+#### Activity State
+
+* `Deleted`
+* `Active`

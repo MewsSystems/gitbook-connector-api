@@ -7,11 +7,11 @@ tags:
   # - accounts
   # - addresses
   # - agecategories
-  # - availabilityadjustments
+  - availabilityadjustments
   # - availabilityblocks
   # - bills
   # - businesssegments
-  # - cancellationpolicies
+  - cancellationpolicies
   # - cashiers
   # - cashiertransactions
   # - commands
@@ -50,7 +50,7 @@ tags:
   # - rategroups
   # - rates
   # - reservationgroups
-  # - reservations
+  - reservations
   # - resourceaccesstokens
   # - resourceblocks
   # - resourcecategories
@@ -67,4 +67,4 @@ tags:
   # - taxations
   # - taxenvironments
   # - vouchercodes
-  # - vouchers
+  - vouchers

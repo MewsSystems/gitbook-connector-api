@@ -270,7 +270,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
-| `ResourceCategoryAvailabilities` | array of [Resource category availability (ver 2024-01-22)](services.md#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. |
+| `ResourceCategoryAvailabilities` | array of [Resource category availability (ver 2024-01-22)](services.md#resource-category-availability-ver-2024-01-22) | required | Resource category availabilities. Can be empty if no resource categories are assigned to the service. |
 
 #### Resource category availability (ver 2024-01-22)
 

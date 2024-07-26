@@ -6,16 +6,16 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
-| [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together. |
-| [Update accounts](accounts.md#update-accounts) | Updates one or more existing accounts, i.e. customer, company. |
+| [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together |
+| [Update accounts](accounts.md#update-accounts) | Updates one or more existing accounts, i.e. customer, company |
 | [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
 | [Delete addresses](addresses.md#delete-addresses) | Deletes selected addresses |
-| [Get all account notes](accountnotes.md#get-all-account-notes) | Returns all the account notes associated with the specified accounts within the chain. |
-| [Add account notes](accountnotes.md#add-account-notes) | Adds new account notes to the system and assigns it to specified accounts. |
-| [Update account notes](accountnotes.md#update-account-notes) | Updates existing account notes. |
-| [Delete account notes](accountnotes.md#delete-account-notes) | Deletes selected account notes. |
+| [Get all account notes](accountnotes.md#get-all-account-notes) | Returns all the account notes associated with the specified accounts within the chain |
+| [Add account notes](accountnotes.md#add-account-notes) | Adds new account notes to the system and assigns it to specified accounts |
+| [Update account notes](accountnotes.md#update-account-notes) | Updates existing account notes |
+| [Delete account notes](accountnotes.md#delete-account-notes) | Deletes selected account notes |
 
 ## Configuration
 
@@ -58,7 +58,7 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
-| [Get all enterprises](enterprises.md#get-all-enterprises) | Returns all enterprises accessible to a supplied access token. |
+| [Get all enterprises](enterprises.md#get-all-enterprises) | Returns all enterprises accessible to a supplied access token |
 | [Get all companies](companies.md#get-all-companies) | Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters |
 | [Add company](companies.md#add-company) | Adds a new company to the enterprise |
 | [Update company](companies.md#update-company) | Updates information of the company |
@@ -87,8 +87,8 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
-| [Get all exports](exports.md#get-all-exports) | **Restricted!** Returns all exports filtered by their unique identifiers. |
-| [Add export](./exports.md#add-export) | **Restricted!** Create a pending export. |
+| [Get all exports](exports.md#get-all-exports) | **Restricted!** Returns all exports filtered by their unique identifiers |
+| [Add export](./exports.md#add-export) | **Restricted!** Create a pending export |
 
 ## Finance
 
@@ -208,10 +208,10 @@ This section describes all operations supported by the API, organised here by th
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
-| [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters. |
+| [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters |
 | [Get all restrictions](restrictions.md#get-all-restrictions) | Returns all restrictions of the default service provided by the enterprise |
-| [Add restrictions](restrictions.md#add-restrictions) | Adds new restrictions with the specified conditions |
-| [Delete restrictions](restrictions.md#delete-restrictions) | Removes restrictions from the service |
+| [~~Add restrictions~~](restrictions.md#add-restrictions) | **Deprecated!** Adds new restrictions with the specified conditions. Use [Set restrictions](../operations/restrictions.md#set-restrictions) instead. |
+| [~~Delete restrictions~~](restrictions.md#delete-restrictions) | **Deprecated!** Removes restrictions from the service. Use [Clear restrictions](../operations/restrictions.md#clear-restrictions) instead. |
 | [Set restrictions](restrictions.md#set-restrictions) | Adds new restrictions with the specified conditions |
 | [Clear restrictions](restrictions.md#clear-restrictions) | Clears restrictions which meet specified conditions over a specified time interval |
 | [Add order](orders.md#add-order) | Creates a new order with the specified products and items |

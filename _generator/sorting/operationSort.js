@@ -2,7 +2,8 @@ const sortPriority = {
   getAll: 1,
   get: 2,
   add: 3,
-  fallback: 4,
+  update: 4,
+  fallback: 5,
 };
 
 /**

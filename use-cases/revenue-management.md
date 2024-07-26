@@ -70,16 +70,15 @@ To get rate information, there are three relevant operations. [Get all rates](..
 
 ## Restrictions
 
-To retrieve information about restrictions, use [Get all restrictions](../operations/restrictions.md#get-all-restrictions). Revenue management integrations can also add and remove restrictions using [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions), or newer operations [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
+To retrieve information about restrictions, use [Get all restrictions](../operations/restrictions.md#get-all-restrictions). To add and remove restrictions, use [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions) respectively.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to get service restrictions | [Get all restrictions](../operations/restrictions.md#get-all-restrictions) |
-| How to add or remove restrictions (old) | [Add restrictions](../operations/restrictions.md#add-restrictions), [Delete restrictions](../operations/restrictions.md#delete-restrictions) |
-| How to add or remove restrictions (new) | [Set restrictions](../operations/restrictions.md#set-restrictions), [Clear restrictions](../operations/restrictions.md#clear-restrictions) |
+| How to add service restrictions | [Set restrictions](../operations/restrictions.md#set-restrictions) |
+| How to remove service restrictions | [Clear restrictions](../operations/restrictions.md#clear-restrictions) |
 
-> **Restrictions operations:** [Add restrictions](../operations/restrictions.md#add-restrictions) and [Delete restrictions](../operations/restrictions.md#delete-restrictions) are being replaced in the API by the more efficient [Set restrictions](../operations/restrictions.md#set-restrictions) and [Clear restrictions](../operations/restrictions.md#clear-restrictions).
-> Refer to the documentation for the individual operations for an explanation of the workings of these operations. Do not mix them, use _Add restrictions_ with _Delete restrictions_, or _Set restrictions_ with _Clear restrictions_. Note that as an integration partner you can only set and clear your own restrictions, independently of restrictions set within the user interface of **Mews Operations** or indeed by other API users.
+> **Important:** For more information about restrictions, including the algorithms used when setting and clearing restrictions, and the scope of restrictions affected by API operations, see [Concepts > Restrictions](../concepts/restrictions.md).
 
 ## Occupancy
 
