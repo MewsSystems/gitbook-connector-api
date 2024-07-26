@@ -55,21 +55,21 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `Ids` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company). |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](companies.md#company) from external system. |
-| `Name` | string | optional |  |
+| `Name` | string | optional | Name of the `Company`. |
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](companies.md#company). |
-| `Extent` | [CompanyExtent](companies.md#companyextent) | optional |  |
-| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional |  |
+| `Extent` | [Company Extent](companies.md#company-extent) | optional | Extent of data to be returned. Whether only specific `Company` info should be returned or related items as well. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted records will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | optional | Limitation on the quantity of data returned. |
-| ~~`TimeFilter`~~ | ~~[CompanyTimeFilter](companies.md#companytimefilter)~~ | ~~required~~ | **Deprecated!** |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
+| ~~`TimeFilter`~~ | ~~[Company Time Filter](companies.md#company-time-filter)~~ | ~~required~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
+| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
+| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
 
-#### CompanyTimeFilter
+#### Company Time Filter
 
 * `Created`
 * `Updated`
 
-#### CompanyExtent
+#### Company Extent
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -187,7 +187,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ClientToken` | string | required |  |
 | `AccessToken` | string | required |  |
 | `Client` | string | required |  |
-| `Name` | string | required |  |
+| `Name` | string | required | Name of the `Company`. |
 
 ### Response
 
@@ -327,11 +327,11 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../gu
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `Name` | string | required | Name of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
-| `InvoicingEmail` | string | optional |  |
+| `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `Options` | [CompanyOptionsParameters](companies.md#companyoptionsparameters) | required | Options of the company. |
-| `CreditRating` | [CreditRatingParameters](companies.md#creditratingparameters) | optional | Credit rating to define creditworthiness of the company. |
+| `Options` | [Company Options Parameters](companies.md#company-options-parameters) | required | Options of the company. |
+| `CreditRating` | [Credit Rating Parameters](companies.md#credit-rating-parameters) | optional | Credit rating to define creditworthiness of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
@@ -344,11 +344,11 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../gu
 | `Iata` | string | optional | Iata of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
-| `Telephone` | string | optional |  |
-| `Address` | [AddressParameters](companies.md#addressparameters) | optional | New address details. |
+| `Telephone` | string | optional | Contact telephone number. |
+| `Address` | [Address Parameters](companies.md#address-parameters) | optional | New address details. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the company from external system. |
 
-#### CompanyOptionsParameters
+#### Company Options Parameters
 Options of the company.
 
 | Property | Type | Contract | Description |
@@ -357,24 +357,24 @@ Options of the company.
 | `AddFeesToInvoices` | boolean | required |  |
 | `AddTaxDeductedPaymentToInvoices` | boolean | required |  |
 
-#### CreditRatingParameters
+#### Credit Rating Parameters
 Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Basic` | string | optional |  |
 
-#### AddressParameters
+#### Address Parameters
 New address details.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Line1` | string | optional |  |
-| `Line2` | string | optional |  |
-| `City` | string | optional |  |
-| `PostalCode` | string | optional |  |
-| `CountryCode` | string | optional |  |
-| `CountrySubdivisionCode` | string | optional |  |
+| `Line1` | string | optional | First line of the address. |
+| `Line2` | string | optional | Second line of the address. |
+| `City` | string | optional | The city. |
+| `PostalCode` | string | optional | Postal code. |
+| `CountryCode` | string | optional | ISO 3166-1 code of the Country. |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. DE-BW |
 
 ### Response
 
@@ -474,7 +474,7 @@ New address details.
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `Options` | [CompanyOptions](companies.md#companyoptions) | optional | Options of the company. |
+| `Options` | [Company Options](companies.md#company-options) | optional | Options of the company. |
 | `CreditRating` | [CreditRating](companies.md#creditrating) | optional | Credit rating to define creditworthiness of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
@@ -495,20 +495,20 @@ New address details.
 | `CreatedUtc` | string | optional | Date of [Company](companies.md#company) creation date and time. |
 | `UpdatedUtc` | string | optional | Date of [Company](companies.md#company) last update date and time. |
 | `AddressId` | string | optional | Unique identifier of the company [Address](addresses.md#account-address). |
-| `MergeTargetId` | string | optional |  |
+| `MergeTargetId` | string | optional | Unique identifier of the account (Customer) to which this company is linked. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of company from external system. |
 | `IsUpdatedByMe` | boolean | optional |  |
-| ~~`Address`~~ | ~~[OldAddress](configuration.md#address)~~ | ~~optional~~ | ~~Address of the customer.~~ **Deprecated!** |
-| ~~`TaxIdentificationNumber`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
+| ~~`Address`~~ | ~~[OldAddress](configuration.md#address)~~ | ~~optional~~ | ~~Address of the customer.~~ **Deprecated!** Use AddressId instead.|
+| ~~`TaxIdentificationNumber`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use TaxIdentifier instead.|
 
-#### CompanyOptions
+#### Company Options
 Options of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | boolean | required |  |
-| `AddFeesToInvoices` | boolean | required |  |
-| `AddTaxDeductedPaymentToInvoices` | boolean | required |  |
+| `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
+| `AddTaxDeductedPaymentToInvoices` | boolean | required | Whether tax-deducted payments should be automatically added to invoices. |
 
 #### CreditRating
 Credit rating to define creditworthiness of the company.
@@ -596,29 +596,29 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `CompanyId` | string | required | Unique identifier of the [Company](companies.md#company). |
-| `Name` | [String update value](_objects.md#string-update-value) | optional |  |
-| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional |  |
-| `InvoicingEmail` | [String update value](_objects.md#string-update-value) | optional |  |
-| `WebsiteUrl` | [String update value](_objects.md#string-update-value) | optional |  |
-| `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional |  |
-| `Options` | [CompanyOptionUpdateParameters](companies.md#companyoptionupdateparameters) | optional | Options of the company. |
-| `CreditRating` | [CreditRatingUpdateParameters](companies.md#creditratingupdateparameters) | optional | Credit rating to define creditworthiness of the company. |
-| `Department` | [String update value](_objects.md#string-update-value) | optional |  |
-| `DunsNumber` | [String update value](_objects.md#string-update-value) | optional |  |
-| `ReferenceIdentifier` | [String update value](_objects.md#string-update-value) | optional |  |
-| `AccountingCode` | [String update value](_objects.md#string-update-value) | optional |  |
-| `AdditionalTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional |  |
-| `BillingCode` | [String update value](_objects.md#string-update-value) | optional |  |
-| `Contact` | [String update value](_objects.md#string-update-value) | optional |  |
-| `ContactPerson` | [String update value](_objects.md#string-update-value) | optional |  |
-| `Identifier` | [String update value](_objects.md#string-update-value) | optional |  |
-| `Iata` | [String update value](_objects.md#string-update-value) | optional |  |
-| `Notes` | [String update value](_objects.md#string-update-value) | optional |  |
-| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional |  |
-| `Telephone` | [String update value](_objects.md#string-update-value) | optional |  |
-| `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters |  |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the company (or `null` if the name should not be updated). |
+| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the mother company (or `null` if the mother company should not be updated). |
+| `InvoicingEmail` | [String update value](_objects.md#string-update-value) | optional | Email for issuing invoices to the company  (or `null` if the email for issuing invoices should not be updated). |
+| `WebsiteUrl` | [String update value](_objects.md#string-update-value) | optional | The website url of the company (or `null` if the website url should not be updated). |
+| `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format (or `null` if the interval should not be updated). |
+| `Options` | [Company Option Update Parameters](companies.md#company-option-update-parameters) | optional | Options of the company (or `null` if the company options should not be updated). |
+| `CreditRating` | [Credit Rating Update Parameters](companies.md#credit-rating-update-parameters) | optional | Credit rating to define creditworthiness of the company (or `null` if the credit rating should not be updated). |
+| `Department` | [String update value](_objects.md#string-update-value) | optional | The internal segmentation of a company, e.g. sales department (or `null` if the department should not be updated). |
+| `DunsNumber` | [String update value](_objects.md#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number (or `null` if the Duns number should not be updated). |
+| `ReferenceIdentifier` | [String update value](_objects.md#string-update-value) | optional | External system identifier - custom identifier used by an external system such as an external database (or `null` if the identifier should not be updated). |
+| `AccountingCode` | [String update value](_objects.md#string-update-value) | optional | Accounting code of the company (or `null` if the accounting code should not be updated). |
+| `AdditionalTaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Additional tax identifier of the company (or `null` if the additional tax identifier should not be updated). |
+| `BillingCode` | [String update value](_objects.md#string-update-value) | optional | Billing code of the company (or `null` if the billing code should not be updated). |
+| `Contact` | [String update value](_objects.md#string-update-value) | optional | Other contact details, such as telephone, email or similar (or `null` if the contact should not be updated). |
+| `ContactPerson` | [String update value](_objects.md#string-update-value) | optional | Contact person of the company (or `null` if the contact person should not be updated). |
+| `Identifier` | [String update value](_objects.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier (or `null` if the identifier should not be updated). |
+| `Iata` | [String update value](_objects.md#string-update-value) | optional | Iata of the company (or `null` if the Iata should not be updated). |
+| `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes of the company (or `null` if the notes should not be updated). |
+| `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identification number of the company (or `null` if the tax identifier should not be updated). |
+| `Telephone` | [String update value](_objects.md#string-update-value) | optional | Contact telephone number (or `null` if the telephone number should not be updated). |
+| `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Identifier of the company from external system (or `null` if the External Identifier should not be updated). |
 
-#### CompanyOptionUpdateParameters
+#### Company Option Update Parameters
 Options of the company.
 
 | Property | Type | Contract | Description |
@@ -627,12 +627,12 @@ Options of the company.
 | `AddFeesToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional |  |
 | `AddTaxDeductedPaymentToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional |  |
 
-#### CreditRatingUpdateParameters
+#### Credit Rating Update Parameters
 Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | [String update value](_objects.md#string-update-value) | optional |  |
+| `Basic` | [String update value](_objects.md#string-update-value) | optional | _______ (or `null` if the ____ should not be updated). |
 
 ### Response
 

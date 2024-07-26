@@ -382,7 +382,7 @@ types:
     anchor: company
   companyoptions:
     file: companies.md
-    anchor: companyoptions
+    anchor: company-options
   creditrating:
     file: companies.md
     anchor: creditrating
@@ -586,31 +586,31 @@ types:
     anchor: companyaddparameters
   companyoptionsparameters:
     file: companies.md
-    anchor: companyoptionsparameters
+    anchor: company-options-parameters
   creditratingparameters:
     file: companies.md
-    anchor: creditratingparameters
+    anchor: credit-rating-parameters
   addressparameters:
     file: companies.md
-    anchor: addressparameters
+    anchor: address-parameters
   companyupdateparameters:
     file: companies.md
     anchor: companyupdateparameters
   companyoptionupdateparameters:
     file: companies.md
-    anchor: companyoptionupdateparameters
+    anchor: company-option-update-parameters
   creditratingupdateparameters:
     file: companies.md
-    anchor: creditratingupdateparameters
+    anchor: credit-rating-update-parameters
   companyfilterparameters:
     file: companies.md
     anchor: companyfilterparameters
   companytimefilter:
     file: companies.md
-    anchor: companytimefilter
+    anchor: company-time-filter
   companyextent:
     file: companies.md
-    anchor: companyextent
+    anchor: company-extent
   multiplecompanydeleteparameters:
     file: companies.md
     anchor: multiplecompanydeleteparameters
