@@ -641,3 +641,6 @@ types:
   address:
     file: addresses.md
     anchor: account-address
+  title:
+    file: customers.md
+    anchor: title
