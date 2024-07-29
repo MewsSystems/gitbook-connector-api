@@ -193,3 +193,38 @@ Usage of this value is **deprecated**. Where possible, use the properties exposi
 | ~~`Net`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
 | ~~`Tax`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
 | ~~`TaxRate`~~ | ~~number~~ | ~~optional~~ | **Deprecated!** |
+
+#### Currency value (ver 2023-02-02)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required |  |
+| `Value` | number | required |  |
+
+#### Resource Feature Classification
+
+* `SeaView`
+* `RiverView`
+* `OceanView`
+* `TwinBeds`
+* `DoubleBed`
+* `RollawayBed`
+* `UpperBed`
+* `LowerBed`
+* `Balcony`
+* `AccessibleBathroom`
+* `AccessibleRoom`
+* `ElevatorAccess`
+* `HighFloor`
+* `Kitchenette`
+* `AirConditioning`
+* `PrivateJacuzzi`
+* `PrivateSauna`
+* `EnsuiteRoom`
+* `PrivateBathroom`
+* `SharedBathroom`
+
+#### Activity State
+
+* `Deleted`
+* `Active`

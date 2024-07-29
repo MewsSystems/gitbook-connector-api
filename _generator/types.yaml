@@ -84,7 +84,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: services.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -542,3 +542,84 @@ types:
   reservationoldorigin:
     file: reservations.md
     anchor: reservation-origin-ver-2017-04-12
+  cancellationpolicyresult:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicyresult
+  cancellationpolicy:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy
+  cancellationpolicyapplicability:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-applicability
+  cancellationfeeextent:
+    file: cancellationpolicies.md
+    anchor: cancellation-fee-extent
+  currencyvalue:
+    file: _objects.md
+    anchor: currency-value-ver-2023-02-02
+  cancellationpolicyfilterparameters:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicyfilterparameters
+  availabilityadjustmentresult:
+    file: availabilityadjustments.md
+    anchor: availabilityadjustmentresult
+  availabilityadjustment:
+    file: availabilityadjustments.md
+    anchor: availability-adjustment
+  activitystate:
+    file: _objects.md
+    anchor: activity-state
+  availabilityadjustmentparameters:
+    file: availabilityadjustments.md
+    anchor: availabilityadjustmentparameters
+  resourcefeatureclassification:
+    file: _objects.md
+    anchor: resource-feature-classification
+  activitystateenum:
+    file: _objects.md
+    anchor: activity-state
+  voucherresult:
+    file: vouchers.md
+    anchor: voucherresult
+  voucher:
+    file: vouchers.md
+    anchor: voucher
+  vouchertypeenum:
+    file: vouchers.md
+    anchor: voucher-type
+  vouchercode:
+    file: vouchercodes.md
+    anchor: voucher-code
+  voucherassignment:
+    file: vouchers.md
+    anchor: voucher-assignment
+  voucherfilterparameters:
+    file: vouchers.md
+    anchor: voucherfilterparameters
+  voucherextent:
+    file: vouchers.md
+    anchor: voucher-extent
+  voucherwriteresult:
+    file: vouchers.md
+    anchor: voucherwriteresult
+  multiplevoucheraddparameters:
+    file: vouchers.md
+    anchor: multiplevoucheraddparameters
+  voucheraddparameters:
+    file: vouchers.md
+    anchor: voucher-parameters
+  multiplevoucherupdateparameters:
+    file: vouchers.md
+    anchor: multiplevoucherupdateparameters
+  voucherupdateparameters:
+    file: vouchers.md
+    anchor: vouchers-update-parameters
+  vouchertypeupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
+  guidienumerableupdatevalue:
+    file: _object.md
+    anchor: array-of-strings-update-value
+  multiplevoucherdeleteparameters:
+    file: vouchers.md
+    anchor: multiplevoucherdeleteparameters
