@@ -644,3 +644,6 @@ types:
   title:
     file: customers.md
     anchor: title
+  addressparameters:
+    file: customers.md
+    anchor: address-parameters
