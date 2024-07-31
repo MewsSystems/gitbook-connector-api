@@ -55,9 +55,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `Ids` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company). |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](companies.md#company) from external system. |
-| `Name` | string | optional | Name of the `Company`. |
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](companies.md#company). |
-| `Extent` | [Company Extent](companies.md#company-extent) | optional | Extent of data to be returned. Whether only specific `Company` info should be returned or related items as well. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted records will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | optional | Limitation on the quantity of data returned. |
 | ~~`TimeFilter`~~ | ~~[Company Time Filter](companies.md#company-time-filter)~~ | ~~required~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
@@ -68,126 +66,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 * `Created`
 * `Updated`
-
-#### Company Extent
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Inactive` | boolean | required |  |
-
-### Response
-
-```javascript
-{
-  "Companies": [
-    {
-      "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-      "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
-      "Name": "Sample Company 1",
-      "IsActive": true,
-      "Number": 11,
-      "Identifier": null,
-      "TaxIdentifier": null,
-      "AdditionalTaxIdentifier": null,
-      "ElectronicInvoiceIdentifier": null,
-      "InvoiceDueInterval": "P2DT23H",
-      "AccountingCode": null,
-      "MotherCompanyId": null,
-      "CreatedUtc": "2022-07-11T09:56:54Z",
-      "UpdatedUtc": "2022-07-11T09:56:54Z",
-      "AddressId": "bab7441c-4b82-43bc-8001-ab0400a346ec",
-      "BillingCode": null,
-      "Iata": "PAO",
-      "Telephone": "111-222-333",
-      "InvoicingEmail": "sample1@mews.com",
-      "ContacPerson": "Sample Person 1",
-      "Contact": "Contact Info 1",
-      "Notes": "Note 1",
-      "Options": {
-        "Invoiceable": true,
-        "AddFeesToInvoices": true
-      },
-      "Department": "Sales",
-      "DunsNumber": "123456789",
-      "CreditRating": {
-        "Basic": "PaymentRequiredUpfront"
-      },
-      "ReferenceIdentifier": "da34b396-77e3-495a-bd61-aecf00a3f19d",
-      "WebsiteUrl": "https://www.mewssystems.com",
-      "ExternalIdentifier": "company0001"
-    },
-    {
-      "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
-      "ChainId": "5fcd1933-22f2-40b9-84da-7db04cbecec2",
-      "Name": "Sample Company 2",
-      "IsActive": true,
-      "Number": 12,
-      "Identifier": null,
-      "TaxIdentifier": null,
-      "AdditionalTaxIdentifier": null,
-      "ElectronicInvoiceIdentifier": null,
-      "InvoiceDueInterval": "P2DT23H",
-      "AccountingCode": null,
-      "MotherCompanyId": null,
-      "CreatedUtc": "2022-07-11T09:56:54Z",
-      "UpdatedUtc": "2022-07-11T09:56:54Z",
-      "AddressId": null,
-      "BillingCode": null,
-      "Iata": "PAO",
-      "Telephone": "111-222-333",
-      "InvoicingEmail": "sample2@mews.com",
-      "ContacPerson": "Sample Person 2",
-      "Contact": "Contact Info 2",
-      "Notes": "Note 2",
-      "Options": {
-        "Invoiceable": true,
-        "AddFeesToInvoices": false
-      },
-      "Department": "Accounting",
-      "DunsNumber": "987654321",
-      "CreditRating": {
-        "Basic": "CreditOk"
-      },
-      "ReferenceIdentifier": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-      "WebsiteUrl": "https://www.mews.com",
-      "ExternalIdentifier": "company0002"
-    }
-  ],
-  "Cursor": "da34b396-41f7-47f6-8847-aecf00a3f19e"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Companies` | array of [Company](companies.md#company) | required | The company profiles of the enterprise. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest company item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older companies. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then Cursor will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
-
-## ~~undefined~~
-
-> ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). 
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/companies/getAllByName`
-
-```javascript
-{
-  "Client": "string",
-  "LanguageCode": "string",
-  "CultureCode": "string",
-  "AccessToken": "string",
-  "ClientToken": "string",
-  "Name": "string"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required |  |
-| `AccessToken` | string | required |  |
-| `Client` | string | required |  |
-| `Name` | string | required | Name of the `Company`. |
 
 ### Response
 
@@ -497,7 +375,6 @@ New address details.
 | `AddressId` | string | optional | Unique identifier of the company [Address](addresses.md#account-address). |
 | `MergeTargetId` | string | optional | Unique identifier of the account (Customer) to which this company is linked. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of company from external system. |
-| `IsUpdatedByMe` | boolean | optional |  |
 | ~~`Address`~~ | ~~[OldAddress](configuration.md#address)~~ | ~~optional~~ | ~~Address of the customer.~~ **Deprecated!** Use AddressId instead.|
 | ~~`TaxIdentificationNumber`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use TaxIdentifier instead.|
 
