@@ -119,7 +119,7 @@ Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this o
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `VoucherCodeParameters` | array of [Voucher Code Parameters](vouchercodes.md#voucher-code-parameters) | required, max 1000 items | Voucher codes to be added. |
 
-#### Voucher Code Parameters
+#### Voucher code parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
