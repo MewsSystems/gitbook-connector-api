@@ -231,16 +231,16 @@ Options of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | boolean | required |  |
-| `AddFeesToInvoices` | boolean | required |  |
-| `AddTaxDeductedPaymentToInvoices` | boolean | required |  |
+| `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
+| `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
+| `AddTaxDeductedPaymentToInvoices` | boolean | required | Whether tax-deducted payments should be automatically added to invoices. |
 
 #### Credit Rating Parameters
 Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | string | optional |  |
+| `Basic` | string | optional | Indicates the credit status of a company, determining if they can book services (CreditOk), must pay upfront (PaymentRequiredUpfront), or require local approval (LocalDecisionRequired). |
 
 #### Address Parameters
 New address details.
@@ -353,7 +353,7 @@ New address details.
 | `WebsiteUrl` | string | optional | The website url of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `Options` | [Company Options](companies.md#company-options) | optional | Options of the company. |
-| `CreditRating` | [CreditRating](companies.md#creditrating) | optional | Credit rating to define creditworthiness of the company. |
+| `CreditRating` | [Credit Rating](companies.md#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
@@ -387,7 +387,7 @@ Options of the company.
 | `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
 | `AddTaxDeductedPaymentToInvoices` | boolean | required | Whether tax-deducted payments should be automatically added to invoices. |
 
-#### CreditRating
+#### Credit Rating
 Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |

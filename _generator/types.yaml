@@ -385,7 +385,7 @@ types:
     anchor: company-options
   creditrating:
     file: companies.md
-    anchor: creditrating
+    anchor: credit-rating
   resourceaccesstoken:
     file: resourceaccesstokens.md
     anchor: resource-access-token
@@ -617,3 +617,6 @@ types:
   companynameparameters:
     file: companies.md
     anchor: companynameparameters
+  multiplereservationpurchaseordernumberparameters:
+    file: reservations.md
+    anchor: multiplereservationpurchaseordernumberparameters
