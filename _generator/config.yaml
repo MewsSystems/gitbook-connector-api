@@ -62,7 +62,7 @@ tags:
   # - serviceordernotes
   - services
   # - sourceassignments
-  # - sources
+  - sources
   # - tasks
   # - taxations
   # - taxenvironments
