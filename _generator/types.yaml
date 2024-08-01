@@ -623,3 +623,15 @@ types:
   multiplevoucherdeleteparameters:
     file: vouchers.md
     anchor: multiplevoucherdeleteparameters
+  outletitemresult:
+    file: outletitems.md
+    anchor: outletitemresult
+  outletitem:
+    file: outletitems.md
+    anchor: outlet-item
+  outletbill:
+    file: outletitems.md
+    anchor: outlet-bill
+  outletitemsfilterparameters:
+    file: outletitems.md
+    anchor: outletitemsfilterparameters

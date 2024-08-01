@@ -39,7 +39,7 @@ tags:
   - orderitems
   # - orders
   # - outletbills
-  # - outletitems
+  - outletitems
   # - outlets
   # - paymentrequests
   # - payments
