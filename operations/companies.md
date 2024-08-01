@@ -223,7 +223,7 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../gu
 | `Notes` | string | optional | Notes of the company. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
-| `Address` | [Address Parameters](companies.md#address-parameters) | optional | New address details. |
+| `Address` | [Address parameters](companies.md#address-parameters) | optional | New address details. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the company from external system. |
 
 #### Company Options Parameters
@@ -240,9 +240,15 @@ Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | string | optional | Indicates the credit status of a company, determining if they can book services (CreditOk), must pay upfront (PaymentRequiredUpfront), or require local approval (LocalDecisionRequired). |
+| `Basic` | [Credit Rating Basic](companies.md#credit-rating-basic) | optional | Indicates the credit status of a company, determining if they can book services (CreditOk), must pay upfront (PaymentRequiredUpfront), or require local approval (LocalDecisionRequired). |
 
-#### Address Parameters
+#### Credit Rating Basic
+
+* `CreditOk`
+* `PaymentRequiredUpfront`
+* `LocalDecisionRequired`
+
+#### Address parameters
 New address details.
 
 | Property | Type | Contract | Description |
@@ -509,7 +515,7 @@ Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | [String update value](_objects.md#string-update-value) | optional | _______ (or `null` if the ____ should not be updated). |
+| `Basic` | [CreditRatingBasicUpdateValue](_objects.md#string-update-value) | optional | Credit status of a company (or `null` if the credit status should not be updated). |
 
 ### Response
 

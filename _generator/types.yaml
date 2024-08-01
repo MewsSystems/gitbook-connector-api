@@ -620,3 +620,9 @@ types:
   multiplereservationpurchaseordernumberparameters:
     file: reservations.md
     anchor: multiplereservationpurchaseordernumberparameters
+  creditratingbasicenum:
+    file: companies.md
+    anchor: credit-rating-basic
+  creditratingbasicupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
