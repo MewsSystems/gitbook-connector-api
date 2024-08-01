@@ -117,7 +117,7 @@ Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this o
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `VoucherCodeParameters` | array of [Voucher Code Parameters](vouchercodes.md#voucher-code-parameters) | required, max 1000 items | Voucher codes to be added. |
+| `VoucherCodeParameters` | array of [Voucher code parameters](vouchercodes.md#voucher-code-parameters) | required, max 1000 items | Voucher codes to be added. |
 
 #### Voucher code parameters
 
