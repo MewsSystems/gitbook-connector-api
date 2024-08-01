@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st August 2024
+* Extended [Customer](../operations/customers.md#customer) response object with `PreferredLanguageCode`.
+  * [Get all customers](../operations/customers.md#get-all-customers)
+
 ## 8th July 2024
 * Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
   * [Get all payments](../operations/payments.md##get-all-payments)
