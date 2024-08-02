@@ -66,5 +66,5 @@ tags:
   # - tasks
   # - taxations
   # - taxenvironments
-  # - vouchercodes
+  - vouchercodes
   - vouchers
