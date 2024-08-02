@@ -623,6 +623,21 @@ types:
   multiplevoucherdeleteparameters:
     file: vouchers.md
     anchor: multiplevoucherdeleteparameters
+  multiplereservationpurchaseordernumberparameters:
+    file: reservations.md
+    anchor: multiplereservationpurchaseordernumberparameters
+  sourceresult:
+    file: sources.md
+    anchor: sourceresult
+  source:
+    file: sources.md
+    anchor: source
+  sourcetype:
+    file: sources.md
+    anchor: source-type
+  sourcefilterparameters:
+    file: sources.md
+    anchor: sourcefilterparameters
   vouchercoderesult:
     file: vouchercodes.md
     anchor: vouchercoderesult
