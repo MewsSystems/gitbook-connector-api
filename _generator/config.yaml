@@ -39,7 +39,7 @@ tags:
   - orderitems
   # - orders
   # - outletbills
-  # - outletitems
+  - outletitems
   # - outlets
   # - paymentrequests
   # - payments
@@ -66,5 +66,5 @@ tags:
   # - tasks
   # - taxations
   # - taxenvironments
-  # - vouchercodes
+  - vouchercodes
   - vouchers
