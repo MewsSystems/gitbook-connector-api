@@ -358,8 +358,8 @@ New address details.
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
-| `Options` | [Company Options](companies.md#company-options) | optional | Options of the company. |
-| `CreditRating` | [Credit Rating](companies.md#credit-rating) | optional | Credit rating to define creditworthiness of the company. |
+| `Options` | [Company Options](companies.md#company-options) | required | Options of the company. |
+| `CreditRating` | [Credit Rating](companies.md#credit-rating) | required | Credit rating to define creditworthiness of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
