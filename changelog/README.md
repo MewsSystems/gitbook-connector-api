@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st August 2024
+* Extended [Voucher code](../operations/vouchercodes.md#voucher-code) response object with `IsActive` property.
+  * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
+
 ## 8th July 2024
 * Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
   * [Get all payments](../operations/payments.md##get-all-payments)

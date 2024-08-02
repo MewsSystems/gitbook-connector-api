@@ -638,3 +638,36 @@ types:
   sourcefilterparameters:
     file: sources.md
     anchor: sourcefilterparameters
+  vouchercoderesult:
+    file: vouchercodes.md
+    anchor: vouchercoderesult
+  multiplevouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodeaddparameters
+  vouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: voucher-code-parameters
+  multiplevouchercodedeleteparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodedeleteparameters
+  vouchercodefilterparameters:
+    file: vouchercodes.md
+    anchor: vouchercodefilterparameters
+  vouchertype:
+    file: vouchers.md
+    anchor: vouchertype
+  outletitemresult:
+    file: outletitems.md
+    anchor: outletitemresult
+  outletitem:
+    file: outletitems.md
+    anchor: outlet-item
+  outletbill:
+    file: outletitems.md
+    anchor: outlet-bill
+  outletitemsfilterparameters:
+    file: outletitems.md
+    anchor: outletitemsfilterparameters
+  outletitemtype:
+    file: outletitems.md
+    anchor: outlet-item-type
