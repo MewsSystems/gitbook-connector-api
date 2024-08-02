@@ -50,9 +50,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](#currency) the item costs should be converted to. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`TimeFilter`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 ### Response
 
@@ -124,8 +121,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `OutletItems` | array of [Outlet item](outletitems.md#outlet-item) | optional | The outlet items. |
-| `OutletBills` | array of [Outlet bill](outletitems.md#outlet-bill) | optional | The outlet bills of the items. |
+| `OutletItems` | array of [Outlet item](outletitems.md#outlet-item) | required | The outlet items. |
+| `OutletBills` | array of [Outlet bill](outletitems.md#outlet-bill) | required | The outlet bills of the items. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest outlet item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older outlet items. |
 
 #### Outlet item
@@ -146,14 +143,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes. |
 | `PaymentCardPaymentId` | string | optional | Unique identifier of the payment card [Payment](#payment) this item is linked to. This is only applicable to items of [Type](#outlet-item-type) `Payment`. |
-| ~~`UnitCost`~~ | ~~[Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07)~~ | ~~optional~~ | ~~Total price of the reservation.~~ **Deprecated!** |
+| ~~`UnitCost`~~ | ~~[Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07)~~ | ~~optional~~ | ~~Total price of the reservation.~~ **Deprecated!** Use `UnitAmount` instead.|
 
 #### Outlet bill
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the bill. |
-| `EnterpriseId` | string | required |  |
+| `EnterpriseId` | string | required | Unique identifier of the Enterprise. |
 | `OutletId` | string | required | Unique identifier of the [Outlet](outlets.md#outlet) where the bill was issued. |
 | `Number` | string | optional | Number of the bill. |
 | `ClosedUtc` | string | required | Date and time of the bill closure in UTC timezone in ISO 8601 format. |
