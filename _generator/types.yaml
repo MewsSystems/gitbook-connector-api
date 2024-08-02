@@ -655,4 +655,4 @@ types:
     anchor: vouchertype
   outletitemtype:
     file: outletitems.md
-    anchor: outletitemtype
+    anchor: outlet-item-type

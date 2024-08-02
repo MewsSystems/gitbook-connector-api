@@ -133,7 +133,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `BillId` | string | required | Unique identifier of the [Outlet bill](outletitems.md#outlet-bill) the item belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
-| `Type` | [OutletItemType](outletitems.md#outletitemtype) | required |  |
+| `Type` | [Outlet item type](outletitems.md#outlet-item-type) | required | Type of the outlet item. |
 | `Name` | string | optional | Name of the item. |
 | `UnitCount` | integer | required | Unit count of the item. |
 | `UnitAmount` | [Amount](_objects.md#amount) | required | Unit amount of the item. |
@@ -142,10 +142,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes. |
-| `PaymentCardPaymentId` | string | optional | Unique identifier of the payment card [Payment](#payment) this item is linked to. This is only applicable to items of [Type](#outlet-item-type) `Payment`. |
+| `PaymentCardPaymentId` | string | optional | Unique identifier of the payment card `Payment` this item is linked to. This is only applicable to items where `Type` is `Payment`. |
 | ~~`UnitCost`~~ | ~~[Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07)~~ | ~~optional~~ | ~~Total price of the reservation.~~ **Deprecated!** Use `UnitAmount` instead.|
 
-#### OutletItemType
+#### Outlet item type
 
 * `Revenue`
 * `NonRevenue`
