@@ -133,7 +133,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `BillId` | string | required | Unique identifier of the [Outlet bill](outletitems.md#outlet-bill) the item belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
-| `Type` | string | required | Type of the item. |
+| `Type` | [OutletItemType](outletitems.md#outletitemtype) | required |  |
 | `Name` | string | optional | Name of the item. |
 | `UnitCount` | integer | required | Unit count of the item. |
 | `UnitAmount` | [Amount](_objects.md#amount) | required | Unit amount of the item. |
@@ -144,6 +144,12 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Notes` | string | optional | Additional notes. |
 | `PaymentCardPaymentId` | string | optional | Unique identifier of the payment card [Payment](#payment) this item is linked to. This is only applicable to items of [Type](#outlet-item-type) `Payment`. |
 | ~~`UnitCost`~~ | ~~[Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07)~~ | ~~optional~~ | ~~Total price of the reservation.~~ **Deprecated!** Use `UnitAmount` instead.|
+
+#### OutletItemType
+
+* `Revenue`
+* `NonRevenue`
+* `Payment`
 
 #### Outlet bill
 

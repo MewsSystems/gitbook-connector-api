@@ -643,7 +643,7 @@ types:
     anchor: multiplevouchercodeaddparameters
   vouchercodeaddparameters:
     file: vouchercodes.md
-    anchor: voucher-code-parameters
+    anchor: vouchercodeaddparameters
   multiplevouchercodedeleteparameters:
     file: vouchercodes.md
     anchor: multiplevouchercodedeleteparameters
@@ -653,3 +653,6 @@ types:
   vouchertype:
     file: vouchers.md
     anchor: vouchertype
+  outletitemtype:
+    file: outletitems.md
+    anchor: outletitemtype
