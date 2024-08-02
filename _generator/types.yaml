@@ -634,7 +634,7 @@ types:
     anchor: source
   sourcetype:
     file: sources.md
-    anchor: sourcetype
+    anchor: source-type
   sourcefilterparameters:
     file: sources.md
     anchor: sourcefilterparameters

@@ -78,11 +78,11 @@ Returns all sources from which reservations can originate. Note this operation u
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the source. |
 | `Name` | string | required | Name of the source. |
-| `Type` | [SourceType](sources.md#sourcetype) | required |  |
+| `Type` | [Source type](sources.md#source-type) | required | Type of the source. |
 | `UpdatedUtc` | string | required | Date and time when the source was last updated, expressed in UTC timezone in ISO 8601 format. |
 | `Code` | integer | required | Code of the source. |
 
-#### SourceType
+#### Source type
 
 * `OnlineTravelAgency`
 * `CentralReservationSystem`
