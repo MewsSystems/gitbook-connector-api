@@ -242,12 +242,6 @@ Credit rating to define creditworthiness of the company.
 | :-- | :-- | :-- | :-- |
 | `Basic` | [Credit rating basic](companies.md#credit-rating-basic) | optional | Indicates the credit status of a company. |
 
-#### Credit rating basic
-
-* `CreditOk` - Company can book services.
-* `PaymentRequiredUpfront` - Company must pay upfront.
-* `LocalDecisionRequired` - Requires local approval.
-
 #### Address parameters
 New address details.
 
@@ -398,7 +392,13 @@ Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | string | optional |  |
+| `Basic` | [Credit rating basic](companies.md#credit-rating-basic) | optional | Indicates the credit status of a company. |
+
+#### Credit rating basic
+
+* `CreditOk` - Company can book services.
+* `PaymentRequiredUpfront` - Company must pay upfront.
+* `LocalDecisionRequired` - Requires local approval.
 
 ## Update company
 
