@@ -1,5 +1,13 @@
 # Changelog
 
+## 1st August 2024
+* Extended [Voucher code](../operations/vouchercodes.md#voucher-code) response object with `IsActive` property.
+  * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
+
+## 8th July 2024
+* Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
+  * [Get all payments](../operations/payments.md##get-all-payments)
+
 ## 3rd July 2024
 * Extended [Order item](../operations/orderitems.md#order-item) response object with `BillingName`, this affects the following operations:
   * [Get all order items](../operations/orderitems.md#get-all-order-items)

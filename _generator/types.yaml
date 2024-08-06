@@ -623,6 +623,99 @@ types:
   multiplevoucherdeleteparameters:
     file: vouchers.md
     anchor: multiplevoucherdeleteparameters
+  multiplereservationpurchaseordernumberparameters:
+    file: reservations.md
+    anchor: multiplereservationpurchaseordernumberparameters
+  sourceresult:
+    file: sources.md
+    anchor: sourceresult
+  source:
+    file: sources.md
+    anchor: source
+  sourcetype:
+    file: sources.md
+    anchor: source-type
+  sourcefilterparameters:
+    file: sources.md
+    anchor: sourcefilterparameters
+  vouchercoderesult:
+    file: vouchercodes.md
+    anchor: vouchercoderesult
+  multiplevouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodeaddparameters
+  vouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: voucher-code-parameters
+  multiplevouchercodedeleteparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodedeleteparameters
+  vouchercodefilterparameters:
+    file: vouchercodes.md
+    anchor: vouchercodefilterparameters
+  vouchertype:
+    file: vouchers.md
+    anchor: vouchertype
+  outletitemresult:
+    file: outletitems.md
+    anchor: outletitemresult
+  outletitem:
+    file: outletitems.md
+    anchor: outlet-item
+  outletbill:
+    file: outletitems.md
+    anchor: outlet-bill
+  outletitemsfilterparameters:
+    file: outletitems.md
+    anchor: outletitemsfilterparameters
+  outletitemtype:
+    file: outletitems.md
+    anchor: outlet-item-type
+  companyresult:
+    file: companies.md
+    anchor: companyresult
+  companyaddparameters:
+    file: companies.md
+    anchor: companyaddparameters
+  companyoptionsparameters:
+    file: companies.md
+    anchor: company-options-parameters
+  creditratingparameters:
+    file: companies.md
+    anchor: credit-rating-parameters
+  addressparameters:
+    file: companies.md
+    anchor: address-parameters
+  companyupdateparameters:
+    file: companies.md
+    anchor: companyupdateparameters
+  companyoptionupdateparameters:
+    file: companies.md
+    anchor: company-option-update-parameters
+  creditratingupdateparameters:
+    file: companies.md
+    anchor: credit-rating-update-parameters
+  companyfilterparameters:
+    file: companies.md
+    anchor: companyfilterparameters
+  companytimefilter:
+    file: companies.md
+    anchor: company-time-filter
+  companyextent:
+    file: companies.md
+    anchor: company-extent
+  multiplecompanydeleteparameters:
+    file: companies.md
+    anchor: multiplecompanydeleteparameters
+  companynameparameters:
+    file: companies.md
+    anchor: companynameparameters
+  creditratingbasicenum:
+    file: companies.md
+    anchor: credit-rating-basic
+  creditratingbasicupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
   paymentitemold:
     file: accountingitems.md
     anchor: payment-item
@@ -644,6 +737,3 @@ types:
   title:
     file: customers.md
     anchor: title
-  addressparameters:
-    file: customers.md
-    anchor: address-parameters
