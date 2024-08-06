@@ -209,7 +209,7 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../gu
 | `WebsiteUrl` | string | optional | The website url of the company. |
 | `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
 | `Options` | [Company Options Parameters](companies.md#company-options-parameters) | required | Options of the company. |
-| `CreditRating` | [Credit Rating Parameters](companies.md#credit-rating-parameters) | optional | Credit rating to define creditworthiness of the company. |
+| `CreditRating` | [Credit rating parameters](companies.md#credit-rating-parameters) | optional | Credit rating to define creditworthiness of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
 | `ReferenceIdentifier` | string | optional | External system identifier - custom identifier used by an external system such as an external database. |
@@ -235,18 +235,18 @@ Options of the company.
 | `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
 | `AddTaxDeductedPaymentToInvoices` | boolean | required | Whether tax-deducted payments should be automatically added to invoices. |
 
-#### Credit Rating Parameters
+#### Credit rating parameters
 Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | [Credit Rating Basic](companies.md#credit-rating-basic) | optional | Indicates the credit status of a company, determining if they can book services (CreditOk), must pay upfront (PaymentRequiredUpfront), or require local approval (LocalDecisionRequired). |
+| `Basic` | [Credit rating basic](companies.md#credit-rating-basic) | optional | Indicates the credit status of a company. |
 
-#### Credit Rating Basic
+#### Credit rating basic
 
-* `CreditOk`
-* `PaymentRequiredUpfront`
-* `LocalDecisionRequired`
+* `CreditOk` - Company can book services.
+* `PaymentRequiredUpfront` - Company must pay upfront.
+* `LocalDecisionRequired` - Requires local approval.
 
 #### Address parameters
 New address details.
@@ -485,7 +485,7 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 | `WebsiteUrl` | [String update value](_objects.md#string-update-value) | optional | The website url of the company (or `null` if the website url should not be updated). |
 | `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format (or `null` if the interval should not be updated). |
 | `Options` | [Company Option Update Parameters](companies.md#company-option-update-parameters) | optional | Options of the company (or `null` if the company options should not be updated). |
-| `CreditRating` | [Credit Rating Update Parameters](companies.md#credit-rating-update-parameters) | optional | Credit rating to define creditworthiness of the company (or `null` if the credit rating should not be updated). |
+| `CreditRating` | [Credit rating update parameters](companies.md#credit-rating-update-parameters) | optional | Credit rating to define creditworthiness of the company (or `null` if the credit rating should not be updated). |
 | `Department` | [String update value](_objects.md#string-update-value) | optional | The internal segmentation of a company, e.g. sales department (or `null` if the department should not be updated). |
 | `DunsNumber` | [String update value](_objects.md#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number (or `null` if the Duns number should not be updated). |
 | `ReferenceIdentifier` | [String update value](_objects.md#string-update-value) | optional | External system identifier - custom identifier used by an external system such as an external database (or `null` if the identifier should not be updated). |
@@ -510,7 +510,7 @@ Options of the company.
 | `AddFeesToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional |  |
 | `AddTaxDeductedPaymentToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional |  |
 
-#### Credit Rating Update Parameters
+#### Credit rating update parameters
 Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
