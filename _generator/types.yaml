@@ -84,7 +84,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: services.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -578,6 +578,99 @@ types:
   activitystateenum:
     file: _objects.md
     anchor: activity-state
+  voucherresult:
+    file: vouchers.md
+    anchor: voucherresult
+  voucher:
+    file: vouchers.md
+    anchor: voucher
+  vouchertypeenum:
+    file: vouchers.md
+    anchor: voucher-type
+  vouchercode:
+    file: vouchercodes.md
+    anchor: voucher-code
+  voucherassignment:
+    file: vouchers.md
+    anchor: voucher-assignment
+  voucherfilterparameters:
+    file: vouchers.md
+    anchor: voucherfilterparameters
+  voucherextent:
+    file: vouchers.md
+    anchor: voucher-extent
+  voucherwriteresult:
+    file: vouchers.md
+    anchor: voucherwriteresult
+  multiplevoucheraddparameters:
+    file: vouchers.md
+    anchor: multiplevoucheraddparameters
+  voucheraddparameters:
+    file: vouchers.md
+    anchor: voucher-parameters
+  multiplevoucherupdateparameters:
+    file: vouchers.md
+    anchor: multiplevoucherupdateparameters
+  voucherupdateparameters:
+    file: vouchers.md
+    anchor: vouchers-update-parameters
+  vouchertypeupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
+  guidienumerableupdatevalue:
+    file: _object.md
+    anchor: array-of-strings-update-value
+  multiplevoucherdeleteparameters:
+    file: vouchers.md
+    anchor: multiplevoucherdeleteparameters
+  multiplereservationpurchaseordernumberparameters:
+    file: reservations.md
+    anchor: multiplereservationpurchaseordernumberparameters
+  sourceresult:
+    file: sources.md
+    anchor: sourceresult
+  source:
+    file: sources.md
+    anchor: source
+  sourcetype:
+    file: sources.md
+    anchor: source-type
+  sourcefilterparameters:
+    file: sources.md
+    anchor: sourcefilterparameters
+  vouchercoderesult:
+    file: vouchercodes.md
+    anchor: vouchercoderesult
+  multiplevouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodeaddparameters
+  vouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: voucher-code-parameters
+  multiplevouchercodedeleteparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodedeleteparameters
+  vouchercodefilterparameters:
+    file: vouchercodes.md
+    anchor: vouchercodefilterparameters
+  vouchertype:
+    file: vouchers.md
+    anchor: vouchertype
+  outletitemresult:
+    file: outletitems.md
+    anchor: outletitemresult
+  outletitem:
+    file: outletitems.md
+    anchor: outlet-item
+  outletbill:
+    file: outletitems.md
+    anchor: outlet-bill
+  outletitemsfilterparameters:
+    file: outletitems.md
+    anchor: outletitemsfilterparameters
+  outletitemtype:
+    file: outletitems.md
+    anchor: outlet-item-type
   companyresult:
     file: companies.md
     anchor: companyresult
