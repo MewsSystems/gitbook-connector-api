@@ -671,3 +671,51 @@ types:
   outletitemtype:
     file: outletitems.md
     anchor: outlet-item-type
+  companyresult:
+    file: companies.md
+    anchor: companyresult
+  companyaddparameters:
+    file: companies.md
+    anchor: companyaddparameters
+  companyoptionsparameters:
+    file: companies.md
+    anchor: company-options-parameters
+  creditratingparameters:
+    file: companies.md
+    anchor: credit-rating-parameters
+  addressparameters:
+    file: companies.md
+    anchor: address-parameters
+  companyupdateparameters:
+    file: companies.md
+    anchor: companyupdateparameters
+  companyoptionupdateparameters:
+    file: companies.md
+    anchor: company-option-update-parameters
+  creditratingupdateparameters:
+    file: companies.md
+    anchor: credit-rating-update-parameters
+  companyfilterparameters:
+    file: companies.md
+    anchor: companyfilterparameters
+  companytimefilter:
+    file: companies.md
+    anchor: company-time-filter
+  companyextent:
+    file: companies.md
+    anchor: company-extent
+  multiplecompanydeleteparameters:
+    file: companies.md
+    anchor: multiplecompanydeleteparameters
+  companynameparameters:
+    file: companies.md
+    anchor: companynameparameters
+  multiplereservationpurchaseordernumberparameters:
+    file: reservations.md
+    anchor: multiplereservationpurchaseordernumberparameters
+  creditratingbasicenum:
+    file: companies.md
+    anchor: credit-rating-basic
+  creditratingbasicupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
