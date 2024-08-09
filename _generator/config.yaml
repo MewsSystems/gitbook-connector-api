@@ -9,7 +9,7 @@ tags:
   # - agecategories
   - availabilityadjustments
   # - availabilityblocks
-  # - bills
+  - bills
   # - businesssegments
   - cancellationpolicies
   # - cashiers
