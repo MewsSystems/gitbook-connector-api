@@ -827,3 +827,27 @@ types:
   billcloseaccountparameters:
     file: bills.md
     anchor: bill-close-account-parameters
+  exportaddresult:
+    file: exports.md
+    anchor: exportaddresult
+  export:
+    file: exports.md
+    anchor: export
+  exportstatus:
+    file: exports.md
+    anchor: export-status
+  exportentitytype:
+    file: exports.md
+    anchor: exported-entity-type
+  exportfileentry:
+    file: exports.md
+    anchor: exportfileentry
+  exportaddparameters:
+    file: exports.md
+    anchor: exportaddparameters
+  exportresult:
+    file: exports.md
+    anchor: exportresult
+  exportfilterparameters:
+    file: exports.md
+    anchor: exportfilterparameters
