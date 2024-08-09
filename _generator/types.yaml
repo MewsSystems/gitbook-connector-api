@@ -841,7 +841,7 @@ types:
     anchor: exported-entity-type
   exportfileentry:
     file: exports.md
-    anchor: exportfileentry
+    anchor: export-file-entry
   exportaddparameters:
     file: exports.md
     anchor: exportaddparameters

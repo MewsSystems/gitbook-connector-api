@@ -3,6 +3,9 @@
 
 ## Get all exports
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
 Get exports for the given `ExportIds`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -82,6 +85,9 @@ Get exports for the given `ExportIds`. Note this operation supports [Portfolio A
 
 ## Add export
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
 Create a pending export. Export all entities of the specified `EntityType` within the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md) but doesn't have filtering by `EnterpriseIds` or `ChainIds`, so will return entities from all enterprises within the scope of the portfolio.
 If there is already an export with status `Pending` or `Processing` for the specified entity type, the request for a new export will be rejected. Successful exports remain available for download until the expiration date specified in `ExpiresUtc`.
 
@@ -135,7 +141,7 @@ If there is already an export with status `Pending` or `Processing` for the spec
 | `Id` | string | required | Unique identifier of the export. |
 | `Status` | [Export status](exports.md#export-status) | required | Current status of the export. |
 | `EntityType` | [Exported entity type](exports.md#exported-entity-type) | required | Type of exported entities |
-| `Files` | array of [ExportFileEntry](exports.md#exportfileentry) | required | Files with exported data. Empty if no files are available. |
+| `Files` | array of [Export file entry](exports.md#export-file-entry) | required | Files with exported data. Empty if no files are available. |
 | `ExpiresUtc` | string | optional | Expiration date and time of the export in UTC timezone in ISO 8601 format. After this time the Exported files may no longer be available for download. |
 
 #### Export status
@@ -155,7 +161,7 @@ If there is already an export with status `Pending` or `Processing` for the spec
 * `Company`
 * `Bill`
 
-#### ExportFileEntry
+#### Export file entry
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
