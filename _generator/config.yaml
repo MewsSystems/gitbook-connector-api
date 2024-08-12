@@ -63,7 +63,7 @@ tags:
   - services
   # - sourceassignments
   - sources
-  # - tasks
+  - tasks
   # - taxations
   # - taxenvironments
   - vouchercodes

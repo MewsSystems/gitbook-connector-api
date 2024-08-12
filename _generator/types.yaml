@@ -851,3 +851,18 @@ types:
   exportfilterparameters:
     file: exports.md
     anchor: exportfilterparameters
+  taskresult:
+    file: tasks.md
+    anchor: taskresult
+  task:
+    file: tasks.md
+    anchor: task
+  taskfilterparameters:
+    file: tasks.md
+    anchor: taskfilterparameters
+  addtaskresult:
+    file: tasks.md
+    anchor: addtaskresult
+  taskaddparameters:
+    file: tasks.md
+    anchor: taskaddparameters
