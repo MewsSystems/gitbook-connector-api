@@ -2,7 +2,7 @@
 
 ## Get all loyalty programs
 
-Returns all loyalty programs of the enterprise (in the given activity state), optionally filtered by specific loyalty program identifiers or other filter parameters.
+Returns all loyalty programs of the enterprise, optionally filtered by specific loyalty program identifiers, activity states, or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -217,11 +217,13 @@ Updates information about the specified loyalty programs. Note this operation su
 #### Loyalty program type update
 
 | Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `Value` | string [Loyalty program type](#loyalty-program-type) | required | Type of the loyalty program. |
 
 #### Loyalty program subscription update
 
 | Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `Value` | string [Loyalty program subscription](#loyalty-program-subscription) | required | Subscription of the loyalty program. |
 
 ### Response
