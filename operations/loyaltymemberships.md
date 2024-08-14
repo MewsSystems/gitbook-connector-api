@@ -2,7 +2,7 @@
 
 ## Get all loyalty memberships
 
-Returns all loyalty memberships of the enterprise (in the given activity states), optionally filtered by specific loyalty membership identifiers or other filter parameters.
+Returns all loyalty memberships of the enterprise, optionally filtered by specific loyalty membership identifiers, activity states, or other filter parameters.
 Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -148,7 +148,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the loyalty membership. |
 | `ChainId` | string | optional | Unique identifier of the chain. |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
-| `AccountId` | string | required | Unique identifier of the account. |
+| `AccountId` | string | required | Unique identifier of the customer account. |
 | `Code` | string | optional | Code of the loyalty membership. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
@@ -224,12 +224,12 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
-| `AccountId` | string | required | Unique identifier of the account. |
+| `AccountId` | string | required | Unique identifier of the customer account. |
 | `Code` | string | optional | Code of the loyalty membership. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership for the account. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
-| `Url` | string | optional | Url of the loyalty membership. |
+| `Url` | string | optional | URL of the loyalty membership in external loyalty system. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. |
 | `State` | [Loyalty membership state](#loyalty-membership-state) | optional | State of the loyalty membership. |
 
@@ -238,7 +238,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 ```javascript
 {
     "LoyaltyMemberships": [
-		{
+       {
             "Id": "f9e434a3-720c-4820-b82e-202cb2efa2fd",
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
@@ -313,13 +313,14 @@ Updates information about the specified loyalty memberships. Note this operation
 | `Points` | [Integer update value](_objects.md#integer-update-value) | optional | The loyalty points the account has in the loyalty membership \(or `null` if the points should not be updated\). |
 | `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. \(or `null` if the code should not be updated\). |
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format \(or `null` if the date should not be updated\). |
-| `Url` | [String update value](_objects.md#string-update-value) | optional | Url of the loyalty membership \(or `null` if the url should not be updated\). |
+| `Url` | [String update value](_objects.md#string-update-value) | optional | URL of the loyalty membership \(or `null` if the URL should not be updated\). |
 | `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier \(or `null` if the tier should not be updated\). |
 | `State` | [Loyalty membership state update](#loyalty-membership-state-update) | optional | State of the loyalty membership, \(or `null` if the state should not be updated\). |
 
 #### Loyalty membership state update
 
 | Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `Value` | [Loyalty membership state](#loyalty-membership-state) | required | State of the loyalty membership. |
 
 ### Response
@@ -327,7 +328,7 @@ Updates information about the specified loyalty memberships. Note this operation
 ```javascript
 {
     "LoyaltyMemberships": [
-		{
+        {
             "Id": "f9e434a3-720c-4820-b82e-202cb2efa2fd",
             "LoyaltyProgramId": "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
             "AccountId": "87d4c7c4-4832-4341-8b54-e45c1a73df34",
