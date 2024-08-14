@@ -43,7 +43,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](reservations.md#reservation-ver-2023-06-06). |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
@@ -1326,7 +1326,7 @@ Returns prices of reservations with the specified parameters. Note this operatio
 | `RequestedCategoryId` | string | required | Identifier of the requested `ResourceCategory`. |
 | `RateId` | string | required | Identifier of the reservation `Rate`. |
 | `VoucherCode` | string | optional | Voucher code value providing access to specified private `Rate` applied to this reservation. |
-| `CreditCardId` | string | optional | Identifier of `CreditCard` belonging to `Customer` who owns the reservation. |
+| `CreditCardId` | string | optional | Identifier of `CreditCard` belonging either to the `Customer` who owns the reservation or to the `Booker`. |
 | `TravelAgencyId` | string | optional | Identifier of the `Company` that mediated the reservation. |
 | `CompanyId` | string | optional | Identifier of the `Company` on behalf of which the reservation was made. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation `BusinessSegment`. |
@@ -1446,6 +1446,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required | Unique identifier of the reservations to confirm. |
 | `SendConfirmationEmail` | boolean | optional | Wheter the confirmation email is sent. Default value is true. |
 
