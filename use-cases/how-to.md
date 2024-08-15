@@ -159,6 +159,7 @@ This page summarises all of our 'how to' use cases, together with the main use c
 | :-- | :-- | :-- |
 | How to add a Loyalty Program | [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) | [Customer loyalty](loyalty.md) |
 | How to get a list of Loyalty Programs | [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) | [Customer loyalty](loyalty.md) |
+| How to get the Chain identifier for a property | [Get configuration](../operations/configuration.md#get-configuration) | [Customer loyalty](loyalty.md) |
 | How to update a Loyalty Program | [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs) | [Customer loyalty](loyalty.md) |
 | How to delete a Loyalty Program | [Delete loyalty programs](../operations/loyaltyprograms.md#delete-loyalty-programs) | [Customer loyalty](loyalty.md) |
 | How to add a Loyalty Tier | [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers) | [Customer loyalty](loyalty.md) |

@@ -6,33 +6,29 @@ Hotel staff can then easily access a guest's membership status, including loyalt
 > ### Loyalty data model
 >
 > The data model for Loyalty consists of three main entities:
-> * **Loyalty Program**<br>This is the main loyalty scheme or program, set up at the chain level. A guest can be a member of multiple programs.
+> * **Loyalty Program**<br>This is the main loyalty scheme or program. A guest can be a member of multiple programs.
 > * **Loyalty Tier**<br>You can optionally define tiers or levels of membership for your program.
 > * **Loyalty Membership**<br>A Loyalty Membership describes the relationship between a customer or guest and a loyalty program. This includes reward points, loyalty tier and membership expiration date.
 
+## Chains
+
+Loyalty programs are set up in Mews at the above-property chain level. However, this does not prevent individual properties (called _Enterprises_ in Mews) from having loyalty programs, because a property by default is in a chain of one.
+
+> ### Where can I obtain the Chain identifier?
+>
+> You can obtain the Chain identifier for an enterprise or property using [Get configuration](../operations/configuration.md#get-configuration).
+
 ## Set up loyalty programs
 
-Firstly, use [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) to create your loyalty programs in Mews. These are set up at the chain level, so you must specify a Chain identifier in the request, using the `DataClusterId` JSON property. You must also specify a name, code (used to match the loyalty on bookings such as those coming in to Mews from the [Mews Channel Manager API](https://mews-systems.gitbook.io/channel-manager-api)), type of program, and subscription model (`Free` or `Paid`). To see what loyalty programs are already set up, use [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs), which can be called with various filter parameters, depending on your requirements.
+Use [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) to create your loyalty programs in Mews. If using a normal, single enterprise Access Token, the programs will be created for the chain corresponding to the enterprise within scope of the Access Token. If using a multi-property [Portfolio Access Token](../guidelines/multi-property.md), you must specify the `ChainId`. The programs will then be created for the specified chain.
+
+To create a program, you must specify a program name, program code (used to match the loyalty on bookings such as those coming in to Mews from the [Mews Channel Manager API](https://mews-systems.gitbook.io/channel-manager-api)), type of program, and subscription model (`Free` or `Paid`). To see what loyalty programs are already set up, use [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs), which can be called with various filter parameters, depending on your requirements.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to add a Loyalty Program | [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) |
 | How to get a list of Loyalty Programs | [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) |
-
-> ### How does this work with Portfolio Access Tokens?
->
-> The Access Token used in the request defines the scope of the request, independently of the details of the request. This mechanism works across all API operations.
-> In this case, if the scope of the request is for a single enterprise (this is the normal default), then a Loyalty Program can be added to a chain that the specified enterprise belongs to.
-> If a [Portfolio Access Token](../guidelines/multi-property.md) is used, a Chain identifier must also be supplied as part of the request, using the `ChainId` JSON property. However, the net effect is the same, i.e. a Loyalty Program is added to the chain.
-> In both cases, `DataClusterId` must be supplied, because this is a required JSON property.
-
-> ### What if my property is not part of a chain?
->
-> `DataClusterId` is a required JSON property, so the enterprise or property must be part of a chain.
-
-> ### Where can I obtain the Chain identifier?
->
-> You can obtain the Chain identifier for an enterprise or property using [Get configuration](../operations/configuration.md#get-configuration).
+| How to get the Chain identifier for a property | [Get configuration](../operations/configuration.md#get-configuration) |
 
 > ### How can I validate the Loyalty Programs setup?
 >

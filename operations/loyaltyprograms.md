@@ -118,7 +118,6 @@ Adds loyalty programs to the enterprise. Note this operation supports [Portfolio
     "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e",
     "LoyaltyPrograms": [
         {
-            "DataClusterId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
             "Name": "Platinum Club",
             "Code": "PC01",
             "Type": "Hotel",
@@ -140,7 +139,6 @@ Adds loyalty programs to the enterprise. Note this operation supports [Portfolio
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `DataClusterId` | string | required | Unique identifier of the chain whose member the enterprise is. |
 | `Name` | string | required | Name of the loyalty program. |
 | `Code` | string | required | Code of the loyalty program. |
 | `Type` | string [Loyalty program type](#loyalty-program-type) | required | Type of the loyalty program. |
