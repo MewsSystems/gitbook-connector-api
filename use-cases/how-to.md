@@ -153,6 +153,23 @@ This page summarises all of our 'how to' use cases, together with the main use c
 
 > **What is an Availability Block?** Availability Blocks are fixed sets of inventory (rooms, spaces or resources) that are provisionally removed from public availability for use by private groups such as wedding parties, or for companies or travel agencies. For more information, see our Help Guide [Creating availability blocks](https://help.mews.com/s/article/Creating-availability-blocks-in-Mews?language=en_US).
 
+## Customer Loyalty
+
+| <div style="width:350px">'How to' use case</div> | <div style="width:200px">API Operations</div> | <div style="width:150px">Use cases</div> |
+| :-- | :-- | :-- |
+| How to add a Loyalty Program | [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs) | [Customer loyalty](loyalty.md) |
+| How to get a list of Loyalty Programs | [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs) | [Customer loyalty](loyalty.md) |
+| How to update a Loyalty Program | [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs) | [Customer loyalty](loyalty.md) |
+| How to delete a Loyalty Program | [Delete loyalty programs](../operations/loyaltyprograms.md#delete-loyalty-programs) | [Customer loyalty](loyalty.md) |
+| How to add a Loyalty Tier | [Add loyalty tiers](../operations/loyaltytiers.md#add-loyalty-tiers) | [Customer loyalty](loyalty.md) |
+| How to get a list of Loyalty Tiers | [Get all loyalty tiers](../operations/loyaltytiers.md#get-all-loyalty-tiers) | [Customer loyalty](loyalty.md) |
+| How to update a Loyalty Tier | [Update loyalty tiers](../operations/loyaltytiers.md#update-loyalty-tiers) | [Customer loyalty](loyalty.md) |
+| How to delete a Loyalty Tier | [Delete loyalty tiers](../operations/loyaltytiers.md#delete-loyalty-tiers) | [Customer loyalty](loyalty.md) |
+| How to add a Loyalty Membership | [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships) | [Customer loyalty](loyalty.md) |
+| How to get a list of Loyalty Memberships | [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships) | [Customer loyalty](loyalty.md) |
+| How to update a Loyalty Membership | [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) | [Customer loyalty](loyalty.md) |
+| How to delete a Loyalty Membership | [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships) | [Customer loyalty](loyalty.md) |
+
 ## Customer Messaging
 
 | <div style="width:350px">'How to' use case</div> | <div style="width:200px">API Operations</div> | <div style="width:150px">Use cases</div> |
