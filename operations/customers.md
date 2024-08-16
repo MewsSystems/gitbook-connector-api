@@ -160,7 +160,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Title` | string [Title](#title) | optional | Title prefix of the customer. |
 | `Sex` | string [Sex](#sex) | optional | Sex of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `PreferredLanguageCode` | string | optional | Language and culture code of customer's preferred language as set via Operations or API (i.e. without customer's choice). For example: `en-GB`, `fr-CA`. |
+| `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
 | `LanguageCode` | string | optional | Language and culture code of the customers specified in the booking process, otherwise customers preferred language or native language. E.g. `en-US` or `fr-FR`. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
