@@ -1,6 +1,8 @@
 # Changelog
 
 ## 16th August 2024
+* Extended [Customer](../operations/customers.md#customer) response object with `PreferredLanguageCode`.
+  * [Get all customers](../operations/customers.md#get-all-customers)
 * Added new use case for [Customer loyalty](../use-cases/loyalty.md). Documentation-only.
 
 ## 8th August 2024
