@@ -1,6 +1,6 @@
 # Changelog
 
-## 25th August 2024
+## 16th August 2024
 * Added new use case for [Customer loyalty](../use-cases/loyalty.md). Documentation-only.
 
 ## 8th August 2024
