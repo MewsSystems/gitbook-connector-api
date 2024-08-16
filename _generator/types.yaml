@@ -623,3 +623,246 @@ types:
   multiplevoucherdeleteparameters:
     file: vouchers.md
     anchor: multiplevoucherdeleteparameters
+  multiplereservationpurchaseordernumberparameters:
+    file: reservations.md
+    anchor: multiplereservationpurchaseordernumberparameters
+  sourceresult:
+    file: sources.md
+    anchor: sourceresult
+  source:
+    file: sources.md
+    anchor: source
+  sourcetype:
+    file: sources.md
+    anchor: source-type
+  sourcefilterparameters:
+    file: sources.md
+    anchor: sourcefilterparameters
+  vouchercoderesult:
+    file: vouchercodes.md
+    anchor: vouchercoderesult
+  multiplevouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodeaddparameters
+  vouchercodeaddparameters:
+    file: vouchercodes.md
+    anchor: voucher-code-parameters
+  multiplevouchercodedeleteparameters:
+    file: vouchercodes.md
+    anchor: multiplevouchercodedeleteparameters
+  vouchercodefilterparameters:
+    file: vouchercodes.md
+    anchor: vouchercodefilterparameters
+  vouchertype:
+    file: vouchers.md
+    anchor: vouchertype
+  outletitemresult:
+    file: outletitems.md
+    anchor: outletitemresult
+  outletitem:
+    file: outletitems.md
+    anchor: outlet-item
+  outletbill:
+    file: outletitems.md
+    anchor: outlet-bill
+  outletitemsfilterparameters:
+    file: outletitems.md
+    anchor: outletitemsfilterparameters
+  outletitemtype:
+    file: outletitems.md
+    anchor: outlet-item-type
+  companyresult:
+    file: companies.md
+    anchor: companyresult
+  companyaddparameters:
+    file: companies.md
+    anchor: companyaddparameters
+  companyoptionsparameters:
+    file: companies.md
+    anchor: company-options-parameters
+  creditratingparameters:
+    file: companies.md
+    anchor: credit-rating-parameters
+  addressparameters:
+    file: companies.md
+    anchor: address-parameters
+  companyupdateparameters:
+    file: companies.md
+    anchor: companyupdateparameters
+  companyoptionupdateparameters:
+    file: companies.md
+    anchor: company-option-update-parameters
+  creditratingupdateparameters:
+    file: companies.md
+    anchor: credit-rating-update-parameters
+  companyfilterparameters:
+    file: companies.md
+    anchor: companyfilterparameters
+  companytimefilter:
+    file: companies.md
+    anchor: company-time-filter
+  companyextent:
+    file: companies.md
+    anchor: company-extent
+  multiplecompanydeleteparameters:
+    file: companies.md
+    anchor: multiplecompanydeleteparameters
+  companynameparameters:
+    file: companies.md
+    anchor: companynameparameters
+  creditratingbasicenum:
+    file: companies.md
+    anchor: credit-rating-basic
+  creditratingbasicupdatevalue:
+    file: _objects.md
+    anchor: string-update-value
+  paymentitemold:
+    file: accountingitems.md
+    anchor: payment-item
+  paymentitemolddatacoproductofpaymenttype:
+    file: accountingitems.md
+    anchor: payment-item-data
+  paymenttype:
+    file: accountingitems.md
+    anchor: payment-item-data-discriminator
+  paymentcardpaymentdata:
+    file: accountingitems.md
+    anchor: credit-card-payment-item-data
+  invoicepaymentdata:
+    file: payments.md
+    anchor: invoice-payment-data
+  address:
+    file: addresses.md
+    anchor: account-address
+  title:
+    file: customers.md
+    anchor: title
+  billsresult:
+    file: bills.md
+    anchor: billsresult
+  bill:
+    file: bills.md
+    anchor: bill
+  billstate:
+    file: bills.md
+    anchor: bill-state
+  billtype:
+    file: bills.md
+    anchor: bill-type
+  billoptions:
+    file: bills.md
+    anchor: bill-options
+  billassigneedatacoproductofbillassigneedatadiscriminator:
+    file: bills.md
+    anchor: bill-assignee-data
+  billassigneedatadiscriminator:
+    file: bills.md
+    anchor: bill-associated-account-data-discriminator
+  billcompanydata:
+    file: bills.md
+    anchor: bill-company-data
+  billcustomerdata:
+    file: bills.md
+    anchor: bill-customer-data
+  billownerdatacoproductofbillassigneedatadiscriminator:
+    file: bills.md
+    anchor: bill-owner-data
+  billaccountdata:
+    file: bills.md
+    anchor: associated-account-bill-data
+  billenterprisedata:
+    file: bills.md
+    anchor: bill-enterprise-data
+  billcorrectionstateenum:
+    file: bills.md
+    anchor: bill-correction-state
+  billcorrectiontypeenum:
+    file: bills.md
+    anchor: bill-correction-type
+  billfilterparameters:
+    file: bills.md
+    anchor: billfilterparameters
+  billextent:
+    file: bills.md
+    anchor: bill-extent
+  billpdfresult:
+    file: bills.md
+    anchor: billpdfresult
+  billpdfresultresultcoproductofbillpdfresultdiscriminator:
+    file: bills.md
+    anchor: bill-pdf-result-discriminator
+  billpdfresultdiscriminator:
+    file: bills.md
+    anchor: bill-pdf-result-discriminator
+  billpdffile:
+    file: bills.md
+    anchor: bill-pdf-file
+  billprintevent:
+    file: bills.md
+    anchor: bill-print-event
+  billpdfparameters:
+    file: bills.md
+    anchor: billpdfparameters
+  billsaddresult:
+    file: bills.md
+    anchor: billsaddresult
+  multiplebilladdparameters:
+    file: bills.md
+    anchor: multiplebilladdparameters
+  billaddparameters:
+    file: bills.md
+    anchor: bill-parameters
+  billdeleteparameters:
+    file: bills.md
+    anchor: billdeleteparameters
+  billscloseresult:
+    file: bills.md
+    anchor: billscloseresult
+  billcloseparameters:
+    file: bills.md
+    anchor: billcloseparameters
+  billoptionsparameters:
+    file: bills.md
+    anchor: bill-options-parameters
+  billcloseaccountparameters:
+    file: bills.md
+    anchor: bill-close-account-parameters
+  exportaddresult:
+    file: exports.md
+    anchor: exportaddresult
+  export:
+    file: exports.md
+    anchor: export
+  exportstatus:
+    file: exports.md
+    anchor: export-status
+  exportentitytype:
+    file: exports.md
+    anchor: exported-entity-type
+  exportfileentry:
+    file: exports.md
+    anchor: export-file-entry
+  exportaddparameters:
+    file: exports.md
+    anchor: exportaddparameters
+  exportresult:
+    file: exports.md
+    anchor: exportresult
+  exportfilterparameters:
+    file: exports.md
+    anchor: exportfilterparameters
+  taskresult:
+    file: tasks.md
+    anchor: taskresult
+  task:
+    file: tasks.md
+    anchor: task
+  taskfilterparameters:
+    file: tasks.md
+    anchor: taskfilterparameters
+  addtaskresult:
+    file: tasks.md
+    anchor: addtaskresult
+  taskaddparameters:
+    file: tasks.md
+    anchor: taskaddparameters

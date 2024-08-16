@@ -9,13 +9,13 @@ tags:
   # - agecategories
   - availabilityadjustments
   # - availabilityblocks
-  # - bills
+  - bills
   # - businesssegments
   - cancellationpolicies
   # - cashiers
   # - cashiertransactions
   # - commands
-  # - companies
+  - companies
   # - companionships
   # - companycontracts
   # - configuration
@@ -28,7 +28,7 @@ tags:
   - devices
   # - enterprises
   - exchangerates
-  # - exports
+  - exports
   - images
   # - languages
   # - loyaltymemberships
@@ -39,7 +39,7 @@ tags:
   - orderitems
   # - orders
   # - outletbills
-  # - outletitems
+  - outletitems
   # - outlets
   # - paymentrequests
   # - payments
@@ -62,9 +62,9 @@ tags:
   # - serviceordernotes
   - services
   # - sourceassignments
-  # - sources
-  # - tasks
+  - sources
+  - tasks
   # - taxations
   # - taxenvironments
-  # - vouchercodes
+  - vouchercodes
   - vouchers

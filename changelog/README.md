@@ -1,12 +1,22 @@
 # Changelog
 
-## 1st August 2024
+## 16th August 2024
 * Extended [Customer](../operations/customers.md#customer) response object with `PreferredLanguageCode`.
   * [Get all customers](../operations/customers.md#get-all-customers)
+* Added new use case for [Customer loyalty](../use-cases/loyalty.md). Documentation-only.
+
+## 8th August 2024
+* Added support for corrective bills:
+  * Extended [Get all bills](../operations/bills.md#get-all-bills) with filtering parameter `CorrectionState`.
+  * Extended [Bill](../operations/bills.md#bill) response object with `CorrectionState`, `CorrectionType`, and `CorrectedBillId`.
+
+## 1st August 2024
+* Extended [Voucher code](../operations/vouchercodes.md#voucher-code) response object with `IsActive` property.
+  * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
 
 ## 8th July 2024
 * Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
-  * [Get all payments](../operations/payments.md##get-all-payments)
+  * [Get all payments](../operations/payments.md#get-all-payments)
 
 ## 3rd July 2024
 * Extended [Order item](../operations/orderitems.md#order-item) response object with `BillingName`, this affects the following operations:
