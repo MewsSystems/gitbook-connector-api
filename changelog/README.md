@@ -1,5 +1,8 @@
 # Changelog
 
+## 16th August 2024
+* Added new use case for [Customer loyalty](../use-cases/loyalty.md). Documentation-only.
+
 ## 8th August 2024
 * Added support for corrective bills:
   * Extended [Get all bills](../operations/bills.md#get-all-bills) with filtering parameter `CorrectionState`.
