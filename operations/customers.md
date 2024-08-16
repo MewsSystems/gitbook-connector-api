@@ -161,7 +161,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Sex` | string [Sex](#sex) | optional | Sex of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
 | `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
-| `LanguageCode` | string | optional | Language and culture code of the customers specified in the booking process, otherwise customers preferred language or native language. E.g. `en-US` or `fr-FR`. |
+| `LanguageCode` | string | optional | Language and culture code of the customer's language, based on multiple sources. These sources include the preferred language specified in internal data based on previous bookings, and the preferred language of the customer specified in their profile. If neither of these sources are present, we use the native language based on the customer's nationality. The format is, for example, `en-US` or `fr-FR`. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Email` | string | optional | Email address of the customer. |
