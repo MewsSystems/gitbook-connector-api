@@ -352,7 +352,7 @@ types:
     anchor: rate-type
   rategroupold:
     file: rates.md
-    anchor: rate-group
+    anchor: rate-group-ver-2017-04-12
   accountingitem:
     file: accountingitems.md
     anchor: accounting-item
@@ -866,3 +866,69 @@ types:
   taskaddparameters:
     file: tasks.md
     anchor: taskaddparameters
+  rateresult:
+    file: rates.md
+    anchor: rateresult
+  raterestrictionresult:
+    file: rates.md
+    anchor: rate-restriction-result
+  daterestriction:
+    file: rates.md
+    anchor: date-restriction
+  earlinessrestriction:
+    file: rates.md
+    anchor: earliness-restriction
+  lengthrestriction:
+    file: rates.md
+    anchor: length-restriction
+  ratefilterparameters:
+    file: rates.md
+    anchor: ratefilterparameters
+  rateextent:
+    file: rates.md
+    anchor: rate-extent
+  rateaddresult:
+    file: rates.md
+    anchor: rateaddresult
+  rateaddparameters:
+    file: rates.md
+    anchor: rateaddparameters
+  rateadddata:
+    file: rates.md
+    anchor: rate-add-data
+  ratepricingdiscriminator:
+    file: rates.md
+    anchor: ratepricingdiscriminator
+  ratepricingdataparameters:
+    file: rates.md
+    anchor: ratepricingdataparameters
+  baseratepricingparameters:
+    file: rates.md
+    anchor: baseratepricingparameters
+  dependentratepricingparameters:
+    file: rates.md
+    anchor: dependentratepricingparameters
+  ratepricing:
+    file: rates.md
+    anchor: ratepricing
+  categorypricing:
+    file: rates.md
+    anchor: category-pricing
+  categoryadjustment:
+    file: rates.md
+    anchor: category-adjustment
+  agecategoryadjustment:
+    file: rates.md
+    anchor: age-category-adjustment
+  agecategoryadjustmenttype:
+    file: rates.md
+    anchor: age-category-adjustment-type
+  ratepricingparameters:
+    file: rates.md
+    anchor: ratepricingparameters
+  ratepriceupdateparameters:
+    file: rates.md
+    anchor: ratepriceupdateparameters
+  ratepriceupdate:
+    file: rates.md
+    anchor: ratepriceupdate
