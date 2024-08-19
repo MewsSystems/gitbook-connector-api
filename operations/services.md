@@ -112,13 +112,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the service. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `IsActive` | boolean | required | Whether the service is still active. |
-| `Name` | string | required | Name of the service. |
+| `Names` | object | required | All translations of the name. |
 | `Options` | [Service options](services.md#service-options) | required | Options of the service. |
 | `Ordering` | integer | required | Order value for presentation purposes. |
 | `Data` | [Service data](services.md#service-data) | required | Additional information about the specific service. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the service from external system. |
 | `CreatedUtc` | string | required | Creation date and time of the service in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the service in UTC timezone in ISO 8601 format. |
+| ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the service.~~ **Deprecated!** Use `Names` instead|
 | ~~`StartTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | ~~Promotions of the service.~~ **Deprecated!** |
