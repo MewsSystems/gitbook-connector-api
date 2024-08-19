@@ -325,16 +325,16 @@ types:
     anchor: resource
   resourcedatacoproductofspacedataobjectdatapersondata:
     file: resources.md
-    anchor: resource-data
+    anchor: data
   spacedata:
     file: resources.md
-    anchor: space-resource-data
+    anchor: spacedata
   resourcecategory:
     file: resources.md
     anchor: resource-category
   resourcecategorytype:
     file: resources.md
-    anchor: resource-category-type
+    anchor: resourcecategorytype
   resourceclassification:
     file: resourcefeatures.md
     anchor: resource-feature-classification
@@ -866,3 +866,51 @@ types:
   taskaddparameters:
     file: tasks.md
     anchor: taskaddparameters
+  resourceresult:
+    file: resources.md
+    anchor: resourceresult
+  resourcecategoryimageassignment:
+    file: resources.md
+    anchor: resource-category-image-assignment
+  resourcefeature:
+    file: resources.md
+    anchor: resource-feature
+  resourcefeatureassignment:
+    file: resources.md
+    anchor: resource-feature-assignment
+  resourcefilterparameters:
+    file: resources.md
+    anchor: resourcefilterparameters
+  resourceextent:
+    file: resources.md
+    anchor: resourceextent
+  multipleresourceupdateparameters:
+    file: resources.md
+    anchor: multipleresourceupdateparameters
+  resourceupdateparameters:
+    file: resources.md
+    anchor: resourceupdateparameters
+  resourceupdateparametersdatacoproductofresourcedatadiscriminator:
+    file: resources.md
+    anchor: data
+  resourcedatadiscriminator:
+    file: resources.md
+    anchor: resourcedatadiscriminator
+  resourcecategoryresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryresult
+  resourcecategoryfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryfilterparameters
+  resourcecategoryassignmentresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryassignmentresult
+  resourcecategoryassignmentfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryassignmentfilterparameters
+  resourcecategoryimageassignmentresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryimageassignmentresult
+  resourcecategoryimageassignmentfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryimageassignmentfilterparameters
