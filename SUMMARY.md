@@ -18,6 +18,7 @@
   * [Time units](concepts/time-units.md)
 * [Use cases](use-cases/README.md)
   * [Accounting](use-cases/accounting.md)
+  * [Customer loyalty](use-cases/loyalty.md)
   * [Customer management](use-cases/customer-management.md)
   * [Customer messaging](use-cases/messaging.md)  
   * [Data export](use-cases/data-export.md)

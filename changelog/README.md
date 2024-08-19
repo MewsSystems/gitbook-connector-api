@@ -3,6 +3,11 @@
 ## 19th August 2024
 * Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
 
+## 16th August 2024
+* Extended [Customer](../operations/customers.md#customer) response object with `PreferredLanguageCode`.
+  * [Get all customers](../operations/customers.md#get-all-customers)
+* Added new use case for [Customer loyalty](../use-cases/loyalty.md). Documentation-only.
+
 ## 8th August 2024
 * Added support for corrective bills:
   * Extended [Get all bills](../operations/bills.md#get-all-bills) with filtering parameter `CorrectionState`.

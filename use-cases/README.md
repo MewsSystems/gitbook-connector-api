@@ -6,6 +6,7 @@ Even if you are integrating a different type of system, it serves as a good star
 ## by Business category
 
 * [Accounting](accounting.md)
+* [Customer loyalty](loyalty.md)
 * [Customer management](customer-management.md)
 * [Events](events.md)
 * [Guest technology](guest-technology.md)
