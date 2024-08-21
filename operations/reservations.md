@@ -971,9 +971,9 @@ Updates information about the specified reservations. Note that if any of the fi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required |  |
-| `AccessToken` | string | required |  |
-| `Client` | string | required |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `ChannelNumber` | [String update value](_objects.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) (or `null` if the channel number should not be updated). |
@@ -1410,12 +1410,12 @@ Removes customer companionship from the reservation. Note that the customer prof
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required |  |
-| `AccessToken` | string | required |  |
-| `Client` | string | required |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required |  |
-| `CustomerId` | string | required |  |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `CustomerId` | string | required | Unique identifier of the `Customer`. |
 
 ### Response
 
@@ -1587,12 +1587,12 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required |  |
-| `AccessToken` | string | required |  |
-| `Client` | string | required |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required |  |
-| `CustomerId` | string | required |  |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `CustomerId` | string | required | Unique identifier of the `Customer`. |
 
 ### Response
 
