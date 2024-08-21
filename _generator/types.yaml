@@ -868,7 +868,7 @@ types:
     anchor: taskaddparameters
   rateresult:
     file: rates.md
-    anchor: rateresult
+    anchor: rate-result
   raterestrictionresult:
     file: rates.md
     anchor: rate-restriction-result
@@ -883,34 +883,34 @@ types:
     anchor: length-restriction
   ratefilterparameters:
     file: rates.md
-    anchor: ratefilterparameters
+    anchor: rate-filter-parameters
   rateextent:
     file: rates.md
     anchor: rate-extent
   rateaddresult:
     file: rates.md
-    anchor: rateaddresult
+    anchor: rate-add-result
   rateaddparameters:
     file: rates.md
-    anchor: rateaddparameters
+    anchor: rate-add-parameters
   rateadddata:
     file: rates.md
     anchor: rate-add-data
   ratepricingdiscriminator:
     file: rates.md
-    anchor: ratepricingdiscriminator
+    anchor: rate-pricing-discriminator
   ratepricingdataparameters:
     file: rates.md
     anchor: rate-pricing-data-parameters
   baseratepricingparameters:
     file: rates.md
-    anchor: baseratepricingparameters
+    anchor: base-rate-pricing-parameters
   dependentratepricingparameters:
     file: rates.md
-    anchor: dependentratepricingparameters
+    anchor: dependent-rate-pricing-parameters
   ratepricing:
     file: rates.md
-    anchor: ratepricing
+    anchor: rate-pricing
   categorypricing:
     file: rates.md
     anchor: category-pricing
@@ -925,13 +925,13 @@ types:
     anchor: age-category-adjustment-type
   ratepricingparameters:
     file: rates.md
-    anchor: ratepricingparameters
+    anchor: rate-pricing-parameters
   ratepriceupdateparameters:
     file: rates.md
-    anchor: ratepriceupdateparameters
+    anchor: rate-price-update-parameters
   ratepriceupdate:
     file: rates.md
-    anchor: ratepriceupdate
+    anchor: rate-price-update
   companionshipaddresult:
     file: reservations.md
     anchor: companionship-add-result

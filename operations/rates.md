@@ -455,11 +455,11 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `ShortNames` | object | optional | All translations of the short name of the rate. |
 | `ExternalNames` | object | optional | All translations of the external name of the rate. |
 | `Descriptions` | object | optional | All translations of the description. |
-| `PricingType` | [RatePricingDiscriminator](rates.md#ratepricingdiscriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
+| `PricingType` | [Rate Pricing Discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
 | `Pricing` | [Rate Pricing Data Parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
-#### RatePricingDiscriminator
+#### Rate Pricing Discriminator
 
 * `BaseRatePricing`
 * `DependentRatePricing`
@@ -468,10 +468,10 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [BaseRatePricingParameters](rates.md#baseratepricingparameters) | optional |  |
-| `DependentRatePricing` | [DependentRatePricingParameters](rates.md#dependentratepricingparameters) | optional |  |
+| `BaseRatePricing` | [Base Rate Pricing Parameters](rates.md#base-rate-pricing-parameters) | optional |  |
+| `DependentRatePricing` | [Dependent Rate Pricing Parameters](rates.md#dependent-rate-pricing-parameters) | optional |  |
 
-#### BaseRatePricingParameters
+#### Base Rate Pricing Parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -479,7 +479,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `NegativeOccupancyAdjustment` | number | required |  |
 | `ExtraOccupancyAdjustment` | number | required |  |
 
-#### DependentRatePricingParameters
+#### Dependent Rate Pricing Parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -557,11 +557,11 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `LastTimeUnitStartUtc` | string | optional |  |
 | `RateId` | string | required | Unique identifier of the base [Rate](rates.md#rate) to update. |
 | `ProductId` | string | optional |  |
-| `PriceUpdates` | array of [RatePriceUpdate](rates.md#ratepriceupdate) | required, max 1000 items | Price updates. |
+| `PriceUpdates` | array of [Rate Price Update](rates.md#rate-price-update) | required, max 1000 items | Price updates. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
-#### RatePriceUpdate
+#### Rate Price Update
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
