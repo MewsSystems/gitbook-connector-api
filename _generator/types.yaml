@@ -932,3 +932,12 @@ types:
   ratepriceupdate:
     file: rates.md
     anchor: ratepriceupdate
+  companionshipaddresult:
+    file: reservations.md
+    anchor: companionship-add-result
+  companionshipaddparameters:
+    file: reservations.md
+    anchor: companionship-add-parameters
+  companionshipdeleteparameters:
+    file: reservations.md
+    anchor: companionship-delete-parameters
