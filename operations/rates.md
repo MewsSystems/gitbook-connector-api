@@ -115,7 +115,7 @@ Extent of data to be returned.
 | `Rates` | array of [Rate](rates.md#rate) | required, max 1000 items | Rates of the default service. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | required, max 1000 items | Rate groups of the default service. **Deprecated!** |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-| ~~`RateRestrictions`~~ | ~~[Rate Restriction Result](rates.md#rate-restriction-result)~~ | ~~required~~ | ~~Rate restrictions.~~ **Deprecated!** Use `restrictions/getAll`|
+| ~~`RateRestrictions`~~ | ~~[Rate Restriction Result](rates.md#rate-restriction-result)~~ | ~~required~~ | **Deprecated!** Use `restrictions/getAll`|
 
 #### Rate
 
@@ -226,8 +226,8 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
+| `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) whose prices should be returned. |
 | `ProductId` | string | optional |  |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
@@ -361,7 +361,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
 | `EmptyUnitAdjustment` | number | required | Price adjustment for when the resource booked with this rate is not full to capacity. |
 | `ExtraUnitAdjustment` | number | required | Price adjustment for when the resource booked with this rate exceeds capacity. |
-| ~~`DatesUtc`~~ | ~~array of string~~ | ~~required~~ | **Deprecated!** Use `TimeUnitStartsUtc` instead.|
+| ~~`DatesUtc`~~ | ~~array of string~~ | ~~optional~~ | **Deprecated!** Use `TimeUnitStartsUtc` instead.|
 | ~~`BasePrices`~~ | ~~array of number~~ | ~~required~~ | **Deprecated!** Use `BaseAmountPrices` instead.|
 
 #### Category Pricing
@@ -386,7 +386,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AgeCategoryId` | string | required | Unique identifier of the age category. |
-| `AbsoluteValue` | number | required |  |
+| `AbsoluteValue` | number | required | Absolute value of the adjustment (e.g. `50` represents 50 EUR in case the rate currency is `EUR`). |
 | `Type` | [Age Category Adjustment Type](rates.md#age-category-adjustment-type) | required |  |
 
 #### Age Category Adjustment Type
@@ -457,15 +457,14 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `Descriptions` | object | optional | All translations of the description. |
 | `PricingType` | [RatePricingDiscriminator](rates.md#ratepricingdiscriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| `Pricing` | [RatePricingDataParameters](rates.md#ratepricingdataparameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate Pricing Data Parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
 #### RatePricingDiscriminator
 
 * `BaseRatePricing`
 * `DependentRatePricing`
 
-#### RatePricingDataParameters
-Rate Pricing Data Parameters
+#### Rate Pricing Data Parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -554,8 +553,8 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `FirstTimeUnitStartUtc` | string | required |  |
-| `LastTimeUnitStartUtc` | string | required |  |
+| `FirstTimeUnitStartUtc` | string | optional |  |
+| `LastTimeUnitStartUtc` | string | optional |  |
 | `RateId` | string | required | Unique identifier of the base [Rate](rates.md#rate) to update. |
 | `ProductId` | string | optional |  |
 | `PriceUpdates` | array of [RatePriceUpdate](rates.md#ratepriceupdate) | required, max 1000 items | Price updates. |
@@ -568,8 +567,8 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | optional |  |
 | `Value` | number | optional |  |
-| `FirstTimeUnitStartUtc` | string | optional |  |
-| `LastTimeUnitStartUtc` | string | optional |  |
+| `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `FirstTimeUnitStartUtc` instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `LastTimeUnitStartUtc` instead.|
 

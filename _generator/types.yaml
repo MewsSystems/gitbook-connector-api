@@ -901,7 +901,7 @@ types:
     anchor: ratepricingdiscriminator
   ratepricingdataparameters:
     file: rates.md
-    anchor: ratepricingdataparameters
+    anchor: rate-pricing-data-parameters
   baseratepricingparameters:
     file: rates.md
     anchor: baseratepricingparameters
