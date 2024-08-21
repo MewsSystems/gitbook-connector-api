@@ -130,12 +130,13 @@ Extent of data to be returned.
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
 | `Type` | [Rate Type](rates.md#rate-type) | required | Type of the rate |
-| `Name` | string | optional | Name of the rate (in the default language). |
+| `Names` | object | required | All translations of the name. |
 | `ShortName` | string | optional | Short name of the rate (in the default language). |
 | `UpdatedUtc` | string | required | Interval in which the rates were updated. |
 | `ExternalNames` | object | optional | All translations of the external name of the rate. |
 | `Description` | object | optional | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
+| ~~`Name`~~ | ~~string~~ | ~~optional~~ | ~~Name of the rate (in the default language).~~ **Deprecated!** Use `Names` instead|
 
 #### Rate Type
 

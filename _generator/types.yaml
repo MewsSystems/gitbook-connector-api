@@ -934,10 +934,10 @@ types:
     anchor: rate-price-update
   companionshipaddresult:
     file: reservations.md
-    anchor: companionship-add-result
+    anchor: companionshipaddresult
   companionshipaddparameters:
     file: reservations.md
-    anchor: companionship-add-parameters
+    anchor: companionshipaddparameters
   companionshipdeleteparameters:
     file: reservations.md
-    anchor: companionship-delete-parameters
+    anchor: companionshipdeleteparameters

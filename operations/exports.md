@@ -162,6 +162,7 @@ If there is already an export with status `Pending` or `Processing` for the spec
 * `Bill`
 * `AvailabilityAdjustment`
 * `AvailabilityBlock`
+* `ResourceBlock`
 
 #### Export file entry
 
