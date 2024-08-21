@@ -1392,7 +1392,7 @@ Returns prices of reservations with the specified parameters. Note this operatio
 
 ## Delete reservation companion
 
-Removes customer companionship from the reservation. Note that the customer profile stays untouched, only the relation between the customer and reservation is deleted.
+Removes customer companionship from the reservation. Note that the customer profile stays untouched, only the relation between the customer and reservation is deleted. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1414,7 +1414,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `CustomerId` | string | required | Unique identifier of the `Customer`. |
 
 ### Response
@@ -1425,7 +1425,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 
 ## Confirm reservation
 
-Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met (the reservations have the `Optional` state).
+Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met (the reservations have the `Optional` state). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1569,7 +1569,7 @@ Adds a new product order of the specified product to the reservation.
 
 ## Add reservation companion
 
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`).
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1591,7 +1591,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `CustomerId` | string | required | Unique identifier of the `Customer`. |
 
 ### Response
