@@ -157,49 +157,49 @@ Extent of data to be returned.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `DateRestrictions` | array of [Date Restriction](rates.md#date-restriction) | optional |  |
-| `EarlinessRestrictions` | array of [Earliness Restriction](rates.md#earliness-restriction) | optional |  |
-| `LengthRestrictions` | array of [Length Restriction](rates.md#length-restriction) | optional |  |
+| `DateRestrictions` | array of [Date Restriction](rates.md#date-restriction) | required | Date restrictions for the rate. |
+| `EarlinessRestrictions` | array of [Earliness Restriction](rates.md#earliness-restriction) | required | Earliness restrictions for the rates that are only available up to before arrival. |
+| `LengthRestrictions` | array of [Length Restriction](rates.md#length-restriction) | required | Length restrictions for the rate. |
 
 #### Date Restriction
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required |  |
-| `RateId` | string | required |  |
-| `IsInherited` | boolean | required |  |
-| `StartUtc` | string | optional |  |
-| `EndUtc` | string | optional |  |
-| `Days` | array of string | optional |  |
-| `ExternalIdentifier` | string | optional |  |
+| `Id` | string | required | Unique identifier of the rate restriction. |
+| `RateId` | string | required | Unique identifier of the rate. |
+| `IsInherited` | boolean | required | Whether the rate restriction is inherited from the parent rate. |
+| `StartUtc` | string | optional | Start of the rate restriction in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the rate restriction in UTC timezone in ISO 8601 format. |
+| `Days` | array of string | optional | The restricted days of week. |
+| `ExternalIdentifier` | string | optional | Identifiers of from external systems. |
 
 #### Earliness Restriction
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required |  |
-| `RateId` | string | required |  |
-| `IsInherited` | boolean | required |  |
-| `StartUtc` | string | optional |  |
-| `EndUtc` | string | optional |  |
-| `Days` | array of string | optional |  |
-| `ExternalIdentifier` | string | optional |  |
-| `MinAdvance` | string | optional |  |
-| `MaxAdvance` | string | optional |  |
+| `Id` | string | required | Unique identifier of the rate restriction. |
+| `RateId` | string | required | Unique identifier of the rate. |
+| `IsInherited` | boolean | required | Whether the rate restriction is inherited from the parent rate. |
+| `StartUtc` | string | optional | Start of the rate restriction in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the rate restriction in UTC timezone in ISO 8601 format. |
+| `Days` | array of string | optional | The restricted days of week. |
+| `ExternalIdentifier` | string | optional | Identifiers of from external systems. |
+| `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 
 #### Length Restriction
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | string | required |  |
-| `RateId` | string | required |  |
-| `IsInherited` | boolean | required |  |
-| `StartUtc` | string | optional |  |
-| `EndUtc` | string | optional |  |
-| `Days` | array of string | optional |  |
-| `ExternalIdentifier` | string | optional |  |
-| `MinLength` | string | optional |  |
-| `MaxLength` | string | optional |  |
+| `Id` | string | required | Unique identifier of the rate restriction. |
+| `RateId` | string | required | Unique identifier of the rate. |
+| `IsInherited` | boolean | required | Whether the rate restriction is inherited from the parent rate. |
+| `StartUtc` | string | optional | Start of the rate restriction in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the rate restriction in UTC timezone in ISO 8601 format. |
+| `Days` | array of string | optional | The restricted days of week. |
+| `ExternalIdentifier` | string | optional | Identifiers of from external systems. |
+| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
+| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
 
 ## Get rate pricing
 
