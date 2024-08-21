@@ -58,7 +58,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Bill` was closed. |
 | `PaidUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Bill` was paid. |
 | `DueUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Bill` is due to be paid. |

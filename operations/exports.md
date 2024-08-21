@@ -160,6 +160,9 @@ If there is already an export with status `Pending` or `Processing` for the spec
 * `Customer`
 * `Company`
 * `Bill`
+* `AvailabilityAdjustment`
+* `AvailabilityBlock`
+* `ResourceBlock`
 
 #### Export file entry
 

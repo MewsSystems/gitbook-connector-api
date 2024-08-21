@@ -56,7 +56,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Extent` | [Voucher Extent](vouchers.md#voucher-extent) | required | Extent of data to be returned. Whether only specific voucher info should be returned or related items as well. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) where the vouchers belong to. |
 | `VoucherIds` | array of string | optional, max 1000 items | Unique identifiers of vouchers. |
@@ -158,7 +158,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | `OccupiableIntervalEndUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format (or null if the end time should not be updated). |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the voucher from external system. |
 | `IsActive` | boolean | required | Whether the voucher is still active. |
-| ~~`ActivityState`~~ | ~~[ActivityState](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
+| ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
 #### Voucher Type
 
