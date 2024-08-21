@@ -43,7 +43,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of the [Reservations](reservations.md#reservation-ver-2023-06-06). |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
@@ -448,7 +448,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
 | `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
-| `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group) | optional | Rate groups of the reservation rates. |
+| `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
 | `Notes` | array of [Service order note](serviceordernotes.md#service-order-note) | optional | Notes of the reservations. |
@@ -971,9 +971,9 @@ Updates information about the specified reservations. Note that if any of the fi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required |  |
-| `AccessToken` | string | required |  |
-| `Client` | string | required |  |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `ChannelNumber` | [String update value](_objects.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) (or `null` if the channel number should not be updated). |
@@ -1101,7 +1101,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
 | `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
-| `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group) | optional | Rate groups of the reservation rates. |
+| `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
 | `Notes` | array of [Service order note](serviceordernotes.md#service-order-note) | optional | Notes of the reservations. |
@@ -1326,7 +1326,7 @@ Returns prices of reservations with the specified parameters. Note this operatio
 | `RequestedCategoryId` | string | required | Identifier of the requested `ResourceCategory`. |
 | `RateId` | string | required | Identifier of the reservation `Rate`. |
 | `VoucherCode` | string | optional | Voucher code value providing access to specified private `Rate` applied to this reservation. |
-| `CreditCardId` | string | optional | Identifier of `CreditCard` belonging to `Customer` who owns the reservation. |
+| `CreditCardId` | string | optional | Identifier of `CreditCard` belonging either to the `Customer` who owns the reservation or to the `Booker`. |
 | `TravelAgencyId` | string | optional | Identifier of the `Company` that mediated the reservation. |
 | `CompanyId` | string | optional | Identifier of the `Company` on behalf of which the reservation was made. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation `BusinessSegment`. |
@@ -1413,8 +1413,9 @@ Removes customer companionship from the reservation. Note that the customer prof
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `CustomerId` | string | required | Unique identifier of the customer. |
 
 ### Response
 
@@ -1446,6 +1447,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required | Unique identifier of the reservations to confirm. |
 | `SendConfirmationEmail` | boolean | optional | Wheter the confirmation email is sent. Default value is true. |
 
@@ -1588,8 +1590,9 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `CustomerId` | string | required | Unique identifier of the customer. |
 
 ### Response
 
