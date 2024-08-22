@@ -1,5 +1,16 @@
 # Changelog
 
+## 21st August 2024
+
+* Extended [Exports](../operations/exports.md#add-export) with support for the following [entity types](../operations/exports.md#exported-entity-type):
+  * `AvailabilityAdjustment`
+  * `AvailabilityBlock`
+  * `ResourceBlock`
+* Enabled [Portfolio Access Tokens](../guidelines/multi-property.md) for the following operations:
+  * [Add reservation companion](../operations/reservations.md#add-reservation-companion)
+  * [Delete reservation companion](../operations/reservations.md#delete-reservation-companion)
+  * [Confirm reservation](../operations/reservations.md#confirm-reservation)
+
 ## 19th August 2024
 * Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
 
