@@ -866,3 +866,12 @@ types:
   taskaddparameters:
     file: tasks.md
     anchor: taskaddparameters
+  companionshipaddresult:
+    file: reservations.md
+    anchor: companionshipaddresult
+  companionshipaddparameters:
+    file: reservations.md
+    anchor: companionshipaddparameters
+  companionshipdeleteparameters:
+    file: reservations.md
+    anchor: companionshipdeleteparameters
