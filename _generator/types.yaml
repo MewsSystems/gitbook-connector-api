@@ -895,7 +895,7 @@ types:
     anchor: rate-add-parameters
   rateadddata:
     file: rates.md
-    anchor: rate-add-data
+    anchor: rate-parameters
   ratepricingdiscriminator:
     file: rates.md
     anchor: rate-pricing-discriminator

@@ -53,7 +53,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `Extent` | [Rate Extent](rates.md#rate-extent) | required | Extent of data to be returned. |
+| `Extent` | [Rate extent](rates.md#rate-extent) | required | Extent of data to be returned. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
@@ -61,7 +61,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
-#### Rate Extent
+#### Rate extent
 Extent of data to be returned.
 
 | Property | Type | Contract | Description |
@@ -115,7 +115,7 @@ Extent of data to be returned.
 | `Rates` | array of [Rate](rates.md#rate) | required, max 1000 items | Rates of the default service. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | required, max 1000 items | Rate groups of the default service. **Deprecated!** |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-| ~~`RateRestrictions`~~ | ~~[Rate Restriction Result](rates.md#rate-restriction-result)~~ | ~~required~~ | **Deprecated!** Use `restrictions/getAll`|
+| ~~`RateRestrictions`~~ | ~~[Rate restriction result](rates.md#rate-restriction-result)~~ | ~~required~~ | **Deprecated!** Use `restrictions/getAll`|
 
 #### Rate
 
@@ -129,7 +129,7 @@ Extent of data to be returned.
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
-| `Type` | [Rate Type](rates.md#rate-type) | required | Type of the rate |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate |
 | `Names` | object | required | All translations of the name. |
 | `ShortName` | string | optional | Short name of the rate (in the default language). |
 | `UpdatedUtc` | string | required | Interval in which the rates were updated. |
@@ -138,7 +138,7 @@ Extent of data to be returned.
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
 | ~~`Name`~~ | ~~string~~ | ~~optional~~ | ~~Name of the rate (in the default language).~~ **Deprecated!** Use `Names` instead|
 
-#### Rate Type
+#### Rate type
 
 * `Public`
 * `Private`
@@ -154,15 +154,15 @@ Extent of data to be returned.
 | `Name` | string | optional | Name of the rate group. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | External identifier of the rate group. |
 
-#### Rate Restriction Result
+#### Rate restriction result
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `DateRestrictions` | array of [Date Restriction](rates.md#date-restriction) | required | Date restrictions for the rate. |
-| `EarlinessRestrictions` | array of [Earliness Restriction](rates.md#earliness-restriction) | required | Earliness restrictions for the rates that are only available up to before arrival. |
-| `LengthRestrictions` | array of [Length Restriction](rates.md#length-restriction) | required | Length restrictions for the rate. |
+| `DateRestrictions` | array of [Date restriction](rates.md#date-restriction) | required | Date restrictions for the rate. |
+| `EarlinessRestrictions` | array of [Earliness restriction](rates.md#earliness-restriction) | required | Earliness restrictions for the rates that are only available up to before arrival. |
+| `LengthRestrictions` | array of [Length restriction](rates.md#length-restriction) | required | Length restrictions for the rate. |
 
-#### Date Restriction
+#### Date restriction
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -174,7 +174,7 @@ Extent of data to be returned.
 | `Days` | array of string | optional | The restricted days of week. |
 | `ExternalIdentifier` | string | optional | Identifiers of from external systems. |
 
-#### Earliness Restriction
+#### Earliness restriction
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -188,7 +188,7 @@ Extent of data to be returned.
 | `MinAdvance` | string | optional | The minimum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 | `MaxAdvance` | string | optional | The maximum time before the reservation starts, you can reserve in ISO 8601 duration format. |
 
-#### Length Restriction
+#### Length restriction
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -355,9 +355,9 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `BaseAmountPrices` | array of [Amount](_objects.md#amount) | required | Base prices of the rates for each time unit covered by the time interval. |
-| `CategoryPrices` | array of [Category Pricing](rates.md#category-pricing) | required | Resource category prices. |
-| `CategoryAdjustments` | array of [Category Adjustment](rates.md#category-adjustment) | required | Resource category adjustments. |
-| `AgeCategoryAdjustments` | array of [Age Category Adjustment](rates.md#age-category-adjustment) | required |  |
+| `CategoryPrices` | array of [Category pricing](rates.md#category-pricing) | required | Resource category prices. |
+| `CategoryAdjustments` | array of [Category adjustment](rates.md#category-adjustment) | required | Resource category adjustments. |
+| `AgeCategoryAdjustments` | array of [Age category adjustment](rates.md#age-category-adjustment) | required |  |
 | `RelativeAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
 | `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
 | `EmptyUnitAdjustment` | number | required | Price adjustment for when the resource booked with this rate is not full to capacity. |
@@ -365,7 +365,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | ~~`DatesUtc`~~ | ~~array of string~~ | ~~optional~~ | **Deprecated!** Use `TimeUnitStartsUtc` instead.|
 | ~~`BasePrices`~~ | ~~array of number~~ | ~~required~~ | **Deprecated!** Use `BaseAmountPrices` instead.|
 
-#### Category Pricing
+#### Category pricing
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -373,7 +373,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `AmountPrices` | array of [Amount](_objects.md#amount) | required | Prices of the rate for the resource category in the covered dates. |
 | ~~`Prices`~~ | ~~array of number~~ | ~~required~~ | ~~Prices of the rate for the resource category in the covered dates.~~ **Deprecated!** Use `AmountPrices` instead.|
 
-#### Category Adjustment
+#### Category adjustment
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -382,15 +382,15 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `AbsoluteValue` | number | required | Absolute value of the adjustment (e.g. `50` represents 50 EUR in case the rate currency is `EUR`). |
 | `RelativeValue` | number | required | Relative value of the adjustment (e.g. `0.5` represents 50% increase). |
 
-#### Age Category Adjustment
+#### Age category adjustment
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AgeCategoryId` | string | required | Unique identifier of the age category. |
 | `AbsoluteValue` | number | required | Absolute value of the adjustment (e.g. `50` represents 50 EUR in case the rate currency is `EUR`). |
-| `Type` | [Age Category Adjustment Type](rates.md#age-category-adjustment-type) | required |  |
+| `Type` | [Age category adjustment type](rates.md#age-category-adjustment-type) | required |  |
 
-#### Age Category Adjustment Type
+#### Age category adjustment type
 
 * `ExtraOccupancyAdjustment`
 * `NegativeOccupancyAdjustment`
@@ -439,40 +439,40 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Rates` | array of [Rate Add Data](rates.md#rate-add-data) | required, max 1000 items | Information about rates to be created. |
+| `Rates` | array of [Rate parameters](rates.md#rate-parameters) | required, max 1000 items | Information about rates to be created. |
 | `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
 
-#### Rate Add Data
+#### Rate parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ServiceId` | string | required | Unique identifier of the service. |
 | `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. |
 | `IsEnabled` | boolean | required | Whether the rate is available to customers. `False` will be used as a default when not provided. |
-| `Type` | [Rate Type](rates.md#rate-type) | required | Type of the rate. |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
 | `Names` | object | optional | All translations of the name of the rate. |
 | `ShortNames` | object | optional | All translations of the short name of the rate. |
 | `ExternalNames` | object | optional | All translations of the external name of the rate. |
 | `Descriptions` | object | optional | All translations of the description. |
-| `PricingType` | [Rate Pricing Discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
+| `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| `Pricing` | [Rate Pricing Data Parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
-#### Rate Pricing Discriminator
+#### Rate pricing discriminator
 
 * `BaseRatePricing`
 * `DependentRatePricing`
 
-#### Rate Pricing Data Parameters
+#### Rate pricing data parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base Rate Pricing Parameters](rates.md#base-rate-pricing-parameters) | optional |  |
-| `DependentRatePricing` | [Dependent Rate Pricing Parameters](rates.md#dependent-rate-pricing-parameters) | optional |  |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional |  |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional |  |
 
-#### Base Rate Pricing Parameters
+#### Base rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -480,7 +480,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `NegativeOccupancyAdjustment` | number | required |  |
 | `ExtraOccupancyAdjustment` | number | required |  |
 
-#### Dependent Rate Pricing Parameters
+#### Dependent rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -558,11 +558,11 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `LastTimeUnitStartUtc` | string | optional |  |
 | `RateId` | string | required | Unique identifier of the base [Rate](rates.md#rate) to update. |
 | `ProductId` | string | optional |  |
-| `PriceUpdates` | array of [Rate Price Update](rates.md#rate-price-update) | required, max 1000 items | Price updates. |
+| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price updates. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
-#### Rate Price Update
+#### Rate price update
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
