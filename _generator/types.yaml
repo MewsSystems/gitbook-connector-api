@@ -875,3 +875,24 @@ types:
   companionshipdeleteparameters:
     file: reservations.md
     anchor: companionshipdeleteparameters
+  resourcecategoryresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryresult
+  resourcecategoryfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryfilterparameters
+  resourcecategoryassignmentresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryassignmentresult
+  resourcecategoryassignmentfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryassignmentfilterparameters
+  resourcecategoryimageassignmentresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryimageassignmentresult
+  resourcecategoryimageassignment:
+    file: resourcecategories.md
+    anchor: resource-category-image-assignment
+  resourcecategoryimageassignmentfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryimageassignmentfilterparameters

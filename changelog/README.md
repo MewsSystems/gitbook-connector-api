@@ -1,7 +1,9 @@
 # Changelog
 
-## 21st August 2024
+## 22nd August 2024
+* Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
 
+## 21st August 2024
 * Extended [Exports](../operations/exports.md#add-export) with support for the following [entity types](../operations/exports.md#exported-entity-type):
   * `AvailabilityAdjustment`
   * `AvailabilityBlock`
