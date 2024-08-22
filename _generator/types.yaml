@@ -352,7 +352,7 @@ types:
     anchor: rate-type
   rategroupold:
     file: rates.md
-    anchor: rate-group-ver-2017-04-12
+    anchor: rate-group
   accountingitem:
     file: accountingitems.md
     anchor: accounting-item
@@ -866,72 +866,6 @@ types:
   taskaddparameters:
     file: tasks.md
     anchor: taskaddparameters
-  rateresult:
-    file: rates.md
-    anchor: rate-result
-  raterestrictionresult:
-    file: rates.md
-    anchor: rate-restriction-result
-  daterestriction:
-    file: rates.md
-    anchor: date-restriction
-  earlinessrestriction:
-    file: rates.md
-    anchor: earliness-restriction
-  lengthrestriction:
-    file: rates.md
-    anchor: length-restriction
-  ratefilterparameters:
-    file: rates.md
-    anchor: rate-filter-parameters
-  rateextent:
-    file: rates.md
-    anchor: rate-extent
-  rateaddresult:
-    file: rates.md
-    anchor: rate-add-result
-  rateaddparameters:
-    file: rates.md
-    anchor: rate-add-parameters
-  rateadddata:
-    file: rates.md
-    anchor: rate-parameters
-  ratepricingdiscriminator:
-    file: rates.md
-    anchor: rate-pricing-discriminator
-  ratepricingdataparameters:
-    file: rates.md
-    anchor: rate-pricing-data-parameters
-  baseratepricingparameters:
-    file: rates.md
-    anchor: base-rate-pricing-parameters
-  dependentratepricingparameters:
-    file: rates.md
-    anchor: dependent-rate-pricing-parameters
-  ratepricing:
-    file: rates.md
-    anchor: rate-pricing
-  categorypricing:
-    file: rates.md
-    anchor: category-pricing
-  categoryadjustment:
-    file: rates.md
-    anchor: category-adjustment
-  agecategoryadjustment:
-    file: rates.md
-    anchor: age-category-adjustment
-  agecategoryadjustmenttype:
-    file: rates.md
-    anchor: age-category-adjustment-type
-  ratepricingparameters:
-    file: rates.md
-    anchor: rate-pricing-parameters
-  ratepriceupdateparameters:
-    file: rates.md
-    anchor: rate-price-update-parameters
-  ratepriceupdate:
-    file: rates.md
-    anchor: rate-price-update
   companionshipaddresult:
     file: reservations.md
     anchor: companionshipaddresult
@@ -941,3 +875,24 @@ types:
   companionshipdeleteparameters:
     file: reservations.md
     anchor: companionshipdeleteparameters
+  resourcecategoryresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryresult
+  resourcecategoryfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryfilterparameters
+  resourcecategoryassignmentresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryassignmentresult
+  resourcecategoryassignmentfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryassignmentfilterparameters
+  resourcecategoryimageassignmentresult:
+    file: resourcecategories.md
+    anchor: resourcecategoryimageassignmentresult
+  resourcecategoryimageassignment:
+    file: resourcecategories.md
+    anchor: resource-category-image-assignment
+  resourcecategoryimageassignmentfilterparameters:
+    file: resourcecategories.md
+    anchor: resourcecategoryimageassignmentfilterparameters
