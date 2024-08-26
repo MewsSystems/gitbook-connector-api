@@ -1,5 +1,8 @@
 # Changelog
 
+## 26nd August 2024
+* Removed [ClientToken level rate limits](../guidelines/environments.md). This is no longer checked in the API. 
+
 ## 22nd August 2024
 * Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
 
