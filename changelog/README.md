@@ -1,5 +1,8 @@
 # Changelog
 
+## 30th August 2024
+* Added new restricted functionality to [request minimal response](../guidelines/requests.md#request-minimal-response) and extended [response codes](../guidelines/responses.md#response-codes) with `204 No content`.
+
 ## 22nd August 2024
 * Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
 
