@@ -448,7 +448,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | :-- | :-- | :-- | :-- |
 | `ServiceId` | string | required | Unique identifier of the service. |
 | `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. |
-| `IsEnabled` | boolean | required | Whether the rate is available to customers. `False` will be used as a default when not provided. |
+| `IsEnabled` | boolean | required | Whether the rate is available to customers. `false` will be used as a default when not provided. |
 | `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
@@ -568,8 +568,8 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | :-- | :-- | :-- | :-- |
 | `CategoryId` | string | optional |  |
 | `Value` | number | optional |  |
-| `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
+| `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `FirstTimeUnitStartUtc` instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `LastTimeUnitStartUtc` instead.|
 
