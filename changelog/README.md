@@ -27,6 +27,11 @@
 * Extended [Voucher code](../operations/vouchercodes.md#voucher-code) response object with `IsActive` property.
   * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
 
+## 30th July 2024
+* Added rolling release support in [Availability blocks](../operations/availabilityblocks.md)
+  * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `RollingReleaseOffset`
+  * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `RollingReleaseOffset` and `ReleaseStrategy` properties
+
 ## 8th July 2024
 * Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
   * [Get all payments](../operations/payments.md#get-all-payments)

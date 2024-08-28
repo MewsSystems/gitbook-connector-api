@@ -317,10 +317,9 @@ Updates information about the specified [Availability block](#availability-block
     "AvailabilityBlocks": [
         {
             "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "Name": {"Value": "Mr. John Snow block"},
-            "FirstTimeUnitStartUtc":{"Value": "2021-07-05T00:00:00Z"},
-            "LastTimeUnitStartUtc":{"Value": "2021-07-15T00:00:00Z"},
-            "ReleasedUtc":{"Value": "2021-07-04T00:00:00Z"},
+            "Name": { "Value": "Mr. John Snow block" },
+            "FirstTimeUnitStartUtc": { "Value": "2021-07-05T00:00:00Z" },
+            "LastTimeUnitStartUtc": { "Value": "2021-07-15T00:00:00Z" },
             "ExternalIdentifier": {"Value": "123456798"}
             "State": { "Value": "Confirmed" },
             "ReservationPurpose": { "Value": "Leisure" },
