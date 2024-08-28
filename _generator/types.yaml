@@ -896,3 +896,15 @@ types:
   resourcecategoryimageassignmentfilterparameters:
     file: resourcecategories.md
     anchor: resourcecategoryimageassignmentfilterparameters
+  agecategoryresult:
+    file: agecategories.md
+    anchor: agecategoryresult
+  agecategory:
+    file: agecategories.md
+    anchor: age-category
+  agecategoryparameters:
+    file: agecategories.md
+    anchor: agecategoryparameters
+  agecategoryclassificationenum:
+    file: agecategories.md
+    anchor: age-category-classification
