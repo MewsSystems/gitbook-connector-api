@@ -320,7 +320,7 @@ Updates information about the specified [Availability block](#availability-block
             "Name": { "Value": "Mr. John Snow block" },
             "FirstTimeUnitStartUtc": { "Value": "2021-07-05T00:00:00Z" },
             "LastTimeUnitStartUtc": { "Value": "2021-07-15T00:00:00Z" },
-            "ExternalIdentifier": {"Value": "123456798"}
+            "ExternalIdentifier": { "Value": "123456798" }
             "State": { "Value": "Confirmed" },
             "ReservationPurpose": { "Value": "Leisure" },
             "BookerId": { "Value": "bdc54ad5-e3bd-4393-80b9-f96d6f63f92e" },
