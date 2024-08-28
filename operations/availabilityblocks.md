@@ -118,6 +118,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "ReleasedUtc": "2021-10-13T00:00:00Z",
+            "RollingReleaseOffset": "P-3DT4H",
             "ExternalIdentifier": "Block-0001",
             "Name": "Wedding group",
             "Notes": "Have a nice stay"
@@ -196,7 +197,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
-| `ReleasedUtc` | string | required | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset` |
+| `RollingReleaseOffset` | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc` |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
@@ -226,6 +228,7 @@ Adds availability blocks which are used to group related [Availability updates](
             "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
             "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
+            "RollingReleaseOffset": "P-3DT4H",
             "ExternalIdentifier": "Block-0001",
             "Budget": {  
                "Value": 500,
@@ -258,7 +261,8 @@ Adds availability blocks which are used to group related [Availability updates](
 | `Name` | string | optional | The name of the block. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
-| `ReleasedUtc` | string | required | The moment when the block and its availability is released. |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. |
+| `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Ignored if `ReleasedUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations. |
 | `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
@@ -318,6 +322,19 @@ Updates information about the specified [Availability block](#availability-block
             "LastTimeUnitStartUtc":{"Value": "2021-07-15T00:00:00Z"},
             "ReleasedUtc":{"Value": "2021-07-04T00:00:00Z"},
             "ExternalIdentifier": {"Value": "123456798"}
+            "State": { "Value": "Confirmed" },
+            "ReservationPurpose": { "Value": "Leisure" },
+            "BookerId": { "Value": "bdc54ad5-e3bd-4393-80b9-f96d6f63f92e" },
+            "Notes": { "Value": "Have a nice stay" },
+            "Budget": { 
+                "Value": {
+                    "Value": 500,
+                    "Currency": "EUR"
+                }
+            },
+            "RollingReleaseOffset": { "Value": "P-3DT4H" },
+            "ReleasedUtc": { "Value": "2021-07-01T00:00:00Z" },
+            "ReleaseStrategy": { "Value": "None" },
         }
     ]
 }
@@ -339,8 +356,24 @@ Updates information about the specified [Availability block](#availability-block
 | `Name` | [String update value](_objects.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
 | `FirstTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). See [Time units](../concepts/time-units.md). |
-| `ReleasedUtc` | [String update value](_objects.md#string-update-value) | required | The moment when the block and its availability is released \(or `null` if the released time should not be updated\). |
 | `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
+| `State` | [String update value](_objects.md#string-update-value) for [Availability block state](#availability-block-state) | optional | State of the availability block (or `null` if not updated). |
+| `ReservationPurpose` | [String update value](_objects.md#string-update-value) for [Reservation purpose](#reservation-purpose) | optional | The purpose of the block (or `null` if not updated). |
+| `BookerId` | [Guid update value](_objects.md#string-update-value) | optional | Unique identifier of the Booker as a creator of an availability block (or `null` if not updated). |
+| `Notes` | [String update value](_objects.md#string-update-value) | optional | Additional notes of the block (or `null` if not updated). |
+| `Budget` | [Currency](accountingitems.md#currency-value) update value | optional | The tentative budget for the total price of reservations (or `null` if not updated). |
+| `RollingReleaseOffset` | [String update value](_objects.md#string-update-value) | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Required if `ReleaseStrategy` is set to `RollingRelease`, ignored otherwise. |
+| `ReleasedUtc` | [String update value](_objects.md#string-update-value) | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Required if `ReleaseStrategy` is set to `FixedRelease`, or used when `ReleaseStrategy` update is unspecified. |
+| `ReleaseStrategy` | [String update value](_objects.md#string-update-value) for [Release strategy](#release-strategy) | optional | The strategy for automatic release of the availability block (or `null` if not updated). |
+
+#### Release strategy
+
+The strategy for automatic release of the availability block.
+
+- `FixedRelease` - The availability block is released at a fixed time.
+- `RollingRelease` - Each availability ajdustment is released at a fixed offset from its start.
+- `None` - The availability block is not automatically released.
+
 
 ### Response
 
