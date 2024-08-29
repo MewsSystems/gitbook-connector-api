@@ -99,7 +99,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AgeCategories` | array of [Age category](agecategories.md#age-category) | optional | Age category of the enterprise. |
+| `AgeCategories` | array of [Age category](agecategories.md#age-category) | required | Age category of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Age category
