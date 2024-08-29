@@ -230,7 +230,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) whose prices should be returned. |
-| `ProductId` | string | optional |  |
+| `ProductId` | string | optional | Unique identifier of the `Product`. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
