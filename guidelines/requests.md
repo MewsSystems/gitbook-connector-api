@@ -79,20 +79,18 @@ if a single request for reservation data over a period of one day returns a 408 
 >
 > This functionality is currently in beta-test and as such it is subject to change.
 
-By default, the API always responds with a `200 OK` status code and a JSON response body containing the result of the operation in case of success. For some use cases, like polling changes and storing responses into a data lake, client may want to opt-in to receiving an empty body with a `204 No Content` status code.
+By default, in case of success the API responds to every request with a `200 OK` status code and a JSON response body containing the result of the operation. For some use cases, like polling changes and storing responses into a data lake, the client may prefer to receive an empty body where appropriate, with a `204 No Content` status code.
 
-This can be achieved by setting the `Prefer` header to `return=minimal` in the request.
+This feature is optional, and can be achieved by setting the `Prefer` header to `return=minimal` in the request.
 
 ```http
 POST /api/connector/v1/reservations/getAll HTTP/1.1
 Host: api.mews-demo.com
 Content-Type: application/json
 Prefer: return=minimal
-
-...
 ```
 
-When the header is present, the API can return `204 No Content` for the following endpoints:
+When the header is present, the API will return `204 No Content` for the following endpoints:
 
-- All endpoints which support [pagination](pagination.md) and request were to result in an empty page.
-- All endpoints which return an empty JSON object in case of success, e.g. [Delete account notes](../operations/accountnotes.md#delete-account-notes).
+- All endpoints which support [pagination](pagination.md) and where the request results in an empty page.
+- All endpoints which normally return an empty JSON object in case of success, e.g. [Delete account notes](../operations/accountnotes.md#delete-account-notes).

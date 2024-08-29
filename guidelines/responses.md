@@ -2,16 +2,16 @@
 
 ## Content-type
 
-The API responds with `Content-Type` set to `application/json` and JSON content in body. In case of 204 response, the `Content-Type` header is not set and response body is empty. 
+The API responds with `Content-Type` set to `application/json`, and with JSON content in the body. In case of a 204 response (see [Request minimal response](requests.md#request-minimal-response)), the `Content-Type` header is _not_ set and the response body is empty. 
 
 ## Response codes
 
-In case of success, the HTTP status code is either 200 and the content contains result according to the call, or the client may opt-in to receive 204 code. In case of error, there are multiple HTTP status codes for different types of errors.
+In case of success, the HTTP status code is normally 200 and the content contains the result according to the nature of the request. The client may opt-in to instead receive HTTP status code 204 in certain circumstances, see [Request minimal response](requests.md#request-minimal-response). In case of error, there are multiple HTTP status codes for different types of errors.
 
 * **200 OK**
-  * Success response. The content contains the result according to the call.
+  * Success response. The content contains the result according to the nature of the request.
 * **204 No Content**
-  * Success response, the content is empty. Clients can opt-in to receive this response code by setting the `Prefer` header to `return=minimal` in the request; see [Request minimal response](requests.md#request-minimal-response).
+  * Success response, the content is empty. Clients can opt-in to receive this response code, see [Request minimal response](requests.md#request-minimal-response).
 * **400 Bad Request**
   * Error caused by the client app, e.g. in case of malformed request or invalid identifier of a resource. In most cases, such an error signifies a bug in the client app \(consumer of the API\).
 * **401 Unauthorized**
