@@ -47,6 +47,9 @@ types:
     file: _objects.md
     anchor: dictionary-of-integers
     titleOverride: Dictionary of integers
+  localizedstrings:
+    file: _objects.md
+    anchor: localized-text
   accountnoteresult:
     file: accountnotes.md
     anchor: accountnoteresult
