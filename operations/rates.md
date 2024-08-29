@@ -66,9 +66,9 @@ Extent of data to be returned.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Rates` | boolean | required | Whether the response should contain rates. |
-| ~~`RateGroups`~~ | ~~boolean~~ | ~~required~~ | ~~Whether the response should contain rate groups.~~ **Deprecated!** Use `rateGroups/getAll`|
-| ~~`RateRestrictions`~~ | ~~boolean~~ | ~~required~~ | ~~Whether the response should contain rate restrictions.~~ **Deprecated!** Use `restrictions/getAll`|
+| `Rates` | boolean | optional | Whether the response should contain rates. |
+| ~~`RateGroups`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rate groups.~~ **Deprecated!** Use `rateGroups/getAll`|
+| ~~`RateRestrictions`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rate restrictions.~~ **Deprecated!** Use `restrictions/getAll`|
 
 ### Response
 
