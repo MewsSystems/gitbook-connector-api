@@ -231,8 +231,6 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) whose prices should be returned. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 
 ### Response
 
@@ -355,8 +353,8 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
 | `TimeUnitStartsUtc` | array of string | required | Set of all time units covered by the time interval; expressed in UTC timezone ISO 8601 format. |
 | `BaseAmountPrices` | array of [Amount](_objects.md#amount) | required | Base prices of the rates for each time unit covered by the time interval. |
-| `CategoryPrices` | array of [Category pricing](rates.md#category-pricing) | required | Resource category prices. |
-| `CategoryAdjustments` | array of [Category adjustment](rates.md#category-adjustment) | required | Resource category adjustments. |
+| `CategoryPrices` | array of [Resource category pricing](rates.md#resource-category-pricing) | required | Resource category prices. |
+| `CategoryAdjustments` | array of [Resource category adjustment](rates.md#resource-category-adjustment) | required | Resource category adjustments. |
 | `AgeCategoryAdjustments` | array of [Age category adjustment](rates.md#age-category-adjustment) | required |  |
 | `RelativeAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
 | `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
@@ -365,7 +363,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | ~~`DatesUtc`~~ | ~~array of string~~ | ~~optional~~ | **Deprecated!** Use `TimeUnitStartsUtc` instead.|
 | ~~`BasePrices`~~ | ~~array of number~~ | ~~required~~ | **Deprecated!** Use `BaseAmountPrices` instead.|
 
-#### Category pricing
+#### Resource category pricing
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -373,7 +371,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `AmountPrices` | array of [Amount](_objects.md#amount) | required | Prices of the rate for the resource category in the covered dates. |
 | ~~`Prices`~~ | ~~array of number~~ | ~~required~~ | ~~Prices of the rate for the resource category in the covered dates.~~ **Deprecated!** Use `AmountPrices` instead.|
 
-#### Category adjustment
+#### Resource category adjustment
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -469,24 +467,24 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional |  |
-| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional |  |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. |
 
 #### Base rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Amount` | [Amount parameters](orders.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
-| `NegativeOccupancyAdjustment` | number | required |  |
-| `ExtraOccupancyAdjustment` | number | required |  |
+| `NegativeOccupancyAdjustment` | number | required | This is the amount added to the price when occupancy of the space is less than the Space Category Capacity. To provide a discount price for under-occupancy, simply use a negative value. |
+| `ExtraOccupancyAdjustment` | number | required | This is the amount added to the price when the Space Category Capacity is exceeded. |
 
 #### Dependent rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRateId` | string | required |  |
-| `RelativeAdjustment` | number | required |  |
-| `AbsoluteAdjustment` | number | required |  |
+| `BaseRateId` | string | required | Unique identifier of the base rate. |
+| `RelativeAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
+| `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
 
 ### Response
 
@@ -559,8 +557,6 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `RateId` | string | required | Unique identifier of the base [Rate](rates.md#rate) to update. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
 | `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price updates. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 
 #### Rate price update
 

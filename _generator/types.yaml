@@ -943,10 +943,10 @@ types:
     anchor: rate-pricing
   categorypricing:
     file: rates.md
-    anchor: category-pricing
+    anchor: resource-category-pricing
   categoryadjustment:
     file: rates.md
-    anchor: category-adjustment
+    anchor: resource-category-adjustment
   agecategoryadjustment:
     file: rates.md
     anchor: age-category-adjustment
