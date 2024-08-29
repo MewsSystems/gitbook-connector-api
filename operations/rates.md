@@ -53,7 +53,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `Extent` | [Rate extent](rates.md#rate-extent) | required | Extent of data to be returned. |
+| `Extent` | [Rate extent](rates.md#rate-extent) | optional | Extent of data to be returned. If not specified, both `Rates` and `RateGroups` will be included. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
