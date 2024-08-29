@@ -227,12 +227,12 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](services.md#time-unit): 367 hours if hours, 367 days if days, or 24 months if months. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) whose prices should be returned. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
+| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
+| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 
 ### Response
 
@@ -554,13 +554,13 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `FirstTimeUnitStartUtc` | string | optional |  |
-| `LastTimeUnitStartUtc` | string | optional |  |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
 | `RateId` | string | required | Unique identifier of the base [Rate](rates.md#rate) to update. |
-| `ProductId` | string | optional |  |
+| `ProductId` | string | optional | Unique identifier of the `Product`. |
 | `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price updates. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
+| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
+| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End date time in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 
 #### Rate price update
 
