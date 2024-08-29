@@ -3,8 +3,7 @@
 
 ## Get all rates
 
-Returns all rates (pricing setups) and rate groups (condition settings) of the default service provided by the enterprise.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all rates (pricing setups) of the default service provided by the enterprise. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
