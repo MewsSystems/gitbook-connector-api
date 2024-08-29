@@ -55,7 +55,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Extent` | [Rate extent](rates.md#rate-extent) | optional | Extent of data to be returned. If not specified, both `Rates` and `RateGroups` will be included. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which `Rate` was updated. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](rates.md#rate) from external systems. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
@@ -113,8 +113,8 @@ Extent of data to be returned.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | array of [Rate](rates.md#rate) | required, max 1000 items | Rates of the default service. |
-| `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | required, max 1000 items | Rate groups of the default service. **Deprecated!** |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
+| ~~`RateGroups`~~ | ~~array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12)~~ | ~~required, max 1000 items~~ | ~~Rate groups of the default service. **Deprecated!**~~ **Deprecated!** Rate groups of the default service.|
 | ~~`RateRestrictions`~~ | ~~[Rate restriction result](rates.md#rate-restriction-result)~~ | ~~required~~ | **Deprecated!** Use `restrictions/getAll`|
 
 #### Rate
@@ -355,7 +355,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | `BaseAmountPrices` | array of [Amount](_objects.md#amount) | required | Base prices of the rates for each time unit covered by the time interval. |
 | `CategoryPrices` | array of [Resource category pricing](rates.md#resource-category-pricing) | required | Resource category prices. |
 | `CategoryAdjustments` | array of [Resource category adjustment](rates.md#resource-category-adjustment) | required | Resource category adjustments. |
-| `AgeCategoryAdjustments` | array of [Age category adjustment](rates.md#age-category-adjustment) | required |  |
+| `AgeCategoryAdjustments` | array of [Age category adjustment](rates.md#age-category-adjustment) | required | Assigns different pricing or occupancy based on the guest's age. |
 | `RelativeAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
 | `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
 | `EmptyUnitAdjustment` | number | required | Price adjustment for when the resource booked with this rate is not full to capacity. |
@@ -386,7 +386,7 @@ The price in the response is dependent on the enterprise's [pricing](configurati
 | :-- | :-- | :-- | :-- |
 | `AgeCategoryId` | string | required | Unique identifier of the age category. |
 | `AbsoluteValue` | number | required | Absolute value of the adjustment (e.g. `50` represents 50 EUR in case the rate currency is `EUR`). |
-| `Type` | [Age category adjustment type](rates.md#age-category-adjustment-type) | required |  |
+| `Type` | [Age category adjustment type](rates.md#age-category-adjustment-type) | required | Age category adjustment type |
 
 #### Age category adjustment type
 
@@ -446,11 +446,11 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | :-- | :-- | :-- | :-- |
 | `ServiceId` | string | required | Unique identifier of the service. |
 | `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. |
-| `IsEnabled` | boolean | required | Whether the rate is available to customers. `false` will be used as a default when not provided. |
+| `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
 | `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
-| `Names` | object | optional | All translations of the name of the rate. |
+| `Names` | object | required | All translations of the name of the rate. |
 | `ShortNames` | object | optional | All translations of the short name of the rate. |
 | `ExternalNames` | object | optional | All translations of the external name of the rate. |
 | `Descriptions` | object | optional | All translations of the description. |
@@ -562,8 +562,8 @@ Note that prices are defined daily, so when the server receives the UTC interval
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CategoryId` | string | optional |  |
-| `Value` | number | optional |  |
+| `CategoryId` | string | optional | Unique identifier of the Resource category whose prices to update. If not specified, base price is updated. |
+| `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 | `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
 

@@ -962,3 +962,6 @@ types:
   ratepriceupdate:
     file: rates.md
     anchor: rate-price-update
+  agecategoryadjustmenttypeenum:
+    file: rates.md
+    anchor: age-category-adjustment-type
