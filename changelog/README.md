@@ -1,6 +1,6 @@
 # Changelog
 
-## 29th August 2024
+## 30th August 2024
 * Deprecated property `ElectronicInvoiceIdentifier` in [Product](../operations/products.md#product). Use `AdditionalTaxIdentifier` instead.  
 
 ## 22nd August 2024
