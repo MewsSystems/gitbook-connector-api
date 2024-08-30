@@ -362,7 +362,7 @@ New address details.
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `ElectronicInvoiceIdentifier` | string | optional | Electronic invoice identifier of the company. |
+| ~~`ElectronicInvoiceIdentifier`~~ | ~~string~~ | ~~optional~~ | ~~Electronic invoice identifier of the company.~~ **Deprecated!** Use AdditionalTaxIdentifier instead. |
 | `Identifier` | string | optional | Other identifier of the company, e.g. legal identifier. |
 | `Iata` | string | optional | Iata of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
