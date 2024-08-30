@@ -965,3 +965,6 @@ types:
   agecategoryadjustmenttypeenum:
     file: rates.md
     anchor: age-category-adjustment-type
+  rateaddtypeenum:
+    file: rates.md
+    anchor: rate-add-type

@@ -446,7 +446,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `ServiceId` | string | required | Unique identifier of the service. |
 | `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. |
 | `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
-| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
+| `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
 | `Names` | object | required | All translations of the name of the rate. |
@@ -456,6 +456,11 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
 | `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+
+#### Rate Add Type
+
+* `Public`
+* `Private`
 
 #### Rate pricing discriminator
 
