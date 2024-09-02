@@ -105,9 +105,13 @@
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Given Reservation draft parameters or Reservation Ids, resolves cancellation policies.
+Given reservation draft parameters or reservation ids, returns applicable Cancellation Policies.
 
-If the response do not contain any cancellation policy for given Reservation draft parameters or Reservation Ids, no cancellation policies apply.
+The reservation draft parameters are used when the reservation does not yet exist. This is useful if information about cancellation policies is needed before the reservation is confirmed.
+
+For existing reservations, supply the reservation ids. This is because the cancellation policies are locked per reservation when the reservation is created. That means the reservaton's cancellation policies are not changed when cancellation policy is created, updated or deleted.
+
+If the response do not contain any cancellation policy for any given reservation draft parameters or reservation id, no cancellation policies apply.
 
 ### Request
 
@@ -148,8 +152,8 @@ If the response do not contain any cancellation policy for given Reservation dra
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationDraftParameters` | array of [Reservation Draft Parameteres](#reservation-draft-parameters) | optional, max 100 items | Start of the time reservation interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `ReservationIds` | array of string | optional, max 100 items | Unique identifiers of Reservations. |
+| `ReservationDraftParameters` | array of [Reservation Draft Parameteres](#reservation-draft-parameters) | optional, max 100 items | Reservation draft parameters used for reservations that has not been confirmed yet. |
+| `ReservationIds` | array of string | optional, max 100 items | Unique identifiers of reservations. |
 
 
 #### Reservation Draft Parameters
@@ -157,7 +161,7 @@ If the response do not contain any cancellation policy for given Reservation dra
 | :-- | :-- | :-- | :-- |
 | `ReservationFirstTimeUnitStartUtc` | string | required | Start of the time reservation interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `ReservationLastTimeUnitStartUtc` | string | required | End of the time reservation interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `RateIds` | array of string | required, max 100 items | Unique identifiers of requested Rates. |
+| `RateIds` | array of string | required, max 100 items | Unique identifiers of requested rates. |
 
 ### Response
 
@@ -236,8 +240,8 @@ If the response do not contain any cancellation policy for given Reservation dra
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CancellationPoliciesByReservationDraft` | array of [Cancellation Policy by Reservation Draft](cancellationpolicies.md#cancellation-policy-by-reservation-draft) | required, max 200 items | Cancellation policies by requested Reservation Drafts. |
-| `CancellationPoliciesByReservation` | array of [Cancellation Policy by Reservation](cancellationpolicies.md#cancellation-policy-by-reservation) | required, max 200 items | Cancellation policies by requested Reservation ids. |
+| `CancellationPoliciesByReservationDraft` | array of [Cancellation Policy by Reservation Draft](cancellationpolicies.md#cancellation-policy-by-reservation-draft) | required, max 200 items | Cancellation policies by requested reservation drafts. |
+| `CancellationPoliciesByReservation` | array of [Cancellation Policy by Reservation](cancellationpolicies.md#cancellation-policy-by-reservation) | required, max 200 items | Cancellation policies by requested reservation ids. |
 
 #### Cancellation Policy by Reservation Draft
 
@@ -252,7 +256,6 @@ If the response do not contain any cancellation policy for given Reservation dra
 | `FeeMaximumTimeUnits` | integer | optional | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
 | `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
-| `IsActive` | boolean | required | Whether the cancellation policy is still active. |
 
 #### Cancellation Policy by Reservation Id
 
@@ -265,7 +268,6 @@ If the response do not contain any cancellation policy for given Reservation dra
 | `FeeMaximumTimeUnits` | integer | optional | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
 | `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
-| `IsActive` | boolean | required | Whether the cancellation policy is still active. |
 
 
 #### Cancellation Policy Applicability
