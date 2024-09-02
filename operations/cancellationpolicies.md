@@ -4,7 +4,7 @@
 ## Get all cancellation policies
 
 > ### DEPRECATED!
-> This operation is deprecated. When the property is using granular cancellation policies feature e.g. shares cancellation policies for multiple rate groups or even rates, API will return not supported response code. Use [get](#get-cancellation-policies) instead or [getForReservations](#get-cancellation-policies-by-reservation) for existing Reservations.
+> This operation is deprecated. When the property is using granular cancellation policies feature e.g. shares cancellation policies for multiple rate groups or even rates, API will return not supported response code. Use [the new get all](#new-getall-cancellation-policies) instead.
 
 ### Request
 
@@ -100,7 +100,7 @@
 | `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
 | `IsActive` | boolean | required | Whether the cancellation policy is still active. |
 
-## Get cancellation policies
+## New get all cancellation policies
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
@@ -111,7 +111,7 @@ If the response do not contain any cancellation policy for given Reservation dra
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/cancellationPolicies/get/2024-09-02`
+`[PlatformAddress]/api/connector/v1/cancellationPolicies/getAll/2024-09-02`
 
 ```javascript
 {
