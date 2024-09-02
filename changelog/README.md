@@ -1,10 +1,10 @@
 # Changelog
 
+## 02nd September 2024
+* Extended [AgeCategory](../operations/agecategories.md#age-category) with `Classification`
+
 ## 30th August 2024
 * Deprecated property `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company). Use `AdditionalTaxIdentifier` instead.  
-
-## 28th August 2024
-* Extended [AgeCategory](../operations/agecategories.md#age-category) with `Classification`
 
 ## 22nd August 2024
 * Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
