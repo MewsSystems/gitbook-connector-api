@@ -112,7 +112,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the service. |
 | `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `IsActive` | boolean | required | Whether the service is still active. |
-| `Names` | object | required | All translations of the name. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
 | `Options` | [Service options](services.md#service-options) | required | Options of the service. |
 | `Ordering` | integer | required | Order value for presentation purposes. |
 | `Data` | [Service data](services.md#service-data) | required | Additional information about the specific service. |
