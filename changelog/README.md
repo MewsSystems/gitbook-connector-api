@@ -1,6 +1,7 @@
 # Changelog
 
 ## 3rd September 2024
+* Added new restricted functionality to [request minimal response](../guidelines/requests.md#request-minimal-response) and extended [response codes](../guidelines/responses.md#response-codes) with `204 No Content`.
 * Extended [AgeCategory](../operations/agecategories.md#age-category) with `Classification`.
 
 ## 30th August 2024
