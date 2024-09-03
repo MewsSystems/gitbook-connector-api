@@ -139,10 +139,6 @@
 ## 6th October 2023
   * Updated [Pagination](../guidelines/pagination.md) documentation
 
-## 20th September 2023
-  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
-    * `ReleasedUtc` is no longer required in the response.
-
 ## 14th September 2023
   * Added operation [Add rates](../operations/rates.md#add-rates)
   * Extended [Rate](../operations/rates.md#rate) with new properties `Type` and `Descriptions`

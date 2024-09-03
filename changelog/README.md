@@ -187,6 +187,10 @@
 ## 15th January 2024
 * Updated [Request limits](../guidelines/README.md#request-limits) for both Demo and Production environments.
 
+## 8th January 2023
+  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
+    * `ReleasedUtc` is no longer required in the response.
+
 | Changelog by year |
 | :-- |
 | [Changelog 2023](changelog2023.md) |
