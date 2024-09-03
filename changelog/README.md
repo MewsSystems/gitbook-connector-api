@@ -1,5 +1,8 @@
 # Changelog
 
+## 3rd September 2024
+* Extended [AgeCategory](../operations/agecategories.md#age-category) with `Classification`.
+
 ## 30th August 2024
 * Added new restricted functionality to [request minimal response](../guidelines/requests.md#request-minimal-response) and extended [response codes](../guidelines/responses.md#response-codes) with `204 No Content`.
 * Deprecated property `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company). Use `AdditionalTaxIdentifier` instead.  
