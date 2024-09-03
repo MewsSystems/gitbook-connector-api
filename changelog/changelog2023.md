@@ -143,6 +143,10 @@
   * Added operation [Add rates](../operations/rates.md#add-rates)
   * Extended [Rate](../operations/rates.md#rate) with new properties `Type` and `Descriptions`
 
+## 20th September 2023
+  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
+    * `ReleasedUtc` is no longer required in the response.
+
 ## 12th September 2023
 
 * Removed `AccountingCounter` from [Counter Type Discriminator](../operations/counters.md#counter-type-discriminator) since it is never used.

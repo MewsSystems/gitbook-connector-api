@@ -197,8 +197,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
-| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset` |
-| `RollingReleaseOffset` | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc` |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automaticaly released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
+| `RollingReleaseOffset` | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automaticaly released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
