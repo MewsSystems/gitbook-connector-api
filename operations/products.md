@@ -265,21 +265,16 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 
 ```javascript
 {
-  "Client": "string",
-  "LanguageCode": "string",
-  "CultureCode": "string",
-  "AccessToken": "string",
-  "ClientToken": "string",
-  "Limitation": {
-    "Count": 0,
-    "Cursor": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-  },
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ProductId": "6b97a38b-0043-41e0-afbd-3f083bdbc0d2",
+  "FirstTimeUnitStartUtc": "2024-03-01T23:00:00.000Z",
+  "LastTimeUnitStartUtc": "2024-03-03T23:00:00.000Z",
   "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-  ],
-  "ProductId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "FirstTimeUnitStartUtc": "2024-04-11T08:54:47.193Z",
-  "LastTimeUnitStartUtc": "2024-04-11T08:54:47.193Z"
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ]
 }
 ```
 
@@ -297,27 +292,49 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 
 ```javascript
 {
-  "ProductId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "ProductId": "6b97a38b-0043-41e0-afbd-3f083bdbc0d2",
   "TimeUnitStartsUtc": [
-    "string"
+    "2024-03-01T23:00:00Z",
+    "2024-03-02T23:00:00Z",
+    "2024-03-03T23:00:00Z"
   ],
   "BaseAmountPrices": [
     {
-      "Currency": "string",
-      "NetValue": 0,
-      "GrossValue": 0,
+      "Currency": "EUR",
+      "NetValue": 93.46,
+      "GrossValue": 100,
       "TaxValues": [
         {
-          "Code": "string",
-          "Value": 0
+          "Code": "DE-2020-1-L",
+          "Value": 6.54
         }
       ],
       "Breakdown": {
         "Items": [
           {
-            "TaxRateCode": "string",
-            "NetValue": 0,
-            "TaxValue": 0
+            "TaxRateCode": "DE-2020-1-L",
+            "NetValue": 93.46,
+            "TaxValue": 6.54
+          }
+        ]
+      }
+    },
+    {
+      "Currency": "EUR",
+      "NetValue": 93.46,
+      "GrossValue": 100,
+      "TaxValues": [
+        {
+          "Code": "DE-2020-1-L",
+          "Value": 6.54
+        }
+      ],
+      "Breakdown": {
+        "Items": [
+          {
+            "TaxRateCode": "DE-2020-1-L",
+            "NetValue": 93.46,
+            "TaxValue": 6.54
           }
         ]
       }
@@ -325,24 +342,44 @@ Returns prices for a given product for a specified time interval. UTC timestamps
   ],
   "AgeCategoryPrices": [
     {
-      "AgeCategoryId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "AgeCategoryId": "7d9d9b11-2c96-4862-9ead-501c6a8ed114",
       "Prices": [
         {
-          "Currency": "string",
-          "NetValue": 0,
-          "GrossValue": 0,
+          "Currency": "EUR",
+          "NetValue": 93.46,
+          "GrossValue": 100,
           "TaxValues": [
             {
-              "Code": "string",
-              "Value": 0
+              "Code": "DE-2020-1-L",
+              "Value": 6.54
             }
           ],
           "Breakdown": {
             "Items": [
               {
-                "TaxRateCode": "string",
-                "NetValue": 0,
-                "TaxValue": 0
+                "TaxRateCode": "DE-2020-1-L",
+                "NetValue": 93.46,
+                "TaxValue": 6.54
+              }
+            ]
+          }
+        },
+        {
+          "Currency": "EUR",
+          "NetValue": 93.46,
+          "GrossValue": 100,
+          "TaxValues": [
+            {
+              "Code": "DE-2020-1-L",
+              "Value": 6.54
+            }
+          ],
+          "Breakdown": {
+            "Items": [
+              {
+                "TaxRateCode": "DE-2020-1-L",
+                "NetValue": 93.46,
+                "TaxValue": 6.54
               }
             ]
           }
