@@ -112,8 +112,8 @@ Extent of data to be returned.
 | :-- | :-- | :-- | :-- |
 | `Rates` | array of [Rate](rates.md#rate) | required, max 1000 items | Rates of the default service. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-| ~~`RateGroups`~~ | ~~array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12)~~ | ~~required, max 1000 items~~ | ~~Rate groups of the default service. **Deprecated!**~~ **Deprecated!** Rate groups of the default service.|
-| ~~`RateRestrictions`~~ | ~~[Rate restriction result](rates.md#rate-restriction-result)~~ | ~~required~~ | **Deprecated!** Use `restrictions/getAll`|
+| ~~`RateGroups`~~ | ~~array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12)~~ | ~~required, max 1000 items~~ | ~~Rate groups of the default service.~~ **Deprecated!** Use [rateGroups/getAll](rategroups.md#request).|
+| ~~`RateRestrictions`~~ | ~~[Rate restriction result](rates.md#rate-restriction-result)~~ | ~~required~~ | **Deprecated!** Use [restrictions/getAll](restrictions.md#request).|
 
 #### Rate
 
