@@ -42,7 +42,7 @@ Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other fi
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `VoucherCodeIds` | array of string | optional, max 1000 items | Unique identifiers of the voucher codes. |
-| `VoucherIds` | array of string | optional, max 1000 items | Unique identifiers of vouchers. |
+| `VoucherIds` | array of string | required, max 1000 items | Unique identifiers of vouchers. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of voucher code's last update date and time. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
