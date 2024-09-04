@@ -911,3 +911,15 @@ types:
   agecategoryclassificationenum:
     file: agecategories.md
     anchor: age-category-classification
+  accountingcategoryresult:
+    file: accountingcategories.md
+    anchor: accountingcategoryresult
+  accountingcategory:
+    file: accountingcategories.md
+    anchor: accounting-category
+  accountingcategoryfilterparameters:
+    file: accountingcategories.md
+    anchor: accountingcategoryfilterparameters
+  accountingcategoryclassificationenum:
+    file: accountingcategories.md
+    anchor: accounting-category-classification
