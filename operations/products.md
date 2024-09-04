@@ -210,14 +210,12 @@ Product
 * `PerTimeUnit`
 
 #### Product options
-Options of the product.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BillAsPackage` | boolean | required | Product should be displayed as part of a package. |
 
 #### Product classifications
-Classifications of the service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
