@@ -2,7 +2,8 @@
 
 ## 4th September 2024
 * Mark filtering parameter `VoucherIds` as required to reflect reality in [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes). Documentation-only.
-* Removed [ClientToken level rate limits](../guidelines/environments.md). This is no longer checked in the API. 
+* Removed 'per Client Token' [request limits](../guidelines/environments.md). This is no longer checked in the API. 
+
 
 ## 3rd September 2024
 * Added new restricted functionality to [request minimal response](../guidelines/requests.md#request-minimal-response) and extended [response codes](../guidelines/responses.md#response-codes) with `204 No Content`.
