@@ -47,6 +47,9 @@ types:
     file: _objects.md
     anchor: dictionary-of-integers
     titleOverride: Dictionary of integers
+  localizedstrings:
+    file: _objects.md
+    anchor: localized-text
   accountnoteresult:
     file: accountnotes.md
     anchor: accountnoteresult
@@ -896,3 +899,15 @@ types:
   resourcecategoryimageassignmentfilterparameters:
     file: resourcecategories.md
     anchor: resourcecategoryimageassignmentfilterparameters
+  agecategoryresult:
+    file: agecategories.md
+    anchor: agecategoryresult
+  agecategory:
+    file: agecategories.md
+    anchor: age-category
+  agecategoryparameters:
+    file: agecategories.md
+    anchor: agecategoryparameters
+  agecategoryclassificationenum:
+    file: agecategories.md
+    anchor: age-category-classification
