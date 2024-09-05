@@ -923,7 +923,6 @@ types:
   accountingcategoryclassificationenum:
     file: accountingcategories.md
     anchor: accounting-category-classification
-
   productpricingresult:
     file: products.md
     anchor: product-pricing-result
