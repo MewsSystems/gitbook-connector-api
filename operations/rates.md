@@ -52,13 +52,13 @@ Returns all rates (pricing setups) of the default service provided by the enterp
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Extent` | [Rate extent](rates.md#rate-extent) | optional | Extent of data to be returned. If not specified, both `Rates` and `RateGroups` will be included. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Rates](rates.md#rate). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which `Rate` was updated. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](rates.md#rate) from external systems. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
-| ~~`Extent`~~ | ~~[Rate extent](rates.md#rate-extent)~~ | ~~optional~~ | ~~Extent of data to be returned. If not specified, both `Rates` and `RateGroups` will be included.~~ **Deprecated!** To retrieve `Restrictions`, use the `restrictions/getAll` endpoint, and for `RateGroups`, use the `rateGroups/getAll` endpoint.|
 
 #### Rate extent
 Extent of data to be returned.
@@ -66,6 +66,7 @@ Extent of data to be returned.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Rates` | boolean | optional | Whether the response should contain rates. |
+| `AvailabilityBlockAssignments` | boolean | required | Whether the response should contain availability block assignments. |
 | ~~`RateGroups`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rate groups.~~ **Deprecated!** Use `rateGroups/getAll`|
 
 ### Response
