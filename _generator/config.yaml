@@ -1,12 +1,12 @@
 source: https://api.mews.com/swagger/connector/swagger.yaml
 output: ../operations
 tags:
-  # - accountingcategories
+  - accountingcategories
   # - accountingitems
   - accountnotes
   # - accounts
   # - addresses
-  # - agecategories
+  - agecategories
   - availabilityadjustments
   # - availabilityblocks
   - bills
