@@ -1,11 +1,16 @@
 # Changelog
 
+## 4th September 2024
+* Mark filtering parameter `VoucherIds` as required to reflect reality in [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes). Documentation-only.
+* Removed 'per Client Token' [request limits](../guidelines/environments.md). This is no longer checked in the API. 
+
+
 ## 3rd September 2024
 * Added new restricted functionality to [request minimal response](../guidelines/requests.md#request-minimal-response) and extended [response codes](../guidelines/responses.md#response-codes) with `204 No Content`.
 * Extended [AgeCategory](../operations/agecategories.md#age-category) with `Classification`.
 
 ## 30th August 2024
-* Deprecated property `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company). Use `AdditionalTaxIdentifier` instead.  
+* Deprecated property `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company). Use `AdditionalTaxIdentifier` instead.
 
 ## 22nd August 2024
 * Extended [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) with filtering parameter `ResourceIds`.
