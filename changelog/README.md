@@ -1,9 +1,11 @@
 # Changelog
 
 ## 6th September 2024
-  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block). Documentation fix for change since 
-    * `ReleasedUtc` is no longer required in the response (change introduced on 8th January 2024 with [rolling release offsets](https://releases.mews.com/en/introducing-rolling-release-dates-to-unlock-allotments-for-availability-blocks)).
-    
+* Added rolling release support in [Availability blocks](../operations/availabilityblocks.md) (initially released on July 30th 2024).
+  * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `RollingReleaseOffset`
+  * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `RollingReleaseOffset` and `ReleaseStrategy` properties
+  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block). 
+* **Breaking:** `ReleasedUtc` is no longer required in the response (change introduced on 8th January 2024 with [rolling release offsets](https://releases.mews.com/en/introducing-rolling-release-dates-to-unlock-allotments-for-availability-blocks)).
 
 ## 4th September 2024
 * Mark filtering parameter `VoucherIds` as required to reflect reality in [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes). Documentation-only.
@@ -43,11 +45,6 @@
 ## 1st August 2024
 * Extended [Voucher code](../operations/vouchercodes.md#voucher-code) response object with `IsActive` property.
   * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
-
-## 30th July 2024
-* Added rolling release support in [Availability blocks](../operations/availabilityblocks.md)
-  * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `RollingReleaseOffset`
-  * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `RollingReleaseOffset` and `ReleaseStrategy` properties
 
 ## 8th July 2024
 * Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
