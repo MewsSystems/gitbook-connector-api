@@ -1,5 +1,10 @@
 # Changelog
 
+## 6th September 2024
+  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block). Documentation fix for change since 
+    * `ReleasedUtc` is no longer required in the response (change introduced on 8th January 2024 with [rolling release offsets](https://releases.mews.com/en/introducing-rolling-release-dates-to-unlock-allotments-for-availability-blocks)).
+    
+
 ## 4th September 2024
 * Mark filtering parameter `VoucherIds` as required to reflect reality in [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes). Documentation-only.
 * Removed 'per Client Token' [request limits](../guidelines/environments.md). This is no longer checked in the API. 
@@ -198,10 +203,6 @@
 
 ## 15th January 2024
 * Updated [Request limits](../guidelines/README.md#request-limits) for both Demo and Production environments.
-
-## 8th January 2023
-  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
-    * `ReleasedUtc` is no longer required in the response.
 
 | Changelog by year |
 | :-- |
