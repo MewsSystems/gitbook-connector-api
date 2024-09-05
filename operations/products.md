@@ -158,7 +158,6 @@ Returns all products offered together with the specified services. Note this ope
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest product returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older products. |
 
 #### Product
-Product
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -240,10 +239,10 @@ Product
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Multiplier` | number | required |  |
-| `Target` | string | optional |  |
-| `TaxRateCodes` | array of string | optional |  |
-| `ProductIds` | array of string | optional |  |
+| ~~`Multiplier`~~ | ~~number~~ | ~~required~~ | **Deprecated!** |
+| ~~`Target`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
+| ~~`TaxRateCodes`~~ | ~~array of string~~ | ~~optional~~ | **Deprecated!** |
+| ~~`ProductIds`~~ | ~~array of string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Product consumption moment
 
