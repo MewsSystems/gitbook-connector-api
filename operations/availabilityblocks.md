@@ -363,14 +363,14 @@ Updates information about the specified [Availability block](#availability-block
 | `Budget` | [Currency](accountingitems.md#currency-value) update value | optional | The tentative budget for the total price of reservations (or `null` if not updated). |
 | `RollingReleaseOffset` | [String update value](_objects.md#string-update-value) | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Required if `ReleaseStrategy` is set to `RollingRelease`, ignored otherwise. |
 | `ReleasedUtc` | [String update value](_objects.md#string-update-value) | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Required if `ReleaseStrategy` is set to `FixedRelease`, or used when `ReleaseStrategy` update is unspecified. |
-| `ReleaseStrategy` | [String update value](_objects.md#string-update-value) for [Release strategy](#release-strategy) | optional | The strategy for automatic release of the availability block (or `null` if not updated). |
+| `ReleaseStrategy` | [String update value](_objects.md#string-update-value) | optional | The strategy for automatic release of the availability block. If this property is not specified, the release strategy is not updated. |
 
 #### Release strategy
 
 The strategy for automatic release of the availability block.
 
 - `FixedRelease` - The availability block is released at a fixed time.
-- `RollingRelease` - Each availability ajdustment is released at a fixed offset from its start.
+- `RollingRelease` - Each availability adjustment is released at a fixed offset from its start.
 - `None` - The availability block is not automatically released.
 
 
