@@ -118,10 +118,33 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
             "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
             "ReleasedUtc": "2021-10-13T00:00:00Z",
-            "RollingReleaseOffset": "P-3DT4H",
+            "RollingReleaseOffset": null,
             "ExternalIdentifier": "Block-0001",
             "Name": "Wedding group",
             "Notes": "Have a nice stay"
+        },
+        {
+            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "VoucherId": null,
+            "BookerId": null,
+            "CompanyId": null,
+            "Budget": {
+                "Currency": "USD",
+                "Value": 48.0
+            },
+            "State": "Confirmed",
+            "ReservationPurpose": "Leisure",
+            "CreatedUtc": "2022-10-11T13:32:32Z",
+            "UpdatedUtc": "2022-10-11T13:32:32Z",
+            "FirstTimeUnitStartUtc": "2022-10-14T00:00:00Z",
+            "LastTimeUnitStartUtc": "2022-11-17T00:00:00Z",
+            "ReleasedUtc": null,
+            "RollingReleaseOffset": "P-3DT4H",
+            "ExternalIdentifier": "Block-0002",
+            "Name": "Rolling release",
+            "Notes": null
         }
     ],
     "ServiceOrders": [
@@ -197,8 +220,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
-| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automaticaly released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
-| `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automaticaly released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
+| `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
@@ -228,8 +251,25 @@ Adds availability blocks which are used to group related [Availability updates](
             "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
             "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
             "ReleasedUtc": "2020-11-04T00:00:00Z",
-            "RollingReleaseOffset": "P-3DT4H",
             "ExternalIdentifier": "Block-0001",
+            "Budget": {  
+               "Value": 500,
+               "Currency": "EUR"
+            },
+            "ReservationPurpose": null,
+            "Notes": null,
+            "State": "Confirmed",
+            "BookerId": null
+        },
+        {
+            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+            "VoucherCode": null,
+            "Name": "ROlling release block",
+            "FirstTimeUnitStartUtc": "2021-11-05T00:00:00Z",
+            "LastTimeUnitStartUtc": "2021-11-06T00:00:00Z",
+            "RollingReleaseOffset": "P-3DT4H",
+            "ExternalIdentifier": "Block-0002",
             "Budget": {  
                "Value": 500,
                "Currency": "EUR"
@@ -331,9 +371,26 @@ Updates information about the specified [Availability block](#availability-block
                     "Currency": "EUR"
                 }
             },
-            "RollingReleaseOffset": { "Value": "P-3DT4H" },
             "ReleasedUtc": { "Value": "2021-07-01T00:00:00Z" },
-            "ReleaseStrategy": { "Value": "None" },
+            "ReleaseStrategy": { "Value": "None" }
+        },
+        {
+            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "Name": { "Value": "Rolling release block" },
+            "FirstTimeUnitStartUtc": { "Value": "2022-07-05T00:00:00Z" },
+            "LastTimeUnitStartUtc": { "Value": "2022-07-15T00:00:00Z" },
+            "ExternalIdentifier": { "Value": "Block2" }
+            "State": { "Value": "Confirmed" },
+            "ReservationPurpose": { "Value": "Leisure" },
+            "BookerId": { "Value": "bdc54ad5-e3bd-4393-80b9-f96d6f63f92e" },
+            "Budget": { 
+                "Value": {
+                    "Value": 500,
+                    "Currency": "EUR"
+                }
+            },
+            "RollingReleaseOffset": { "Value": "P-3DT4H" },
+            "ReleaseStrategy": { "Value": "RollingRelease" }
         }
     ]
 }
