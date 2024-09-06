@@ -301,7 +301,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `Name` | string | optional | The name of the block. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
-| `ReleasedUtc` | string | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Takes precedence over `RollingReleaseOffset`. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Ignored if `ReleasedUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations. |
