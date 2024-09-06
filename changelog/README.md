@@ -1,11 +1,17 @@
 # Changelog
 
 ## 6th September 2024
+* **Breaking:** `ReleasedUtc` is no longer required in the response (change introduced on 8th January 2024 with [rolling release offsets](https://releases.mews.com/en/introducing-rolling-release-dates-to-unlock-allotments-for-availability-blocks)).
 * Added rolling release support in [Availability blocks](../operations/availabilityblocks.md) (initially released on July 30th 2024).
   * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `RollingReleaseOffset`
   * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `RollingReleaseOffset` and `ReleaseStrategy` properties
-  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block). 
-* **Breaking:** `ReleasedUtc` is no longer required in the response (change introduced on 8th January 2024 with [rolling release offsets](https://releases.mews.com/en/introducing-rolling-release-dates-to-unlock-allotments-for-availability-blocks)).
+  * Added `RollingReleaseOffset` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
+* Documented missing fields in [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters):
+  * `State`
+  * `ReservationPurpose`
+  * `BookerId`
+  * `Notes`
+  * `Budget`
 
 ## 4th September 2024
 * Mark filtering parameter `VoucherIds` as required to reflect reality in [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes). Documentation-only.
