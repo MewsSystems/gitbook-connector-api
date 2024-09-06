@@ -124,7 +124,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Notes": "Have a nice stay"
         },
         {
-            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "Id": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
             "VoucherId": null,
@@ -192,7 +192,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "UpdatedUtc": "2021-10-21T13:32:32Z"
         }
     ],
-     "Cursor": "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
+     "Cursor": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773"
 }
 ```
 
@@ -375,7 +375,7 @@ Updates information about the specified [Availability block](#availability-block
             "ReleaseStrategy": { "Value": "None" }
         },
         {
-            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
+            "AvailabilityBlockId": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
             "Name": { "Value": "Rolling release block" },
             "FirstTimeUnitStartUtc": { "Value": "2022-07-05T00:00:00Z" },
             "LastTimeUnitStartUtc": { "Value": "2022-07-15T00:00:00Z" },
