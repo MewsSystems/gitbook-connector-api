@@ -155,7 +155,7 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 | `ResourceCategoryIds` | array of string | required, max 1000 items | Unique identifiers of [Resource categories](resourcecategories.md#resource-category) to which the resource category assignment belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the resource category assignments were updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of resources to which the resource category assignment belong. |
+| `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of resources to which the resource category assignments belong. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
@@ -278,5 +278,16 @@ Returns all resource category image assignments. This operation uses [Pagination
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ResourceCategoryImageAssignments` | array of [Resource category image assignment](resources.md#resource-category-image-assignment) | required, max 1000 items | Resource category image assignments. |
+| `ResourceCategoryImageAssignments` | array of [Resource category image assignment](resourcecategories.md#resource-category-image-assignment) | required, max 1000 items | Resource category image assignments. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest resource category image assignment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older resource category image assignments. |
+
+#### Resource category image assignment
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the assignment. |
+| `IsActive` | boolean | required | Whether the assignment is still active. |
+| `CategoryId` | string | required | Unique identifier of the [Resource category](resourcecategories.md#resource-category). |
+| `ImageId` | string | required | Unique identifier of the image assigned to the Resource category. |
+| `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
