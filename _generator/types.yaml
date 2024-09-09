@@ -355,7 +355,7 @@ types:
     anchor: rate-type
   rategroupold:
     file: rates.md
-    anchor: rate-group
+    anchor: rate-group-ver-2017-04-12
   accountingitem:
     file: accountingitems.md
     anchor: accounting-item
@@ -923,3 +923,72 @@ types:
   accountingcategoryclassificationenum:
     file: accountingcategories.md
     anchor: accounting-category-classification
+  rateresult:
+    file: rates.md
+    anchor: rate-result
+  raterestrictionresult:
+    file: rates.md
+    anchor: rate-restriction-result
+  daterestriction:
+    file: rates.md
+    anchor: date-restriction
+  earlinessrestriction:
+    file: rates.md
+    anchor: earliness-restriction
+  lengthrestriction:
+    file: rates.md
+    anchor: length-restriction
+  ratefilterparameters:
+    file: rates.md
+    anchor: rate-filter-parameters
+  rateextent:
+    file: rates.md
+    anchor: rate-extent
+  rateaddresult:
+    file: rates.md
+    anchor: rate-add-result
+  rateaddparameters:
+    file: rates.md
+    anchor: rate-add-parameters
+  rateadddata:
+    file: rates.md
+    anchor: rate-parameters
+  rateaddtypeenum:
+    file: rates.md
+    anchor: rate-add-type
+  ratepricingdiscriminator:
+    file: rates.md
+    anchor: rate-pricing-discriminator
+  ratepricingdataparameters:
+    file: rates.md
+    anchor: rate-pricing-data-parameters
+  baseratepricingparameters:
+    file: rates.md
+    anchor: base-rate-pricing-parameters
+  dependentratepricingparameters:
+    file: rates.md
+    anchor: dependent-rate-pricing-parameters
+  ratepricing:
+    file: rates.md
+    anchor: rate-pricing
+  categorypricing:
+    file: rates.md
+    anchor: resource-category-pricing
+  categoryadjustment:
+    file: rates.md
+    anchor: resource-category-adjustment
+  agecategoryadjustment:
+    file: rates.md
+    anchor: age-category-adjustment
+  agecategoryadjustmenttypeenum:
+    file: rates.md
+    anchor: age-category-adjustment-type
+  ratepricingparameters:
+    file: rates.md
+    anchor: rate-pricing-parameters
+  ratepriceupdateparameters:
+    file: rates.md
+    anchor: rate-price-update-parameters
+  ratepriceupdate:
+    file: rates.md
+    anchor: rate-price-update
