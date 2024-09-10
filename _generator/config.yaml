@@ -45,7 +45,7 @@ tags:
   # - payments
   # - preauthorizations
   # - productcategories
-  # - products
+  - products
   # - productserviceorders
   # - rategroups
   - rates
