@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th September 2024
+* Extended [CustomerAccount](../operations/accounts.md#CustomerAccount) with property `DietaryRequirements`.
+* Extended [AccountCustomerUpdateParameters](../operations/accounts.md#AccountCustomerUpdateParameters) with property `DietaryRequirements`.
+
 ## 4th September 2024
 * Mark filtering parameter `VoucherIds` as required to reflect reality in [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes). Documentation-only.
 * Removed 'per Client Token' [request limits](../guidelines/environments.md). This is no longer checked in the API. 

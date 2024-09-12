@@ -87,7 +87,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: vouchers.md
+    file: accounts.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -923,3 +923,63 @@ types:
   accountingcategoryclassificationenum:
     file: accountingcategories.md
     anchor: accounting-category-classification
+  accountresult:
+    file: accounts.md
+    anchor: accountresult
+  account:
+    file: accounts.md
+    anchor: account
+  customeraccount:
+    file: accounts.md
+    anchor: customeraccount
+  customeraccountoptions:
+    file: accounts.md
+    anchor: customeraccountoptions
+  customeraccountclassifications:
+    file: accounts.md
+    anchor: customeraccountclassifications
+  legalentityidentifiers:
+    file: accounts.md
+    anchor: legalentityidentifiers
+  companyaccount:
+    file: accounts.md
+    anchor: companyaccount
+  companyaccountclassifications:
+    file: accounts.md
+    anchor: companyaccountclassifications
+  companyaccountoptions:
+    file: accounts.md
+    anchor: companyaccountoptions
+  multipleaccountupdateparameters:
+    file: accounts.md
+    anchor: multipleaccountupdateparameters
+  accountupdateparameters:
+    file: accounts.md
+    anchor: accountupdateparameters
+  accountcustomerupdateparameters:
+    file: accounts.md
+    anchor: accountcustomerupdateparameters
+  customeroptionupdateparameters:
+    file: accounts.md
+    anchor: customeroptionupdateparameters
+  customerclassificationupdateparameters:
+    file: accounts.md
+    anchor: customerclassificationupdateparameters
+  legalentityidentifierupdateparameters:
+    file: accounts.md
+    anchor: legalentityidentifierupdateparameters
+  accountcompanyupdateparameters:
+    file: accounts.md
+    anchor: accountcompanyupdateparameters
+  companyclassificationupdateparameters:
+    file: accounts.md
+    anchor: companyclassificationupdateparameters
+  multipleaccountmergeparameters:
+    file: accounts.md
+    anchor: multipleaccountmergeparameters
+  accountmergeparameter:
+    file: accounts.md
+    anchor: accountmergeparameter
+  mergeaccounttype:
+    file: accounts.md
+    anchor: mergeaccounttype
