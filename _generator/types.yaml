@@ -313,13 +313,13 @@ types:
     anchor: amount
   productpricingcoproductofproductpricing:
     file: products.md
-    anchor: pricing
+    anchor: product-pricing
   productpricing:
     file: products.md
-    anchor: product-pricing
+    anchor: product-pricing-data-discriminator
   relativeproductprice:
     file: products.md
-    anchor: relativeproductprice
+    anchor: relative-product-price
   productconsumptionmoment:
     file: products.md
     anchor: productconsumptionmoment
@@ -355,7 +355,7 @@ types:
     anchor: rate-type
   rategroupold:
     file: rates.md
-    anchor: rate-group
+    anchor: rate-group-ver-2017-04-12
   accountingitem:
     file: accountingitems.md
     anchor: accounting-item
@@ -923,6 +923,105 @@ types:
   accountingcategoryclassificationenum:
     file: accountingcategories.md
     anchor: accounting-category-classification
+  rateresult:
+    file: rates.md
+    anchor: rate-result
+  raterestrictionresult:
+    file: rates.md
+    anchor: rate-restriction-result
+  daterestriction:
+    file: rates.md
+    anchor: date-restriction
+  earlinessrestriction:
+    file: rates.md
+    anchor: earliness-restriction
+  lengthrestriction:
+    file: rates.md
+    anchor: length-restriction
+  ratefilterparameters:
+    file: rates.md
+    anchor: rate-filter-parameters
+  rateextent:
+    file: rates.md
+    anchor: rate-extent
+  rateaddresult:
+    file: rates.md
+    anchor: rate-add-result
+  rateaddparameters:
+    file: rates.md
+    anchor: rate-add-parameters
+  rateadddata:
+    file: rates.md
+    anchor: rate-parameters
+  rateaddtypeenum:
+    file: rates.md
+    anchor: rate-add-type
+  ratepricingdiscriminator:
+    file: rates.md
+    anchor: rate-pricing-discriminator
+  ratepricingdataparameters:
+    file: rates.md
+    anchor: rate-pricing-data-parameters
+  baseratepricingparameters:
+    file: rates.md
+    anchor: base-rate-pricing-parameters
+  dependentratepricingparameters:
+    file: rates.md
+    anchor: dependent-rate-pricing-parameters
+  ratepricing:
+    file: rates.md
+    anchor: rate-pricing
+  categorypricing:
+    file: rates.md
+    anchor: resource-category-pricing
+  categoryadjustment:
+    file: rates.md
+    anchor: resource-category-adjustment
+  agecategoryadjustment:
+    file: rates.md
+    anchor: age-category-adjustment
+  agecategoryadjustmenttypeenum:
+    file: rates.md
+    anchor: age-category-adjustment-type
+  ratepricingparameters:
+    file: rates.md
+    anchor: rate-pricing-parameters
+  ratepriceupdateparameters:
+    file: rates.md
+    anchor: rate-price-update-parameters
+  ratepriceupdate:
+    file: rates.md
+    anchor: rate-price-update
+  productpricingresult:
+    file: products.md
+    anchor: product-pricing-result
+  productagecategoryprice:
+    file: products.md
+    anchor: age-category-price
+  productpricingfilterparameters:
+    file: products.md
+    anchor: product-pricing-parameters
+  productresult:
+    file: products.md
+    anchor: product-result
+  productchargingmodeenum:
+    file: products.md
+    anchor: product-charging-mode
+  productpostingenum:
+    file: products.md
+    anchor: product-posting
+  productpostingmodeenum:
+    file: products.md
+    anchor: product-posting-mode
+  productconsumptionmomentenum:
+    file: products.md
+    anchor: product-consumption-moment
+  productfilterparameters:
+    file: products.md
+    anchor: product-parameters
+  productdeleteparameters:
+    file: products.md
+    anchor: product-delete-parameters
   accountresult:
     file: accounts.md
     anchor: accountresult

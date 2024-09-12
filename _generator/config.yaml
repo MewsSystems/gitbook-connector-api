@@ -45,10 +45,10 @@ tags:
   # - payments
   # - preauthorizations
   # - productcategories
-  # - products
+  - products
   # - productserviceorders
   # - rategroups
-  # - rates
+  - rates
   # - reservationgroups
   - reservations
   # - resourceaccesstokens
