@@ -87,7 +87,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: _objects.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1022,3 +1022,48 @@ types:
   productdeleteparameters:
     file: products.md
     anchor: product-delete-parameters
+  multipleavailabilityblockdeleteparameters:
+    file: availabilityblocks.md
+    anchor: multipleavailabilityblockdeleteparameters
+  availabilityblockresult:
+    file: availabilityblocks.md
+    anchor: availabilityblockresult
+  availabilityblock:
+    file: availabilityblocks.md
+    anchor: availability-block
+  pickupdistribution:
+    file: availabilityblocks.md
+    anchor: pickupdistribution
+  availabilityblockparameters:
+    file: availabilityblocks.md
+    anchor: availabilityblockparameters
+  availabilityblockextent:
+    file: availabilityblocks.md
+    anchor: availabilityblockextent
+  availabilityblockaddresult:
+    file: availabilityblocks.md
+    anchor: availabilityblockaddresult
+  multipleavailabilityblockaddparameters:
+    file: availabilityblocks.md
+    anchor: multipleavailabilityblockaddparameters
+  availabilityblockaddparameters:
+    file: availabilityblocks.md
+    anchor: availability-block-parameters
+  availabilityblockstate:
+    file: availabilityblocks.md
+    anchor: availabilityblockstate
+  multipleavailabilityblockupdateparameters:
+    file: availabilityblocks.md
+    anchor: multipleavailabilityblockupdateparameters
+  availabilityblockupdateparameters:
+    file: availabilityblocks.md
+    anchor: availability-block-update-parameters
+  currencyvalueoldupdatevalue:
+    file: availabilityblocks.md
+    anchor: currencyvalueoldupdatevalue
+  releasestrategyupdatevalue:
+    file: availabilityblocks.md
+    anchor: releasestrategyupdatevalue
+  releasestrategyenum:
+    file: availabilityblocks.md
+    anchor: the-strategy-for-automatic-release-of-the-availability-block
