@@ -1022,3 +1022,18 @@ types:
   productdeleteparameters:
     file: products.md
     anchor: product-delete-parameters
+  cancellationpolicybyreservationresult:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicybyreservationresult
+  cancellationpolicybyreservation:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-data-grouped-by-reservation
+  cancellationpolicyapplicabilityenum:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-applicability
+  cancellationfeeextentenum:
+    file: cancellationpolicies.md
+    anchor: cancellation-fee-extent
+  cancellationpolicybyreservationparameters:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicybyreservationparameters

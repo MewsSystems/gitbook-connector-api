@@ -112,3 +112,98 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 * `TimeUnits`
 * `Products`
+
+## Get cancellation policies by reservations
+
+Gets cancellation policies for enterprise grouped by reservation for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/cancellationPolicies/getByReservations`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ReservationIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationIds` | array of string | optional, max 100 items | List of reservation identifiers. |
+
+### Response
+
+```javascript
+{
+  "CancellationPolicies": [
+    {
+      "ReservationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "Applicability": "Start",
+      "FeeExtents": [
+        "TimeUnits",
+        "Products"
+      ],
+      "ApplicabilityOffset": "P10DT20H30M",
+      "FeeMaximumTimeUnits": 1,
+      "AbsoluteFee": {
+        "Currency": "EUR",
+        "Value": 20
+      },
+      "RelativeFee": 0.1
+    },
+    {
+      "ReservationId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+      "Applicability": "Start",
+      "FeeExtents": [
+        "TimeUnits",
+        "Products"
+      ],
+      "ApplicabilityOffset": "P10DT10H30M",
+      "FeeMaximumTimeUnits": 2,
+      "AbsoluteFee": {
+        "Currency": "EUR",
+        "Value": 15
+      },
+      "RelativeFee": 0.2
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CancellationPolicies` | array of [Cancellation policy data grouped by reservation.](cancellationpolicies.md#cancellation-policy-data-grouped-by-reservation) | required, max 1300 items | List of cancellation policies data grouped by reservation. |
+
+#### Cancellation policy data grouped by reservation.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `Applicability` | [Cancellation Policy Applicability](cancellationpolicies.md#cancellation-policy-applicability) | required | Applicability mode of the cancellation policy. |
+| `FeeExtents` | array of [Cancellation Fee Extent](cancellationpolicies.md#cancellation-fee-extent) | required | Extent for the cancellation fee, i.e. what should be in scope for the automatic payment. |
+| `ApplicabilityOffset` | string | required | Offset for order start (assuming Applicability is set to Start) from which the fee is applied. |
+| `FeeMaximumTimeUnits` | integer | optional | Maximum number of time units the cancellation fee is applicable to. |
+| `AbsoluteFee` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
+| `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
+
+#### Cancellation Policy Applicability
+
+* `Creation`
+* `Start`
+* `StartDate`
+
+#### Cancellation Fee Extent
+
+* `Nothing`
+* `TimeUnits`
+* `Products`
+* `Everything`

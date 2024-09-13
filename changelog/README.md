@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th September 2024
+
+* Added operation [Get cancellation policies by reservations](../operations/cancellationpolicies.md#get-cancellation-policies-by-reservations).
+
 ## 9th September 2024
 * **Breaking:** In [Availability block response object](../operations/availabilityblocks.md#availability-block) `ReleasedUtc` property is no longer required. The breaking change was introduced on 8th of January 2024 with [rolling release offsets](https://releases.mews.com/en/introducing-rolling-release-dates-to-unlock-allotments-for-availability-blocks). The following operations are affected:
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
