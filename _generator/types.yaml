@@ -87,7 +87,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: _objects.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1022,3 +1022,27 @@ types:
   productdeleteparameters:
     file: products.md
     anchor: product-delete-parameters
+  addressresult:
+    file: addresses.md
+    anchor: addressresult
+  accountaddress:
+    file: addresses.md
+    anchor: account-address
+  addressfilterparameters:
+    file: addresses.md
+    anchor: addressfilterparameters
+  multipleaddressaddparameters:
+    file: addresses.md
+    anchor: multipleaddressaddparameters
+  addressaddparameters:
+    file: addresses.md
+    anchor: account-address-parameters
+  multipleaddressupdateparameters:
+    file: addresses.md
+    anchor: multipleaddressupdateparameters
+  addressupdateparameters:
+    file: addresses.md
+    anchor: account-address-update-parameters
+  addressdeleteparameters:
+    file: addresses.md
+    anchor: addressdeleteparameters
