@@ -1039,7 +1039,7 @@ types:
     anchor: availabilityblockparameters
   availabilityblockextent:
     file: availabilityblocks.md
-    anchor: availabilityblockextent
+    anchor: availability-block-extent
   availabilityblockaddresult:
     file: availabilityblocks.md
     anchor: availabilityblockaddresult
@@ -1051,7 +1051,7 @@ types:
     anchor: availability-block-parameters
   availabilityblockstate:
     file: availabilityblocks.md
-    anchor: availabilityblockstate
+    anchor: availability-block-state
   multipleavailabilityblockupdateparameters:
     file: availabilityblocks.md
     anchor: multipleavailabilityblockupdateparameters
@@ -1067,3 +1067,9 @@ types:
   releasestrategyenum:
     file: availabilityblocks.md
     anchor: the-strategy-for-automatic-release-of-the-availability-block
+  availabilityblockstateenum:
+    file: availabilityblocks.md
+    anchor: availability-block-state
+  pickupdistributionenum:
+    file: availabilityblocks.md
+    anchor: pickup-distribution
