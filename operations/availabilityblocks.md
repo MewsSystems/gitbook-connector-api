@@ -269,7 +269,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) to assign block to. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. |
-| `ReleasedUtc` | string | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Takes precedence over `RollingReleaseOffset`. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Ignored if `ReleasedUtc` is specified. |
 | `Name` | string | optional | The name of the block. |
 | `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](rates.md#rate). |
@@ -281,13 +281,6 @@ Adds availability blocks which are used to group related [Availability updates](
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
 | `Notes` | string | optional | Additional notes of the block. |
 | `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
-
-#### Availability block state
-
-* `Confirmed` - The block deducts availability and can have reservations assigned.
-* `Optional` - The block deducts availability and cannot have reservations assigned.
-* `Inquired` - The block does not deduct availability and cannot have reservations assigned (waitlist).
-* `Canceled` - The block does not deduct availability and cannot have reservations assigned (waitlist).
 
 ### Response
 
