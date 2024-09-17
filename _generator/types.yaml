@@ -1022,3 +1022,12 @@ types:
   productdeleteparameters:
     file: products.md
     anchor: product-delete-parameters
+  rategroupresult:
+    file: rategroups.md
+    anchor: rategroupresult
+  rategroup:
+    file: rategroups.md
+    anchor: rate-group
+  rategroupfilterparameters:
+    file: rategroups.md
+    anchor: rategroupfilterparameters
