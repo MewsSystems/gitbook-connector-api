@@ -1066,7 +1066,7 @@ types:
     anchor: releasestrategyupdatevalue
   releasestrategyenum:
     file: availabilityblocks.md
-    anchor: the-strategy-for-automatic-release-of-the-availability-block
+    anchor: release-strategy
   availabilityblockstateenum:
     file: availabilityblocks.md
     anchor: availability-block-state

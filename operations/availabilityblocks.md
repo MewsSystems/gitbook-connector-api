@@ -382,9 +382,9 @@ Updates information about the specified [Availability block](availabilityblocks.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Value` | [The strategy for automatic release of the availability block.](availabilityblocks.md#the-strategy-for-automatic-release-of-the-availability-block) | required |  |
+| `Value` | [Release Strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 
-#### The strategy for automatic release of the availability block.
+#### Release Strategy
 
 * `FixedRelease` - The availability block is released at a fixed time.
 * `RollingRelease` - Each availability adjustment is released at a fixed offset from its start.
