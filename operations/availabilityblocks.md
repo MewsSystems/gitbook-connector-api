@@ -187,7 +187,7 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) used to access specified private [Rate](rates.md#rate). |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
 | `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) linked to the block. |
-| `TravelAgencyId` | string | optional | Unique identifier of the `Travel agency`. |
+| `TravelAgencyId` | string | optional | Unique identifier of [Company](companies.md#company) with [Travel agency contract](companycontracts.md#travel-agency-contract) the Availability Block is related to. |
 | `Budget` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | The tentative budget for the total price of reservations in the block. |
 | `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
 | `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
@@ -195,7 +195,7 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. |
+| `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the individual days in the adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
@@ -205,15 +205,15 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 
 #### Availability block state
 
-* `Confirmed`
-* `Optional`
-* `Inquired`
-* `Canceled`
+* `Confirmed` - The block deducts availability and can have reservations assigned.
+* `Optional` - The block deducts availability and cannot have reservations assigned.
+* `Inquired` - The block does not deduct availability and cannot have reservations assigned (waitlist).
+* `Canceled` - The block does not deduct availability and cannot have reservations assigned (waitlist).
 
 #### Pickup Distribution
 
-* `AllInOneGroup`
-* `IndividualGroups`
+* `AllInOneGroup` - All created reservations in the block are added to the same reservation group.
+* `IndividualGroups` - Reservations can be picked up in multiple groups, with up to 750 reservations per group.
 
 ## Add availability blocks
 
@@ -284,10 +284,10 @@ Adds availability blocks which are used to group related [Availability updates](
 
 #### Availability block state
 
-* `Confirmed`
-* `Optional`
-* `Inquired`
-* `Canceled`
+* `Confirmed` - The block deducts availability and can have reservations assigned.
+* `Optional` - The block deducts availability and cannot have reservations assigned.
+* `Inquired` - The block does not deduct availability and cannot have reservations assigned (waitlist).
+* `Canceled` - The block does not deduct availability and cannot have reservations assigned (waitlist).
 
 ### Response
 
