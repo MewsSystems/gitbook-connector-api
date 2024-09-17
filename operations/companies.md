@@ -362,7 +362,6 @@ New address details.
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| ~~`ElectronicInvoiceIdentifier`~~ | ~~string~~ | ~~optional~~ | ~~Electronic invoice identifier of the company.~~ **Deprecated!** Use AdditionalTaxIdentifier instead. |
 | `Identifier` | string | optional | Other identifier of the company, e.g. legal identifier. |
 | `Iata` | string | optional | Iata of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
@@ -375,6 +374,7 @@ New address details.
 | `AddressId` | string | optional | Unique identifier of the company [Address](addresses.md#account-address). |
 | `MergeTargetId` | string | optional | Unique identifier of the account (Customer) to which this company is linked. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of company from external system. |
+| ~~`ElectronicInvoiceIdentifier`~~ | ~~string~~ | ~~optional~~ | ~~Electronic invoice identifier of the company.~~ **Deprecated!** Use `AdditionalTaxIdentifier` instead.|
 | ~~`Address`~~ | ~~[OldAddress](configuration.md#address)~~ | ~~optional~~ | ~~Address of the customer.~~ **Deprecated!** Use AddressId instead.|
 | ~~`TaxIdentificationNumber`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use TaxIdentifier instead.|
 
@@ -484,7 +484,7 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 | `InvoicingEmail` | [String update value](_objects.md#string-update-value) | optional | Email for issuing invoices to the company  (or `null` if the email for issuing invoices should not be updated). |
 | `WebsiteUrl` | [String update value](_objects.md#string-update-value) | optional | The website url of the company (or `null` if the website url should not be updated). |
 | `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format (or `null` if the interval should not be updated). |
-| `Options` | [Company Option Update Parameters](companies.md#company-option-update-parameters) | optional | Options of the company (or `null` if the company options should not be updated). |
+| `Options` | [Company update options](companies.md#company-update-options) | optional | Options of the company (or `null` if the company options should not be updated). |
 | `CreditRating` | [Credit rating update parameters](companies.md#credit-rating-update-parameters) | optional | Credit rating to define creditworthiness of the company (or `null` if the credit rating should not be updated). |
 | `Department` | [String update value](_objects.md#string-update-value) | optional | The internal segmentation of a company, e.g. sales department (or `null` if the department should not be updated). |
 | `DunsNumber` | [String update value](_objects.md#string-update-value) | optional | The Dun & Bradstreet unique 9-digit DUNS number (or `null` if the Duns number should not be updated). |
@@ -501,14 +501,14 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 | `Telephone` | [String update value](_objects.md#string-update-value) | optional | Contact telephone number (or `null` if the telephone number should not be updated). |
 | `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Identifier of the company from external system (or `null` if the External Identifier should not be updated). |
 
-#### Company Option Update Parameters
+#### Company update options
 Options of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Invoiceable` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AddFeesToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AddTaxDeductedPaymentToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `Invoiceable` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the company is invoiceable or not (or `null` if the `Invoiceable` field should not be updated). |
+| `AddFeesToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the company has an additional fee applied for invoicing or not (or `null` if the `AddFeesToInvoices` field should not be updated). |
+| `AddTaxDeductedPaymentToInvoices` | [Bool update value](_objects.md#bool-update-value) | optional | Whether tax-deducted payments should be automatically added to invoices (or `null` if the `AddTaxDeductedPaymentToInvoices` field should not be updated). |
 
 #### Credit rating update parameters
 Credit rating to define creditworthiness of the company.

@@ -694,7 +694,7 @@ types:
     anchor: companyupdateparameters
   companyoptionupdateparameters:
     file: companies.md
-    anchor: company-option-update-parameters
+    anchor: company-update-options
   creditratingupdateparameters:
     file: companies.md
     anchor: credit-rating-update-parameters
@@ -1022,3 +1022,72 @@ types:
   productdeleteparameters:
     file: products.md
     anchor: product-delete-parameters
+  accountresult:
+    file: accounts.md
+    anchor: accountresult
+  account:
+    file: accounts.md
+    anchor: account
+  customeraccount:
+    file: accounts.md
+    anchor: customer
+  customeraccountoptions:
+    file: accounts.md
+    anchor: customer-options
+  customeraccountclassifications:
+    file: accounts.md
+    anchor: customer-classifications
+  legalentityidentifiers:
+    file: accounts.md
+    anchor: customer-legal-identifiers
+  companyaccount:
+    file: accounts.md
+    anchor: company
+  companyaccountclassifications:
+    file: accounts.md
+    anchor: company-classifications
+  companyaccountoptions:
+    file: accounts.md
+    anchor: company-options
+  multipleaccountupdateparameters:
+    file: accounts.md
+    anchor: multipleaccountupdateparameters
+  accountupdateparameters:
+    file: accounts.md
+    anchor: account-update-parameters
+  accountparameterdiscriminatorenum:
+    file: accounts.md
+    anchor: account-type-discriminator
+  accountcustomerupdateparameters:
+    file: accounts.md
+    anchor: customer-update-parameters
+  customeroptionupdateparameters:
+    file: accounts.md
+    anchor: customer-update-options
+  customerclassificationupdateparameters:
+    file: accounts.md
+    anchor: customer-update-classifications
+  legalentityidentifierupdateparameters:
+    file: accounts.md
+    anchor: customer-update-legal-entity-identifiers
+  accountcompanyupdateparameters:
+    file: accounts.md
+    anchor: company-update-parameters
+  companyclassificationupdateparameters:
+    file: accounts.md
+    anchor: company-update-classifications
+  creditratingbasic:
+    file: accounts.md
+    anchor: credit-rating-basic
+  multipleaccountmergeparameters:
+    file: accounts.md
+    anchor: multipleaccountmergeparameters
+  accountmergeparameter:
+    file: accounts.md
+    anchor: account-merge-parameters
+  mergeaccounttype:
+    file: accounts.md
+    anchor: account-merge-type
+  mergeaccounttypeenum:
+    file: accounts.md
+    anchor: account-merge-type
