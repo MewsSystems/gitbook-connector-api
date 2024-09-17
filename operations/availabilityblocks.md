@@ -88,8 +88,8 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlocks` | boolean | optional | Whether the response should contain the general availability blocks. |
 | `Adjustments` | boolean | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
-| `ServiceOrders` | boolean | optional | Whether the response should contain reservations related to availability blocks. |
-| `Rates` | boolean | optional | Whether the response should contain rates related to availability blocks. |
+| ~~`ServiceOrders`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain reservations related to availability blocks.~~ **Deprecated!** Use `reservations/getAll/2023-06-06` instead.|
+| ~~`Rates`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rates related to availability blocks.~~ **Deprecated!** Use `rates/getAll` instead.|
 
 ### Response
 
@@ -171,10 +171,10 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | optional | Availability blocks. |
-| `ServiceOrders` | array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12) | optional | Service orders (for example reservations) linked to availability blocks. |
 | `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
-| `Rates` | array of [Rate](rates.md#rate) | optional | `Rates` assigned to the block. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
+| ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Service orders (for example reservations) linked to availability blocks.~~ **Deprecated!** Use `reservations/getAll/2023-06-06` instead.|
+| ~~`Rates`~~ | ~~array of [Rate](rates.md#rate)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use `rates/getAll` instead.|
 
 #### Availability block
 
