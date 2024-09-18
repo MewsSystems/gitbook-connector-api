@@ -115,6 +115,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Get cancellation policies by reservations
 
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
 Gets cancellation policies for enterprise grouped by reservation for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -138,7 +140,7 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | optional, max 100 items | List of reservation identifiers. |
+| `ReservationIds` | array of string | required, max 100 items | List of reservation identifiers. |
 
 ### Response
 
