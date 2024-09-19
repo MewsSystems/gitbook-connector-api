@@ -14,10 +14,6 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
   "RateGroupIds": [
     "6b3f718a-b537-45b0-a8ee-d30897723834"
   ],
@@ -34,9 +30,13 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
   "ActivityStates": [
     "Active"
   ],
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-    "Count": 100
+    "Count": 1000,
+    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7"
   }
 }
 ```
@@ -72,8 +72,10 @@ Returns all rate groups, filtered by unique identifiers and other filters. Note 
       "ShortNames": {
         "en-US": "Default group"
       },
-      "Descriptions": {},
-      "ExternalIdetnfier": "RG-001"
+      "Descriptions": {
+        "en-US": "Default group"
+      },
+      "ExternalIdentifier": "RG-001"
     }
   ],
   "Cursor": "6b3f718a-b537-45b0-a8ee-d30897723834"
