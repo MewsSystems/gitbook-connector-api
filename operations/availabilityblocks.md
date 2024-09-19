@@ -72,7 +72,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Extent` | [Availability block extent](availabilityblocks.md#availability-block-extent) | required | Extent of data to be returned, e.g. it is possible to specify that related service orders (for example reservations) are returned. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service) to which [Availability blocks](availabilityblocks.md#availability-block) are assigned. |
 | `AvailabilityBlockIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](availabilityblocks.md#availability-block). |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` were created. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the availability blocks were created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` are active. |
 | `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks`are released. |
@@ -187,7 +187,7 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) used to access specified private [Rate](rates.md#rate). |
 | `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
 | `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) linked to the block. |
-| `TravelAgencyId` | string | optional | Unique identifier of [Company](companies.md#company) with [Travel agency contract](companycontracts.md#travel-agency-contract) the Availability Block is related to. |
+| `TravelAgencyId` | string | optional | Unique identifier of `Company`with `Travel agency contract` the Availability Block is related to. |
 | `Budget` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | The tentative budget for the total price of reservations in the block. |
 | `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
 | `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
@@ -200,7 +200,7 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
-| `PickupDistribution` | [Pickup Distribution](availabilityblocks.md#pickup-distribution) | required | Whether assigning spaces to reservations within an availability block is done as a single group or divided into individual groups. |
+| `PickupDistribution` | [Pickup distribution](availabilityblocks.md#pickup-distribution) | required | Whether assigning spaces to reservations within an availability block is done as a single group or divided into individual groups. |
 | `IsActive` | boolean | required | Whether the `Availability Block` is still active. |
 
 #### Availability block state
@@ -210,7 +210,7 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 * `Inquired` - The block does not deduct availability and cannot have reservations assigned (waitlist).
 * `Canceled` - The block does not deduct availability and cannot have reservations assigned (waitlist).
 
-#### Pickup Distribution
+#### Pickup distribution
 
 * `AllInOneGroup` - All created reservations in the block are added to the same reservation group.
 * `IndividualGroups` - Reservations can be picked up in multiple groups, with up to 750 reservations per group.
@@ -275,7 +275,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](rates.md#rate). |
 | `BookerId` | string | optional | Unique identifier of the Booker as a creator of an availability block. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company). |
-| `TravelAgencyId` | string | optional | Unique identifier of `Travel Agency`. |
+| `TravelAgencyId` | string | optional | Unique identifier of travel agency (`Company` with a `TravelAgencyContract`). |
 | `Budget` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | The tentative budget for the total price of reservations. |
 | `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
@@ -362,7 +362,7 @@ Updates information about the specified [Availability block](availabilityblocks.
 | `State` | [String update value](_objects.md#string-update-value) | optional | State of the availability block (or `null` if not updated). |
 | `ReservationPurpose` | [String update value](_objects.md#string-update-value) | optional | The purpose of the block (or `null` if not updated). |
 | `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) (or `null` if not updated). |
-| `TravelAgencyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the `Travel Agency` (or `null` if not updated). |
+| `TravelAgencyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the travel agency (i.e. `Company`; or `null` if not updated). |
 | `BookerId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the Booker as a creator of an availability block (or `null` if not updated). |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Additional notes of the block (or `null` if not updated). |
 | `Budget` | [CurrencyValueOldUpdateValue](availabilityblocks.md#currencyvalueoldupdatevalue) | optional | The tentative budget for the total price of reservations (or `null` if not updated). |
@@ -382,9 +382,9 @@ Updates information about the specified [Availability block](availabilityblocks.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Value` | [Release Strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
+| `Value` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 
-#### Release Strategy
+#### Release strategy
 
 * `FixedRelease` - The availability block is released at a fixed time.
 * `RollingRelease` - Each availability adjustment is released at a fixed offset from its start.
