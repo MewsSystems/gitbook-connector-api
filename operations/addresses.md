@@ -77,7 +77,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Addresses` | array of [Account address](addresses.md#account-address) | required | The collection of Account addresses, containing address and account information. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older Account address. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest address item returned. This can be used in Limitation in a subsequent request to fetch the next batch of older Account address. |
 
 #### Account address
 
