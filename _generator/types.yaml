@@ -1046,3 +1046,12 @@ types:
   addressdeleteparameters:
     file: addresses.md
     anchor: addressdeleteparameters
+  rategroupresult:
+    file: rategroups.md
+    anchor: rategroupresult
+  rategroup:
+    file: rategroups.md
+    anchor: rate-group
+  rategroupfilterparameters:
+    file: rategroups.md
+    anchor: rategroupfilterparameters

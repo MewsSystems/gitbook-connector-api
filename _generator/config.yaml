@@ -47,7 +47,7 @@ tags:
   # - productcategories
   - products
   # - productserviceorders
-  # - rategroups
+  - rategroups
   - rates
   # - reservationgroups
   - reservations
