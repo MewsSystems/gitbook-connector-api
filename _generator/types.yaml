@@ -694,7 +694,7 @@ types:
     anchor: companyupdateparameters
   companyoptionupdateparameters:
     file: companies.md
-    anchor: company-option-update-parameters
+    anchor: company-update-options
   creditratingupdateparameters:
     file: companies.md
     anchor: credit-rating-update-parameters
@@ -1055,3 +1055,6 @@ types:
   rategroupfilterparameters:
     file: rategroups.md
     anchor: rategroupfilterparameters
+  addressresultpage:
+    file: addresses.md
+    anchor: addressresultpage

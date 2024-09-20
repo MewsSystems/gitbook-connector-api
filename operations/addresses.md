@@ -87,11 +87,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
 | `ChainId` | string | optional | Unique identifier of the chain. |
 | `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
-| `Line1` | string | optional, max length 255 characters | First line of the address. |
+| `Line1` | string | optional, max length 1023 characters | First line of the address. |
 | `Line2` | string | optional, max length 255 characters | Second line of the address. |
 | `City` | string | optional, max length 255 characters | The city. |
 | `PostalCode` | string | optional, max length 255 characters | Postal code. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
+| `CountryCode` | string | optional | ISO 3166-1 alpha-2 code of the Country. |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. DE-BW. |
 | `Latitude` | number | optional | The latitude. |
 | `Longitude` | number | optional | The longitude. |
@@ -145,7 +145,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 | `Line2` | string | optional, max length 255 characters | Second line of the address. |
 | `City` | string | optional, max length 255 characters | The city. |
 | `PostalCode` | string | optional, max length 255 characters | Postal code. |
-| `CountryCode` | string | optional | ISO 3166-1 code of the Country. |
+| `CountryCode` | string | optional | ISO 3166-1 alpha-2 code of the Country. |
 | `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. DE-BW. |
 | `Latitude` | number | optional | The latitude in range of -90 to 90. |
 | `Longitude` | number | optional | The longitude in range of -180 to 180. |
@@ -176,8 +176,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Account address](addresses.md#account-address) | required | The collection of Account addresses, containing address and account information. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older Account address. |
+| `Addresses` | array of [Account address](addresses.md#account-address) | required | The collection of added or modified Account addresses, containing address and account information. |
 
 ## Update addresses
 
@@ -237,9 +236,8 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | `Line2` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Second line of the address. |
 | `City` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | The city. |
 | `PostalCode` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Postal code. |
-| `CountryCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-1 code of the Country. |
+| `CountryCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-1 alpha-2 code of the Country. |
 | `CountrySubdivisionCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. DE-BW. |
-| ~~`AccountId`~~ | ~~string~~ | ~~required~~ | **Deprecated!** The value is ignored.|
 
 ### Response
 
@@ -267,8 +265,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Addresses` | array of [Account address](addresses.md#account-address) | required | The collection of Account addresses, containing address and account information. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest address item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older Account address. |
+| `Addresses` | array of [Account address](addresses.md#account-address) | required | The collection of added or modified Account addresses, containing address and account information. |
 
 ## Delete addresses
 
