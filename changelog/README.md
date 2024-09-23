@@ -1,7 +1,10 @@
 # Changelog
 
-## 13th September 2024
+## 19th September 2024
+* Extended [Customer account](../operations/accounts.md#customer) with property `DietaryRequirements`.
+  * [Update accounts](../operations/accounts.md#update-accounts)
 
+## 13th September 2024
 * Added operation [Get cancellation policies by reservations](../operations/cancellationpolicies.md#get-cancellation-policies-by-reservations).
 
 ## 9th September 2024
