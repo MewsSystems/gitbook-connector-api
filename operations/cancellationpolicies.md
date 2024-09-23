@@ -183,9 +183,9 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CancellationPolicies` | array of [Cancellation policy data grouped by reservation.](cancellationpolicies.md#cancellation-policy-data-grouped-by-reservation) | required, max 1300 items | List of cancellation policies data grouped by reservation. |
+| `CancellationPolicies` | array of [Cancellation policy data grouped by reservation](cancellationpolicies.md#cancellation-policy-data-grouped-by-reservation) | required, max 1300 items | List of cancellation policies data grouped by reservation. |
 
-#### Cancellation policy data grouped by reservation.
+#### Cancellation policy data grouped by reservation
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
