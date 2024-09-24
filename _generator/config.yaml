@@ -56,7 +56,7 @@ tags:
   - resourcecategories
   # - resourcefeatures
   # - resources
-  # - restrictions
+  - restrictions
   # - routingrules
   # - rules
   # - serviceordernotes

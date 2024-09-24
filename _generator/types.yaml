@@ -87,7 +87,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: _objects.md
+    file: restrictions.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1100,3 +1100,75 @@ types:
   rategroupfilterparameters:
     file: rategroups.md
     anchor: rategroupfilterparameters
+  restrictionadditionresult:
+    file: restrictions.md
+    anchor: restrictionadditionresult
+  addedrestriction:
+    file: restrictions.md
+    anchor: added-restriction
+  restriction:
+    file: restrictions.md
+    anchor: restriction
+  restrictionoriginenum:
+    file: restrictions.md
+    anchor: restriction-origin
+  restrictionconditions:
+    file: restrictions.md
+    anchor: restriction-condition
+  restrictiontypeenum:
+    file: restrictions.md
+    anchor: restriction-type
+  resourcecategorytypeenum:
+    file: restrictions.md
+    anchor: resource-category-type
+  hours:
+    file: restrictions.md
+    anchor: hours
+  restrictionexceptions:
+    file: restrictions.md
+    anchor: restriction-exception
+  addrestrictionparameters:
+    file: restrictions.md
+    anchor: addrestrictionparameters
+  restrictiondata:
+    file: restrictions.md
+    anchor: restriction-data
+  restrictionconditionsdata:
+    file: restrictions.md
+    anchor: restriction-condition-data
+  hoursparameters:
+    file: restrictions.md
+    anchor: hours-parameters
+  restrictionexceptionsdata:
+    file: restrictions.md
+    anchor: restriction-exception-data
+  deleterestrictionparameters:
+    file: restrictions.md
+    anchor: deleterestrictionparameters
+  setrestrictionparameters:
+    file: restrictions.md
+    anchor: setrestrictionparameters
+  restrictionsetdata:
+    file: restrictions.md
+    anchor: restriction-set-data
+  restrictiontype:
+    file: restrictions.md
+    anchor: restriction-type
+  daysparameters:
+    file: restrictions.md
+    anchor: days-parameters
+  clearrestrictionparameters:
+    file: restrictions.md
+    anchor: clearrestrictionparameters
+  restrictioncleardata:
+    file: restrictions.md
+    anchor: restriction-clear-data
+  restrictionresult:
+    file: restrictions.md
+    anchor: restrictionresult
+  restrictionfilterparameters:
+    file: restrictions.md
+    anchor: restrictionfilterparameters
+  restrictionorigin:
+    file: restrictions.md
+    anchor: restriction-origin
