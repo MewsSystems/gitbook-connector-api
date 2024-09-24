@@ -1,5 +1,9 @@
 # Changelog
 
+## 24th September 2024
+* Updated response model of the operation [Get cancellation policies by reservations](../operations/cancellationpolicies.md#get-cancellation-policies-by-reservations).
+* Added operation [Get cancellation policies by rates](../operations/cancellationpolicies.md#get-cancellation-policies-by-rates).
+
 ## 19th September 2024
 * Extended [Customer account](../operations/accounts.md#customer) with property `DietaryRequirements`.
   * [Update accounts](../operations/accounts.md#update-accounts)

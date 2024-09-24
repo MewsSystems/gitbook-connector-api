@@ -230,6 +230,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
 | [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |
 | [Get cancellation policies by reservations](cancellationpolicies.md#get-cancellation-policies-by-reservations) | Returns cancellation policies for enterprise grouped by reservation |
+| [Get cancellation policies by rates](cancellationpolicies.md#get-cancellation-policies-by-rates) | Returns cancellation policies for enterprise grouped by rate |
 | [Get all products](products.md#get-all-products) | Returns all products filtered by services or product identifier |
 | [Delete products](products.md#delete-products) | Deletes specified products |
 | [Get product pricing](products.md#get-product-pricing) | **Restricted!** Returns prices for a product for a specified time interval |
