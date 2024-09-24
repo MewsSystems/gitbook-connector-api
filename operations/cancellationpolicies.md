@@ -113,7 +113,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `TimeUnits`
 * `Products`
 
-## Get cancellation policies by reservations
+## undefined
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
@@ -239,7 +239,7 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 * `Products`
 * `Everything`
 
-## Get cancellation policies by rates
+## undefined
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
@@ -279,7 +279,7 @@ Gets cancellation policies for enterprise grouped by rate for granular cancellat
 {
   "CancellationPolicies": [
     {
-      "ReservationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "RateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "Policies": [
         {
           "Applicability": "Start",
@@ -298,7 +298,7 @@ Gets cancellation policies for enterprise grouped by rate for granular cancellat
       ]
     },
     {
-      "ReservationId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+      "RateId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
       "Policies": [
         {
           "Applicability": "Start",
