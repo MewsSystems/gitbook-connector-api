@@ -113,7 +113,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `TimeUnits`
 * `Products`
 
-## undefined
+## Get cancellation policies by reservations
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
@@ -239,7 +239,7 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 * `Products`
 * `Everything`
 
-## undefined
+## Get cancellation policies by rates
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
