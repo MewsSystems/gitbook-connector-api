@@ -1100,6 +1100,21 @@ types:
   rategroupfilterparameters:
     file: rategroups.md
     anchor: rategroupfilterparameters
+  cancellationpolicybyreservationresult:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicybyreservationresult
+  cancellationpolicybyreservation:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-data-grouped-by-reservation
+  cancellationpolicyapplicabilityenum:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-applicability
+  cancellationfeeextentenum:
+    file: cancellationpolicies.md
+    anchor: cancellation-fee-extent
+  cancellationpolicybyreservationparameters:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicybyreservationparameters
   restrictionadditionresult:
     file: restrictions.md
     anchor: restrictionadditionresult
