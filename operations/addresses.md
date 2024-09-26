@@ -146,7 +146,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 | `City` | string | optional, max length 255 characters | The city. |
 | `PostalCode` | string | optional, max length 255 characters | Postal code. |
 | `CountryCode` | string | optional | ISO 3166-1 alpha-2 code of the Country. |
-| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. DE-BW. |
+| `CountrySubdivisionCode` | string | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 | `Latitude` | number | optional | The latitude in range of -90 to 90. |
 | `Longitude` | number | optional | The longitude in range of -180 to 180. |
 
@@ -237,7 +237,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | `City` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | The city. |
 | `PostalCode` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Postal code. |
 | `CountryCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-1 alpha-2 code of the Country. |
-| `CountrySubdivisionCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. DE-BW. |
+| `CountrySubdivisionCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-2 code of the administrative division, e.g. `DE-BW`. |
 
 ### Response
 
