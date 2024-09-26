@@ -1,4 +1,7 @@
 # Changelog
+## 26th September 2024
+* Mark  `ServiceIds` as optional.
+  * [Get all age categories](../operations/agecategories.md#get-all-age-categories)
 
 ## 19th September 2024
 * Extended [Customer account](../operations/accounts.md#customer) with property `DietaryRequirements`.
