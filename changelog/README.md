@@ -1,7 +1,7 @@
 # Changelog
 
-## 24th September 2024
-* Updated response model of the operation [Get cancellation policies by reservations](../operations/cancellationpolicies.md#get-cancellation-policies-by-reservations).
+## 27th September 2024
+* New response object for [Get cancellation policies by reservations](../operations/cancellationpolicies.md#get-cancellation-policies-by-reservations).
 * Added operation [Get cancellation policies by rates](../operations/cancellationpolicies.md#get-cancellation-policies-by-rates).
 
 ## 19th September 2024
