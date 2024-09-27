@@ -1,4 +1,6 @@
 # Changelog
+## 27th September 2024
+* Mark filtering parameter `ServiceIds` as optional in [Get all age categories](../operations/agecategories.md#get-all-age-categories).
 
 ## 19th September 2024
 * Extended [Customer account](../operations/accounts.md#customer) with property `DietaryRequirements`.
