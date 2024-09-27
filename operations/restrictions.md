@@ -53,9 +53,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the `Restriction`. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the `Restriction` is active. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the `Restriction` was created. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the `Restriction`. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the `Restriction` was updated. |
 | `RestrictionIds` | array of string | optional, max 1000 items | Unique identifiers of the `Restriction`. |
 | `ResourceCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of `Resource category`. |
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of `Rate`. Returns all restrictions that affect the given rates, i.e. ones without any `Restriction Conditions`, ones assigned directly to specified rates, ones assigned to `Rate group` of specified rates, or ones inherited from base rates.`. |
@@ -159,7 +159,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 > This operation is [deprecated](../deprecations/README.md). Please use [Set restriction](restrictions.md#set-restrictions) instead.
 
 Adds new restrictions with the specified conditions. Care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes).
-**Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150,000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is new operation [Set restriction](restrictions.md#set-restrictions).
+**Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150,000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is operation [Set restriction](restrictions.md#set-restrictions).
 
 ### Request
 
@@ -231,7 +231,7 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restrictions type. |
+| `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
 | `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
 | `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
 | `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
@@ -239,8 +239,8 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
-| `Days` | array of string | optional | The restricted days of week. Will automatically be set to all values when not provided or when the service uses a time unit longer than a day. |
-| `Hours` | [Hours parameters](restrictions.md#hours-parameters) | optional | The restricted hours. Will automatically be set to all values when not provided. |
+| `Days` | array of string | optional | The restricted days of week. Defaults to all days when not provided. Ignored when the service uses a time unit longer than a day. |
+| `Hours` | [Hours parameters](restrictions.md#hours-parameters) | optional | The restricted hours. Defaults to all hours when not provided. |
 
 #### Hours parameters
 
@@ -395,8 +395,8 @@ The conditions or rules that must be met by a reservation for the restriction to
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the restricted `Resource category type`. |
 | `StartUtc` | string | optional | Start date of the restriction time interval, specified in ISO 8601 format and adjusted to UTC - see [Datetimes](../guidelines/serialization.md#datetimes) for important information on format and implementation. |
 | `EndUtc` | string | optional | End date of the restriction time interval, specified in ISO 8601 format and adjusted to UTC - see [Datetimes](../guidelines/serialization.md#datetimes) for important information on format and implementation. |
-| `Days` | array of string | optional | The restricted days of week. Will automatically be set to all values when not provided or when the service uses a time unit longer than a day. |
-| `Hours` | [Hours](restrictions.md#hours) | optional | The restricted hours. Will automatically be set to all values when not provided. |
+| `Days` | array of string | optional | The restricted days of week. Defaults to all days when not provided. Ignored when the service uses a time unit longer than a day. |
+| `Hours` | [Hours](restrictions.md#hours) | optional | The restricted hours. Defaults to all hours when not provided. |
 
 #### Restriction type
 
@@ -540,14 +540,14 @@ Only restrictions created through the API are affected by this operation, _not_ 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
 | `Data` | array of [Restriction set data](restrictions.md#restriction-set-data) | required, max 1000 items | Parameters of restrictions. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
 
 #### Restriction set data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restrictions type. |
+| `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
 | `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
 | `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
 | `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
@@ -685,14 +685,14 @@ To avoid deleting user defined restrictions, the [Clear restrictions](restrictio
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
 | `Data` | array of [Restriction clear data](restrictions.md#restriction-clear-data) | required, max 1000 items | Details of the matching conditions and time intervals for clearing restrictions. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
 
 #### Restriction clear data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restrictions type. |
+| `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
 | `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
 | `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
 | `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
