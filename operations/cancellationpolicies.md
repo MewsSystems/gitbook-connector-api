@@ -117,6 +117,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
+
 Gets cancellation policies for enterprise grouped by reservation for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
@@ -140,7 +141,7 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ReservationIds` | array of string | required, max 100 items | List of reservation identifiers. |
+| `ReservationIds` | array of string | required, max 100 items | Unique identifiers of the `Reservation`. |
 
 ### Response
 
@@ -149,33 +150,55 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
   "CancellationPolicies": [
     {
       "ReservationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "Applicability": "Start",
-      "FeeExtents": [
-        "TimeUnits",
-        "Products"
-      ],
-      "ApplicabilityOffset": "P10DT20H30M",
-      "FeeMaximumTimeUnits": 1,
-      "AbsoluteFee": {
-        "Currency": "EUR",
-        "Value": 20
-      },
-      "RelativeFee": 0.1
+      "Policies": [
+        {
+          "Applicability": "Start",
+          "FeeExtents": [
+            "TimeUnits",
+            "Products"
+          ],
+          "ApplicabilityOffset": "P10DT20H30M",
+          "FeeMaximumTimeUnits": 1,
+          "AbsoluteFee": {
+            "Currency": "EUR",
+            "Value": 20
+          },
+          "RelativeFee": 0.1
+        }
+      ]
     },
     {
       "ReservationId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
-      "Applicability": "Start",
-      "FeeExtents": [
-        "TimeUnits",
-        "Products"
-      ],
-      "ApplicabilityOffset": "P10DT10H30M",
-      "FeeMaximumTimeUnits": 2,
-      "AbsoluteFee": {
-        "Currency": "EUR",
-        "Value": 15
-      },
-      "RelativeFee": 0.2
+      "Policies": [
+        {
+          "Applicability": "Start",
+          "FeeExtents": [
+            "TimeUnits",
+            "Products"
+          ],
+          "ApplicabilityOffset": "P5DT10H30M",
+          "FeeMaximumTimeUnits": 2,
+          "AbsoluteFee": {
+            "Currency": "EUR",
+            "Value": 15
+          },
+          "RelativeFee": 0.4
+        },
+        {
+          "Applicability": "Start",
+          "FeeExtents": [
+            "TimeUnits",
+            "Products"
+          ],
+          "ApplicabilityOffset": "P10DT10H30M",
+          "FeeMaximumTimeUnits": 2,
+          "AbsoluteFee": {
+            "Currency": "EUR",
+            "Value": 15
+          },
+          "RelativeFee": 0.2
+        }
+      ]
     }
   ]
 }
@@ -190,9 +213,15 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
+| `Policies` | array of [Cancellation policy data](cancellationpolicies.md#cancellation-policy-data) | required | Collection of cancellation policy data. |
+
+#### Cancellation policy data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `Applicability` | [Cancellation Policy Applicability](cancellationpolicies.md#cancellation-policy-applicability) | required | Applicability mode of the cancellation policy. |
 | `FeeExtents` | array of [Cancellation Fee Extent](cancellationpolicies.md#cancellation-fee-extent) | required | Extent for the cancellation fee, i.e. what should be in scope for the automatic payment. |
-| `ApplicabilityOffset` | string | required | Offset for order start (assuming Applicability is set to Start) from which the fee is applied. |
+| `ApplicabilityOffset` | string | required | Offset for order start (assuming Applicability is set to Start) from which the fee is applied in ISO 8601 duration format. |
 | `FeeMaximumTimeUnits` | integer | optional | Maximum number of time units the cancellation fee is applicable to. |
 | `AbsoluteFee` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
 | `RelativeFee` | number | required | Relative value of the fee, as a percentage of the reservation price. |
@@ -209,3 +238,109 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 * `TimeUnits`
 * `Products`
 * `Everything`
+
+## Get cancellation policies by rates
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Gets cancellation policies for enterprise grouped by rate for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/cancellationPolicies/getByRates`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "RateIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "ReservationStartUtc": null,
+  "ReservationEndUtc": null
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `RateIds` | array of string | required, max 100 items | Unique identifiers of the `Rate`. |
+| `ReservationStartUtc` | string | required | Start of the reservation interval in UTC timezone in ISO 8601 format. |
+| `ReservationEndUtc` | string | required | End of the reservation interval in UTC timezone in ISO 8601 format. |
+
+### Response
+
+```javascript
+{
+  "CancellationPolicies": [
+    {
+      "RateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "Policies": [
+        {
+          "Applicability": "Start",
+          "FeeExtents": [
+            "TimeUnits",
+            "Products"
+          ],
+          "ApplicabilityOffset": "P10DT20H30M",
+          "FeeMaximumTimeUnits": 1,
+          "AbsoluteFee": {
+            "Currency": "EUR",
+            "Value": 20
+          },
+          "RelativeFee": 0.1
+        }
+      ]
+    },
+    {
+      "RateId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+      "Policies": [
+        {
+          "Applicability": "Start",
+          "FeeExtents": [
+            "TimeUnits",
+            "Products"
+          ],
+          "ApplicabilityOffset": "P5DT10H30M",
+          "FeeMaximumTimeUnits": 2,
+          "AbsoluteFee": {
+            "Currency": "EUR",
+            "Value": 15
+          },
+          "RelativeFee": 0.4
+        },
+        {
+          "Applicability": "Start",
+          "FeeExtents": [
+            "TimeUnits",
+            "Products"
+          ],
+          "ApplicabilityOffset": "P10DT10H30M",
+          "FeeMaximumTimeUnits": 2,
+          "AbsoluteFee": {
+            "Currency": "EUR",
+            "Value": 15
+          },
+          "RelativeFee": 0.2
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CancellationPolicies` | array of [Cancellation policy data grouped by rate](cancellationpolicies.md#cancellation-policy-data-grouped-by-rate) | required, max 1300 items | List of cancellation policies data grouped by rate. |
+
+#### Cancellation policy data grouped by rate
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RateId` | string | required | Unique identifier of the `Rate`. |
+| `Policies` | array of [Cancellation policy data](cancellationpolicies.md#cancellation-policy-data) | required | Collection of cancellation policy data. |
