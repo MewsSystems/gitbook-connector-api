@@ -451,6 +451,7 @@ Adds a new customer to the system and returns details of the added customer. If 
     "Phone": "00420123456789",
     "LoyaltyCode": null,
     "Notes": null,
+    "CompanyId": "5fb89965-dc39-4b88-9ebb-9581ba29db8b",
     "IdentityCard": {
         "Number": "123456",
         "Expiration": "2020-01-01",
@@ -503,6 +504,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Options` | array of [Customer option](#customer-option) | optional | Options of the customer. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
+| `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 
 #### Address parameters
 
