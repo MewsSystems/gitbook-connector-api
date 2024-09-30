@@ -240,36 +240,7 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `Days` | array of string | optional | The restricted days of week. Defaults to all days when not provided. Ignored when the service uses a time unit longer than a day. |
-| `Hours` | [Hours parameters](restrictions.md#hours-parameters) | optional | The restricted hours. Defaults to all hours when not provided. |
-
-#### Hours parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Zero` | boolean | required | Hour 0 enabled |
-| `One` | boolean | required | Hour 1 enabled |
-| `Two` | boolean | required | Hour 2 enabled |
-| `Three` | boolean | required | Hour 3 enabled |
-| `Four` | boolean | required | Hour 4 enabled |
-| `Five` | boolean | required | Hour 5 enabled |
-| `Six` | boolean | required | Hour 6 enabled |
-| `Seven` | boolean | required | Hour 7 enabled |
-| `Eight` | boolean | required | Hour 8 enabled |
-| `Nine` | boolean | required | Hour 9 enabled |
-| `Ten` | boolean | required | Hour 10 enabled |
-| `Eleven` | boolean | required | Hour 11 enabled |
-| `Twelve` | boolean | required | Hour 12 enabled |
-| `Thirteen` | boolean | required | Hour 13 enabled |
-| `Fourteen` | boolean | required | Hour 14 enabled |
-| `Fifteen` | boolean | required | Hour 15 enabled |
-| `Sixteen` | boolean | required | Hour 16 enabled |
-| `Seventeen` | boolean | required | Hour 17 enabled |
-| `Eighteen` | boolean | required | Hour 18 enabled |
-| `Nineteen` | boolean | required | Hour 19 enabled |
-| `Twenty` | boolean | required | Hour 20 enabled |
-| `TwentyOne` | boolean | required | Hour 21 enabled |
-| `TwentyTwo` | boolean | required | Hour 22 enabled |
-| `TwentyThree` | boolean | required | Hour 23 enabled |
+| `Hours` | [Hours](restrictions.md#hours) | optional | The restricted hours. Defaults to all hours when not provided. |
 
 #### Restriction exception data
 
