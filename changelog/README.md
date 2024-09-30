@@ -1,6 +1,6 @@
 # Changelog
 
-## 26th September 2024
+## 30th September 2024
 * Extended [Add customers](../operations/customers.md#add-customer) request with `CompanyId` parameter.
 
 ## 19th September 2024
