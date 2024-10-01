@@ -1115,6 +1115,18 @@ types:
   cancellationpolicybyreservationparameters:
     file: cancellationpolicies.md
     anchor: cancellationpolicybyreservationparameters
+  cancellationpolicydata:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-data
+  cancellationpolicybyrateresult:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicybyrateresult
+  cancellationpolicybyrate:
+    file: cancellationpolicies.md
+    anchor: cancellation-policy-data-grouped-by-rate
+  cancellationpolicybyrateparameters:
+    file: cancellationpolicies.md
+    anchor: cancellationpolicybyrateparameters
   restrictionadditionresult:
     file: restrictions.md
     anchor: restrictionadditionresult

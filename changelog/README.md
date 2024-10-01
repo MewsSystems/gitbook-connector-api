@@ -1,4 +1,13 @@
 # Changelog
+## 27th September 2024
+* Mark filtering parameter `ServiceIds` as optional in [Get all age categories](../operations/agecategories.md#get-all-age-categories).
+
+## 27th September 2024
+* New response object for [Get cancellation policies by reservations](../operations/cancellationpolicies.md#get-cancellation-policies-by-reservations).
+* Added operation [Get cancellation policies by rates](../operations/cancellationpolicies.md#get-cancellation-policies-by-rates).
+
+## 30th September 2024
+* Extended [Add customers](../operations/customers.md#add-customer) request with `CompanyId` parameter.
 
 ## 19th September 2024
 * Extended [Customer account](../operations/accounts.md#customer) with property `DietaryRequirements`.
