@@ -184,7 +184,7 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 
 ### Hybrid identifier
 
-Hybrid identifier is a string value with specific format that allows providing other unique identifier than just unique identifier of the entity. Using other identifiers require providing corresponding prefix as part of the value.
+A hybrid identifier is a string with a specific format that allows the use of alternative unique identifiers, in addition to the entity's unique identifier. When using these alternative identifiers, a corresponding prefix must be included as part of the value.
 
 | Identifier | Prefix | Value example |
 | :-- | :-- | :-- | :-- |
