@@ -1127,3 +1127,27 @@ types:
   cancellationpolicybyrateparameters:
     file: cancellationpolicies.md
     anchor: cancellationpolicybyrateparameters
+  configuration:
+    file: configuration.md
+    anchor: configuration
+  enterprise:
+    file: configuration.md
+    anchor: enterprise
+  pricingmodeenum:
+    file: configuration.md
+    anchor: pricing
+  currencyacceptance:
+    file: configuration.md
+    anchor: accepted-currency
+  accountingconfiguration:
+    file: configuration.md
+    anchor: accounting-configuration
+  surchargeconfiguration:
+    file: configuration.md
+    anchor: surcharging-fees-configuration
+  paymentcardstorage:
+    file: configuration.md
+    anchor: payment-card-storage
+  configurationfilterparameters:
+    file: configuration.md
+    anchor: configurationfilterparameters
