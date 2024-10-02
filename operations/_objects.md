@@ -188,7 +188,7 @@ Hybrid identifier is a string value with specific format that allows providing o
 
 | Identifier | Prefix | Value example |
 | :-- | :-- | :-- | :-- |
-| Unique identifier | - | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` |
+| Primary identifier | - | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` |
 | External identifier | eid | `eid:COM-123` |
 
 ### Currency value (ver 2018-06-07)
