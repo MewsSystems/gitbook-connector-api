@@ -182,6 +182,15 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
 
+### Hybrid identifier
+
+Hybrid identifier is a string value with specific format that allows providing other unique identifier than just unique identifier of the entity. Using other identifiers require providing corresponding prefix as part of the value.
+
+| Identifier | Prefix | Value example |
+| :-- | :-- | :-- | :-- |
+| Unique identifier | - | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` |
+| External identifier | eid | `eid:COM-123` |
+
 ### Currency value (ver 2018-06-07)
 
 Usage of this value is **deprecated**. Where possible, use the properties exposing the [Amount](#amount) instead.

@@ -50,6 +50,10 @@ types:
   localizedstrings:
     file: _objects.md
     anchor: localized-text
+  hybrididentifier:
+    file: _objects.md
+    anchor: hybrid-identifier
+    titleOverride: Hybrid identifier
   accountnoteresult:
     file: accountnotes.md
     anchor: accountnoteresult
