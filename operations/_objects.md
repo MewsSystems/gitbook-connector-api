@@ -95,7 +95,7 @@ Dictionary is a collection of key-value pairs, where both keys and values are st
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
-### Dictionary of number
+### Dictionary of numbers
 
 Dictionary of numbers is a collection of key-value pairs, where keys are strings and the values are numbers.
 

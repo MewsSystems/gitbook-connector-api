@@ -43,10 +43,14 @@ types:
     file: _objects.md
     anchor: number-update-value
     titleOverride: Number update value
+  creditcardtypedecimalidictionary:
+    file: _objects.md
+    anchor: dictionary-of-numbers
+    titleOverride: Dictionary of numbers
   resourceavailabilitymetrictypeint32ienumerableidictionary:
     file: _objects.md
-    anchor: dictionary-of-integers
-    titleOverride: Dictionary of integers
+    anchor: dictionary-of-integer-arrays
+    titleOverride: Dictionary of integer arrays
   localizedstrings:
     file: _objects.md
     anchor: localized-text
@@ -87,7 +91,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: _objects.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1223,3 +1227,6 @@ types:
   restrictionorigin:
     file: restrictions.md
     anchor: restriction-origin
+  externalpaymenttypeenum:
+    file: payments.md
+    anchor: external-payment-type
