@@ -48,6 +48,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (currently only [Customers](customers.md#customer), in the future also [Companies](companies.md#company)) the reservation is associated with. |
+| `Numbers` | array of string | optional, max 1000 items | A list of reservation numbers. Each number uniquely identifies a reservation within the system |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Resources](resources.md#resource) assigned to the reservations. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](reservations.md#reservation-ver-2023-06-06) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Reservations` were updated. |
@@ -565,6 +566,53 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group. |
+
+#### Sex
+
+* `Male`
+* `Female`
+
+#### Document type
+
+* `IdentityCard`
+* `Passport`
+* `Visa`
+* `DriversLicense`
+
+#### Customer classification
+
+* `None`
+* `PaymasterAccount`
+* `Blacklist`
+* `Media`
+* `LoyaltyProgram`
+* `PreviousComplaint`
+* `Returning`
+* `Staff`
+* `FriendOrFamily`
+* `TopManagement`
+* `Important`
+* `VeryImportant`
+* `Problematic`
+* `Cashlist`
+* `DisabledPerson`
+* `Military`
+* `Airline`
+* `HealthCompliant`
+* `InRoom`
+* `WaitingForRoom`
+* `Student`
+
+#### Customer option
+
+* `None`
+* `SendMarketingEmails`
+* `Invoiceable`
+* `BillAddressObjection`
+* `SendMarketingPostalMail`
+* `SendPartnerMarketingEmails`
+* `SendPartnerMarketingPostalMail`
+* `WithdrawCardConsent`
 
 #### Reservation QR code data
 
@@ -1261,7 +1309,10 @@ Marks a reservation as `Processed` (= checked out). Succeeds only if all process
 
 ## Price reservations
 
-Returns prices of reservations with the specified parameters. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns prices of reservations with the specified parameters.
+Note that the operation doesn't check the maximum capacity of requested resource category. Requesting person counts above the capacity will return prices for the maximum available capacity.
+
+This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

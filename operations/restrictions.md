@@ -232,15 +232,18 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
-| `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
-| `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the `Resource category` to which the restriction applies. |
+| `ExactRateId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
+| `BaseRateId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the base `Rate` to which the restriction applies. |
+| `RateGroupId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the `Rate group` to which the restriction applies. |
+| `ResourceCategoryId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the `Resource category` to which the restriction applies. |
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `Days` | array of string | optional | The restricted days of week. Defaults to all days when not provided. Ignored when the service uses a time unit longer than a day. |
 | `Hours` | [Hours](restrictions.md#hours) | optional | The restricted hours. Defaults to all hours when not provided. |
+
+#### undefined
+Unique identifier of the exact `Rate` to which the restriction applies.
 
 #### Restriction exception data
 
@@ -439,42 +442,6 @@ The rules that prevent the restriction from applying to a reservation, even when
 | `MinPrice` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | Value of the minimum price per time unit. |
 | `MaxPrice` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | Value of the maximum price per time unit. |
 
-## ~~Delete restrictions~~
-
-> ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
-
-Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](restrictions.md#set-restrictions).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/restrictions/delete`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "RestrictionIds": [
-    "af4949ce-c061-4f27-89f9-5a6a9ef725a7",
-    "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
-  ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `RestrictionIds` | array of string | required | Unique identifiers of the `Restriction`. |
-
-### Response
-
-```javascript
-{}
-```
-
 ## Set restrictions
 
 > ### Restricted!
@@ -548,17 +515,17 @@ Only restrictions created through the API are affected by this operation, _not_ 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Data` | array of [Restriction set data](restrictions.md#restriction-set-data) | required, max 1000 items | Parameters of restrictions. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
+| `ServiceId` | [HybridIdentifier](restrictions.md#hybrididentifier) | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
 
 #### Restriction set data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
-| `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
-| `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the `Resource category` to which the restriction applies. |
+| `ExactRateId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
+| `BaseRateId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the base `Rate` to which the restriction applies. |
+| `RateGroupId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the `Rate group` to which the restriction applies. |
+| `ResourceCategoryId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the `Resource category` to which the restriction applies. |
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
@@ -581,6 +548,42 @@ Only restrictions created through the API are affected by this operation, _not_ 
 | `Friday` | boolean | required | Friday enabled |
 | `Saturday` | boolean | required | Saturday enabled |
 | `Sunday` | boolean | required | Sunday enabled |
+
+### Response
+
+```javascript
+{}
+```
+
+## ~~Delete restrictions~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). Please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
+
+Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](restrictions.md#set-restrictions).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/delete`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "RestrictionIds": [
+    "af4949ce-c061-4f27-89f9-5a6a9ef725a7",
+    "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `RestrictionIds` | array of string | required | Unique identifiers of the `Restriction`. |
 
 ### Response
 
@@ -657,17 +660,17 @@ To avoid deleting user defined restrictions, the [Clear restrictions](restrictio
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Data` | array of [Restriction clear data](restrictions.md#restriction-clear-data) | required, max 1000 items | Details of the matching conditions and time intervals for clearing restrictions. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
+| `ServiceId` | [HybridIdentifier](restrictions.md#hybrididentifier) | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
 
 #### Restriction clear data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
-| `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
-| `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the `Resource category` to which the restriction applies. |
+| `ExactRateId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
+| `BaseRateId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the base `Rate` to which the restriction applies. |
+| `RateGroupId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the `Rate group` to which the restriction applies. |
+| `ResourceCategoryId` | [HybridIdentifier](restrictions.md#hybrididentifier) | optional | Unique identifier of the `Resource category` to which the restriction applies. |
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |

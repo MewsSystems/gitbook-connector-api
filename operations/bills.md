@@ -102,6 +102,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
       "TaxedUtc": null,
       "PaidUtc": null,
       "DueUtc": null,
+      "LastReminderDateUtc": null,
       "UpdatedUtc": "2017-01-31T10:58:06Z",
       "PurchaseOrderNumber": "XX-123",
       "Notes": "",
@@ -205,6 +206,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
 | `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
 | `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
+| `LastReminderDateUtc` | string | optional | Date and time when an email reminder to pay an invoice was last sent, in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | string | optional | Additional notes. |
