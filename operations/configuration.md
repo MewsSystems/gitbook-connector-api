@@ -180,12 +180,13 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Iban` | string | optional, max length 40 characters | International Bank Account Number. |
 | `Bic` | string | optional, max length 11 characters | Business Identification Code. |
 | `SurchargeConfiguration` | [Surcharging fees configuration](configuration.md#surcharging-fees-configuration) | required | Configuration for surcharging fees. |
+| `EnabledExternalPaymentTypes` | array of [External payment type](payments.md#external-payment-type) | required | External payment types that are enabled for the enterprise and can be used in `payments/addExternal`. |
 
 #### Surcharging fees configuration
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `SurchargeFees` | object | required | Surcharging fees per payment method. |
+| `SurchargeFees` | [Dictionary of numbers](_objects.md#dictionary-of-numbers) | required | Dictionary keys are `CreditCardType` and values are surcharging fees as a percentage. |
 | `SurchargeServiceId` | string | optional | Unique identifier of the surcharging `Service`. |
 | `SurchargeTaxCode` | string | optional | Surcharging fee `TaxCode`. |
 

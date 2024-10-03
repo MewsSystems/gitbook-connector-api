@@ -95,9 +95,20 @@ Dictionary is a collection of key-value pairs, where both keys and values are st
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
-### Dictionary of integers
+### Dictionary of number
 
-Dictionary of integers is a collection of key-value pairs, where keys are strings and the values are arrays of integer.
+Dictionary of numbers is a collection of key-value pairs, where keys are strings and the values are numbers.
+
+```javascript
+{
+    "Amex": 0.05,
+    "MasterCard": 9,
+}
+```
+
+### Dictionary of integer arrays
+
+Dictionary of integer arrays is a collection of key-value pairs, where keys are strings and the values are arrays of integers.
 
 ```javascript
 {
