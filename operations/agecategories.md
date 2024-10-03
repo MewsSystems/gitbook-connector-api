@@ -46,7 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `AgeCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Age categories](agecategories.md#age-category). |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of `Services` associated with the age categories. If not provided, defaults to all bookable services. |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of `Services` associated with the age categories. Defaults to all bookable services when not provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the age category was updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
@@ -72,8 +72,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "ShortNames": null,
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z",
-      "Classification": "Adult",
-      "IsActive": false
+      "Classification": "Adult"
     },
     {
       "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
@@ -91,8 +90,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "ShortNames": null,
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z",
-      "Classification": "Child",
-      "IsActive": false
+      "Classification": "Child"
     }
   ],
   "Cursor": "0b9560fb-055d-47d3-a6d4-e579c44ca558"
@@ -112,12 +110,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the age category belongs to. |
 | `MinimalAge` | integer | optional | Minimal age for the age category. |
 | `MaximalAge` | integer | optional | Maximal age for the age category. |
-| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the age category. |
-| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the age category. |
+| `Names` | object | required | All translations of the name of the age category. |
+| `ShortNames` | object | optional | All translations of the short name of the age category. |
 | `CreatedUtc` | string | required | Creation date and time of the age category in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the age category in UTC timezone in ISO 8601 format. |
 | `Classification` | [Age category classification](agecategories.md#age-category-classification) | required | The classification of the age category. |
-| `IsActive` | boolean | required | The activity state of the age category. |
 
 #### Age category classification
 
