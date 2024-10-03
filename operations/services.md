@@ -122,7 +122,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the service.~~ **Deprecated!** Use `Names` instead|
 | ~~`StartTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | **Deprecated!** |
+| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | ~~Promotions of the service.~~ **Deprecated!** |
 | ~~`Type`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Service options
@@ -133,6 +133,7 @@ Options of the service.
 | `BillAsPackage` | boolean | required | Products should be displayed as a single package instead of individual items. |
 
 #### Promotions
+Promotions of the service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -177,7 +178,7 @@ Additional information about the specific service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Promotions` | [Promotions](services.md#promotions) | required |  |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 
 ## Get service availability (ver 2024-01-22)
 
@@ -277,7 +278,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Metrics` | [Dictionary of integer arrays](_objects.md#dictionary-of-integer-arrays) | required | Dictionary keys are names of [Service availability metrics](services.md#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
+| `Metrics` | [Dictionary of integers](_objects.md#dictionary-of-integers) | required | Dictionary keys are names of [Service availability metrics](services.md#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
 
 ## Get service availability
 
