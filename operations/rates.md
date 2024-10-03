@@ -128,7 +128,7 @@ Extent of data to be returned.
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
-| `Type` | [Rate type](rates.md#rate-type) | required |  |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name of the rate (in the default language). |
 | `UpdatedUtc` | string | required | Interval in which the rates were updated. |
@@ -470,8 +470,8 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. Required when `PricingType` is `BaseRatePricing`. |
-| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. |
 
 #### Base rate pricing parameters
 
