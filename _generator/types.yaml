@@ -43,10 +43,14 @@ types:
     file: _objects.md
     anchor: number-update-value
     titleOverride: Number update value
+  creditcardtypedecimalidictionary:
+    file: _objects.md
+    anchor: dictionary-of-numbers
+    titleOverride: Dictionary of numbers
   resourceavailabilitymetrictypeint32ienumerableidictionary:
     file: _objects.md
-    anchor: dictionary-of-integers
-    titleOverride: Dictionary of integers
+    anchor: dictionary-of-integer-arrays
+    titleOverride: Dictionary of integer arrays
   localizedstrings:
     file: _objects.md
     anchor: localized-text
@@ -1127,6 +1131,30 @@ types:
   cancellationpolicybyrateparameters:
     file: cancellationpolicies.md
     anchor: cancellationpolicybyrateparameters
+  configuration:
+    file: configuration.md
+    anchor: configuration
+  enterprise:
+    file: configuration.md
+    anchor: enterprise
+  pricingmodeenum:
+    file: configuration.md
+    anchor: pricing
+  currencyacceptance:
+    file: configuration.md
+    anchor: accepted-currency
+  accountingconfiguration:
+    file: configuration.md
+    anchor: accounting-configuration
+  surchargeconfiguration:
+    file: configuration.md
+    anchor: surcharging-fees-configuration
+  paymentcardstorage:
+    file: configuration.md
+    anchor: payment-card-storage
+  configurationfilterparameters:
+    file: configuration.md
+    anchor: configurationfilterparameters
   restrictionadditionresult:
     file: restrictions.md
     anchor: restrictionadditionresult
@@ -1199,3 +1227,6 @@ types:
   restrictionorigin:
     file: restrictions.md
     anchor: restriction-origin
+  externalpaymenttypeenum:
+    file: payments.md
+    anchor: external-payment-type

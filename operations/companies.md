@@ -375,7 +375,7 @@ New address details.
 | `MergeTargetId` | string | optional | Unique identifier of the account (Customer) to which this company is linked. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of company from external system. |
 | ~~`ElectronicInvoiceIdentifier`~~ | ~~string~~ | ~~optional~~ | ~~Electronic invoice identifier of the company.~~ **Deprecated!** Use `AdditionalTaxIdentifier` instead.|
-| ~~`Address`~~ | ~~[OldAddress](configuration.md#address)~~ | ~~optional~~ | ~~Address of the customer.~~ **Deprecated!** Use AddressId instead.|
+| ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use AddressId instead.|
 | ~~`TaxIdentificationNumber`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use TaxIdentifier instead.|
 
 #### Company Options
