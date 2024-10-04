@@ -1,4 +1,8 @@
 # Changelog
+
+## 4th October 2024
+* Extended [Accounting configuration](../operations/configuration.md#accounting-configuration) in [Get configuration](../operations/configuration.md#get-configuration) response with `EnabledExternalPaymentTypes` property.
+
 ## 27th September 2024
 * Mark filtering parameter `ServiceIds` as optional in [Get all age categories](../operations/agecategories.md#get-all-age-categories).
 
