@@ -1,5 +1,11 @@
 # Changelog
 
+## 7th October 2024
+* Introduction of new common object [Hybrid Identifier](../operations/_objects.md#hybrid-identifier) which is available for `ServiceId`, `ExactRateId`, `BaseRateId`, `RateGroupId`, `ResourceCategoryId` request fields in following operations:
+  * [Add restrictions](../operations/restrictions.md#add-restrictions)
+  * [Delete restrictions](../operations/restrictions.md#delete-restrictions)
+  * [Clear restrictions](../operations/restrictions.md#clear-restrictions)
+   
 ## 4th October 2024
 * Extended [Accounting configuration](../operations/configuration.md#accounting-configuration) in [Get configuration](../operations/configuration.md#get-configuration) response with `EnabledExternalPaymentTypes` property.
 
