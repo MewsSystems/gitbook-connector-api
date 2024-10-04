@@ -186,10 +186,10 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 
 A hybrid identifier is a string with a specific format that allows the use of alternative unique identifiers, in addition to the entity's unique identifier. When using these alternative identifiers, a corresponding prefix must be included as part of the value.
 
-| Identifier | Prefix | Value example |
+| Identifier | Prefix | Value example | Description |
 | :-- | :-- | :-- | :-- |
-| Primary identifier | - | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` |
-| External identifier | eid | `eid:COM-123` |
+| Primary identifier |  | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` | Primary identifier of the entity e.g. `Id` field on `Service`.|
+| External identifier | `eid:` | `eid:COM-123` | External identifier of the entity e.g. `ExternalIdentifier` field on `Service` |
 
 ### Currency value (ver 2018-06-07)
 
