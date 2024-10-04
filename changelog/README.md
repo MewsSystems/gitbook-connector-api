@@ -1,4 +1,11 @@
 # Changelog
+
+## 7th October 2024
+* Added `QuoteId` field in [Availability blocks](../operations/availabilityblocks.md)
+  * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `QuoteId`
+  * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `QuoteId`
+  * Added `QuoteId` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
+
 ## 27th September 2024
 * Mark filtering parameter `ServiceIds` as optional in [Get all age categories](../operations/agecategories.md#get-all-age-categories).
 
