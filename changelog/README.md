@@ -1,6 +1,6 @@
 # Changelog
 
-## 7th October 2024
+## 8th October 2024
 * Added `QuoteId` field in [Availability blocks](../operations/availabilityblocks.md)
   * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `QuoteId`
   * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `QuoteId`
