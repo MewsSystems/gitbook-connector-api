@@ -122,7 +122,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the service.~~ **Deprecated!** Use `Names` instead|
 | ~~`StartTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | **Deprecated!** |
+| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | **Deprecated!** Use `Promotions` in `Data` instead.|
 | ~~`Type`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Service options
@@ -177,7 +177,7 @@ Additional information about the specific service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Promotions` | [Promotions](services.md#promotions) | required |  |
+| `Promotions` | [Promotions](services.md#promotions) | required | Promotions of the service. |
 
 ## Get service availability (ver 2024-01-22)
 
