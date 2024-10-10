@@ -1,10 +1,21 @@
 # Changelog
 
+## 11th October 2024
+* Deprecated property `BaseRateId` in [Rate](../operations/rates.md#rate). Use `BaseRatePricing` instead.
+* Extended [Age category](../operations/agecategories.md#age-category) response object with `IsActive` property.
+ * [Get all age categories](../operations/agecategories.md#get-all-age-categories)
+* Extended [Bill](../operations/bills.md#bill) response object with `LastReminderDateUtc` property.
+ * [Get all bills](../operations/bills.md#get-all-bills)
+* Extended [Order item type](../operations/orderitems.md#order-item-type) with `MulticurrencyFee`.
+ * [Get all order items](../operations/orderitems.md#get-all-order-items) request filter parameter and response object
+* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) with `Numbers` request filtering parameter.
+* Clarified capacity checking in [Price reservations](../operations/reservations.md#price-reservations) operation. Documentation only.
+
 ## 10th October 2024
-* Added `QuoteId` field in [Availability blocks](../operations/availabilityblocks.md)
-  * Extended [Add Availability blocks](../operations/availabilityblocks.md#add-availability-blocks) with `QuoteId`
-  * Extended [Update Availability blocks](../operations/availabilityblocks.md#update-availability-blocks) with `QuoteId`
-  * Added `QuoteId` to [AvailabilityBlock responses](../operations/availabilityblocks.md#availability-block).
+* Added `QuoteId` property to [Availability blocks](../operations/availabilityblocks.md)
+  * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks) request parameter
+  * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks) request parameter
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) response object
 
 ## 4th October 2024
 * Extended [Accounting configuration](../operations/configuration.md#accounting-configuration) in [Get configuration](../operations/configuration.md#get-configuration) response with `EnabledExternalPaymentTypes` property.

@@ -122,7 +122,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the service.~~ **Deprecated!** Use `Names` instead|
 | ~~`StartTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | ~~Promotions of the service.~~ **Deprecated!** |
+| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | **Deprecated!** Use `Promotions` in `Data` instead.|
 | ~~`Type`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Service options
@@ -133,7 +133,6 @@ Options of the service.
 | `BillAsPackage` | boolean | required | Products should be displayed as a single package instead of individual items. |
 
 #### Promotions
-Promotions of the service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

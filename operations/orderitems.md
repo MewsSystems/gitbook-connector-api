@@ -351,6 +351,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `TaxCorrection`
 * `ResourceUpgradeFee`
 * `InvoiceFee`
+* `MulticurrencyFee`
 
 #### Order item options
 Options of the order item.
