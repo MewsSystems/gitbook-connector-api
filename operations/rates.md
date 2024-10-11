@@ -121,9 +121,10 @@ Extent of data to be returned.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rate. |
-| `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
-| `ServiceId` | string | required | Unique identifier of the `Service`. |
-| `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
+| `GroupId` | string | required | Unique identifier of [Rate group](rates.md#rate-group) where the rate belongs. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
+| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate). |
+| `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
@@ -134,7 +135,6 @@ Extent of data to be returned.
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Description` | [Localized text](_objects.md#localized-text) | optional | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| ~~`BaseRateId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the base `Rate`.~~ **Deprecated!** Use BaseRatePricing.|
 | ~~`Name`~~ | ~~string~~ | ~~optional~~ | ~~Name of the rate (in the default language).~~ **Deprecated!** Use `Names` instead|
 
 #### Rate type
