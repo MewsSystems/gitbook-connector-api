@@ -41,7 +41,6 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| `BaseRateId` in [Rate](../operations/rates.md#rate) | Replaced by `BaseRatePricing` | 11 Oct 2024 | - |
 | `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company) | Replaced by `AdditionalTaxIdentifier` | 30 Aug 2024 | - |
 | `Method`, `RedirectUrl`<br>in [Add alternative payment](../operations/payments.md#add-alternative-payment) | Use [Alternative payment method data](../operations/payments.md#alternative-payment-method-data) instead | 8 May 2024 | - |
 | `EndUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledEndUtc` and `ActualEndUtc` | 19 Apr 2024 | - |
