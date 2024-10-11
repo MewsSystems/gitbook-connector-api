@@ -448,7 +448,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
@@ -1143,7 +1143,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |

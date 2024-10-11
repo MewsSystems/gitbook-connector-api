@@ -1,7 +1,6 @@
 # Changelog
 
 ## 11th October 2024
-* Deprecated property `BaseRateId` in [Rate](../operations/rates.md#rate). Use `BaseRatePricing` instead.
 * Extended [Age category](../operations/agecategories.md#age-category) response object with `IsActive` property.
  * [Get all age categories](../operations/agecategories.md#get-all-age-categories)
 * Extended [Bill](../operations/bills.md#bill) response object with `LastReminderDateUtc` property.
