@@ -567,11 +567,6 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group. |
 
-#### Sex
-
-* `Male`
-* `Female`
-
 #### Document type
 
 * `IdentityCard`

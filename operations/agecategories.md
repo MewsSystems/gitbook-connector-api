@@ -117,7 +117,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CreatedUtc` | string | required | Creation date and time of the age category in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the age category in UTC timezone in ISO 8601 format. |
 | `Classification` | [Age category classification](agecategories.md#age-category-classification) | required | The classification of the age category. |
-| `IsActive` | boolean | required | The activity state of the age category. |
+| `IsActive` | boolean | required | Whether the age category is still active. |
 
 #### Age category classification
 
