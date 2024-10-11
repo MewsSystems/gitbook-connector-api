@@ -116,7 +116,10 @@ export function getPageResolver(pageContext) {
     },
   };
 }
-
+/**
+ * @param {SchemaObject} schema
+ * @returns {string | null}
+ */
 export function resolvePropertyType(schema) {
   const schemaId = getSchemaId(schema);
 
@@ -124,10 +127,15 @@ export function resolvePropertyType(schema) {
   if (!typeLink) {
     return null;
   }
-  // const schema = ALL_SCHEMAS.get(schemaId);
+  let prefix = '';
+  // FIXME: We will eventually expose this for all types
+  if (typeLink.id === 'hybrididentifier') {
+    const type = schema.type;
+    prefix = `${type} `;
+  }
   const title = typeLink.titleOverride || getSchemaTitle(schema);
 
-  return `[${title}](${typeLink.file}#${typeLink.anchor})`;
+  return `${prefix}[${title}](${typeLink.file}#${typeLink.anchor})`;
 }
 
 /**
