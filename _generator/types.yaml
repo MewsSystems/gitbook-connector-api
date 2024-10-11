@@ -1230,3 +1230,24 @@ types:
   externalpaymenttypeenum:
     file: payments.md
     anchor: external-payment-type
+  ratetypeenum:
+    file: rates.md
+    anchor: rate-type
+  ratepricingdiscriminatorenum:
+    file: rates.md
+    anchor: rate-pricing-discriminator
+  sexenum:
+    file: customers.md
+    anchor: sex
+  identitydocumenttypeenum:
+    file: reservations.md
+    anchor: document-type
+  customerclassificationsenum:
+    file: reservations.md
+    anchor: customer-classification
+  customeroptionsenum:
+    file: reservations.md
+    anchor: customer-option
+  rateforextent:
+    file: rates.md
+    anchor: rate-for-extent

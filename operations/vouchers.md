@@ -138,7 +138,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | `Vouchers` | array of [Voucher](vouchers.md#voucher) | optional | Details about vouchers added to the system. |
 | `VoucherCodes` | array of [Voucher code](vouchercodes.md#voucher-code) | optional | Information about voucher codes used by customers. |
 | `VoucherAssignments` | array of [Voucher assignment](vouchers.md#voucher-assignment) | optional | The assignments between vouchers and [Rates](rates.md#rate). |
-| `Rates` | array of [Rate](rates.md#rate) | optional | The assigned rates. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | The assigned rates. |
 | `Companies` | array of [Company](companies.md#company) | optional | The related companies and travel agencies. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
