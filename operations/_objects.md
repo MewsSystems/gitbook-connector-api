@@ -199,8 +199,8 @@ A hybrid identifier is a string with a specific format that allows the use of al
 
 | Identifier | Prefix | Value example | Description |
 | :-- | :-- | :-- | :-- |
-| Primary identifier |  | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` | Primary identifier of the entity e.g. `Id` field on `Service`.|
-| External identifier | `eid:` | `eid:COM-123` | External identifier of the entity e.g. `ExternalIdentifier` field on `Service` |
+| Primary identifier | (no prefix) | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` | Primary identifier of the entity e.g. `Id` field on `Service`.|
+| External identifier | `eid:` | `eid:COM-123` | External identifier of the entity e.g. `ExternalIdentifier` field on `Service`. |
 
 ### Currency value (ver 2018-06-07)
 
