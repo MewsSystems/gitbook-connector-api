@@ -1,7 +1,7 @@
 # Changelog
 
 ## 14th October 2024
-* Introduction of new common object [Hybrid Identifier](../operations/_objects.md#hybrid-identifier) which is available for `ServiceId`, `ExactRateId`, `BaseRateId`, `RateGroupId`, `ResourceCategoryId` request fields in following operations:
+* Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request fields `ServiceId`, `ExactRateId`, `BaseRateId`, `RateGroupId`, `ResourceCategoryId` in the following operations:
   * [Add restrictions](../operations/restrictions.md#add-restrictions)
   * [Delete restrictions](../operations/restrictions.md#delete-restrictions)
   * [Clear restrictions](../operations/restrictions.md#clear-restrictions)
