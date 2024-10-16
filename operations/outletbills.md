@@ -74,7 +74,7 @@ Adds new outlet bills with their items.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Type` | string [Outlet item type](outletitems.md#outlet-item-type) | optional | Type of the item. |
+| `Type` | string [Outlet item type](outletitems.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
 | `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the item. |
