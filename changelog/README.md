@@ -1,5 +1,11 @@
 # Changelog
 
+## 16th October 2024
+* Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request fields `ServiceId`, `ExactRateId`, `BaseRateId`, `RateGroupId`, `ResourceCategoryId` in the following operations:
+  * [Add restrictions](../operations/restrictions.md#add-restrictions)
+  * [Delete restrictions](../operations/restrictions.md#delete-restrictions)
+  * [Clear restrictions](../operations/restrictions.md#clear-restrictions)
+   
 ## 11th October 2024
 * Extended [Age category](../operations/agecategories.md#age-category) response object with `IsActive` property.
  * [Get all age categories](../operations/agecategories.md#get-all-age-categories)

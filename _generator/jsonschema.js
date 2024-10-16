@@ -10,30 +10,6 @@ import { getSchemaAnchor, firstLine } from './utils.js';
  * @param {SchemaObject} schema
  * @returns boolean
  */
-export function isNestedSchema(schema) {
-  if (schema.anyOf || schema.oneOf || schema.allOf) {
-    return true;
-  }
-  // FIXME: CON-2034 - Objects with discriminator aren't typed as objects
-  if (schema?.properties?.discriminator) {
-    return true;
-  }
-  if (schema.type === 'object') {
-    return true;
-  }
-  if (schema.type === 'array') {
-    return isNestedSchema(schema.items);
-  }
-  if (isEnum(schema)) {
-    return true;
-  }
-  return false;
-}
-
-/**
- * @param {SchemaObject} schema
- * @returns boolean
- */
 export function isEnum(schema) {
   const actualSchema = pickSingularComposedSchema(schema) || schema;
   return actualSchema.type === 'string' && actualSchema.enum?.length > 0;

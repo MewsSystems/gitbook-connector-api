@@ -232,10 +232,10 @@ Adds new restrictions with the specified conditions. Care is needed to specify `
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
-| `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
-| `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the `Resource category` to which the restriction applies. |
+| `ExactRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
+| `BaseRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the base `Rate` to which the restriction applies. |
+| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the `Rate group` to which the restriction applies. |
+| `ResourceCategoryId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the `Resource category` to which the restriction applies. |
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
@@ -439,59 +439,13 @@ The rules that prevent the restriction from applying to a reservation, even when
 | `MinPrice` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | Value of the minimum price per time unit. |
 | `MaxPrice` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | Value of the maximum price per time unit. |
 
-## ~~Delete restrictions~~
-
-> ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
-
-Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](restrictions.md#set-restrictions).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/restrictions/delete`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "RestrictionIds": [
-    "af4949ce-c061-4f27-89f9-5a6a9ef725a7",
-    "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
-  ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `RestrictionIds` | array of string | required | Unique identifiers of the `Restriction`. |
-
-### Response
-
-```javascript
-{}
-```
-
 ## Set restrictions
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
-Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction - see [Merging algorithm](restrictions.md#merging-algorithm). A quota of 150000 restrictions per service applies, although it is unlikely to be exceeded because of the [Merging algorithm](restrictions.md#merging-algorithm).
-Note care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). The validation of these properties is stronger in this operation than for [Add restrictions](restrictions.md#add-restrictions).
-### Merging algorithm
-If a restriction already exists with the same conditions, or if multiple supplied restrictions match in all properties but differ in time interval and follow each other chronologically, a merging algorithm is applied to combine them.
-This reduces the overall number of restrictions and improves system performance. The merging algorithm is as follows:
-- A. If the exceptions of the new restriction match the old restriction:
-   1) If the new interval is longer than the old one, a new restriction is created joining the two intervals.
-   2) If the new interval is shorter, no changes are made.
-- B. If the exceptions of the new restriction do _not_ match the old restriction:
-   1) If the new interval overlaps the old interval, the old restriction will be spliced before and after the new interval. Restrictions matching the old restriction are then added at the appropriate interval along with the new restriction.
-   2) If the new interval does _not_ overlap the old interval, the new restriction is added as usual.
-### Affected restrictions
-Only restrictions created through the API are affected by this operation, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API.
+Adds new restrictions with the specified conditions. For improved efficiency, multiple similar restrictions will be merged into a single restriction. A quota of 150,000 restrictions per service applies, although it is unlikely to be exceeded because of the merging algorithm. For more information about the merging algorithm, see [Concepts > Restrictions](../concepts/restrictions.md).
+
+Care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). If migrating from deprecated operation [Add restrictions](restrictions.md#add-restrictions), note that the validation of these properties is stronger in this operation.
+
+Only restrictions created through the API are affected by this operation, *not* restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will *not* affect restrictions created through the API.
 
 ### Request
 
@@ -548,17 +502,17 @@ Only restrictions created through the API are affected by this operation, _not_ 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Data` | array of [Restriction set data](restrictions.md#restriction-set-data) | required, max 1000 items | Parameters of restrictions. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
+| `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
 
 #### Restriction set data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
-| `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
-| `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the `Resource category` to which the restriction applies. |
+| `ExactRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
+| `BaseRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the base `Rate` to which the restriction applies. |
+| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the `Rate group` to which the restriction applies. |
+| `ResourceCategoryId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the `Resource category` to which the restriction applies. |
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
@@ -588,23 +542,47 @@ Only restrictions created through the API are affected by this operation, _not_ 
 {}
 ```
 
+## ~~Delete restrictions~~
+
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). Please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
+
+Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](restrictions.md#set-restrictions).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/restrictions/delete`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "RestrictionIds": [
+    "af4949ce-c061-4f27-89f9-5a6a9ef725a7",
+    "e2f8aa29-0c09-4097-801c-7888c9fb57ae"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `RestrictionIds` | array of string | required | Unique identifiers of the `Restriction`. |
+
+### Response
+
+```javascript
+{}
+```
+
 ## Clear restrictions
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change. Use of this operation must be enabled per enterprise. Please contact the Technical Partner Support team in order to enable it.
-Deletes restrictions that [match the conditions](restrictions.md#matching-conditions) using the [splicing algorithm](restrictions.md#splicing-algorithm). This operation is intended to be used alongside [Set restrictions](restrictions.md#set-restrictions).
-The specified conditions must be met exactly - see [Matching conditions](restrictions.md#matching-conditions) below. The time interval, however, does not need to correspond with an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval - see [Time interval splicing](restrictions.md#time-interval-splicing).
-### Matching conditions
-The specified conditions must be met exactly. For example:
-A bookable service has two restrictions A and B. Restriction A applies to resource category C1 and rate R1. Restriction B applies to resource category C1 and to all rates.
-If the [Clear restrictions](restrictions.md#clear-restrictions) operation is called, specifying a restriction condition of resource category C1 but with no rate specified (this defaults to all rates), then only Restriction B is cleared, not Restriction A.
-### Time interval splicing
-The time interval does not need to correspond to an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval. For example:
-An existing restriction in the system applies from 5th January to 25th January. As usual, time intervals are inclusive, meaning that the time interval includes both the 5th January and the 25th January.
-If the [Clear restrictions](restrictions.md#clear-restrictions) operation is called, specifying a restriction time interval of 10th January to 20th January, i.e. within the original restriction A, then the time interval of restriction A is split into three separate intervals.
-The original restriction A is deleted, and in its place new restriction B is created for the period of time from 5th January to 9th January inclusive, and new restriction C is created for the period of time from 21st January to 25th January. Thus the period 10th January to 20th January has been cleared, but without affecting other time periods.
-### Affected restrictions
-To avoid deleting user defined restrictions, the [Clear restrictions](restrictions.md#clear-restrictions) operation only affects restrictions created through the [Set restrictions](restrictions.md#clear-restrictions) operation or the [Clear restrictions](restrictions.md#clear-restrictions) operation.
+Deletes restrictions that exactly match the specified conditions, using a splicing algorithm. This operation is intended to be used alongside [Set restrictions](restrictions.md#set-restrictions). The specified conditions must be met exactly. The time interval, however, does not need to correspond to an existing restriction in the system, instead the API uses a splicing algorithm to work out how to divide up any existing restrictions to meet the specified time interval. For details about matching conditions and the splicing algorithm, see [Concepts > Restrictions](../concepts/restrictions.md).
+
+Only restrictions created through the API are affected by this operation, *not* restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will *not* affect restrictions created through the API.
 
 ### Request
 
@@ -657,17 +635,17 @@ To avoid deleting user defined restrictions, the [Clear restrictions](restrictio
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Data` | array of [Restriction clear data](restrictions.md#restriction-clear-data) | required, max 1000 items | Details of the matching conditions and time intervals for clearing restrictions. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
+| `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
 
 #### Restriction clear data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Type` | [Restriction type](restrictions.md#restriction-type) | required | Restriction type. |
-| `ExactRateId` | string | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
-| `BaseRateId` | string | optional | Unique identifier of the base `Rate` to which the restriction applies. |
-| `RateGroupId` | string | optional | Unique identifier of the `Rate group` to which the restriction applies. |
-| `ResourceCategoryId` | string | optional | Unique identifier of the `Resource category` to which the restriction applies. |
+| `ExactRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the exact `Rate` to which the restriction applies. |
+| `BaseRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the base `Rate` to which the restriction applies. |
+| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the `Rate group` to which the restriction applies. |
+| `ResourceCategoryId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the `Resource category` to which the restriction applies. |
 | `ResourceCategoryType` | [Resource category type](restrictions.md#resource-category-type) | optional | Name of the `Resource category type` to which the restriction applies. |
 | `StartUtc` | string | optional | Start date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
 | `EndUtc` | string | optional | End date of the time interval for which the restriction conditions should be applied. This must be in UTC timezone in ISO 8601 format - see [Datetimes](../guidelines/serialization.md#datetimes). |
