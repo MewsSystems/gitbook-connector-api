@@ -1,6 +1,6 @@
 # Changelog
 
-## 14th October 2024
+## 16th October 2024
 * Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request fields `ServiceId`, `ExactRateId`, `BaseRateId`, `RateGroupId`, `ResourceCategoryId` in the following operations:
   * [Add restrictions](../operations/restrictions.md#add-restrictions)
   * [Delete restrictions](../operations/restrictions.md#delete-restrictions)
