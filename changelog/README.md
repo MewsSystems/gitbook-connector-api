@@ -1,5 +1,6 @@
 # Changelog
-## 22th October 2024
+
+## 23rd October 2024
 * Extended [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledEndUtc` parameter.
 
 ## 16th October 2024
