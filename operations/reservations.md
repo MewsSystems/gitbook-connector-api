@@ -54,6 +54,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Reservations` were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the reservations are active. This is defined for a `Reservation` as the period between the reservation's scheduled start time `ScheduledStartUtc` and its scheduled end time `EndUtc`. Reservation is selected if any part of its interval intersects with the interval specified in `CollidingUtc |
 | `ScheduledStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled start time. |
+| `ScheduledEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled end time. |
 | `States` | array of [Service order state](reservations.md#service-order-state) | optional | A list of service order states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
