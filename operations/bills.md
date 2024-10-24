@@ -85,6 +85,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
   "Bills": [
     {
       "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+      "Name": "Bill Name",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
       "CustomerId": null,
@@ -193,6 +194,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the bill. |
+| `Name` | string | optional | Name of the bill. |
 | `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
 | `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. |
 | `AssociatedAccountIds` | array of string | optional | Unique identifiers of the `Customers` or `Companies` that are associated to the bill. |
