@@ -1,5 +1,9 @@
 # Changelog
 
+## 24th October 2024
+* Added operation [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents).
+* Added operation [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents).
+
 ## 23rd October 2024
 * Extended [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledEndUtc` parameter.
 
