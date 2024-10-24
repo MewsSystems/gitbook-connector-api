@@ -28,7 +28,7 @@ Deletes specified identity documents. This operation supports [Portfolio Access 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `IdentityDocumentIds` | array of string | required, max 100 items | Unique identifier of the identity documents to be deleted. |
+| `IdentityDocumentIds` | array of string | required, max 100 items | Unique identifiers of the identity documents to be deleted. |
 
 ### Response
 
