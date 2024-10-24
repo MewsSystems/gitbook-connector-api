@@ -1255,3 +1255,9 @@ types:
   rateforextent:
     file: rates.md
     anchor: rate-for-extent
+  identitydocumentdeleteparameters:
+    file: identitydocuments.md
+    anchor: identitydocumentdeleteparameters
+  identitydocumentclearparameters:
+    file: identitydocuments.md
+    anchor: identitydocumentclearparameters
