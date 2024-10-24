@@ -1,6 +1,7 @@
 # Changelog
 
-## 24rd October 2024
+## 24th October 2024
+
 * Extended [Get all bills](../operations/bills.md#get-all-bills) response object with `Name` property.
 
 ## 23rd October 2024
