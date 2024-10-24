@@ -42,7 +42,7 @@ This section describes all operations supported by the API, organised here by th
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
 | [Delete identity documents](identitydocuments.md#delete-identity-documents) | Deletes selected identity documents |
-| [Clear identity documents](identitydocuments.md#delete-identity-documents) | Deletes all identity documents for selected customers |
+| [Clear identity documents](identitydocuments.md#clear-identity-documents) | Deletes all identity documents for selected customers |
 
 ## Device integration
 
