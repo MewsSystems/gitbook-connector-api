@@ -115,10 +115,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     },
     "Type": "Reservable",
     "Ordering": 0,
-    "Data": {
-      "Discriminator": "Service",
-      "Value": {}
-    },
+    "Data": null,
     "ExternalIdentifier": null,
     "CreatedUtc": "2023-10-01T11:48:57Z",
     "UpdatedUtc": "2023-10-28T11:48:57Z"
