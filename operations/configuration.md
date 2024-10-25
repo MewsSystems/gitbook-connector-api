@@ -136,6 +136,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Pricing` | [Pricing](configuration.md#pricing) | required | Pricing of the enterprise. |
 | `TaxPrecision` | integer | optional | Tax precision used for financial calculations in the enterprise. If `null`, `Currency` precision is used. |
 | `AddressId` | string | required | Unique identifier of the `Address` of the enterprise. |
+| `GroupNames` | array of string | required | A list of the group names of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `AccountingConfiguration` | [Accounting configuration](configuration.md#accounting-configuration) | optional | Configuration information containing financial information about the property. |
 | `IsPortfolio` | boolean | required | Whether the enterprise is a Portfolio enterprise (see [Multi-property guidelines](../guidelines/multi-property.md)). |
