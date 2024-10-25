@@ -52,8 +52,7 @@ If the [response](../guidelines/responses.md) looks something like this, you've 
         "Address": {},
         "Currencies": [],
         "Pricing": "Net",
-        "TaxPrecision": null,
-        "GroupNames": [],
+        "TaxPrecision": null
     },
     "PaymentCardStorage": {
         "PublicKey": "1100016827"
