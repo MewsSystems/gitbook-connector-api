@@ -61,8 +61,6 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
       "BankName": "Random bank",
       "Iban": "CZ7250517882393618329719",
       "Bic": "GIBACZPY",
-      "SurchargeConfiguration": null,
-      "EnabledExternalPaymentTypes": null
     },
     "IsPortfolio": false,
     "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
