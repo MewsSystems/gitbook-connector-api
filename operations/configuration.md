@@ -61,6 +61,19 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
       "BankName": "Random bank",
       "Iban": "CZ7250517882393618329719",
       "Bic": "GIBACZPY",
+      "SurchargeConfiguration": {
+        "SurchargeFees": {
+          "Amex": 3,
+          "DinersClub": 4
+        },
+        "SurchargeServiceId": "2b9b0143-3135-485b-8064-76c90d1be69e",
+        "SurchargeTaxCode": "US-HI-KA"
+      },
+      "EnabledExternalPaymentTypes": [
+        "Invoice",
+        "Cash",
+        "GiftCard"
+      ]
     },
     "IsPortfolio": false,
     "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
