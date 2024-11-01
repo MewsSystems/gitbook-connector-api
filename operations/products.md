@@ -37,7 +37,7 @@ Returns all products offered together with the specified services. Note this ope
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the products were updated. |
 | `IncludeDefault` | boolean | optional | Whether or not to include default products for the service, i.e. products which are standard includes and not true extras. For example, the night's stay would be the default product for a room reservation. These may be useful for accounting purposes but should not be displayed to customers for selection. If `ProductIds` are provided, `IncludeDefault` defaults to true, otherwise it defaults to false. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

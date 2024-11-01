@@ -46,7 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AvailabilityAdjustmentIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Availability adjustments](availabilityadjustments.md#availability-adjustment). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the availability adjustments were updated. |
 | `ActivityStates` | array of [Activity State](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, only active records will be returned. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

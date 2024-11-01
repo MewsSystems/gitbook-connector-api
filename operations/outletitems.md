@@ -49,7 +49,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was updated. |
 | `ClosedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Outlet bill](#outlet-bill) was closed. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](#currency) the item costs should be converted to. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

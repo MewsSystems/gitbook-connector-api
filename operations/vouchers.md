@@ -65,7 +65,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted records will be returned. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Voucher](vouchers.md#voucher) from external systems. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Voucher Extent
 Extent of data to be returned. Whether only specific voucher info should be returned or related items as well.
@@ -138,7 +138,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | `Vouchers` | array of [Voucher](vouchers.md#voucher) | optional | Details about vouchers added to the system. |
 | `VoucherCodes` | array of [Voucher code](vouchercodes.md#voucher-code) | optional | Information about voucher codes used by customers. |
 | `VoucherAssignments` | array of [Voucher assignment](vouchers.md#voucher-assignment) | optional | The assignments between vouchers and [Rates](rates.md#rate). |
-| `Rates` | array of [Rate](rates.md#rate) | optional | The assigned rates. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | The assigned rates. |
 | `Companies` | array of [Company](companies.md#company) | optional | The related companies and travel agencies. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
