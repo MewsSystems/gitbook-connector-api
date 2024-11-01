@@ -2,6 +2,7 @@
 
 ## 1st November 2024
 * Extended [Get all bills](../operations/bills.md#get-all-bills) response object with `Name` property.
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `GroupNames` property.
 
 ## 23rd October 2024
 * Extended [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request with `ScheduledEndUtc` parameter.
