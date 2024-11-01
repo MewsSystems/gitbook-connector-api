@@ -1,6 +1,6 @@
 # Changelog
 
-## 25th October 2024
+## 1st November 2024
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `GroupNames` property.
 
 ## 23rd October 2024
