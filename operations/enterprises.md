@@ -72,7 +72,8 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "CoverImageId": null,
       "Pricing": "Gross",
       "TaxPrecision": 2,
-      "AddressId": "31c505e9-9858-4d2f-9eab-afce011c4f47"
+      "AddressId": "31c505e9-9858-4d2f-9eab-afce011c4f47",
+      "GroupNames": [ "Sample Group Name" ]
     }
   ],
   "Cursor": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
@@ -111,6 +112,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `Pricing` | string | required | [Pricing](#pricing) of the enterprise. |
 | `TaxPrecision` | string | optional | Tax precision used for financial calculations in the enterprise. If `null`, [Currency](currencies.md#currency) precision is used. |
 | `AddressId` | string | required | Id of the [Address](addresses.md#account-address) of the enterprise. |
+| `GroupNames` | array of string | required | A list of the group names of the enterprise. |
 
 #### Pricing
 

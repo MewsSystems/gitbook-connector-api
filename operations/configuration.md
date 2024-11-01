@@ -31,21 +31,6 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 {
   "NowUtc": "2018-01-01T14:58:02Z",
   "Enterprise": {
-    "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
-    "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
-    "CreatedUtc": "2015-07-07T13:33:17Z",
-    "UpdatedUtc": "2015-07-07T13:33:17Z",
-    "Name": "Connector API Hotel",
-    "TimeZoneIdentifier": "Europe/Budapest",
-    "LegalEnvironmentCode": "UK",
-    "DefaultLanguageCode": "en-US",
-    "AccountingEditableHistoryInterval": "P0M7DT0H0M0S",
-    "OperationalEditableHistoryInterval": "P0M5DT0H0M0S",
-    "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral",
-    "Email": "charging-api@mews.li",
-    "Phone": "00000 123 456 789",
-    "LogoImageId": null,
-    "CoverImageId": null,
     "Address": {
       "Id": "8c2c4371-5d42-40a9-b551-ab0b00d75076",
       "Line1": "Anenské nám. 1",
@@ -69,35 +54,82 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
         "IsEnabled": true
       }
     ],
-    "Pricing": "Gross",
-    "TaxPrecision": null,
-    "ExternalIdentifier": null,
     "AccountingConfiguration": {
       "AdditionalTaxIdentifier": null,
       "CompanyName": "Connector API Hotel",
       "BankAccountNumber": "1234",
       "BankName": "Random bank",
       "Iban": "CZ7250517882393618329719",
-      "Bic": "GIBACZPY"
-    }
+      "Bic": "GIBACZPY",
+      "SurchargeConfiguration": {
+        "SurchargeFees": {
+          "Amex": 3,
+          "DinersClub": 4
+        },
+        "SurchargeServiceId": "2b9b0143-3135-485b-8064-76c90d1be69e",
+        "SurchargeTaxCode": "US-HI-KA"
+      },
+      "EnabledExternalPaymentTypes": [
+        "Invoice",
+        "Cash",
+        "GiftCard"
+      ]
+    },
+    "IsPortfolio": false,
+    "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
+    "ExternalIdentifier": null,
+    "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
+    "CreatedUtc": "2015-07-07T13:33:17Z",
+    "UpdatedUtc": "2015-07-07T13:33:17Z",
+    "Name": "Connector API Hotel",
+    "TimeZoneIdentifier": "Europe/Budapest",
+    "LegalEnvironmentCode": "UK",
+    "AccommodationEnvironmentCode": null,
+    "AccountingEnvironmentCode": null,
+    "TaxEnvironmentCode": null,
+    "DefaultLanguageCode": "en-US",
+    "EditableHistoryInterval": "P0M7DT0H0M0S",
+    "AccountingEditableHistoryInterval": "P0M7DT0H0M0S",
+    "OperationalEditableHistoryInterval": "P0M5DT0H0M0S",
+    "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral",
+    "Email": "charging-api@mews.li",
+    "Phone": "00000 123 456 789",
+    "LogoImageId": null,
+    "CoverImageId": null,
+    "Pricing": "Gross",
+    "TaxPrecision": null,
+    "AddressId": "c556f56e-713e-4102-9de5-0e853b5a8586",
+    "GroupNames": [
+      "Connector API Group"
+    ]
   },
   "Service": {
     "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
     "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "CreatedUtc": "2023-10-01T11:48:57Z",
-    "UpdatedUtc": "2023-10-28T11:48:57Z",
     "IsActive": true,
     "Name": "Accommodation",
+    "Names": {
+      "en-GB": "Accommodation"
+    },
     "StartTime": "PT14H",
     "EndTime": "PT12H",
+    "Options": {
+      "BillAsPackage": false
+    },
     "Promotions": {
       "BeforeCheckIn": false,
       "AfterCheckIn": false,
       "DuringStay": false,
       "BeforeCheckOut": false,
-      "AfterCheckOut": false
+      "AfterCheckOut": false,
+      "DuringCheckOut": false
     },
-    "Type": "Reservable"
+    "Type": "Reservable",
+    "Ordering": 0,
+    "Data": null,
+    "ExternalIdentifier": null,
+    "CreatedUtc": "2023-10-01T11:48:57Z",
+    "UpdatedUtc": "2023-10-28T11:48:57Z"
   },
   "PaymentCardStorage": null
 }
@@ -136,6 +168,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Pricing` | [Pricing](configuration.md#pricing) | required | Pricing of the enterprise. |
 | `TaxPrecision` | integer | optional | Tax precision used for financial calculations in the enterprise. If `null`, `Currency` precision is used. |
 | `AddressId` | string | required | Unique identifier of the `Address` of the enterprise. |
+| `GroupNames` | array of string | required | A list of the group names of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `AccountingConfiguration` | [Accounting configuration](configuration.md#accounting-configuration) | optional | Configuration information containing financial information about the property. |
 | `IsPortfolio` | boolean | required | Whether the enterprise is a Portfolio enterprise (see [Multi-property guidelines](../guidelines/multi-property.md)). |
