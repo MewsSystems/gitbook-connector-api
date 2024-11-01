@@ -132,5 +132,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `FiscalCounter`
 * `ProformaCounter`
 * `RegistrationCardCounter`
+* `CorrectionBillCounter`
 * `ServiceOrderCounter`
+* `PaymentConfirmationBillCounter`
+* `CreditNoteBillCounter`
 * ...
