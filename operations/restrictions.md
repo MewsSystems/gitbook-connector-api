@@ -63,7 +63,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of `Rate`. Returns only those restrictions which have matching `BaseRateId` set in `Restriction Condition`. |
 | `Origin` | [Restriction origin](restrictions.md#restriction-origin) | required | Restriction origin. Returns only those restrictions which have matching Origin or all if not specified. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the `Service` from which the restrictions are requested. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 | ~~`TimeFilter`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |

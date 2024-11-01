@@ -394,6 +394,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `GlobalDistributionSystem` | [Bool update value](_objects.md#bool-update-value) | optional | Global distribution system (or `null` if the value should not be updated). |
 | `Marketing` | [Bool update value](_objects.md#bool-update-value) | optional | Marketing (or `null` if the value should not be updated). |
 | `Inactive` | [Bool update value](_objects.md#bool-update-value) | optional | Inactive (or `null` if the value should not be updated). |
+| `GovernmentEntity` | [Bool update value](_objects.md#bool-update-value) | optional | Government Entity (or `null` if the value should not be updated). |
 
 #### Credit rating basic
 
@@ -650,6 +651,7 @@ Updated customer data.
 | `GlobalDistributionSystem` | boolean | required | Global distribution system. |
 | `Marketing` | boolean | required | Marketing. |
 | `Inactive` | boolean | required | Inactive. |
+| `GovernmentEntity` | boolean | required | Government Entity |
 
 #### Company options
 

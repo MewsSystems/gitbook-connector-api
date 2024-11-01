@@ -45,7 +45,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccountingCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Accounting categories](accountingcategories.md#accounting-category). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Last update date and time of the accounting category in UTC timezone in ISO 8601 format. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

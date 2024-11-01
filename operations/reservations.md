@@ -56,7 +56,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ScheduledStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled start time. |
 | `ScheduledEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled end time. |
 | `States` | array of [Service order state](reservations.md#service-order-state) | optional | A list of service order states to filter by. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -449,7 +449,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
@@ -1144,7 +1144,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
@@ -1541,8 +1541,8 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required, max 1000 items | Unique identifiers of the reservation to cancel. |
-| `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
-| `SendEmail` | boolean | optional | Whether cancellation email should be sent. The default is `true`. |
+| `PostCancellationFee` | boolean | optional | Whether the cancellation fees should be charged according to rate conditions. The default is `false`. |
+| `SendEmail` | boolean | optional | Whether the cancellation email should be sent. The default is `true`. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |
 | ~~`ReservationId`~~ | ~~string~~ | ~~required~~ | **Deprecated!** |
 

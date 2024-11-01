@@ -49,7 +49,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of `Services` associated with the age categories. If not provided, defaults to all bookable services. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the age category was updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

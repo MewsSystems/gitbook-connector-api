@@ -51,7 +51,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](customers.md#customer) or [Company](companies.md#company)). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Account note's last update date and time. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
