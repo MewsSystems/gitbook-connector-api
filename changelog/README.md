@@ -1,5 +1,10 @@
 # Changelog
 
+## 5th November 2024
+* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `CorrectionBillCounter`.
+* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `CreditNoteBillCounter`.
+* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `PaymentConfirmationBillCounter`.
+
 ## 1st November 2024
 * Extended [Get all bills](../operations/bills.md#get-all-bills) response object with `Name` property.
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `GroupNames` property.
@@ -105,9 +110,6 @@
 * Extended [Voucher code](../operations/vouchercodes.md#voucher-code) response object with `IsActive` property.
   * [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes)
 
-## 19th July 2024
-* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `CreditNoteBillCounter`.
-
 ## 8th July 2024
 * Extended [Payment data](../operations/payments.md#payment-data) response object with `Type` for Invoice payment type.
   * [Get all payments](../operations/payments.md#get-all-payments)
@@ -170,9 +172,6 @@
 ## 8th May 2024
 * Extended [Add alternative payment](../operations/payments.md#add-alternative-payment) request with `Data` parameter.
 * Deprecated `Method`, `RedirectUrl` in [Add alternative payment](../operations/payments.md#add-alternative-payment). Use `Data` instead.
-
-## 7th May 2024
-* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `PaymentConfirmationBillCounter`.
 
 ## 19th April 2024
 * Extended [Reservation (ver 2023-06-06)](../operations/reservations.md#reservation-ver-2023-06-06) response object with `ActualEndUtc` and  `ScheduledEndUtc`, this affects the following operations:

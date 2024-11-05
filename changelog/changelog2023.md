@@ -29,7 +29,6 @@
 ## 22nd November 2023
 
 * Extended [Update reservations](../operations/reservations.md#reservation-updates) with `Options` parameter.
-* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `CorrectionBillCounter`.
 
 ## 21st November 2023
 
