@@ -1,9 +1,9 @@
 # Changelog
 
 ## 6th November 2024
-* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `CorrectionBillCounter`.
-* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `CreditNoteBillCounter`.
-* Added new type of counter to [Counter type discriminator](../operations/counters#counter-type-discriminator): `PaymentConfirmationBillCounter`.
+* Added new type of counter to [Counter type discriminator](../operations/counters.md#counter-type-discriminator): `CorrectionBillCounter`.
+* Added new type of counter to [Counter type discriminator](../operations/counters.md#counter-type-discriminator): `CreditNoteBillCounter`.
+* Added new type of counter to [Counter type discriminator](../operations/counters.md#counter-type-discriminator): `PaymentConfirmationBillCounter`.
 
 ## 1st November 2024
 * Extended [Get all bills](../operations/bills.md#get-all-bills) response object with `Name` property.
