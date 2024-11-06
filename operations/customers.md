@@ -251,88 +251,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Active`
 * `Deleted`
 
-## Search customers
-
-Searches for customers that are active at the moment in the enterprise \(e.g. companions of checked-in reservations or paymasters\).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/search`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "Name": "Smith",
-    "ResourceId": null,
-    "Extent": {
-        "Customers": true,
-        "Documents": false,
-        "Addresses": false
-    }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
-| `ResourceId` | string | optional | Identifier of [Resource](resources.md#resource) to search by \(members of reservation assigned there will be returned\). |
-| `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
-
-### Response
-
-```javascript
-{
-    "Customers": [
-        {
-            "Customer": {
-                "Address": null,
-                "BirthDate": null,
-                "BirthPlace": null,
-                "CategoryId": null,
-                "Classifications": [],
-                "CreatedUtc": "2016-01-01T00:00:00Z",
-                "Email": null,
-                "FirstName": "John",
-                "Sex": "Male",
-                "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
-                "IdentityCard": null,
-                "LanguageCode": null,
-                "LastName": "Smith",
-                "LoyaltyCode": null,
-                "NationalityCode": "US",
-                "Notes": "",
-                "Number": "1",
-                "Options": [],
-                "Passport": null,
-                "Phone": "00420123456789",
-                "SecondLastName": null,
-                "TaxIdentificationNumber": null,
-                "Title": null,
-                "UpdatedUtc": "2016-01-01T00:00:00Z",
-                "Visa": null
-            },
-            "Reservation": null
-        }
-    ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Customers` | array of [Customer search result](#customer-search-result) | required | The customer search results. |
-
-#### Customer search result
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Customer` | [Customer](#customer) | required | The found customer. |
-| `Reservation` | [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | Reservation of the customer in case they are currently staying in the property. |
-
 ## Get customers open items
 
 Returns all open items of the specified customers, i.e. all unpaid items and all deposited payments. Sum of the open items is the balance of the customer. If the `Currency` is specified, costs of the items are converted to that currency.
@@ -598,6 +516,88 @@ Updates personal information of a customer. Note that if any of the fields is le
 ### Response
 
 The updated [Customer](#customer).
+
+## Search customers
+
+Searches for customers that are active at the moment in the enterprise \(e.g. companions of checked-in reservations or paymasters\).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/customers/search`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "Name": "Smith",
+    "ResourceId": null,
+    "Extent": {
+        "Customers": true,
+        "Documents": false,
+        "Addresses": false
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `Name` | string | optional | Name to search by \(applies to first name, last name and full name\). |
+| `ResourceId` | string | optional | Identifier of [Resource](resources.md#resource) to search by \(members of reservation assigned there will be returned\). |
+| `Extent` | [Customer extent](#customer-extent) | required | Extent of data to be returned. |
+
+### Response
+
+```javascript
+{
+    "Customers": [
+        {
+            "Customer": {
+                "Address": null,
+                "BirthDate": null,
+                "BirthPlace": null,
+                "CategoryId": null,
+                "Classifications": [],
+                "CreatedUtc": "2016-01-01T00:00:00Z",
+                "Email": null,
+                "FirstName": "John",
+                "Sex": "Male",
+                "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
+                "IdentityCard": null,
+                "LanguageCode": null,
+                "LastName": "Smith",
+                "LoyaltyCode": null,
+                "NationalityCode": "US",
+                "Notes": "",
+                "Number": "1",
+                "Options": [],
+                "Passport": null,
+                "Phone": "00420123456789",
+                "SecondLastName": null,
+                "TaxIdentificationNumber": null,
+                "Title": null,
+                "UpdatedUtc": "2016-01-01T00:00:00Z",
+                "Visa": null
+            },
+            "Reservation": null
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Customers` | array of [Customer search result](#customer-search-result) | required | The customer search results. |
+
+#### Customer search result
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Customer` | [Customer](#customer) | required | The found customer. |
+| `Reservation` | [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | Reservation of the customer in case they are currently staying in the property. |
 
 ## ~~Merge customers~~
 
