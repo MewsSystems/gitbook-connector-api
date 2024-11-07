@@ -723,7 +723,11 @@ Merges two or more accounts of the same account type together. The given source 
 
 ## Upload and link file to account
 
-Attaches the specified file to the account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Attaches the specified file to the account. 
+
+Allowed MIME types: `application/pdf`, `image/bmp`, `image/gif`, `image/jpeg`, `image/png`, `image/tiff`.
+
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -737,7 +741,7 @@ Attaches the specified file to the account. Note this operation supports [Portfo
   "AccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "Name": "document.pdf",
   "Type": "application/pdf",
-  "ChainId": null
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -756,7 +760,7 @@ Attaches the specified file to the account. Note this operation supports [Portfo
 
 ```javascript
 {
-  "FileId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "FileId": "f039f5b4-ff18-4510-9086-92b14a68ed78"
 }
 ```
 
