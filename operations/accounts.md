@@ -755,9 +755,11 @@ Attaches the specified file to the account. Note this operation supports [Portfo
 ### Response
 
 ```javascript
-{}
+{
+  "FileId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `FileId` | string | required |  |
+| `FileId` | string | required | Unique identifier of the uploaded file |
