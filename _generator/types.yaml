@@ -301,9 +301,9 @@ types:
   customer:
     file: customers.md
     anchor: customer
-  document:
+  identitydocument:
     file: customers.md
-    anchor: document
+    anchor: identity-document
   oldaddress:
     file: configuration.md
     anchor: address

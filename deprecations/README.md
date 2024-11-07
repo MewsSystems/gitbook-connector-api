@@ -93,12 +93,12 @@ The table columns have the following meanings:
 | `ApplyCancelationFee`<br>in [Reservation](../operations/reservations.md#reservation) | Replaced by `ApplyCancellationFee` | Prior to 2021 | - |
 | `Total`<br>in [Reservation price](../operations/reservations.md#reservation-price) | Replaced by `TotalAmount` | Prior to 2021 | - |
 | `BirthDateUtc`<br>in [Customer](../operations/customers.md#customer) | Replaced by `BirthDate` | 07 Jun 2017 | - |
-| `Passport`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
-| `IdentityCard`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
-| `Visa`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
-| `DriversLicense`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#document) object in `Documents` part of response | Prior to 2021 | - |
-| `ExpirationUtc`<br>in [Document](../operations/customers.md#document) | Replaced by `Expiration` | 07 Jun 2017 | - |
-| `IssuanceUtc`<br>in [Document](../operations/customers.md#document) | Replaced by `Issuance` | 07 Jun 2017 | - |
+| `Passport`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#identity-document) object in `Documents` part of response | Prior to 2021 | - |
+| `IdentityCard`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#identity-document) object in `Documents` part of response | Prior to 2021 | - |
+| `Visa`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#identity-document) object in `Documents` part of response | Prior to 2021 | - |
+| `DriversLicense`<br>in [Customer](../operations/customers.md#customer) | Replaced by [Document](../operations/customers.md#identity-document) object in `Documents` part of response | Prior to 2021 | - |
+| `ExpirationUtc`<br>in [Document](../operations/customers.md#identity-document) | Replaced by `Expiration` | 07 Jun 2017 | - |
+| `IssuanceUtc`<br>in [Document](../operations/customers.md#identity-document) | Replaced by `Issuance` | 07 Jun 2017 | - |
 | `Net`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | Prior to 2021 | - |
 | `Tax`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | Prior to 2021 | - |
 | `TaxRate`<br>in [Currency value](../operations/accountingitems.md#currency-value) | - | Prior to 2021 | - |
