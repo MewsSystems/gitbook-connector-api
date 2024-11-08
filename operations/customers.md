@@ -144,7 +144,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](#customer) | required | The customers. |
-| `Documents` | array of [Document](#identity-document) | required | The identity documents of customers. |
+| `Documents` | array of [Document](#document) | required | The identity documents of customers. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then `Cursor` will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
 
 #### Customer
@@ -194,7 +194,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Male`
 * `Female`
 
-#### Identity Document
+#### Document
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -495,10 +495,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Notes` | string | optional | Internal notes about the customer. |
 | `CarRegistrationNumber` | string | optional | Registration number of the customer's car. |
 | `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
-| `IdentityCard` | [Document](#identity-document) | optional | Identity card details of the customer. |
-| `Passport` | [Document](#identity-document) | optional | Passport details of the customer. |
-| `Visa` | [Document](#identity-document) | optional | Visa details of the customer. |
-| `DriversLicense` | [Document](#identity-document) | optional | Drivers license details of the customer. |
+| `IdentityCard` | [Document](#document) | optional | Identity card details of the customer. |
+| `Passport` | [Document](#document) | optional | Passport details of the customer. |
+| `Visa` | [Document](#document) | optional | Visa details of the customer. |
+| `DriversLicense` | [Document](#document) | optional | Drivers license details of the customer. |
 | `Address` | [Address parameters](#address-parameters) | optional | Address of the customer. |
 | `Classifications` | array of [Customer classification](#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](#customer-option) | optional | Options of the customer. |
@@ -585,10 +585,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
 | `CarRegistrationNumber` | string | optional | New registration number of the customer's car. |
 | `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
-| `IdentityCard` | [Document](#identity-document) | optional | New identity card details. |
-| `Passport` | [Document](#identity-document) | optional | New passport details. |
-| `Visa` | [Document](#identity-document) | optional | New visa details. |
-| `DriversLicense` | [Document](#identity-document) | optional | New drivers license details. |
+| `IdentityCard` | [Document](#document) | optional | New identity card details. |
+| `Passport` | [Document](#document) | optional | New passport details. |
+| `Visa` | [Document](#document) | optional | New visa details. |
+| `DriversLicense` | [Document](#document) | optional | New drivers license details. |
 | `Address` | [Address parameters](#address-parameters)  | optional | New address details. |
 | `Classifications` | array of [Customer classification](#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](#customer-option) | optional | Options of the customer. |
