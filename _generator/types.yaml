@@ -1261,3 +1261,60 @@ types:
   accountfileparameters:
     file: accounts.md
     anchor: accountfileparameters
+  customerresult:
+    file: customers.md
+    anchor: customerresult
+  sex:
+    file: customers.md
+    anchor: sex
+  identitydocument:
+    file: customers.md
+    anchor: identity-document
+  customerfilterparameters:
+    file: customers.md
+    anchor: customerfilterparameters
+  customerextent:
+    file: customers.md
+    anchor: customer-extent
+  customersearchresult:
+    file: customers.md
+    anchor: customersearchresult
+  chargeablecustomer:
+    file: customers.md
+    anchor: customer-search-result
+  customersearchparameters:
+    file: customers.md
+    anchor: customersearchparameters
+  customeritemresult:
+    file: customers.md
+    anchor: customeritemresult
+  customeritems:
+    file: customers.md
+    anchor: customer-items
+  customeritemparameters:
+    file: customers.md
+    anchor: customeritemparameters
+  customeraddparameters:
+    file: customers.md
+    anchor: customeraddparameters
+  documentparameters:
+    file: customers.md
+    anchor: document
+  customerclassificationenum:
+    file: customers.md
+    anchor: customer-classification
+  customeroptionenum:
+    file: customers.md
+    anchor: customer-option
+  customerupdateparameters:
+    file: customers.md
+    anchor: customerupdateparameters
+  customermergeparameters:
+    file: customers.md
+    anchor: customermergeparameters
+  customerfileparameters:
+    file: customers.md
+    anchor: customerfileparameters
+  customeraddfileresult:
+    file: customers.md
+    anchor: customeraddfileresult
