@@ -1,6 +1,6 @@
 # Changelog
 
-## 6th November 2024
+## 8th November 2024
 * Added operation [Upload and link file to account](../operations/accounts.md#upload-and-link-file-to-account)
 
 ## 6th November 2024
