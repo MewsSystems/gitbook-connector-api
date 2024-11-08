@@ -1255,3 +1255,9 @@ types:
   rateforextent:
     file: rates.md
     anchor: rate-for-extent
+  addaccountfileresult:
+    file: accounts.md
+    anchor: addaccountfileresult
+  accountfileparameters:
+    file: accounts.md
+    anchor: accountfileparameters

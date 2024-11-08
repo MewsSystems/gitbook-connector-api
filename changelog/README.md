@@ -1,5 +1,8 @@
 # Changelog
 
+## 8th November 2024
+* Added operation [Upload and link file to account](../operations/accounts.md#upload-and-link-file-to-account)
+
 ## 6th November 2024
 * Added new type of counter to [Counter type discriminator](../operations/counters.md#counter-type-discriminator): `CorrectionBillCounter`.
 * Added new type of counter to [Counter type discriminator](../operations/counters.md#counter-type-discriminator): `CreditNoteBillCounter`.
