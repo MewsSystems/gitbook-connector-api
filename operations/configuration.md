@@ -101,7 +101,10 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "AddressId": "c556f56e-713e-4102-9de5-0e853b5a8586",
     "GroupNames": [
       "Connector API Group"
-    ]
+    ],
+    "Subscription": {
+      "TaxIdentifier": "123456789 RC 0001"
+    }
   },
   "Service": {
     "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -169,6 +172,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `TaxPrecision` | integer | optional | Tax precision used for financial calculations in the enterprise. If `null`, `Currency` precision is used. |
 | `AddressId` | string | required | Unique identifier of the `Address` of the enterprise. |
 | `GroupNames` | array of string | required | A list of the group names of the enterprise. |
+| `Subscription` | [Enterprise subscription](enterprises.md#enterprise-subscription) | required | Subscription information of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `AccountingConfiguration` | [Accounting configuration](configuration.md#accounting-configuration) | optional | Configuration information containing financial information about the property. |
 | `IsPortfolio` | boolean | required | Whether the enterprise is a Portfolio enterprise (see [Multi-property guidelines](../guidelines/multi-property.md)). |
