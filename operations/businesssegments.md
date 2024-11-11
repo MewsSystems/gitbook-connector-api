@@ -41,7 +41,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Ids` | string | optional, max 1000 items | Unique identifiers of the requested [Bussiness segment](#business-segment). |
-| `ServiceIds` | array of string | required | Unique identifiers of the [Services](services.md#service) from which the business segments are requested. |
+| `ServiceIds` | array of string | optional | Unique identifiers of the [Services](services.md#service) from which the business segments are requested. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Business segment](#business-segment) was updated. |
 | `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
