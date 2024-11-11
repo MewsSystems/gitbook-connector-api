@@ -1,5 +1,8 @@
 # Changelog
 
+## 12th November 2024
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `Subscription` property that contains `TaxIdentifier` property.
+
 ## 8th November 2024
 * Added operation [Upload and link file to account](../operations/accounts.md#upload-and-link-file-to-account)
 
