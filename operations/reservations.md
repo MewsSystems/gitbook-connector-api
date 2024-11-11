@@ -133,11 +133,11 @@ Returns all reservations within scope of the Access Token, filtered according to
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation. |
 | `ServiceId` | string | required | Unique identifier of the `Service` that reservation is made against. |
-| `AccountId` | string | required | Unique identifier of the Customer or a Company who owns the reservation. |
+| `AccountId` | string | required | Unique identifier of the Customer or Company who owns the reservation, i.e. the main guest linked to the reservation. |
 | `AccountType` | [Account type](accounts.md#account-type) | required |  |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the reservation. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the reservation. |
-| `BookerId` | string | optional | Unique identifier of the Customer on whose behalf the reservation was made. |
+| `BookerId` | string | optional | Unique identifier of the booker who made the reservation on behalf of the reservation owner, in the special case where the booker is also a registered customer in Mews. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | [Service order state](reservations.md#service-order-state) | required | State of the reservation. |
 | `Origin` | [Service order origin](reservations.md#service-order-origin) | required | Origin of the reservation. |
