@@ -197,8 +197,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `PreferredLanguageCode` | string | optional | Language and culture code of customer's preferred language as set via Operations or API (i.e. without customer's choice). For example: `en-GB`, `fr-CA`. |
-| `LanguageCode` | string | optional | Language and culture code of the customers specified in the booking process, otherwise customers preferred language or native language. E.g. `en-US` or `fr-FR`. |
+| `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
+| `LanguageCode` | string | optional | Language and culture code of the customer's language, based on multiple sources. These sources include the preferred language specified in internal data based on previous bookings, and the preferred language of the customer specified in their profile. If neither of these sources are present, we use the native language based on the customer's nationality. The format is, for example, `en-US` or `fr-FR`. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Occupation` | string | optional | Occupation of the customer. |
@@ -211,7 +211,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
 | `CarRegistrationNumber` | string | optional, max length 255 characters | Registration number of the customer's car. |
-| `DietaryRequirements` | string | optional, max length 255 characters | Customer's preferred Dietary requirements like Vegan, Halal, etc. |
+| `DietaryRequirements` | string | optional, max length 255 characters | Customer's dietary requirements, e.g. Vegan, Halal. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `AddressId` | string | optional | Unique identifier of the `Address` of the customer. |
@@ -257,7 +257,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 ## ~~Get customers open items~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items)
+> This operation is [deprecated](../deprecations/README.md). Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.
 
 ### Request
 
@@ -418,14 +418,14 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
 | `CarRegistrationNumber` | string | optional, max length 255 characters | Registration number of the customer's car. |
-| `DietaryRequirements` | string | optional, max length 255 characters | Customer's preferred Dietary requirements like Vegan, Halal, etc. |
+| `DietaryRequirements` | string | optional, max length 255 characters | Customer's dietary requirements, e.g. Vegan, Halal. |
 | `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `Address` | [Address parameters](companies.md#address-parameters) | optional | Address of the customer. |
-| `IdentityCard` | [Document](customers.md#document) | optional | Identity card details of the customer. |
-| `Passport` | [Document](customers.md#document) | optional | Passport details of the customer. |
-| `Visa` | [Document](customers.md#document) | optional | Visa details of the customer. |
-| `DriversLicense` | [Document](customers.md#document) | optional | Drivers license details of the customer. |
+| `IdentityCard` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Identity card details of the customer. |
+| `Passport` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Passport details of the customer. |
+| `Visa` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Visa details of the customer. |
+| `DriversLicense` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Drivers license details of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using `PortfolioAccessTokens`, ignored otherwise. |
@@ -438,7 +438,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 * `Male`
 * `Female`
 
-#### Document
+#### Identity document parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -543,7 +543,7 @@ Adds a new customer to the system and returns details of the added customer. If 
   "Options": [],
   "ItalianDestinationCode": "7654321",
   "ItalianFiscalCode": "ZGNZLR17U72P554F",
-  "CompanyId": null,
+  "CompanyId": "f3b4f0af-9558-463b-8452-07a9bc414708",
   "MergeTargetId": null,
   "ActivityState": null,
   "IsActive": true,
@@ -564,8 +564,8 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `PreferredLanguageCode` | string | optional | Language and culture code of customer's preferred language as set via Operations or API (i.e. without customer's choice). For example: `en-GB`, `fr-CA`. |
-| `LanguageCode` | string | optional | Language and culture code of the customers specified in the booking process, otherwise customers preferred language or native language. E.g. `en-US` or `fr-FR`. |
+| `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
+| `LanguageCode` | string | optional | Language and culture code of the customer's language, based on multiple sources. These sources include the preferred language specified in internal data based on previous bookings, and the preferred language of the customer specified in their profile. If neither of these sources are present, we use the native language based on the customer's nationality. The format is, for example, `en-US` or `fr-FR`. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Occupation` | string | optional | Occupation of the customer. |
@@ -578,7 +578,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
 | `CarRegistrationNumber` | string | optional, max length 255 characters | Registration number of the customer's car. |
-| `DietaryRequirements` | string | optional, max length 255 characters | Customer's preferred Dietary requirements like Vegan, Halal, etc. |
+| `DietaryRequirements` | string | optional, max length 255 characters | Customer's dietary requirements, e.g. Vegan, Halal. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `AddressId` | string | optional | Unique identifier of the `Address` of the customer. |
@@ -623,6 +623,7 @@ Updates personal information of a customer. Note that if any of the fields is le
   "Notes": "Check-in notturno.",
   "CarRegistrationNumber": "AA 111AA",
   "TaxIdentificationNumber": "ZGNZLR17U72P554F",
+  "CompanyId": "f3b4f0af-9558-463b-8452-07a9bc414708",
   "Address": {
     "Line1": "Via Antimo 474 Piano 5",
     "City": "Liborio laziale",
@@ -674,14 +675,14 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
 | `CarRegistrationNumber` | string | optional, max length 255 characters | New registration number of the customer's car. |
-| `DietaryRequirements` | string | optional, max length 255 characters | Customer's preferred Dietary requirements like Vegan, Halal, etc. |
+| `DietaryRequirements` | string | optional, max length 255 characters | Customer's dietary requirements, e.g. Vegan, Halal. |
 | `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `Address` | [Address parameters](companies.md#address-parameters) | optional | New address details. |
-| `IdentityCard` | [Document](customers.md#document) | optional | New identity card details. |
-| `Passport` | [Document](customers.md#document) | optional | New passport details. |
-| `Visa` | [Document](customers.md#document) | optional | New visa details. |
-| `DriversLicense` | [Document](customers.md#document) | optional | New drivers license details. |
+| `IdentityCard` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New identity card details. |
+| `Passport` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New passport details. |
+| `Visa` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New visa details. |
+| `DriversLicense` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New drivers license details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ItalianDestinationCode` | [String update value](_objects.md#string-update-value) | optional | New Italian destination code of customer. |
@@ -749,7 +750,7 @@ Updates personal information of a customer. Note that if any of the fields is le
   "Options": [],
   "ItalianDestinationCode": "7654321",
   "ItalianFiscalCode": "ZGNZLR17U72P554F",
-  "CompanyId": null,
+  "CompanyId": "f3b4f0af-9558-463b-8452-07a9bc414708",
   "MergeTargetId": null,
   "ActivityState": null,
   "IsActive": true,
@@ -770,8 +771,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the [Country](countries.md#country). |
-| `PreferredLanguageCode` | string | optional | Language and culture code of customer's preferred language as set via Operations or API (i.e. without customer's choice). For example: `en-GB`, `fr-CA`. |
-| `LanguageCode` | string | optional | Language and culture code of the customers specified in the booking process, otherwise customers preferred language or native language. E.g. `en-US` or `fr-FR`. |
+| `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
+| `LanguageCode` | string | optional | Language and culture code of the customer's language, based on multiple sources. These sources include the preferred language specified in internal data based on previous bookings, and the preferred language of the customer specified in their profile. If neither of these sources are present, we use the native language based on the customer's nationality. The format is, for example, `en-US` or `fr-FR`. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Occupation` | string | optional | Occupation of the customer. |
@@ -784,7 +785,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `BillingCode` | string | optional | Billing code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. |
 | `CarRegistrationNumber` | string | optional, max length 255 characters | Registration number of the customer's car. |
-| `DietaryRequirements` | string | optional, max length 255 characters | Customer's preferred Dietary requirements like Vegan, Halal, etc. |
+| `DietaryRequirements` | string | optional, max length 255 characters | Customer's dietary requirements, e.g. Vegan, Halal. |
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `AddressId` | string | optional | Unique identifier of the `Address` of the customer. |

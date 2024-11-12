@@ -1299,7 +1299,7 @@ types:
     anchor: customeraddparameters
   documentparameters:
     file: customers.md
-    anchor: document
+    anchor: identity-document-parameters
   customerclassificationenum:
     file: customers.md
     anchor: customer-classification
