@@ -1,6 +1,6 @@
 # Changelog
 
-## 11th November 2024
+## 13th November 2024
 * Deprecated [Get customers open items](../operations/customers.md#get-customers-open-items) operation. Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.
 * Aligned [Customer API operations](../operations/customers.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
 * Extended [Customer](../operations/customers.md#customer) with property `DietaryRequirements`.
