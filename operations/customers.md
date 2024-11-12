@@ -548,6 +548,7 @@ Updates personal information of a customer. Note that if any of the fields is le
     "Phone": "00420123456789",
     "LoyaltyCode": null,
     "Notes": null,
+    "CompanyId": "5fb89965-dc39-4b88-9ebb-9581ba29db8b",
     "IdentityCard": {
         "Number": "123456",
         "Expiration": "2020-01-01",
@@ -583,6 +584,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Phone` | string | optional | New phone number. |
 | `LoyaltyCode` | string | optional | Loyalty code of the customer. |
 | `Notes` | string | optional | Internal notes about the customer. Old value will be overwritten. |
+| `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 | `CarRegistrationNumber` | string | optional | New registration number of the customer's car. |
 | `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
 | `IdentityCard` | [Document](#document) | optional | New identity card details. |
