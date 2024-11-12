@@ -1261,3 +1261,9 @@ types:
   accountfileparameters:
     file: accounts.md
     anchor: accountfileparameters
+  businesssegmentresult:
+    file: businesssegments.md
+    anchor: businesssegmentresult
+  businesssegmentfilterparameters:
+    file: businesssegments.md
+    anchor: businesssegmentfilterparameters
