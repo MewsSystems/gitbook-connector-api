@@ -63,7 +63,7 @@ Returns all [Sources](sources.md#source) assigned to a [Reservation group](reser
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `SourceAssignments` | array of [Source assignment](sourceassignments.md#source-assignment) | required | Assignments between reservation group and sources. |
-| `Cursor` | string | required | Unique identifier of the last and hence oldest source assignment returned. This can be used in a `Limitation` in a subsequent request to fetch the next batch of older source assignments. |
+| `Cursor` | string | required | Unique identifier of the last and hence oldest source assignment returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older source assignments. |
 
 #### Source assignment
 
