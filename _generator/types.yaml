@@ -1261,3 +1261,24 @@ types:
   accountfileparameters:
     file: accounts.md
     anchor: accountfileparameters
+  serviceoverbookinglimitresult:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitresult
+  serviceoverbookinglimit:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimit
+  serviceoverbookinglimitfilterparameters:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitfilterparameters
+  serviceoverbookinglimitsetparameters:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitsetparameters
+  serviceoverbookinglimitsetdata:
+    file: serviceoverbookinglimits.md
+    anchor: service-overbooking-limits-set-parameters
+  serviceoverbookinglimitclearparameters:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitclearparameters
+  serviceoverbookinglimitcleardata:
+    file: serviceoverbookinglimits.md
+    anchor: service-overbooking-limits-clear-parameters
