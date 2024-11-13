@@ -95,7 +95,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: _objects.md
+    file: vouchers.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1261,3 +1261,15 @@ types:
   accountfileparameters:
     file: accounts.md
     anchor: accountfileparameters
+  identitydocument:
+    file: reservations.md
+    anchor: identity-document
+  sourceassignmentresult:
+    file: sourceassignments.md
+    anchor: sourceassignmentresult
+  sourceassignment:
+    file: sourceassignments.md
+    anchor: source-assignment
+  sourceassignmentfilterparameters:
+    file: sourceassignments.md
+    anchor: sourceassignmentfilterparameters
