@@ -135,7 +135,7 @@ It's not allowed to update past service overbooking limits outside of `EditableH
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the [Service](services.md#service) overbooking limits will be set in. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) overbooking limits will be set in. |
 | `SetServiceOverbookingLimits` | array of [Service overbooking limits set parameters](serviceoverbookinglimits.md#service-overbooking-limits-set-parameters) | required, max 1000 items | Collection of service overbooking limits to be set. |
 
 #### Service overbooking limits set parameters
@@ -191,7 +191,7 @@ It's not allowed to clear past service overbooking limits outside of `EditableHi
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the [Service](services.md#service) overbooking limits will be set in. |
+| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) overbooking limits will be set in. |
 | `ClearServiceOverbookingLimits` | array of [Service overbooking limits clear parameters](serviceoverbookinglimits.md#service-overbooking-limits-clear-parameters) | required, max 1000 items | Collection of service overbooking limits to be cleared. |
 
 #### Service overbooking limits clear parameters
