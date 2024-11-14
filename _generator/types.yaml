@@ -1318,3 +1318,9 @@ types:
   customeraddfileresult:
     file: customers.md
     anchor: customeraddfileresult
+  businesssegmentresult:
+    file: businesssegments.md
+    anchor: businesssegmentresult
+  businesssegmentfilterparameters:
+    file: businesssegments.md
+    anchor: businesssegmentfilterparameters
