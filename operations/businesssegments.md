@@ -3,7 +3,7 @@
 
 ## Get all business segments
 
-Returns all identity documents. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all business segments. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -34,8 +34,7 @@ Returns all identity documents. This operation supports [Portfolio Access Tokens
     "4d0201db-36f5-428b-8d11-4f0a65e960cc"
   ],
   "Limitation": {
-    "Count": 10,
-    "Cursor": null
+    "Count": 10
   }
 }
 ```
