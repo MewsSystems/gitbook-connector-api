@@ -3,7 +3,7 @@
 
 ## Get all enterprises
 
-Returns all enterprises within scope of the `Access Token`, optionally filtered by enterprise identifiers and external identifiers. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all enterprises within scope of the `Access Token`, optionally filtered by enterprise identifiers and external identifiers. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -100,7 +100,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
-| `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is. |
+| `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
