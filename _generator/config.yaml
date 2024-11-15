@@ -10,7 +10,7 @@ tags:
   - availabilityadjustments
   # - availabilityblocks
   - bills
-  # - businesssegments
+  - businesssegments
   - cancellationpolicies
   # - cashiers
   # - cashiertransactions
