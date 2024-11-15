@@ -23,7 +23,7 @@ tags:
   - countries
   # - creditcards
   - currencies
-  # - customers
+  - customers
   # - departments
   - devices
   # - enterprises

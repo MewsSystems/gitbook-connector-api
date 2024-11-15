@@ -1,5 +1,13 @@
 # Changelog
 
+## 15th November 2024
+* Deprecated [Get customers open items](../operations/customers.md#get-customers-open-items) operation. Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.
+* Aligned [Customer API operations](../operations/customers.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
+* Extended [Customer](../operations/customers.md#customer) with property `DietaryRequirements`.
+  * [Get all customers](../operations/customers.md#get-all-customers) (read-only)
+  * [Add customer](../operations/customers.md#add-customer) (write and read)
+  * [Update customer](../operations/customers.md#update-customer) (write and read)
+
 ## 8th November 2024
 * Added operation [Upload and link file to account](../operations/accounts.md#upload-and-link-file-to-account)
 
