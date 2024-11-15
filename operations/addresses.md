@@ -48,7 +48,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](addresses.md#account-address) within the enterprise. Use this property if you want to fetch specific addresses. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Address last update date and time. Required if no other filter is provided. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
