@@ -1,5 +1,10 @@
 # Changelog
 
+## 19th November 2024
+* Added new restricted operation [Get all service ovebooking limits](serviceoverbookinglimits.md#get-all-service-overbooking-limits).
+* Added new restricted operation [Set service ovebooking limits](serviceoverbookinglimits.md#set-service-overbooking-limits).
+* Added new restricted operation [Clear service ovebooking limits](serviceoverbookinglimits.md#clear-service-overbooking-limits).
+
 ## 18th November 2024
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `Subscription` property that contains `TaxIdentifier` property.
 
