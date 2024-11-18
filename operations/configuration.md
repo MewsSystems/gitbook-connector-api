@@ -151,7 +151,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
-| `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is. |
+| `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
