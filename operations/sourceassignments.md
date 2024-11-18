@@ -3,7 +3,7 @@
 
 ## Get all source assignments
 
-Returns all [Sources](sources.md#source) assigned to a [Reservation group](reservations.md#reservation-group). Each reservation group can have multiple sources. Note this operation uses [Pagination](../guidelines/pagination.md).
+Returns all Sources assigned to a Reservation group. Each reservation group can have multiple sources. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -21,9 +21,12 @@ Returns all [Sources](sources.md#source) assigned to a [Reservation group](reser
     "StartUtc": "2023-02-1T00:00:00Z",
     "EndUtc": "2023-02-28T00:00:00Z"
   },
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Count": 10,
-    "Cursor": null
+    "Count": 10
   }
 }
 ```
