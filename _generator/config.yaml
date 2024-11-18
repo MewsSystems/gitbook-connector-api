@@ -10,7 +10,7 @@ tags:
   - availabilityadjustments
   # - availabilityblocks
   - bills
-  # - businesssegments
+  - businesssegments
   - cancellationpolicies
   # - cashiers
   # - cashiertransactions
@@ -23,10 +23,10 @@ tags:
   - countries
   # - creditcards
   - currencies
-  # - customers
+  - customers
   # - departments
   - devices
-  # - enterprises
+  - enterprises
   - exchangerates
   - exports
   - images
