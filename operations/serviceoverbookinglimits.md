@@ -102,7 +102,7 @@ Returns all service overbooking limits. Note this operation uses [Pagination](..
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Adds new service overbooking limits with the specified conditions. Past overbooking limits cannot be updated outside of `EditableHistoryInterval`. Care is needed to specify `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds new service overbooking limits with the specified conditions. Past overbooking limits cannot be updated outside of `OperationalEditableHistoryInterval`. Care is needed to specify `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -153,7 +153,7 @@ Adds new service overbooking limits with the specified conditions. Past overbook
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Deletes service overbooking limits that exactly match the specified conditions. This operation is intended to be used alongside `serviceOverbookingLimits/set`. The specified conditions must be met exactly. The time interval, however, does not need to correspond to an existing service overbooking limit in the system, instead the API uses a splicing algorithm to work out how to divide up any existing service overbooking limit to meet the specified time interval. Past overbooking limits cannot be cleared outside of `EditableHistoryInterval`. Care is needed to specify `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes service overbooking limits that exactly match the specified conditions. This operation is intended to be used alongside `serviceOverbookingLimits/set`. The specified conditions must be met exactly. The time interval, however, does not need to correspond to an existing service overbooking limit in the system, instead the API uses a splicing algorithm to work out how to divide up any existing service overbooking limit to meet the specified time interval. Past overbooking limits cannot be cleared outside of `OperationalEditableHistoryInterval`. Care is needed to specify `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes). This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
