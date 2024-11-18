@@ -1,5 +1,8 @@
 # Changelog
 
+## 18th November 2024
+* Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `Subscription` property that contains `TaxIdentifier` property.
+
 ## 15th November 2024
 * Deprecated [Get customers open items](../operations/customers.md#get-customers-open-items) operation. Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead.
 * Aligned [Customer API operations](../operations/customers.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.

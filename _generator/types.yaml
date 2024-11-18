@@ -1324,3 +1324,18 @@ types:
   businesssegmentfilterparameters:
     file: businesssegments.md
     anchor: businesssegmentfilterparameters
+  enterpriseresult:
+    file: enterprises.md
+    anchor: enterpriseresult
+  enterprisebase:
+    file: enterprises.md
+    anchor: enterprise
+  enterprisesubscription:
+    file: enterprises.md
+    anchor: enterprise-subscription
+  enterprisefilterparameters:
+    file: enterprises.md
+    anchor: enterprisefilterparameters
+  enterpriseportfolio:
+    file: enterprises.md
+    anchor: enterprise
