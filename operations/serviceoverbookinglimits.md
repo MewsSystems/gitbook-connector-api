@@ -81,10 +81,10 @@ Returns all service overbooking limits. Note this operation uses [Pagination](..
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceOverbookingLimits` | array of [ServiceOverbookingLimit](serviceoverbookinglimits.md#serviceoverbookinglimit) | required | Service overbooking limits of the default service. |
+| `ServiceOverbookingLimits` | array of [Service overbooking limit](serviceoverbookinglimits.md#service-overbooking-limit) | required | Service overbooking limits of the default service. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
-#### ServiceOverbookingLimit
+#### Service overbooking limit
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
