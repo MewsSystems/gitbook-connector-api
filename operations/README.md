@@ -37,7 +37,7 @@ This section describes all operations supported by the API, organised here by th
 | :-- | :-- |
 | [Get all customers](customers.md#get-all-customers) | Returns all customers filtered by identifiers, emails, names and other filters |
 | [Search customers](customers.md#search-customers) | Searches for customers that are active at the moment in the enterprise, e.g. companions of checked-in reservations or paymasters |
-| [Get customers open items](customers.md#get-customers-open-items) | Returns all open items for the specified customers, i.e. all unpaid items and all deposited payments |
+| [~~Get customers open items~~](customers.md#get-customers-open-items) | **Deprecated!** Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead. |
 | [Add customer](customers.md#add-customer) | Adds a new customer to the system and returns details of the added customer |
 | [Update customer](customers.md#update-customer) | Updates personal information of a customer |
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
