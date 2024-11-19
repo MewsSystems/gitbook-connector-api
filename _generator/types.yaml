@@ -1261,9 +1261,6 @@ types:
   accountfileparameters:
     file: accounts.md
     anchor: accountfileparameters
-  identitydocument:
-    file: reservations.md
-    anchor: identity-document
   sourceassignmentresult:
     file: sourceassignments.md
     anchor: sourceassignmentresult
@@ -1273,3 +1270,102 @@ types:
   sourceassignmentfilterparameters:
     file: sourceassignments.md
     anchor: sourceassignmentfilterparameters
+  customerresult:
+    file: customers.md
+    anchor: customerresult
+  sex:
+    file: customers.md
+    anchor: sex
+  identitydocument:
+    file: customers.md
+    anchor: identity-document
+  customerfilterparameters:
+    file: customers.md
+    anchor: customerfilterparameters
+  customerextent:
+    file: customers.md
+    anchor: customer-extent
+  customersearchresult:
+    file: customers.md
+    anchor: customersearchresult
+  chargeablecustomer:
+    file: customers.md
+    anchor: customer-search-result
+  customersearchparameters:
+    file: customers.md
+    anchor: customersearchparameters
+  customeritemresult:
+    file: customers.md
+    anchor: customeritemresult
+  customeritems:
+    file: customers.md
+    anchor: customer-items
+  customeritemparameters:
+    file: customers.md
+    anchor: customeritemparameters
+  customeraddparameters:
+    file: customers.md
+    anchor: customeraddparameters
+  documentparameters:
+    file: customers.md
+    anchor: identity-document-parameters
+  customerclassificationenum:
+    file: customers.md
+    anchor: customer-classification
+  customeroptionenum:
+    file: customers.md
+    anchor: customer-option
+  customerupdateparameters:
+    file: customers.md
+    anchor: customerupdateparameters
+  customermergeparameters:
+    file: customers.md
+    anchor: customermergeparameters
+  customerfileparameters:
+    file: customers.md
+    anchor: customerfileparameters
+  customeraddfileresult:
+    file: customers.md
+    anchor: customeraddfileresult
+  businesssegmentresult:
+    file: businesssegments.md
+    anchor: businesssegmentresult
+  businesssegmentfilterparameters:
+    file: businesssegments.md
+    anchor: businesssegmentfilterparameters
+  enterpriseresult:
+    file: enterprises.md
+    anchor: enterpriseresult
+  enterprisebase:
+    file: enterprises.md
+    anchor: enterprise
+  enterprisesubscription:
+    file: enterprises.md
+    anchor: enterprise-subscription
+  enterprisefilterparameters:
+    file: enterprises.md
+    anchor: enterprisefilterparameters
+  enterpriseportfolio:
+    file: enterprises.md
+    anchor: enterprise
+  serviceoverbookinglimitresult:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitresult
+  serviceoverbookinglimit:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimit
+  serviceoverbookinglimitfilterparameters:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitfilterparameters
+  serviceoverbookinglimitsetparameters:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitsetparameters
+  serviceoverbookinglimitsetdata:
+    file: serviceoverbookinglimits.md
+    anchor: service-overbooking-limits-set-parameters
+  serviceoverbookinglimitclearparameters:
+    file: serviceoverbookinglimits.md
+    anchor: serviceoverbookinglimitclearparameters
+  serviceoverbookinglimitcleardata:
+    file: serviceoverbookinglimits.md
+    anchor: service-overbooking-limits-clear-parameters

@@ -37,7 +37,7 @@ This section describes all operations supported by the API, organised here by th
 | :-- | :-- |
 | [Get all customers](customers.md#get-all-customers) | Returns all customers filtered by identifiers, emails, names and other filters |
 | [Search customers](customers.md#search-customers) | Searches for customers that are active at the moment in the enterprise, e.g. companions of checked-in reservations or paymasters |
-| [Get customers open items](customers.md#get-customers-open-items) | Returns all open items for the specified customers, i.e. all unpaid items and all deposited payments |
+| [~~Get customers open items~~](customers.md#get-customers-open-items) | **Deprecated!** Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead. |
 | [Add customer](customers.md#add-customer) | Adds a new customer to the system and returns details of the added customer |
 | [Update customer](customers.md#update-customer) | Updates personal information of a customer |
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
@@ -190,6 +190,14 @@ This section describes all operations supported by the API, organised here by th
 | [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes |
 | [Delete service order notes](serviceordernotes.md#delete-service-order-notes) | Deletes given service order notes |
 
+## Service overbooking limits
+
+| <div style="width:200px">Operation</div> | Description |
+| :-- | :-- |
+| [Get all product service orders](serviceoverbookinglimits.md#get-all-product-service-orders) | Returns all product service orders |
+| [Add service order notes](serviceoverbookinglimits.md#add-service-order-notes) | Adds service order notes to a given service order |
+| [Delete service order notes](serviceoverbookinglimits.md#delete-service-order-notes) | Deletes given service order notes |
+
 ## Services
 
 | <div style="width:200px">Operation</div> | Description |
@@ -236,3 +244,6 @@ This section describes all operations supported by the API, organised here by th
 | [Delete products](products.md#delete-products) | Deletes specified products |
 | [Get product pricing](products.md#get-product-pricing) | **Restricted!** Returns prices for a product for a specified time interval |
 | [Get all product categories](productcategories.md#get-all-product-categories) | Returns all products filtered by services or product category identifier |
+| [Get all service ovebooking limits](serviceoverbookinglimits.md#get-all-service-overbooking-limits) | **Restricted!**  Returns all service overbooking limits |
+| [Set service ovebooking limits](serviceoverbookinglimits.md#set-service-overbooking-limits) | **Restricted!**  Adds new service ovebooking limits with the specified conditions |
+| [Clear service ovebooking limits](serviceoverbookinglimits.md#clear-service-overbooking-limits) | **Restricted!**  Clears service ovebooking limits which meet specified conditions over a specified time interval |

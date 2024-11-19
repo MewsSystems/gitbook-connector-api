@@ -96,6 +96,7 @@
   * [Routing rules](operations/routingrules.md)
   * [Rules](operations/rules.md)
   * [Service order notes](operations/serviceordernotes.md)
+  * [Service overbooking limits](operations/serviceoverbookinglimits.md)
   * [Services](operations/services.md)
   * [Source assignments](operations/sourceassignments.md)
   * [Sources](operations/sources.md)

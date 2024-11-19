@@ -101,7 +101,10 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "AddressId": "c556f56e-713e-4102-9de5-0e853b5a8586",
     "GroupNames": [
       "Connector API Group"
-    ]
+    ],
+    "Subscription": {
+      "TaxIdentifier": "123456789 RC 0001"
+    }
   },
   "Service": {
     "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -148,7 +151,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
-| `ChainId` | string | required | Unique identifier of the chain whose member the enterprise is. |
+| `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
@@ -169,6 +172,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `TaxPrecision` | integer | optional | Tax precision used for financial calculations in the enterprise. If `null`, `Currency` precision is used. |
 | `AddressId` | string | required | Unique identifier of the `Address` of the enterprise. |
 | `GroupNames` | array of string | required | A list of the group names of the enterprise. |
+| `Subscription` | [Enterprise subscription](enterprises.md#enterprise-subscription) | required | Subscription information of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `AccountingConfiguration` | [Accounting configuration](configuration.md#accounting-configuration) | optional | Configuration information containing financial information about the property. |
 | `IsPortfolio` | boolean | required | Whether the enterprise is a Portfolio enterprise (see [Multi-property guidelines](../guidelines/multi-property.md)). |
