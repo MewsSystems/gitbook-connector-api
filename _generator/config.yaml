@@ -61,7 +61,7 @@ tags:
   # - rules
   # - serviceordernotes
   - services
-  # - sourceassignments
+  - sourceassignments
   - serviceoverbookinglimits
   - sources
   - tasks
