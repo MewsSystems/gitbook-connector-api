@@ -1,245 +1,5 @@
 # Payments
 
-## Add credit card payment
-
-Adds a new credit card payment to a bill of the specified customer. Note that the payment is added to open bill of the customer, either to the specified one or the default one. This operation only serves to record a credit card payment that has already been taken outside of Mews or Mews' payment terminal, and does not actually charge the customer's credit card. 
-
-The bill can then be closed manually by a Mews user, or automatically via API with the [Close bill](bills.md#close-bill) operation. 
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/payments/addCreditCard`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-    "Amount": { 
-        "Currency": "GBP",
-        "GrossValue": 100
-    },
-    "CreditCard": {
-        "Type": "Visa",
-        "Number": "411111******1111",
-        "Expiration": "12/2016",
-        "Name": "John Smith"
-    },
-    "AccountingCategoryId": null,
-    "ReceiptIdentifier": "123456",
-    "Notes": "Terminal A"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
-| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the credit card payment. |
-| `CreditCard` | [Credit card parameters](#credit-card-parameters) | required | Credit card details. |
-| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the credit card payment. |
-| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
-| `Notes` | string | optional | Additional payment notes. |
-
-#### Credit card parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Type` | string | required | Type of the credit card, one of: `Visa`, `MasterCard`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `EnRoute`, `Maestro`, `UnionPay`. |
-| `Number` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. It is possible to provide even more obfuscated number or just last four digits. **Never provide full credit card number**. For example `411111******1111`. |
-| `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`, e.g. `12/2016` or `04/2017`. |
-| `Name` | string | required | Name of the card holder. |
-
-### Response
-
-```javascript
-{
-    "CreditCardId": "ee2209ce-71c6-4e3a-978f-aac700c82c7b"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `CreditCardId` | string | required | Unique identifier of the [Credit card](creditcards.md#credit-card). |
-
-## Add external payment
-
-Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/payments/addExternal`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "Amount": { 
-        "Currency": "GBP",
-        "GrossValue": 100
-    },
-    "ExternalIdentifier": "b06de5e4-7137-47ec-8a49-3303131b02c0",
-    "Type": "Cash",
-    "AccountingCategoryId": null,
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
-| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
-| `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
-| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
-| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
-| `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
-| `Type` | string [Add external payment type](#add-external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
-| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the external payment. |
-| `Notes` | string | optional | Additional payment notes. |
-
-#### Add external payment type
-
-* `Cash`
-* `CreditCard`
-* `Invoice`
-* `WireTransfer`
-* `Bacs`
-* `CrossSettlement`
-* `Twint`
-* `DepositWireTransfer`
-
-### Response
-
-```javascript
-{
-    "ExternalPaymentId": "4ee05b77-ae21-46e8-8418-ac1c009dfb2b"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ExternalPaymentId` | string | required | Unique identifier of the [Payment item](accountingitems.md#payment-item). |
-
-## Add alternative payment
-
-Adds a new alternative payment to a specified customer.
-
-**Pre-requisites:** The property must have the relevant type of alternative payment method enabled in their Mews subscriptions in order to accept such payments in their Mews environment. Please ask the property to confirm. 
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/payments/addAlternative`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
-    "Method": "Ideal",
-    "RedirectUrl": "https://mews.com",
-    "Amount": { 
-        "Currency": "GBP",
-        "GrossValue": 100
-    },
-    "Data": { 
-        "Discriminator": "Ideal",
-        "Ideal": {
-             "RedirectUrl": "https://mews.com"
-        }
-    }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| ~~`Method`~~ | ~~string [Alternative payment method](#alternative-payment-methods-deprecated)~~ | ~~required~~ | ~~Payment method to use for the alternative payment.~~ **Deprecated!** |
-| ~~`RedirectUrl`~~ | ~~string~~ | ~~required~~ | ~~URL where the customer will be redirected after completing their payment.~~ **Deprecated!** |
-| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the alternative payment. |
-| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
-| `Data` | object [Alternative payment method data](#alternative-payment-method-data) | required | Data specific to particular alternative payment method. |
-
-
-#### Alternative payment method data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Alternative payment method data discriminator](#alternative-payment-method-data-discriminator) | required | Type of alternative payment method (e.g. `Ideal`). |
-| `Ideal` | object [iDEAL data](#ideal-data) | optional | iDEAL payment method data. Required when `Discriminator` is `Ideal`. |
-| `SepaDirectDebit` | object [SEPA Direct Debit data](#sepa-direct-debit-data) | optional | SEPA Direct Debit payment method data. Required when `Discriminator` is `SepaDirectDebit`. |
-
-
-#### Alternative payment method data discriminator
-  * `Ideal` - [iDEAL data](#ideal-data).
-  * `ApplePay` - no additional data.
-  * `GooglePay` - no additional data.
-  * `SepaDirectDebit` - [SEPA Direct Debit data](#sepa-direct-debit-data).
-
-#### iDEAL data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `RedirectUrl` | string | required | URL where the customer will be redirected after completing their iDEAL payment. |
-
-#### SEPA Direct Debit data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Iban` | string | required | The customer's bank account number in IBAN format. |
-| `Name` | string | required | Full name of the customer. |
-| `Email` | string | required | Email address of the customer. |
-| `UserAgent` | string | required | The user agent of the browser from which the Mandate was accepted by the customer. |
-| `RemoteIpAddress` | string | required | The IP address from which the Mandate was accepted by the customer. |
-
-
-#### ~~Alternative payment methods~~ **Deprecated!**
-
-* `Ideal`
-* `ApplePay`
-* `GooglePay`
-
-### Response
-
-```javascript
-{
-    "PaymentId": "3ae3976f-8f22-4936-a4e8-abf800bd7278",
-    "NextAction": {
-        "Discriminator": "RedirectToUrl",
-        "Value": "https://sample-payment-gateway.com/redirect/authenticate/unFR1tjshd9OGDaSSyCeVEbO"
-    }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `PaymentId` | string | required | Unique identifier of the created payment. |
-| `NextAction` | object [Alternative payment next action](#alternative-payment-next-action) | required | Next action to take in order to complete the payment. |
-
-#### Alternative payment next action
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Payment next action discriminator](#payment-next-action-discriminator) | required | Determines type of value. |
-| `Value` | string | required | String value depending on [Payment next action discriminator](#payment-next-action-discriminator). |
-
-#### Payment next action discriminator
-
-* `RedirectToUrl` - Redirect customer to a URL where they can complete their payment.
 
 ## Get all payments
 
@@ -459,58 +219,6 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Payments` | array of [Payment](#payment) | required | The list of filtered payments. |
 | `Cursor` | string | required | Unique identifier of the last and hence oldest payment returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of payments. |
 
-## Refund payment
-
-Refunds a specified payment. Note only credit card or alternative payments can be refunded. The refund is itself a payment, so to get more information about the refund, use [Get all payments](#get-all-payments) with the identifier from `RefundId`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/payments/refund`
-
-```javascript
-{
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
-    "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
-    "Reason": "Sample reason",
-    "ValueToRefund": 110.5,
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
-| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
-| `Reason` | string | required | Refund reason. |
-| `ValueToRefund` | decimal | optional | Refund amount. If not provided, the whole payment will be refunded. |
-
-### Response
-
-```javascript
-{
-    "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
-    "RefundId": "1d65c488-111a-4719-b3ea-e1a9969c6069",
-    "Type": "CreditCardPayment",
-    "Amount": { 
-        "Currency": "GBP",
-        "Value": 100
-    },
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
-| `RefundId` | string | required | Unique identifier of refund. |
-| `Type` | [Refund type](#refund-type) | required | Type of refund. |
-| `Amount` | [Amount](accountingitems.md#currency-value) | required | Amount that was refunded. |
 
 #### Payment
 
@@ -691,3 +399,298 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 * `CreditCardPayment`
 * `AlternativePayment`
 * ...
+
+
+## Add external payment
+
+Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/addExternal`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "Amount": { 
+        "Currency": "GBP",
+        "GrossValue": 100
+    },
+    "ExternalIdentifier": "b06de5e4-7137-47ec-8a49-3303131b02c0",
+    "Type": "Cash",
+    "AccountingCategoryId": null,
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Unique identifier of the [Customer](customers.md#customer).~~ **Deprecated!** |
+| `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
+| `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
+| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the external card payment. |
+| `ExternalIdentifier` | string | optional | Identifier of the payment from external system. |
+| `Type` | string [Add external payment type](#add-external-payment-type) | optional | Type of the external payment. *Except for the enterprises based in the French Legal Environment. Unspecified is considered as fraud. |
+| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the external payment. |
+| `Notes` | string | optional | Additional payment notes. |
+
+#### Add external payment type
+
+* `Cash`
+* `CreditCard`
+* `Invoice`
+* `WireTransfer`
+* `Bacs`
+* `CrossSettlement`
+* `Twint`
+* `DepositWireTransfer`
+
+### Response
+
+```javascript
+{
+    "ExternalPaymentId": "4ee05b77-ae21-46e8-8418-ac1c009dfb2b"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ExternalPaymentId` | string | required | Unique identifier of the [Payment item](accountingitems.md#payment-item). |
+
+## Add credit card payment
+
+Adds a new credit card payment to a bill of the specified customer. Note that the payment is added to open bill of the customer, either to the specified one or the default one. This operation only serves to record a credit card payment that has already been taken outside of Mews or Mews' payment terminal, and does not actually charge the customer's credit card. 
+
+The bill can then be closed manually by a Mews user, or automatically via API with the [Close bill](bills.md#close-bill) operation. 
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/addCreditCard`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "Amount": { 
+        "Currency": "GBP",
+        "GrossValue": 100
+    },
+    "CreditCard": {
+        "Type": "Visa",
+        "Number": "411111******1111",
+        "Expiration": "12/2016",
+        "Name": "John Smith"
+    },
+    "AccountingCategoryId": null,
+    "ReceiptIdentifier": "123456",
+    "Notes": "Terminal A"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
+| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the credit card payment. |
+| `CreditCard` | [Credit card parameters](#credit-card-parameters) | required | Credit card details. |
+| `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the credit card payment. |
+| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
+| `Notes` | string | optional | Additional payment notes. |
+
+#### Credit card parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Type` | string | required | Type of the credit card, one of: `Visa`, `MasterCard`, `Amex`, `Discover`, `DinersClub`, `Jcb`, `EnRoute`, `Maestro`, `UnionPay`. |
+| `Number` | string | required | Obfuscated credit card number. At most first six digits and last four digits can be specified, the digits in between should be replaced with `*`. It is possible to provide even more obfuscated number or just last four digits. **Never provide full credit card number**. For example `411111******1111`. |
+| `Expiration` | string | optional | Expiration of the credit card in format `MM/YYYY`, e.g. `12/2016` or `04/2017`. |
+| `Name` | string | required | Name of the card holder. |
+
+### Response
+
+```javascript
+{
+    "CreditCardId": "ee2209ce-71c6-4e3a-978f-aac700c82c7b"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](creditcards.md#credit-card). |
+
+## Add alternative payment
+
+Adds a new alternative payment to a specified customer.
+
+**Pre-requisites:** The property must have the relevant type of alternative payment method enabled in their Mews subscriptions in order to accept such payments in their Mews environment. Please ask the property to confirm. 
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/addAlternative`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "Method": "Ideal",
+    "RedirectUrl": "https://mews.com",
+    "Amount": { 
+        "Currency": "GBP",
+        "GrossValue": 100
+    },
+    "Data": { 
+        "Discriminator": "Ideal",
+        "Ideal": {
+             "RedirectUrl": "https://mews.com"
+        }
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| ~~`Method`~~ | ~~string [Alternative payment method](#alternative-payment-methods-deprecated)~~ | ~~required~~ | ~~Payment method to use for the alternative payment.~~ **Deprecated!** |
+| ~~`RedirectUrl`~~ | ~~string~~ | ~~required~~ | ~~URL where the customer will be redirected after completing their payment.~~ **Deprecated!** |
+| `Amount` | [Amount value](accountingitems.md#amount-value) | required | Amount of the alternative payment. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
+| `Data` | object [Alternative payment method data](#alternative-payment-method-data) | required | Data specific to particular alternative payment method. |
+
+
+#### Alternative payment method data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Alternative payment method data discriminator](#alternative-payment-method-data-discriminator) | required | Type of alternative payment method (e.g. `Ideal`). |
+| `Ideal` | object [iDEAL data](#ideal-data) | optional | iDEAL payment method data. Required when `Discriminator` is `Ideal`. |
+| `SepaDirectDebit` | object [SEPA Direct Debit data](#sepa-direct-debit-data) | optional | SEPA Direct Debit payment method data. Required when `Discriminator` is `SepaDirectDebit`. |
+
+
+#### Alternative payment method data discriminator
+  * `Ideal` - [iDEAL data](#ideal-data).
+  * `ApplePay` - no additional data.
+  * `GooglePay` - no additional data.
+  * `SepaDirectDebit` - [SEPA Direct Debit data](#sepa-direct-debit-data).
+
+#### iDEAL data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RedirectUrl` | string | required | URL where the customer will be redirected after completing their iDEAL payment. |
+
+#### SEPA Direct Debit data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Iban` | string | required | The customer's bank account number in IBAN format. |
+| `Name` | string | required | Full name of the customer. |
+| `Email` | string | required | Email address of the customer. |
+| `UserAgent` | string | required | The user agent of the browser from which the Mandate was accepted by the customer. |
+| `RemoteIpAddress` | string | required | The IP address from which the Mandate was accepted by the customer. |
+
+
+#### ~~Alternative payment methods~~ **Deprecated!**
+
+* `Ideal`
+* `ApplePay`
+* `GooglePay`
+
+### Response
+
+```javascript
+{
+    "PaymentId": "3ae3976f-8f22-4936-a4e8-abf800bd7278",
+    "NextAction": {
+        "Discriminator": "RedirectToUrl",
+        "Value": "https://sample-payment-gateway.com/redirect/authenticate/unFR1tjshd9OGDaSSyCeVEbO"
+    }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of the created payment. |
+| `NextAction` | object [Alternative payment next action](#alternative-payment-next-action) | required | Next action to take in order to complete the payment. |
+
+#### Alternative payment next action
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Payment next action discriminator](#payment-next-action-discriminator) | required | Determines type of value. |
+| `Value` | string | required | String value depending on [Payment next action discriminator](#payment-next-action-discriminator). |
+
+#### Payment next action discriminator
+
+* `RedirectToUrl` - Redirect customer to a URL where they can complete their payment.
+
+## Refund payment
+
+Refunds a specified payment. Note only credit card or alternative payments can be refunded. The refund is itself a payment, so to get more information about the refund, use [Get all payments](#get-all-payments) with the identifier from `RefundId`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/payments/refund`
+
+```javascript
+{
+    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
+    "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
+    "Reason": "Sample reason",
+    "ValueToRefund": 110.5,
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
+| `Reason` | string | required | Refund reason. |
+| `ValueToRefund` | decimal | optional | Refund amount. If not provided, the whole payment will be refunded. |
+
+### Response
+
+```javascript
+{
+    "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
+    "RefundId": "1d65c488-111a-4719-b3ea-e1a9969c6069",
+    "Type": "CreditCardPayment",
+    "Amount": { 
+        "Currency": "GBP",
+        "Value": 100
+    },
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
+| `RefundId` | string | required | Unique identifier of refund. |
+| `Type` | [Refund type](#refund-type) | required | Type of refund. |
+| `Amount` | [Amount](accountingitems.md#currency-value) | required | Amount that was refunded. |
