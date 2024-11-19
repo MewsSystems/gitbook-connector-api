@@ -190,14 +190,6 @@ This section describes all operations supported by the API, organised here by th
 | [Update service order notes](serviceordernotes.md#update-service-order-notes) | Updates content of given service order notes |
 | [Delete service order notes](serviceordernotes.md#delete-service-order-notes) | Deletes given service order notes |
 
-## Service overbooking limits
-
-| <div style="width:200px">Operation</div> | Description |
-| :-- | :-- |
-| [Get all product service orders](serviceoverbookinglimits.md#get-all-product-service-orders) | Returns all product service orders |
-| [Add service order notes](serviceoverbookinglimits.md#add-service-order-notes) | Adds service order notes to a given service order |
-| [Delete service order notes](serviceoverbookinglimits.md#delete-service-order-notes) | Deletes given service order notes |
-
 ## Services
 
 | <div style="width:200px">Operation</div> | Description |
@@ -244,6 +236,6 @@ This section describes all operations supported by the API, organised here by th
 | [Delete products](products.md#delete-products) | Deletes specified products |
 | [Get product pricing](products.md#get-product-pricing) | **Restricted!** Returns prices for a product for a specified time interval |
 | [Get all product categories](productcategories.md#get-all-product-categories) | Returns all products filtered by services or product category identifier |
-| [Get all service ovebooking limits](serviceoverbookinglimits.md#get-all-service-overbooking-limits) | **Restricted!**  Returns all service overbooking limits |
-| [Set service ovebooking limits](serviceoverbookinglimits.md#set-service-overbooking-limits) | **Restricted!**  Adds new service ovebooking limits with the specified conditions |
-| [Clear service ovebooking limits](serviceoverbookinglimits.md#clear-service-overbooking-limits) | **Restricted!**  Clears service ovebooking limits which meet specified conditions over a specified time interval |
+| [Get all service overbooking limits](serviceoverbookinglimits.md#get-all-service-overbooking-limits) | **Restricted!**  Returns all service overbooking limits |
+| [Set service overbooking limits](serviceoverbookinglimits.md#set-service-overbooking-limits) | **Restricted!**  Adds new service overbooking limits with the specified conditions |
+| [Clear service overbooking limits](serviceoverbookinglimits.md#clear-service-overbooking-limits) | **Restricted!**  Clears service overbooking limits which meet specified conditions over a specified time interval |
