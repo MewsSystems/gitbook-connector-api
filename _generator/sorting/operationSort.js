@@ -3,7 +3,8 @@ const sortPriority = {
   get: 2,
   add: 3,
   update: 4,
-  fallback: 5,
+  addFile: 5,
+  fallback: 6,
 };
 
 /**
@@ -44,7 +45,7 @@ function getOperationPriority(operation) {
     priority = sortPriority.get;
   }
   if (!priority && sortKey.startsWith('add')) {
-    priority = sortPriority.add;
+    priority = sortPriority.add + 0.5;
   }
   return priority || sortPriority.fallback;
 }
