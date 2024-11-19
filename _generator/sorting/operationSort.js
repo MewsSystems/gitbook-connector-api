@@ -43,5 +43,8 @@ function getOperationPriority(operation) {
   if (!priority && sortKey.startsWith('get')) {
     priority = sortPriority.get;
   }
+  if (!priority && sortKey.startsWith('add')) {
+    priority = sortPriority.add;
+  }
   return priority || sortPriority.fallback;
 }
