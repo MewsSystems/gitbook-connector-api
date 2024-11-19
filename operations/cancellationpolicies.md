@@ -258,9 +258,7 @@ Gets cancellation policies for enterprise grouped by rate for granular cancellat
   "RateIds": [
     "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
-  "ReservationStartUtc": null,
-  "ReservationEndUtc": null
+  ]
 }
 ```
 
