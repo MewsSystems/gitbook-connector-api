@@ -32,7 +32,7 @@ Once the unique identifier of the customer to be charged is obtained, the items 
 
 ## Testing your integration
 
-Please ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
+Please ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
 
 ## Additional help for working with the demo environment
 

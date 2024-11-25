@@ -151,7 +151,7 @@ When a reservation no longer belongs to the availability block, follow the forma
 
 ## Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation or related customer profile](https://help.mews.com/s/article/search-in-mews-operations?language=en_US), or using the [Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US). To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  
+Ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations. If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation or related customer profile](https://help.mews.com/s/article/search-in-mews-operations?language=en_US), or using the [Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US). To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  
 
 ## Additional help for working with the demo environment
 

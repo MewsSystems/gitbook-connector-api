@@ -52,7 +52,7 @@ Mews allows properties to configure when a space will be marked as `Dirty`, upon
 
 ## Testing your integration
 
-Please ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. In addition to this, using the [demo environment](../guidelines/environments.md) credentials, you can run the [Space Status Report](https://help.mews.com/s/article/space-status-report?language=en_US) \(housekeeping report\) to cross-check if the integration is working correctly.
+Please ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations. In addition to this, using the [demo environment](../guidelines/environments.md) credentials, you can run the [Space Status Report](https://help.mews.com/s/article/space-status-report?language=en_US) \(housekeeping report\) to cross-check if the integration is working correctly.
 
 ## Additional help for working with the demo environment
 
