@@ -1,5 +1,8 @@
 # Changelog
 
+## 27th November 2024
+* Changes to page architecture. Documentation-only, no changes to API.
+
 ## 19th November 2024
 * Added new restricted operation [Get all service ovebooking limits](../operations/serviceoverbookinglimits.md#get-all-service-overbooking-limits).
 * Added new restricted operation [Set service ovebooking limits](../operations/serviceoverbookinglimits.md#set-service-overbooking-limits).
