@@ -1,6 +1,6 @@
 # Changelog
 
-## 20th November 2024
+## 26th November 2024
 * Increased `AssignedRateIds` maximum items to 10 in following operations:
   * [Add vouchers](../operations/vouchers.md#add-vouchers).
   * [Update vouchers](../operations/vouchers.md#update-vouchers).
