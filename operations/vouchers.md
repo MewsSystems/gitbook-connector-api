@@ -371,6 +371,7 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `Value` | array of string | optional, max 10 items | Unique identifiers of Rates (or `null` should it not be updated). |
 
 ### Response
 
