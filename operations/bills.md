@@ -17,15 +17,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
   "Extent": {
     "Items": false
   },
-  "TimeFilter": null,
-  "StartUtc": null,
-  "EndUtc": null,
   "ClosedUtc": {
     "StartUtc": "2020-02-05T00:00:00Z",
     "EndUtc": "2020-02-10T00:00:00Z"
   },
-  "PaidUtc": null,
-  "DueUtc": null,
   "CreatedUtc": {
     "StartUtc": "2020-02-05T00:00:00Z",
     "EndUtc": "2020-02-10T00:00:00Z"
@@ -41,7 +36,6 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
     "fe795f96-0b64-445b-89ed-c032563f2bac"
   ],
   "State": "Closed",
-  "CorrectionState": null,
   "EnterpriseIds": [
     "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "4d0201db-36f5-428b-8d11-4f0a65e960cc"
@@ -340,8 +334,7 @@ Creates a PDF version of the specified bill. In case it's not possible to return
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-  "BillPrintEventId": null
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206"
 }
 ```
 

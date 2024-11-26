@@ -661,6 +661,53 @@ Updated customer data.
 | `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
 | `AddTaxDeductedPaymentToInvoices` | boolean | required | Whether tax-deducted payments should be automatically added to invoices. |
 
+## Upload and link file to account
+
+Attaches the specified file to the account. 
+
+Allowed MIME types: `application/pdf`, `image/bmp`, `image/gif`, `image/jpeg`, `image/png`, `image/tiff`.
+
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/accounts/addFile`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "AccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "Name": "document.pdf",
+  "Type": "application/pdf",
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `AccountId` | string | required | Unique identifier of the account to which the file will be uploaded to. |
+| `Name` | string | required, max length 1000 characters | Uploaded file name. |
+| `Type` | string | required, max length 1000 characters | Content type of the uploaded file following defined by its MIME type. |
+| `Data` | string | required | Uploaded file data serialized in base64 format. |
+
+### Response
+
+```javascript
+{
+  "FileId": "f039f5b4-ff18-4510-9086-92b14a68ed78"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `FileId` | string | required | Unique identifier of the uploaded file. |
+
 ## Merge accounts
 
 Merges two or more accounts of the same account type together. The given source accounts will be merged into the given target account and the merged account will keep the target account ID.
@@ -720,50 +767,3 @@ Merges two or more accounts of the same account type together. The given source 
 ```javascript
 {}
 ```
-
-## Upload and link file to account
-
-Attaches the specified file to the account. 
-
-Allowed MIME types: `application/pdf`, `image/bmp`, `image/gif`, `image/jpeg`, `image/png`, `image/tiff`.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/accounts/addFile`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "AccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "Name": "document.pdf",
-  "Type": "application/pdf",
-  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `AccountId` | string | required | Unique identifier of the account to which the file will be uploaded to. |
-| `Name` | string | required, max length 1000 characters | Uploaded file name. |
-| `Type` | string | required, max length 1000 characters | Content type of the uploaded file following defined by its MIME type. |
-| `Data` | string | required | Uploaded file data serialized in base64 format. |
-
-### Response
-
-```javascript
-{
-  "FileId": "f039f5b4-ff18-4510-9086-92b14a68ed78"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `FileId` | string | required | Unique identifier of the uploaded file |

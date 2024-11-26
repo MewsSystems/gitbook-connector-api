@@ -804,6 +804,54 @@ Updates personal information of a customer. Note that if any of the fields is le
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
+## Add customer file
+
+Attaches the specified file to the customer profile. 
+
+Allowed MIME types: `application/pdf`, `image/bmp`, `image/gif`, `image/jpeg`, `image/png`, `image/tiff`.
+
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/customers/addFile`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "CustomerId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "Name": "document.pdf",
+  "Type": "application/pdf",
+  "Data": "JVBERi0xLjAKMSAwIG9iajw8L1BhZ2VzIDIgMCBSPj5lbmRvYmogMiAwIG9iajw8L0tpZHNbMyAwIFJdL0NvdW50IDE+PmVuZG9iaiAzIDAgb2JqPDwvTWVkaWFCb3hbMCAwIDMgM10+PmVuZG9iagp0cmFpbGVyPDwvUm9vdCAxIDAgUj4+Cg==",
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
+| `Name` | string | required | Name of the file. |
+| `Type` | string | required | MIME type of the file (e.g. `application/pdf`). |
+| `Data` | string | required | Base64-encoded data of the file. |
+
+### Response
+
+```javascript
+{
+  "FileId": "f039f5b4-ff18-4510-9086-92b14a68ed78"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `FileId` | string | required | Unique identifier of the uploaded file. |
+
 ## Search customers
 
 Searches for customers that are active at the moment in the enterprise (e.g. companions of checked-in reservations or paymasters).
@@ -919,51 +967,3 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
 ```javascript
 {}
 ```
-
-## Add customer file
-
-Attaches the specified file to the customer profile. 
-
-Allowed MIME types: `application/pdf`, `image/bmp`, `image/gif`, `image/jpeg`, `image/png`, `image/tiff`.
-
-Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/customers/addFile`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "CustomerId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "Name": "document.pdf",
-  "Type": "application/pdf",
-  "Data": "JVBERi0xLjAKMSAwIG9iajw8L1BhZ2VzIDIgMCBSPj5lbmRvYmogMiAwIG9iajw8L0tpZHNbMyAwIFJdL0NvdW50IDE+PmVuZG9iaiAzIDAgb2JqPDwvTWVkaWFCb3hbMCAwIDMgM10+PmVuZG9iagp0cmFpbGVyPDwvUm9vdCAxIDAgUj4+Cg==",
-  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
-| `Name` | string | required | Name of the file. |
-| `Type` | string | required | MIME type of the file (e.g. `application/pdf`). |
-| `Data` | string | required | Base64-encoded data of the file. |
-
-### Response
-
-```javascript
-{
-  "FileId": "f039f5b4-ff18-4510-9086-92b14a68ed78"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `FileId` | string | required | Unique identifier of the uploaded file. |
