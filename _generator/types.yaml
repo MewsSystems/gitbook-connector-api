@@ -1360,3 +1360,6 @@ types:
   serviceoverbookinglimitcleardata:
     file: serviceoverbookinglimits.md
     anchor: service-overbooking-limits-clear-parameters
+  assignedrateids:
+    file: vouchers.md
+    anchor: assigned-rate-ids
