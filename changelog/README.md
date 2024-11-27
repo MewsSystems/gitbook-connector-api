@@ -1,5 +1,11 @@
 # Changelog
 
+## 27th November 2024
+* Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `AvailabilityBlockNumber` property, this affects the following operations:
+  * [Get all availability block](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
+  * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
+
 ## 26th November 2024
 * Increased `AssignedRateIds` maximum items to 10 in following operations:
   * [Add vouchers](../operations/vouchers.md#add-vouchers).
