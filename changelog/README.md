@@ -1,6 +1,6 @@
 # Changelog
 
-## 27th November 2024
+## 28th November 2024
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `AvailabilityBlockNumber` property, this affects the following operations:
   * [Get all availability block](../operations/availabilityblocks.md#get-all-availability-blocks)
   * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
