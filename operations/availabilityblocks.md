@@ -230,7 +230,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
-| `AvailabilityBlockNumber` | string | optional | Unique number for a specific availability block within the Mews system. |
+| `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
 
 ## Add availability blocks
 
