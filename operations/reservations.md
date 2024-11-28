@@ -859,6 +859,97 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12) | required | The added reservation. |
 
+## Add reservation product
+
+Adds a new product order of the specified product to the reservation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addProduct`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
+  "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
+  "Count": 1,
+  "StartUtc": "2021-01-02T00:00:00Z",
+  "EndUtc": "2021-01-03T00:00:00Z",
+  "UnitAmount": {
+    "Currency": "GBP",
+    "GrossValue": 10,
+    "TaxCodes": [
+      "UK-S"
+    ]
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
+| `Count` | integer | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
+| `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
+| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as EndUtc. |
+| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as StartUtc. |
+
+### Response
+
+```javascript
+{
+  "ItemIds": [
+    "ff81fd7a-29ba-4160-8e22-ab4300f67b23"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ItemIds` | array of string | optional |  |
+
+## Add reservation companion
+
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+  "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
+| `CustomerId` | string | required | Unique identifier of the `Customer`. |
+
+### Response
+
+```javascript
+{}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CompanionshipId` | string | required | Identifier of the created `Companionship` entity. |
+
 ## Update reservations
 
 Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
@@ -1559,94 +1650,3 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ReservationIds` | array of string | required | Identifiers of the affected `Reservation` entities. |
-
-## Add reservation product
-
-Adds a new product order of the specified product to the reservation.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addProduct`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
-  "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
-  "Count": 1,
-  "StartUtc": "2021-01-02T00:00:00Z",
-  "EndUtc": "2021-01-03T00:00:00Z",
-  "UnitAmount": {
-    "Currency": "GBP",
-    "GrossValue": 10,
-    "TaxCodes": [
-      "UK-S"
-    ]
-  }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
-| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
-| `Count` | integer | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-| `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
-| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as EndUtc. |
-| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as StartUtc. |
-
-### Response
-
-```javascript
-{
-  "ItemIds": [
-    "ff81fd7a-29ba-4160-8e22-ab4300f67b23"
-  ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ItemIds` | array of string | optional |  |
-
-## Add reservation companion
-
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-  "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
-| `CustomerId` | string | required | Unique identifier of the `Customer`. |
-
-### Response
-
-```javascript
-{}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `CompanionshipId` | string | required | Identifier of the created `Companionship` entity. |
