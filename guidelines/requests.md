@@ -48,7 +48,7 @@ A unique `AccessToken` is generated for each new property or enterprise which us
 These are multi-enterprise tokens, which grant access to more than one enterprise with a single token.
 For more information on Portfolio Access Tokens and multi-property working, see [Multi-property](multi-property.md).
 
-In order to receive credentials for production usage, you will have to successfully complete a [certification](certification.md) process. After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that will be created in the production environment.
+In order to receive credentials for production usage, you will have to successfully complete a [certification process](../your-journey/README.md). After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that will be created in the production environment.
 A unique `AccessToken` will automatically be generated and shared with you for each enterprise requesting to connect their Mews profile to your system.
 
 ## Request limits

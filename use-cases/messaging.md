@@ -54,7 +54,7 @@ And if you need to search or fetch your messages or your message threads, you ha
 
 ## Testing your integration
 
-Please refer to our general [guidelines](../guidelines/README.md) for testing integrations.
+Please refer to our general [Usage guidelines](../guidelines/README.md) for testing integrations.
 
 ## Further information
 

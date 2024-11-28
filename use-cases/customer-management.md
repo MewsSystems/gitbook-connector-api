@@ -25,7 +25,7 @@ Each Mews property creates a unique set of services and related products which t
 
 ## Testing your integration
 
-Please ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations.
+Please ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations.
 
 ## Additional help for working with the demo environment
 

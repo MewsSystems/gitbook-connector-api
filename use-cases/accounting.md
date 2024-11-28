@@ -54,7 +54,7 @@ If an accounting item is a rebate item, then the ID for the original order item 
 
 ## Testing your integration
 
-Please follow our general [Guidelines](../guidelines/README.md) for testing integrations.
+Please follow our general [Usage guidelines](../guidelines/README.md) for testing integrations.
 When testing an Accounting integration, you can cross-check whether you are correctly requesting all of the accounting information via the API by matching your data with the Mews Accounting Report. For reconciliation of all bills and invoices, you can use the Bills and Invoices Report. You can easily create export schedules to a specific target and in a desired format for both of these reports. 
 
 Before assisting any new enterprise client with connecting to your accounting integration, it's recommended that you check that they have first completed their configuration, to ensure a smoother onboarding experience.

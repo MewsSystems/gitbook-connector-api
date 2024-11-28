@@ -51,7 +51,7 @@ For Key Cutters, you will receive a command containing [Key cutter command data]
 
 ## Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. In addition to this, the following is specific to device integrations:
+Ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations. In addition to this, the following is specific to device integrations:
 
 To be able to use your integration, an additional step of configuring the device and connecting it to the relevant integration (and therefore the API `Access Token`) is required. This is done through the following steps:
 

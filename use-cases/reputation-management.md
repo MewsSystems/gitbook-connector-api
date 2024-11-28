@@ -23,4 +23,4 @@ Further to this, keywords from the complaint and a URL to the survey or Tripadvi
 
 ## Testing your integration
 
-Please ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations.
+Please ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations.
