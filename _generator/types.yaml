@@ -1372,3 +1372,12 @@ types:
   assignedrateids:
     file: vouchers.md
     anchor: assigned-rate-ids
+  productpriceupdateparameters:
+    file: products.md
+    anchor: product-price-update-parameters
+  productpriceupdate:
+    file: products.md
+    anchor: product-price-update
+  ratedeleteparameters:
+    file: rates.md
+    anchor: ratedeleteparameters
