@@ -1,5 +1,9 @@
 # Changelog
 
+## 29th November 2024
+* Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
+* Added new operation [Delete rates](../operations/rates.md#delete-rates).
+
 ## 28th November 2024
 * Changes to page architecture. Documentation-only, no changes to API.
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `AvailabilityBlockNumber` property, this affects the following operations:
