@@ -60,7 +60,7 @@ Should you need to retrieve a list of all customer profiles created within a cer
 ## Adding revenue and payment items
 
 One of the expected functions of an Events integration is to push product order items to the correct customer profile in Mews. This can be done using the operation [Add order](../operations/orders.md#add-order). If the product item that is being posted already exists in Mews, use [Product order parameters](../operations/orders.md#product-order-parameters). If the product is a custom item that does not exist in Mews then use [Item parameters](../operations/orders.md#item-parameters). 
-Note that in order to use [Product order parameters](../operations/services.md#product-order-parameters), the property must first set up products under an Additional Service. Then, you will need to retrieve the products by calling [Get all products](../operations/products.md#get-all-products).
+Note that in order to use [Product order parameters](../operations/orders.md#product-order-parameters), the property must first set up products under an Additional Service. Then, you will need to retrieve the products by calling [Get all products](../operations/products.md#get-all-products).
 To ensure correct reporting, all revenue items posted into Mews using [Item parameters](../operations/orders.md#item-parameters) must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property can be retrieved using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
