@@ -122,7 +122,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "ExternalIdentifier": "Block-0001",
             "Name": "Wedding group",
             "Notes": "Have a nice stay",
-            "QuoteId": null
+            "QuoteId": null,
+            "AvailabilityBlockNumber": "478"
         },
         {
             "Id": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
@@ -146,7 +147,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "ExternalIdentifier": "Block-0002",
             "Name": "Rolling release",
             "Notes": null,
-            "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c"
+            "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
+            "AvailabilityBlockNumber": "479"
         }
     ],
     "ServiceOrders": [
@@ -228,6 +230,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
+| `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
 
 ## Add availability blocks
 
