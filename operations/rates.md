@@ -123,6 +123,7 @@ Extent of data to be returned.
 | `Id` | string | required | Unique identifier of the rate. |
 | `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
 | `ServiceId` | string | required | Unique identifier of the `Service`. |
+| `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
@@ -134,7 +135,6 @@ Extent of data to be returned.
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Description` | [Localized text](_objects.md#localized-text) | optional | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| ~~`BaseRateId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the base `Rate`.~~ **Deprecated!** Use DependentRatePricing.|
 | ~~`Name`~~ | ~~string~~ | ~~optional~~ | ~~Name of the rate (in the default language).~~ **Deprecated!** Use `Names` instead|
 
 #### Rate type

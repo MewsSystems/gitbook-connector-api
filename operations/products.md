@@ -405,7 +405,7 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 
 ## Update product pricing
 
-Updates the prices for a given product. You can make multiple price updates with one API call, and for each one specify the price amount per [Time unit](../concepts/time-units.md) and the time interval for which it applies. The price will be updated for all service time units that the specified time interval intersects. It is not permitted to update historical prices older than specified by `EditableHistoryInterval`.
+Updates the prices for a given product. You can make multiple price updates with one API call, and for each one specify the price amount per [Time unit](../concepts/time-units.md) and the time interval for which it applies. The price will be updated for all service time units that the specified time interval intersects. It is not permitted to update historical prices older than specified by `EditableHistoryInterval`. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
