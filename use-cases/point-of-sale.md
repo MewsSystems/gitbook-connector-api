@@ -104,7 +104,7 @@ In an outlet bill, items of [outlet item type](../operations/outletitems.md#outl
 
 ## Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines) for testing integrations.
+Ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations.
 To make sure the integration supports the minimum expected functionality, please test the following operations. Ignore any items that are not supported by your solution or not required by the property.
 
 * Post a charge to the guest bill (in-house customer or Paymaster)

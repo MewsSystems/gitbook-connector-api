@@ -455,7 +455,7 @@ types:
     file: reservations.md
     anchor: time-unit-amount-parameters
   productorderadditiondata:
-    file: products.md
+    file: orders.md
     anchor: product-order-parameters
   costparameters:
     file: _deprecated.md
@@ -1353,7 +1353,7 @@ types:
     anchor: serviceoverbookinglimitresult
   serviceoverbookinglimit:
     file: serviceoverbookinglimits.md
-    anchor: serviceoverbookinglimit
+    anchor: service-overbooking-limit
   serviceoverbookinglimitfilterparameters:
     file: serviceoverbookinglimits.md
     anchor: serviceoverbookinglimitfilterparameters
@@ -1372,3 +1372,12 @@ types:
   assignedrateids:
     file: vouchers.md
     anchor: assigned-rate-ids
+  productpriceupdateparameters:
+    file: products.md
+    anchor: product-price-update-parameters
+  productpriceupdate:
+    file: products.md
+    anchor: product-price-update
+  ratedeleteparameters:
+    file: rates.md
+    anchor: ratedeleteparameters

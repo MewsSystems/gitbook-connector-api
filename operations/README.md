@@ -207,6 +207,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
 | [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) of the default service provided by the enterprise |
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
+| [Delete rates](rates.md#delete-rates) | Deletes specified rates |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
 | [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters |
@@ -235,6 +236,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all products](products.md#get-all-products) | Returns all products filtered by services or product identifier |
 | [Delete products](products.md#delete-products) | Deletes specified products |
 | [Get product pricing](products.md#get-product-pricing) | **Restricted!** Returns prices for a product for a specified time interval |
+| [Update product pricing](products.md#update-product-pricing) | Updates product price for a given interval |
 | [Get all product categories](productcategories.md#get-all-product-categories) | Returns all products filtered by services or product category identifier |
 | [Get all service overbooking limits](serviceoverbookinglimits.md#get-all-service-overbooking-limits) | **Restricted!**  Returns all service overbooking limits |
 | [Set service overbooking limits](serviceoverbookinglimits.md#set-service-overbooking-limits) | **Restricted!**  Adds new service overbooking limits with the specified conditions |

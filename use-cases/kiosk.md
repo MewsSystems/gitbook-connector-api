@@ -169,6 +169,6 @@ Note you will need to specify the unique customer identifier for the guest profi
 
 ## Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations.
+Ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations.
 For additional help when working with the demo environment, there is a range of helpful articles in the [Mews Help Center](https://help.mews.com/s/?language=en_US),
 including [Understanding services](https://help.mews.com/s/article/understanding-services?language=en_US). These are available in a number of languages.
