@@ -1,6 +1,6 @@
 # Usage guidelines
 
-This section provides important guidelines on how to use the __Mews Connector API__. For a deeper understanding of **Mews** concepts, see [Concepts](../concepts/README.md). For information about individual endpoints or operations, see [API Operations](../operations/README.md).
+This section provides important guidelines on how to use the __Mews Connector API__. For a deeper understanding of Mews concepts, see [Concepts](../concepts/README.md). For information about individual endpoints or operations, see [API Operations](../operations/README.md).
 
 > ### Terminology
 > Some of the terms used in the API, such as *enterprise*, *customer* or *resource* may not be familiar.
@@ -9,7 +9,6 @@ This section provides important guidelines on how to use the __Mews Connector AP
 
 ## Contents
 
-* [Ways to communicate](communicate.md)<br>When and how to use API Operations, Webhooks and WebSockets.
 * [Requests](requests.md)<br>Details of how to make API Operation requests.
 * [Responses](responses.md)<br>Details of API Operation responses, including error messages.
 * [Environments](environments.md)<br>A description of the different environments available and how to access them, including test credentials, request limits and more.

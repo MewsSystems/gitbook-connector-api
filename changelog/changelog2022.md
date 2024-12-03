@@ -109,11 +109,11 @@
 
 ## 30th August 2022
 
-* Small improvements to [Webhooks](../webhooks/README.md) documentation, including moving the [Webhooks FAQ](../webhooks/wh-faq.md) to its own page.
+* Small improvements to [Webhooks](../events/README.md) documentation, including moving the [Webhooks FAQ](../events/wh-faq.md) to its own page.
 
 ## 23rd August 2022
 
-* Added new webhook events `CustomerAdded` and `CustomerUpdated` in [General webhooks](../webhooks/wh-general.md).
+* Added new Webhook events `CustomerAdded` and `CustomerUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 17th August 2022
 
@@ -123,7 +123,7 @@
 
 ## 10th August 2022
 
-* Added a new type of webhook for updated Resource blocks (../webhooks/wh-general.md).
+* Added a new Webhook event [ResourceBlockUpdated](../events/wh-general.md).
 
 ## 5th August 2022
 
@@ -185,7 +185,7 @@
 
 * Re-structured documentation pages for API operations so pages are organised by domain entity (e.g. [countries](../operations/countries.md), [outletbills](../operations/outletbills.md), [products](../operations/products.md)) rather than theme (e.g. configuration, reservations, finance)
 * Re-structured documentation pages for Changelog so organised by year; [deprecations](../deprecations/README.md) split off into its own page
-* Some minor additional changes to documentation pages, e.g. [webhooks](../webhooks/README.md) and [websockets](../websockets/README.md) now in separate directories
+* Some minor additional changes to documentation pages, e.g. [Webhooks](../events/README.md) and [WebSockets](../events/websockets.md) now in separate directories
 * Added reference to Swagger/OpenAPI definition on [home page](../README.md)
 
 ## 11th February 2022

@@ -1,6 +1,6 @@
 # Concepts
 
-This section delves into domain-specific topics related to the **Mews** system. An understanding of these will help you to make the most effective use of the API.
+This section delves into domain-specific topics related to the Mews system. An understanding of these will help you to make the most effective use of the API.
 
 > ### Terminology
 > Some of the terms used in the API, such as *enterprise*, *customer* or *resource* may not be familiar.

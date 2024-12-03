@@ -14,7 +14,7 @@
 * Extended [Add external payment](../operations/payments.md#add-external-payment) parameters with `CrossSettlement` type and `ExternalIdentifier` key.
 
 ## 29th March 2021
-* Added new type `ResourceUpdated` of webhook [Event](../webhooks/README.md#event).
+* Added new type `ResourceUpdated` of [Webhook event](../events/wh-general.md).
 
 ## 18th March 2021
 * For demo environment, platform URL changed to `https://api.mews-demo.com`.
@@ -34,7 +34,7 @@
 
 ## 6th January 2021
 * Specified limitations on operation parameters (generally 1000 items in collection and maximum time filter length of 3 months).
-* Changed the [websocket](../websockets/README.md) authentication method to use cookies instead of URL query parameters.
+* Changed the [WebSockets](../events/websockets.md) authentication method to use cookies instead of URL query parameters.
 * Extended [Space resource data](../operations/resources.md#space-resource-data) with `LocationNotes`.
 * Extended [Space resource data update](../operations/resources.md#space-resource-data-update) with `LocationNotes`.
 

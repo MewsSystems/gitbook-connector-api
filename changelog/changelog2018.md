@@ -26,7 +26,7 @@
 
 ## 19th September 2018
 
-* Extended [Reservation event](../websockets/README.md#reservation-event) with `AssignedSpaceId`.
+* Extended WebSockets [Reservation event](../events/websockets.md#reservation-event) with `AssignedSpaceId`.
 * Extended [Service](../operations/services.md#service) with `Type`.
 
 ## 29th August 2018
@@ -119,9 +119,9 @@
 
 ## 8th March 2018
 
-* Extended [Command event](../websockets/README.md#command-event) with `State`.
-* Extended [Reservation event](../websockets/README.md#reservation-event) with `State`, `StartUtc`, `EndUtc`.
-* Extended [Space event](../websockets/README.md#space-event) with `State`.
+* Extended WebSockets [Device Command event](../events/websockets.md#device-command-event) with `State`.
+* Extended WebSockets [Reservation event](../events/websockets.md#reservation-event) with `State`, `StartUtc`, `EndUtc`.
+* Extended WebSockets [Space event](../events/websockets.md#space-event) with `State`.
 
 ## 21st February 2018
 
@@ -134,7 +134,7 @@
 * Extended 'Space extent' with `Inactive`.
 * Extended [Update rate price](../operations/rates.md#update-rate-price) with possibility to remove adjustments \(using unspecified `Value`\).
 * Extended [Get rate pricing](../operations/rates.md#get-rate-pricing) response with `CategoryAdjustments`.
-* Extended websocket events with [Space event](../websockets/README.md#space-event).
+* Extended WebSockets events with [Space event](../events/websockets.md#space-event).
 * Added [Get all bills by customers](../operations/bills.md#get-all-bills-by-customers) operation.
 
 | Next |
