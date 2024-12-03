@@ -58,7 +58,7 @@ Returns all rates (pricing setups) of the default service provided by the enterp
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](rates.md#rate) from external systems. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Rate extent
 Extent of data to be returned.
@@ -121,10 +121,10 @@ Extent of data to be returned.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rate. |
-| `GroupId` | string | required | Unique identifier of [Rate group](rates.md#rate-group) where the rate belongs. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
-| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate). |
-| `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
+| `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
+| `ServiceId` | string | required | Unique identifier of the `Service`. |
+| `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
 | `IsPublic` | boolean | required | Whether the rate is publicly available. |
@@ -569,6 +569,41 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 | `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
+
+### Response
+
+```javascript
+{}
+```
+
+## Delete rates
+
+Deletes specified rates. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rates/delete`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "RateIds": [
+    "7e89ee8e-11a0-4d9d-8880-f8d8494824b5",
+    "2e177096-3a28-411d-a375-150a7350b278"
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `RateIds` | array of string | required, max 10 items | Unique identifiers of the rates to be deleted. |
 
 ### Response
 
