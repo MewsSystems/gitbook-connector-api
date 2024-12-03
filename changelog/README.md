@@ -1,5 +1,8 @@
 # Changelog
 
+## 5th December 2024
+* New section [API Events](../events/README.md) added. Documentation-only, no changes to API.
+
 ## 28th November 2024
 * Changes to page architecture. Documentation-only, no changes to API.
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `AvailabilityBlockNumber` property, this affects the following operations:
