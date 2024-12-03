@@ -77,15 +77,6 @@ Creates a new order, with the specified products and items. If the time of consu
 | `UnitAmount` | [Amount parameters](#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the item. |
 
-#### Amount parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `GrossValue` | decimal | optional | Amount including tax. Required for Gross [Pricing](configuration.md#pricing) environments. |
-| `NetValue` | decimal | optional | Amount excluding tax. Required for Net [Pricing](configuration.md#pricing) environments. |
-| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `TaxCodes` | array of string | required | Codes of [Tax rates](taxations.md#tax-rate) to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
-
 ### Response
 
 ```javascript

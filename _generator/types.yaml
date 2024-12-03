@@ -30,6 +30,12 @@ types:
   amount:
     file: _objects.md
     anchor: amount
+  amountparameters:
+    file: _objects.md
+    anchor: amount-parameters
+  extendedamountparameters:
+    file: _objects.md
+    anchor: amount-parameters
   taxvalue:
     file: _objects.md
     anchor: tax-value
@@ -448,9 +454,6 @@ types:
   serviceorderstate:
     file: reservations.md
     anchor: service-order-state
-  amountparameters:
-    file: orders.md
-    anchor: amount-parameters
   perunitpriceparameters:
     file: reservations.md
     anchor: time-unit-amount-parameters
@@ -1381,3 +1384,99 @@ types:
   ratedeleteparameters:
     file: rates.md
     anchor: ratedeleteparameters
+  paymentresult:
+    file: payments.md
+    anchor: paymentresult
+  payment:
+    file: payments.md
+    anchor: payment
+  paymentstateenum:
+    file: payments.md
+    anchor: payment-state
+  paymentdiscriminatorenum:
+    file: payments.md
+    anchor: payment-type
+  paymentkindenum:
+    file: payments.md
+    anchor: payment-kind
+  paymentdata:
+    file: payments.md
+    anchor: payment-data
+  paymentdatadiscriminatorenum:
+    file: payments.md
+    anchor: payment-data-discriminator
+  paymentcreditcarddata:
+    file: payments.md
+    anchor: credit-card-payment-data
+  creditcardtransaction:
+    file: payments.md
+    anchor: credit-card-transaction
+  paymentinvoicedata:
+    file: payments.md
+    anchor: invoice-payment-data
+  invoicepaymenttypeenum:
+    file: payments.md
+    anchor: invoice-payment-type
+  paymentexternaldata:
+    file: payments.md
+    anchor: external-payment-data
+  paymentghostdata:
+    file: payments.md
+    anchor: ghost-payment-data
+  paymentfilterparameters:
+    file: payments.md
+    anchor: paymentfilterparameters
+  paymentstate:
+    file: payments.md
+    anchor: payment-state
+  paymentrefundresult:
+    file: payments.md
+    anchor: paymentrefundresult
+  refundtypeenum:
+    file: payments.md
+    anchor: refund-type
+  paymentrefundparameters:
+    file: payments.md
+    anchor: paymentrefundparameters
+  addcreditcardresult:
+    file: payments.md
+    anchor: addcreditcardresult
+  creditcardpaymentparameters:
+    file: payments.md
+    anchor: creditcardpaymentparameters
+  creditcardparameters:
+    file: payments.md
+    anchor: credit-card-parameters
+  addexternalpaymentresult:
+    file: payments.md
+    anchor: addexternalpaymentresult
+  externalpaymentparameters:
+    file: payments.md
+    anchor: externalpaymentparameters
+  alternativepaymentresult:
+    file: payments.md
+    anchor: alternativepaymentresult
+  nextaction:
+    file: payments.md
+    anchor: alternative-payment-next-action
+  nextactiontypeenum:
+    file: payments.md
+    anchor: payment-next-action-discriminator
+  alternativepaymentparameters:
+    file: payments.md
+    anchor: alternativepaymentparameters
+  alternativepaymentmethoddeprecated:
+    file: payments.md
+    anchor: alternative-payment-methods
+  alternativepaymentsdata:
+    file: payments.md
+    anchor: alternative-payment-method-data
+  alternativepaymentmethodenum:
+    file: payments.md
+    anchor: alternative-payment-method-data-discriminator
+  sepadirectdebitdata:
+    file: payments.md
+    anchor: sepa-direct-debit-data
+  idealdata:
+    file: payments.md
+    anchor: ideal-data
