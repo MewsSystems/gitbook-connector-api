@@ -1,6 +1,7 @@
 # Changelog
 
 ## 5th December 2024
+* Extended [Add external payment](../operations/payments.md#add-external-payment) request with support for all external payment types enabled by the enterprise.
 * Aligned [Payments API operations](../operations/payments.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
 
 ## 29th November 2024
