@@ -92,7 +92,7 @@ Yes. Event messages are configured for each integration, please contact [partner
 
 ## Can you give me a specific use case for Webhooks?
 
-A specific use case for Webhooks is described in [Event management - Managing availability block inventory and pickup](../use-cases/event-management.md#managing-availability-block-inventory-and-pickup),
+A specific use case for Webhooks is described in [Event management - Managing availability block inventory and pickup](../use-cases/events.md#managing-availability-block-inventory-and-pickup),
 but Webhooks are relevant to many use cases and are discussed in the relevant section - see [Use cases](../use-cases/README.md).
 
 ## Is there a limit on the number of events in one Webhook?
