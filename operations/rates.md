@@ -126,9 +126,9 @@ Extent of data to be returned.
 | `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
 | `IsBaseRate` | boolean | required | Indicates if this is a base rate. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
-| `IsActive` | boolean | required | Whether the rate is still active. |
-| `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
-| `IsPublic` | boolean | required | Whether the rate is publicly available. |
+| `IsActive` | boolean | required | Indicates if this rate is active. |
+| `IsEnabled` | boolean | required | Indicates if this rate is currently available to customers. |
+| `IsPublic` | boolean | required | Indicates if this rate is publicly available. |
 | `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name of the rate (in the default language). |
@@ -606,13 +606,13 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
         "en-US": "Base rate"
       },
       "ShortNames": {
-        "en-US": "Base rate"
+        "en-US": "BR"
       },
       "ExternalNames": {
-        "en-US": "Base rate"
+        "en-US": "External base rate"
       },
       "Descriptions": {
-        "en-US": "Base rate"
+        "en-US": "Base rate description."
       },
       "PricingType": "BaseRatePricing",
       "Pricing": {
@@ -630,21 +630,21 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "ExternalIdentifier": "55698",
       "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
       "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
-      "IsEnabled": true,
-      "Type": "Public",
+      "IsEnabled": false,
+      "Type": "Private",
       "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
       "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
       "Names": {
         "en-US": "Dependent rate"
       },
       "ShortNames": {
-        "en-US": "Dependent rate"
+        "en-US": "DR"
       },
       "ExternalNames": {
-        "en-US": "Dependent rate"
+        "en-US": "External dependent rate"
       },
       "Descriptions": {
-        "en-US": "Dependent rate"
+        "en-US": "Dependent rate description."
       },
       "PricingType": "DependentRatePricing",
       "Pricing": {
