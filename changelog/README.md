@@ -1,5 +1,8 @@
 # Changelog
 
+## 5th December 2024
+* Aligned [Payments API operations](../operations/payments.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
+
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
 * Added new operation [Delete rates](../operations/rates.md#delete-rates).
