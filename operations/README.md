@@ -207,6 +207,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
 | [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) of the default service provided by the enterprise |
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
+| [Set rates](rates.md#set-rates) | Adds new or updates existing rates |
 | [Delete rates](rates.md#delete-rates) | Deletes specified rates |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |

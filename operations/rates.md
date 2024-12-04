@@ -124,6 +124,7 @@ Extent of data to be returned.
 | `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
 | `ServiceId` | string | required | Unique identifier of the `Service`. |
 | `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
+| `IsBaseRate` | boolean | required | Whether the rate is a base rate. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
@@ -486,8 +487,8 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BaseRateId` | string | required | Unique identifier of the base rate. |
-| `RelativeAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
-| `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
+| `RelativeAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
+| `AbsoluteAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
 
 ### Response
 
@@ -575,6 +576,126 @@ Note that prices are defined daily, so when the server receives the UTC interval
 ```javascript
 {}
 ```
+
+## Set rates
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Adds new Rates or updates existing ones if they are matched by `Id` or `ExternalIdentifier` property. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rates/set`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "Rates": [
+    {
+      "Id": "e1b0bf46-32a3-4f7c-99c1-1ff78447d55d",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "IsEnabled": true,
+      "Type": "Public",
+      "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "Names": {
+        "en-US": "Base rate"
+      },
+      "ShortNames": {
+        "en-US": "Base rate"
+      },
+      "ExternalNames": {
+        "en-US": "Base rate"
+      },
+      "Descriptions": {
+        "en-US": "Base rate"
+      },
+      "PricingType": "BaseRatePricing",
+      "Pricing": {
+        "BaseRatePricing": {
+          "Amount": {
+            "Currency": "EUR",
+            "NetValue": 100
+          },
+          "NegativeOccupancyAdjustment": 0,
+          "ExtraOccupancyAdjustment": 0
+        }
+      }
+    },
+    {
+      "ExternalIdentifier": "55698",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "IsEnabled": true,
+      "Type": "Public",
+      "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "Names": {
+        "en-US": "Dependent rate"
+      },
+      "ShortNames": {
+        "en-US": "Dependent rate"
+      },
+      "ExternalNames": {
+        "en-US": "Dependent rate"
+      },
+      "Descriptions": {
+        "en-US": "Dependent rate"
+      },
+      "PricingType": "DependentRatePricing",
+      "Pricing": {
+        "DependentRatePricing": {
+          "BaseRateId": "00392166-3869-4174-b491-cf0162524a38",
+          "RelativeAdjustment": 0.25,
+          "AbsoluteAdjustment": 10
+        }
+      }
+    }
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `Rates` | array of [Set rate parameters](rates.md#set-rate-parameters) | required, max 100 items | Rates to be added or updated. |
+
+#### Set rate parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | optional | Unique identifier of the rate. If it matches an existing rate, that rate will be updated. If no match is found, an error will be returned. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Unique identifier of the rate in the external system. If `Id` is not provided and `ExternalIdentifier` matches an existing rate, the corresponding rate will be updated. If no match is found, a new rate will be created. |
+| `ServiceId` | string | required | Unique identifier of the service. Ignored in case of updating an existing rate. |
+| `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. Ignored in case of updating an existing rate. |
+| `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
+| `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the rate. |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
+| `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Rate pricing type. Must match existing pricing type in case of update. |
+| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | required | Contains additional data about pricing of the rate. |
+
+### Response
+
+```javascript
+{}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Rates` | array of [Rate](rates.md#rate) | optional, max 1000 items | Rates that were added or updated. |
 
 ## Delete rates
 
