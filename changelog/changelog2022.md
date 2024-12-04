@@ -127,7 +127,7 @@
 
 ## 5th August 2022
 
-* Updated PCI Proxy use case [Using tokenized credit cards](../use-cases/payment-automation/using-tokenized-credit-cards.md).
+* Updated PCI Proxy use case in [Payment automation](../use-cases/payment-automation.md).
 
 ## 22nd July 2022
 
