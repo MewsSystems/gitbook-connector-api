@@ -124,7 +124,7 @@ Extent of data to be returned.
 | `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
 | `ServiceId` | string | required | Unique identifier of the `Service`. |
 | `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
-| `IsBaseRate` | boolean | required | Whether the rate is a base rate. |
+| `IsBaseRate` | boolean | required | Indicates if this is a base rate. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
 | `IsActive` | boolean | required | Whether the rate is still active. |
 | `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
