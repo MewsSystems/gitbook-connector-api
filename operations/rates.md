@@ -690,7 +690,60 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 ### Response
 
 ```javascript
-{}
+{
+  "Rates": [
+    {
+      "Id": "e1b0bf46-32a3-4f7c-99c1-1ff78447d55d",
+      "GroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "BaseRateId": null,
+      "IsBaseRate": true,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "IsActive": true,
+      "IsEnabled": true,
+      "IsPublic": true,
+      "Type": "Public",
+      "Name": null,
+      "Names": {
+        "en-US": "Base rate"
+      },
+      "ShortName": "BR",
+      "UpdatedUtc": "2024-11-20T00:00:00Z",
+      "ExternalNames": {
+        "en-US": "External base rate"
+      },
+      "Description": {
+        "en-US": "Base rate description."
+      },
+      "ExternalIdentifier": null
+    },
+    {
+      "Id": "8eb1f163-bce7-49ca-a62c-c9261951c85f",
+      "GroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "BaseRateId": "00392166-3869-4174-b491-cf0162524a38",
+      "IsBaseRate": false,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "IsActive": true,
+      "IsEnabled": false,
+      "IsPublic": false,
+      "Type": "Private",
+      "Name": null,
+      "Names": {
+        "en-US": "Dependent rate"
+      },
+      "ShortName": "DR",
+      "UpdatedUtc": "2024-11-20T00:00:00Z",
+      "ExternalNames": {
+        "en-US": "External dependent rate"
+      },
+      "Description": {
+        "en-US": "Dependent rate description."
+      },
+      "ExternalIdentifier": "55698"
+    }
+  ]
+}
 ```
 
 | Property | Type | Contract | Description |
