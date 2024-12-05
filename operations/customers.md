@@ -253,6 +253,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
 | `IssuingCity` | string | optional | City where the document was issued. |
+| `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish legal environment. |
 
 ## ~~Get customers open items~~
 
