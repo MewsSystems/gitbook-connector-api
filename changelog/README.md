@@ -1,5 +1,12 @@
 # Changelog
 
+## 6th December 2024
+* Added new operation [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents).
+* Added new operation [Add identity documents](../operations/identitydocuments.md#add-identity-documents).
+* Added new operation [Update identity documents](../operations/identitydocuments.md#update-identity-documents).
+* Added new operation [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents).
+* Added new operation [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents).
+
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
 * Added new operation [Delete rates](../operations/rates.md#delete-rates).
