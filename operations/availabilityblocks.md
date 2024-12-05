@@ -231,6 +231,13 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Notes` | string | optional | Additional notes of the block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
+| `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
+
+#### Release strategy
+
+* `FixedRelease` - The availability block is released at a fixed time.
+* `RollingRelease` - Each availability adjustment is released at a fixed offset from its start.
+* `None` - The availability block is not automatically released.
 
 ## Add availability blocks
 
