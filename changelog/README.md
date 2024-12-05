@@ -1,5 +1,11 @@
 # Changelog
 
+## 5th December 2024
+* Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `ReleaseStrategy` property, this affects the following operations:
+  * [Get all availability block](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
+  * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
+
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
 * Added new operation [Delete rates](../operations/rates.md#delete-rates).
