@@ -1,5 +1,8 @@
 # Changelog
 
+## 5th December 2024
+* Extended [Identity document](../operations/customers.md#identity-document) requests and responses with `IdentityDocumentSupportNumber` for Spanish identity cards in Spanish legal environments.
+
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
 * Added new operation [Delete rates](../operations/rates.md#delete-rates).
