@@ -1381,3 +1381,12 @@ types:
   ratedeleteparameters:
     file: rates.md
     anchor: ratedeleteparameters
+  billsupdateresult:
+    file: bills.md
+    anchor: billsupdateresult
+  multiplebillsupdateparameters:
+    file: bills.md
+    anchor: multiplebillsupdateparameters
+  billupdateparameters:
+    file: bills.md
+    anchor: billupdateparameters
