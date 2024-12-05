@@ -1,4 +1,6 @@
 # Changelog
+## 5th December 2024
+* Added new operation [Update bill](../operations/bills.md#update-bills).
 
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
