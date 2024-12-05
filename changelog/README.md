@@ -1,5 +1,10 @@
 # Changelog
 
+## 5th December 2024
+* Added `AssignmentTargetType` property to [Routing Rules](../operations/routingrules.md)
+  * [Add routing rules](../operations/routingrules.md#add-routing-rules) request parameter
+  * [Update routing rules](../operations/availabilityblocks.md#update-routing-rules) request parameter
+
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
 * Added new operation [Delete rates](../operations/rates.md#delete-rates).
