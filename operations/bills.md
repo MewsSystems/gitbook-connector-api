@@ -183,6 +183,159 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `Bills` | array of [Bill](bills.md#bill) | required | The filtered bills. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older bills. |
 
+## Update Bills
+
+Updates one or more existing bills in the system. Closed bills cannot be updated. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/update`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "BillsUpdates": [
+    {
+      "BillId": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
+      "OwnerId": {
+        "Value": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f"
+      },
+      "AssociatedAccountId": {
+        "Value": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+      }
+    }
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `BillsUpdates` | array of [BillUpdateParameters](bills.md#billupdateparameters) | required, max 10 items | Bills to be updated. |
+
+#### BillUpdateParameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillId` | string | required | Unique identifier of the bill to update. |
+| `OwnerId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the owner to whom the bill was assigned (or null if the owner should not be updated). |
+| `AssociatedAccountId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the account that has a possible link with the owner of the bill (or null if the account should not be updated). |
+
+### Response
+
+```javascript
+{
+  "Bills": [
+    {
+      "Id": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
+      "Name": "Accommodation Charges",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "AccountId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+      "CustomerId": null,
+      "CompanyId": null,
+      "AssociatedAccountIds": [
+        "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+      ],
+      "CounterId": null,
+      "State": "Closed",
+      "Type": "Invoice",
+      "Number": "29",
+      "VariableSymbol": null,
+      "CreatedUtc": "2017-01-31T10:48:06Z",
+      "IssuedUtc": "2017-01-31T10:58:06Z",
+      "TaxedUtc": null,
+      "PaidUtc": null,
+      "DueUtc": null,
+      "LastReminderDateUtc": null,
+      "UpdatedUtc": "2017-01-31T10:58:06Z",
+      "PurchaseOrderNumber": "XX-123",
+      "Notes": "",
+      "Options": {
+        "DisplayCustomer": true,
+        "DisplayTaxation": true,
+        "TrackReceivable": true,
+        "DisplayCid": false,
+        "Rebated": false
+      },
+      "Revenue": [],
+      "Payments": [],
+      "OrderItems": [],
+      "PaymentItems": [],
+      "AssigneeData": null,
+      "OwnerData": {
+        "Discriminator": "BillCompanyData",
+        "Value": {
+          "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+          "Address": {
+            "Line1": "Joe Doe street",
+            "Line2": "Very long ave",
+            "City": "Townston",
+            "PostalCode": "154 00",
+            "SubdivisionCode": "AU-NSW",
+            "CountryCode": "AU"
+          },
+          "LegalIdentifiers": {
+            "TaxIdentifier": "CZ8810310963",
+            "CityOfRegistration": "Prague"
+          },
+          "BillingCode": "Billing code value",
+          "Name": "Acme, Inc.",
+          "FiscalIdentifier": "Fiscal identifier",
+          "AdditionalTaxIdentifier": "Additional tax identifier"
+        }
+      },
+      "CompanyDetails": null,
+      "AssociatedAccountData": [
+        {
+          "Discriminator": "BillCompanyData",
+          "BillCustomerData": null,
+          "BillCompanyData": {
+            "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+            "Address": {
+              "Line1": "Joe Doe street",
+              "Line2": "Very long ave",
+              "City": "Townston",
+              "PostalCode": "154 00",
+              "SubdivisionCode": "AU-NSW",
+              "CountryCode": "AU"
+            },
+            "LegalIdentifiers": {
+              "TaxIdentifier": "CZ8810310963",
+              "CityOfRegistration": "Prague"
+            },
+            "BillingCode": "Billing code value",
+            "Name": "Acme, Inc.",
+            "FiscalIdentifier": "Fiscal identifier",
+            "AdditionalTaxIdentifier": "Additional tax identifier"
+          }
+        }
+      ],
+      "EnterpriseData": {
+        "AdditionalTaxIdentifier": "XY00112233445",
+        "CompanyName": "The Sample Hotel Group AS",
+        "BankAccount": "CZ3808000000000012345678",
+        "BankName": "CESKA SPORITELNA A.S.",
+        "Iban": "CZ6508000000192000145399",
+        "Bic": "GIBACZPX"
+      },
+      "CorrectionState": "Bill",
+      "CorrectionType": null,
+      "CorrectedBillId": null
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](bills.md#bill) | required | Updated bills. |
+
 #### Bill
 
 | Property | Type | Contract | Description |
