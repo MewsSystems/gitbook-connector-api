@@ -1,6 +1,6 @@
 # Changelog
 
-## 5th December 2024
+## 6th December 2024
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `ReleaseStrategy` property, this affects the following operations:
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
   * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
