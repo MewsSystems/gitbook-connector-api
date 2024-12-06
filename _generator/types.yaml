@@ -1381,3 +1381,12 @@ types:
   ratedeleteparameters:
     file: rates.md
     anchor: ratedeleteparameters
+  ratesetresult:
+    file: rates.md
+    anchor: rate-set-result
+  ratesetparameters:
+    file: rates.md
+    anchor: set-rates-parameters
+  ratesetdata:
+    file: rates.md
+    anchor: set-rate-parameters

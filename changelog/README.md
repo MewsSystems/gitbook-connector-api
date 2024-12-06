@@ -5,6 +5,9 @@
   * [Add routing rules](../operations/routingrules.md#add-routing-rules) request parameter
   * [Update routing rules](../operations/routingrules.md#update-routing-rules) request parameter
 
+## 4th December 2024
+* Added new restricted operation [Set rates](../operations/rates.md#set-rates).
+
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
 * Added new operation [Delete rates](../operations/rates.md#delete-rates).
