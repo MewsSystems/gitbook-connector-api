@@ -183,7 +183,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `Bills` | array of [Bill](bills.md#bill) | required | The filtered bills. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older bills. |
 
-## Update Bills
+## Update bills
 
 Updates one or more existing bills in the system. Closed bills cannot be updated. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
