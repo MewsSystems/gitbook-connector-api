@@ -178,7 +178,7 @@ Updates specified identity documents. This operation supports [Portfolio Access 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "IdentityDocumentUpdates": [
+  "IdentityDocuments": [
     {
       "Id": "e8a72a69-c20b-4278-b699-ab0400a32ecc",
       "Type": {
@@ -214,7 +214,7 @@ Updates specified identity documents. This operation supports [Portfolio Access 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `IdentityDocumentUpdates` | array of [Identity document update parameters](identitydocuments.md#identity-document-update-parameters) | required, max 10 items | Identity documents to be updated. |
+| `IdentityDocuments` | array of [Identity document update parameters](identitydocuments.md#identity-document-update-parameters) | required, max 10 items | Identity documents to be updated. |
 
 #### Identity document update parameters
 
