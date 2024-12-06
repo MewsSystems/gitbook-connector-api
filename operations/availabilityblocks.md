@@ -123,7 +123,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Name": "Wedding group",
             "Notes": "Have a nice stay",
             "QuoteId": null,
-            "AvailabilityBlockNumber": "478"
+            "AvailabilityBlockNumber": "478",
+            "ReleaseStrategy": "FixedRelease"
         },
         {
             "Id": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
@@ -148,7 +149,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Name": "Rolling release",
             "Notes": null,
             "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
-            "AvailabilityBlockNumber": "479"
+            "AvailabilityBlockNumber": "479",
+            "ReleaseStrategy": "FixedRelease"
         }
     ],
     "ServiceOrders": [
@@ -231,6 +233,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Notes` | string | optional | Additional notes of the block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
+| `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 
 ## Add availability blocks
 
