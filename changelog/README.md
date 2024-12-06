@@ -1,7 +1,19 @@
 # Changelog
 
-## 5th December 2024
+## 6th December 2024
+* Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `ReleaseStrategy` property, this affects the following operations:
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
+  * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
 * Aligned [Payments API operations](../operations/payments.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
+
+## 5th December 2024
+* Added `AssignmentTargetType` property to [Routing Rules](../operations/routingrules.md)
+  * [Add routing rules](../operations/routingrules.md#add-routing-rules) request parameter
+  * [Update routing rules](../operations/routingrules.md#update-routing-rules) request parameter
+
+## 4th December 2024
+* Added new restricted operation [Set rates](../operations/rates.md#set-rates).
 
 ## 29th November 2024
 * Added new operation [Update product pricing](../operations/products.md#update-product-pricing).
