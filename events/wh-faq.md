@@ -19,7 +19,7 @@
 
 ## How do I register a Webhook with Mews?
 
-Email [partnersuccess@mews.com](mailto://partnersuccess@mews.com) with details of your Webhook endpoint URL.
+Email [partnersuccess@mews.com](mailto:partnersuccess@mews.com) with details of your Webhook endpoint URL.
 
 ## Are there special considerations for setting up a Webhook server?
 
@@ -34,7 +34,7 @@ To confirm that a request to your Webhook endpoint originates from Mews, we can 
 ### Figure 1: Webhook Authentication
 ![Webhook authentication](../.gitbook/assets/webhook-auth.png)
 
-To use this authentication, send us the token you wish to use via [partnersuccess@mews.com](mailto://partnersuccess@mews.com).
+To use this authentication, send us the token you wish to use via [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
 The token should be kept secret and not shared with anyone except Mews.
 
 ## How should the server respond to a Webhook request?
@@ -73,7 +73,7 @@ See [When are Webhooks generated?](../guidelines/communicate.md#when-are-webhook
 
 ## Can I see what Webhooks are configured?
 
-Webhooks are set up in the system administration, please contact [partnersuccess@mews.com](mailto://partnersuccess@mews.com) for information about what Webhooks are configured on the system for your application.
+Webhooks are set up in the system administration, please contact [partnersuccess@mews.com](mailto:partnersuccess@mews.com) for information about what Webhooks are configured on the system for your application.
 
 ## Can I set up multiple Webhooks?
 
@@ -88,7 +88,7 @@ In that case, if pushing the updates to the on-premise solution is difficult the
 
 ## Is it possible to disable sending some messages to Webhooks?
 
-Yes. Event messages are configured for each integration, please contact [partnersuccess@mews.com](mailto://partnersuccess@mews.com) with your requirements and they can configure only the messages you want to receive.
+Yes. Event messages are configured for each integration, please contact [partnersuccess@mews.com](mailto:partnersuccess@mews.com) with your requirements and they can configure only the messages you want to receive.
 
 ## Can you give me a specific use case for Webhooks?
 
