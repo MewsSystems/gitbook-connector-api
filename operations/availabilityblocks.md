@@ -124,7 +124,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "Notes": "Have a nice stay",
             "QuoteId": null,
             "AvailabilityBlockNumber": "478",
-            "ReleaseStrategy": "FixedRelease",
+            "ReleaseStrategy": "FixedRelease"
         },
         {
             "Id": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
