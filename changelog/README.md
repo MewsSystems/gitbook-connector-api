@@ -1,5 +1,10 @@
 # Changelog
 
+## 5th December 2024
+* Added `AssignmentTargetType` property to [Routing Rules](../operations/routingrules.md)
+  * [Add routing rules](../operations/routingrules.md#add-routing-rules) request parameter
+  * [Update routing rules](../operations/routingrules.md#update-routing-rules) request parameter
+
 ## 4th December 2024
 * Added new restricted operation [Set rates](../operations/rates.md#set-rates).
 
