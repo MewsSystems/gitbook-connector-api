@@ -1,8 +1,8 @@
 # Ways to communicate
 
 The purpose of this page is to provide an overview of the three different ways to interact with the API and suggest when you might use each particular one.
-The main way to integrate with Mews is to use the [API Operations](../operations/README.md) to make requests, e.g. to fetch data or to request some other action.
-However, we also support [Webhooks](../webhooks/README.md) and [WebSockets](../websockets/README.md) for special cases where polling is not efficient or not real-time enough.
+The main way to integrate with Mews is to use API Operations to make requests, e.g. to fetch data or to request some other action.
+However, we also support Webhooks and WebSockets for special cases where polling is not efficient or not real-time enough.
 
 > ### Three ways to communicate
 >
