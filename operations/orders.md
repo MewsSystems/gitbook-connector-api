@@ -64,7 +64,7 @@ Creates a new order, with the specified products and items. If the time of consu
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount parameters](#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
+| `UnitAmount` | [Amount parameters](_objects.#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
 | `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservations](reservations.md#add-reservations) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](#add-order) operation. |
 | `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservations](reservations.md#add-reservations) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](#add-order) operation. |
 

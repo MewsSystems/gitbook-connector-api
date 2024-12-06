@@ -895,7 +895,7 @@ Adds a new product order of the specified product to the reservation.
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `Count` | integer | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-| `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
+| `UnitAmount` | [Amount parameters](_objects.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
 | `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as EndUtc. |
 | `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as StartUtc. |
 
@@ -1469,7 +1469,7 @@ This operation supports [Portfolio Access Tokens](../guidelines/multi-property.m
 | `CompanyId` | string | optional | Identifier of the `Company` on behalf of which the reservation was made. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation `BusinessSegment`. |
 | `Notes` | string | optional | Additional notes. |
-| `TimeUnitAmount` | [Amount parameters](orders.md#amount-parameters) | optional | Amount of each night of the reservation. |
+| `TimeUnitAmount` | [Amount parameters](_objects.md#amount-parameters) | optional | Amount of each night of the reservation. |
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
 | `ProductOrders` | array of [Product order parameters](orders.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the `AvailabilityBlock` the reservation is assigned to. |
@@ -1491,7 +1491,7 @@ This operation supports [Portfolio Access Tokens](../guidelines/multi-property.m
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Index` | integer | required | Index of the unit. Indexing starts with `0`. E.g. the first night of the reservation has index `0`. |
-| `Amount` | [Amount parameters](orders.md#amount-parameters) | optional | Amount of the unit. |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | optional | Amount of the unit. |
 
 ### Response
 
