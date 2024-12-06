@@ -5,6 +5,7 @@
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
   * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
   * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
+* Aligned [Payments API operations](../operations/payments.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
 
 ## 5th December 2024
 * Added `AssignmentTargetType` property to [Routing Rules](../operations/routingrules.md)

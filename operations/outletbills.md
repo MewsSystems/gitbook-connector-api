@@ -77,7 +77,7 @@ Adds new outlet bills with their items.
 | `Type` | string [Outlet item type](outletitems.md#outlet-item-type) | required | Type of the item. |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Unit count of the item. |
-| `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | required | Unit amount of the item. |
+| `UnitAmount` | [Amount parameters](_objects.md#amount-parameters) | required | Unit amount of the item. |
 | `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
 | `ExternalIdentifier` | string | optional | An identifier of this item from another system. |
 | `Notes` | string | optional | Additional notes of the item. |

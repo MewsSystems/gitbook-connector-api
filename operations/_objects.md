@@ -193,6 +193,15 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
 
+#### Amount parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `GrossValue` | decimal | optional | Amount including tax. Required for Gross [Pricing](configuration.md#pricing) environments. |
+| `NetValue` | decimal | optional | Amount excluding tax. Required for Net [Pricing](configuration.md#pricing) environments. |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `TaxCodes` | array of string | required | Codes of [Tax rates](taxations.md#tax-rate) to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
+
 ### Hybrid identifier
 
 A hybrid identifier is a string with a specific format that allows the use of alternative unique identifiers, in addition to the entity's unique identifier. When using these alternative identifiers, a corresponding prefix must be included as part of the value.
