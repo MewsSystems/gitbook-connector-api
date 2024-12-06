@@ -219,7 +219,7 @@ Updates one or more existing bills in the system. Closed bills cannot be updated
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `BillsUpdates` | array of [BillUpdateParameters](bills.md#billupdateparameters) | required, max 10 items | Bills to be updated. |
 
-#### BillUpdateParameters
+#### Bill update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
