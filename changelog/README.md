@@ -1,11 +1,12 @@
 # Changelog
 
 ## 6th December 2024
-* Added new operation [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents).
-* Added new operation [Add identity documents](../operations/identitydocuments.md#add-identity-documents).
-* Added new operation [Update identity documents](../operations/identitydocuments.md#update-identity-documents).
-* Added new operation [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents).
-* Added new operation [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents).
+* Added new operations to work with [Identity documents](../operations/identitydocuments.md):
+  * [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents)
+  * [Add identity documents](../operations/identitydocuments.md#add-identity-documents)
+  * [Update identity documents](../operations/identitydocuments.md#update-identity-documents)
+  * [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents)
+  * [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents)
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `ReleaseStrategy` property, this affects the following operations:
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
   * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
