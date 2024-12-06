@@ -3,7 +3,7 @@
 API Events allow you to receive near-real-time notifications about key activities in the Mews system.
 These notifications are delivered via Webhooks or WebSockets, offering flexible solutions for various use cases.
 For an overview and guidance on selecting the best method for your needs, see [Ways to communicate](communicate.md).
-To start using API Events, configure your system to receive event notifications and contact the Mews team at [partnersuccess@mews.com](mailto://partnersuccess@mews.com) to register your Webhook or WebSocket.
+To start using API Events, configure your system to receive event notifications and contact the Mews team at [partnersuccess@mews.com](mailto:partnersuccess@mews.com) to register your Webhook or WebSocket.
 
 ## Webhooks
 
