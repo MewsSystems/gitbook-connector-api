@@ -7,4 +7,4 @@ redirects:
   webhooks/wh-general: events/wh-general.md
   webhooks/wh-integration: events/wh-integration.md
   webhooks/wh-faq: events/wh-faq.md
-  websockets/README: events/websockets.md
+  websockets: events/websockets.md
