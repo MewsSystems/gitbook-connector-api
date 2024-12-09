@@ -46,7 +46,7 @@ As an alternative to making conventional API requests using [Get all reservation
 
 ## Periodic updates and syncing data
 
-To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull, then use [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) to listen for reservation events. When you receive a reservation event, use the reservation `Id` obtained from the event to fetch the details of the reservation with [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
+To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull, then use [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) to listen for reservation events. When you receive a reservation event, use the reservation `Id` obtained from the event to fetch the details of the reservation with [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
 
 > **WebSocket disconnection:** In case of WebSocket disconnection, use [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) with `UpdatedUtc` to perform a full resync of reservations that have been updated within the time period since the last full reservation data pull.
 
@@ -54,7 +54,7 @@ The suggested frequency for periodic reservation syncing is 30 minutes for busin
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) |
 | How to get reservation details | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) |
 
 ## Rate pricing

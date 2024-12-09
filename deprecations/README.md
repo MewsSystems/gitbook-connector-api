@@ -76,7 +76,7 @@ The table columns have the following meanings:
 | `Address`<br>in [Company](../operations/companies.md#company) | Replaced by `AddressId` | 18 Jan 2023 | 10 Jan 2025 |
 | `BasePrices`<br>in [Get rate pricing](../operations/rates.md#get-rate-pricing) | Replaced by `BaseAmountPrices` | 18 Jan 2023 | |
 | `Prices`<br>in [Resource category pricing](../operations/rates.md#resource-category-pricing) | Replaced by `AmountPrices` | 18 Jan 2023 | |
-| `Entities`<br>in [General webhook request body](../webhooks/wh-general.md#request-body) | Fetch data per corresponding [Event discriminator](../webhooks/wh-general.md#event-discriminator) | 23 Aug 2022 | - |
+| `Entities`<br>in [General webhook request body](../events/wh-general.md#request-body) | Fetch data per corresponding [Event discriminator](../events/wh-general.md#event-discriminator) | 23 Aug 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block](../operations/availabilityblocks.md#availability-block), [Availability block adjustment](../operations/availabilityblocks.md#availability-block-adjustment) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 29 Jun 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters), [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
 | `AdultCount`, `ChildCount`<br>in [Reservation](../operations/reservations.md#reservation), [Reservation parameters](../operations/reservations.md#reservation-parameters), [Reservation updates](../operations/reservations.md#reservation-updates) | Replaced by `PersonCounts` and [`Age category`](../operations/agecategories.md#age-category) | 11 Feb 2022 | - |
@@ -126,5 +126,5 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| [Websocket authentication](../websockets/README.md#authentication) using URL query parameters | Changed to use cookies instead, which is more secure | 06 Jan 2021 | - |
-| WebSocket `Space event` | Replaced by [Resource event](../websockets/README.md#resource-event) | 21 Sep 2020 | - |
+| [WebSocket authentication](../events/websockets.md#authentication) using URL query parameters | Changed to use cookies instead, which is more secure | 06 Jan 2021 | - |
+| WebSocket `Space event` | Replaced by [Resource event](../events/websockets.md#resource-event) | 21 Sep 2020 | - |
