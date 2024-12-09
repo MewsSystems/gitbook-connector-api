@@ -2,6 +2,7 @@
 
 ## 9th December 2024
 * Extended [Add external payment](../operations/payments.md#add-external-payment) request with support for all external payment types enabled by the enterprise.
+* Extended [Identity document](../operations/customers.md#identity-document) requests and responses with `IdentityDocumentSupportNumber` for Spanish identity cards in Spanish legal environments.
 
 ## 6th December 2024
 * New section [API Events](../events/README.md) added. Documentation-only, no changes to API.
