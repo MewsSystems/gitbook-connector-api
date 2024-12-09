@@ -14,11 +14,11 @@ The integration must first retrieve all the resources the property has configure
 
 ## Managing resources 
 
-To ensure all of the information is synchronized between the two systems, a Housekeeping integration can monitor changes to the state of a resource. Rather than polling the API for state changes, you can subscribe to notification events using [Webhooks](../webhooks/README.md) or [WebSockets](../websockets/README.md). Both methods support changes to resources. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md).
+To ensure all of the information is synchronized between the two systems, a Housekeeping integration can monitor changes to the state of a resource. Rather than polling the API for state changes, you can subscribe to notification events using [Webhooks](../events/README.md) or [WebSockets](../events/websockets.md). Both methods support changes to resources. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md).
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../events/websockets.md) \(`Reservation` event\) |
 | How to get reservation and customer details | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) |
 
 Once a staff member has cleaned or inspected a room, the state can be updated in Mews using [Update resources](../operations/resources.md#update-resources), specifying the new state of the resource. 

@@ -1480,3 +1480,12 @@ types:
   idealdata:
     file: payments.md
     anchor: ideal-data
+  ratesetresult:
+    file: rates.md
+    anchor: rate-set-result
+  ratesetparameters:
+    file: rates.md
+    anchor: set-rates-parameters
+  ratesetdata:
+    file: rates.md
+    anchor: set-rate-parameters
