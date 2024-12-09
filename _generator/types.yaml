@@ -1011,7 +1011,7 @@ types:
     anchor: age-category-price
   productpricingfilterparameters:
     file: products.md
-    anchor: product-pricing-parameters
+    anchor: product-pricing-filter-parameters
   productresult:
     file: products.md
     anchor: product-result
@@ -1489,3 +1489,6 @@ types:
   ratesetdata:
     file: rates.md
     anchor: set-rate-parameters
+  ratepricingfilterparameters:
+    file: rates.md
+    anchor: rate-pricing-filter-parameters
