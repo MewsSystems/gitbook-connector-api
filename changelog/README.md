@@ -1,5 +1,8 @@
 # Changelog
 
+## 9th December 2024
+* Extended [Add external payment](../operations/payments.md#add-external-payment) request with support for all external payment types enabled by the enterprise.
+
 ## 6th December 2024
 * New section [API Events](../events/README.md) added. Documentation-only, no changes to API.
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `ReleaseStrategy` property, this affects the following operations:

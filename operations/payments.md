@@ -392,6 +392,8 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
+**Prerequisites:** The external payment type must be enabled by the property in order to accept such payments in their Mews environment. Use [Get configuration](configuration.md#get-configuration) to check which external payment types are supported.
+
 ### Request
 
 `[PlatformAddress]/api/connector/v1/payments/addExternal`
