@@ -2,11 +2,11 @@
 
 Device integration is concerned with integrating with systems or devices installed 'on premise' at the property, such as printers, key encoders, or any third party system installed at the local level rather than in the cloud. Such systems are referred to as `devices` in Mews, regardless of type, and Mews uses `device commands` to communicate with them.
 
-When a relevant action happens within the Mews Hospitality Cloud, a device command is generated and put onto the device command queue. Using the API, you can pull the commands from the queue, process them as necessary and then mark them as processed. Of course, since many of the actions with devices happen in real time, you should in many cases use this in combination with [WebSockets](../websockets/README.md) to avoid polling for new commands. Whenever a relevant command is created, you will receive a notification about such an event via the configured WebSocket. For more information on choosing the right option, see [Ways to communicate](../guidelines/communicate.md).
+When a relevant action happens within the Mews Hospitality Cloud, a device command is generated and put onto the device command queue. Using the API, you can pull the commands from the queue, process them as necessary and then mark them as processed. Of course, since many of the actions with devices happen in real time, you should in many cases use this in combination with [WebSockets](../events/websockets.md) to avoid polling for new commands. Whenever a relevant command is created, you will receive a notification about such an event via the configured WebSocket. For more information on choosing the right option, see [Ways to communicate](../guidelines/communicate.md).
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for new device commands | [WebSockets](../websockets/README.md) |
+| How to listen for new device commands | [WebSockets](../events/websockets.md) |
 
 ## Adding a new device 
 
@@ -17,13 +17,13 @@ Device integrations will require two integrations to be added to a property's **
 
 ## Retrieving commands 
 
-Using [WebSockets](../websockets/README.md), first subscribe your application to receive `DeviceCommand` events and connect to the WebSockets endpoint. Once the connection has been established, you will receive notification of all `DeviceCommand` events in real time. When you get the `DeviceCommand` event notification, you can fetch details of the command using [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids). 
+Using [WebSockets](../events/websockets.md), first subscribe your application to receive `DeviceCommand` events and connect to the WebSockets endpoint. Once the connection has been established, you will receive notification of all `DeviceCommand` events in real time. When you get the `DeviceCommand` event notification, you can fetch details of the command using [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids). 
 
 If your application re-connects using WebSockets, or was offline for any reason and for any length of time, you should use the [Get all commands](../operations/commands.md#get-all-commands) operation to retrieve all pending commands that were in the queue while your application was offline. This is to ensure that no commands in the queue remain unprocessed.  
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for new device commands | [WebSockets](../websockets/README.md) |
+| How to listen for new device commands | [WebSockets](../events/websockets.md) |
 | How to get details of a device command | [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids) |
 | How to get all unprocessed device commands | [Get all commands](../operations/commands.md#get-all-commands) |
 

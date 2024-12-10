@@ -1,16 +1,24 @@
 # Changelog
 
-## 6th December 2024
+## 10th December 2024
 * Added new operations to work with [Identity documents](../operations/identitydocuments.md):
   * [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents)
   * [Add identity documents](../operations/identitydocuments.md#add-identity-documents)
   * [Update identity documents](../operations/identitydocuments.md#update-identity-documents)
   * [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents)
   * [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents)
+
+## 9th December 2024
+* Extended [Add external payment](../operations/payments.md#add-external-payment) request with support for all external payment types enabled by the enterprise.
+* Extended [Identity document](../operations/customers.md#identity-document) requests and responses with `IdentityDocumentSupportNumber` for Spanish identity cards in Spanish legal environments.
+
+## 6th December 2024
+* New section [API Events](../events/README.md) added. Documentation-only, no changes to API.
 * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `ReleaseStrategy` property, this affects the following operations:
   * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
   * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks)
   * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks)
+* Aligned [Payments API operations](../operations/payments.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
 
 ## 5th December 2024
 * Added `AssignmentTargetType` property to [Routing Rules](../operations/routingrules.md)

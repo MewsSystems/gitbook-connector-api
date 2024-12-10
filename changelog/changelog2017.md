@@ -103,7 +103,7 @@
 * Added `Ordering` to `Space category`.
 * Added `CancelledUtc` to `Reservation`.
 * Added optional `AllowOpenBalance` and `Notes` parameters to `Process Reservation` operation.
-* Extended websocket events with `Reservation event`.
+* Extended WebSockets events with `Reservation` event.
 
 ## 18th June 2017
 
@@ -117,7 +117,7 @@
 
 ## 13th June 2017
 
-* Introduced `Websockets` and first use case for command events.
+* Introduced WebSockets and first use case for command events.
 
 ## 7th June 2017
 

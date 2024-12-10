@@ -1,15 +1,27 @@
 # General Webhooks
 
-This is a newer form of Webhook message which carries event information related to different entities in Mews.
+General Webhooks provide a streamlined way to receive event notifications about various Mews entities.
+Each Webhook message corresponds to a specific enterprise integration, identifiable via the `EnterpriseId` and `IntegrationId` fields in the request body.
+These identifiers allow you to track events across all enterprises or properties connected to your integration.
 
-Each General Webhook message corresponds to a single property or enterprise integration, identified by `EnterpriseId` and `IntegrationId` in the request body.
-You will receive events for all the properties you are integrated with, and can identify each one from this information.
+## Key features
 
-The message encapsulates all events occurring at the same time which relate to entities to which you have subscribed.
-For example, if you are interested in reservations you will subscribe to Service Order events (a reservation is a type of Service Order) and you may receive multiple `ServiceOrderUpdated` events in one Webhook message, each for a different Service Order / Reservation.
+* __Unified event delivery__ – Each message encapsulates all events related to the entities you’ve subscribed to that occur simultaneously.
+For example, subscribing to Service Order events (which include reservations as a subtype) may result in a Webhook containing multiple `ServiceOrderUpdated` events, each corresponding to a different reservation.
 
-Each event includes the type of event and the unique identifier for the related entity, e.g. a `Customer Added` event would also include the Customer ID.
-To obtain details about the entity, you then need to call the corresponding API operation using that identifier, e.g. in the case of `Customer Added` you would call [Get all customers](../operations/customers.md#get-all-customers) with the Customer ID.
+* __Event structure__ – Each event within a message specifies the event type and includes the unique identifier of the associated entity, e.g. `CustomerAdded` events include a `CustomerId`.
+To retrieve detailed information about an entity, use the relevant API Operation along with the entity’s unique identifier. For instance, for a `CustomerAdded` event, call [Get all customers](../operations/customers.md#get-all-customers) with the provided `CustomerId`.
+
+* __Efficient integration__ - Receive notifications for all subscribed enterprises or properties in a single payload, minimizing the need for multiple requests or real-time polling.
+Leverage `EnterpriseId` and `IntegrationId` to manage and filter event data effectively.
+
+## Implementation
+
+To implement General Webhooks:
+
+1. Define the entities and event types you are interested in via your Webhook subscription.
+2. Use `EnterpriseId` and `IntegrationId` to differentiate messages across multiple enterprises or properties.
+3. Fetch additional details about entities as needed by using the appropriate [API Operations](../operations/README.md).
 
 ## Supported events
 
@@ -30,9 +42,16 @@ To obtain details about the entity, you then need to call the corresponding API 
 
 ## Added vs Updated events
 
-'Updated' implies that some change to an entity has occurred, including changes to the fields or properties within the entity but also when the entity is created or added at the beginning of its life. 'Added' implies only that the entity is created or added at the beginning of its life. In other words, 'Added' is a subset of 'Updated'.
+In the context of General Webhooks, the terms Added and Updated describe different types of changes to an entity:
 
-As a consequence of this, note that if you subscribe to Customer events, then when a new Customer is created, the system will generate both a `CustomerAdded` event and a `CustomerUpdated` event for the same Customer ID in the same Webhook message. Be aware you should only call [Get all customers](../operations/customers.md#get-all-customers) once not twice in this case.
+* __Updated__ – This indicates any change to an entity, including modifications to its fields or properties; it also encompasses the creation of a new entity, as creating an entity is considered a change to its lifecycle state.
+* __Added__ – This specifically refers to the initial creation of an entity at the start of its lifecycle; it represents a subset of Updated events, as every Added event is inherently also an Updated event.
+
+### Important considerations
+
+When you subscribe to events for entities like Customers, a newly created entity generates both a `CustomerAdded` event and a `CustomerUpdated` event.
+These events will have the same `CustomerId` and will often appear within the same Webhook message.
+To avoid redundant API calls, ensure that you process each entity only once. For example, when you receive both a `CustomerAdded` and a `CustomerUpdated` event for the same `CustomerId`, call [Get all customers](../operations/customers.md#get-all-customers) only once to retrieve the entity details.
 
 ## Request body
 
