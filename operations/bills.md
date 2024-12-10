@@ -78,14 +78,14 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 {
   "Bills": [
     {
-      "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+      "Id": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
       "Name": "Accommodation Charges",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+      "AccountId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "CustomerId": null,
       "CompanyId": null,
       "AssociatedAccountIds": [
-        "26afba60-06c3-455b-92db-0e3983be0b1d"
+        "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
       ],
       "CounterId": null,
       "State": "Closed",
@@ -174,7 +174,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
       "CorrectedBillId": null
     }
   ],
-  "Cursor": "26afba60-06c3-455b-92db-0e3983be0b1d"
+  "Cursor": "ea087d64-3901-4eee-b0b7-9fce4c58a005"
 }
 ```
 
@@ -183,7 +183,135 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `Bills` | array of [Bill](bills.md#bill) | required | The filtered bills. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older bills. |
 
+## Get bill PDF
+
+Creates a PDF version of the specified bill. In case it's not possible to return PDF immediately, you must retry the call later while providing the unique event identifier that is returned from the first invocation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/getPdf`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `BillId` | string | required | Unique identifier of the [Bill](bills.md#bill) to be printed. |
+| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](bills.md#bill-print-event) returned by previous invocation. |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBERi0xLj..."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillId` | string | required | Unique identifier of the printed bill. |
+| `Result` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required |  |
+
+#### Bill PDF result discriminator
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on `Discriminator`. |
+
+#### Bill PDF result discriminator
+
+* `BillPdfFile` - PDF version of a `Bill` was successfully created, `Value` is `BillPdfFile`.
+* `BillPrintEvent` - PDF version of a `Bill` couldn't be created at this moment (for example bill haven't been reported to authorities yet), `Value` is `BillPrintEvent`
+
+#### Bill PDF file
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Base64Data` | string | required | Base64 encoded PDF file. |
+
+#### Bill print event
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillPrintEventId` | string | required | Unique identifier of print event. Must be used in retry calls to retrieve the PDF. |
+
+## Add bill
+
+Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/add`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "Bills": [
+    {
+      "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
+      "Name": "Bill of Joe Doe"
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `Bills` | array of [Bill parameters](bills.md#bill-parameters) | required, max 1000 items | Information about bills to be created. |
+
+#### Bill parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. Company billing may not be enabled for your integration. |
+| `AssociatedAccountId` | string | optional | Account that has a possible link with the owner of the bill. |
+| `Name` | string | optional | Name of the newly created bill. |
+
+### Response
+
+```javascript
+{
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "Result": {
+    "Discriminator": "BillPdfFile",
+    "Value": {
+      "Base64Data": "JVBER....."
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](bills.md#bill) | required | The created bills. |
+
 ## Update bills
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
 
 Updates one or more existing bills in the system. Closed bills cannot be updated. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
@@ -199,11 +327,13 @@ Updates one or more existing bills in the system. Closed bills cannot be updated
   "BillsUpdates": [
     {
       "BillId": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
-      "OwnerId": {
+      "AccountId": {
         "Value": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f"
       },
-      "AssociatedAccountId": {
-        "Value": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+      "AssociatedAccountIds": {
+        "Value": [
+          "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+        ]
       }
     }
   ],
@@ -217,15 +347,22 @@ Updates one or more existing bills in the system. Closed bills cannot be updated
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `BillsUpdates` | array of [BillUpdateParameters](bills.md#billupdateparameters) | required, max 10 items | Bills to be updated. |
+| `BillsUpdates` | array of [Bill update parameters](bills.md#bill-update-parameters) | required, max 10 items | Information about bills to be updated. |
 
 #### Bill update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BillId` | string | required | Unique identifier of the bill to update. |
-| `OwnerId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the owner to whom the bill was assigned (or null if the owner should not be updated). |
-| `AssociatedAccountId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the account that has a possible link with the owner of the bill (or null if the account should not be updated). |
+| `AccountId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the account (`Customer` or `Company`) the bill is issued to (or null if the account should not be updated). |
+| `AssociatedAccountIds` | [Associated account IDs update parameters](bills.md#associated-account-ids-update-parameters) | optional | Unique identifiers of the `Customer` or `Company` that are associated to the bill (or null if the account should not be updated). |
+
+#### Associated account IDs update parameters
+Has same structure as [Array of strings update value](_objects.md#array-of-strings-update-value).
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of string | optional, max 1 item | Unique identifiers of the `Customer` or `Company` that are associated to the bill. Set to `null` to remove all associated accounts. Note that only single associated account is currently supported. |
 
 ### Response
 
@@ -473,131 +610,6 @@ Additional information about the enterprise issuing the bill, including bank acc
 * `CreditNote`
 * `Reinstatement`
 * `ReceivablePaymentsBalance`
-
-## Get bill PDF
-
-Creates a PDF version of the specified bill. In case it's not possible to return PDF immediately, you must retry the call later while providing the unique event identifier that is returned from the first invocation.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/bills/getPdf`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "BillId": "44eba542-193e-47c7-8077-abd7008eb206"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `BillId` | string | required | Unique identifier of the [Bill](bills.md#bill) to be printed. |
-| `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](bills.md#bill-print-event) returned by previous invocation. |
-
-### Response
-
-```javascript
-{
-  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-  "Result": {
-    "Discriminator": "BillPdfFile",
-    "Value": {
-      "Base64Data": "JVBERi0xLj..."
-    }
-  }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BillId` | string | required | Unique identifier of the printed bill. |
-| `Result` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required |  |
-
-#### Bill PDF result discriminator
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on `Discriminator`. |
-
-#### Bill PDF result discriminator
-
-* `BillPdfFile` - PDF version of a `Bill` was successfully created, `Value` is `BillPdfFile`.
-* `BillPrintEvent` - PDF version of a `Bill` couldn't be created at this moment (for example bill haven't been reported to authorities yet), `Value` is `BillPrintEvent`
-
-#### Bill PDF file
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Base64Data` | string | required | Base64 encoded PDF file. |
-
-#### Bill print event
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BillPrintEventId` | string | required | Unique identifier of print event. Must be used in retry calls to retrieve the PDF. |
-
-## Add bill
-
-Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/bills/add`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "Bills": [
-    {
-      "AccountId": "a5786a7b-a388-43cc-a838-abd7007b5ff7",
-      "Name": "Bill of Joe Doe"
-    }
-  ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `Bills` | array of [Bill parameters](bills.md#bill-parameters) | required, max 1000 items | Information about bills to be created. |
-
-#### Bill parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. Company billing may not be enabled for your integration. |
-| `AssociatedAccountId` | string | optional | Account that has a possible link with the owner of the bill. |
-| `Name` | string | optional | Name of the newly created bill. |
-
-### Response
-
-```javascript
-{
-  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-  "Result": {
-    "Discriminator": "BillPdfFile",
-    "Value": {
-      "Base64Data": "JVBER....."
-    }
-  }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Bills` | array of [Bill](bills.md#bill) | required | The created bills. |
 
 ## Delete bill
 

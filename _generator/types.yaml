@@ -1497,4 +1497,7 @@ types:
     anchor: multiplebillsupdateparameters
   billupdateparameters:
     file: bills.md
-    anchor: billupdateparameters
+    anchor: bill-update-parameters
+  associatedaccountidsupdate:
+    file: bills.md
+    anchor: associated-account-ids-update-parameters
