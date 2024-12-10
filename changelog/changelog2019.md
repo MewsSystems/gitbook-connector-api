@@ -49,7 +49,7 @@
 
 ## 6th September 2019
 
-* Extended websocket events with [Price update event](../websockets/README.md#price-update-event).
+* Extended WebSockets events with [Price Update event](../events/websockets.md#price-update-event).
 
 ## 18th August 2019
 

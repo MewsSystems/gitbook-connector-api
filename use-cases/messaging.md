@@ -1,7 +1,7 @@
 # Customer messaging
 
 Enable guests to send messages to the property and receive replies, by connecting your chatbot or instant messaging app into the customer messaging system of __Mews Operations__.
-You can do this through the API with the [Messages](../operations/README.md#messages) collection of API operations, in conjunction with the `MessageAdded` [General Webhook](../webhooks/wh-general.md).
+You can do this through the API with the [Messages](../operations/README.md#messages) collection of API operations, in conjunction with the `MessageAdded` [General Webhook](../events/wh-general.md).
 
 Message threads or conversations are initiated by the customer (the guest). The customer messages are then sent through to the property, where employees are notified and can quickly respond with a message reply added to the thread.
 The typical workflow is as follows:
@@ -28,14 +28,14 @@ Your app creates a new message thread in Mews and adds the customer message to t
 
 ## 3. Your app listens for MessageAdded events
 
-To get message responses in near real time, listen to the `MessageAdded` [General Webhook](../webhooks/wh-general.md) event.
+To get message responses in near real time, listen to the `MessageAdded` [General Webhook](../events/wh-general.md) event.
 When a `MessageAdded` event is received, the event will contain the ID of the newly added message and the ID of the message thread or conversation to which the message belongs.
 Messages sent in reply by the property have the Sender property set to "Enterprise" (in the API, we use term 'enterprise' rather than 'property').
-The text of the message can be passed on to the customer through your app. See [Webhooks](../webhooks/README.md) for details of how to set up Webhooks.
+The text of the message can be passed on to the customer through your app. See [Webhooks](../events/README.md) for details of how to set up Webhooks.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for new customer messages | [General Webhooks](../webhooks/wh-general.md) \(`MessageAdded` event\) |
+| How to listen for new customer messages | [General Webhooks](../events/wh-general.md) \(`MessageAdded` event\) |
 
 > **Property:** ```"Hello Ms Penelope! Thank you for contacting us. What time do you expect to arrive?"```
 

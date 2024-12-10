@@ -138,14 +138,14 @@ To ensure that the property can further manage individual guests linked to the g
 
 ### Managing availability block inventory and pickup
 
-Call [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks](../webhooks/README.md#general-message) for Service Order events to automatically receive information about reservation creation and reservation updates. Make a note of the `AvailabilityBlockId` in the reservation object to record pickup of the relevant availability block in your system and in Mews.
+Call [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks](../events/README.md#general-message) for Service Order events to automatically receive information about reservation creation and reservation updates. Make a note of the `AvailabilityBlockId` in the reservation object to record pickup of the relevant availability block in your system and in Mews.
 
 When a reservation no longer belongs to the availability block, follow the format described in [Update reservation](../operations/reservations.md#update-reservations) to remove the `AvailabilityBlockId`. When an availability block is no longer needed, remove it from Mews by calling [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks). The availability adjustments associated with the availability block will automatically be removed. Note that is it not possible to delete an availability block containing active reservations.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to get existing availability blocks | [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) |
 | How to delete an availability block | [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks) |
 | How to remove a reservation from an availability block | [Update reservation](../operations/reservations.md#update-reservations) |
 

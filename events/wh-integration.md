@@ -1,7 +1,7 @@
 # Integration Webhooks
 
 This is an older form of Webhook, which only supports events related to changes in integration state.
-Unlike [General Webhooks](wh-general.md), each event generates an individual webhook.
+Unlike [General Webhooks](wh-general.md), each event generates an individual Webhook.
 
 ## Supported events
 
