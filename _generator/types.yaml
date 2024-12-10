@@ -1521,4 +1521,4 @@ types:
     anchor: identity-document-add-parameters
   identitydocumentsadddata:
     file: identitydocuments.md
-    anchor: identity-documents-parameters
+    anchor: identity-document-parameters
