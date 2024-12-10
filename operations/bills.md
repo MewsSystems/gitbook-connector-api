@@ -313,7 +313,7 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Updates one or more existing bills in the system. Closed bills cannot be updated. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates account assignments of one or more open bills. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
