@@ -42,6 +42,11 @@ This section describes all operations supported by the API, organised here by th
 | [Update customer](customers.md#update-customer) | Updates personal information of a customer |
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
+| [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) | Returns all identity documents for the specified customers |
+| [Adds identity documents](../operations/identitydocuments.md#add-identity-documents) | Adds new identity documents |
+| [Update identity documents](../operations/identitydocuments.md#update-identity-documents) | Updates specified identity documents |
+| [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) | Deletes specified identity documents |
+| [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents) | Deletes all identity documents for the specified customers |
 
 ## Device integration
 

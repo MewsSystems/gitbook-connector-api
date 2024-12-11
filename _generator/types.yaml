@@ -1492,3 +1492,36 @@ types:
   ratepricingfilterparameters:
     file: rates.md
     anchor: rate-pricing-filter-parameters
+  identitydocumentresult:
+    file: identitydocuments.md
+    anchor: identitydocumentresult
+  identitydocumentv20241025:
+    file: identitydocuments.md
+    anchor: identity-document-ver-2024-10-25
+  identitydocumentfilterparameters:
+    file: identitydocuments.md
+    anchor: identitydocumentfilterparameters
+  identitydocumentdeleteparameters:
+    file: identitydocuments.md
+    anchor: identitydocumentdeleteparameters
+  identitydocumentclearparameters:
+    file: identitydocuments.md
+    anchor: identitydocumentclearparameters
+  identitydocumentwriteresult:
+    file: identitydocuments.md
+    anchor: identitydocumentwriteresult
+  multipleidentitydocumentupdateparameters:
+    file: identitydocuments.md
+    anchor: multiple-identity-document-update-parameters
+  identitydocumentupdateparameters:
+    file: identitydocuments.md
+    anchor: identity-document-update-parameters
+  identitydocumenttypeupdatevalue:
+    file: identitydocuments.md
+    anchor: identity-document-type-update-value
+  identitydocumentsaddparameters:
+    file: identitydocuments.md
+    anchor: identity-document-add-parameters
+  identitydocumentsadddata:
+    file: identitydocuments.md
+    anchor: identity-document-parameters
