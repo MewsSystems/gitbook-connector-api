@@ -1,6 +1,6 @@
 # Changelog
 
-## 10th December 2024
+## 11th December 2024
 * Added new operations to work with [Identity documents](../operations/identitydocuments.md):
   * [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents)
   * [Add identity documents](../operations/identitydocuments.md#add-identity-documents)
