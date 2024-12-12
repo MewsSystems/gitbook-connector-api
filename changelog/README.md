@@ -3,9 +3,18 @@
 * Added new operation [Update bills](../operations/bills.md#update-bills).
 
 
+## 11th December 2024
+* Added new operations to work with [Identity documents](../operations/identitydocuments.md):
+  * [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents)
+  * [Add identity documents](../operations/identitydocuments.md#add-identity-documents)
+  * [Update identity documents](../operations/identitydocuments.md#update-identity-documents)
+  * [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents)
+  * [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents)
+
 ## 9th December 2024
 * Extended [Add external payment](../operations/payments.md#add-external-payment) request with support for all external payment types enabled by the enterprise.
 * Extended [Identity document](../operations/customers.md#identity-document) requests and responses with `IdentityDocumentSupportNumber` for Spanish identity cards in Spanish legal environments.
+* Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request parameter `RateId` in [Update rate price](../operations/rates#update-rate-price) operation.
 
 ## 6th December 2024
 * New section [API Events](../events/README.md) added. Documentation-only, no changes to API.
