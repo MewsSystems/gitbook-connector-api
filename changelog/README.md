@@ -1,5 +1,8 @@
 # Changelog
 
+## 12th December 2024
+* Added new operation [Update bills](../operations/bills.md#update-bills).
+
 ## 11th December 2024
 * Added new operations to work with [Identity documents](../operations/identitydocuments.md):
   * [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents)

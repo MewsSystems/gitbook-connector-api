@@ -1525,3 +1525,15 @@ types:
   identitydocumentsadddata:
     file: identitydocuments.md
     anchor: identity-document-parameters
+  billsupdateresult:
+    file: bills.md
+    anchor: billsupdateresult
+  multiplebillsupdateparameters:
+    file: bills.md
+    anchor: multiplebillsupdateparameters
+  billupdateparameters:
+    file: bills.md
+    anchor: bill-update-parameters
+  associatedaccountidsupdate:
+    file: bills.md
+    anchor: associated-account-ids-update-parameters
