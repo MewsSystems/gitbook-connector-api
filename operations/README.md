@@ -108,6 +108,7 @@ This section describes all operations supported by the API, organised here by th
 | [Update accounting items](accountingitems.md#update-accounting-items) | Updates specified accounting item |
 | [Get all bills](bills.md#get-all-bills) | Returns all bills, possibly filtered by customers, identifiers and other filters |
 | [Add bill](bills.md#add-bill) | Creates new empty bill assigned to specified account |
+| [Update bills](bills.md#update-bills) | **Restricted!** Updates account assignments of one or more open bills |
 | [Delete bill](bills.md#delete-bill) | Removes selected bills |
 | [Close bill](bills.md#close-bill) | Closes a bill so no further modification to it is possibles |
 | [Get bill PDF](bills.md#get-bill-PDF) | Creates a PDF version of the specified bill |
