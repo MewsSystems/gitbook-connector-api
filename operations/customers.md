@@ -191,7 +191,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the customer. |
 | `ChainId` | string | required | Unique identifier of the chain. |
 | `Number` | string | required | Number of the customer. |
-| `Title` | [Title](customers.md#title) | required | Title of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title of the customer. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
@@ -231,10 +231,13 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
 #### Title
+Type of the title prefix of the customer.
 
-* `Mister`
-* `Miss`
-* `Misses`
+Note that the value should not be used as-is, but localized. For example, the value `Misses` should be displayed as `Mrs.` in English and `Fr.` in German.
+
+* `Mister` - Mr.
+* `Miss` - Ms.
+* `Misses` - Mrs.
 
 #### Sex
 
@@ -559,7 +562,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Id` | string | required | Unique identifier of the customer. |
 | `ChainId` | string | required | Unique identifier of the chain. |
 | `Number` | string | required | Number of the customer. |
-| `Title` | [Title](customers.md#title) | required | Title of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title of the customer. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
@@ -766,7 +769,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Id` | string | required | Unique identifier of the customer. |
 | `ChainId` | string | required | Unique identifier of the chain. |
 | `Number` | string | required | Number of the customer. |
-| `Title` | [Title](customers.md#title) | required | Title of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title of the customer. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
