@@ -49,9 +49,9 @@
   * [Update vouchers](../operations/vouchers.md#update-vouchers).
 
 ## 19th November 2024
-* Added new restricted operation [Get all service ovebooking limits](../operations/serviceoverbookinglimits.md#get-all-service-overbooking-limits).
-* Added new restricted operation [Set service ovebooking limits](../operations/serviceoverbookinglimits.md#set-service-overbooking-limits).
-* Added new restricted operation [Clear service ovebooking limits](../operations/serviceoverbookinglimits.md#clear-service-overbooking-limits).
+* Added new restricted operation [Get all service overbooking limits](../operations/serviceoverbookinglimits.md#get-all-service-overbooking-limits).
+* Added new restricted operation [Set service overbooking limits](../operations/serviceoverbookinglimits.md#set-service-overbooking-limits).
+* Added new restricted operation [Clear service overbooking limits](../operations/serviceoverbookinglimits.md#clear-service-overbooking-limits).
 
 ## 18th November 2024
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) and [Get configuration](../operations/configuration.md#get-configuration) responses with `Subscription` property that contains `TaxIdentifier` property.
