@@ -4,9 +4,8 @@ import {
   propertyDescription,
   propertyType,
 } from './jsonschema.js';
-import { getSchemaId } from './utils.js';
+import { getSchemaId, capitalize } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
-import { capitalize } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -58,9 +57,23 @@ function createEnumTemplateSchema(schema) {
     };
     entries.push(entry);
   }
+
+  const showDescription = schema['x-showDescription'] ?? false;
+  if (showDescription) {
+    console.log('showDescription', schema);
+  }
+  let description = schema.description;
+  if (showDescription && description) {
+    // Note that this relies on fact that our descriptions use \r\n\ while the filter adds \n\n.
+    const paragraphs = description.split('\n\n');
+    description = paragraphs[0];
+  } else {
+    description = '';
+  }
+
   return {
     enum: entries,
-    description: '', // blank out description since it'd be the same as in property tables
+    description, // blank out description since it'd be the same as in property tables
   };
 }
 

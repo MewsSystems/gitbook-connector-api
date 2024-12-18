@@ -562,7 +562,7 @@ Updated customer data.
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `Sex` | string | optional | Sex of the customer. |
-| `Title` | string | optional | Title prefix of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title prefix of the customer. |
 | `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language. E.g. `en-US` or `fr-FR`. |
 | `Options` | [Customer options](accounts.md#customer-options) | required | Options of the customer. |
 | `Classifications` | [Customer classifications](accounts.md#customer-classifications) | required | Classifications of the customer. |
