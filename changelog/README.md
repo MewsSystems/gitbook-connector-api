@@ -1,5 +1,8 @@
 # Changelog
 
+## 19th December 2024
+* Extended [Refund payments](../operations/payments.md#refund-payment). response to include 'State' 
+
 ## 12th December 2024
 * Added new operation [Update bills](../operations/bills.md#update-bills).
 
