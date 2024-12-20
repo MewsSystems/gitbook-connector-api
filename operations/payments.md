@@ -612,7 +612,11 @@ Adds a new alternative payment to a specified customer.
 
 ## Refund payment
 
-Refunds a specified payment. Note only credit card or alternative payments can be refunded. The refund is itself a payment, so to get more information about the refund, use [Get all payments](payments.md#get-all-payments) with the identifier from `RefundId`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Refunds a specified payment on a specified account. A reason must be provided. Optionally, specify an amount for a partial refund. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+                                                   
+* **Payment types**: Only `CreditCardPayment` and `AlternativePayment` can be refunded. Other payment types will fail.
+* **Refund information**: The refund is a payment itself. To get more information, use [Get all payments](payments.md#get-all-payments) with the `RefundId` as the `PaymentId`.
+* **Potential failures**: This operation initiates the refund process, but refunds can fail if the payment is in a `Pending` state and fails processing. To check the status of a pending payment, including refunds, use [Get all payments](payments.md#get-all-payments).
 
 ### Request
 
@@ -623,11 +627,11 @@ Refunds a specified payment. Note only credit card or alternative payments can b
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "PaymentId": "f6313945-94c1-4e27-b402-031c2a8c989f",
-  "AccountId": "35d4b117-4e60-44a3-9580-c582117eff98",
+  "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
   "Reason": "Sample reason",
-  "ValueToRefund": 110.5
+  "ValueToRefund": 110.5,
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -652,7 +656,8 @@ Refunds a specified payment. Note only credit card or alternative payments can b
   "Amount": {
     "Currency": "GBP",
     "Value": 100
-  }
+  },
+  "State": "Pending"
 }
 ```
 
@@ -662,6 +667,7 @@ Refunds a specified payment. Note only credit card or alternative payments can b
 | `RefundId` | string | required | Unique identifier of refund. |
 | `Type` | [Refund type](payments.md#refund-type) | required | Type of refund. |
 | `Amount` | [Currency value (ver 2023-02-02)](_objects.md#currency-value-ver-2023-02-02) | required | Absolute value of the fee. |
+| `State` | [Payment state](payments.md#payment-state) | required | Payment state of the refund. |
 
 #### Refund type
 
