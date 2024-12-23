@@ -3,7 +3,7 @@
 ## Get all companionships
 
 Returns all companionships based on customers, reservations or reservation groups. One of them must be specified in the request.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

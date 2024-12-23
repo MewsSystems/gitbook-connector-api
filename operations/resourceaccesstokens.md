@@ -3,7 +3,7 @@
 ## Get all resource access tokens
 
 Returns all resource access tokens based on resource access token identifiers, reservations or interval. One of them must be specified in the request. 
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

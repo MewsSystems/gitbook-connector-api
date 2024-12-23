@@ -9,10 +9,10 @@ This section provides important guidelines on how to use the __Mews Connector AP
 
 ## Contents
 
+* [Authentication](authentication.md)<br>Details of how API Operation requests are authenticated.
 * [Requests](requests.md)<br>Details of how to make API Operation requests.
 * [Responses](responses.md)<br>Details of API Operation responses, including error messages.
 * [Environments](environments.md)<br>A description of the different environments available and how to access them, including test credentials, request limits and more.
 * [Serialization](serialization.md)<br>Various topics related to data formats.
 * [Pagination](pagination.md)<br>An explanation of the pagination feature and how to use it to fetch data.
-* [Multi-property](multi-property.md)<br>Details of multi-property operation with Portfolio Access Tokens.
 * [Best practices](best-practices.md)<br>Advice on best practices for using the API.

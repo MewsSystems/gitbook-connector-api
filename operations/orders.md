@@ -2,7 +2,7 @@
 
 ## Add order
 
-Creates a new order, with the specified products and items. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates a new order, with the specified products and items. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -47,7 +47,7 @@ Creates a new order, with the specified products and items. If the time of consu
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Identifier of the [Customer](customers.md#customer) to be charged.~~  **Deprecated!** |
 | `AccountId` | string | required | Identifier of the [Customer](customers.md#customer) or [Company](companies.md#company) to be charged. Company billing may not be enabled for your integration. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
