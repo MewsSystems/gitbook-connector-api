@@ -1,5 +1,8 @@
 # Changelog
 
+## 6th January 2025
+* Added new operation [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20).
+
 ## 2nd January 2025
 * Clarified `discontinued` on the [Deprecations](../deprecations/README.md) page. Documentation-only, no changes to API.
 

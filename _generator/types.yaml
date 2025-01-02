@@ -1537,3 +1537,12 @@ types:
   associatedaccountidsupdate:
     file: bills.md
     anchor: associated-account-ids-update-parameters
+  sourceassignmentresultv20240920:
+    file: sourceassignments.md
+    anchor: sourceassignmentresultv20240920
+  sourceassignmentv20240920:
+    file: sourceassignments.md
+    anchor: source-assignments-ver-2024-09-20
+  sourceassignmentfilterparametersv20240920:
+    file: sourceassignments.md
+    anchor: sourceassignmentfilterparametersv20240920
