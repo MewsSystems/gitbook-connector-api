@@ -1,7 +1,7 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Cashiers
 
-## Get all cashiers.
+## Get all cashiers
 
 Returns all cashiers. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
