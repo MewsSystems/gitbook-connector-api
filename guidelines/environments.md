@@ -28,7 +28,7 @@ These addresses should be used for testing and development of client application
 
 These login credentials can be used to access __Mews Operations__ (for both Gross and Net Pricing Environments):
 
-* **MewsWebApplicationAddress** - `https://app.mews-demo.com`
+* **Mews Web Application Address** - `https://app.mews-demo.com`
 * **Email** - connector-api-demo@mews.com
 * **Password** - connector-API-2024
 
@@ -89,7 +89,7 @@ The credentials below will connect with a demo enterprise configured for Net pri
 
 * **PlatformAddress** - `https://api.mews.com`
 * **WebSocketAddress** - `wss://ws.mews.com`
-* **MewsWebApplicationAddress** - `https://app.mews.com`
+* **Mews Web Application Address** - `https://app.mews.com`
 
 ### API tokens
 
