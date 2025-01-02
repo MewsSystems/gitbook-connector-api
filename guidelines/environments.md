@@ -114,6 +114,6 @@ To obtain the applicable codes:
 2. Filter for the applicable [Tax rate](../operations/taxations.md#tax-rate) codes from the tax environment information retrieved via [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments).
 3. Be sure to note the validity intervals, and monitor any government announcements for changes to tax rates. If changes occur, re-retrieve the enterprise and tax environment information to identify the new tax rate codes.
 
-## Allowlisting
+## IP address allowlisting
 
 Allowlisting (formerly called 'whitelisting') is a common security measure which can be applied to a system to allow only specified external systems to talk to it. This has traditionally been achieved using IP address-based firewall rules. However, this approach does not work with modern cloud based architectures, which use dynamic and shared IP addresses, proxy servers and elastic resources. For this reason, we do not support the use of IP address allowlists for our APIs and we cannot supply a list of IP addresses for our APIs.
