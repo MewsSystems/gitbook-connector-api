@@ -1,6 +1,8 @@
 # Changelog
 
-## 2nd January 2025
+## 3rd January 2025
+* Added new page [Authentication](../guidelines/authentication.md). Documentation-only. No change to API.
+* Moved Multi-property page to [Concepts](../concepts/README.md). Documentation-only. No change to API.
 * Clarified `discontinued` on the [Deprecations](../deprecations/README.md) page. Documentation-only, no changes to API.
 
 | Changelog by year |
