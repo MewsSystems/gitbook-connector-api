@@ -128,7 +128,7 @@ Returns all reservations within scope of the Access Token, filtered according to
       },
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "CreditCardId": null,
-      "GroupId": "00000000-0000-0000-0000-000000000000",
+      "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
       "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
       "AvailabilityBlockId": "94843f6f-3be3-481b-a1c7-06458774c3df",
