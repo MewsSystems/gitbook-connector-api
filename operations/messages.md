@@ -2,7 +2,7 @@
 
 ## Get all messages
 
-Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Get all messages belonging to the specified [Message threads](messagethreads.md#message-thread). Messages can only be returned for message threads you have created. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

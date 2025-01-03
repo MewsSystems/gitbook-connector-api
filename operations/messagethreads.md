@@ -2,7 +2,7 @@
 
 ## Get all message threads
 
-Get all message threads that you have created, filtered by time interval and/or specific message thread IDs. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Get all message threads that you have created, filtered by time interval and/or specific message thread IDs. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

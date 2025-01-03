@@ -3,7 +3,7 @@
 ## Get all addresses
 
 Returns all addresses associated with the specified accounts within the enterprise. 
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -98,7 +98,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add addresses
 
-Adds one or more new addresses to the system and assigns them to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds one or more new addresses to the system and assigns them to specified accounts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -131,7 +131,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `Addresses` | array of [Account address parameters](#account-address-parameters), max 1000 items | required | Collection of addresses to be created. |
 
 #### Account address parameters
@@ -178,7 +178,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 
 ## Update addresses
 
-Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -210,7 +210,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AddressUpdates` | array of [Account address updates](#account-address-update-parameters), max 1000 items | required | Collection of addresses to be updated. |
 
 #### Account address update parameters
@@ -256,7 +256,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 
 ## Delete addresses
 
-Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -280,7 +280,7 @@ Deletes one or more addresses in the system. Note this operation supports [Portf
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AddressIds` | array of string | required, max 1000 items | Unique identifiers of [Addresses](#account-address) within the enterprise to be deleted. |
 
 ### Response
