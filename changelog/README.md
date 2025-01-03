@@ -1,5 +1,8 @@
 # Changelog
 
+## 6th January 2025
+* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md) request with support for filtering reservations by availability block id.
+
 ## 3rd January 2025
 * Added new page [Authentication](../guidelines/authentication.md). Documentation-only. No change to API.
 * Moved Multi-property page to [Concepts](../concepts/README.md). Documentation-only. No change to API.

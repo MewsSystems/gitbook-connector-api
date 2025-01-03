@@ -15,24 +15,62 @@ Returns all reservations within scope of the Access Token, filtered according to
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
   "ReservationIds": [
+    "0f515589-99b4-423d-b83a-b237009f0509",
     "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
   ],
   "ServiceIds": [
-    "ae8da28c-e8a4-4141-9df0-8c998976c691",
-    "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
-  ],
-  "AccountIds": [
-    "94843f6f-3be3-481b-a1c7-06458774c3df"
+    "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "8c1bd738-a505-4b29-aa71-9ecc2982b843"
   ],
   "ReservationGroupIds": [
     "94843f6f-3be3-481b-a1c7-06458774c3df"
   ],
+  "AccountIds": [
+    "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+  ],
+  "Numbers": [
+    "50",
+    "51",
+    "52",
+    "53"
+  ],
+  "AssignedResourceIds": [
+    "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+    "c32386aa-1cd2-414a-a823-489325842fbe"
+  ],
+  "AvailabilityBlockIds": [
+    "94843f6f-3be3-481b-a1c7-06458774c3df",
+    "6229e51e-3943-4677-bbc3-b24b00b950e8"
+  ],
+  "CreatedUtc": {
+    "StartUtc": "2023-04-01T00:00:00Z",
+    "EndUtc": "2023-05-05T00:00:00Z"
+  },
   "UpdatedUtc": {
     "StartUtc": "2023-04-01T00:00:00Z",
     "EndUtc": "2023-05-05T00:00:00Z"
   },
+  "CollidingUtc": {
+    "StartUtc": "2023-04-01T00:00:00Z",
+    "EndUtc": "2023-05-05T00:00:00Z"
+  },
+  "ScheduledStartUtc": {
+    "StartUtc": "2023-04-01T00:00:00Z",
+    "EndUtc": "2023-05-05T00:00:00Z"
+  },
+  "ScheduledEndUtc": {
+    "StartUtc": "2023-04-01T00:00:00Z",
+    "EndUtc": "2023-05-05T00:00:00Z"
+  },
+  "States": [
+    "Inquired",
+    "Confirmed"
+  ],
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Cursor": "819e3435-7d5e-441f-bc68-76d89c69b8f5",
     "Count": 10
   }
 }
@@ -50,6 +88,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (currently only [Customers](customers.md#customer), in the future also [Companies](companies.md#company)) the reservation is associated with. |
 | `Numbers` | array of string | optional, max 1000 items | A list of reservation numbers. Each number uniquely identifies a reservation within the system |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Resources](resources.md#resource) assigned to the reservations. |
+| `AvailabilityBlockIds` | array of string | optional, max 100 items | Unique identifiers of the `Availability blocks` assigned to the reservations. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](reservations.md#reservation-ver-2023-06-06) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Reservations` were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the reservations are active. This is defined for a `Reservation` as the period between the reservation's scheduled start time `ScheduledStartUtc` and its scheduled end time `EndUtc`. Reservation is selected if any part of its interval intersects with the interval specified in `CollidingUtc |
@@ -64,25 +103,20 @@ Returns all reservations within scope of the Access Token, filtered according to
 {
   "Reservations": [
     {
-      "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
-      "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
-      "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+      "Id": "0f515589-99b4-423d-b83a-b237009f0509",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
       "AccountType": "Customer",
       "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
       "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
       "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
-      "StartUtc": "2023-04-23T14:00:00Z",
-      "ScheduledStartUtc": "2023-04-23T14:00:00Z",
-      "ActualStartUtc": null,
-      "EndUtc": "2023-04-24T14:00:00Z",
       "Number": "52",
       "State": "Confirmed",
       "Origin": "Connector",
       "CommanderOrigin": null,
       "OriginDetails": null,
-      "CreatedUtc": "2023-04-23T14:58:02Z",
-      "UpdatedUtc": "2023-04-23T14:58:02Z",
-      "ReleasedUtc": null,
+      "CreatedUtc": "2023-04-23T14:00:00Z",
+      "UpdatedUtc": "2023-04-23T14:00:00Z",
       "CancelledUtc": null,
       "VoucherId": null,
       "BusinessSegmentId": null,
@@ -92,20 +126,27 @@ Returns all reservations within scope of the Access Token, filtered according to
         "AnyCompanionCheckedIn": true,
         "ConnectorCheckIn": true
       },
-      "QrCodeData": null,
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "CreditCardId": null,
-      "GroupId": null,
+      "GroupId": "00000000-0000-0000-0000-000000000000",
       "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
-      "AvailabilityBlockId": null,
+      "AvailabilityBlockId": "94843f6f-3be3-481b-a1c7-06458774c3df",
       "PartnerCompanyId": null,
       "TravelAgencyId": null,
       "AssignedResourceLocked": false,
       "ChannelNumber": "TW48ZP",
       "ChannelManagerNumber": "",
       "CancellationReason": null,
+      "ReleasedUtc": null,
+      "StartUtc": "2023-04-23T14:00:00Z",
+      "EndUtc": "2023-04-23T14:00:00Z",
+      "ScheduledStartUtc": "2023-04-23T14:00:00Z",
+      "ActualStartUtc": null,
+      "ScheduledEndUtc": null,
+      "ActualEndUtc": null,
       "Purpose": "Leisure",
+      "QrCodeData": null,
       "PersonCounts": [
         {
           "AgeCategoryId": "1f67644f-052d-4863-acdf-ae1600c60ca0",
