@@ -44,7 +44,7 @@ Mews Terminals are considered _devices_, and you communicate with them using [de
 
 The most important API Operation you will need to use is [Add payment command](../operations/commands.md#add-payment-command). This adds a device integration command to the device command queue, with an instruction to take a payment from a specified Mews Terminal device for a specified customer.
 
-Taking a payment is an asynchronous activity, so you will need to wait for a device command _event_ to show that the payment is complete, or in case of error taking the payment. This is done using [WebSockets](../websockets/README.md). Specifically, you will listen for [DeviceCommand](../websockets/README.md#device-command-event) WebSocket events.
+Taking a payment is an asynchronous activity, so you will need to wait for a device command _event_ to show that the payment is complete, or in case of error taking the payment. This is done using [WebSockets](../events/websockets.md). Specifically, you will listen for [DeviceCommand](../events/websockets.md#device-command-event) WebSocket events.
 
 ![Add payment command - message flow](../.gitbook/assets/mews-terminals-3.png)
 
@@ -91,7 +91,7 @@ You must address the specific Mews Terminal with `TerminalId` \(see [Obtaining t
 
 ### WebSocket event
 
-The WebSocket event you are listening for is a [DeviceCommand](../websockets/README.md#device-command-event) event which matches the CommandId returned from [Add payment command](../operations/commands.md#add-payment-command). For example:
+The WebSocket event you are listening for is a [DeviceCommand](../events/websockets.md#device-command-event) event which matches the CommandId returned from [Add payment command](../operations/commands.md#add-payment-command). For example:
 
 ```javascript
 {
@@ -262,7 +262,7 @@ Finally, when a payment is taken through a Mews Terminal, it will appear against
 Within the Connector API documentation, the following sections may be helpful:
 
 - [Add payment command](../operations/commands.md#add-payment-command)
-- [WebSockets](../websockets/README.md)
+- [WebSockets](../events/websockets.md)
 - [Use cases - Device integration](device-integration.md)
 - [Use cases - Kiosk](kiosk.md)
 - [Use cases - Point of sale](point-of-sale.md)

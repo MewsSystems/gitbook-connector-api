@@ -5,7 +5,7 @@
 > This feature is being actively developed, features and behavior of this operation may change at short notice.
 
 Returns all availability blocks filtered by services, unique identifiers and other filters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -121,7 +121,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "RollingReleaseOffset": null,
             "ExternalIdentifier": "Block-0001",
             "Name": "Wedding group",
-            "Notes": "Have a nice stay"
+            "Notes": "Have a nice stay",
+            "QuoteId": null,
+            "AvailabilityBlockNumber": "478",
+            "ReleaseStrategy": "FixedRelease"
         },
         {
             "Id": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
@@ -144,7 +147,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "RollingReleaseOffset": "P-3DT4H",
             "ExternalIdentifier": "Block-0002",
             "Name": "Rolling release",
-            "Notes": null
+            "Notes": null,
+            "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
+            "AvailabilityBlockNumber": "479",
+            "ReleaseStrategy": "FixedRelease"
         }
     ],
     "ServiceOrders": [
@@ -225,12 +231,15 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
+| `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
+| `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
+| `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 
 ## Add availability blocks
 
 > This feature is being actively developed, features and behavior of this operation might change on short notice.
 
-Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -259,7 +268,8 @@ Adds availability blocks which are used to group related [Availability updates](
             "ReservationPurpose": null,
             "Notes": null,
             "State": "Confirmed",
-            "BookerId": null
+            "BookerId": null,
+            "QuoteId": null
         },
         {
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
@@ -277,7 +287,8 @@ Adds availability blocks which are used to group related [Availability updates](
             "ReservationPurpose": null,
             "Notes": null,
             "State": "Confirmed",
-            "BookerId": null
+            "BookerId": null,
+            "QuoteId": null
         }
     ]
 }
@@ -288,7 +299,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlocks` | array of [Availability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks to be added. |
 
 #### Availability block parameters
@@ -309,6 +320,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `Notes` | string | optional | Additional notes of the block. |
 | `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
 | `BookerId` | string | optional | Unique identifier of the [Booker](customers.md#customer) as a creator of an availability block. |
+| `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 
 ### Response
 
@@ -372,7 +384,8 @@ Updates information about the specified [Availability block](#availability-block
                 }
             },
             "ReleasedUtc": { "Value": "2021-07-01T00:00:00Z" },
-            "ReleaseStrategy": { "Value": "None" }
+            "ReleaseStrategy": { "Value": "None" },
+            "QuoteId": { "Value": null }
         },
         {
             "AvailabilityBlockId": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
@@ -390,7 +403,8 @@ Updates information about the specified [Availability block](#availability-block
                 }
             },
             "RollingReleaseOffset": { "Value": "P-3DT4H" },
-            "ReleaseStrategy": { "Value": "RollingRelease" }
+            "ReleaseStrategy": { "Value": "RollingRelease" },
+            "QuoteId": { "Value": "3a995033-3fbd-4b4c-9bc2-a60523d78bc5" }
         }
     ]
 }
@@ -401,7 +415,7 @@ Updates information about the specified [Availability block](#availability-block
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlocks` | array of [Availability block update parameters](#availability-block-update-parameters) | required, max 1000 items | Availability blocks to be updated. |
 
 #### Availability block update parameters
@@ -421,6 +435,7 @@ Updates information about the specified [Availability block](#availability-block
 | `RollingReleaseOffset` | [String update value](_objects.md#string-update-value) | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Required if `ReleaseStrategy` is set to `RollingRelease`, ignored otherwise. |
 | `ReleasedUtc` | [String update value](_objects.md#string-update-value) | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Required if `ReleaseStrategy` is set to `FixedRelease`, or used when `ReleaseStrategy` update is unspecified. |
 | `ReleaseStrategy` | [String update value](_objects.md#string-update-value) | optional | The strategy for automatic release of the availability block. If this property is not specified, the release strategy is not updated. |
+| `QuoteId` | [Guid update value](_objects.md#string-update-value) | optional | Unique identifier of the Mews Events quote associated with the availability block (or `null` if not updated). |
 
 #### Release strategy
 
@@ -479,7 +494,7 @@ Delete availability blocks. Note that an availability block containing active re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlockIds` | array of string | required, max 1000 items | Unique identifier of the Availability block to delete. |
 
 ### Response

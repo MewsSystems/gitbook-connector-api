@@ -3,7 +3,7 @@
 ## Get all counters
 
 Returns all counters of an enterprise associated with the connector integration.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -132,5 +132,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `FiscalCounter`
 * `ProformaCounter`
 * `RegistrationCardCounter`
+* `CorrectionBillCounter`
 * `ServiceOrderCounter`
+* `PaymentConfirmationBillCounter`
+* `CreditNoteBillCounter`
 * ...

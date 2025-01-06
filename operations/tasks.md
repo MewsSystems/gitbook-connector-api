@@ -50,7 +50,7 @@ Returns all tasks of the enterprise, filtered by identifiers or other filters.
 | `TaskIds` | array of string | optional, max 1000 items | Unique identifiers of [Tasks](tasks.md#task). |
 | `DepartmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Departments](departments.md#department). Not possible to be used standalone, needs to be used in combination with other filters. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of service orders (reservations or product service orders). |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

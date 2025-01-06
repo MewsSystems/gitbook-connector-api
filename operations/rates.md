@@ -58,7 +58,7 @@ Returns all rates (pricing setups) of the default service provided by the enterp
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service) from which the rates are requested. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Rate](rates.md#rate) from external systems. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted will be returned. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Rate extent
 Extent of data to be returned.
@@ -121,14 +121,15 @@ Extent of data to be returned.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the rate. |
-| `GroupId` | string | required | Unique identifier of [Rate group](rates.md#rate-group) where the rate belongs. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service). |
-| `BaseRateId` | string | optional | Unique identifier of the base [Rate](rates.md#rate). |
-| `BusinessSegmentId` | string | optional | Unique identifier of the [Business segment](businesssegments.md#business-segment). |
-| `IsActive` | boolean | required | Whether the rate is still active. |
-| `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
-| `IsPublic` | boolean | required | Whether the rate is publicly available. |
-| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate |
+| `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
+| `ServiceId` | string | required | Unique identifier of the `Service`. |
+| `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
+| `IsBaseRate` | boolean | required | Indicates if this is a base rate. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
+| `IsActive` | boolean | required | Indicates if this rate is active. |
+| `IsEnabled` | boolean | required | Indicates if this rate is currently available to customers. |
+| `IsPublic` | boolean | required | Indicates if this rate is publicly available. |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name of the rate (in the default language). |
 | `UpdatedUtc` | string | required | Interval in which the rates were updated. |
@@ -225,10 +226,10 @@ Returns prices for a given rate for a specified time interval. Prices will be re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `RateId` | string | required | Unique identifier of the `Rate`. |
+| `ProductId` | string | optional | Unique identifier of the `Product`. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
-| `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) whose prices should be returned. |
-| `ProductId` | string | optional | Unique identifier of the `Product`. |
 
 ### Response
 
@@ -470,14 +471,14 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. |
-| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. Required when `PricingType` is `BaseRatePricing`. |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
 
 #### Base rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Amount` | [Amount parameters](orders.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
 | `NegativeOccupancyAdjustment` | number | required | This is the amount added to the price when occupancy of the space is less than the Space Category Capacity. To provide a discount price for under-occupancy, simply use a negative value. |
 | `ExtraOccupancyAdjustment` | number | required | This is the amount added to the price when the Space Category Capacity is exceeded. |
 
@@ -486,8 +487,8 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BaseRateId` | string | required | Unique identifier of the base rate. |
-| `RelativeAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
-| `AbsoluteAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
+| `RelativeAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
+| `AbsoluteAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
 
 ### Response
 
@@ -555,11 +556,9 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
-| `RateId` | string | required | Unique identifier of the base [Rate](rates.md#rate) to update. |
+| `RateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the `Rate`. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
-| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price updates. |
+| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price adjustments for specific time intervals. |
 
 #### Rate price update
 
@@ -569,6 +568,214 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 | `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
+
+### Response
+
+```javascript
+{}
+```
+
+## Set rates
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Adds new Rates or updates existing ones if they are matched by `Id` or `ExternalIdentifier` property. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rates/set`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "Rates": [
+    {
+      "Id": "e1b0bf46-32a3-4f7c-99c1-1ff78447d55d",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "IsEnabled": true,
+      "Type": "Public",
+      "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "Names": {
+        "en-US": "Base rate"
+      },
+      "ShortNames": {
+        "en-US": "BR"
+      },
+      "ExternalNames": {
+        "en-US": "External base rate"
+      },
+      "Descriptions": {
+        "en-US": "Base rate description."
+      },
+      "PricingType": "BaseRatePricing",
+      "Pricing": {
+        "BaseRatePricing": {
+          "Amount": {
+            "Currency": "EUR",
+            "NetValue": 100
+          },
+          "NegativeOccupancyAdjustment": 0,
+          "ExtraOccupancyAdjustment": 0
+        }
+      }
+    },
+    {
+      "ExternalIdentifier": "55698",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "IsEnabled": false,
+      "Type": "Private",
+      "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "Names": {
+        "en-US": "Dependent rate"
+      },
+      "ShortNames": {
+        "en-US": "DR"
+      },
+      "ExternalNames": {
+        "en-US": "External dependent rate"
+      },
+      "Descriptions": {
+        "en-US": "Dependent rate description."
+      },
+      "PricingType": "DependentRatePricing",
+      "Pricing": {
+        "DependentRatePricing": {
+          "BaseRateId": "00392166-3869-4174-b491-cf0162524a38",
+          "RelativeAdjustment": 0.25,
+          "AbsoluteAdjustment": 10
+        }
+      }
+    }
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `Rates` | array of [Set rate parameters](rates.md#set-rate-parameters) | required, max 100 items | Rates to be added or updated. |
+
+#### Set rate parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | optional | Unique identifier of the rate. If it matches an existing rate, that rate will be updated. If no match is found, an error will be returned. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Unique identifier of the rate in the external system. If `Id` is not provided and `ExternalIdentifier` matches an existing rate, the corresponding rate will be updated. If no match is found, a new rate will be created. |
+| `ServiceId` | string | required | Unique identifier of the service. Ignored in case of updating an existing rate. |
+| `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. Ignored in case of updating an existing rate. |
+| `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
+| `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
+| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the rate. |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
+| `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
+| `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Rate pricing type. Must match existing pricing type in case of update. |
+| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | required | Contains additional data about pricing of the rate. |
+
+### Response
+
+```javascript
+{
+  "Rates": [
+    {
+      "Id": "e1b0bf46-32a3-4f7c-99c1-1ff78447d55d",
+      "GroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "BaseRateId": null,
+      "IsBaseRate": true,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "IsActive": true,
+      "IsEnabled": true,
+      "IsPublic": true,
+      "Type": "Public",
+      "Name": null,
+      "Names": {
+        "en-US": "Base rate"
+      },
+      "ShortName": "BR",
+      "UpdatedUtc": "2024-11-20T00:00:00Z",
+      "ExternalNames": {
+        "en-US": "External base rate"
+      },
+      "Description": {
+        "en-US": "Base rate description."
+      },
+      "ExternalIdentifier": null
+    },
+    {
+      "Id": "8eb1f163-bce7-49ca-a62c-c9261951c85f",
+      "GroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
+      "BaseRateId": "00392166-3869-4174-b491-cf0162524a38",
+      "IsBaseRate": false,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "IsActive": true,
+      "IsEnabled": false,
+      "IsPublic": false,
+      "Type": "Private",
+      "Name": null,
+      "Names": {
+        "en-US": "Dependent rate"
+      },
+      "ShortName": "DR",
+      "UpdatedUtc": "2024-11-20T00:00:00Z",
+      "ExternalNames": {
+        "en-US": "External dependent rate"
+      },
+      "Description": {
+        "en-US": "Dependent rate description."
+      },
+      "ExternalIdentifier": "55698"
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Rates` | array of [Rate](rates.md#rate) | optional, max 1000 items | Rates that were added or updated. |
+
+## Delete rates
+
+Deletes specified rates. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rates/delete`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "RateIds": [
+    "7e89ee8e-11a0-4d9d-8880-f8d8494824b5",
+    "2e177096-3a28-411d-a375-150a7350b278"
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `RateIds` | array of string | required, max 10 items | Unique identifiers of the rates to be deleted. |
 
 ### Response
 

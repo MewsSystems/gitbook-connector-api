@@ -44,7 +44,7 @@ Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other fi
 | `VoucherCodeIds` | array of string | optional, max 1000 items | Unique identifiers of the voucher codes. |
 | `VoucherIds` | array of string | required, max 1000 items | Unique identifiers of vouchers. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of voucher code's last update date and time. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

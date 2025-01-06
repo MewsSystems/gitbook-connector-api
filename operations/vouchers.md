@@ -65,7 +65,7 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted records will be returned. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Voucher](vouchers.md#voucher) from external systems. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Voucher Extent
 Extent of data to be returned. Whether only specific voucher info should be returned or related items as well.
@@ -138,7 +138,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | `Vouchers` | array of [Voucher](vouchers.md#voucher) | optional | Details about vouchers added to the system. |
 | `VoucherCodes` | array of [Voucher code](vouchercodes.md#voucher-code) | optional | Information about voucher codes used by customers. |
 | `VoucherAssignments` | array of [Voucher assignment](vouchers.md#voucher-assignment) | optional | The assignments between vouchers and [Rates](rates.md#rate). |
-| `Rates` | array of [Rate](rates.md#rate) | optional | The assigned rates. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | The assigned rates. |
 | `Companies` | array of [Company](companies.md#company) | optional | The related companies and travel agencies. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
@@ -234,7 +234,7 @@ Adds the specified vouchers to the specified [Services](services.md#service). No
 | `Name` | string | required, max length 128 characters | Internal name of the voucher. |
 | `Type` | [Voucher Type](vouchers.md#voucher-type) | required | Type of the voucher. |
 | `CompanyId` | string | optional | Unique identifier of Company. |
-| `AssignedRateIds` | array of string | optional, max 5 items | Unique identifiers of Rates. |
+| `AssignedRateIds` | array of string | optional, max 10 items | Unique identifiers of Rates. |
 | `OccupiableIntervalStartUtc` | string | optional | Start of the interval in which the voucher can be applied. |
 | `OccupiableIntervalEndUtc` | string | optional | End of the interval in which the voucher can be applied. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the voucher from external system. |
@@ -361,10 +361,17 @@ Updates information about the specified vouchers. Note this operation supports [
 | `Name` | [String update value](_objects.md#string-update-value) | optional, max length 128 characters | Internal name of the voucher (or `null` if the name should not be updated). |
 | `Type` | [VoucherTypeUpdateValue](_objects.md#string-update-value) | optional | Type of the voucher e.g. 'Public', 'PartnerCompany' or 'TravelAgency' (or `null` if the type should not be updated). |
 | `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of Company (Company or Travel Agency) the voucher is related to. This is required for Type of `PartnerCompany` or `TravelAgency`. Use `null` if Company should not be updated. |
-| `AssignedRateIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 5 characters | Unique identifiers of Rates (or `null` should it not be updated). |
+| `AssignedRateIds` | [Assigned rate ids](vouchers.md#assigned-rate-ids) | optional | Unique identifiers of Rates (or `null` should it not be updated). |
 | `OccupiableIntervalStartUtc` | [String update value](_objects.md#string-update-value) | optional | Start of the interval in which the voucher can be applied (or `null` if the start time should not be updated). |
 | `OccupiableIntervalEndUtc` | [String update value](_objects.md#string-update-value) | optional | End of the interval in which the voucher can be applied (or `null` if the end time should not be updated). |
 | `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Identifier of the voucher from external system (or `null` if the identifier should not be updated). |
+
+#### Assigned rate ids
+Has same structure as [Array of strings update value](_objects.md#array-of-strings-update-value).
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of string | optional, max 10 items | Unique identifiers of Rates (or `null` should it not be updated). |
 
 ### Response
 

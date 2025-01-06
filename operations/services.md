@@ -41,7 +41,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which `Services` were updated. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -122,7 +122,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | ~~`Name`~~ | ~~string~~ | ~~required~~ | ~~Name of the service.~~ **Deprecated!** Use `Names` instead|
 | ~~`StartTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 | ~~`EndTime`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | ~~Promotions of the service.~~ **Deprecated!** |
+| ~~`Promotions`~~ | ~~[Promotions](services.md#promotions)~~ | ~~optional~~ | **Deprecated!** Use `Promotions` in `Data` instead.|
 | ~~`Type`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 #### Service options
@@ -133,7 +133,6 @@ Options of the service.
 | `BillAsPackage` | boolean | required | Products should be displayed as a single package instead of individual items. |
 
 #### Promotions
-Promotions of the service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -278,7 +277,7 @@ Returns selected availability and occupancy metrics of a bookable service for a 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceCategoryId` | string | required | Unique identifier of the [Resource category](resources.md#resource-category). |
-| `Metrics` | [Dictionary of integers](_objects.md#dictionary-of-integers) | required | Dictionary keys are names of [Service availability metrics](services.md#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
+| `Metrics` | [Dictionary of integer arrays](_objects.md#dictionary-of-integer-arrays) | required | Dictionary keys are names of [Service availability metrics](services.md#service-availability-metrics), values are arrays of integers with metric values for corresponding time unit in `TimeUnitStartsUtc`. |
 
 ## Get service availability
 

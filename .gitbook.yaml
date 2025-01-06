@@ -1,0 +1,11 @@
+redirects:
+  guidelines/multi-property: concepts/multi-property.md
+  guidelines/certification: your-journey/certification.md
+  guidelines/communicate: events/communicate.md
+  use-cases/payment-automation: use-cases/payment-automation.md
+  use-cases/payment-automation/using-tokenized-credit-cards: use-cases/payment-automation.md
+  webhooks: events/README.md
+  webhooks/wh-general: events/wh-general.md
+  webhooks/wh-integration: events/wh-integration.md
+  webhooks/wh-faq: events/wh-faq.md
+  websockets: events/websockets.md

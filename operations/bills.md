@@ -17,15 +17,10 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
   "Extent": {
     "Items": false
   },
-  "TimeFilter": null,
-  "StartUtc": null,
-  "EndUtc": null,
   "ClosedUtc": {
     "StartUtc": "2020-02-05T00:00:00Z",
     "EndUtc": "2020-02-10T00:00:00Z"
   },
-  "PaidUtc": null,
-  "DueUtc": null,
   "CreatedUtc": {
     "StartUtc": "2020-02-05T00:00:00Z",
     "EndUtc": "2020-02-10T00:00:00Z"
@@ -41,7 +36,6 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
     "fe795f96-0b64-445b-89ed-c032563f2bac"
   ],
   "State": "Closed",
-  "CorrectionState": null,
   "EnterpriseIds": [
     "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "4d0201db-36f5-428b-8d11-4f0a65e960cc"
@@ -68,7 +62,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the `Customers`. |
 | `State` | [Bill state](bills.md#bill-state) | required | State the bills should be in. If not specified, `Open` and `Closed` bills are returned. |
 | `CorrectionState` | array of [Bill correction state](bills.md#bill-correction-state) | optional | Whether to return regular bills, corrective bills, or both. If `BillIds` are specified, defaults to both, otherwise defaults to `Bill`. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 | ~~`Extent`~~ | ~~[Bill extent](bills.md#bill-extent)~~ | ~~optional~~ | ~~Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned.~~ **Deprecated!** Use `orderItems/getAll` and `payments/getAll` with `BillIds` filter instead.|
 
 #### Bill extent
@@ -84,13 +78,14 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 {
   "Bills": [
     {
-      "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+      "Id": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
+      "Name": "Accommodation Charges",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "AccountId": "fe795f96-0b64-445b-89ed-c032563f2bac",
+      "AccountId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "CustomerId": null,
       "CompanyId": null,
       "AssociatedAccountIds": [
-        "26afba60-06c3-455b-92db-0e3983be0b1d"
+        "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
       ],
       "CounterId": null,
       "State": "Closed",
@@ -102,6 +97,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
       "TaxedUtc": null,
       "PaidUtc": null,
       "DueUtc": null,
+      "LastReminderDateUtc": null,
       "UpdatedUtc": "2017-01-31T10:58:06Z",
       "PurchaseOrderNumber": "XX-123",
       "Notes": "",
@@ -178,7 +174,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
       "CorrectedBillId": null
     }
   ],
-  "Cursor": "26afba60-06c3-455b-92db-0e3983be0b1d"
+  "Cursor": "ea087d64-3901-4eee-b0b7-9fce4c58a005"
 }
 ```
 
@@ -186,142 +182,6 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | :-- | :-- | :-- | :-- |
 | `Bills` | array of [Bill](bills.md#bill) | required | The filtered bills. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest bill returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older bills. |
-
-#### Bill
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the bill. |
-| `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
-| `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. |
-| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the `Customers` or `Companies` that are associated to the bill. |
-| `CounterId` | string | optional | Unique identifier of the bill `Counter`. |
-| `State` | [Bill state](bills.md#bill-state) | required | Whether the bill is `Open` or `Closed`. |
-| `Type` | [Bill type](bills.md#bill-type) | required | After a bill is closed, the Bill Type is set to `Receipt` or `Invoice`. `Receipt` indicates that the bill has been fully paid and the balance is zero. `Invoice` indicates that the bill has not yet been fully paid but an invoice has been issued. Prior to closing, Bill Type should not be used. |
-| `Number` | string | optional | Number of the bill. |
-| `VariableSymbol` | string | optional | Variable symbol of the bill. |
-| `CreatedUtc` | string | required | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
-| `IssuedUtc` | string | optional | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
-| `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
-| `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
-| `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
-| `UpdatedUtc` | string | required | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
-| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
-| `Notes` | string | optional | Additional notes. |
-| `Options` | [Bill options](bills.md#bill-options) | optional | Options of the bill. |
-| `OwnerData` | [Bill owner data](bills.md#bill-owner-data) | required | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
-| `AssociatedAccountData` | array of [Associated account bill data](bills.md#associated-account-bill-data) | optional | Additional information about the associated account of the bill. Can be a `Customer` or `Company`. Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
-| `EnterpriseData` | [Bill enterprise data](bills.md#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
-| `CorrectionState` | [Bill correction state](bills.md#bill-correction-state) | required | Whether the bill is a regular bill or a corrective bill. |
-| `CorrectionType` | [Bill correction type](bills.md#bill-correction-type) | optional | Type of correction. |
-| `CorrectedBillId` | string | optional | The ID of the bill that the corrective bill corrects. If the corrected bill was deleted, this field is `null`. |
-| ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the `Customer` the bill is issued to.~~ **Deprecated!** Use `AccountId` instead.|
-| ~~`CompanyId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the `Company` specified in `CompanyDetails` or the `Company` the bill is issued to.~~ **Deprecated!** Use `AssociatedAccountIds` instead.|
-| ~~`Revenue`~~ | ~~array of [Accounting item](accountingitems.md#accounting-item)~~ | ~~optional~~ | **Deprecated!** Use `orderItems/getAll` with `BillId` instead.|
-| ~~`Payments`~~ | ~~array of [Accounting item](accountingitems.md#accounting-item)~~ | ~~optional~~ | **Deprecated!** Use `payments/getAll` with `BillId` instead.|
-| ~~`OrderItems`~~ | ~~array of [Order item](accountingitems.md#order-item)~~ | ~~optional~~ | ~~The order items (consumed items such as nights or products) on the bill.~~ **Deprecated!** Use `orderItems/getAll` with `BillId` instead.|
-| ~~`PaymentItems`~~ | ~~array of [Payment item](accountingitems.md#payment-item)~~ | ~~optional~~ | ~~The payment items (such as cash, credit card payments or invoices) on the bill.~~ **Deprecated!** |
-| ~~`AssigneeData`~~ | ~~[Bill assignee data](bills.md#bill-assignee-data)~~ | ~~required~~ | **Deprecated!** Use `OwnerData` instead.|
-| ~~`CompanyDetails`~~ | ~~[Bill company data](bills.md#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ **Deprecated!** Use `AssociatedAccountData` instead.|
-
-#### Bill state
-
-* `Open`
-* `Closed`
-
-#### Bill type
-
-* `Receipt` - Default; the bill has been paid in full; only applicable after the bill is closed.
-* `Invoice` - Bill has not been paid in full but an invoice has been issued to request payment.
-
-#### Bill options
-Options of the bill.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `DisplayCustomer` | boolean | required | Display customer information on a bill. |
-| `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
-| `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `BillType` of `Invoice`. |
-| `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `BillType` of `Invoice`. |
-| `Rebated` | boolean | required | Whether the bill is rebated (both fully or partially). |
-
-#### Bill assignee data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on `Discriminator`. |
-
-#### Bill associated account data discriminator
-
-* `BillCustomerData`
-* `BillCompanyData`
-
-#### Bill company data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | optional | ID of the `Company`. |
-| `Address` | [Address](addresses.md#account-address) | optional | Address of the company. |
-| `LegalIdentifiers` | object | optional | The set of `LegalIdentifiers` for the company. |
-| `BillingCode` | string | optional | A unique code for Mews to list on invoices it sends to the company. |
-| `Name` | string | required | Name of the company. |
-| `FiscalIdentifier` | string | optional | Fiscal identifier of the company. |
-| `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
-
-#### Bill customer data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | ID of the `Customer` to whom the bill was assigned. |
-| `Address` | [Address](addresses.md#account-address) | optional | Address of the customer. |
-| `LegalIdentifiers` | object | optional | The set of `LegalIdentifiers` for the customer. |
-| `BillingCode` | string | optional | A unique code for Mews to list on invoices it sends to the customer. |
-| `LastName` | string | required | Last name of the customer. |
-| `FirstName` | string | optional | First name of the customer. |
-| `SecondLastName` | string | optional | Second last name of the customer. |
-| `TitlePrefix` | [Title](customers.md#title) | required | Title prefix of the customer. |
-
-#### Bill owner data
-Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on `Discriminator`. |
-
-#### Associated account bill data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
-| `BillCustomerData` | [Bill customer data](bills.md#bill-customer-data) | optional | Associated account bill data for customer. |
-| `BillCompanyData` | [Bill company data](bills.md#bill-company-data) | optional | Associated account bill data for company. |
-
-#### Bill enterprise data
-Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AdditionalTaxIdentifier` | string | optional | Enterprise additional tax identifier. |
-| `CompanyName` | string | optional | Enterprise company name. |
-| `BankAccount` | string | optional | Enterprise bank account. |
-| `BankName` | string | optional | Enterprise bank name. |
-| `Iban` | string | optional | Enterprise IBAN (International Bank Account Number). |
-| `Bic` | string | optional | Enterprise BIC (Bank Identifier Code). |
-
-#### Bill correction state
-
-* `Bill` - Regular bill.
-* `CorrectiveBill` - Corrective bill, i.e. the `CorrectionType` is either `Edit`, `Cancellation`, or `ReceivablePaymentsBalance`.
-
-#### Bill correction type
-
-* `Cancellation`
-* `Edit`
-* `CreditNote`
-* `Reinstatement`
-* `ReceivablePaymentsBalance`
 
 ## Get bill PDF
 
@@ -336,8 +196,7 @@ Creates a PDF version of the specified bill. In case it's not possible to return
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
-  "BillPrintEventId": null
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206"
 }
 ```
 
@@ -448,6 +307,309 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Bills` | array of [Bill](bills.md#bill) | required | The created bills. |
+
+## Update bills
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Updates account assignments of one or more open bills. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/bills/update`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "BillsUpdates": [
+    {
+      "BillId": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
+      "AccountId": {
+        "Value": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f"
+      },
+      "AssociatedAccountIds": {
+        "Value": [
+          "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+        ]
+      }
+    }
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `BillsUpdates` | array of [Bill update parameters](bills.md#bill-update-parameters) | required, max 10 items | Information about bills to be updated. |
+
+#### Bill update parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillId` | string | required | Unique identifier of the bill to update. |
+| `AccountId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the account (`Customer` or `Company`) the bill is issued to (or null if the account should not be updated). |
+| `AssociatedAccountIds` | [Associated account IDs update parameters](bills.md#associated-account-ids-update-parameters) | optional | Unique identifiers of the `Customer` or `Company` that are associated to the bill (or null if the account should not be updated). |
+
+#### Associated account IDs update parameters
+Has same structure as [Array of strings update value](_objects.md#array-of-strings-update-value).
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of string | optional, max 1 item | Unique identifiers of the `Customer` or `Company` that are associated to the bill. Set to `null` to remove all associated accounts. Note that only single associated account is currently supported. |
+
+### Response
+
+```javascript
+{
+  "Bills": [
+    {
+      "Id": "ea087d64-3901-4eee-b0b7-9fce4c58a005",
+      "Name": "Accommodation Charges",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "AccountId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+      "CustomerId": null,
+      "CompanyId": null,
+      "AssociatedAccountIds": [
+        "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+      ],
+      "CounterId": null,
+      "State": "Closed",
+      "Type": "Invoice",
+      "Number": "29",
+      "VariableSymbol": null,
+      "CreatedUtc": "2017-01-31T10:48:06Z",
+      "IssuedUtc": "2017-01-31T10:58:06Z",
+      "TaxedUtc": null,
+      "PaidUtc": null,
+      "DueUtc": null,
+      "LastReminderDateUtc": null,
+      "UpdatedUtc": "2017-01-31T10:58:06Z",
+      "PurchaseOrderNumber": "XX-123",
+      "Notes": "",
+      "Options": {
+        "DisplayCustomer": true,
+        "DisplayTaxation": true,
+        "TrackReceivable": true,
+        "DisplayCid": false,
+        "Rebated": false
+      },
+      "Revenue": [],
+      "Payments": [],
+      "OrderItems": [],
+      "PaymentItems": [],
+      "AssigneeData": null,
+      "OwnerData": {
+        "Discriminator": "BillCompanyData",
+        "Value": {
+          "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+          "Address": {
+            "Line1": "Joe Doe street",
+            "Line2": "Very long ave",
+            "City": "Townston",
+            "PostalCode": "154 00",
+            "SubdivisionCode": "AU-NSW",
+            "CountryCode": "AU"
+          },
+          "LegalIdentifiers": {
+            "TaxIdentifier": "CZ8810310963",
+            "CityOfRegistration": "Prague"
+          },
+          "BillingCode": "Billing code value",
+          "Name": "Acme, Inc.",
+          "FiscalIdentifier": "Fiscal identifier",
+          "AdditionalTaxIdentifier": "Additional tax identifier"
+        }
+      },
+      "CompanyDetails": null,
+      "AssociatedAccountData": [
+        {
+          "Discriminator": "BillCompanyData",
+          "BillCustomerData": null,
+          "BillCompanyData": {
+            "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
+            "Address": {
+              "Line1": "Joe Doe street",
+              "Line2": "Very long ave",
+              "City": "Townston",
+              "PostalCode": "154 00",
+              "SubdivisionCode": "AU-NSW",
+              "CountryCode": "AU"
+            },
+            "LegalIdentifiers": {
+              "TaxIdentifier": "CZ8810310963",
+              "CityOfRegistration": "Prague"
+            },
+            "BillingCode": "Billing code value",
+            "Name": "Acme, Inc.",
+            "FiscalIdentifier": "Fiscal identifier",
+            "AdditionalTaxIdentifier": "Additional tax identifier"
+          }
+        }
+      ],
+      "EnterpriseData": {
+        "AdditionalTaxIdentifier": "XY00112233445",
+        "CompanyName": "The Sample Hotel Group AS",
+        "BankAccount": "CZ3808000000000012345678",
+        "BankName": "CESKA SPORITELNA A.S.",
+        "Iban": "CZ6508000000192000145399",
+        "Bic": "GIBACZPX"
+      },
+      "CorrectionState": "Bill",
+      "CorrectionType": null,
+      "CorrectedBillId": null
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Bills` | array of [Bill](bills.md#bill) | required | Updated bills. |
+
+#### Bill
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the bill. |
+| `Name` | string | optional | Name of the bill. |
+| `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
+| `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. |
+| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the `Customers` or `Companies` that are associated to the bill. |
+| `CounterId` | string | optional | Unique identifier of the bill `Counter`. |
+| `State` | [Bill state](bills.md#bill-state) | required | Whether the bill is `Open` or `Closed`. |
+| `Type` | [Bill type](bills.md#bill-type) | required | After a bill is closed, the Bill Type is set to `Receipt` or `Invoice`. `Receipt` indicates that the bill has been fully paid and the balance is zero. `Invoice` indicates that the bill has not yet been fully paid but an invoice has been issued. Prior to closing, Bill Type should not be used. |
+| `Number` | string | optional | Number of the bill. |
+| `VariableSymbol` | string | optional | Variable symbol of the bill. |
+| `CreatedUtc` | string | required | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
+| `IssuedUtc` | string | optional | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
+| `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
+| `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
+| `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
+| `LastReminderDateUtc` | string | optional | Date and time when an email reminder to pay an invoice was last sent, in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
+| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
+| `Notes` | string | optional | Additional notes. |
+| `Options` | [Bill options](bills.md#bill-options) | optional | Options of the bill. |
+| `OwnerData` | [Bill owner data](bills.md#bill-owner-data) | required | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
+| `AssociatedAccountData` | array of [Associated account bill data](bills.md#associated-account-bill-data) | optional | Additional information about the associated account of the bill. Can be a `Customer` or `Company`. Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
+| `EnterpriseData` | [Bill enterprise data](bills.md#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
+| `CorrectionState` | [Bill correction state](bills.md#bill-correction-state) | required | Whether the bill is a regular bill or a corrective bill. |
+| `CorrectionType` | [Bill correction type](bills.md#bill-correction-type) | optional | Type of correction. |
+| `CorrectedBillId` | string | optional | The ID of the bill that the corrective bill corrects. If the corrected bill was deleted, this field is `null`. |
+| ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the `Customer` the bill is issued to.~~ **Deprecated!** Use `AccountId` instead.|
+| ~~`CompanyId`~~ | ~~string~~ | ~~optional~~ | ~~Unique identifier of the `Company` specified in `CompanyDetails` or the `Company` the bill is issued to.~~ **Deprecated!** Use `AssociatedAccountIds` instead.|
+| ~~`Revenue`~~ | ~~array of [Accounting item](accountingitems.md#accounting-item)~~ | ~~optional~~ | **Deprecated!** Use `orderItems/getAll` with `BillId` instead.|
+| ~~`Payments`~~ | ~~array of [Accounting item](accountingitems.md#accounting-item)~~ | ~~optional~~ | **Deprecated!** Use `payments/getAll` with `BillId` instead.|
+| ~~`OrderItems`~~ | ~~array of [Order item](accountingitems.md#order-item)~~ | ~~optional~~ | ~~The order items (consumed items such as nights or products) on the bill.~~ **Deprecated!** Use `orderItems/getAll` with `BillId` instead.|
+| ~~`PaymentItems`~~ | ~~array of [Payment item](accountingitems.md#payment-item)~~ | ~~optional~~ | ~~The payment items (such as cash, credit card payments or invoices) on the bill.~~ **Deprecated!** |
+| ~~`AssigneeData`~~ | ~~[Bill assignee data](bills.md#bill-assignee-data)~~ | ~~required~~ | **Deprecated!** Use `OwnerData` instead.|
+| ~~`CompanyDetails`~~ | ~~[Bill company data](bills.md#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ **Deprecated!** Use `AssociatedAccountData` instead.|
+
+#### Bill state
+
+* `Open`
+* `Closed`
+
+#### Bill type
+
+* `Receipt` - Default; the bill has been paid in full; only applicable after the bill is closed.
+* `Invoice` - Bill has not been paid in full but an invoice has been issued to request payment.
+
+#### Bill options
+Options of the bill.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `DisplayCustomer` | boolean | required | Display customer information on a bill. |
+| `DisplayTaxation` | boolean | required | Display taxation detail on a bill. |
+| `TrackReceivable` | boolean | required | Tracking of payments is enabled for bill, only applicable for `BillType` of `Invoice`. |
+| `DisplayCid` | boolean | required | Display CID number on bill, only applicable for `BillType` of `Invoice`. |
+| `Rebated` | boolean | required | Whether the bill is rebated (both fully or partially). |
+
+#### Bill assignee data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on `Discriminator`. |
+
+#### Bill associated account data discriminator
+
+* `BillCustomerData`
+* `BillCompanyData`
+
+#### Bill company data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | optional | ID of the `Company`. |
+| `Address` | [Address](addresses.md#account-address) | optional | Address of the company. |
+| `LegalIdentifiers` | object | optional | The set of `LegalIdentifiers` for the company. |
+| `BillingCode` | string | optional | A unique code for Mews to list on invoices it sends to the company. |
+| `Name` | string | required | Name of the company. |
+| `FiscalIdentifier` | string | optional | Fiscal identifier of the company. |
+| `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
+
+#### Bill customer data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | ID of the `Customer` to whom the bill was assigned. |
+| `Address` | [Address](addresses.md#account-address) | optional | Address of the customer. |
+| `LegalIdentifiers` | object | optional | The set of `LegalIdentifiers` for the customer. |
+| `BillingCode` | string | optional | A unique code for Mews to list on invoices it sends to the customer. |
+| `LastName` | string | required | Last name of the customer. |
+| `FirstName` | string | optional | First name of the customer. |
+| `SecondLastName` | string | optional | Second last name of the customer. |
+| `TitlePrefix` | [Title](customers.md#title) | optional | Title prefix of the customer. |
+
+#### Bill owner data
+Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
+| `Value` | object | required | Structure of object depends on `Discriminator`. |
+
+#### Associated account bill data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
+| `BillCustomerData` | [Bill customer data](bills.md#bill-customer-data) | optional | Associated account bill data for customer. |
+| `BillCompanyData` | [Bill company data](bills.md#bill-company-data) | optional | Associated account bill data for company. |
+
+#### Bill enterprise data
+Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AdditionalTaxIdentifier` | string | optional | Enterprise additional tax identifier. |
+| `CompanyName` | string | optional | Enterprise company name. |
+| `BankAccount` | string | optional | Enterprise bank account. |
+| `BankName` | string | optional | Enterprise bank name. |
+| `Iban` | string | optional | Enterprise IBAN (International Bank Account Number). |
+| `Bic` | string | optional | Enterprise BIC (Bank Identifier Code). |
+
+#### Bill correction state
+
+* `Bill` - Regular bill.
+* `CorrectiveBill` - Corrective bill, i.e. the `CorrectionType` is either `Edit`, `Cancellation`, or `ReceivablePaymentsBalance`.
+
+#### Bill correction type
+
+* `Cancellation`
+* `Edit`
+* `CreditNote`
+* `Reinstatement`
+* `ReceivablePaymentsBalance`
 
 ## Delete bill
 

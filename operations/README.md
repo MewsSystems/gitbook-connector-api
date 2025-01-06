@@ -8,6 +8,7 @@ This section describes all operations supported by the API, organised here by th
 | :-- | :-- |
 | [Merge accounts](accounts.md#merge-accounts) | Merges two or more accounts of the same account type together |
 | [Update accounts](accounts.md#update-accounts) | Updates one or more existing accounts, i.e. customer, company |
+| [Upload and link file to account](accounts.md#upload-and-link-file-to-account) | Uploads a file and links it to the specified account |
 | [Get all addresses](addresses.md#get-all-addresses) | Returns all addresses associated with the specified accounts within the enterprise |
 | [Add addresses](addresses.md#add-addresses) | Adds a new address to the system and assigns it to a specified account |
 | [Update addresses](addresses.md#update-addresses) | Updates an existing address in the system assigned to a specified account |
@@ -36,11 +37,16 @@ This section describes all operations supported by the API, organised here by th
 | :-- | :-- |
 | [Get all customers](customers.md#get-all-customers) | Returns all customers filtered by identifiers, emails, names and other filters |
 | [Search customers](customers.md#search-customers) | Searches for customers that are active at the moment in the enterprise, e.g. companions of checked-in reservations or paymasters |
-| [Get customers open items](customers.md#get-customers-open-items) | Returns all open items for the specified customers, i.e. all unpaid items and all deposited payments |
+| [~~Get customers open items~~](customers.md#get-customers-open-items) | **Deprecated!** Use [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) instead. |
 | [Add customer](customers.md#add-customer) | Adds a new customer to the system and returns details of the added customer |
 | [Update customer](customers.md#update-customer) | Updates personal information of a customer |
 | [~~Merge customers~~](customers.md#merge-customers) | **Deprecated!** Please use [Merge accounts](accounts.md#merge-accounts) instead. |
 | [Add customer file](customers.md#add-customer-file) | Attaches the specified file to the customer profile |
+| [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) | Returns all identity documents for the specified customers |
+| [Adds identity documents](../operations/identitydocuments.md#add-identity-documents) | Adds new identity documents |
+| [Update identity documents](../operations/identitydocuments.md#update-identity-documents) | Updates specified identity documents |
+| [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) | Deletes specified identity documents |
+| [Clear identity documents](../operations/identitydocuments.md#clear-identity-documents) | Deletes all identity documents for the specified customers |
 
 ## Device integration
 
@@ -102,6 +108,7 @@ This section describes all operations supported by the API, organised here by th
 | [Update accounting items](accountingitems.md#update-accounting-items) | Updates specified accounting item |
 | [Get all bills](bills.md#get-all-bills) | Returns all bills, possibly filtered by customers, identifiers and other filters |
 | [Add bill](bills.md#add-bill) | Creates new empty bill assigned to specified account |
+| [Update bills](bills.md#update-bills) | **Restricted!** Updates account assignments of one or more open bills |
 | [Delete bill](bills.md#delete-bill) | Removes selected bills |
 | [Close bill](bills.md#close-bill) | Closes a bill so no further modification to it is possibles |
 | [Get bill PDF](bills.md#get-bill-PDF) | Creates a PDF version of the specified bill |
@@ -166,6 +173,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add reservation companion](reservations.md#add-reservation-companion) | Adds a customer as a companion to the reservation |
 | [Delete reservation companion](reservations.md#delete-reservation-companion) | Removes customer companionship from the reservation |
 | [Add reservation product](reservations.md#add-reservation-product) | Adds a new product order of the specified product to the reservation |
+| [Get all source assignments (ver 2024-09-20)](sourceassignments.md#get-all-source-assignments-ver-2024-09-20) | **Restricted!** Returns all sources associated with a reservation |
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
 | [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups, filtered by unique identifiers and other filters |
@@ -206,6 +214,8 @@ This section describes all operations supported by the API, organised here by th
 | [Get all business segments](businesssegments.md#get-all-business-segments) | Returns all business segments of the default service provided by the enterprise |
 | [Get all rates](rates.md#get-all-rates) | Returns all rates \(pricing setups\) of the default service provided by the enterprise |
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
+| [Set rates](rates.md#set-rates) | **Restricted!** Adds new or updates existing rates |
+| [Delete rates](rates.md#delete-rates) | Deletes specified rates |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
 | [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters |
@@ -228,9 +238,14 @@ This section describes all operations supported by the API, organised here by th
 | [Add voucher codes](vouchercodes.md#add-voucher-codes) | Adds new voucher codes to the voucher |
 | [Delete voucher codes](vouchercodes.md#delete-voucher-codes) | Delete voucher codes |
 | [Get all age categories](agecategories.md#get-all-age-categories) | Returns all age categories filtered by service |
-| [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | Returns all cancellation policies filtered by services, rate groups and other filters |
-| [Get cancellation policies by reservations](cancellationpolicies.md#get-cancellation-policies-by-reservations) | Returns cancellation policies for enterprise grouped by reservation |
+| [Get all cancellation policies](cancellationpolicies.md#get-all-cancellation-policies) | **Restricted!** Returns all cancellation policies filtered by services, rate groups and other filters |
+| [Get cancellation policies by reservations](cancellationpolicies.md#get-cancellation-policies-by-reservations) | **Restricted!** Returns cancellation policies for enterprise grouped by reservation |
+| [Get cancellation policies by rates](cancellationpolicies.md#get-cancellation-policies-by-rates) | **Restricted!** Returns cancellation policies for enterprise grouped by rate |
 | [Get all products](products.md#get-all-products) | Returns all products filtered by services or product identifier |
 | [Delete products](products.md#delete-products) | Deletes specified products |
 | [Get product pricing](products.md#get-product-pricing) | **Restricted!** Returns prices for a product for a specified time interval |
+| [Update product pricing](products.md#update-product-pricing) | Updates product price for a given interval |
 | [Get all product categories](productcategories.md#get-all-product-categories) | Returns all products filtered by services or product category identifier |
+| [Get all service overbooking limits](serviceoverbookinglimits.md#get-all-service-overbooking-limits) | **Restricted!**  Returns all service overbooking limits |
+| [Set service overbooking limits](serviceoverbookinglimits.md#set-service-overbooking-limits) | **Restricted!**  Adds new service overbooking limits with the specified conditions |
+| [Clear service overbooking limits](serviceoverbookinglimits.md#clear-service-overbooking-limits) | **Restricted!**  Clears service overbooking limits which meet specified conditions over a specified time interval |

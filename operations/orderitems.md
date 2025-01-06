@@ -88,7 +88,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `AccountingStates` | array of [Order item accounting state](orderitems.md#order-item-accounting-state) | optional, max 1000 items | Accounting state of the item. |
 | `Types` | array of [Order item type](orderitems.md#order-item-type) | optional, max 1000 items | Order item type, e.g. whether product order or space order. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -351,6 +351,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `TaxCorrection`
 * `ResourceUpgradeFee`
 * `InvoiceFee`
+* `MulticurrencyFee`
 
 #### Order item options
 Options of the order item.

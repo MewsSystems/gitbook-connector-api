@@ -37,7 +37,7 @@ Returns all products offered together with the specified services. Note this ope
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Services](services.md#service). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the products were updated. |
 | `IncludeDefault` | boolean | optional | Whether or not to include default products for the service, i.e. products which are standard includes and not true extras. For example, the night's stay would be the default product for a room reservation. These may be useful for accounting purposes but should not be displayed to customers for selection. If `ProductIds` are provided, `IncludeDefault` defaults to true, otherwise it defaults to false. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -402,6 +402,59 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 | :-- | :-- | :-- | :-- |
 | `AgeCategoryId` | string | required | Unique identifier of the age category. |
 | `Prices` | array of [Amount](_objects.md#amount) | required | Prices of the product for the resource category in the covered dates. |
+
+## Update product pricing
+
+Updates the prices for a given product. You can make multiple price updates with one API call, and for each one specify the price amount per [Time unit](../concepts/time-units.md) and the time interval for which it applies. The price will be updated for all service time units that the specified time interval intersects. It is not permitted to update historical prices older than specified by `EditableHistoryInterval`. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/products/updatePrice`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ProductId": "6b97a38b-0043-41e0-afbd-3f083bdbc0d2",
+  "PriceUpdates": [
+    {
+      "Value": 100,
+      "FirstTimeUnitStartUtc": "2024-03-01T23:00:00.000Z",
+      "LastTimeUnitStartUtc": "2024-03-03T23:00:00.000Z"
+    },
+    {
+      "Value": 200,
+      "FirstTimeUnitStartUtc": "2024-03-06T23:00:00.000Z",
+      "LastTimeUnitStartUtc": "2024-03-08T23:00:00.000Z"
+    }
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ProductId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the `Product`. |
+| `PriceUpdates` | array of [Product price update](products.md#product-price-update) | required, max 100 items | Price adjustments for specific time intervals. |
+
+#### Product price update
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | number | optional | New value of the product on the interval. If not specified, removes all price adjustments within the interval. |
+| `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
+
+### Response
+
+```javascript
+{}
+```
 
 ## Delete products
 

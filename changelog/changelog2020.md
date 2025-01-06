@@ -23,9 +23,9 @@
 
 ## 21st September 2020
 
-* Replaced Space websocket event by [Resource event](../websockets/README.md#resource-event)
-* Extended [Reservation event](../websockets/README.md#reservation-event) with `AssignedResourceId`
-* Extended [Price update event](../websockets/README.md#price-update-event) with `ResourceCategoryId`
+* WebSockets event 'Space' replaced by [Resource](../events/websockets.md#resource-event)
+* WebSockets event [Reservation](../events/websockets.md#reservation-event) extended with `AssignedResourceId`
+* WebSockets event [PriceUpdate](../events/websockets.md#price-update-event) extended with `ResourceCategoryId`
 
 ## 1st September 2020
 
@@ -48,7 +48,7 @@
 * Fixed spelling mistake in parameter `TravelAgencyId` in operation [Update reservation](../operations/reservations.md#update-reservation).
 * Extended operations [Get all products](../operations/products.md#get-all-products) with property `ExternalName`.
 * Extended [Get configuration](../operations/configuration.md#get-configuration) response with [Service](../operations/services#service).
-* Extended [Integration created data](../webhooks/README.md#integration-created-data) with [Service](..webhooks/README.md#service).
+* Extended [Integration created data](../events/README.md#integration-created-data) with [Service](..events/README.md#service).
 
 ## 23rd July 2020
 
@@ -114,7 +114,7 @@ However we'd like to ask you to update your clients as soon as possible, we're n
 
 ## 17th March 2020
 
-* Added [Webhooks](../webhooks/README.md).
+* Added [Webhooks](../events/README.md).
 
 ## 16th March 2020
 

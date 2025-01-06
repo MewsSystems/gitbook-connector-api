@@ -298,7 +298,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes (or `null` if the notes should not be updated). |
 | `LastName` | [String update value](_objects.md#string-update-value) | optional | Last name (or `null` if the last name should not be updated). |
 | `FirstName` | [String update value](_objects.md#string-update-value) | optional | First name (or `null` if the first name should not be updated). |
-| `SecondLastName` | [String update value](_objects.md#string-update-value) | optional | Second name (or `null` if the second last name should not be updated). |
+| `SecondLastName` | [String update value](_objects.md#string-update-value) | optional | Second last name (or `null` if the second last name should not be updated). |
 | `BirthPlace` | [String update value](_objects.md#string-update-value) | optional | Birth place (or `null` if the birth place should not be updated). |
 | `Telephone` | [String update value](_objects.md#string-update-value) | optional | Telephone number (or `null` if the telephone should not be updated). |
 | `Occupation` | [String update value](_objects.md#string-update-value) | optional | Occupation (or `null` if the occupation should not be updated). |
@@ -365,7 +365,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `AccountingCode` | [String update value](_objects.md#string-update-value) | optional | Accounting code (or `null` if the accounting code should not be updated). |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes (or `null` if the notes should not be updated). |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name (or `null` if the name should not be updated). |
-| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Mother company (or `null` if the mother company should not be updated). |
+| `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Mother company identifier (or `null` if the mother company identifier should not be updated). |
 | `WebsiteUrl` | [String update value](_objects.md#string-update-value) | optional | Website url (or `null` if the website url should not be updated). |
 | `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | Invoice due interval (or `null` if the invoice due interval should not be updated). |
 | `Classifications` | [Company update classifications](accounts.md#company-update-classifications) | optional | Classifications of the company. |
@@ -380,8 +380,8 @@ Updates one or more existing accounts in the system. Note this operation support
 | `ContactPerson` | [String update value](_objects.md#string-update-value) | optional | Contact person (or `null` if the contact person should not be updated). |
 | `FiscalIdentifier` | [String update value](_objects.md#string-update-value) | optional | Fiscal identifier (or `null` if the fiscal identifier should not be updated). |
 | `Iata` | [String update value](_objects.md#string-update-value) | optional | IATA of the company (or `null` if the iata should not be updated). |
-| `Telephone` | [String update value](_objects.md#string-update-value) | optional | Telephone (or `null` if the telephone should not be updated). |
-| `SourceId` | [String update value](_objects.md#string-update-value) | optional | Source (or `null` if the source should not be updated). |
+| `Telephone` | [String update value](_objects.md#string-update-value) | optional | Telephone number (or `null` if the telephone number should not be updated). |
+| `SourceId` | [String update value](_objects.md#string-update-value) | optional | Source identifier (or `null` if the source identifier should not be updated). |
 
 #### Company update classifications
 
@@ -394,6 +394,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `GlobalDistributionSystem` | [Bool update value](_objects.md#bool-update-value) | optional | Global distribution system (or `null` if the value should not be updated). |
 | `Marketing` | [Bool update value](_objects.md#bool-update-value) | optional | Marketing (or `null` if the value should not be updated). |
 | `Inactive` | [Bool update value](_objects.md#bool-update-value) | optional | Inactive (or `null` if the value should not be updated). |
+| `GovernmentEntity` | [Bool update value](_objects.md#bool-update-value) | optional | Government Entity (or `null` if the value should not be updated). |
 
 #### Credit rating basic
 
@@ -561,7 +562,7 @@ Updated customer data.
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `Sex` | string | optional | Sex of the customer. |
-| `Title` | string | optional | Title prefix of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title prefix of the customer. |
 | `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language. E.g. `en-US` or `fr-FR`. |
 | `Options` | [Customer options](accounts.md#customer-options) | required | Options of the customer. |
 | `Classifications` | [Customer classifications](accounts.md#customer-classifications) | required | Classifications of the customer. |
@@ -612,8 +613,8 @@ Updated customer data.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ChainId` | string | required | Unique identifier of the chain. |
-| `CreatedUtc` | string | required | Date of `Company` creation date and time. |
-| `UpdatedUtc` | string | required | Date of `Company` last update date and time. |
+| `CreatedUtc` | string | required | Creation date and time of the `Company` in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Last update date and time of the `Company` in UTC timezone in ISO 8601 format. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the company. |
 | `Email` | string | optional | Email address of the company. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
@@ -623,7 +624,7 @@ Updated customer data.
 | `Name` | string | required | Name of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of mother company. |
 | `WebsiteUrl` | string | optional | The website url of the company. |
-| `InvoiceDueInterval` | string | optional | The maximum time, when the invoice has to be be paid in ISO 8601 duration format. |
+| `InvoiceDueInterval` | string | optional | The maximum time (in ISO 8601 duration format), when the invoice has to be be paid. |
 | `CreditRatingBasic` | [Credit rating basic](companies.md#credit-rating-basic) | optional | Credit rating to define credit worthiness of the company. |
 | `Department` | string | optional | The internal segmentation of a company, e.g. sales department. |
 | `DunsNumber` | string | optional | The Dun & Bradstreet unique 9-digit DUNS number. |
@@ -650,6 +651,7 @@ Updated customer data.
 | `GlobalDistributionSystem` | boolean | required | Global distribution system. |
 | `Marketing` | boolean | required | Marketing. |
 | `Inactive` | boolean | required | Inactive. |
+| `GovernmentEntity` | boolean | required | Government Entity |
 
 #### Company options
 
@@ -658,6 +660,53 @@ Updated customer data.
 | `Invoiceable` | boolean | required | Whether the company is invoiceable or not. |
 | `AddFeesToInvoices` | boolean | required | Whether the company has an additional fee applied for invoicing or not. |
 | `AddTaxDeductedPaymentToInvoices` | boolean | required | Whether tax-deducted payments should be automatically added to invoices. |
+
+## Upload and link file to account
+
+Attaches the specified file to the account. 
+
+Allowed MIME types: `application/pdf`, `image/bmp`, `image/gif`, `image/jpeg`, `image/png`, `image/tiff`.
+
+Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/accounts/addFile`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "AccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "Name": "document.pdf",
+  "Type": "application/pdf",
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `AccountId` | string | required | Unique identifier of the account to which the file will be uploaded to. |
+| `Name` | string | required, max length 1000 characters | Uploaded file name. |
+| `Type` | string | required, max length 1000 characters | Content type of the uploaded file following defined by its MIME type. |
+| `Data` | string | required | Uploaded file data serialized in base64 format. |
+
+### Response
+
+```javascript
+{
+  "FileId": "f039f5b4-ff18-4510-9086-92b14a68ed78"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `FileId` | string | required | Unique identifier of the uploaded file. |
 
 ## Merge accounts
 
@@ -705,7 +754,7 @@ Merges two or more accounts of the same account type together. The given source 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `SourceAccountIds` | array of string | required, max 1000 items | Unique identifiers of the source accounts (`Customer` or `Company`). |
-| `TargetAccountId` | string | required | Unique identifier of the target account. |
+| `TargetAccountId` | string | required | Unique identifier of the target account (`Customer` or `Company`). |
 | `AccountType` | [Account merge type](accounts.md#account-merge-type) | required | Specifying types of the accounts provided (`Customer` or `Company`). |
 
 #### Account merge type

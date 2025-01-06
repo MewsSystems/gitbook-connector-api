@@ -10,25 +10,26 @@ tags:
   - availabilityadjustments
   # - availabilityblocks
   - bills
-  # - businesssegments
+  - businesssegments
   - cancellationpolicies
-  # - cashiers
+  - cashiers
   # - cashiertransactions
   # - commands
   - companies
   # - companionships
   # - companycontracts
-  # - configuration
+  - configuration
   # - counters
   - countries
   # - creditcards
   - currencies
-  # - customers
+  - customers
   # - departments
   - devices
-  # - enterprises
+  - enterprises
   - exchangerates
   - exports
+  - identitydocuments
   - images
   # - languages
   # - loyaltymemberships
@@ -42,7 +43,7 @@ tags:
   - outletitems
   # - outlets
   # - paymentrequests
-  # - payments
+  - payments
   # - preauthorizations
   # - productcategories
   - products
@@ -56,12 +57,13 @@ tags:
   - resourcecategories
   # - resourcefeatures
   # - resources
-  # - restrictions
+  - restrictions
   # - routingrules
   # - rules
   # - serviceordernotes
   - services
-  # - sourceassignments
+  - sourceassignments
+  - serviceoverbookinglimits
   - sources
   - tasks
   # - taxations

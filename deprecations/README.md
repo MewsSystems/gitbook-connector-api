@@ -1,9 +1,8 @@
 # Deprecations
 
-Deprecations are features of the API which you are discouraged from using, even though they may still be supported for a period of time for the sake of backwards compatibility.
-Such features are normally deprecated because they are superseded by a better alternative. They can include object properties, entire objects or entire API operations.
-The list of deprecations is as follows. Individual items are also highlighted in the [Changelog](../changelog/README.md) when they occur.
-Historic deprecations that have already been discontinued may not be listed. For more information, see our [Deprecations Policy](https://mews-systems.gitbook.io/open-api/staying-up-to-date/deprecations-policy).
+Deprecations are features of the API which you are discouraged from using, even though they may still be supported for a period of time for the sake of backwards compatibility. Such features are normally deprecated because they are superseded by a better alternative. They can include object properties, entire objects or entire API operations. The list of deprecations is as follows. Individual items are also highlighted in the [Changelog](../changelog/README.md) when they occur. Historic deprecations that have already been discontinued may not be listed. 
+
+**For more information, see our [Deprecations Policy](https://mews-systems.gitbook.io/open-api/staying-up-to-date/deprecations-policy).**
 
 > **Important:** We strongly advise you to review this list and if you are using any of the deprecated items in your integration, to update your implementation accordingly.
 
@@ -12,12 +11,13 @@ The table columns have the following meanings:
 * __Feature__ - What entity or feature is being deprecated
 * __Comments__ - Additional information, such as the reason for the deprecation and what the replacement is
 * __Deprecated__ - The date at which the deprecation notice was given (see the [Changelog](../changelog/README.md))
-* __Discontinued__ \- The date at which it is planned to discontinue support completely; a value of '-' indicates no date has been set
+* __Discontinued__ \- The date at which it is planned to discontinue the feature completely; a value of '-' indicates no date has been set
 
 ## Deprecated operations
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| [Get customers open items](../operations/customers.md#get-customers-open-items) | Replaced by [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) | 15 Nov 2024 | - |
 | [Add restrictions](../operations/restrictions.md#add-restrictions) | Replaced by [Set restrictions](../operations/restrictions.md#set-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
 | [Delete restrictions](../operations/restrictions.md#delete-restrictions) | Replaced by  [Clear restrictions](../operations/restrictions.md#clear-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
 | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 10 Jan 2025 |
@@ -75,7 +75,7 @@ The table columns have the following meanings:
 | `Address`<br>in [Company](../operations/companies.md#company) | Replaced by `AddressId` | 18 Jan 2023 | 10 Jan 2025 |
 | `BasePrices`<br>in [Get rate pricing](../operations/rates.md#get-rate-pricing) | Replaced by `BaseAmountPrices` | 18 Jan 2023 | |
 | `Prices`<br>in [Resource category pricing](../operations/rates.md#resource-category-pricing) | Replaced by `AmountPrices` | 18 Jan 2023 | |
-| `Entities`<br>in [General webhook request body](../webhooks/wh-general.md#request-body) | Fetch data per corresponding [Event discriminator](../webhooks/wh-general.md#event-discriminator) | 23 Aug 2022 | - |
+| `Entities`<br>in [General webhook request body](../events/wh-general.md#request-body) | Fetch data per corresponding [Event discriminator](../events/wh-general.md#event-discriminator) | 23 Aug 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block](../operations/availabilityblocks.md#availability-block), [Availability block adjustment](../operations/availabilityblocks.md#availability-block-adjustment) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 29 Jun 2022 | - |
 | `StartUtc`, `EndUtc`<br>in [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters), [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters) | Replaced by `FirstTimeUnitStartUtc` and `LastTimeUnitStartUtc` | 24 Jun 2022 | - |
 | `AdultCount`, `ChildCount`<br>in [Reservation](../operations/reservations.md#reservation), [Reservation parameters](../operations/reservations.md#reservation-parameters), [Reservation updates](../operations/reservations.md#reservation-updates) | Replaced by `PersonCounts` and [`Age category`](../operations/agecategories.md#age-category) | 11 Feb 2022 | - |
@@ -125,5 +125,5 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
-| [Websocket authentication](../websockets/README.md#authentication) using URL query parameters | Changed to use cookies instead, which is more secure | 06 Jan 2021 | - |
-| WebSocket `Space event` | Replaced by [Resource event](../websockets/README.md#resource-event) | 21 Sep 2020 | - |
+| [WebSocket authentication](../events/websockets.md#authentication) using URL query parameters | Changed to use cookies instead, which is more secure | 06 Jan 2021 | - |
+| WebSocket `Space event` | Replaced by [Resource event](../events/websockets.md#resource-event) | 21 Sep 2020 | - |

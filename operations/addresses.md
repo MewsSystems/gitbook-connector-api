@@ -4,7 +4,7 @@
 ## Get all addresses
 
 Returns all addresses associated with the specified accounts within the enterprise. 
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -100,7 +100,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add addresses
 
-Adds one or more new addresses to the system and assigns them to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds one or more new addresses to the system and assigns them to specified accounts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -180,7 +180,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 
 ## Update addresses
 
-Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -269,7 +269,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 
 ## Delete addresses
 
-Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

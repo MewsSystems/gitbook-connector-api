@@ -48,13 +48,15 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (currently only [Customers](customers.md#customer), in the future also [Companies](companies.md#company)) the reservation is associated with. |
+| `Numbers` | array of string | optional, max 1000 items | A list of reservation numbers. Each number uniquely identifies a reservation within the system |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Resources](resources.md#resource) assigned to the reservations. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](reservations.md#reservation-ver-2023-06-06) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Reservations` were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the reservations are active. This is defined for a `Reservation` as the period between the reservation's scheduled start time `ScheduledStartUtc` and its scheduled end time `EndUtc`. Reservation is selected if any part of its interval intersects with the interval specified in `CollidingUtc |
 | `ScheduledStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled start time. |
+| `ScheduledEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled end time. |
 | `States` | array of [Service order state](reservations.md#service-order-state) | optional | A list of service order states to filter by. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -131,11 +133,11 @@ Returns all reservations within scope of the Access Token, filtered according to
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation. |
 | `ServiceId` | string | required | Unique identifier of the `Service` that reservation is made against. |
-| `AccountId` | string | required | Unique identifier of the Customer or a Company who owns the reservation. |
+| `AccountId` | string | required | Unique identifier of the Customer or Company who owns the reservation, i.e. the main guest linked to the reservation. |
 | `AccountType` | [Account type](accounts.md#account-type) | required |  |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the reservation. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the reservation. |
-| `BookerId` | string | optional | Unique identifier of the Customer on whose behalf the reservation was made. |
+| `BookerId` | string | optional | Unique identifier of the booker who made the reservation on behalf of the reservation owner, in the special case where the booker is also a registered customer in Mews. |
 | `Number` | string | required | Confirmation number of the reservation in Mews. |
 | `State` | [Service order state](reservations.md#service-order-state) | required | State of the reservation. |
 | `Origin` | [Service order origin](reservations.md#service-order-origin) | required | Origin of the reservation. |
@@ -447,7 +449,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
@@ -565,6 +567,48 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the reservation group. |
 | `Name` | string | optional | Name of the reservation group. |
+
+#### Document type
+
+* `IdentityCard`
+* `Passport`
+* `Visa`
+* `DriversLicense`
+
+#### Customer classification
+
+* `None`
+* `PaymasterAccount`
+* `Blacklist`
+* `Media`
+* `LoyaltyProgram`
+* `PreviousComplaint`
+* `Returning`
+* `Staff`
+* `FriendOrFamily`
+* `TopManagement`
+* `Important`
+* `VeryImportant`
+* `Problematic`
+* `Cashlist`
+* `DisabledPerson`
+* `Military`
+* `Airline`
+* `HealthCompliant`
+* `InRoom`
+* `WaitingForRoom`
+* `Student`
+
+#### Customer option
+
+* `None`
+* `SendMarketingEmails`
+* `Invoiceable`
+* `BillAddressObjection`
+* `SendMarketingPostalMail`
+* `SendPartnerMarketingEmails`
+* `SendPartnerMarketingPostalMail`
+* `WithdrawCardConsent`
 
 #### Reservation QR code data
 
@@ -814,6 +858,97 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `Reservation` | [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12) | required | The added reservation. |
+
+## Add reservation product
+
+Adds a new product order of the specified product to the reservation.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addProduct`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
+  "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
+  "Count": 1,
+  "StartUtc": "2021-01-02T00:00:00Z",
+  "EndUtc": "2021-01-03T00:00:00Z",
+  "UnitAmount": {
+    "Currency": "GBP",
+    "GrossValue": 10,
+    "TaxCodes": [
+      "UK-S"
+    ]
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationId` | string | required | Unique identifier of the reservation. |
+| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
+| `Count` | integer | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
+| `UnitAmount` | [Amount parameters](_objects.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
+| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as EndUtc. |
+| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as StartUtc. |
+
+### Response
+
+```javascript
+{
+  "ItemIds": [
+    "ff81fd7a-29ba-4160-8e22-ab4300f67b23"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ItemIds` | array of string | optional |  |
+
+## Add reservation companion
+
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
+  "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
+| `CustomerId` | string | required | Unique identifier of the `Customer`. |
+
+### Response
+
+```javascript
+{}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CompanionshipId` | string | required | Identifier of the created `Companionship` entity. |
 
 ## Update reservations
 
@@ -1100,7 +1235,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate](rates.md#rate) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
@@ -1261,7 +1396,10 @@ Marks a reservation as `Processed` (= checked out). Succeeds only if all process
 
 ## Price reservations
 
-Returns prices of reservations with the specified parameters. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns prices of reservations with the specified parameters.
+Note that the operation doesn't check the maximum capacity of requested resource category. Requesting person counts above the capacity will return prices for the maximum available capacity.
+
+This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -1331,9 +1469,9 @@ Returns prices of reservations with the specified parameters. Note this operatio
 | `CompanyId` | string | optional | Identifier of the `Company` on behalf of which the reservation was made. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation `BusinessSegment`. |
 | `Notes` | string | optional | Additional notes. |
-| `TimeUnitAmount` | [Amount parameters](orders.md#amount-parameters) | optional | Amount of each night of the reservation. |
+| `TimeUnitAmount` | [Amount parameters](_objects.md#amount-parameters) | optional | Amount of each night of the reservation. |
 | `TimeUnitPrices` | array of [Time unit amount parameters](reservations.md#time-unit-amount-parameters) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. |
-| `ProductOrders` | array of [Product order parameters](products.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
+| `ProductOrders` | array of [Product order parameters](orders.md#product-order-parameters) | optional | Parameters of the products ordered together with the reservation. |
 | `AvailabilityBlockId` | string | optional | Unique identifier of the `AvailabilityBlock` the reservation is assigned to. |
 | ~~`AdultCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** Use `PersonCounts` instead.|
 | ~~`ChildCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** Use `PersonCounts` instead.|
@@ -1353,7 +1491,7 @@ Returns prices of reservations with the specified parameters. Note this operatio
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Index` | integer | required | Index of the unit. Indexing starts with `0`. E.g. the first night of the reservation has index `0`. |
-| `Amount` | [Amount parameters](orders.md#amount-parameters) | optional | Amount of the unit. |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | optional | Amount of the unit. |
 
 ### Response
 
@@ -1494,8 +1632,8 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required, max 1000 items | Unique identifiers of the reservation to cancel. |
-| `PostCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
-| `SendEmail` | boolean | optional | Whether cancellation email should be sent. The default is `true`. |
+| `PostCancellationFee` | boolean | optional | Whether the cancellation fees should be charged according to rate conditions. The default is `false`. |
+| `SendEmail` | boolean | optional | Whether the cancellation email should be sent. The default is `true`. |
 | `Notes` | string | required | Additional notes describing the reason for the cancellation. |
 | ~~`ReservationId`~~ | ~~string~~ | ~~required~~ | **Deprecated!** |
 
@@ -1512,94 +1650,3 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ReservationIds` | array of string | required | Identifiers of the affected `Reservation` entities. |
-
-## Add reservation product
-
-Adds a new product order of the specified product to the reservation.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addProduct`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "ReservationId": "4d2aa234-5d30-472c-899f-ab45008c3479",
-  "ProductId": "47312820-2268-4f5c-864d-aa4100ed82bc",
-  "Count": 1,
-  "StartUtc": "2021-01-02T00:00:00Z",
-  "EndUtc": "2021-01-03T00:00:00Z",
-  "UnitAmount": {
-    "Currency": "GBP",
-    "GrossValue": 10,
-    "TaxCodes": [
-      "UK-S"
-    ]
-  }
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `ReservationId` | string | required | Unique identifier of the reservation. |
-| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
-| `Count` | integer | required | The amount of the products to be added. Note that if the product is charged e.g. per night, count 1 means a single product every night. Count 2 means two products every night. |
-| `UnitAmount` | [Amount parameters](orders.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
-| `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as EndUtc. |
-| `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging Once and PerPerson must be set to same value as StartUtc. |
-
-### Response
-
-```javascript
-{
-  "ItemIds": [
-    "ff81fd7a-29ba-4160-8e22-ab4300f67b23"
-  ]
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ItemIds` | array of string | optional |  |
-
-## Add reservation companion
-
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/reservations/addCompanion`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "ReservationId": "e6ea708c-2a2a-412f-a152-b6c76ffad49b",
-  "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
-| `CustomerId` | string | required | Unique identifier of the `Customer`. |
-
-### Response
-
-```javascript
-{}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `CompanionshipId` | string | required | Identifier of the created `Companionship` entity. |

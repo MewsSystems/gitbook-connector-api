@@ -46,7 +46,7 @@ As an alternative to making conventional API requests using [Get all reservation
 
 ## Periodic updates and syncing data
 
-To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull, then use [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) to listen for reservation events. When you receive a reservation event, use the reservation `Id` obtained from the event to fetch the details of the reservation with [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
+To keep reservations up-to-date and synced across your systems in real time, first cache the reservation data retrieved from the initial reservation data pull, then use [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) to listen for reservation events. When you receive a reservation event, use the reservation `Id` obtained from the event to fetch the details of the reservation with [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
 
 > **WebSocket disconnection:** In case of WebSocket disconnection, use [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) with `UpdatedUtc` to perform a full resync of reservations that have been updated within the time period since the last full reservation data pull.
 
@@ -54,7 +54,7 @@ The suggested frequency for periodic reservation syncing is 30 minutes for busin
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) |
 | How to get reservation details | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) |
 
 ## Rate pricing
@@ -86,7 +86,7 @@ When calculating occupancy, it is important to take the hierarchy of resources i
 
 ## Testing your integration
 
-Once your integration is completed, all operations should be tested prior to initiating the [Certification process](https://help.mews.com/s/article/connector-api-certification-what-to-expect?language=en_US) with the **Mews Marketplace** team. Testing your solution is done directly in the Connector API Demo environment. You should use the credentials found in [Environments](../guidelines/environments.md) to sign in as an end-user. This allows you to understand how both your system and the Mews system will be used by the property and gives you additional information to ensure you can provide a seamless on-boarding experience for our customers.
+Once your integration is completed, all operations should be tested prior to initiating the [Certification process](../your-journey/README.md) with the **Mews Marketplace** team. Testing your solution is done directly in the Connector API Demo environment. You should use the credentials found in [Environments](../guidelines/environments.md) to sign in as an end-user. This allows you to understand how both your system and the Mews system will be used by the property and gives you additional information to ensure you can provide a seamless on-boarding experience for our customers.
 
 For help on how to create new reservations, please follow the steps outlined in the [Create a reservation](https://help.mews.com/s/article/create-a-reservation?language=en_US) guide. If you'd like to double-check that you are correctly requesting all the reservations you want to retrieve, you can compare the API response to the Mews [Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US). This report can easily be exported in various formats following the steps in [Scheduling report exports](https://help.mews.com/s/article/schedule-report-exports?language=en_US).
 

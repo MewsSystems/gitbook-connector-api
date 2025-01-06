@@ -78,7 +78,7 @@ To make changes to guest loyalty memberships, use [Update loyalty memberships](.
 
 ## Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations.
+Ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations.
 For additional help when working with the demo environment, there is a range of helpful articles in the [Mews Help Center](https://help.mews.com/s/?language=en_US). These are available in a number of languages.
 The following articles may be of interest:
 * [Understanding the Loyalty section in Mews Operations](https://help.mews.com/s/article/Understanding-the-Loyalty-section-in-Mews-Operations)

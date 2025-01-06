@@ -13,13 +13,13 @@ Firstly, use [Get all services](../operations/services.md#get-all-services) to r
 
 ## Checked-in status
 
-Guest technology integrations typically require information on changes to [reservation state](../operations/reservations.md#reservation-state), especially when a reservation is checked-in and checked-out. Rather than polling the API for state changes, it is better to subscribe to notification events using [Webhooks](../webhooks/README.md) or [WebSockets](../websockets/README.md). Both methods support changes to reservations. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md). Once a reservation update event is received, use the reservation ID in a [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request to retrieve information about the reservation and customer.
+Guest technology integrations typically require information on changes to [reservation state](../operations/reservations.md#reservation-state), especially when a reservation is checked-in and checked-out. Rather than polling the API for state changes, it is better to subscribe to notification events using [Webhooks](../events/README.md) or [WebSockets](../events/websockets.md). Both methods support changes to reservations. Don't know which one to use? See [Ways to communicate](../guidelines/communicate.md). Once a reservation update event is received, use the reservation ID in a [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) request to retrieve information about the reservation and customer.
 
 > **No Post:** The customer classification `Cashlist` is used when charges cannot be sent to the customer bill. This is commonly known as ‘No Post’.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../events/websockets.md) \(`Reservation` event\) |
 | How to get reservation and customer details | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) |
 
 ## Charging checked-in customers
@@ -32,7 +32,7 @@ Once the unique identifier of the customer to be charged is obtained, the items 
 
 ## Testing your integration
 
-Please ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
+Please ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations. To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category in the Revenue section of the report.
 
 ## Additional help for working with the demo environment
 

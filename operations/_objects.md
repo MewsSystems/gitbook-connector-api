@@ -95,9 +95,20 @@ Dictionary is a collection of key-value pairs, where both keys and values are st
 | :-- | :-- | :-- | :-- |
 | ?Key? | string | optional | Some value corresponding to the ?Key? unique identifier. Cannot be null. |
 
-### Dictionary of integers
+### Dictionary of numbers
 
-Dictionary of integers is a collection of key-value pairs, where keys are strings and the values are arrays of integer.
+Dictionary of numbers is a collection of key-value pairs, where keys are strings and the values are numbers.
+
+```javascript
+{
+    "Amex": 0.05,
+    "MasterCard": 9,
+}
+```
+
+### Dictionary of integer arrays
+
+Dictionary of integer arrays is a collection of key-value pairs, where keys are strings and the values are arrays of integers.
 
 ```javascript
 {
@@ -181,6 +192,24 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 | `TaxRateCode` | string | optional | Tax rate code for the item. `null` for untaxed amounts. |
 | `NetValue` | number | required | The net value that the tax is calculated from. |
 | `TaxValue` | number | required | The value of the tax. |
+
+#### Amount parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `GrossValue` | decimal | optional | Amount including tax. Required for Gross [Pricing](configuration.md#pricing) environments. |
+| `NetValue` | decimal | optional | Amount excluding tax. Required for Net [Pricing](configuration.md#pricing) environments. |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `TaxCodes` | array of string | required | Codes of [Tax rates](taxations.md#tax-rate) to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
+
+### Hybrid identifier
+
+A hybrid identifier is a string with a specific format that allows the use of alternative unique identifiers, in addition to the entity's unique identifier. When using these alternative identifiers, a corresponding prefix must be included as part of the value.
+
+| Identifier | Prefix | Value example | Description |
+| :-- | :-- | :-- | :-- |
+| Primary identifier | (no prefix) | `a01bc7c3-cfa2-4ad6-a360-5cb8b4004ab5` | Primary identifier of the entity e.g. `Id` field on `Service`.|
+| External identifier | `eid:` | `eid:COM-123` | External identifier of the entity e.g. `ExternalIdentifier` field on `Service`. |
 
 ### Currency value (ver 2018-06-07)
 

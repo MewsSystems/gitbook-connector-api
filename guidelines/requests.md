@@ -12,6 +12,9 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 
 ## Body
 
+All API operations require the inclusion of `ClientToken`, `AccessToken` and `Client` in the request. These parameters authenticate incoming requests. For more details, see [Authentication](authentication.md).
+Additionally, all API operations can optionally accept `LanguageCode` and `CultureCode`. These parameters enforce the language and culture of the operation, potentially affecting entity descriptions or error messages. Both values must be provided together; otherwise, default values will be used.
+
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -29,27 +32,6 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 | `Client` | string | required | Name and version of the client application. |
 | `LanguageCode` | string | optional | Code of the [language](../operations/languages.md#language). |
 | `CultureCode` | string | optional | Code of the culture. |
-
-All operations of the API require `ClientToken`, `AccessToken` and `Client` to be present in the request. These are used to authenticate incoming requests - see [Authentication](#authentication).
-
-All operations of the API optionally accept `LanguageCode` and `CultureCode`. These can be used to enforce the language and culture of the operation, which may affect, for example, entity descriptions or error messages. Both of these values must be defined together, otherwise default values will be used.
-
-## Authentication
-
-Each Mews environment (e.g. demo, production) requires a different set of tokens.
-
-* `ClientToken` serves as the unique identifier of the API client, i.e. the integration partner consuming the API
-* `AccessToken` serves to identify the enterprise or enterprises whose data and services you have access to
-* `Client` is the name and version of the client application you are integrating with Mews
-
-A unique `AccessToken` is generated for each new property or enterprise which uses your connection, and allows the client application to access the data for that enterprise via the API.
-
-`AccessTokens` normally allow access to a single enterprise, however some tokens may be Portfolio Access Tokens, to facilitate multi-property operation in cases where you are working with a portfolio of properties.
-These are multi-enterprise tokens, which grant access to more than one enterprise with a single token.
-For more information on Portfolio Access Tokens and multi-property working, see [Multi-property](multi-property.md).
-
-In order to receive credentials for production usage, you will have to successfully complete a [certification](certification.md) process. After certification, your integration profile will be created and you will automatically receive a unique `ClientToken`. This `ClientToken` will stay the same for all of the connections that will be created in the production environment.
-A unique `AccessToken` will automatically be generated and shared with you for each enterprise requesting to connect their Mews profile to your system.
 
 ## Request limits
 

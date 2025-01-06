@@ -49,7 +49,7 @@ Returns all categories of resources. This operation uses [Pagination](../guideli
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of [Services](services.md#service) to which the resource categories belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resource categories were updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -156,7 +156,7 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the resource category assignments were updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of resources to which the resource category assignments belong. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
@@ -248,7 +248,7 @@ Returns all resource category image assignments. This operation uses [Pagination
 | `ResourceCategoryIds` | array of string | required, max 1000 items | Unique identifiers of [Resource categories](resources.md#resource-category) to which the resource category image assignments belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the resource category image assignments were updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 

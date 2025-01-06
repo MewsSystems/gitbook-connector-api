@@ -35,9 +35,11 @@ This page summarises all of our 'how to' use cases, together with the main use c
 | How to create a new bill | [Add bill](../operations/finance.md#add-bill) | [Events](events.md), [Kiosk](kiosk.md) |
 | How to close a bill against change | [Close bill](../operations/finance.md#close-bill) | [Events](events.md), [Kiosk](kiosk.md) |
 | How to get a printable bill | [Get bill PDF](../operations/bills.md#close-bill) | [Kiosk](kiosk.md) |
-| How to charge a guest credit card using Mews Payments | [Charge credit card](../operations/creditcards.md#charge-credit-card) | [Kiosk](kiosk.md) |
-| How to add a credit card to the guest profile | [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card) | [Kiosk](kiosk.md) |
-| How to get details of stored credit cards | [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | [Kiosk](kiosk.md) |
+| How to charge a guest credit card using Mews Payments | [Charge credit card](../operations/creditcards.md#charge-credit-card) | [Kiosk](kiosk.md), [Payment automation](payment-automation.md) |
+| How to add a credit card to the guest profile | [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card) | [Kiosk](kiosk.md), [Payment automation](payment-automation.md) |
+| How to get details of stored credit cards | [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | [Kiosk](kiosk.md), [Payment automation](payment-automation.md) |
+| How to check if a credit card is stored against a guest profile | [Get all credit cards](../operations/creditcards.md#get-all-credit-cards) | [Kiosk](kiosk.md), [Payment automation](payment-automation.md) |
+| How to get the merchant ID for the Mews Payment Gateway | [Get configuration](../operations/configuration.md#get-configuration) | [Payment automation](payment-automation.md) |
 | How to record an external card payment | [Add credit card payment](../operations/payments.md#add-credit-card-payment) | [Kiosk](kiosk.md) |
 | How to record a general external payment | [Add external payment](../operations/payments.md#add-external-payment) | [Kiosk](kiosk.md) |
 | How to record an alternative external payment | [Add alternative payment](../operations/payments.md#add-alternative-payment) | [Kiosk](kiosk.md) |
@@ -83,7 +85,7 @@ This page summarises all of our 'how to' use cases, together with the main use c
 
 | <div style="width:350px">'How to' use case</div> | <div style="width:200px">API Operations</div> | <div style="width:150px">Use cases</div> |
 | :-- | :-- | :-- |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../websockets/README.md) \(`Reservation` event\) | [Guest technology](guest-technology.md), [Customer management](customer-management.md), [Housekeeping](housekeeping.md), [Reputation management](reputation-management.md), [Revenue management](revenue-management.md), [Events](events.md) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) or [WebSockets](../events/websockets.md) \(`Reservation` event\) | [Guest technology](guest-technology.md), [Customer management](customer-management.md), [Housekeeping](housekeeping.md), [Reputation management](reputation-management.md), [Revenue management](revenue-management.md), [Events](events.md) |
 | How to get reservation and customer details | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | [Guest technology](guest-technology.md), [Customer management](customer-management.md), [Housekeeping](housekeeping.md) |
 | How to get reservation details | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | [Revenue management](revenue-management.md) |
 | How to get reservations updated over a time period | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | [Customer management](customer-management.md) |
@@ -126,7 +128,7 @@ This page summarises all of our 'how to' use cases, together with the main use c
 | How to get rate pricing | [Get rate pricing](../operations/rates.md#get-rate-pricing) | [Kiosk](kiosk.md) |
 | How to get the price for a given rate | [Get rate pricing](../operations/rates.md#get-rate-pricing) | [Events](events.md) |
 | How to get the price for a specific rate and time period | [Get rate pricing](../operations/rates.md#get-rate-pricing) | [Revenue management](revenue-management.md) |
-| How to listen for changes to rate prices | [WebSockets](../websockets/README.md) \(`PriceUpdate` event\) | [Revenue management](revenue-management.md) |
+| How to listen for changes to rate prices | [WebSockets](../events/websockets.md) \(`PriceUpdate` event\) | [Revenue management](revenue-management.md) |
 | How to get rate package rules | [Get all rules](../operations/rules.md#get-all-rules) | [Kiosk](kiosk.md) |
 | How to get all configured business segments | [Get all business segments](../operations/businesssegments.md#get-all-business-segments) | [Revenue management](revenue-management.md) |
 | How to get service restrictions | [Get all restrictions](../operations/restrictions.md#get-all-restrictions) | [Revenue management](revenue-management.md) |
@@ -179,13 +181,13 @@ This page summarises all of our 'how to' use cases, together with the main use c
 | How to get messages for your message threads | [Get all messages](../operations/messages.md#get-all-messages) | [Customer messaging](messaging.md) |
 | How to create a new message thread | [Add message thread](../operations/messagethreads.md#add-message-thread) | [Customer messaging](messaging.md) |
 | How to create a new message within a thread | [Add messages](../operations/messages.md#add-messages) | [Customer messaging](messaging.md) |
-| How to listen for new customer messages | [General Webhooks](../webhooks/wh-general.md) \(`MessageAdded` event\) | [Customer messaging](messaging.md) |
+| How to listen for new customer messages | [General Webhooks](../events/wh-general.md) \(`MessageAdded` event\) | [Customer messaging](messaging.md) |
 
 ## Device Commands
 
 | <div style="width:350px">'How to' use case</div> | <div style="width:200px">API Operations</div> | <div style="width:150px">Use cases</div> |
 | :-- | :-- | :-- |
-| How to listen for new device commands | [WebSockets](../websockets/README.md) | [Device integration](device-integration.md) |
+| How to listen for new device commands | [WebSockets](../events/websockets.md) | [Device integration](device-integration.md) |
 | How to get details of a device command | [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids) |[Device integration](device-integration.md) |
 | How to get all unprocessed device commands | [Get all commands](../operations/commands.md#get-all-commands) |[Device integration](device-integration.md) |
 | How to update the state of a device command | [Update command](../operations/commands.md#update-command) |[Device integration](device-integration.md) |

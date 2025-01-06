@@ -60,7 +60,7 @@ Should you need to retrieve a list of all customer profiles created within a cer
 ## Adding revenue and payment items
 
 One of the expected functions of an Events integration is to push product order items to the correct customer profile in Mews. This can be done using the operation [Add order](../operations/orders.md#add-order). If the product item that is being posted already exists in Mews, use [Product order parameters](../operations/orders.md#product-order-parameters). If the product is a custom item that does not exist in Mews then use [Item parameters](../operations/orders.md#item-parameters). 
-Note that in order to use [Product order parameters](../operations/services.md#product-order-parameters), the property must first set up products under an Additional Service. Then, you will need to retrieve the products by calling [Get all products](../operations/products.md#get-all-products).
+Note that in order to use [Product order parameters](../operations/orders.md#product-order-parameters), the property must first set up products under an Additional Service. Then, you will need to retrieve the products by calling [Get all products](../operations/products.md#get-all-products).
 To ensure correct reporting, all revenue items posted into Mews using [Item parameters](../operations/orders.md#item-parameters) must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property can be retrieved using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
@@ -138,20 +138,20 @@ To ensure that the property can further manage individual guests linked to the g
 
 ### Managing availability block inventory and pickup
 
-Call [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks](../webhooks/README.md#general-message) for Service Order events to automatically receive information about reservation creation and reservation updates. Make a note of the `AvailabilityBlockId` in the reservation object to record pickup of the relevant availability block in your system and in Mews.
+Call [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) to retrieve information about existing availability blocks, as well as all associated reservations and availability adjustments. To avoid the need of regular polling, you can make use of [Webhooks](../events/README.md#general-message) for Service Order events to automatically receive information about reservation creation and reservation updates. Make a note of the `AvailabilityBlockId` in the reservation object to record pickup of the relevant availability block in your system and in Mews.
 
 When a reservation no longer belongs to the availability block, follow the format described in [Update reservation](../operations/reservations.md#update-reservations) to remove the `AvailabilityBlockId`. When an availability block is no longer needed, remove it from Mews by calling [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks). The availability adjustments associated with the availability block will automatically be removed. Note that is it not possible to delete an availability block containing active reservations.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to get existing availability blocks | [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) |
-| How to listen for changes to reservations | [General Webhooks](../webhooks/wh-general.md) \(`ServiceOrderUpdated` event\) |
+| How to listen for changes to reservations | [General Webhooks](../events/wh-general.md) \(`ServiceOrderUpdated` event\) |
 | How to delete an availability block | [Delete availability blocks](../operations/availabilityblocks.md#delete-availability-blocks) |
 | How to remove a reservation from an availability block | [Update reservation](../operations/reservations.md#update-reservations) |
 
 ## Testing your integration
 
-Ensure you follow our general [guidelines](../guidelines/README.md) for testing integrations. If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation or related customer profile](https://help.mews.com/s/article/search-in-mews-operations?language=en_US), or using the [Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US). To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  
+Ensure you follow our general [Usage guidelines](../guidelines/README.md) for testing integrations. If you'd like to double-check that you are correctly creating all the reservations you want to retrieve, you can do so by [searching for the reservation or related customer profile](https://help.mews.com/s/article/search-in-mews-operations?language=en_US), or using the [Reservation Report](https://help.mews.com/s/article/reservation-report?language=en_US). To confirm you are relating any product that is not configured in Mews with the correct accounting category, you can review the [Accounting Report](https://help.mews.com/s/article/accounting-report?language=en_US). If done correctly, the product you've posted will appear under the relevant accounting category.  
 
 ## Additional help for working with the demo environment
 

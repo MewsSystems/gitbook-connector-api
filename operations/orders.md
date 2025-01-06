@@ -2,7 +2,7 @@
 
 ## Add order
 
-Creates a new order, with the specified products and items. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates a new order, with the specified products and items. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -47,7 +47,7 @@ Creates a new order, with the specified products and items. If the time of consu
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | ~~Identifier of the [Customer](customers.md#customer) to be charged.~~  **Deprecated!** |
 | `AccountId` | string | required | Identifier of the [Customer](customers.md#customer) or [Company](companies.md#company) to be charged. Company billing may not be enabled for your integration. |
 | `ServiceId` | string | required | Identifier of the [Service](services.md#service) to be ordered. |
@@ -64,7 +64,7 @@ Creates a new order, with the specified products and items. If the time of consu
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product) to be ordered. |
 | `Count` | number | optional | Count of products to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount parameters](#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
+| `UnitAmount` | [Amount parameters](_objects.#amount-parameters) | optional | Unit amount of the product that overrides the amount defined in Mews. |
 | `StartUtc` | string | optional | Product start in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `EndUtc`. Use only with operation [Add reservations](reservations.md#add-reservations) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](#add-order) operation. |
 | `EndUtc` | string | optional | Product end in UTC timezone in ISO 8601 format. For products with charging `Once` and `PerPerson` must be set to same value as `StartUtc`. Use only with operation [Add reservations](reservations.md#add-reservations) or [Add reservation product](reservations.md#add-reservation-product), can be omitted for [Add order](#add-order) operation. |
 
@@ -74,17 +74,8 @@ Creates a new order, with the specified products and items. If the time of consu
 | :-- | :-- | :-- | :-- |
 | `Name` | string | required | Name of the item. |
 | `UnitCount` | number | required | Count of units to be ordered, e.g. 10 in case of 10 beers. |
-| `UnitAmount` | [Amount parameters](#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
+| `UnitAmount` | [Amount parameters](_objects.md#amount-parameters) | required | Unit amount, e.g. amount for one beer \(note that total amount of the item is therefore `UnitAmount` times `UnitCount`\). |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the item. |
-
-#### Amount parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `GrossValue` | decimal | optional | Amount including tax. Required for Gross [Pricing](configuration.md#pricing) environments. |
-| `NetValue` | decimal | optional | Amount excluding tax. Required for Net [Pricing](configuration.md#pricing) environments. |
-| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `TaxCodes` | array of string | required | Codes of [Tax rates](taxations.md#tax-rate) to be applied to the item. (Note, you can only define one tax when sending `GrossValue`. For multiple taxes, use `NetValue`)|
 
 ### Response
 

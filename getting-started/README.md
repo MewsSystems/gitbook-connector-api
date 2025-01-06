@@ -1,6 +1,6 @@
 # Getting started
 
-This section serves as a quick-start guide to kickstart your integration development. For detailed guidelines on using the API effectively, see [Guidelines](../guidelines/README.md).
+This section provides a quick-start guide to help you begin your integration development. For comprehensive instructions on using the API, please refer to our [Usage guidelines](../guidelines/README.md).
 
 > ### Terminology
 > Some of the terms used in the API, such as *enterprise*, *customer* or *resource* may not be familiar.
