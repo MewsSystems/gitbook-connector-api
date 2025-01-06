@@ -1,4 +1,5 @@
 redirects:
+  guidelines/multi-property: concepts/multi-property.md
   guidelines/certification: your-journey/certification.md
   guidelines/communicate: events/communicate.md
   use-cases/payment-automation: use-cases/payment-automation.md

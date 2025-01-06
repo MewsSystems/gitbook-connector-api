@@ -3,7 +3,7 @@
 ## Get all resource blocks
 
 Returns all resource blocks \(out of order blocks or internal use blocks\). 
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

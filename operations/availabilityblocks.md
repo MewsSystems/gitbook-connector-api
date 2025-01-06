@@ -5,7 +5,7 @@
 > This feature is being actively developed, features and behavior of this operation may change at short notice.
 
 Returns all availability blocks filtered by services, unique identifiers and other filters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -239,7 +239,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 > This feature is being actively developed, features and behavior of this operation might change on short notice.
 
-Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -299,7 +299,7 @@ Adds availability blocks which are used to group related [Availability updates](
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlocks` | array of [Availability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks to be added. |
 
 #### Availability block parameters
@@ -415,7 +415,7 @@ Updates information about the specified [Availability block](#availability-block
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlocks` | array of [Availability block update parameters](#availability-block-update-parameters) | required, max 1000 items | Availability blocks to be updated. |
 
 #### Availability block update parameters
@@ -494,7 +494,7 @@ Delete availability blocks. Note that an availability block containing active re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlockIds` | array of string | required, max 1000 items | Unique identifier of the Availability block to delete. |
 
 ### Response

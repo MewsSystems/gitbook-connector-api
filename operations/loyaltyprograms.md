@@ -3,7 +3,7 @@
 ## Get all loyalty programs
 
 Returns all loyalty programs of the enterprise, optionally filtered by specific loyalty program identifiers, activity states, or other filter parameters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -104,7 +104,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add loyalty programs
 
-Adds loyalty programs to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds loyalty programs to the enterprise. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -132,7 +132,7 @@ Adds loyalty programs to the enterprise. Note this operation supports [Portfolio
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `LoyaltyPrograms` | array of [Loyalty program parameters](#loyalty-program-parameters) | required, max 1000 items | Loyalty programs to be added. |
 
 #### Loyalty program parameters
@@ -166,7 +166,7 @@ Adds loyalty programs to the enterprise. Note this operation supports [Portfolio
 
 ## Update loyalty programs
 
-Updates information about the specified loyalty programs. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information about the specified loyalty programs. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -200,7 +200,7 @@ Updates information about the specified loyalty programs. Note this operation su
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `LoyaltyProgramUpdates` | array of [Loyalty program update parameters](#loyalty-program-update-parameters) | required, max 1000 items | Loyalty programs to be updated. |
 
 #### Loyalty program update parameters

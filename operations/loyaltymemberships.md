@@ -3,7 +3,7 @@
 ## Get all loyalty memberships
 
 Returns all loyalty memberships of the enterprise, optionally filtered by specific loyalty membership identifiers, activity states, or other filter parameters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -183,7 +183,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add loyalty memberships
 
-Adds loyalty memberships to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds loyalty memberships to the enterprise. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -216,7 +216,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `LoyaltyMemberships` | array of [Loyalty membership parameters](#loyalty-membership-parameters) | required, max 1000 items | Loyalty memberships to be added. |
 
 #### Loyalty membership parameters
@@ -260,7 +260,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 
 ## Update loyalty memberships
 
-Updates information about the specified loyalty memberships. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information about the specified loyalty memberships. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -300,7 +300,7 @@ Updates information about the specified loyalty memberships. Note this operation
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `LoyaltyMembershipUpdates` | array of [Loyalty membership update parameters](#loyalty-membership-update-parameters) | required, max 1000 items | Loyalty memberships to be updated. |
 
 #### Loyalty membership update parameters

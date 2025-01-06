@@ -1,38 +1,40 @@
 # Environments
 
-There are two pricing environments in which enterprises can operate - Gross or Net.
-* Gross Pricing Environments are environments in which taxes are *included* in the pricing that is offered to a customer, such as Germany, UK, Australia.
-* Net Pricing Environments are environments in which taxes are *excluded* in the pricing that is offered to a customer, such as in the US.
+Mews supports two main environments: Demo and Production. Demo can be used for integration development and testing.
+Production is for live customer sites.
+
+## Pricing environments
+
+Enterprises can be configured for Gross Tax or Net Tax. In the Production environment this will depend on the individual enterprise.
+For development and test purposes, we have set up two versions of the Demo environment, one for Gross Tax and one for Net Tax.
+
+* **Gross Pricing Environments**: These are environments in which taxes are *included* in the pricing that is offered to the end customer, such as used by Germany, UK and Australia.
+* **Net Pricing Environments**: These are environments in which taxes are *excluded* from the pricing that is offered to the end customer, such as used in the USA.
 
 ## Demo environments
 
-The below addresses should be used for testing and development of the client applications.
+### Security Policy
+
+> **IMPORTANT!** The demo environments are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.
+
+### Platform addresses
+
+These addresses should be used for testing and development of client applications:
 
 * **PlatformAddress** - `https://api.mews-demo.com`
 * **WebSocketAddress** - `wss://ws.mews-demo.com`
 
-Use the below logins for accessing the demo enterprises ([Gross Pricing Environment](#gross-pricing-environment) and [Net Pricing Environment](#net-pricing-environment)).
+### Mews system credentials
 
-* **MewsWebApplicationAddress** - `https://app.mews-demo.com`
+These login credentials can be used to access __Mews Operations__ (for both Gross and Net Pricing Environments):
+
+* **Mews Web Application Address** - `https://app.mews-demo.com`
 * **Email** - connector-api-demo@mews.com
 * **Password** - connector-API-2024
 
-### Security Policy
+### API tokens (Gross Pricing Environment)
 
-> **IMPORTANT!** The demo environments listed below are completely public and NO REAL DATA should be used for any reason. Failure to comply with these guidelines can result in immediate suspension of the connection or denial of certification.
-
-### Request limits
-
-* 500 requests per `AccessToken` within 15 minutes
-* 250 requests per endpoint per `AccessToken` within 15 minutes
-
-> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md) have their limits increased by 10 times.
-
-### Gross Pricing Environment
-
-The authentication below will connect with the demo enterprise that is configured with Gross Pricing. This demo enterprise is based in the `United Kingdom` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/taxations.md#tax-rate)
-
-Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo enterprise.
+The credentials below will connect with a demo enterprise configured for Gross pricing. This demo enterprise is based in the `United Kingdom` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate](../operations/taxations.md#tax-rate) codes. Use any of the four sets of tokens.
 
 **Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
@@ -50,11 +52,9 @@ Use any of the 4 sets of Client/AccessTokens to access the Gross Pricing demo en
 * **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
 * **AccessToken** - `39E301DD5A1C4A569087AD20015F60DD-50DC28896E9090CCA0995C9BBD90351`
 
-### Net Pricing Environment
+### API tokens (Net Pricing Environment)
 
-The authentication below will connect with the demo enterprise that is configured with Net Pricing. This enterprise is based in the `United States - Washington DC` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate codes](../operations/taxations.md#tax-rate).
-
-Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo enterprise.
+The credentials below will connect with a demo enterprise configured for Net pricing. This demo enterprise is based in the `United States - Washington DC` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate](../operations/taxations.md#tax-rate) codes. Use any of the four sets of tokens.
 
 **Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
@@ -72,33 +72,48 @@ Use any of the 4 sets of Client/AccessTokens to access the Net Pricing demo ente
 * **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
 * **AccessToken** - `BFD4298010F54B069F3DAD20015D53EA-D5561FADFBA4EFC8EA4C179C6BC461F`
 
-## Production environment
+### Request limits
 
-* **MewsWebApplicationAddress** - `https://app.mews.com`
-* **PlatformAddress** - `https://api.mews.com`
-* **WebSocketAddress** - `wss://ws.mews.com`
-* **ClientToken** - Unique token per integration which will be provided to you by our integration team upon certification completion. For further information, please use the chat function on this page.
-* **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
+* 500 requests per `AccessToken` within 15 minutes
+* 250 requests per endpoint per `AccessToken` within 15 minutes
+
+> **Pagination**: All requests utilizing [Pagination](pagination.md) have their limits increased by 10 times.
+
+## Production environment
 
 ### Security Policy
 
-> **IMPORTANT!** To protect the live data of each property, please store your production tokens securely and do not share them publicly.
+> **IMPORTANT!** To protect the live data of each enterprise, please store your production tokens securely and do not share them publicly.
+
+### Addresses
+
+* **PlatformAddress** - `https://api.mews.com`
+* **WebSocketAddress** - `wss://ws.mews.com`
+* **Mews Web Application Address** - `https://app.mews.com`
+
+### API tokens
+
+* **ClientToken** - Unique to your application, serving as the identifier of the API client. This token will be provided to you by our integration team upon successful [certification](../your-journey/README.md).
+* **AccessToken** - Unique token per enterprise. Can be provided to you by the enterprise admin.
 
 ### Request limits
 
 * 3000 requests per `AccessToken` within 15 minutes
 * 1500 requests per endpoint per `AccessToken` within 15 minutes
 
-> **NOTE** All requests utilizing [Pagination](guidelines/pagination.md) have their limits increased by 10 times.
+> **Pagination**: All requests utilizing [Pagination](pagination.md) have their limits increased by 10 times.
 
 ## Taxations
 
-Each enterprise is located in a specific [Tax environment](../operations/taxenvironments.md#tax-environment) that offers a list of applicable [Taxations](../operations/taxations.md#taxation). The numeric value of the taxations are represented by [Tax rate codes](../operations/taxations.md#tax-rate) that are accepted within the tax environment. 
+Each enterprise operates within a specific [Tax environment](../operations/taxenvironments.md#tax-environment), which defines the applicable [Taxations](../operations/taxations.md#taxation). The tax rates are represented by [Tax rate](../operations/taxations.md#tax-rate) codes accepted within that environment.
+Instead of using numeric tax rates like `0.1`, use [Tax rate](../operations/taxations.md#tax-rate) codes such as `AT-S` to accurately represent and calculate the correct taxation for each accounting item in Mews.
 
-Instead of numeric tax rates such as `0.1`, use [Tax rate codes](../operations/taxations.md#tax-rate) such as `AT-S` in order to represent and calculate the correct taxation for each accounting item in Mews. To obtain the applicable codes, first download the enterprise information with [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment, then filter for the applicable [Tax rate codes](../operations/taxations.md#tax-rate) from all tax environment information retrieved via [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments). 
+To obtain the applicable codes:
 
-Make sure to note the validity intervals as well as any government announcements to anticipate changes to tax rates. Should any changes occur, re-retrieve enterprise and tax environment information to identify the new tax rate codes.
+1. Download the enterprise information using [Get configuration](../operations/configuration.md#get-configuration) to identify the Tax Environment.
+2. Filter for the applicable [Tax rate](../operations/taxations.md#tax-rate) codes from the tax environment information retrieved via [Get all tax environments](../operations/taxenvironments.md#get-all-tax-environments).
+3. Be sure to note the validity intervals, and monitor any government announcements for changes to tax rates. If changes occur, re-retrieve the enterprise and tax environment information to identify the new tax rate codes.
 
-## Whitelisting
+## IP address allowlisting
 
-Whitelisting (also called 'allowlisting') is a common security measure which can be applied to a system to allow only specified external systems to talk to it. This has traditionally been achieved using IP address-based firewall rules. However, this approach does not work with modern cloud based architectures, which use dynamic and shared IP addresses, proxy servers and elastic resources. For this reason, we do not support the use of IP address whitelists for our APIs and we cannot supply a list of IP addresses for our APIs.
+Allowlisting (formerly called 'whitelisting') is a common security measure which can be applied to a system to allow only specified external systems to talk to it. This has traditionally been achieved using IP address-based firewall rules. However, this approach does not work with modern cloud based architectures, which use dynamic and shared IP addresses, proxy servers and elastic resources. For this reason, we do not support the use of IP address allowlists for our APIs and we cannot supply a list of IP addresses for our APIs.

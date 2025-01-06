@@ -177,7 +177,7 @@ Same structure as in [Get all commands](#get-all-commands) operation.
 
 ## Add printer command
 
-Adds a new printer command representing printing of the specified document on a printer. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new printer command representing printing of the specified document on a printer. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -200,7 +200,7 @@ Adds a new printer command representing printing of the specified document on a 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `PrinterId` | string | required | Uniqque identifier of the `Printer` [Device](devices.md#device) where to print the document. |
 | `CopyCount` | int | required | Count of copies to be printed. |
 | `Data` | string | required | Base64 encoded data of PDF document to print. |
@@ -219,7 +219,7 @@ Adds a new printer command representing printing of the specified document on a 
 
 ## Add key cutter command
 
-Adds a new key cutter command representing cutting of a key for the specified reservation. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new key cutter command representing cutting of a key for the specified reservation. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -242,7 +242,7 @@ Adds a new key cutter command representing cutting of a key for the specified re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 | `KeyCutterId` | string | required | Unique identifier of the `KeyCutter` [Device](devices.md#device) where to encode the key. |
 | `ReservationId` | string | required | Unique identifier of the reservation to encode the key for. |
 | `KeyCount` | int | required | Count of keys to encode. |
