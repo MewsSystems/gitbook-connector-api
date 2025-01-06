@@ -92,9 +92,9 @@ Adds one or more notes with a provided text to a specific service order. Service
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ServiceOrderNotes` | array of [Service order note add parameters](serviceordernotes.md#service-order-note-add-parameters) | required, max 1000 items | Notes to be added. |
+| `ServiceOrderNotes` | array of [Service order note parameters](serviceordernotes.md#service-order-note-parameters) | required, max 1000 items | Notes to be added. |
 
-#### Service order note add parameters
+#### Service order note parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

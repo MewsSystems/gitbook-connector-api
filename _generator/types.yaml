@@ -101,7 +101,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: _objects.md
+    file: serviceordernotes.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1545,7 +1545,7 @@ types:
     anchor: multipleserviceordernoteaddparameters
   serviceordernoteaddparameters:
     file: serviceordernotes.md
-    anchor: service-order-note-add-parameters
+    anchor: service-order-note-parameters
   serviceordernoteupdateresult:
     file: serviceordernotes.md
     anchor: serviceordernoteupdateresult
