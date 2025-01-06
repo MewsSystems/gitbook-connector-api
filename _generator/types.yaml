@@ -393,7 +393,7 @@ types:
     anchor: service-order-note
   ordernotetype:
     file: serviceordernotes.md
-    anchor: service-order-note-type
+    anchor: ordernotetype
   company:
     file: companies.md
     anchor: company
@@ -1537,3 +1537,33 @@ types:
   associatedaccountidsupdate:
     file: bills.md
     anchor: associated-account-ids-update-parameters
+  serviceordernoteadditionresult:
+    file: serviceordernotes.md
+    anchor: serviceordernoteadditionresult
+  multipleserviceordernoteaddparameters:
+    file: serviceordernotes.md
+    anchor: multipleserviceordernoteaddparameters
+  serviceordernoteaddparameters:
+    file: serviceordernotes.md
+    anchor: service-order-note-add-parameters
+  serviceordernoteupdateresult:
+    file: serviceordernotes.md
+    anchor: serviceordernoteupdateresult
+  multipleserviceordernoteupdateparameters:
+    file: serviceordernotes.md
+    anchor: multipleserviceordernoteupdateparameters
+  serviceordernoteupdateparameters:
+    file: serviceordernotes.md
+    anchor: service-order-note-update-parameters
+  serviceordernoteresult:
+    file: serviceordernotes.md
+    anchor: serviceordernoteresult
+  serviceordernotefilterparameters:
+    file: serviceordernotes.md
+    anchor: serviceordernotefilterparameters
+  serviceordernotedeleteparameters:
+    file: serviceordernotes.md
+    anchor: serviceordernotedeleteparameters
+  ordernotetypeenum:
+    file: serviceordernotes.md
+    anchor: service-order-note-type
