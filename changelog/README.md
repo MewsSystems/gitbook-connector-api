@@ -1,5 +1,8 @@
 # Changelog
 
+## 7th January 2025
+* Added new Webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
+
 ## 6th January 2025
 * Added new operation [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20).
 
