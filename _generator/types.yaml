@@ -391,9 +391,6 @@ types:
   ordernote:
     file: serviceordernotes.md
     anchor: service-order-note
-  ordernotetype:
-    file: serviceordernotes.md
-    anchor: ordernotetype
   company:
     file: companies.md
     anchor: company
