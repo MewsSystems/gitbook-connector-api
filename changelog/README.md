@@ -1,7 +1,7 @@
 # Changelog
 
 ## 6th January 2025
-* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md) request with support for filtering reservations by availability block id.
+* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md) request with `AvailabilityBlockIds` request filtering parameter.
 * Added new operation [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20).
 
 ## 3rd January 2025
