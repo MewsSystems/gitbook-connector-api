@@ -73,7 +73,7 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
 
 ## Get all source assignments
 
-Returns all Sources assigned to a Reservation group. Each reservation group can have multiple sources. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all Sources assigned to a Reservation group. Each reservation group can have multiple sources. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

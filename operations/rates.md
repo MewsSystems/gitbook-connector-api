@@ -3,7 +3,7 @@
 
 ## Get all rates
 
-Returns all rates (pricing setups) of the default service provided by the enterprise. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all rates (pricing setups) of the default service provided by the enterprise. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -580,7 +580,7 @@ Note that prices are defined daily, so when the server receives the UTC interval
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Adds new Rates or updates existing ones if they are matched by `Id` or `ExternalIdentifier` property. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds new Rates or updates existing ones if they are matched by `Id` or `ExternalIdentifier` property. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -750,7 +750,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 
 ## Delete rates
 
-Deletes specified rates. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes specified rates. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

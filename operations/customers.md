@@ -256,7 +256,6 @@ Note that the value should not be used as-is, but localized. For example, the va
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
 | `IssuingCity` | string | optional | City where the document was issued. |
-| `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish legal environment. |
 
 ## ~~Get customers open items~~
 

@@ -46,7 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of `Chain`. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `AccountNoteIds` | array of string | optional, max 1000 items | Unique identifiers of [Account note](accountnotes.md#account-note). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the accounts ([Customer](customers.md#customer) or [Company](companies.md#company)). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Account note's last update date and time. |

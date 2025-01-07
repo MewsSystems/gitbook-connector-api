@@ -118,7 +118,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Gets cancellation policies for enterprise grouped by reservation for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Gets cancellation policies for enterprise grouped by reservation for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -244,7 +244,7 @@ Gets cancellation policies for enterprise grouped by reservation for granular ca
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Gets cancellation policies for enterprise grouped by rate for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Gets cancellation policies for enterprise grouped by rate for granular cancellation policies flow. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

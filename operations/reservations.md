@@ -956,7 +956,7 @@ Adds a new product order of the specified product to the reservation.
 
 ## Add reservation companion
 
-Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a customer as a companion to the reservation. Succeeds only if there is space for the new companion (count of current companions is less than `AdultCount + ChildCount`). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1440,7 +1440,7 @@ Marks a reservation as `Processed` (= checked out). Succeeds only if all process
 Returns prices of reservations with the specified parameters.
 Note that the operation doesn't check the maximum capacity of requested resource category. Requesting person counts above the capacity will return prices for the maximum available capacity.
 
-This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1571,7 +1571,7 @@ This operation supports [Portfolio Access Tokens](../guidelines/multi-property.m
 
 ## Delete reservation companion
 
-Removes customer companionship from the reservation. Note that the customer profile stays untouched, only the relation between the customer and reservation is deleted. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Removes customer companionship from the reservation. Note that the customer profile stays untouched, only the relation between the customer and reservation is deleted. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1604,7 +1604,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 
 ## Confirm reservation
 
-Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met (the reservations have the `Optional` state). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Marks all specified reservations as `Confirmed`. Succeeds only if all confirmation conditions are met (the reservations have the `Optional` state). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

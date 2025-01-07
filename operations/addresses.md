@@ -4,7 +4,7 @@
 ## Get all addresses
 
 Returns all addresses associated with the specified accounts within the enterprise. 
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -43,7 +43,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of `Chain`. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) or [Customers](customers.md#customer) within the enterprise. Required if no other filter is provided. |
 | `AddressIds` | array of string | optional, max 1000 items | Unique identifiers of [Addresses](addresses.md#account-address) within the enterprise. Use this property if you want to fetch specific addresses. Required if no other filter is provided. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval of Address last update date and time. Required if no other filter is provided. |
@@ -100,7 +100,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add addresses
 
-Adds one or more new addresses to the system and assigns them to specified accounts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Adds one or more new addresses to the system and assigns them to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -180,7 +180,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 
 ## Update addresses
 
-Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Updates one or more existing addresses in the system, assigned to specified accounts. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -269,7 +269,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 
 ## Delete addresses
 
-Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Deletes one or more addresses in the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 

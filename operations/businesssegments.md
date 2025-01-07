@@ -3,7 +3,7 @@
 
 ## Get all business segments
 
-Returns all business segments. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all business segments. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
