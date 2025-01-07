@@ -181,8 +181,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](customers.md#customer) | required | The customers. |
-| `Documents` | array of [Identity document](customers.md#identity-document) | required | The identity documents of customers. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then Cursor will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
+| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 
 #### Customer
 
@@ -223,10 +223,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -425,16 +425,16 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `Address` | [Address parameters](companies.md#address-parameters) | optional | Address of the customer. |
-| `IdentityCard` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Identity card details of the customer. |
-| `Passport` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Passport details of the customer. |
-| `Visa` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Visa details of the customer. |
-| `DriversLicense` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Drivers license details of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using `PortfolioAccessTokens`, ignored otherwise. |
 | `OverwriteExisting` | boolean | required | Whether an existing customer should be overwritten in case of duplicity. This applies only to basic personal information (`Title`, `FirstName`, `LastName`, ...). |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
+| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Identity card details of the customer.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Passport details of the customer.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Visa details of the customer.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Drivers license details of the customer.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 
 #### Sex
 
@@ -593,10 +593,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -682,14 +682,14 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `Address` | [Address parameters](companies.md#address-parameters) | optional | New address details. |
-| `IdentityCard` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New identity card details. |
-| `Passport` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New passport details. |
-| `Visa` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New visa details. |
-| `DriversLicense` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New drivers license details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ItalianDestinationCode` | [String update value](_objects.md#string-update-value) | optional | New Italian destination code of customer. |
 | `ItalianFiscalCode` | [String update value](_objects.md#string-update-value) | optional | New Italian fiscal code of customer. |
+| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New identity card details.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New passport details.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New visa details.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New drivers license details.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 
 ### Response
 
@@ -800,10 +800,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -929,7 +929,7 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
-| `Documents` | array of [Identity document](customers.md#identity-document) | optional | The identity documents of customers. |
+| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use `identityDocuments/getAll` to fetch identity documents.|
 
 #### Customer search result
 

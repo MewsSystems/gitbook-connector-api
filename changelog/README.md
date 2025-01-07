@@ -1,5 +1,16 @@
 # Changelog
 
+## 7th January 2025
+* Deprecated operation extent `Documents` in [Get all customers](../operations/customers.md#get-all-customers). Use Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* Deprecated `Passport`, `IdentityCard`, `Visa`, `DriversLicense` on [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead. This affects:
+  * [Search customers](../operations/customers.md#customer)
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers`
+  * [Get all customers](../operations/customers.md#get-all-customers)
+
+* Deprecated `Passport`, `IdentityCard`, `Visa`, `DriversLicense` in:
+  * [Add customer](../operations/customers.md#add-customer), use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead.
+  * [Update customer](../operations/customers.md#update-customer), Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead.
+
 ## 6th January 2025
 * Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md) request with support for filtering reservations by availability block id.
 * Added new operation [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20).
