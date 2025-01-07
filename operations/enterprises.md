@@ -3,7 +3,7 @@
 
 ## Get all enterprises
 
-Returns all enterprises within scope of the `Access Token`, optionally filtered by enterprise identifiers and external identifiers. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all enterprises within scope of the `Access Token`, optionally filtered by enterprise identifiers and external identifiers. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -77,6 +77,17 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "Pricing": "Gross",
       "TaxPrecision": 2,
       "AddressId": "31c505e9-9858-4d2f-9eab-afce011c4f47",
+      "Address": {
+        "Id": "8c2c4371-5d42-40a9-b551-ab0b00d75076",
+        "Line1": "I.P. Pavlova 5",
+        "Line2": null,
+        "City": "Prague",
+        "PostalCode": "1200",
+        "CountryCode": "CZ",
+        "CountrySubdivisionCode": null,
+        "Latitude": 14.429645,
+        "Longitude": 50.075181
+      },
       "GroupNames": [
         "Sample Group Name"
       ],
@@ -120,6 +131,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `Pricing` | [Pricing](configuration.md#pricing) | required | Pricing of the enterprise. |
 | `TaxPrecision` | integer | optional | Tax precision used for financial calculations in the enterprise. If `null`, `Currency` precision is used. |
 | `AddressId` | string | required | Unique identifier of the `Address` of the enterprise. |
+| `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
 | `GroupNames` | array of string | required | A list of the group names of the enterprise. |
 | `Subscription` | [Enterprise subscription](enterprises.md#enterprise-subscription) | required | Subscription information of the enterprise. |
 | `LinkedUtc` | string | required | Date and time when enterprise was added to the portfolio in UTC timezone in ISO 8601 format. |

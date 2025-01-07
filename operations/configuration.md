@@ -31,17 +31,6 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 {
   "NowUtc": "2018-01-01T14:58:02Z",
   "Enterprise": {
-    "Address": {
-      "Id": "8c2c4371-5d42-40a9-b551-ab0b00d75076",
-      "Line1": "Anenské nám. 1",
-      "Line2": "Ahoj",
-      "City": "Prague",
-      "PostalCode": "110 00",
-      "CountryCode": "CZ",
-      "CountrySubdivisionCode": null,
-      "Latitude": 50.08518,
-      "Longitude": 14.414926
-    },
     "Currencies": [
       {
         "Currency": "GBP",
@@ -99,6 +88,17 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "Pricing": "Gross",
     "TaxPrecision": null,
     "AddressId": "c556f56e-713e-4102-9de5-0e853b5a8586",
+    "Address": {
+      "Id": "8c2c4371-5d42-40a9-b551-ab0b00d75076",
+      "Line1": "I.P. Pavlova 5",
+      "Line2": null,
+      "City": "Prague",
+      "PostalCode": "1200",
+      "CountryCode": "CZ",
+      "CountrySubdivisionCode": null,
+      "Latitude": 14.429645,
+      "Longitude": 50.075181
+    },
     "GroupNames": [
       "Connector API Group"
     ],
@@ -171,13 +171,13 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Pricing` | [Pricing](configuration.md#pricing) | required | Pricing of the enterprise. |
 | `TaxPrecision` | integer | optional | Tax precision used for financial calculations in the enterprise. If `null`, `Currency` precision is used. |
 | `AddressId` | string | required | Unique identifier of the `Address` of the enterprise. |
+| `Address` | [Address](configuration.md#address) | required | Address of the enterprise. |
 | `GroupNames` | array of string | required | A list of the group names of the enterprise. |
 | `Subscription` | [Enterprise subscription](enterprises.md#enterprise-subscription) | required | Subscription information of the enterprise. |
 | `Currencies` | array of [Accepted currency](configuration.md#accepted-currency) | required | Currencies accepted by the enterprise. |
 | `AccountingConfiguration` | [Accounting configuration](configuration.md#accounting-configuration) | optional | Configuration information containing financial information about the property. |
 | `IsPortfolio` | boolean | required | Whether the enterprise is a Portfolio enterprise (see [Multi-property guidelines](../guidelines/multi-property.md)). |
 | ~~`EditableHistoryInterval`~~ | ~~string~~ | ~~required~~ | **Deprecated!** Use `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval` instead.|
-| ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~required~~ | **Deprecated!** Use `AddressId` instead.|
 
 #### Pricing
 
