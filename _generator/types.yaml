@@ -1030,6 +1030,30 @@ types:
   productdeleteparameters:
     file: products.md
     anchor: product-delete-parameters
+  addressresult:
+    file: addresses.md
+    anchor: addressresult
+  accountaddress:
+    file: addresses.md
+    anchor: account-address
+  addressfilterparameters:
+    file: addresses.md
+    anchor: addressfilterparameters
+  multipleaddressaddparameters:
+    file: addresses.md
+    anchor: multipleaddressaddparameters
+  addressaddparameters:
+    file: addresses.md
+    anchor: account-address-parameters
+  multipleaddressupdateparameters:
+    file: addresses.md
+    anchor: multipleaddressupdateparameters
+  addressupdateparameters:
+    file: addresses.md
+    anchor: account-address-update-parameters
+  addressdeleteparameters:
+    file: addresses.md
+    anchor: addressdeleteparameters
   accountresult:
     file: accounts.md
     anchor: accountresult
@@ -1108,6 +1132,9 @@ types:
   rategroupfilterparameters:
     file: rategroups.md
     anchor: rategroupfilterparameters
+  addressresultpage:
+    file: addresses.md
+    anchor: addressresultpage
   cancellationpolicybyreservationresult:
     file: cancellationpolicies.md
     anchor: cancellationpolicybyreservationresult
@@ -1534,6 +1561,15 @@ types:
   associatedaccountidsupdate:
     file: bills.md
     anchor: associated-account-ids-update-parameters
+  sourceassignmentresultv20240920:
+    file: sourceassignments.md
+    anchor: sourceassignmentresultv20240920
+  sourceassignmentv20240920:
+    file: sourceassignments.md
+    anchor: source-assignments-ver-2024-09-20
+  sourceassignmentfilterparametersv20240920:
+    file: sourceassignments.md
+    anchor: sourceassignmentfilterparametersv20240920
   serviceordernoteadditionresult:
     file: serviceordernotes.md
     anchor: serviceordernoteadditionresult
