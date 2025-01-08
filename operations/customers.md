@@ -453,7 +453,6 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
 | `IssuingCity` | string | optional | City from which document issued |
-| `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish hotels. |
 
 #### Customer classification
 
