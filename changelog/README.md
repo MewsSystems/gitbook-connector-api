@@ -1,5 +1,8 @@
 # Changelog
 
+## 10th January 2025
+* Extended [Update resource access tokens](../operations/resourceaccesstokens.md#update-resource-access-tokens) request with `Value` parameter.
+
 ## 9th January 2025
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
