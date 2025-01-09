@@ -391,9 +391,6 @@ types:
   ordernote:
     file: serviceordernotes.md
     anchor: service-order-note
-  ordernotetype:
-    file: serviceordernotes.md
-    anchor: service-order-note-type
   company:
     file: companies.md
     anchor: company
@@ -1573,3 +1570,33 @@ types:
   sourceassignmentfilterparametersv20240920:
     file: sourceassignments.md
     anchor: sourceassignmentfilterparametersv20240920
+  serviceordernoteadditionresult:
+    file: serviceordernotes.md
+    anchor: serviceordernoteadditionresult
+  multipleserviceordernoteaddparameters:
+    file: serviceordernotes.md
+    anchor: multipleserviceordernoteaddparameters
+  serviceordernoteaddparameters:
+    file: serviceordernotes.md
+    anchor: service-order-note-parameters
+  serviceordernoteupdateresult:
+    file: serviceordernotes.md
+    anchor: serviceordernoteupdateresult
+  multipleserviceordernoteupdateparameters:
+    file: serviceordernotes.md
+    anchor: multipleserviceordernoteupdateparameters
+  serviceordernoteupdateparameters:
+    file: serviceordernotes.md
+    anchor: service-order-note-update-parameters
+  serviceordernoteresult:
+    file: serviceordernotes.md
+    anchor: serviceordernoteresult
+  serviceordernotefilterparameters:
+    file: serviceordernotes.md
+    anchor: serviceordernotefilterparameters
+  serviceordernotedeleteparameters:
+    file: serviceordernotes.md
+    anchor: serviceordernotedeleteparameters
+  ordernotetypeenum:
+    file: serviceordernotes.md
+    anchor: service-order-note-type

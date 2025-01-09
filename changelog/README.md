@@ -1,9 +1,12 @@
 # Changelog
 
-## 8th January 2025
+## 9th January 2025
 * Extended [Get all enterprises](../operations/enterprises.md#get-all-enterprises) response object with `Address`.
 * Removed deprecation of `Address` in [Enterprise](../operations/configuration.md#enterprise), this affects the following operations:
   * [Get configuration](../operations/configuration.md#get-configuration)
+
+## 9th January 2025
+* Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 7th January 2025
 * Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md) request with `AvailabilityBlockIds` request filtering parameter.
