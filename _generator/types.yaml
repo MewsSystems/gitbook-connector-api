@@ -1570,15 +1570,6 @@ types:
   sourceassignmentfilterparametersv20240920:
     file: sourceassignments.md
     anchor: sourceassignmentfilterparametersv20240920
-  cashierresult:
-    file: cashiers.md
-    anchor: cashierresult
-  cashier:
-    file: cashiers.md
-    anchor: cashier
-  cashierparameters:
-    file: cashiers.md
-    anchor: cashierparameters
   serviceordernoteadditionresult:
     file: serviceordernotes.md
     anchor: serviceordernoteadditionresult
@@ -1609,4 +1600,13 @@ types:
   ordernotetypeenum:
     file: serviceordernotes.md
     anchor: service-order-note-type
+  cashierresult:
+    file: cashiers.md
+    anchor: cashierresult
+  cashier:
+    file: cashiers.md
+    anchor: cashier
+  cashierparameters:
+    file: cashiers.md
+    anchor: cashierparameters
     
