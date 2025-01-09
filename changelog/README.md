@@ -2,7 +2,7 @@
 
 ## 10th January 2025
 * Deprecated operation extent `ServiceOrders` in [Get availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
-* Deprecated operation extent `ServiceOrders` in [Get availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all rates](../operations/rates.md#get-all-rates) instead.
+* Deprecated operation extent `Rates` in [Get availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all rates](../operations/rates.md#get-all-rates) instead.
 
 ## 9th January 2025
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
