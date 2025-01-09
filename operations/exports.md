@@ -6,7 +6,7 @@
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Get exports for the given `ExportIds`. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Get exports for the given `ExportIds`. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -88,7 +88,7 @@ Get exports for the given `ExportIds`. Note this operation supports [Portfolio A
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Create a pending export. Export all entities of the specified `EntityType` within the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md) but doesn't have filtering by `EnterpriseIds` or `ChainIds`, so will return entities from all enterprises within the scope of the portfolio.
+Create a pending export. Export all entities of the specified `EntityType` within the enterprise. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md) but doesn't have filtering by `EnterpriseIds` or `ChainIds`, so will return entities from all enterprises within the scope of the portfolio.
 If there is already an export with status `Pending` or `Processing` for the specified entity type, the request for a new export will be rejected. Successful exports remain available for download until the expiration date specified in `ExpiresUtc`.
 
 ### Request

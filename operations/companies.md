@@ -4,7 +4,7 @@
 ## Get all companies
 
 Returns all company profiles of the enterprise, possibly filtered by identifiers, names or other filters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -156,7 +156,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add company
 
-Adds a new company. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new company. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -402,7 +402,7 @@ Credit rating to define creditworthiness of the company.
 
 ## Update company
 
-Updates information of the company. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information of the company. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

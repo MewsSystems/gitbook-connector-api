@@ -3,7 +3,7 @@
 
 ## Get all payments
 
-Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all payments in the system, filtered by various parameters. At least one filter parameter must be specified. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -390,7 +390,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 
 ## Add external payment
 
-Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new external payment to a bill of the specified customer. An external payment represents a payment that is tracked outside of the system. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 **Prerequisites:** The external payment type must be enabled by the property in order to accept such payments in their Mews environment. Use [Get configuration](configuration.md#get-configuration) to check which external payment types are supported.
 
@@ -612,7 +612,7 @@ Adds a new alternative payment to a specified customer.
 
 ## Refund payment
 
-Refunds a specified payment on a specified account. A reason must be provided. Optionally, specify an amount for a partial refund. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Refunds a specified payment on a specified account. A reason must be provided. Optionally, specify an amount for a partial refund. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
                                                    
 * **Payment types**: Only `CreditCardPayment` and `AlternativePayment` can be refunded. Other payment types will fail.
 * **Refund information**: The refund is a payment itself. To get more information, use [Get all payments](payments.md#get-all-payments) with the `RefundId` as the `PaymentId`.

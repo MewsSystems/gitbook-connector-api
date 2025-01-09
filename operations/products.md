@@ -3,7 +3,7 @@
 
 ## Get all products
 
-Returns all products offered together with the specified services. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all products offered together with the specified services. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -256,7 +256,7 @@ Returns all products offered together with the specified services. Note this ope
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns prices for a given product for a specified time interval. UTC timestamps must correspond to the start boundary of a time unit, e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's time unit: 100 hours if hours, 100 days if days, or 24 months if months. For more information about time units, see [Time unit](../concepts/time-units.md). This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns prices for a given product for a specified time interval. UTC timestamps must correspond to the start boundary of a time unit, e.g. 00:00 converted to UTC for a time unit of "Day". Other timestamps are not permitted. The __maximum size of time interval__ depends on the service's time unit: 100 hours if hours, 100 days if days, or 24 months if months. For more information about time units, see [Time unit](../concepts/time-units.md). This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -405,7 +405,7 @@ Returns prices for a given product for a specified time interval. UTC timestamps
 
 ## Update product pricing
 
-Updates the prices for a given product. You can make multiple price updates with one API call, and for each one specify the price amount per [Time unit](../concepts/time-units.md) and the time interval for which it applies. The price will be updated for all service time units that the specified time interval intersects. It is not permitted to update historical prices older than specified by `EditableHistoryInterval`. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates the prices for a given product. You can make multiple price updates with one API call, and for each one specify the price amount per [Time unit](../concepts/time-units.md) and the time interval for which it applies. The price will be updated for all service time units that the specified time interval intersects. It is not permitted to update historical prices older than specified by `EditableHistoryInterval`. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -458,7 +458,7 @@ Updates the prices for a given product. You can make multiple price updates with
 
 ## Delete products
 
-Deletes specified products. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes specified products. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

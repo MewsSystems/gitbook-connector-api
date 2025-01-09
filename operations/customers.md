@@ -4,7 +4,7 @@
 ## Get all customers
 
 Returns all customers filtered by identifiers, emails, names and other filters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -129,7 +129,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "Expiration": "2020-01-01",
         "Issuance": "2015-01-01",
         "IssuingCountryCode": "US",
-        "IssuingCity": "New York City"
+        "IssuingCity": "New York City",
+        "IdentityDocumentSupportNumber": null
       },
       "Visa": null,
       "DriversLicense": null,
@@ -171,7 +172,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "Expiration": "2020-01-01",
       "Issuance": "2015-01-01",
       "IssuingCountryCode": "US",
-      "IssuingCity": "New York City"
+      "IssuingCity": "New York City",
+      "IdentityDocumentSupportNumber": null
     }
   ],
   "Cursor": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
@@ -256,7 +258,7 @@ Note that the value should not be used as-is, but localized. For example, the va
 | `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
 | `IssuingCity` | string | optional | City where the document was issued. |
-| `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish legal environment. |
+| `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish hotels. |
 
 ## ~~Get customers open items~~
 
@@ -353,7 +355,7 @@ Note that the value should not be used as-is, but localized. For example, the va
 
 ## Add customer
 
-Adds a new customer to the system and returns details of the added customer. If a customer with the specified email already exists, and `OverwriteExisting` is set to `true`, then the existing customer profile information is overwritten and the existing customer data returned. If `OverwriteExisting` is set to `false`, an error response is returned. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds a new customer to the system and returns details of the added customer. If a customer with the specified email already exists, and `OverwriteExisting` is set to `true`, then the existing customer profile information is overwritten and the existing customer data returned. If `OverwriteExisting` is set to `false`, an error response is returned. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -523,7 +525,8 @@ Adds a new customer to the system and returns details of the added customer. If 
     "Expiration": "2030-05-20",
     "Issuance": "2020-05-20",
     "IssuingCountryCode": "IT",
-    "IssuingCity": "Rome"
+    "IssuingCity": "Rome",
+    "IdentityDocumentSupportNumber": null
   },
   "IdentityCard": null,
   "Visa": null,
@@ -603,7 +606,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 
 ## Update customer
 
-Updates personal information of a customer. Note that if any of the fields is left blank, it won't clear the field in Mews. The field will be left intact. In case of email update, the email will change in Mews only if there is no other customer profile in the hotel with such email. Otherwise an error response is returned. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates personal information of a customer. Note that if any of the fields is left blank, it won't clear the field in Mews. The field will be left intact. In case of email update, the email will change in Mews only if there is no other customer profile in the hotel with such email. Otherwise an error response is returned. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -730,7 +733,8 @@ Updates personal information of a customer. Note that if any of the fields is le
     "Expiration": "2030-05-20",
     "Issuance": "2020-05-20",
     "IssuingCountryCode": "IT",
-    "IssuingCity": "Rome"
+    "IssuingCity": "Rome",
+    "IdentityDocumentSupportNumber": null
   },
   "IdentityCard": null,
   "Visa": null,

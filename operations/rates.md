@@ -3,7 +3,7 @@
 
 ## Get all rates
 
-Returns all rates (pricing setups) of the default service provided by the enterprise. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all rates (pricing setups) of the default service provided by the enterprise. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -395,7 +395,7 @@ Returns prices for a given rate for a specified time interval. Prices will be re
 
 ## Add rates
 
-Adds rates to the enterprise. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md). Rate type of `AvailabilityBlock` cannot be created via this operation.
+Adds rates to the enterprise. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md). Rate type of `AvailabilityBlock` cannot be created via this operation.
 
 ### Request
 
@@ -437,7 +437,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `Rates` | array of [Rate parameters](rates.md#rate-parameters) | required, max 1000 items | Information about rates to be created. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 
 #### Rate parameters
 
@@ -580,7 +580,7 @@ Note that prices are defined daily, so when the server receives the UTC interval
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Adds new Rates or updates existing ones if they are matched by `Id` or `ExternalIdentifier` property. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds new Rates or updates existing ones if they are matched by `Id` or `ExternalIdentifier` property. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -750,7 +750,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 
 ## Delete rates
 
-Deletes specified rates. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes specified rates. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
