@@ -1,5 +1,8 @@
 # Changelog
 
+## 10th January 2025
+* Extended [Update resource access tokens](../operations/resourceaccesstokens.md#update-resource-access-tokens) request with `Value` parameter.
+
 ## 9th January 2025
 * Postponed the discontinuation of the following operations to 10th May 2025:
   * [Get all reservations (ver 2017-04-12)](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
