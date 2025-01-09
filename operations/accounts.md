@@ -3,7 +3,7 @@
 
 ## Update accounts
 
-Updates one or more existing accounts in the system. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates one or more existing accounts in the system. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

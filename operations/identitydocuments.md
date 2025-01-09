@@ -3,7 +3,7 @@
 
 ## Get all identity documents
 
-Returns all identity documents for the specified customers, with additional filtering options available. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all identity documents for the specified customers, with additional filtering options available. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -93,7 +93,7 @@ Returns all identity documents for the specified customers, with additional filt
 
 ## Add identity documents
 
-Adds identity documents. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds identity documents. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -167,7 +167,7 @@ Adds identity documents. This operation supports [Portfolio Access Tokens](../gu
 
 ## Update identity documents
 
-Updates specified identity documents. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates specified identity documents. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -262,7 +262,7 @@ Has same structure as [String update value](_objects.md#string-update-value).
 
 ## Delete identity documents
 
-Deletes specified identity documents. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes specified identity documents. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -297,7 +297,7 @@ Deletes specified identity documents. This operation supports [Portfolio Access 
 
 ## Clear identity documents
 
-Deletes all identity documents for the specified customers. This operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Deletes all identity documents for the specified customers. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

@@ -1600,3 +1600,12 @@ types:
   ordernotetypeenum:
     file: serviceordernotes.md
     anchor: service-order-note-type
+  cashierresult:
+    file: cashiers.md
+    anchor: cashierresult
+  cashier:
+    file: cashiers.md
+    anchor: cashier
+  cashierparameters:
+    file: cashiers.md
+    anchor: cashierparameters
