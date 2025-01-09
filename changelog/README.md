@@ -1,7 +1,7 @@
 # Changelog
 
 ## 9th January 2025
-* Deprecated operation extent `Documents` in [Get all customers](../operations/customers.md#get-all-customers). Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* Deprecated operation extent `Documents` in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers). Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
 * Deprecated `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead. This affects:
   * [Search customers](../operations/customers.md#search-customers)
   * [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers`
