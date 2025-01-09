@@ -405,10 +405,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `OverwriteExisting` | boolean | required | Whether an existing customer should be overwritten in case of duplicity. This applies only to basic personal information (`Title`, `FirstName`, `LastName`, ...). |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
-| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Identity card details of the customer.~~ **Deprecated!** Use `identityDocuments/add` to add document.|
-| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Passport details of the customer.~~ **Deprecated!** Use `identityDocuments/add` to add document.|
-| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Visa details of the customer.~~ **Deprecated!** Use `identityDocuments/add` to add document.|
-| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Drivers license details of the customer.~~ **Deprecated!** Use `identityDocuments/add` to add document.|
+| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Identity card details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
+| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Passport details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
+| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Visa details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
+| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Drivers license details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
 
 #### Sex
 
@@ -644,10 +644,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ItalianDestinationCode` | [String update value](_objects.md#string-update-value) | optional | New Italian destination code of customer. |
 | `ItalianFiscalCode` | [String update value](_objects.md#string-update-value) | optional | New Italian fiscal code of customer. |
-| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New identity card details.~~ **Deprecated!** Use `identityDocuments/update` instead to update document.|
-| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New passport details.~~ **Deprecated!** Use `identityDocuments/update` instead to update document.|
-| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New visa details.~~ **Deprecated!** Use `identityDocuments/update` instead to update document.|
-| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New drivers license details.~~ **Deprecated!** Use `identityDocuments/update` instead to update document.|
+| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New identity card details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
+| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New passport details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
+| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New visa details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
+| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New drivers license details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
 
 ### Response
 
