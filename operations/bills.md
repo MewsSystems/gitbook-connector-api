@@ -253,7 +253,7 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 
 ## Add bill
 
-Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Creates new empty bill assigned to specified account. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -613,7 +613,7 @@ Additional information about the enterprise issuing the bill, including bank acc
 
 ## Delete bill
 
-Removes selected bills. Bill must be empty, otherwise it's not possible to delete it. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Removes selected bills. Bill must be empty, otherwise it's not possible to delete it. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -647,7 +647,7 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 
 ## Close bill
 
-Closes a bill so no further modification to it is possible. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Closes a bill so no further modification to it is possible. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

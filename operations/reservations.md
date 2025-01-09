@@ -3,7 +3,7 @@
 
 ## Get all reservations (ver 2023-06-06)
 
-Returns all reservations within scope of the Access Token, filtered according to the specified parameters. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all reservations within scope of the Access Token, filtered according to the specified parameters. This operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -993,7 +993,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 
 ## Update reservations
 
-Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information about the specified reservations. Note that if any of the fields are sent as `null`, it won't clear the field in Mews. If the `Value` within the object is sent as `null`, the field will be cleared in Mews. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1288,7 +1288,7 @@ Updates information about the specified reservations. Note that if any of the fi
 
 ## Update reservation interval
 
-Updates reservation interval (start, end or both). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates reservation interval (start, end or both). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1326,7 +1326,7 @@ Updates reservation interval (start, end or both). Note this operation supports 
 
 ## Update reservation customer
 
-Updates customer of a reservation. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates customer of a reservation. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1360,7 +1360,7 @@ Updates customer of a reservation. Note this operation supports [Portfolio Acces
 
 ## Start reservation
 
-Marks a reservation as `Started` (= checked in). Succeeds only if all starting conditions are met (the reservation has the `Confirmed` state, does not have start set to future, has an inspected room assigned etc). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Marks a reservation as `Started` (= checked in). Succeeds only if all starting conditions are met (the reservation has the `Confirmed` state, does not have start set to future, has an inspected room assigned etc). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -1392,7 +1392,7 @@ Marks a reservation as `Started` (= checked in). Succeeds only if all starting c
 
 ## Process reservation
 
-Marks a reservation as `Processed` (= checked out). Succeeds only if all processing conditions are met (the reservation has the `Started` state, balance of all reservation members is zero etc). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Marks a reservation as `Processed` (= checked out). Succeeds only if all processing conditions are met (the reservation has the `Started` state, balance of all reservation members is zero etc). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 ### Conditions
 - Reservation has already been checked in.
 - Reservation isn't alredy in `Processed` state.
@@ -1646,7 +1646,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 
 ## Cancel reservation
 
-Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Cancels all reservation with specified identifiers. Succeeds only if the reservations are cancellable. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
