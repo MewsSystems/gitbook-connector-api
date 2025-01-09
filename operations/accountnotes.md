@@ -4,7 +4,7 @@
 ## Get all account notes
 
 Returns all account notes of an account, optionally filtered by activity state, account identifiers, specific account note identifiers or other filter parameters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -138,7 +138,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add account notes
 
-Adds account notes to an account of the enterprise chain. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds account notes to an account of the enterprise chain. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
