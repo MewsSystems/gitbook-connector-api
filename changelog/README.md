@@ -1,6 +1,6 @@
 # Changelog
 
-## 8th January 2025
+## 9th January 2025
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 7th January 2025
