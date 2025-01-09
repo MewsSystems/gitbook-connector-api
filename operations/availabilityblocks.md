@@ -64,13 +64,13 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Extent` | [Availability block extent](availabilityblocks.md#availability-block-extent) | required | Extent of data to be returned, e.g. it is possible to specify that related service orders (for example reservations) are returned. |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service) to which [Availability blocks](availabilityblocks.md#availability-block) are assigned. |
-| `AvailabilityBlockIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](availabilityblocks.md#availability-block). |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the `Services` to which `Availability blocks` are assigned. |
+| `AvailabilityBlockIds` | array of string | optional, max 1000 items | Unique identifiers of the requested `Availability blocks`. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the availability blocks were created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` are active. |
 | `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks`are released. |
-| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Availability block](availabilityblocks.md#availability-block)s from external systems. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of `Availability blocks` from external systems. |
 | `States` | array of [Availability block state](availabilityblocks.md#availability-block-state) | optional | States the availability blocks should be in. |
 | `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
@@ -225,10 +225,10 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | optional | Availability blocks. |
-| `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
-| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
-| ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Service orders (for example reservations) linked to availability blocks.~~ **Deprecated!** Use `reservations/getAll/2023-06-06` instead.|
+| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | optional | Whether the response should contain the general availability blocks. |
+| `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
+| `Cursor` | string | optional | Unique identifier of the last returned availability block. This can be used in Limitation in a subsequent request to fetch the next batch of availability block. |
+| ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Whether the response should contain reservations related to availability blocks.~~ **Deprecated!** Use `reservations/getAll/2023-06-06` instead.|
 | ~~`Rates`~~ | ~~array of [Rate for extent](rates.md#rate-for-extent)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use `rates/getAll` instead.|
 
 #### Availability block
@@ -237,19 +237,19 @@ Extent of data to be returned, e.g. it is possible to specify that related servi
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the availability block. |
 | `EnterpriseId` | string | required | Unique identifier of the [enterprise](enterprises.md#enterprise). |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the block is assigned to. |
-| `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) the block is assigned to. |
-| `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) used to access specified private [Rate](rates.md#rate). |
-| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
-| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) linked to the block. |
+| `ServiceId` | string | required | Unique identifier of the `Service` the block is assigned to. |
+| `RateId` | string | required | Unique identifier of the `Rate` the block is assigned to. |
+| `VoucherId` | string | optional | Unique identifier of the `Voucher` used to access specified private `Rate`. |
+| `BookerId` | string | optional | Unique identifier of the `Customer` on whose behalf the block was made. |
+| `CompanyId` | string | optional | Unique identifier of the `Company` linked to the block. |
 | `TravelAgencyId` | string | optional | Unique identifier of `Company`with `Travel agency contract` the Availability Block is related to. |
 | `Budget` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | The tentative budget for the total price of reservations in the block. |
 | `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
 | `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months. |
 | `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the individual days in the adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
