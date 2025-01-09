@@ -1,6 +1,14 @@
 # Changelog
 
 ## 9th January 2025
+* Deprecated operation extent `Documents` in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers). Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* Deprecated `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead. This affects:
+  * [Search customers](../operations/customers.md#search-customers)
+  * [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers`
+  * [Get all customers](../operations/customers.md#get-all-customers)
+* Deprecated `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in:
+  * [Add customer](../operations/customers.md#add-customer), use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead.
+  * [Update customer](../operations/customers.md#update-customer), use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead.
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 7th January 2025
