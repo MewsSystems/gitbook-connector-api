@@ -33,6 +33,7 @@ To implement General Webhooks:
 | Resource block | `ResourceBlockUpdated` | Event triggered when a resource block is updated |
 | Customer | `CustomerAdded` | Event triggered when a customer is added |
 | Customer | `CustomerUpdated` | Event triggered when a customer is updated |
+| Payment | `PaymentUpdated` | Event triggered when a payment is updated |
 
 > ### Terminology
 > A *Service Order* is an order made against a *Service*. A *Service Order* made against a *Bookable Service* is called a *Reservation*.
@@ -89,6 +90,12 @@ To avoid redundant API calls, ensure that you process each entity only once. For
             "Value": {
                 "Id": "b3ce0fd7-a715-4bfc-969e-ef7a4822963c"
             }
+        },
+        {
+            "Discriminator": "PaymentUpdated",
+            "Value": {
+                "Id": "a41e2d45-71bc-49b4-9a05-a3ac5f75735c"
+            }
         }
     ]
 }
@@ -117,6 +124,7 @@ To avoid redundant API calls, ensure that you process each entity only once. For
 | `ResourceBlockUpdated` | A [Resource block](../operations/resourceblocks.md#resource-block) was updated. | [Entity updated data](#entity-updated-data) | [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks) |
 | `CustomerAdded` | A [Customer](../operations/customers.md#customer) was added. | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
 | `CustomerUpdated` | A [Customer](../operations/customers.md#customer) was updated. | [Entity updated data](#entity-updated-data) | [Get all customers](../operations/customers.md#get-all-customers) |
+| `PaymentUpdated` | A [Payment](../operations/payments.md#payment) was updated. | [Entity updated data](#entity-updated-data) | [Get all payments](../operations/payments.md#get-all-payments) |
 
 ### Entity updated data
 
