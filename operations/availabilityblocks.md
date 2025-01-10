@@ -76,7 +76,6 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Availability block extent
-Extent of data to be returned, e.g. it is possible to specify that related service orders (for example reservations) are returned.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
