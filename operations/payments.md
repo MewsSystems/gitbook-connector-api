@@ -18,6 +18,9 @@ Returns all payments in the system, filtered by various parameters. At least one
     "f6313945-94c1-4e27-b402-031c2a8c989f",
     "be922eb7-bc5f-4877-b847-1120c0c2acd2"
   ],
+  "AccountIds": [
+    "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+  ],
   "BillIds": [
     "ea087d64-3901-4eee-b0b7-9fce4c58a005",
     "d23ac52f-9b86-4a03-a6fe-5822dfcfc5c4"
@@ -73,6 +76,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Payment` items. Required if no other filter is provided. |
+| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which payments are belongs to. Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Bill` items to which payments are assigned. Required if no other filter is provided. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Reservations` to which payments belong. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the `Payment` was created. Required if no other filter is provided. |
