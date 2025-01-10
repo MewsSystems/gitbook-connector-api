@@ -91,7 +91,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
   "AvailabilityBlocks": [
     {
       "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "EnterpriseId": "00000000-0000-0000-0000-000000000000",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "VoucherId": null,
@@ -124,7 +124,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
-      "EnterpriseId": "00000000-0000-0000-0000-000000000000",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "VoucherId": null,
@@ -156,50 +156,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "ReleaseStrategy": "RollingRelease"
     }
   ],
-  "ServiceOrders": [
-    {
-      "Id": "0f515589-99b4-423d-b83a-b237009f0509",
-      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-      "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
-      "Number": "61",
-      "ChannelNumber": "68845cdd-1340-49b5-9071-acbd00b1d091",
-      "ChannelManagerNumber": null,
-      "ChannelManagerGroupNumber": null,
-      "ChannelManager": null,
-      "State": "Confirmed",
-      "Origin": "Connector",
-      "OriginDetails": null,
-      "Purpose": null,
-      "CreatedUtc": "2020-11-05T12:50:40Z",
-      "UpdatedUtc": "2020-11-06T07:59:19Z",
-      "CancelledUtc": null,
-      "StartUtc": "2020-11-05T00:00:00Z",
-      "EndUtc": "2020-11-06T00:00:00Z",
-      "ReleasedUtc": null,
-      "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-      "AssignedSpaceId": null,
-      "AssignedSpaceLocked": false,
-      "AssignedResourceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
-      "AssignedResourceLocked": false,
-      "BusinessSegmentId": null,
-      "CompanyId": null,
-      "TravelAgencyId": null,
-      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-      "VoucherId": null,
-      "CreditCardId": null,
-      "CancellationReason": null,
-      "AdultCount": 2,
-      "ChildCount": 0,
-      "PersonCounts": null,
-      "OwnerId": "00000000-0000-0000-0000-000000000000",
-      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
-      "BookerId": null,
-      "CompanionIds": [],
-      "ChannelManagerId": null,
-      "Options": null
-    }
-  ],
+  "ServiceOrders": null,
   "Adjustments": [
     {
       "Id": "e19297af-373e-4701-b4ea-afae0129bded",
@@ -361,7 +318,7 @@ Adds availability blocks which are used to group related `Availability updates`.
   "AvailabilityBlocks": [
     {
       "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "EnterpriseId": "00000000-0000-0000-0000-000000000000",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "VoucherId": null,
@@ -394,7 +351,7 @@ Adds availability blocks which are used to group related `Availability updates`.
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
-      "EnterpriseId": "00000000-0000-0000-0000-000000000000",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "VoucherId": null,
@@ -426,50 +383,7 @@ Adds availability blocks which are used to group related `Availability updates`.
       "ReleaseStrategy": "RollingRelease"
     }
   ],
-  "ServiceOrders": [
-    {
-      "Id": "0f515589-99b4-423d-b83a-b237009f0509",
-      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-      "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
-      "Number": "61",
-      "ChannelNumber": "68845cdd-1340-49b5-9071-acbd00b1d091",
-      "ChannelManagerNumber": null,
-      "ChannelManagerGroupNumber": null,
-      "ChannelManager": null,
-      "State": "Confirmed",
-      "Origin": "Connector",
-      "OriginDetails": null,
-      "Purpose": null,
-      "CreatedUtc": "2020-11-05T12:50:40Z",
-      "UpdatedUtc": "2020-11-06T07:59:19Z",
-      "CancelledUtc": null,
-      "StartUtc": "2020-11-05T00:00:00Z",
-      "EndUtc": "2020-11-06T00:00:00Z",
-      "ReleasedUtc": null,
-      "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-      "AssignedSpaceId": null,
-      "AssignedSpaceLocked": false,
-      "AssignedResourceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
-      "AssignedResourceLocked": false,
-      "BusinessSegmentId": null,
-      "CompanyId": null,
-      "TravelAgencyId": null,
-      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-      "VoucherId": null,
-      "CreditCardId": null,
-      "CancellationReason": null,
-      "AdultCount": 2,
-      "ChildCount": 0,
-      "PersonCounts": null,
-      "OwnerId": "00000000-0000-0000-0000-000000000000",
-      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
-      "BookerId": null,
-      "CompanionIds": [],
-      "ChannelManagerId": null,
-      "Options": null
-    }
-  ],
+  "ServiceOrders": null,
   "Adjustments": [
     {
       "Id": "e19297af-373e-4701-b4ea-afae0129bded",
@@ -643,7 +557,7 @@ Updates information about the specified `Availability block`. Note this operatio
   "AvailabilityBlocks": [
     {
       "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "EnterpriseId": "00000000-0000-0000-0000-000000000000",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "VoucherId": null,
@@ -676,7 +590,7 @@ Updates information about the specified `Availability block`. Note this operatio
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
-      "EnterpriseId": "00000000-0000-0000-0000-000000000000",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
       "VoucherId": null,
@@ -708,50 +622,7 @@ Updates information about the specified `Availability block`. Note this operatio
       "ReleaseStrategy": "RollingRelease"
     }
   ],
-  "ServiceOrders": [
-    {
-      "Id": "0f515589-99b4-423d-b83a-b237009f0509",
-      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-      "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
-      "Number": "61",
-      "ChannelNumber": "68845cdd-1340-49b5-9071-acbd00b1d091",
-      "ChannelManagerNumber": null,
-      "ChannelManagerGroupNumber": null,
-      "ChannelManager": null,
-      "State": "Confirmed",
-      "Origin": "Connector",
-      "OriginDetails": null,
-      "Purpose": null,
-      "CreatedUtc": "2020-11-05T12:50:40Z",
-      "UpdatedUtc": "2020-11-06T07:59:19Z",
-      "CancelledUtc": null,
-      "StartUtc": "2020-11-05T00:00:00Z",
-      "EndUtc": "2020-11-06T00:00:00Z",
-      "ReleasedUtc": null,
-      "RequestedCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
-      "AssignedSpaceId": null,
-      "AssignedSpaceLocked": false,
-      "AssignedResourceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
-      "AssignedResourceLocked": false,
-      "BusinessSegmentId": null,
-      "CompanyId": null,
-      "TravelAgencyId": null,
-      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-      "VoucherId": null,
-      "CreditCardId": null,
-      "CancellationReason": null,
-      "AdultCount": 2,
-      "ChildCount": 0,
-      "PersonCounts": null,
-      "OwnerId": "00000000-0000-0000-0000-000000000000",
-      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
-      "BookerId": null,
-      "CompanionIds": [],
-      "ChannelManagerId": null,
-      "Options": null
-    }
-  ],
+  "ServiceOrders": null,
   "Adjustments": [
     {
       "Id": "e19297af-373e-4701-b4ea-afae0129bded",
