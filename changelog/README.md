@@ -1,8 +1,8 @@
 # Changelog
 
 ## 10th January 2025
-* Deprecated operation extent `ServiceOrders` in [Get availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
-* Deprecated operation extent `Rates` in [Get availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all rates](../operations/rates.md#get-all-rates) instead.
+* Deprecated operation extent `ServiceOrders` in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
+* Deprecated operation extent `Rates` in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all rates](../operations/rates.md#get-all-rates) instead.
 
 ## 9th January 2025
 * Postponed the discontinuation of the following operations to 10th May 2025:
