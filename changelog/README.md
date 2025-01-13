@@ -1,6 +1,10 @@
 # Changelog
 
-## 10th January 2025
+## 13th January 2025
+* Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property, this affects the following operations:
+  * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Add availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
+  * [Update availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks)
 * Deprecated operation extent `ServiceOrders` in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
 * Deprecated operation extent `Rates` in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks). Use [Get all rates](../operations/rates.md#get-all-rates) instead.
 
