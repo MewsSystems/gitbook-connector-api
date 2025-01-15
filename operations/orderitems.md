@@ -3,7 +3,7 @@
 
 ## Get all order items
 
-Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
 ### Request
 
@@ -387,3 +387,38 @@ Additional order item data.
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
+
+## Cancel order item
+
+Cancels all order items with specified identifiers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/orderItems/cancel`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "OrderItemIds": [
+    "f5c6b7a8-9d4f-4e2a-8a3b-2f3b8b9e6a1f",
+    "a6b7c8d9-0e1f-4d2a-9b3c-5d6e7f8a9b0c"
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `OrderItemIds` | array of string | required, max 10 items | Unique identifiers of the `OrderItems` to cancel. |
+
+### Response
+
+```javascript
+{}
+```
