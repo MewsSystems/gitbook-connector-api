@@ -388,7 +388,7 @@ Additional order item data.
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
 
-## Cancel order item
+## Cancel order items
 
 Cancels all order items with specified identifiers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
 
