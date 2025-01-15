@@ -156,7 +156,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 ## ~~Add restrictions~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Please use [Set restrictions](restrictions.md#set-restrictions) instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Set restrictions](restrictions.md#set-restrictions) instead.
 
 Adds new restrictions with the specified conditions. Care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes).
 **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150,000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is operation [Set restriction](restrictions.md#set-restrictions).
@@ -488,13 +488,13 @@ Only restrictions created through the API are affected by this operation, *not* 
       "StartUtc": "2023-02-23T00:00:00Z",
       "EndUtc": "2023-03-03T00:00:00Z",
       "Days": {
-        "Monday": false,
-        "Tuesday": false,
-        "Wednesday": false,
-        "Thursday": false,
+        "Monday": true,
+        "Tuesday": true,
+        "Wednesday": true,
+        "Thursday": true,
         "Friday": true,
-        "Saturday": true,
-        "Sunday": true
+        "Saturday": false,
+        "Sunday": false
       },
       "MinAdvance": "P0Y0M1DT0H0M0S",
       "MaxAdvance": "P0Y0M3DT0H0M0S"
@@ -552,7 +552,7 @@ Only restrictions created through the API are affected by this operation, *not* 
 ## ~~Delete restrictions~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Clear restrictions](restrictions.md#clear-restrictions) instead.
 
 Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](restrictions.md#set-restrictions).
 
@@ -624,13 +624,13 @@ Only restrictions created through the API are affected by this operation, *not* 
       "StartUtc": "2023-02-23T00:00:00Z",
       "EndUtc": "2023-03-03T00:00:00Z",
       "Days": {
-        "Monday": false,
-        "Tuesday": false,
-        "Wednesday": false,
-        "Thursday": false,
+        "Monday": true,
+        "Tuesday": true,
+        "Wednesday": true,
+        "Thursday": true,
         "Friday": true,
-        "Saturday": true,
-        "Sunday": true
+        "Saturday": false,
+        "Sunday": false
       }
     }
   ]
