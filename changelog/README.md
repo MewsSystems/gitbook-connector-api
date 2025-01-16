@@ -1,6 +1,14 @@
 # Changelog
 
 ## 16th January 2025
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+  * **Deprecated** operation extent `ServiceOrders`. Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
+  * **Deprecated** operation extent `Rates`. Use [Get all rates](../operations/rates.md#get-all-rates) instead.
+* [Add availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+* [Update availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
 * Added new operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
 
 ## 9th January 2025
