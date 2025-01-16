@@ -1609,3 +1609,49 @@ types:
   cashierparameters:
     file: cashiers.md
     anchor: cashierparameters
+  availabilityblockdeleteparameters:
+    file: availabilityblocks.md
+    anchor: availabilityblockdeleteparameters
+  availabilityblockresult:
+    file: availabilityblocks.md
+    anchor: availabilityblockresult
+  availabilityblock:
+    file: availabilityblocks.md
+    anchor: availability-block
+  availabilityblockstateenum:
+    file: availabilityblocks.md
+    anchor: availability-block-state
+  pickupdistributionenum:
+    file: availabilityblocks.md
+    anchor: pickup-distribution
+  releasestrategyenum:
+    file: availabilityblocks.md
+    anchor: release-strategy
+  availabilityblockparameters:
+    file: availabilityblocks.md
+    anchor: availabilityblockparameters
+  availabilityblockextent:
+    file: availabilityblocks.md
+    anchor: availability-block-extent
+  availabilityblockaddresult:
+    file: availabilityblocks.md
+    anchor: availabilityblockaddresult
+  multipleavailabilityblockaddparameters:
+    file: availabilityblocks.md
+    anchor: multipleavailabilityblockaddparameters
+  availabilityblockaddparameters:
+    file: availabilityblocks.md
+    anchor: availability-block-parameters
+  multipleavailabilityblockupdateparameters:
+    file: availabilityblocks.md
+    anchor: multipleavailabilityblockupdateparameters
+  availabilityblockupdateparameters:
+    file: availabilityblocks.md
+    anchor: availability-block-update-parameters
+  updatevaluecurrencyvalueold:
+    file: availabilityblocks.md
+    anchor: currency-value-ver-2018-06-07-update-value
+  releasestrategyupdatevalue:
+    file: availabilityblocks.md
+    anchor: release-strategy-update-value
+    

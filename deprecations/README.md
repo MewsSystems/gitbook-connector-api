@@ -41,6 +41,8 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| Extent `ServiceOrders`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead | 10 Jan 2025 | 10 Jan 2026 |
+| Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
 | `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company) | Replaced by `AdditionalTaxIdentifier` | 30 Aug 2024 | - |
 | `Method`, `RedirectUrl`<br>in [Add alternative payment](../operations/payments.md#add-alternative-payment) | Use [Alternative payment method data](../operations/payments.md#alternative-payment-method-data) instead | 08 May 2024 | - |
 | `EndUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledEndUtc` and `ActualEndUtc` | 19 Apr 2024 | - |
