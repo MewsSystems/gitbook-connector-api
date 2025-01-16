@@ -285,7 +285,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 ## ~~Get all reservations (ver 2017-04-12)~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use reservations/getAll/2023-06-06.
+> This operation is [deprecated](../deprecations/README.md). Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
 
 ### Request
 
