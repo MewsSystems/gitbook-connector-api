@@ -1,5 +1,8 @@
 # Changelog
 
+## 16th January 2025
+* Added new operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
+
 ## 9th January 2025
 * Postponed the discontinuation of the following operations to 10th May 2025:
   * [Get all reservations (ver 2017-04-12)](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
