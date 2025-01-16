@@ -7,7 +7,7 @@
 * Postponed the discontinuation of the following operations to 10th May 2025:
   * [Get all reservations (ver 2017-04-12)](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
   * [Get all reservation items](../operations/reservations.md#get-all-reservation-items)
-  * [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts)
+  * [Merge customers](../operations/customers.md#merge-customers)
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 7th January 2025
