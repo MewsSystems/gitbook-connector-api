@@ -45,11 +45,11 @@ Note that if an event message fails to be delivered (either a timeout occurs or 
 
 ## When should I use Webhooks?
 
-See [Ways to communicate](../guidelines/communicate.md).
+See [Ways to communicate](../events/communicate.md).
 
 ## How are Webhooks different to WebSockets?
 
-See [Ways to communicate](../guidelines/communicate.md).
+See [Ways to communicate](../events/communicate.md).
 
 ## What events can I create Webhooks for?
 
