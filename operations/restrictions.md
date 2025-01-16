@@ -156,7 +156,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 ## ~~Add restrictions~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Please use [Set restriction](restrictions.md#set-restrictions) instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Set restrictions](restrictions.md#set-restrictions) instead.
 
 Adds new restrictions with the specified conditions. Care is needed to specify `StartUtc` and `EndUtc` in the correct format - see [Datetimes](../guidelines/serialization.md#datetimes).
 **Important:** If consecutive restrictions are sent with the exact same conditions and exceptions, no attempt at merging them into a single restriction is made. This means that there can be a large number of restrictions per service, leading to sub-optimal performance. A quota limit of 150,000 has been introduced for this reason. To mitigate the issue, the preferred way to add restrictions is operation [Set restriction](restrictions.md#set-restrictions).
@@ -397,6 +397,12 @@ The conditions or rules that must be met by a reservation for the restriction to
 * `ExtraBed`
 * `Cot`
 * `Crib`
+* `ConferenceRoom`
+* `Rooftop`
+* `Garden`
+* `Restaurant`
+* `Amphitheater`
+* `PrivateSpaces`
 
 #### Hours
 
@@ -455,14 +461,15 @@ Only restrictions created through the API are affected by this operation, *not* 
 {
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
   "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
   "Data": [
     {
       "Type": "Start",
+      "ExactRateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "StartUtc": "2023-02-15T00:00:00Z",
       "EndUtc": "2023-02-22T00:00:00Z",
-      "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
-      "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
       "Days": {
         "Monday": false,
         "Tuesday": false,
@@ -477,17 +484,17 @@ Only restrictions created through the API are affected by this operation, *not* 
     },
     {
       "Type": "Start",
+      "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
       "StartUtc": "2023-02-23T00:00:00Z",
       "EndUtc": "2023-03-03T00:00:00Z",
-      "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
       "Days": {
-        "Monday": false,
-        "Tuesday": false,
-        "Wednesday": false,
-        "Thursday": false,
+        "Monday": true,
+        "Tuesday": true,
+        "Wednesday": true,
+        "Thursday": true,
         "Friday": true,
-        "Saturday": true,
-        "Sunday": true
+        "Saturday": false,
+        "Sunday": false
       },
       "MinAdvance": "P0Y0M1DT0H0M0S",
       "MaxAdvance": "P0Y0M3DT0H0M0S"
@@ -501,8 +508,8 @@ Only restrictions created through the API are affected by this operation, *not* 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Data` | array of [Restriction set data](restrictions.md#restriction-set-data) | required, max 1000 items | Parameters of restrictions. |
 | `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the [Service](services.md#service) restrictions will be set in. |
+| `Data` | array of [Restriction set data](restrictions.md#restriction-set-data) | required, max 1000 items | Parameters of restrictions. |
 
 #### Restriction set data
 
@@ -545,7 +552,7 @@ Only restrictions created through the API are affected by this operation, *not* 
 ## ~~Delete restrictions~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Please use [Clear restrictions](restrictions.md#clear-restrictions) instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Clear restrictions](restrictions.md#clear-restrictions) instead.
 
 Removes restrictions from the service. This operation is intended to be used alongside [Add restrictions](restrictions.md#set-restrictions).
 
@@ -592,14 +599,15 @@ Only restrictions created through the API are affected by this operation, *not* 
 {
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
   "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
   "Data": [
     {
       "Type": "Start",
+      "ExactRateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "StartUtc": "2023-02-15T00:00:00Z",
       "EndUtc": "2023-02-22T00:00:00Z",
-      "ExactRateId": "7c7e89d6-69c0-4cce-9d42-35443f2193f3",
-      "ResourceCategoryId": "86336EAC-4168-46B1-A544-2A47251BF864",
       "Days": {
         "Monday": false,
         "Tuesday": false,
@@ -612,17 +620,17 @@ Only restrictions created through the API are affected by this operation, *not* 
     },
     {
       "Type": "Start",
+      "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
       "StartUtc": "2023-02-23T00:00:00Z",
       "EndUtc": "2023-03-03T00:00:00Z",
-      "BaseRateId": "e5b538b1-36e6-43a0-9f5c-103204c7f68e",
       "Days": {
-        "Monday": false,
-        "Tuesday": false,
-        "Wednesday": false,
-        "Thursday": false,
+        "Monday": true,
+        "Tuesday": true,
+        "Wednesday": true,
+        "Thursday": true,
         "Friday": true,
-        "Saturday": true,
-        "Sunday": true
+        "Saturday": false,
+        "Sunday": false
       }
     }
   ]
@@ -634,8 +642,8 @@ Only restrictions created through the API are affected by this operation, *not* 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Data` | array of [Restriction clear data](restrictions.md#restriction-clear-data) | required, max 1000 items | Details of the matching conditions and time intervals for clearing restrictions. |
 | `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the [Service](services.md#service) to which the restrictions apply. |
+| `Data` | array of [Restriction clear data](restrictions.md#restriction-clear-data) | required, max 1000 items | Details of the matching conditions and time intervals for clearing restrictions. |
 
 #### Restriction clear data
 
