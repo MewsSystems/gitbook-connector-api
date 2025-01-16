@@ -69,7 +69,7 @@ See the Webhook reference pages for details of the request body:
 
 The frequency at which events are created in the Mews system depends on the type of event and on the level of activity.
 Note however there may be a time lag of up to several minutes from when the event occurs to when the actual Webhook request is made.
-See [When are Webhooks generated?](../guidelines/communicate.md#when-are-webhooks-generated).
+See [When are Webhooks generated?](../events/communicate.md#when-are-webhooks-generated).
 
 ## Can I see what Webhooks are configured?
 
