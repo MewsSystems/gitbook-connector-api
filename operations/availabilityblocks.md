@@ -3,7 +3,7 @@
 
 ## Get all availability blocks
 
-Returns all availability blocks filtered by services, unique identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all availability blocks filtered by services, unique identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -81,8 +81,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | :-- | :-- | :-- | :-- |
 | `AvailabilityBlocks` | boolean | optional | Whether the response should contain the general availability blocks. |
 | `Adjustments` | boolean | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
-| ~~`ServiceOrders`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain reservations related to availability blocks.~~ **Deprecated!** Use `reservations/getAll/2023-06-06` instead.|
-| ~~`Rates`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rates related to availability blocks.~~ **Deprecated!** Use `rates/getAll` instead.|
+| ~~`ServiceOrders`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain reservations related to availability blocks.~~ **Deprecated!** Use [Get all reservations (ver 2023-06-06)](reservations.md#get-all-reservations-ver-2023-06-06) instead.|
+| ~~`Rates`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rates related to availability blocks.~~ **Deprecated!** Use [Get all rates](rates.md#get-all-rates) instead.|
 
 ### Response
 
@@ -181,11 +181,11 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | optional | Whether the response should contain the general availability blocks. |
-| `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
+| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | optional | Availability blocks. |
+| `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the last returned availability block. This can be used in Limitation in a subsequent request to fetch the next batch of availability block. |
-| ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Whether the response should contain reservations related to availability blocks.~~ **Deprecated!** Use `reservations/getAll/2023-06-06` instead.|
-| ~~`Rates`~~ | ~~array of [Rate for extent](rates.md#rate-for-extent)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use `rates/getAll` instead.|
+| ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Service orders (for example reservations) linked to availability blocks.~~ **Deprecated!** Use [Get all reservations (ver 2023-06-06)](reservations.md#get-all-reservations-ver-2023-06-06) instead.|
+| ~~`Rates`~~ | ~~array of [Rate for extent](rates.md#rate-for-extent)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use [Get all rates](rates.md#get-all-rates) instead.|
 
 #### Availability block
 
@@ -204,8 +204,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's [time unit](../concepts/time-units.md): 367 hours if hours, 367 days if days, or 60 months if months. |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the individual days in the adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
