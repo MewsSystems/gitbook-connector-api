@@ -104,10 +104,33 @@ Returns all commands the are still active from the client application point of v
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `PaymentTerminalId` | string | required | Identifier of the payment terminal. |
-| `CustomerId` | string | required | Identifier of the [Customer](customers.md#customer). |
+| `AccountId` | string | required | Unique identifier of the [Account](accounts.md#account). |
+| `AccountData` | [Account data for payment terminal command](payments.md#account-data-for-payment-terminal-command) | required | Account data for the payment terminal command. |
+| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | **Deprecated!** Use `AccountId` instead.|
+| ~~`FullName`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `AccountData.Customer.FullName`, if `AccountData.Discriminator` is `Customer`, instead.|
 | `BillId` | string | optional | Identifier of the [Bill](bills.md#bill). |
 | `Amount` | [Currency value](accountingitems.md#currency-value) | required | Amount to be processed. | 
 | `PaymentTerminalData` | string | optional | Custom JSON data. |
+
+#### Account data for payment terminal command
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Account type](accounts.md#account-type) | required | Type of the account. |
+| `Customer` | [Customer data for payment terminal command.](payments.md#customer-data-for-payment-terminal-command) | optional | Customer data if the `Discriminator` is `Customer`. |
+| `Company` | [Company data for payment terminal command.](payments.md#company-data-for-payment-terminal-command) | optional | Company data if the `Discriminator` is `Company`. |
+
+#### Customer data for payment terminal command.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `FullName` | string | required | Full name of the customer. |
+
+#### Company data for payment terminal command.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Name` | string | required | Name of the company. |
 
 #### Passport scanner command data
 
