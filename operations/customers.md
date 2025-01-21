@@ -203,10 +203,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
