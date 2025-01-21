@@ -162,7 +162,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](customers.md#customer) | required | The customers. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then Cursor will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
-| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 
 #### Customer
 
