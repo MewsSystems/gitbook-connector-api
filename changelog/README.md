@@ -1,5 +1,9 @@
 # Changelog
 
+## 21st January 2025
+* [Get all payments](../operations/payments.md#get-all-payments):
+  * Extended request object with `AccountIds` filtering parameter.
+
 ## 16th January 2025
 * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
   * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
