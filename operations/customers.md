@@ -29,7 +29,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   },
   "Extent": {
     "Customers": true,
-    "Documents": true,
+    "Documents": false,
     "Addresses": false
   },
   "ActivityStates": [
@@ -85,8 +85,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | boolean | optional | Whether the response should contain information about customers. |
-| `Documents` | boolean | optional | Whether the response should contain identity documents of customers. |
 | `Addresses` | boolean | optional | Whether the response should contain addresses of customers. |
+| ~~`Documents`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) instead.|
 
 ### Response
 
@@ -121,17 +121,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "CreatedUtc": "2018-01-01T00:00:00Z",
       "UpdatedUtc": "2018-01-02T00:00:00Z",
       "Passport": null,
-      "IdentityCard": {
-        "Id": "e8a72a69-c20b-4278-b699-ab0400a32ecc",
-        "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
-        "Type": "IdentityCard",
-        "Number": "123456",
-        "Expiration": "2020-01-01",
-        "Issuance": "2015-01-01",
-        "IssuingCountryCode": "US",
-        "IssuingCity": "New York City",
-        "IdentityDocumentSupportNumber": null
-      },
+      "IdentityCard": null,
       "Visa": null,
       "DriversLicense": null,
       "Address": {
@@ -163,19 +153,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       ]
     }
   ],
-  "Documents": [
-    {
-      "Id": "e8a72a69-c20b-4278-b699-ab0400a32ecc",
-      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
-      "Type": "IdentityCard",
-      "Number": "123456",
-      "Expiration": "2020-01-01",
-      "Issuance": "2015-01-01",
-      "IssuingCountryCode": "US",
-      "IssuingCity": "New York City",
-      "IdentityDocumentSupportNumber": null
-    }
-  ],
+  "Documents": null,
   "Cursor": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
 }
 ```
@@ -183,8 +161,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer](customers.md#customer) | required | The customers. |
-| `Documents` | array of [Identity document](customers.md#identity-document) | required | The identity documents of customers. |
 | `Cursor` | string | optional | Unique identifier of the last and hence oldest customer item returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older customers. If [Limitation](../guidelines/pagination.md#limitation) is specified in the request message, then Cursor will always be included in the response message; this is true even when using Extents set to false so that no actual data is returned. |
+| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 
 #### Customer
 
@@ -225,10 +203,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -388,13 +366,6 @@ Adds a new customer to the system and returns details of the added customer. If 
     "CountryCode": "IT",
     "CountrySubdivisionCode": "IT-65"
   },
-  "Passport": {
-    "Number": "AA123456",
-    "Expiration": "2030-05-20",
-    "Issuance": "2020-05-20",
-    "IssuingCountryCode": "IT",
-    "IssuingCity": "Rome"
-  },
   "Classifications": [
     "Media",
     "FriendOrFamily"
@@ -428,16 +399,16 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `TaxIdentificationNumber` | string | optional | Tax identification number of the customer. |
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `Address` | [Address parameters](companies.md#address-parameters) | optional | Address of the customer. |
-| `IdentityCard` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Identity card details of the customer. |
-| `Passport` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Passport details of the customer. |
-| `Visa` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Visa details of the customer. |
-| `DriversLicense` | [Identity document parameters](customers.md#identity-document-parameters) | optional | Drivers license details of the customer. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | Classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using `PortfolioAccessTokens`, ignored otherwise. |
 | `OverwriteExisting` | boolean | required | Whether an existing customer should be overwritten in case of duplicity. This applies only to basic personal information (`Title`, `FirstName`, `LastName`, ...). |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
+| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Identity card details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
+| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Passport details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
+| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Visa details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
+| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~Drivers license details of the customer.~~ **Deprecated!** Use [Add identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#add-identity-documents) to add document.|
 
 #### Sex
 
@@ -517,17 +488,7 @@ Adds a new customer to the system and returns details of the added customer. If 
   "DietaryRequirements": null,
   "CreatedUtc": "2024-09-17T12:22:33Z",
   "UpdatedUtc": "2024-10-12T09:45:00Z",
-  "Passport": {
-    "Id": "42c3da09-e4cb-4454-8087-6eb35bcc4bcb",
-    "CustomerId": "99b4f0af-9558-463b-8452-07a9bc414708",
-    "Type": "Passport",
-    "Number": "AA123456",
-    "Expiration": "2030-05-20",
-    "Issuance": "2020-05-20",
-    "IssuingCountryCode": "IT",
-    "IssuingCity": "Rome",
-    "IdentityDocumentSupportNumber": null
-  },
+  "Passport": null,
   "IdentityCard": null,
   "Visa": null,
   "DriversLicense": null,
@@ -597,10 +558,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -637,13 +598,6 @@ Updates personal information of a customer. Note that if any of the fields is le
     "PostalCode": "30228",
     "CountryCode": "IT",
     "CountrySubdivisionCode": "IT-65"
-  },
-  "Passport": {
-    "Number": "AA123456",
-    "Expiration": "2030-05-20",
-    "Issuance": "2020-05-20",
-    "IssuingCountryCode": "IT",
-    "IssuingCity": "Rome"
   },
   "Classifications": [
     "Media",
@@ -686,14 +640,14 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `TaxIdentificationNumber` | string | optional | New tax identification number of the customer. |
 | `CompanyId` | string | optional | Unique identifier of `Company` the customer is associated with. |
 | `Address` | [Address parameters](companies.md#address-parameters) | optional | New address details. |
-| `IdentityCard` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New identity card details. |
-| `Passport` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New passport details. |
-| `Visa` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New visa details. |
-| `DriversLicense` | [Identity document parameters](customers.md#identity-document-parameters) | optional | New drivers license details. |
 | `Classifications` | array of [Customer classification](customers.md#customer-classification) | optional | New classifications of the customer. |
 | `Options` | array of [Customer option](customers.md#customer-option) | optional | Options of the customer. |
 | `ItalianDestinationCode` | [String update value](_objects.md#string-update-value) | optional | New Italian destination code of customer. |
 | `ItalianFiscalCode` | [String update value](_objects.md#string-update-value) | optional | New Italian fiscal code of customer. |
+| ~~`IdentityCard`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New identity card details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
+| ~~`Passport`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New passport details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
+| ~~`Visa`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New visa details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
+| ~~`DriversLicense`~~ | ~~[Identity document parameters](customers.md#identity-document-parameters)~~ | ~~optional~~ | ~~New drivers license details.~~ **Deprecated!** Use [Update identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#update-identity-documents) to update document.|
 
 ### Response
 
@@ -725,17 +679,7 @@ Updates personal information of a customer. Note that if any of the fields is le
   "DietaryRequirements": null,
   "CreatedUtc": "2024-09-17T12:22:33Z",
   "UpdatedUtc": "2024-10-12T09:45:00Z",
-  "Passport": {
-    "Id": "42c3da09-e4cb-4454-8087-6eb35bcc4bcb",
-    "CustomerId": "99b4f0af-9558-463b-8452-07a9bc414708",
-    "Type": "Passport",
-    "Number": "AA123456",
-    "Expiration": "2030-05-20",
-    "Issuance": "2020-05-20",
-    "IssuingCountryCode": "IT",
-    "IssuingCity": "Rome",
-    "IdentityDocumentSupportNumber": null
-  },
+  "Passport": null,
   "IdentityCard": null,
   "Visa": null,
   "DriversLicense": null,
@@ -805,10 +749,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use record from `Documents` with relevant `CustomerId` instead.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -899,42 +843,75 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
   "Customers": [
     {
       "Customer": {
-        "Address": null,
-        "BirthDate": null,
-        "BirthPlace": null,
-        "CategoryId": null,
-        "Classifications": [],
-        "CreatedUtc": "2016-01-01T00:00:00Z",
-        "Email": null,
-        "FirstName": "John",
+        "Id": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+        "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "Number": "12345",
+        "Title": "Mister",
         "Sex": "Male",
-        "Id": "35d4b117-4e60-44a3-9580-c582117eff98",
-        "IdentityCard": null,
-        "LanguageCode": null,
+        "FirstName": "John",
         "LastName": "Smith",
-        "LoyaltyCode": null,
+        "SecondLastName": "Williams",
         "NationalityCode": "US",
-        "Notes": "",
-        "Number": "1",
-        "Options": [],
-        "Passport": null,
+        "PreferredLanguageCode": "en-GB",
+        "LanguageCode": "en-US",
+        "BirthDate": "1983-12-31",
+        "BirthPlace": "New York City, NY",
+        "Occupation": "Carpenter",
+        "Email": "j.smith@example.com",
+        "HasOtaEmail": false,
         "Phone": "00420123456789",
-        "SecondLastName": null,
-        "TaxIdentificationNumber": null,
-        "Title": null,
-        "UpdatedUtc": "2016-01-01T00:00:00Z",
-        "Visa": null
+        "TaxIdentificationNumber": "123456789",
+        "LoyaltyCode": "LL810213",
+        "AccountingCode": "AC123",
+        "BillingCode": null,
+        "Notes": "",
+        "CarRegistrationNumber": "1A2 3456",
+        "DietaryRequirements": null,
+        "CreatedUtc": "2018-01-01T00:00:00Z",
+        "UpdatedUtc": "2018-01-02T00:00:00Z",
+        "Passport": null,
+        "IdentityCard": null,
+        "Visa": null,
+        "DriversLicense": null,
+        "Address": {
+          "Id": "f8495413-bf49-45dd-843c-44be7f365569",
+          "Line1": "Somerford Road Hello House/135",
+          "Line2": null,
+          "City": "Christchurch",
+          "PostalCode": "BH23 3PY",
+          "CountryCode": "GB",
+          "CountrySubdivisionCode": "GB-ENG",
+          "Latitude": null,
+          "Longitude": null
+        },
+        "AddressId": "f8495413-bf49-45dd-843c-44be7f365569",
+        "Classifications": [
+          "Returning"
+        ],
+        "Options": [
+          "SendMarketingEmails"
+        ],
+        "ItalianDestinationCode": null,
+        "ItalianFiscalCode": null,
+        "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+        "MergeTargetId": null,
+        "ActivityState": "Active",
+        "IsActive": true,
+        "PreferredSpaceFeatures": [
+          "OceanView"
+        ]
       },
       "Reservation": null
     }
-  ]
+  ],
+  "Documents": null
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
-| `Documents` | array of [Identity document](customers.md#identity-document) | optional | The identity documents of customers. |
+| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 
 #### Customer search result
 

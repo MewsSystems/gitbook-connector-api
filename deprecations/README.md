@@ -41,6 +41,11 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `Documents` <br>in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers) response | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| Extent `Documents`<br>in [Get all customers](../operations/customers.md#get-all-customers) | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Search customers](../operations/customers.md#customer), [Get all customers](../operations/customers.md#get-all-customers) and [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers` | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Add customer](../operations/customers.md#add-customer) | Use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Update customer](../operations/customers.md#update-customer) | Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead | 9th Jan 20255 | 10 Jan 2026 |
 | Extent `ServiceOrders`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead | 10 Jan 2025 | 10 Jan 2026 |
 | Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
 | `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company) | Replaced by `AdditionalTaxIdentifier` | 30 Aug 2024 | - |

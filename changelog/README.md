@@ -1,6 +1,18 @@
 # Changelog
 
 ## 21st January 2025
+* [Get all customers](../operations/customers.md#get-all-customers):
+  * **Deprecated** operation extent `Documents`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* [Search customers](../operations/customers.md#search-customers):
+  * **Deprecated** operation extent `Documents`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* [Get all companionships](../operations/companionships.md#get-all-companionships):
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object under extent `Customers`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* [Add customer](../operations/customers.md#add-customer): 
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense`. Use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead
+* [Update customer](../operations/customers.md#update-customer): 
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense`. Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead.
 * [Get all enterprises](../operations/enterprises.md#get-all-enterprises)
   * Extended [Enterprise](../operations/enterprises.md#enterprise) response object with `Address`.
 * [Get configuration](../operations/configuration.md#get-configuration): 
