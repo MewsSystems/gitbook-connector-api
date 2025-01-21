@@ -1,11 +1,9 @@
+<!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Availability blocks
 
 ## Get all availability blocks
 
-> This feature is being actively developed, features and behavior of this operation may change at short notice.
-
-Returns all availability blocks filtered by services, unique identifiers and other filters.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns all availability blocks filtered by services, unique identifiers and other filters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -13,51 +11,49 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseIds": [
-        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-    ],
-    "AvailabilityBlockIds": [
-        "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
-    ],
-    "ServiceIds": [
-        "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
-    ],
-    "CreatedUtc" : {
-        "StartUtc": "2020-11-04T00:00:00Z",
-        "EndUtc": "2020-11-05T00:00:00Z"
-    },
-    "UpdatedUtc" : {
-        "StartUtc": "2020-11-04T00:00:00Z",
-        "EndUtc": "2020-11-05T00:00:00Z"
-    },
-    "CollidingUtc" : {
-        "StartUtc": "2020-11-05T00:00:00Z",
-        "EndUtc": "2020-11-05T00:00:00Z"
-    },
-    "ReleasedUtc" : {
-        "StartUtc": "2020-11-04T00:00:00Z",
-        "EndUtc": "2020-11-05T00:00:00Z"
-    },
-    "States": [
-        "Confirmed"
-    ],
-    "ExternalIdentifiers": [
-        "Block-0001"
-    ],
-    "ActivityStates": [
-        "Active"
-    ],
-    "Extent": {
-        "AvailabilityBlocks": true,
-        "Adjustments": true,
-        "ServiceOrders": false,
-        "Rates": false
-    },
-    "Limitation": { "Count": 10 }
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "Extent": {
+    "AvailabilityBlocks": true,
+    "Adjustments": true,
+    "ServiceOrders": false,
+    "Rates": false
+  },
+  "ServiceIds": [
+    "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+  ],
+  "AvailabilityBlockIds": [
+    "5ee074b1-6c86-48e8-915f-c7aa4702086f"
+  ],
+  "CreatedUtc": {
+    "StartUtc": "2020-11-04T00:00:00Z",
+    "EndUtc": "2020-11-05T00:00:00Z"
+  },
+  "UpdatedUtc": {
+    "StartUtc": "2020-11-04T00:00:00Z",
+    "EndUtc": "2020-11-05T00:00:00Z"
+  },
+  "CollidingUtc": {
+    "StartUtc": "2020-11-04T00:00:00Z",
+    "EndUtc": "2020-11-05T00:00:00Z"
+  },
+  "ReleasedUtc": {
+    "StartUtc": "2020-11-04T00:00:00Z",
+    "EndUtc": "2020-11-05T00:00:00Z"
+  },
+  "ExternalIdentifiers": [
+    "Block-0001"
+  ],
+  "States": [
+    "Confirmed"
+  ],
+  "ActivityStates": [
+    "Active"
+  ],
+  "Limitation": {
+    "Count": 100
+  }
 }
 ```
 
@@ -66,180 +62,182 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `AvailabilityBlockIds` | string | optional, max 1000 items | Unique identifiers of the requested [Availability blocks](#availability-block). |
-| `ServiceIds` | string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service) to which [Availability blocks](#availability-block) are assigned. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were created. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) were updated. |
-| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are active. |
-| `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Availability blocks](#availability-block) are released. |
-| `States` | array of string [Availability block state](#availability-block-state) | optional | States the availability blocks should be in. |
-| `ExternalIdentifiers` | string | optional, max 1000 items | Identifiers of [Availability block](#availability-block)s from external systems. |
-| `ActivityStates` | array of string [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Extent` | [Availability block extent](#availability-block-extent) | required | Extent of data to be returned, e.g. it is possible to specify that related service orders (for example reservations) are returned. |
-
-#### Availability block state
-
-* `Confirmed` - The block deducts availability and can have reservations assigned.
-* `Optional` - The block deducts availability and cannot have reservations assigned.
-* `Inquired` - The block does not deduct availability and cannot have reservations assigned \(waitlist\).
-* `Released` - The block deducts availability, but only for reservations assigned to the block before release. Remaining availability is returned back to general availability \(waitlist\).
-* `Canceled` - The block does not deduct availability and cannot have reservations assigned \(waitlist\). 
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Extent` | [Availability block extent](availabilityblocks.md#availability-block-extent) | required | Extent of data to be returned, e.g. it is possible to specify that related service orders (for example reservations) are returned. |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the `Services` to which `Availability blocks` are assigned. |
+| `AvailabilityBlockIds` | array of string | optional, max 1000 items | Unique identifiers of the requested `Availability blocks`. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the availability blocks were created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` were updated. |
+| `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks` are active. |
+| `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks`are released. |
+| `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of `Availability blocks` from external systems. |
+| `States` | array of [Availability block state](availabilityblocks.md#availability-block-state) | optional | States the availability blocks should be in. |
+| `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Availability block extent
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlocks` | bool | optional | Whether the response should contain the general availability blocks. |
-| `Adjustments` | bool | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
-| `ServiceOrders` | bool | optional | Whether the response should contain reservations related to availability blocks. |
-| `Rates` | bool | optional | Whether the response should contain rates related to availability blocks. |
+| `AvailabilityBlocks` | boolean | optional | Whether the response should contain the general availability blocks. |
+| `Adjustments` | boolean | optional | Whether the response should contain individual availability adjustments related to availability blocks. |
+| ~~`ServiceOrders`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain reservations related to availability blocks.~~ **Deprecated!** Use [Get all reservations (ver 2023-06-06)](reservations.md#get-all-reservations-ver-2023-06-06) instead.|
+| ~~`Rates`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain rates related to availability blocks.~~ **Deprecated!** Use [Get all rates](rates.md#get-all-rates) instead.|
 
 ### Response
 
 ```javascript
 {
-    "AvailabilityBlocks": [
-        {
-            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "VoucherId": null,
-            "BookerId": null,
-            "CompanyId": null,
-            "Budget": {
-                "Currency": "USD",
-                "Value": 48.0
-            },
-            "State": "Confirmed",
-            "ReservationPurpose": "Leisure",
-            "CreatedUtc": "2021-10-11T13:32:32Z",
-            "UpdatedUtc": "2021-10-11T13:32:32Z",
-            "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
-            "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
-            "ReleasedUtc": "2021-10-13T00:00:00Z",
-            "RollingReleaseOffset": null,
-            "ExternalIdentifier": "Block-0001",
-            "Name": "Wedding group",
-            "Notes": "Have a nice stay",
-            "QuoteId": null,
-            "AvailabilityBlockNumber": "478",
-            "ReleaseStrategy": "FixedRelease"
-        },
-        {
-            "Id": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "VoucherId": null,
-            "BookerId": null,
-            "CompanyId": null,
-            "Budget": {
-                "Currency": "USD",
-                "Value": 48.0
-            },
-            "State": "Confirmed",
-            "ReservationPurpose": "Leisure",
-            "CreatedUtc": "2022-10-11T13:32:32Z",
-            "UpdatedUtc": "2022-10-11T13:32:32Z",
-            "FirstTimeUnitStartUtc": "2022-10-14T00:00:00Z",
-            "LastTimeUnitStartUtc": "2022-11-17T00:00:00Z",
-            "ReleasedUtc": null,
-            "RollingReleaseOffset": "P-3DT4H",
-            "ExternalIdentifier": "Block-0002",
-            "Name": "Rolling release",
-            "Notes": null,
-            "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
-            "AvailabilityBlockNumber": "479",
-            "ReleaseStrategy": "FixedRelease"
-        }
-    ],
-    "ServiceOrders": [
-        {
-            "Id": "5281b551-bd90-4def-b211-acbd00d3ac8c",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "GroupId": "edad92db-0b60-4b91-a090-acbd00d3ac75",
-            "Number": "61",
-            "ChannelNumber": "68845CDD-1340-49B5-9071-ACBD00B1D091",
-            "ChannelManagerNumber": null,
-            "ChannelManagerGroupNumber": null,
-            "ChannelManager": null,
-            "State": "Confirmed",
-            "Origin": "Connector",
-            "CreatedUtc": "2020-11-05T12:50:40Z",
-            "UpdatedUtc": "2020-11-06T07:59:19Z",
-            "CancelledUtc": null,
-            "StartUtc": "2020-11-05T00:00:00Z",
-            "EndUtc": "2020-11-06T00:00:00Z",
-            "ReleasedUtc": null,
-            "RequestedCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
-            "AssignedResourceId": "f97a6b96-b17f-421f-9b97-ac87008b3324",
-            "AssignedResourceLocked": false,
-            "BusinessSegmentId": null,
-            "CompanyId": null,
-            "TravelAgencyId": null,
-            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "VoucherId": null,
-            "AdultCount": 2,
-            "ChildCount": 0,
-            "CustomerId": "c2730cbc-53ca-440d-8b30-ac87008b30af",
-            "CompanionIds": []
-        }
-    ],
-    "Adjustments": [
-        {
-            "Id": "e19297af-373e-4701-b4ea-afae0129bded",
-            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "ResourceCategoryId": "1268c440-21c5-415d-bf58-ac87008b2bda",
-            "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
-            "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
-            "UnitCount": 6,
-            "ActivityState": "Active",
-            "UpdatedUtc": "2021-10-21T13:32:32Z"
-        }
-    ],
-     "Cursor": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773"
+  "AvailabilityBlocks": [
+    {
+      "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "VoucherId": null,
+      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "CompanyId": null,
+      "TravelAgencyId": null,
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48,
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null
+      },
+      "State": "Confirmed",
+      "ReservationPurpose": "Leisure",
+      "CreatedUtc": "2020-11-04T13:00:00Z",
+      "UpdatedUtc": "2020-11-04T13:00:00Z",
+      "FirstTimeUnitStartUtc": "2020-11-04T13:00:00Z",
+      "LastTimeUnitStartUtc": "2020-11-04T13:00:00Z",
+      "ReleasedUtc": "2020-11-04T13:00:00Z",
+      "RollingReleaseOffset": null,
+      "ExternalIdentifier": "Block-0001",
+      "Name": "Wedding group",
+      "Notes": "Have a nice stay",
+      "PickupDistribution": "AllInOneGroup",
+      "IsActive": false,
+      "QuoteId": null,
+      "AvailabilityBlockNumber": "478",
+      "ReleaseStrategy": "FixedRelease"
+    },
+    {
+      "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "VoucherId": null,
+      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "CompanyId": null,
+      "TravelAgencyId": null,
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48,
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null
+      },
+      "State": "Confirmed",
+      "ReservationPurpose": "Leisure",
+      "CreatedUtc": "2022-10-11T13:32:32Z",
+      "UpdatedUtc": "2022-10-11T13:32:32Z",
+      "FirstTimeUnitStartUtc": "2022-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2022-11-17T00:00:00Z",
+      "ReleasedUtc": null,
+      "RollingReleaseOffset": "P-3DT4H",
+      "ExternalIdentifier": "Block-0002",
+      "Name": "Rolling release",
+      "Notes": null,
+      "PickupDistribution": "AllInOneGroup",
+      "IsActive": false,
+      "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
+      "AvailabilityBlockNumber": "479",
+      "ReleaseStrategy": "RollingRelease"
+    }
+  ],
+  "ServiceOrders": null,
+  "Adjustments": [
+    {
+      "Id": "e19297af-373e-4701-b4ea-afae0129bded",
+      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "StartUtc": null,
+      "EndUtc": null,
+      "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
+      "UnitCount": 6,
+      "ActivityState": "Active",
+      "ReleaseOverrideUtc": null,
+      "UpdatedUtc": "2021-10-21T13:32:32Z",
+      "IsActive": false,
+      "PaxCounts": null
+    }
+  ],
+  "Rates": null,
+  "Cursor": "c32386aa-1cd2-414a-a823-489325842fbe"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlocks` | array of [Availability block](#availability-block) | optional | Availability blocks. |
-| `ServiceOrders` | array of [Reservation](reservations.md#reservation-ver-2017-04-12) | optional | Service orders (for example reservations) linked to availability blocks. |
+| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | optional | Availability blocks. |
 | `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
-| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
+| `Cursor` | string | optional | Unique identifier of the last returned availability block. This can be used in Limitation in a subsequent request to fetch the next batch of availability block. |
+| ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Service orders (for example reservations) linked to availability blocks.~~ **Deprecated!** Use [Get all reservations (ver 2023-06-06)](reservations.md#get-all-reservations-ver-2023-06-06) instead.|
+| ~~`Rates`~~ | ~~array of [Rate for extent](rates.md#rate-for-extent)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use [Get all rates](rates.md#get-all-rates) instead.|
 
 #### Availability block
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the availability block. |
-| `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) the block is assigned to. |
-| `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) the block is assigned to. |
-| `VoucherId` | string | optional | Unique identifier of the [Voucher](vouchers.md#voucher) used to access specified private [Rate](rates.md#rate). |
-| `BookerId` | string | optional | Unique identifier of the [Customer](customers.md#customer) on whose behalf the block was made. |
-| `CompanyId` | string | optional | Unique identifier of the [Company](companies.md#company) linked to the block. |
-| `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations in the block. |
-| `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
-| `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
+| `EnterpriseId` | string | required | Unique identifier of the [enterprise](enterprises.md#enterprise). |
+| `ServiceId` | string | required | Unique identifier of the `Service` the block is assigned to. |
+| `RateId` | string | required | Unique identifier of the `Rate` the block is assigned to. |
+| `VoucherId` | string | optional | Unique identifier of the `Voucher` used to access specified private `Rate`. |
+| `BookerId` | string | optional | Unique identifier of the `Customer` on whose behalf the block was made. |
+| `CompanyId` | string | optional | Unique identifier of the `Company` linked to the block. |
+| `TravelAgencyId` | string | optional | Unique identifier of `Company`with `Travel agency contract` the Availability Block is related to. |
+| `Budget` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | The tentative budget for the total price of reservations in the block. |
+| `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
+| `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
 | `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
 | `ReleasedUtc` | string | optional | The moment when the block and its availability is released in UTC timezone in ISO 8601 format. Mutually exclusive with `RollingReleaseOffset`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the individual days in the adjustment should be released, in ISO 8601 duration format. Mutually exclusive with `ReleasedUtc`; the block will not be automatically released if neither `ReleasedUtc` nor `RollingReleaseOffsetUtc` is specified. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
 | `Name` | string | optional | The name of the block in Mews. |
 | `Notes` | string | optional | Additional notes of the block. |
+| `PickupDistribution` | [Pickup distribution](availabilityblocks.md#pickup-distribution) | required | Whether assigning spaces to reservations within an availability block is done as a single group or divided into individual groups. |
+| `IsActive` | boolean | required | Whether the `Availability Block` is still active. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
 | `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 
+#### Availability block state
+
+* `Confirmed` - The block deducts availability and can have reservations assigned.
+* `Optional` - The block deducts availability and cannot have reservations assigned.
+* `Inquired` - The block does not deduct availability and cannot have reservations assigned (waitlist).
+* `Canceled` - The block does not deduct availability and cannot have reservations assigned (waitlist).
+
+#### Pickup distribution
+
+* `AllInOneGroup` - All created reservations in the block are added to the same reservation group.
+* `IndividualGroups` - Reservations can be picked up in multiple groups, with up to 750 reservations per group.
+
+#### Release strategy
+
+* `FixedRelease` - The availability block is released at a fixed time.
+* `RollingRelease` - Each availability adjustment is released at a fixed offset from its start.
+* `None` - The availability block is not automatically released.
+
 ## Add availability blocks
 
-> This feature is being actively developed, features and behavior of this operation might change on short notice.
-
-Adds availability blocks which are used to group related [Availability updates](#availability-update). This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Adds availability blocks which are used to group related `Availability updates`. This makes limiting public availability easier and more organized. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -247,50 +245,39 @@ Adds availability blocks which are used to group related [Availability updates](
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "AvailabilityBlocks": [
-        {
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "VoucherCode": null,
-            "Name": "Mr. Smith's block",
-            "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
-            "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
-            "ReleasedUtc": "2020-11-04T00:00:00Z",
-            "ExternalIdentifier": "Block-0001",
-            "Budget": {  
-               "Value": 500,
-               "Currency": "EUR"
-            },
-            "ReservationPurpose": null,
-            "Notes": null,
-            "State": "Confirmed",
-            "BookerId": null,
-            "QuoteId": null
-        },
-        {
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "VoucherCode": null,
-            "Name": "ROlling release block",
-            "FirstTimeUnitStartUtc": "2021-11-05T00:00:00Z",
-            "LastTimeUnitStartUtc": "2021-11-06T00:00:00Z",
-            "RollingReleaseOffset": "P-3DT4H",
-            "ExternalIdentifier": "Block-0002",
-            "Budget": {  
-               "Value": 500,
-               "Currency": "EUR"
-            },
-            "ReservationPurpose": null,
-            "Notes": null,
-            "State": "Confirmed",
-            "BookerId": null,
-            "QuoteId": null
-        }
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "AvailabilityBlocks": [
+    {
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
+      "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
+      "ReleasedUtc": "2020-11-04T00:00:00Z",
+      "Name": "Mr. Smith's block",
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48
+      },
+      "ExternalIdentifier": "Block-0001",
+      "State": "Confirmed"
+    },
+    {
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "FirstTimeUnitStartUtc": "2021-11-05T00:00:00Z",
+      "LastTimeUnitStartUtc": "2021-11-06T00:00:00Z",
+      "Name": "Rolling release block",
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48
+      },
+      "ExternalIdentifier": "Block-0002",
+      "State": "Confirmed"
+    }
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -299,8 +286,8 @@ Adds availability blocks which are used to group related [Availability updates](
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
-| `AvailabilityBlocks` | array of [Availability block parameters](#availability-block-parameters) | required, max 1000 items | Availability blocks to be added. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `AvailabilityBlocks` | array of [Availability block parameters](availabilityblocks.md#availability-block-parameters) | required, max 1000 items | Availability blocks to be added. |
 
 #### Availability block parameters
 
@@ -308,53 +295,124 @@ Adds availability blocks which are used to group related [Availability updates](
 | :-- | :-- | :-- | :-- |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) to assign block to. |
 | `RateId` | string | required | Unique identifier of the [Rate](rates.md#rate) to assign block to. |
-| `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](rates.md#rate). |
-| `Name` | string | optional | The name of the block. |
-| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
-| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. See [Time units](../concepts/time-units.md). |
+| `FirstTimeUnitStartUtc` | string | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. |
+| `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. |
 | `ReleasedUtc` | string | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Takes precedence over `RollingReleaseOffset`. |
 | `RollingReleaseOffset` | string | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Ignored if `ReleasedUtc` is specified. |
-| `ExternalIdentifier` | string | optional, max 255 characters | Identifier of the block from external system. |
-| `Budget` | [Currency value](accountingitems.md#currency-value) | optional | The tentative budget for the total price of reservations. |
-| `ReservationPurpose` | string [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
+| `Name` | string | optional | The name of the block. |
+| `VoucherCode` | string | optional | Voucher code providing access to specified private [Rate](rates.md#rate). |
+| `BookerId` | string | optional | Unique identifier of the Booker as a creator of an availability block. |
+| `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company). |
+| `TravelAgencyId` | string | optional | Unique identifier of travel agency (`Company` with a `TravelAgencyContract`). |
+| `Budget` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | The tentative budget for the total price of reservations. |
+| `ReservationPurpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | The purpose of the block. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the block from external system. |
 | `Notes` | string | optional | Additional notes of the block. |
-| `State` | string [Availability block state](#availability-block-state) | required | State of the availability block. |
-| `BookerId` | string | optional | Unique identifier of the [Booker](customers.md#customer) as a creator of an availability block. |
+| `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 
 ### Response
 
 ```javascript
 {
-    "AvailabilityBlocks": [
-        {
-            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
-            "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
-            "ReleasedUtc": "2020-11-04T00:00:00Z",
-            "ExternalIdentifier": "Block-0001"
-        }
-    ]
+  "AvailabilityBlocks": [
+    {
+      "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "VoucherId": null,
+      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "CompanyId": null,
+      "TravelAgencyId": null,
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48,
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null
+      },
+      "State": "Confirmed",
+      "ReservationPurpose": "Leisure",
+      "CreatedUtc": "2020-11-04T13:00:00Z",
+      "UpdatedUtc": "2020-11-04T13:00:00Z",
+      "FirstTimeUnitStartUtc": "2020-11-04T13:00:00Z",
+      "LastTimeUnitStartUtc": "2020-11-04T13:00:00Z",
+      "ReleasedUtc": "2020-11-04T13:00:00Z",
+      "RollingReleaseOffset": null,
+      "ExternalIdentifier": "Block-0001",
+      "Name": "Wedding group",
+      "Notes": "Have a nice stay",
+      "PickupDistribution": "AllInOneGroup",
+      "IsActive": false,
+      "QuoteId": null,
+      "AvailabilityBlockNumber": "478",
+      "ReleaseStrategy": "FixedRelease"
+    },
+    {
+      "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "VoucherId": null,
+      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "CompanyId": null,
+      "TravelAgencyId": null,
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48,
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null
+      },
+      "State": "Confirmed",
+      "ReservationPurpose": "Leisure",
+      "CreatedUtc": "2022-10-11T13:32:32Z",
+      "UpdatedUtc": "2022-10-11T13:32:32Z",
+      "FirstTimeUnitStartUtc": "2022-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2022-11-17T00:00:00Z",
+      "ReleasedUtc": null,
+      "RollingReleaseOffset": "P-3DT4H",
+      "ExternalIdentifier": "Block-0002",
+      "Name": "Rolling release",
+      "Notes": null,
+      "PickupDistribution": "AllInOneGroup",
+      "IsActive": false,
+      "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
+      "AvailabilityBlockNumber": "479",
+      "ReleaseStrategy": "RollingRelease"
+    }
+  ],
+  "ServiceOrders": null,
+  "Adjustments": [
+    {
+      "Id": "e19297af-373e-4701-b4ea-afae0129bded",
+      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "StartUtc": null,
+      "EndUtc": null,
+      "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
+      "UnitCount": 6,
+      "ActivityState": "Active",
+      "ReleaseOverrideUtc": null,
+      "UpdatedUtc": "2021-10-21T13:32:32Z",
+      "IsActive": false,
+      "PaxCounts": null
+    }
+  ],
+  "Rates": null,
+  "Cursor": "c32386aa-1cd2-414a-a823-489325842fbe"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
-
-### Reservation purpose
-
-* Leisure
-* Business
-* Student
+| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | required | Availability blocks. |
 
 ## Update availability blocks
 
-> This feature is being actively developed, features and behavior of this operation might change on short notice.
-
-Updates information about the specified [Availability block](#availability-block).
+Updates information about the specified `Availability block`. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -362,51 +420,90 @@ Updates information about the specified [Availability block](#availability-block
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "AvailabilityBlocks": [
-        {
-            "AvailabilityBlockId": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "Name": { "Value": "Mr. John Snow block" },
-            "FirstTimeUnitStartUtc": { "Value": "2021-07-05T00:00:00Z" },
-            "LastTimeUnitStartUtc": { "Value": "2021-07-15T00:00:00Z" },
-            "ExternalIdentifier": { "Value": "123456798" }
-            "State": { "Value": "Confirmed" },
-            "ReservationPurpose": { "Value": "Leisure" },
-            "BookerId": { "Value": "bdc54ad5-e3bd-4393-80b9-f96d6f63f92e" },
-            "Notes": { "Value": "Have a nice stay" },
-            "Budget": { 
-                "Value": {
-                    "Value": 500,
-                    "Currency": "EUR"
-                }
-            },
-            "ReleasedUtc": { "Value": "2021-07-01T00:00:00Z" },
-            "ReleaseStrategy": { "Value": "None" },
-            "QuoteId": { "Value": null }
-        },
-        {
-            "AvailabilityBlockId": "82ce1bb4-78b2-4b4e-aef3-edfc28d26773",
-            "Name": { "Value": "Rolling release block" },
-            "FirstTimeUnitStartUtc": { "Value": "2022-07-05T00:00:00Z" },
-            "LastTimeUnitStartUtc": { "Value": "2022-07-15T00:00:00Z" },
-            "ExternalIdentifier": { "Value": "Block2" }
-            "State": { "Value": "Confirmed" },
-            "ReservationPurpose": { "Value": "Leisure" },
-            "BookerId": { "Value": "bdc54ad5-e3bd-4393-80b9-f96d6f63f92e" },
-            "Budget": { 
-                "Value": {
-                    "Value": 500,
-                    "Currency": "EUR"
-                }
-            },
-            "RollingReleaseOffset": { "Value": "P-3DT4H" },
-            "ReleaseStrategy": { "Value": "RollingRelease" },
-            "QuoteId": { "Value": "3a995033-3fbd-4b4c-9bc2-a60523d78bc5" }
+  "AvailabilityBlocks": [
+    {
+      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "Name": {
+        "Value": "Mr. Smith's block"
+      },
+      "FirstTimeUnitStartUtc": {
+        "Value": "2021-07-05T00:00:00Z"
+      },
+      "LastTimeUnitStartUtc": {
+        "Value": "2021-07-15T00:00:00Z"
+      },
+      "ExternalIdentifier": {
+        "Value": "Block-0001"
+      },
+      "State": {
+        "Value": "Confirmed"
+      },
+      "ReservationPurpose": {
+        "Value": "Leisure"
+      },
+      "BookerId": {
+        "Value": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72"
+      },
+      "Notes": {
+        "Value": "Have a nice stay"
+      },
+      "Budget": {
+        "Value": {
+          "Currency": "USD",
+          "Value": 48
         }
-    ]
+      },
+      "ReleasedUtc": {
+        "Value": "2021-07-01T00:00:00Z"
+      },
+      "QuoteId": {}
+    },
+    {
+      "AvailabilityBlockId": "c32386aa-1cd2-414a-a823-489325842fbe",
+      "Name": {
+        "Value": "Rolling release block"
+      },
+      "FirstTimeUnitStartUtc": {
+        "Value": "2022-07-05T00:00:00Z"
+      },
+      "LastTimeUnitStartUtc": {
+        "Value": "2022-07-15T00:00:00Z"
+      },
+      "ExternalIdentifier": {
+        "Value": "Block-0002"
+      },
+      "State": {
+        "Value": "Confirmed"
+      },
+      "ReservationPurpose": {
+        "Value": "Leisure"
+      },
+      "BookerId": {
+        "Value": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72"
+      },
+      "Notes": {
+        "Value": "Have a nice stay"
+      },
+      "Budget": {
+        "Value": {
+          "Currency": "USD",
+          "Value": 48
+        }
+      },
+      "RollingReleaseOffset": {
+        "Value": "P-3DT4H"
+      },
+      "ReleasedUtc": {
+        "Value": "2021-07-01T00:00:00Z"
+      },
+      "ReleaseStrategy": {
+        "Value": "RollingRelease"
+      },
+      "QuoteId": {
+        "Value": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c"
+      }
+    }
+  ]
 }
 ```
 
@@ -415,62 +512,146 @@ Updates information about the specified [Availability block](#availability-block
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
-| `AvailabilityBlocks` | array of [Availability block update parameters](#availability-block-update-parameters) | required, max 1000 items | Availability blocks to be updated. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `AvailabilityBlocks` | array of [Availability block update parameters](availabilityblocks.md#availability-block-update-parameters) | required, max 1000 items | Availability blocks to be updated. |
 
 #### Availability block update parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](#availability-block). |
-| `Name` | [String update value](_objects.md#string-update-value) | optional | The name of the block \(or `null` if the name should not be updated\). |
-| `FirstTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format \(or `null` if the start time should not be updated\). See [Time units](../concepts/time-units.md). |
-| `LastTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | required | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format \(or `null` if the end time should not be updated\). See [Time units](../concepts/time-units.md). |
-| `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max 255 characters | Identifier of the block from external system \(or `null` if the identifier should not be updated\). |
-| `State` | [String update value](_objects.md#string-update-value) for [Availability block state](#availability-block-state) | optional | State of the availability block (or `null` if not updated). |
-| `ReservationPurpose` | [String update value](_objects.md#string-update-value) for [Reservation purpose](#reservation-purpose) | optional | The purpose of the block (or `null` if not updated). |
-| `BookerId` | [Guid update value](_objects.md#string-update-value) | optional | Unique identifier of the Booker as a creator of an availability block (or `null` if not updated). |
+| `AvailabilityBlockId` | string | required | Unique identifier of the [Availability block](availabilityblocks.md#availability-block). |
+| `Name` | [String update value](_objects.md#string-update-value) | optional | The name of the block (or `null` if the name should not be updated). |
+| `FirstTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | optional | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format (or `null` if the start time should not be updated). |
+| `LastTimeUnitStartUtc` | [String update value](_objects.md#string-update-value) | optional | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format (or `null` if the end time should not be updated). |
+| `ExternalIdentifier` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Identifier of the block from external system (or `null` if the identifier should not be updated). |
+| `State` | [String update value](_objects.md#string-update-value) | optional | State of the availability block (or `null` if not updated). |
+| `ReservationPurpose` | [String update value](_objects.md#string-update-value) | optional | The purpose of the block (or `null` if not updated). |
+| `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the [Company](companies.md#company) (or `null` if not updated). |
+| `TravelAgencyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the travel agency (i.e. `Company`; or `null` if not updated). |
+| `BookerId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the Booker as a creator of an availability block (or `null` if not updated). |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Additional notes of the block (or `null` if not updated). |
-| `Budget` | [Currency](accountingitems.md#currency-value) update value | optional | The tentative budget for the total price of reservations (or `null` if not updated). |
+| `Budget` | [Currency value (ver 2018-06-07) update value](availabilityblocks.md#currency-value-ver-2018-06-07-update-value) | optional | The tentative budget for the total price of reservations (or `null` if not updated). |
+| `CancellationReason` | [String update value](_objects.md#string-update-value) | optional | Cancellation reason of the availability block (or `null` if not updated). |
+| `CancellationReasonDetail` | [String update value](_objects.md#string-update-value) | optional | Cancellation reason detail of the availability block (or `null` if not updated). |
 | `RollingReleaseOffset` | [String update value](_objects.md#string-update-value) | optional | Exact offset from the start of availability adjustments to the moment the availability adjustment should be released, in ISO 8601 duration format. Required if `ReleaseStrategy` is set to `RollingRelease`, ignored otherwise. |
 | `ReleasedUtc` | [String update value](_objects.md#string-update-value) | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Required if `ReleaseStrategy` is set to `FixedRelease`, or used when `ReleaseStrategy` update is unspecified. |
-| `ReleaseStrategy` | [String update value](_objects.md#string-update-value) | optional | The strategy for automatic release of the availability block. If this property is not specified, the release strategy is not updated. |
-| `QuoteId` | [Guid update value](_objects.md#string-update-value) | optional | Unique identifier of the Mews Events quote associated with the availability block (or `null` if not updated). |
+| `ReleaseStrategy` | [Release strategy update value](availabilityblocks.md#release-strategy-update-value) | optional | The strategy for automatic release of the availability block (or `null` if not updated). |
+| `QuoteId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the Mews Events quote associated with the availability block (or `null` if not updated). |
 
-#### Release strategy
+#### Currency value (ver 2018-06-07) update value
 
-The strategy for automatic release of the availability block.
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | optional | Value in the specified currency. |
 
-- `FixedRelease` - The availability block is released at a fixed time.
-- `RollingRelease` - Each availability adjustment is released at a fixed offset from its start.
-- `None` - The availability block is not automatically released.
+#### Release strategy update value
 
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 
 ### Response
 
 ```javascript
 {
-    "AvailabilityBlocks": [
-        {
-            "Id": "aaaa654a4a94-4f96-9efc-86da-bd26d8db",
-            "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
-            "FirstTimeUnitStartUtc": "2020-11-05T00:00:00Z",
-            "LastTimeUnitStartUtc": "2020-11-06T00:00:00Z",
-            "ReleasedUtc": "2020-11-04T00:00:00Z",
-            "ExternalIdentifier": "Block-0001"
-        }
-    ]
+  "AvailabilityBlocks": [
+    {
+      "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "VoucherId": null,
+      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "CompanyId": null,
+      "TravelAgencyId": null,
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48,
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null
+      },
+      "State": "Confirmed",
+      "ReservationPurpose": "Leisure",
+      "CreatedUtc": "2020-11-04T13:00:00Z",
+      "UpdatedUtc": "2020-11-04T13:00:00Z",
+      "FirstTimeUnitStartUtc": "2020-11-04T13:00:00Z",
+      "LastTimeUnitStartUtc": "2020-11-04T13:00:00Z",
+      "ReleasedUtc": "2020-11-04T13:00:00Z",
+      "RollingReleaseOffset": null,
+      "ExternalIdentifier": "Block-0001",
+      "Name": "Wedding group",
+      "Notes": "Have a nice stay",
+      "PickupDistribution": "AllInOneGroup",
+      "IsActive": false,
+      "QuoteId": null,
+      "AvailabilityBlockNumber": "478",
+      "ReleaseStrategy": "FixedRelease"
+    },
+    {
+      "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "VoucherId": null,
+      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "CompanyId": null,
+      "TravelAgencyId": null,
+      "Budget": {
+        "Currency": "USD",
+        "Value": 48,
+        "Net": null,
+        "Tax": null,
+        "TaxRate": null
+      },
+      "State": "Confirmed",
+      "ReservationPurpose": "Leisure",
+      "CreatedUtc": "2022-10-11T13:32:32Z",
+      "UpdatedUtc": "2022-10-11T13:32:32Z",
+      "FirstTimeUnitStartUtc": "2022-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2022-11-17T00:00:00Z",
+      "ReleasedUtc": null,
+      "RollingReleaseOffset": "P-3DT4H",
+      "ExternalIdentifier": "Block-0002",
+      "Name": "Rolling release",
+      "Notes": null,
+      "PickupDistribution": "AllInOneGroup",
+      "IsActive": false,
+      "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
+      "AvailabilityBlockNumber": "479",
+      "ReleaseStrategy": "RollingRelease"
+    }
+  ],
+  "ServiceOrders": null,
+  "Adjustments": [
+    {
+      "Id": "e19297af-373e-4701-b4ea-afae0129bded",
+      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "StartUtc": null,
+      "EndUtc": null,
+      "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
+      "UnitCount": 6,
+      "ActivityState": "Active",
+      "ReleaseOverrideUtc": null,
+      "UpdatedUtc": "2021-10-21T13:32:32Z",
+      "IsActive": false,
+      "PaxCounts": null
+    }
+  ],
+  "Rates": null,
+  "Cursor": "c32386aa-1cd2-414a-a823-489325842fbe"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AvailabilityBlocks` | array of [Availability block](#availability-block) | required | Availability blocks. |
+| `AvailabilityBlocks` | array of [Availability block](availabilityblocks.md#availability-block) | required | Availability blocks. |
 
 ## Delete availability blocks
 
-Delete availability blocks. Note that an availability block containing active reservations (reservations which are not `Canceled`) cannot be deleted.
+Delete availability blocks. Note that an availability block containing active reservations (reservations which are not Canceled) cannot be deleted. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -478,14 +659,14 @@ Delete availability blocks. Note that an availability block containing active re
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "AvailabilityBlockIds": [
-        "e5a4654a4a94-86da-4f96-9efc-bd26d8db",
-        "aaaa654a4a94-4f96-9efc-86da-bd26d8db"
-    ]
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "AvailabilityBlockIds": [
+    "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+    "c32386aa-1cd2-414a-a823-489325842fbe"
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -494,7 +675,7 @@ Delete availability blocks. Note that an availability block containing active re
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AvailabilityBlockIds` | array of string | required, max 1000 items | Unique identifier of the Availability block to delete. |
 
 ### Response
