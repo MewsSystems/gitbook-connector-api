@@ -1,5 +1,9 @@
 # Changelog
 
+## 10th January 2025
+* [Update resource access tokens](../operations/resourceaccesstokens.md#update-resource-access-tokens): 
+  * Extended request object with `Value` parameter.
+
 ## 21st January 2025
 * [Get all payments](../operations/payments.md#get-all-payments):
   * Extended request object with `AccountIds` filtering parameter.
