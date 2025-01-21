@@ -86,7 +86,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Customers` | boolean | optional | Whether the response should contain information about customers. |
 | `Addresses` | boolean | optional | Whether the response should contain addresses of customers. |
-| ~~`Documents`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) instead.|
+| ~~`Documents`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) instead.|
 
 ### Response
 
