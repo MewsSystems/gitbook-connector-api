@@ -42,7 +42,11 @@ The table columns have the following meanings:
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
 | `CustmerId`, `FullName` <br> in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) | Replaced by `AccountId` and [AccountData](../operations/commands.md#account-data-for-payment-terminal-command) | 21 Jan 2025 | - |
-| Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
+| `Documents` <br>in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers) response | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| Extent `Documents`<br>in [Get all customers](../operations/customers.md#get-all-customers) | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Search customers](../operations/customers.md#customer), [Get all customers](../operations/customers.md#get-all-customers) and [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers` | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Add customer](../operations/customers.md#add-customer) | Use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
+| `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Update customer](../operations/customers.md#update-customer) | Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead | 9th Jan 20255 | 10 Jan 2026 |
 | Extent `ServiceOrders`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead | 10 Jan 2025 | 10 Jan 2026 |
 | Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
 | `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company) | Replaced by `AdditionalTaxIdentifier` | 30 Aug 2024 | - |
@@ -72,7 +76,6 @@ The table columns have the following meanings:
 | `CustomerId`<br>in [Add order](../operations/orders.md#add-order) | Replaced by `AccountId` | 24 May 2023 | |
 | `CustomerId` in [Bill](../operations/bills.md#bill) | Replaced by `AccountId` | 24 May 2023 | |
 | Extent `ResourceCategories`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) instead | 23 May 2023 | 10 Jan 2025 |
-| `Address` in [Enterprise](../operations/configuration.md#enterprise) | Replaced by `AddressId` | 17 Apr 2023 | 10 Jan 2025 |
 | `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 Apr 2023 | | 
 | `AssigneeData` in [Get all bills ](../operations/bills.md#get-all-bills) | Replaced by [Owner data](../operations/bills.md#bill-owner-data) | 20 Feb 2023 | |
 | `ItalianFiscalCode`, `ItalianLotteryCode` <br>in [Get all bills](../operations/bills.md#response) | Retrievable in LegalIdentifiers [Bill customer data](../operations/bills.md#bill-customer-data) | 20 Feb 2023 | 10 Jan 2025 |
