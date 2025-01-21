@@ -41,6 +41,8 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `CustmerId`, `FullName` <br> in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) | Replaced by `AccountId` and [AccountData](../operations/commands.md#account-data-for-payment-terminal-command) | 21 Jan 2025 | - |
+| Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
 | Extent `ServiceOrders`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead | 10 Jan 2025 | 10 Jan 2026 |
 | Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
 | `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company) | Replaced by `AdditionalTaxIdentifier` | 30 Aug 2024 | - |
