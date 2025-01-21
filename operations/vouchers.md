@@ -3,7 +3,7 @@
 
 ## Get all vouchers
 
-Returns all rate vouchers filtered by [Service](services.md#service), voucher code or voucher identifier. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all rate vouchers filtered by [Service](services.md#service), voucher code or voucher identifier. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -175,7 +175,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 
 ## Add vouchers
 
-Adds the specified vouchers to the specified [Services](services.md#service). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds the specified vouchers to the specified [Services](services.md#service). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -282,7 +282,7 @@ Adds the specified vouchers to the specified [Services](services.md#service). No
 
 ## Update vouchers
 
-Updates information about the specified vouchers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Updates information about the specified vouchers. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -416,7 +416,7 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
 
 ## Delete vouchers
 
-Delete specified vouchers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Delete specified vouchers. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

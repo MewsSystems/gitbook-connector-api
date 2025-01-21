@@ -3,7 +3,7 @@
 
 ## Get all voucher codes
 
-Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other filter parameters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other filter parameters. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -82,7 +82,7 @@ Returns all voucher codes filtered by [Voucher](vouchers.md#voucher) or other fi
 
 ## Add voucher codes
 
-Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -178,7 +178,7 @@ Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this o
 
 ## Delete voucher codes
 
-Delete specified voucher codes. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Delete specified voucher codes. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 

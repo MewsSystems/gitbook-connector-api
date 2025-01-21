@@ -243,6 +243,7 @@ Updates the [Resource access token](#resource-access-token) validity interval an
             "ResourceAccessTokenId": "35d4b117-4e60-44a3-9580-c582117eff98",
             "ValidityStartUtc": { "Value": "2020-10-09T22:00:00Z" },
             "ValidityEndUtc": { "Value": "2020-10-10T22:00:00Z" },
+            "Value": { "Value": "1234#" },
             "Permissions":
             {
                 "Bed": { "Value": true },
@@ -269,6 +270,7 @@ Updates the [Resource access token](#resource-access-token) validity interval an
 | `ResourceAccessTokenId` | [String update value](_objects.md#string-update-value) | required | Unique identifier of [Resource access token](#resource-access-token). |
 | `ValidityStartUtc` | [String update value](_objects.md#string-update-value) | optional | Marks the start of interval in which the resource access token can be used. |
 | `ValidityEndUtc` | [String update value](_objects.md#string-update-value) | optional | Marks the end of interval in which the resource access token can be used. |
+| `Value` | [String update value](_objects.md#string-update-value) | optional | Value of resource access token. |
 | `Permissions` | [Resource access token permission parameter](#resource-access-token-permission-parameter) | optional | Specify permissions of [Resource access token](#resource-access-token). |
 
 ### Response
