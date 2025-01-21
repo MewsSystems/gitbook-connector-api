@@ -70,7 +70,6 @@ The table columns have the following meanings:
 | `CustomerId`<br>in [Add order](../operations/orders.md#add-order) | Replaced by `AccountId` | 24 May 2023 | |
 | `CustomerId` in [Bill](../operations/bills.md#bill) | Replaced by `AccountId` | 24 May 2023 | |
 | Extent `ResourceCategories`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories) instead | 23 May 2023 | 10 Jan 2025 |
-| `Address` in [Enterprise](../operations/configuration.md#enterprise) | Replaced by `AddressId` | 17 Apr 2023 | 10 Jan 2025 |
 | `AmountDefault` in [Payment item](../operations/accountingitems.md#payment-item) | Replaced by `Original amount` | 11 Apr 2023 | | 
 | `AssigneeData` in [Get all bills ](../operations/bills.md#get-all-bills) | Replaced by [Owner data](../operations/bills.md#bill-owner-data) | 20 Feb 2023 | |
 | `ItalianFiscalCode`, `ItalianLotteryCode` <br>in [Get all bills](../operations/bills.md#response) | Retrievable in LegalIdentifiers [Bill customer data](../operations/bills.md#bill-customer-data) | 20 Feb 2023 | 10 Jan 2025 |
