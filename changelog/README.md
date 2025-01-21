@@ -13,6 +13,10 @@
   * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense`. Use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead
 * [Update customer](../operations/customers.md#update-customer): 
   * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense`. Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead.
+* [Get all enterprises](../operations/enterprises.md#get-all-enterprises)
+  * Extended [Enterprise](../operations/enterprises.md#enterprise) response object with `Address`.
+* [Get configuration](../operations/configuration.md#get-configuration): 
+  * `Address` is no longer deprecated in [Enterprise](../operations/configuration.md#enterprise).
 * [Get all payments](../operations/payments.md#get-all-payments):
   * Extended request object with `AccountIds` filtering parameter.
 * [Update resource access tokens](../operations/resourceaccesstokens.md#update-resource-access-tokens): 
