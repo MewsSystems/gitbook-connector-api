@@ -1,13 +1,25 @@
 # Changelog
 
-## 13th January 2025
-* Extended [Get all payments](../operations/payments.md#get-all-payments) request with `AccountIds` request filtering parameter.
+## 21st January 2025
+* [Get all payments](../operations/payments.md#get-all-payments):
+  * Extended request object with `AccountIds` filtering parameter.
+
+## 16th January 2025
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+  * **Deprecated** operation extent `ServiceOrders`. Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
+  * **Deprecated** operation extent `Rates`. Use [Get all rates](../operations/rates.md#get-all-rates) instead.
+* [Add availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+* [Update availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+* Added new operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
 
 ## 9th January 2025
 * Postponed the discontinuation of the following operations to 10th May 2025:
   * [Get all reservations (ver 2017-04-12)](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
   * [Get all reservation items](../operations/reservations.md#get-all-reservation-items)
-  * [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts)
+  * [Merge customers](../operations/customers.md#merge-customers)
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 7th January 2025
