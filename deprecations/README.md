@@ -11,7 +11,7 @@ The table columns have the following meanings:
 * __Feature__ - What entity or feature is being deprecated
 * __Comments__ - Additional information, such as the reason for the deprecation and what the replacement is
 * __Deprecated__ - The date at which the deprecation notice was given (see the [Changelog](../changelog/README.md))
-* __Discontinued__ \- The date at which it is planned to discontinue the feature completely; a value of '-' indicates no date has been set
+* __Discontinued__ - The date at which it is planned to discontinue the feature completely; a value of '-' indicates no date has been set
 
 ## Deprecated operations
 
@@ -20,10 +20,10 @@ The table columns have the following meanings:
 | [Get customers open items](../operations/customers.md#get-customers-open-items) | Replaced by [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) | 15 Nov 2024 | - |
 | [Add restrictions](../operations/restrictions.md#add-restrictions) | Replaced by [Set restrictions](../operations/restrictions.md#set-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
 | [Delete restrictions](../operations/restrictions.md#delete-restrictions) | Replaced by  [Clear restrictions](../operations/restrictions.md#clear-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
-| [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 10 Jan 2025 |
-| [Get all reservation items](../operations/reservations.md#get-all-reservation-items) | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 23 Jun 2023 | 10 Jan 2025 |
+| [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 10 May 2025 |
+| [Get all reservation items](../operations/reservations.md#get-all-reservation-items) | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 23 Jun 2023 | 10 May 2025 |
 | [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 Apr 2023 | 10 Jan 2026 |
-| [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 10 Jan 2025 |
+| [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 10 May 2025 |
 | `Get all companies by name` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
 | `Get all bills by Id` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
 | `Get all bills by customer` | Replaced by [Get all bills](../operations/bills.md#get-all-bills) | 01 Jan 2020 | - |
@@ -46,28 +46,30 @@ The table columns have the following meanings:
 | `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Search customers](../operations/customers.md#customer), [Get all customers](../operations/customers.md#get-all-customers) and [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers` | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
 | `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Add customer](../operations/customers.md#add-customer) | Use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
 | `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Update customer](../operations/customers.md#update-customer) | Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead | 9th Jan 20255 | 10 Jan 2026 |
+| Extent `ServiceOrders`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead | 10 Jan 2025 | 10 Jan 2026 |
+| Extent `Rates`<br>in [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks) | Use [Get all rates](../operations/rates.md#get-all-rates) instead | 10 Jan Feb 2025 | 10 Jan 2026 |
 | `ElectronicInvoiceIdentifier` in [Company](../operations/companies.md#company) | Replaced by `AdditionalTaxIdentifier` | 30 Aug 2024 | - |
-| `Method`, `RedirectUrl`<br>in [Add alternative payment](../operations/payments.md#add-alternative-payment) | Use [Alternative payment method data](../operations/payments.md#alternative-payment-method-data) instead | 8 May 2024 | - |
+| `Method`, `RedirectUrl`<br>in [Add alternative payment](../operations/payments.md#add-alternative-payment) | Use [Alternative payment method data](../operations/payments.md#alternative-payment-method-data) instead | 08 May 2024 | - |
 | `EndUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledEndUtc` and `ActualEndUtc` | 19 Apr 2024 | - |
-| Extent `RateGroups`<br>in [Get all rates](../operations/rates.md#get-all-rates) | Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead | 2 Feb 2024 | 10 Jan 2026 |
+| Extent `RateGroups`<br>in [Get all rates](../operations/rates.md#get-all-rates) | Use [Get all rate groups](../operations/rategroups.md#get-all-rate-groups) instead | 02 Feb 2024 | 10 Jan 2026 |
 | `Name` in [Product](../operations/products.md#product) | Replaced by `Names` | 12 Dec 2023 | |
 | `ExternalName` in [Product](../operations/products.md#product) | Replaced by `ExternalNames` | 12 Dec 2023 | |
 | `ShortName` in [Product](../operations/products.md#product) | Replaced by `ShortNames` | 12 Dec 2023 | |
 | `Description` in [Product](../operations/products.md#product) | Replaced by `Descriptions` | 12 Dec 2023 | |
-| `EditableHistoryInterval` in [Get configuration](../operations/configuration.md#get-configuration) and [Get all enterprises](../operations/enterprises.md#get-all-enterprises) | Replaced by `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval` | 5 Dec 2023 | |
+| `EditableHistoryInterval` in [Get configuration](../operations/configuration.md#get-configuration) and [Get all enterprises](../operations/enterprises.md#get-all-enterprises) | Replaced by `AccountingEditableHistoryInterval` and `OperationalEditableHistoryInterval` | 05 Dec 2023 | |
 | `TaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountTaxIdentifier` | 21 Nov 2023 | |
 | `CompanyTaxIdentifier` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | |
 | `Address` in [Close bill](../operations/bills.md#close-bill) | Replaced by `AccountAddress` | 21 Nov 2023 | |
 | `CompanyAddress` in [Close bill](../operations/bills.md#close-bill) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | |
 | `CompanyId` in [Get all bills](../operations/bills.md#get-all-bills) | Replaced by `AssociatedAccountIds` | 21 Nov 2023 | |
 | `CompanyDetails` in [Get all bills](../operations/bills.md#get-all-bills) | Replaced by [AssociatedAccountData](../operations/bills.md#bill-associated-account-data) | 21 Nov 2023 | |
-| Extent `ResourceCategoryAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead | 1 Nov 2023 | 10 Jan 2025 |
-| Extent `ResourceCategoryImageAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead | 1 Nov 2023 | 10 Jan 2025 |
-| Extent `ResourceFeatures`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead | 1 Nov 2023 | 10 Jan 2025 |
-| Extent `ResourceFeatureAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead | 1 Nov 2023 | 10 Jan 2025 |
-| Extent `VoucherCodes` and `Companies` <br>in [Get all vouchers](../operations/vouchers.md#get-all-vouchers) | Use [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) instead | 23 October 2023 | 10 Jan 2025 |
-| `Extent`<br>in [Get all bills](../operations/bills.md#get-all-bills) | Use [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) instead | 20 October 2023 | 10 Jan 2025 |
-| `StartUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledStartUtc` and `ActualStartUtc` | 6 Sep 2023 | - |
+| Extent `ResourceCategoryAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments) instead | 01 Nov 2023 | 10 Jan 2025 |
+| Extent `ResourceCategoryImageAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments) instead | 01 Nov 2023 | 10 Jan 2025 |
+| Extent `ResourceFeatures`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource features](../operations/resourcefeatures.md#get-all-resource-features) instead | 01 Nov 2023 | 10 Jan 2025 |
+| Extent `ResourceFeatureAssignments`<br>in [Get all resources](../operations/resources.md#get-all-resources) | Use [Get all resource feature assignments](../operations/resourcefeatures.md#get-all-resource-feature-assignments) instead | 01 Nov 2023 | 10 Jan 2025 |
+| Extent `VoucherCodes` and `Companies` <br>in [Get all vouchers](../operations/vouchers.md#get-all-vouchers) | Use [Get all voucher codes](../operations/vouchercodes.md#get-all-voucher-codes) and [Get all companies](../operations/companies.md#get-all-companies) instead | 23 Oct 2023 | 10 Jan 2025 |
+| `Extent`<br>in [Get all bills](../operations/bills.md#get-all-bills) | Use [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) instead | 20 Oct 2023 | 10 Jan 2025 |
+| `StartUtc`<br>in [Reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | Replaced by `ScheduledStartUtc` and `ActualStartUtc` | 06 Sep 2023 | - |
 | `BillCounters`, `ProformaCounters`, `BillPreviewCounters`, `ServiceOrderCounters`, `RegistrationCardCounters`<br>in [Get all counters](../operations/counters.md#get-all-counters) | Replaced by `Counters` | 21 Jun 2023 | |
 | `CustomerId`<br>in [Add external payment](../operations/payments.md#add-external-payment) | Replaced by `AccountId` | 24 May 2023 | |
 | `CustomerId`<br>in [Add order](../operations/orders.md#add-order) | Replaced by `AccountId` | 24 May 2023 | |

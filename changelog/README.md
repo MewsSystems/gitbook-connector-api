@@ -1,14 +1,39 @@
 # Changelog
 
+## 21st January 2025
+* [Get all customers](../operations/customers.md#get-all-customers):
+  * **Deprecated** operation extent `Documents`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* [Search customers](../operations/customers.md#search-customers):
+  * **Deprecated** operation extent `Documents`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* [Get all companionships](../operations/companionships.md#get-all-companionships):
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object under extent `Customers`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
+* [Add customer](../operations/customers.md#add-customer): 
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense`. Use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead
+* [Update customer](../operations/customers.md#update-customer): 
+  * **Deprecated** `Passport`, `IdentityCard`, `Visa` and `DriversLicense`. Use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead.
+* [Get all payments](../operations/payments.md#get-all-payments):
+  * Extended request object with `AccountIds` filtering parameter.
+* [Update resource access tokens](../operations/resourceaccesstokens.md#update-resource-access-tokens): 
+  * Extended request object with `Value` parameter.
+
+## 16th January 2025
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+  * **Deprecated** operation extent `ServiceOrders`. Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) instead.
+  * **Deprecated** operation extent `Rates`. Use [Get all rates](../operations/rates.md#get-all-rates) instead.
+* [Add availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+* [Update availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
+* Added new operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
+
 ## 9th January 2025
-* Deprecated operation extent `Documents` in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers). Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
-* Deprecated `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in [Customer](../operations/customers.md#customer) response object. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead. This affects:
-  * [Search customers](../operations/customers.md#search-customers)
-  * [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers`
-  * [Get all customers](../operations/customers.md#get-all-customers)
-* Deprecated `Passport`, `IdentityCard`, `Visa` and `DriversLicense` in:
-  * [Add customer](../operations/customers.md#add-customer), use [Add identity documents](../operations/identitydocuments.md#add-identity-documents) instead.
-  * [Update customer](../operations/customers.md#update-customer), use [Update identity documents](../operations/identitydocuments.md#update-identity-documents) and [Delete identity documents](../operations/identitydocuments.md#delete-identity-documents) instead.
+* Postponed the discontinuation of the following operations to 10th May 2025:
+  * [Get all reservations (ver 2017-04-12)](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
+  * [Get all reservation items](../operations/reservations.md#get-all-reservation-items)
+  * [Merge customers](../operations/customers.md#merge-customers)
 * Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
 
 ## 7th January 2025
