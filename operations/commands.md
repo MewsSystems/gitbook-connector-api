@@ -106,7 +106,7 @@ Returns all commands the are still active from the client application point of v
 | `PaymentTerminalId` | string | required | Identifier of the payment terminal. |
 | `AccountId` | string | required | Unique identifier of the [Account](accounts.md#account). |
 | `AccountData` | [Account data for payment terminal command](payments.md#account-data-for-payment-terminal-command) | required | Account data for the payment terminal command. |
-| ~~`CustomerId`~~ | ~~string~~ | ~~required~~ | **Deprecated!** Use `AccountId` instead.|
+| ~~`CustomerId`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `AccountId` instead.|
 | ~~`FullName`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use `AccountData.Customer.FullName`, if `AccountData.Discriminator` is `Customer`, instead.|
 | `BillId` | string | optional | Identifier of the [Bill](bills.md#bill). |
 | `Amount` | [Currency value](accountingitems.md#currency-value) | required | Amount to be processed. | 
