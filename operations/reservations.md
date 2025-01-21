@@ -39,8 +39,8 @@ Returns all reservations within scope of the Access Token, filtered according to
     "c32386aa-1cd2-414a-a823-489325842fbe"
   ],
   "AvailabilityBlockIds": [
-    "94843f6f-3be3-481b-a1c7-06458774c3df",
-    "6229e51e-3943-4677-bbc3-b24b00b950e8"
+    "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+    "c32386aa-1cd2-414a-a823-489325842fbe"
   ],
   "CreatedUtc": {
     "StartUtc": "2023-04-01T00:00:00Z",
@@ -131,7 +131,7 @@ Returns all reservations within scope of the Access Token, filtered according to
       "GroupId": "94843f6f-3be3-481b-a1c7-06458774c3df",
       "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
-      "AvailabilityBlockId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
       "PartnerCompanyId": null,
       "TravelAgencyId": null,
       "AssignedResourceLocked": false,
@@ -285,7 +285,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 ## ~~Get all reservations (ver 2017-04-12)~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
+> This operation is [deprecated](../deprecations/README.md). Use [Get all reservations (ver 2023-06-06)](reservations.md#get-all-reservations-ver-2023-06-06).
 
 ### Request
 
@@ -837,7 +837,7 @@ Adds the specified reservations as a single group. If `GroupId` is specified, ad
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ServiceId` | string | required | Unique identifier of the `Service` to be reserved. |
 | `GroupId` | string | optional | Unique identifier of the `ReservationGroup` where the reservations are added. If not specified, a new group is created. |
 | `GroupName` | string | optional | Name of the `ReservationGroup` where the reservations are added to. If `GroupId` is specified, this field is ignored. If not specified, the group name is automatically created. |
@@ -977,7 +977,7 @@ Adds a customer as a companion to the reservation. Succeeds only if there is spa
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `CustomerId` | string | required | Unique identifier of the `Customer`. |
 
@@ -1098,7 +1098,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `ChannelNumber` | [String update value](_objects.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) (or `null` if the channel number should not be updated). |
 | `StartUtc` | [String update value](_objects.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. (or `null` if the start time should not be updated). |
@@ -1150,7 +1150,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `ChannelNumber` | [String update value](_objects.md#string-update-value) | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number) (or `null` if the channel number should not be updated). |
 | `StartUtc` | [String update value](_objects.md#string-update-value) | optional | Reservation start in UTC timezone in ISO 8601 format. (or `null` if the start time should not be updated). |
@@ -1312,7 +1312,7 @@ Updates reservation interval (start, end or both). Note this operation supports 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
 | `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
@@ -1348,7 +1348,7 @@ Updates customer of a reservation. Note this operation supports [Portfolio Acces
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation to be updated. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 
@@ -1381,7 +1381,7 @@ Marks a reservation as `Started` (= checked in). Succeeds only if all starting c
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation to start. |
 
 ### Response
@@ -1423,7 +1423,7 @@ Marks a reservation as `Processed` (= checked out). Succeeds only if all process
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the reservation to process. |
 | `CloseBills` | boolean | optional | Whether closable bills of the reservation members should be automatically closed. |
 | `AllowOpenBalance` | boolean | optional | Whether non-zero consumed balance of all reservation members is allowed. |
@@ -1592,7 +1592,7 @@ Removes customer companionship from the reservation. Note that the customer prof
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `CustomerId` | string | required | Unique identifier of the `Customer`. |
 
@@ -1626,7 +1626,7 @@ Marks all specified reservations as `Confirmed`. Succeeds only if all confirmati
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required | Unique identifier of the reservations to confirm. |
 | `SendConfirmationEmail` | boolean | optional | Wheter the confirmation email is sent. Default value is true. |
 
@@ -1671,7 +1671,7 @@ Cancels all reservation with specified identifiers. Succeeds only if the reserva
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ReservationIds` | array of string | required, max 1000 items | Unique identifiers of the reservation to cancel. |
 | `PostCancellationFee` | boolean | optional | Whether the cancellation fees should be charged according to rate conditions. The default is `false`. |
 | `SendEmail` | boolean | optional | Whether the cancellation email should be sent. The default is `true`. |
