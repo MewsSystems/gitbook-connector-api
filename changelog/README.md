@@ -1,5 +1,15 @@
 # Changelog
 
+## 22nd January 2025
+* [Get all active commands](../operations/commands.md#get-all-commands)¨
+  * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * **Deprecated:** `CustomerId` and `FullName` in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * Extended [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
+* [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids)
+  * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * **Deprecated:** `CustomerId` and `FullName` in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * Extended [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
+
 ## 21st January 2025
 * [Get all customers](../operations/customers.md#get-all-customers):
   * **Deprecated** operation extent `Documents`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
@@ -21,13 +31,6 @@
   * Extended request object with `AccountIds` filtering parameter.
 * [Update resource access tokens](../operations/resourceaccesstokens.md#update-resource-access-tokens): 
   * Extended request object with `Value` parameter.
-* **Breaking:** In [Payment temrinal command data reponse object](../operations/commands.md#payment-terminal-command-data) `CustomerId` and `FullName` is no longer required and are deprecated. Following operations are affected
-  * [Get all active commands](../operations/commands.md#get-all-commands)
-  * [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids)
-* [Get all active commands](../operations/commands.md#get-all-commands)
-  * Extended [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
-* [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids)
-  * Extended [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
 
 ## 16th January 2025
 * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
