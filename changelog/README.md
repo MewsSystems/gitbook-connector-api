@@ -1,11 +1,13 @@
 # Changelog
 
 ## 22nd January 2025
-* [Get all active commands](../operations/commands.md#get-all-commands)¨
+* [Get all commands](../operations/commands.md#get-all-commands):
+
   * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
   * **Deprecated:** `CustomerId` and `FullName` in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
-  * Extended [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
-* [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids)
+  * Extended [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) with `AccountId` and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command).
+
+* [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids):
   * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
   * **Deprecated:** `CustomerId` and `FullName` in [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object.
   * Extended [Payment temrinal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
