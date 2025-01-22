@@ -58,7 +58,7 @@ The credentials below will connect with a demo enterprise configured for Net pri
 
 **Integration: `Are you ready to integrate with Mews?`**
 * **ClientToken** - `E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D`
-* **AccessToken** - `7059D2C25BF64EA681ACAB3A00B859CC-D91BFF2B1E3047A3E0DEC1D57BE1382`
+* **AccessToken** - `4D6C7ABE0E6A4681B0AFB16900AE5D86-DF50CBC89E1D4FF5859DDF021649ED5`
 
 **Integration: `Connector API Test Client 2`**
 * **ClientToken** - `E916C341431C4D28A866AD200152DBD3-A046EB5583FFBE94DE1172237763712`
