@@ -1,7 +1,7 @@
 # Changelog
 
 ## 24th January 2025
-* Extended [Add outlet bills](../operations/outletbills.md) request with `IdempotencyKey`  parameter.
+* Extended [Add outlet bills](../operations/outletbills.md#add-outlet-bills) request with `IdempotencyKey`  parameter.
 
 ## 23rd January 2025
 * [Get all commands](../operations/commands.md#get-all-commands):
