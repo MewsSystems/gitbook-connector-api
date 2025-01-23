@@ -1,5 +1,8 @@
 # Changelog
 
+## 24th January 2025
+* Extended [Add outlet bills](../operations/outletbills.md) request with `IdempotencyKey`  parameter.
+
 ## 23rd January 2025
 * [Get all commands](../operations/commands.md#get-all-commands):
   * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object.
