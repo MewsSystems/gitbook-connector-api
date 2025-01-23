@@ -41,6 +41,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `CustomerId`, `FullName` <br> in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) | Replaced by `AccountId` and [AccountData](../operations/commands.md#account-data-for-payment-terminal-command) | 23 Jan 2025 | 10 Jan 2027 |
 | `Documents` <br>in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers) response | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
 | Extent `Documents`<br>in [Get all customers](../operations/customers.md#get-all-customers) | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
 | `Passport`, `IdentityCard`, `Visa`, `DriversLicense` <br>in [Search customers](../operations/customers.md#customer), [Get all customers](../operations/customers.md#get-all-customers) and [Get all companionships](../operations/companionships.md#get-all-companionships) under extent `Customers` | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |

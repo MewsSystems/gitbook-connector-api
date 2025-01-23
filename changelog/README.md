@@ -1,5 +1,15 @@
 # Changelog
 
+## 23rd January 2025
+* [Get all commands](../operations/commands.md#get-all-commands):
+  * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * **Deprecated:** `CustomerId` and `FullName` in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * Extended [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) with `AccountId` and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command).
+* [Get all commands by ids](../operations/commands.md#get-all-commands-by-ids):
+  * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * **Deprecated:** `CustomerId` and `FullName` in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object.
+  * Extended [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object with `AccountId` property and [`AccountData`](../operations/commands.md#account-data-for-payment-terminal-command) object
+
 ## 21st January 2025
 * [Get all customers](../operations/customers.md#get-all-customers):
   * **Deprecated** operation extent `Documents`. Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead.
