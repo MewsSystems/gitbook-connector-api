@@ -13,6 +13,7 @@ Adds new outlet bills with their items.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "IdempotencyKey": "6e5ec684-d4d1-4167-ae04-fc86234ae03e",
     "Bills": [  
         {  
             "OutletId": "7700469f-7667-4ebd-a1c0-10380afc9bd0",
@@ -58,6 +59,7 @@ Adds new outlet bills with their items.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `IdempotencyKey` | string | optional, max length 50 characters |Ensure idempotency when creating outlet bills. Use the same key to safely retry requests without duplicating outlet bills. When setting the IdempotencyKey, only one bill can be sent. If a duplicate key is sent, the ID of the duplicated bill key will be returned. |
 | `Bills` | array of [Outlet bill parameters](#outlet-bill-parameters) | required | The new outlet bills. |
 
 #### Outlet bill parameters
