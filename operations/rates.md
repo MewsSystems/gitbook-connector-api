@@ -436,15 +436,15 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `Rates` | array of [Rate parameters](rates.md#rate-parameters) | required, max 1000 items | Information about rates to be created. |
-| `EnterpriseId` | string | optional | Unique identifier of the [Enterprise](enterprises.md#enterprise). Required when using a [Portfolio Access Token](../concepts/multi-property.md), ignored otherwise. |
 
 #### Rate parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceId` | string | required | Unique identifier of the service. |
-| `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. |
+| `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the service. |
+| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the rate group under which rate is assigned. |
 | `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
 | `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
@@ -471,14 +471,14 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rate with base rate pricing. Required when `PricingType` is `BaseRatePricing`. |
+| `BaseRatePricing` | [Add base rate pricing parameters](rates.md#add-base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
 | `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
 
-#### Base rate pricing parameters
+#### Add base rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Amount` | [Amount parameters](_objects.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | required | Price of the product that overrides the price defined in Mews. |
 | `NegativeOccupancyAdjustment` | number | required | This is the amount added to the price when occupancy of the space is less than the Space Category Capacity. To provide a discount price for under-occupancy, simply use a negative value. |
 | `ExtraOccupancyAdjustment` | number | required | This is the amount added to the price when the Space Category Capacity is exceeded. |
 
@@ -486,7 +486,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRateId` | string | required | Unique identifier of the base rate. |
+| `BaseRateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the base rate. |
 | `RelativeAdjustment` | number | required | Relative amount which shows the difference between this rate and the base rate. |
 | `AbsoluteAdjustment` | number | required | Specific amount which shows the difference between this rate and the base rate. |
 
@@ -618,16 +618,14 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
           "Amount": {
             "Currency": "EUR",
             "NetValue": 100
-          },
-          "NegativeOccupancyAdjustment": 0,
-          "ExtraOccupancyAdjustment": 0
+          }
         }
       }
     },
     {
       "ExternalIdentifier": "55698",
-      "ServiceId": "956176af-e10b-4f3c-beb7-274801bce328",
-      "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
+      "ServiceId": "eid:Stay",
+      "RateGroupId": "eid:RG10",
       "IsEnabled": false,
       "Type": "Private",
       "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
@@ -672,8 +670,8 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 | :-- | :-- | :-- | :-- |
 | `Id` | string | optional | Unique identifier of the rate. If it matches an existing rate, that rate will be updated. If no match is found, an error will be returned. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Unique identifier of the rate in the external system. If `Id` is not provided and `ExternalIdentifier` matches an existing rate, the corresponding rate will be updated. If no match is found, a new rate will be created. |
-| `ServiceId` | string | required | Unique identifier of the service. Ignored in case of updating an existing rate. |
-| `RateGroupId` | string | required | Unique identifier of the rate group under which rate is assigned. Ignored in case of updating an existing rate. |
+| `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the service. Ignored in case of updating an existing rate. |
+| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the rate group under which rate is assigned. Ignored in case of updating an existing rate. |
 | `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
 | `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
@@ -683,7 +681,20 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Rate pricing type. Must match existing pricing type in case of update. |
-| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | required | Contains additional data about pricing of the rate. |
+| `Pricing` | [Set rate pricing parameters](rates.md#set-rate-pricing-parameters) | optional | Contains additional data about pricing of the rate. |
+
+#### Set rate pricing parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BaseRatePricing` | [Set base rate pricing parameters](rates.md#set-base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Used when `PricingType` is `DependentRatePricing`. Required for new rates. |
+
+#### Set base rate pricing parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
 
 ### Response
 
@@ -763,7 +774,7 @@ Deletes specified rates. This operation supports [Portfolio Access Tokens](../co
   "Client": "Sample Client 1.0.0",
   "RateIds": [
     "7e89ee8e-11a0-4d9d-8880-f8d8494824b5",
-    "2e177096-3a28-411d-a375-150a7350b278"
+    "eid:BasicRate"
   ],
   "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
@@ -775,7 +786,7 @@ Deletes specified rates. This operation supports [Portfolio Access Tokens](../co
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
-| `RateIds` | array of string | required, max 10 items | Unique identifiers of the rates to be deleted. |
+| `RateIds` | array [Hybrid identifier](_objects.md#hybrid-identifier) | required, max 10 items | Unique identifiers of the rates to be deleted. |
 
 ### Response
 
