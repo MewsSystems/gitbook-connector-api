@@ -1,5 +1,9 @@
 # Changelog
 
+## 30th January 2025
+*  [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06)
+  * Extended response object with `RequestedRateCode` property.
+
 ## 23rd January 2025
 * [Get all commands](../operations/commands.md#get-all-commands):
   * **Breaking:** `CustomerId` and `FullName` is no longer required in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) response object.

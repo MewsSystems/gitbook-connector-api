@@ -156,7 +156,8 @@ Returns all reservations within scope of the Access Token, filtered according to
           "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
           "Count": 2
         }
-      ]
+      ],
+      "RequestedRateCode": null
     }
   ],
   "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
@@ -210,6 +211,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
 | `QrCodeData` | string | optional | QR code data of the reservation. |
 | `PersonCounts` | array of [Age category parameters](reservations.md#age-category-parameters) | required | Number of people per age category the reservation was booked for. |
+| `RequestedRateCode` | string | optional | Rate code requested at the time of booking, as provided by an external system (e.g., channel manager or PMS). |
 | ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~required~~ | ~~Scheduled end time of reservation in UTC timezone in ISO 8601 format~~ **Deprecated!** Use `ScheduledEndUtc` and `ActualEndUtc` instead.|
 
