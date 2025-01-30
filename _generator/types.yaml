@@ -1654,9 +1654,9 @@ types:
   releasestrategyupdatevalue:
     file: availabilityblocks.md
     anchor: release-strategy-update-value
-      rateaddpricingdataparameters:
+  rateaddpricingdataparameters:
     file: rates.md
-    anchor: rate-pricing-data-parameters
+    anchor: add-rate-pricing-data-parameters
   addbaseratepricingparameters:
     file: rates.md
     anchor: add-base-rate-pricing-parameters

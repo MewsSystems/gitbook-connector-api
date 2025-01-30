@@ -455,7 +455,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Add rate pricing data parameters](rates.md#add-rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
 #### Rate Add Type
 
@@ -467,7 +467,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 * `BaseRatePricing`
 * `DependentRatePricing`
 
-#### Rate pricing data parameters
+#### Add rate pricing data parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
