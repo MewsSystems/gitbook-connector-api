@@ -73,7 +73,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z",
       "Classification": "Adult",
-      "IsActive": false
+      "IsActive": false,
+      "ExternalIdentifier": "Adult"
     },
     {
       "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
@@ -92,7 +93,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z",
       "Classification": "Child",
-      "IsActive": false
+      "IsActive": false,
+      "ExternalIdentifier": null
     }
   ],
   "Cursor": "0b9560fb-055d-47d3-a6d4-e579c44ca558"
@@ -118,6 +120,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | string | required | Last update date and time of the age category in UTC timezone in ISO 8601 format. |
 | `Classification` | [Age category classification](agecategories.md#age-category-classification) | required | The classification of the age category. |
 | `IsActive` | boolean | required | Whether the age category is still active. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the age category from external system. |
 
 #### Age category classification
 
