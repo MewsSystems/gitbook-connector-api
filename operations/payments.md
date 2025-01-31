@@ -76,7 +76,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Payment` items. Required if no other filter is provided. |
-| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which payments are belongs to. Required if no other filter is provided. |
+| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which payments belong. Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Bill` items to which payments are assigned. Required if no other filter is provided. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Reservations` to which payments belong. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the `Payment` was created. Required if no other filter is provided. |
@@ -424,7 +424,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the external payment. |
@@ -644,7 +644,7 @@ Refunds a specified payment on a specified account. A reason must be provided. O
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
 | `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
 | `Reason` | string | required | Refund reason. |
