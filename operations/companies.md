@@ -202,7 +202,7 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../co
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `Name` | string | required | Name of the company. |
 | `MotherCompanyId` | string | optional | Unique identifier of the mother company. |
 | `InvoicingEmail` | string | optional | Email for issuing invoices to the company. |
@@ -477,7 +477,7 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `CompanyId` | string | required | Unique identifier of the [Company](companies.md#company). |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the company (or `null` if the name should not be updated). |
 | `MotherCompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the mother company (or `null` if the mother company should not be updated). |
@@ -629,7 +629,7 @@ Deletes specified companies.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `CompanyIds` | array of string | required, max 1000 items | Unique identifiers of the companies to be deleted. |
 
 ### Response

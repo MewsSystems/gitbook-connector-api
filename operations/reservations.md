@@ -92,7 +92,8 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Reservation](reservations.md#reservation-ver-2023-06-06) was created. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Reservations` were updated. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the reservations are active. This is defined for a `Reservation` as the period between the reservation's scheduled start time `ScheduledStartUtc` and its scheduled end time `EndUtc`. Reservation is selected if any part of its interval intersects with the interval specified in `CollidingUtc |
-| `ScheduledStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled start time. |
+| `ScheduledStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled start time. Cannot be used with `ActualStartUtc`. |
+| `ActualStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their actual start (check-in) time. Cannot be used with `ScheduledStartUtc`. Note that the filter applies only to started or processed reservations. |
 | `ScheduledEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled end time. |
 | `States` | array of [Service order state](reservations.md#service-order-state) | optional | A list of service order states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
@@ -156,8 +157,7 @@ Returns all reservations within scope of the Access Token, filtered according to
           "AgeCategoryId": "ab58c939-be30-4a60-8f75-ae1600c60c9f",
           "Count": 2
         }
-      ],
-      "RequestedRateCode": null
+      ]
     }
   ],
   "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
@@ -211,7 +211,6 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
 | `QrCodeData` | string | optional | QR code data of the reservation. |
 | `PersonCounts` | array of [Age category parameters](reservations.md#age-category-parameters) | required | Number of people per age category the reservation was booked for. |
-| `RequestedRateCode` | string | optional | Rate code requested at the time of booking, as provided by an external system (e.g., channel manager or PMS). |
 | ~~`StartUtc`~~ | ~~string~~ | ~~required~~ | ~~Reservation start or check-in time (if it's earlier than scheduled start) in UTC timezone in ISO 8601 format.~~ **Deprecated!** Use `ScheduledStartUtc` and `ActualStartUtc` instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~required~~ | ~~Scheduled end time of reservation in UTC timezone in ISO 8601 format~~ **Deprecated!** Use `ScheduledEndUtc` and `ActualEndUtc` instead.|
 

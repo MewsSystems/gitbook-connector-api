@@ -223,7 +223,7 @@ Adds the specified vouchers to the specified [Services](services.md#service). No
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `VoucherParameters` | array of [Voucher Parameters](vouchers.md#voucher-parameters) | required, max 1000 items | Vouchers to be added. |
 
 #### Voucher Parameters
@@ -350,7 +350,7 @@ Updates information about the specified vouchers. Note this operation supports [
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `VoucherUpdates` | array of [Vouchers update parameters](vouchers.md#vouchers-update-parameters) | required, max 1000 items | Details of voucher updates. |
 
 #### Vouchers update parameters
@@ -440,7 +440,7 @@ Delete specified vouchers. Note this operation supports [Portfolio Access Tokens
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `VoucherIds` | array of string | required, max 1000 items | Unique identifiers of the vouchers to be deleted. |
 
 ### Response
