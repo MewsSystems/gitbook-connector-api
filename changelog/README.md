@@ -1,8 +1,10 @@
 # Changelog
 
-## 30th January 2025
-*  [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06)
-  * Extended response object with `RequestedRateCode` property.
+## 31st January 2025
+* [Get bill PDF](../operations/bills.md#get-bill-pdf):
+  * Extended request object with `PdfTemplate` and `PrintReason` parameters.
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ActualStartUtc` filtering parameter.
 
 ## 23rd January 2025
 * [Get all commands](../operations/commands.md#get-all-commands):

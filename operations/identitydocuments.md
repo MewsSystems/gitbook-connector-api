@@ -125,7 +125,7 @@ Adds identity documents. This operation supports [Portfolio Access Tokens](../co
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `IdentityDocuments` | array of [Identity document parameters](identitydocuments.md#identity-document-parameters) | required, max 10 items | Identity documents to be added. |
 
 #### Identity document parameters
@@ -213,7 +213,7 @@ Updates specified identity documents. This operation supports [Portfolio Access 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `IdentityDocuments` | array of [Identity document update parameters](identitydocuments.md#identity-document-update-parameters) | required, max 10 items | Identity documents to be updated. |
 
 #### Identity document update parameters
@@ -286,7 +286,7 @@ Deletes specified identity documents. This operation supports [Portfolio Access 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `IdentityDocumentIds` | array of string | required, max 100 items | Unique identifiers of the identity documents to be deleted. |
 
 ### Response
@@ -321,7 +321,7 @@ Deletes all identity documents for the specified customers. This operation suppo
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `CustomerIds` | array of string | required, max 10 items | Unique identifiers of the `Customer` for whom documents will be deleted. |
 
 ### Response

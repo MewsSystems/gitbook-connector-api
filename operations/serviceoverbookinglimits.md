@@ -130,7 +130,7 @@ Adds new service overbooking limits with the specified conditions. Past overbook
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) overbooking limits will be set in. |
 | `SetServiceOverbookingLimits` | array of [Service overbooking limits set parameters](serviceoverbookinglimits.md#service-overbooking-limits-set-parameters) | required, max 1000 items | Collection of service overbooking limits to be set. |
 
@@ -180,7 +180,7 @@ Deletes service overbooking limits that exactly match the specified conditions. 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ServiceId` | string | required | Unique identifier of the [Service](services.md#service) overbooking limits will be set in. |
 | `ClearServiceOverbookingLimits` | array of [Service overbooking limits clear parameters](serviceoverbookinglimits.md#service-overbooking-limits-clear-parameters) | required, max 1000 items | Collection of service overbooking limits to be cleared. |
 

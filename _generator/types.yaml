@@ -1654,4 +1654,6 @@ types:
   releasestrategyupdatevalue:
     file: availabilityblocks.md
     anchor: release-strategy-update-value
-    
+  financialdocumentpdftemplatetypeenum:
+    file: bills.md
+    anchor: bill-pdf-template-type
