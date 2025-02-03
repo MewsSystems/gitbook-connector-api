@@ -1,6 +1,6 @@
 # Changelog
 
-## 30th January 2025
+## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
   * Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request parameters `ServiceId`, `RateGroupId` and `BaseRateId`.
 * [Set rates](../operations/rates.md#set-rates):
@@ -10,6 +10,11 @@
 * [Get all age categories](../operations/agecategories.md#get-all-age-categories):
   * Extended [Age category](../operations/agecategories.md#age-category) with `ExternalIdentifier`.
 
+## 31st January 2025
+* [Get bill PDF](../operations/bills.md#get-bill-pdf):
+  * Extended request object with `PdfTemplate` and `PrintReason` parameters.
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ActualStartUtc` filtering parameter.
 
 ## 23rd January 2025
 * [Get all commands](../operations/commands.md#get-all-commands):

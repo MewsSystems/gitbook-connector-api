@@ -167,7 +167,7 @@ Adds account notes to an account of the enterprise chain. Note this operation su
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AccountNotes` | array of [Account note parameters](accountnotes.md#account-note-parameters) | required, max 1000 items | Account notes to be added. |
 
 #### Account note parameters
@@ -248,7 +248,7 @@ Updates information about the specified account notes.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AccountNoteUpdates` | array of [Account note update parameters](accountnotes.md#account-note-update-parameters) | required, max 1000 items | Account notes to be updated. |
 
 #### Account note update parameters
@@ -334,7 +334,7 @@ Deletes specified account notes.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AccountNoteIds` | array of string | required, max 1000 items | Unique identifiers of the account notes to be deleted. |
 
 ### Response

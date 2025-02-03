@@ -196,7 +196,8 @@ Creates a PDF version of the specified bill. In case it's not possible to return
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "BillId": "44eba542-193e-47c7-8077-abd7008eb206"
+  "BillId": "44eba542-193e-47c7-8077-abd7008eb206",
+  "PdfTemplate": "Detailed"
 }
 ```
 
@@ -207,6 +208,16 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 | `Client` | string | required | Name and version of the client application. |
 | `BillId` | string | required | Unique identifier of the [Bill](bills.md#bill) to be printed. |
 | `BillPrintEventId` | string | optional | Unique identifier of the [Bill print event](bills.md#bill-print-event) returned by previous invocation. |
+| `PdfTemplate` | [Bill PDF template type](bills.md#bill-pdf-template-type) | optional | Bill PDF template type. If not specified, the default template is used. |
+| `PrintReason` | string | optional, max length 255 characters | The reason for reprinting the bill with different template. Required for France LE. |
+
+#### Bill PDF template type
+
+* `Detailed` - Detailed overview. Items are grouped by the reservation, item type and price, and consumption date.
+* `Consumption` - Overview by date (no reservation details). Items of the same type and price are grouped by consumption date.
+* `Reservation` - Overview by reservation (no date). Items of the same type and price are grouped by reservation.
+* `OrderItem` - Consumption overview (not fiscal document). Items are grouped by the item type and price without reservation details and consumption date.
+* `Guest` - Overview by guest. Items are grouped by guest, reservation, consumption date, and item type.
 
 ### Response
 
@@ -279,7 +290,7 @@ Creates new empty bill assigned to specified account. Note this operation suppor
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `Bills` | array of [Bill parameters](bills.md#bill-parameters) | required, max 1000 items | Information about bills to be created. |
 
 #### Bill parameters
@@ -346,7 +357,7 @@ Updates one or more existing bills in the system. Closed bills cannot be updated
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `BillsUpdates` | array of [Bill update parameters](bills.md#bill-update-parameters) | required, max 10 items | Information about bills to be updated. |
 
 #### Bill update parameters
@@ -636,7 +647,7 @@ Removes selected bills. Bill must be empty, otherwise it's not possible to delet
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `BillIds` | array of string | required, max 1000 items | Unique identifiers of the [Bill](bills.md#bill)s to be deleted. |
 
 ### Response
@@ -719,7 +730,7 @@ Closes a bill so no further modification to it is possible. Note this operation 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `BillId` | string | required | Unique identifier of the [Bill](bills.md#bill) to be closed. |
 | `Type` | [Bill type](bills.md#bill-type) | required | After a bill is closed, the Bill Type is set to `Receipt` or `Invoice`. `Receipt` indicates that the bill has been fully paid and the balance is zero. `Invoice` indicates that the bill has not yet been fully paid but an invoice has been issued. Prior to closing, Bill Type should not be used. |
 | `BillCounterId` | string | optional | Unique identifier of the [Counter](counters.md#counter) to be used for closing. Default one is used when no value is provided. |

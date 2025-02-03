@@ -1666,3 +1666,6 @@ types:
   setbaseratepricingparameters:
     file: rates.md
     anchor: set-base-rate-pricing-parameters
+  financialdocumentpdftemplatetypeenum:
+    file: bills.md
+    anchor: bill-pdf-template-type

@@ -116,7 +116,7 @@ Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this o
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `VoucherCodeParameters` | array of [Voucher code parameters](vouchercodes.md#voucher-code-parameters) | required, max 1000 items | Voucher codes to be added. |
 
 #### Voucher code parameters
@@ -202,7 +202,7 @@ Delete specified voucher codes. Note this operation supports [Portfolio Access T
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `VoucherCodeIds` | array of string | required, max 1000 items | Unique identifiers of the voucher codes to be deleted. |
 
 ### Response

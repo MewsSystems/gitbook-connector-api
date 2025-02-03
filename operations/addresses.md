@@ -133,7 +133,7 @@ Adds one or more new addresses to the system and assigns them to specified accou
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `Addresses` | array of [Account address parameters](addresses.md#account-address-parameters) | required, max 1000 items | Collection of addresses to be created. |
 
 #### Account address parameters
@@ -224,7 +224,7 @@ Updates one or more existing addresses in the system, assigned to specified acco
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AddressUpdates` | array of [Account address update parameters](addresses.md#account-address-update-parameters) | required, max 1000 items | Collection of addresses to be updated. |
 
 #### Account address update parameters
@@ -293,7 +293,7 @@ Deletes one or more addresses in the system. Note this operation supports [Portf
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AddressIds` | array of string | required, max 1000 items | Unique identifiers of [Addresses](addresses.md#account-address) within the enterprise to be deleted. |
 
 ### Response

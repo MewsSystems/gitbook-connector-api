@@ -438,7 +438,7 @@ Updates the prices for a given product. You can make multiple price updates with
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ProductId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the `Product`. |
 | `PriceUpdates` | array of [Product price update](products.md#product-price-update) | required, max 100 items | Price adjustments for specific time intervals. |
 
@@ -481,7 +481,7 @@ Deletes specified products. This operation supports [Portfolio Access Tokens](..
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `ProductIds` | array of string | required, max 1000 items | Unique identifiers of the products to delete. |
 
 ### Response

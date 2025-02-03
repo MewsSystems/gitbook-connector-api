@@ -270,7 +270,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AccountUpdates` | array of [Account update parameters](accounts.md#account-update-parameters) | required, max 1000 items | Accounts to be updated. |
 
 #### Account update parameters
@@ -690,7 +690,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AccountId` | string | required | Unique identifier of the account to which the file will be uploaded to. |
 | `Name` | string | required, max length 1000 characters | Uploaded file name. |
 | `Type` | string | required, max length 1000 characters | Content type of the uploaded file following defined by its MIME type. |
