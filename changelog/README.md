@@ -1,5 +1,15 @@
 # Changelog
 
+## 3rd February 2025
+* [Add rates](../operations/rates.md#add-rates):
+  * Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request parameters `ServiceId`, `RateGroupId` and `BaseRateId`.
+* [Set rates](../operations/rates.md#set-rates):
+  * Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request parameters `ServiceId`, `RateGroupId` and `BaseRateId`.
+* [Delete rates](../operations/rates.md#delete-rates):
+  * Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request parameter `RateIds`.
+* [Get all age categories](../operations/agecategories.md#get-all-age-categories):
+  * Extended [Age category](../operations/agecategories.md#age-category) with `ExternalIdentifier`.
+
 ## 31st January 2025
 * [Get bill PDF](../operations/bills.md#get-bill-pdf):
   * Extended request object with `PdfTemplate` and `PrintReason` parameters.
