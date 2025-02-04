@@ -761,7 +761,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 
 ## Delete rates
 
-Deletes specified rates. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Deletes specified rates and their related channel manager rates. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
