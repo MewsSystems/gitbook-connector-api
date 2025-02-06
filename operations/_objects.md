@@ -141,6 +141,14 @@ A [Dictionary](#dictionary) object where the keys are [Language](languages.md#la
 }
 ```
 
+When used as an input parameter, localized text supports `default` alias to indicate [Enterprise](enterprises.md#enterprise) default language code:
+
+```javascript
+{
+    "default": "Children"
+}
+```
+
 ### Profile data
 
 | Property            | Type                                                      | Contract | Description               |
