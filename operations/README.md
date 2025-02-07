@@ -127,7 +127,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 | [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
 | [Refund payment](payments.md#refund-payment) | Refunds a specified payment |
-| [Disable credit card](payments.md#disable-gateway-credit-card) | Disable gateway credit card|
+| [Disable credit card](payments.md#disable-gateway-credit-card) | Disable gateway credit card |
 
 ## Loyalty
 
