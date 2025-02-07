@@ -76,7 +76,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `PaymentIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Payment` items. Required if no other filter is provided. |
-| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which payments are belongs to. Required if no other filter is provided. |
+| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which payments belong. Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Bill` items to which payments are assigned. Required if no other filter is provided. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of specific `Reservations` to which payments belong. Required if no other filter is provided. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Time interval during which the `Payment` was created. Required if no other filter is provided. |
