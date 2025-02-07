@@ -683,6 +683,7 @@ Refunds a specified payment on a specified account. A reason must be provided. O
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
+
 Disable an existing credit card in the system. Only gateway credit card can be disabled. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
