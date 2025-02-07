@@ -204,8 +204,7 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
 | :-- | :-- | :-- | :-- |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](#credit-card). |
 
-
-## Disable gateway credit card
+## Disable credit card
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.

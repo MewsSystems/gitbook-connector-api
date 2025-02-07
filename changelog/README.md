@@ -1,7 +1,7 @@
 # Changelog
 
 ## 7th February 2025
-* Added new operation [Disable credit card](../operations/payments.md#disable-gateway-credit-card).
+* Added new operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
 
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
