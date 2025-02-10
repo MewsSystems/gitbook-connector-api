@@ -1,6 +1,6 @@
 # Changelog
 
-## 7th February 2025
+## 10th February 2025
 * Added new operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
 
 ## 3rd February 2025
