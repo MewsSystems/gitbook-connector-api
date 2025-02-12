@@ -315,7 +315,7 @@ Updates one or more company contracts.
 
 ## Delete company contracts
 
-Deletes one or more company contracts.
+Deletes one or more company contracts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
