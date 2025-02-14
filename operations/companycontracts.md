@@ -340,7 +340,7 @@ Deletes one or more company contracts. Note this operation supports [Portfolio A
 ```
 
 | Property                  | Type | Contract | Description                                                                                     |
-|:--------------------------| :-- | :-- |:------------------------------------------------------------------------------------------------|
+| :-- | :-- | :-- | :-- |
 | `ClientToken`             | string | required | Token identifying the client application.                                                       |
 | `AccessToken`             | string | required | Access token of the client application.                                                         |
 | `Client`                  | string | required | Name and version of the client application.                                                     |
