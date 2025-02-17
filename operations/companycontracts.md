@@ -340,13 +340,13 @@ Deletes one or more company contracts. Note this operation supports [Portfolio A
 ```
 
 | Property | Type | Contract | Description |
-|:--------------------------| :-- | :-- | :-- |
-| `ClientToken`             | string | required | Token identifying the client application.                                                       |
-| `AccessToken`             | string | required | Access token of the client application.                                                         |
-| `Client`                  | string | required | Name and version of the client application.                                                     |
-| `EnterpriseId`            | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise).                               |
-| `TravelAgencyContractIds` | array of string | required, max 1000 items | Unique identifiers of the Travel agency contract to delete.                                     |
-| `ServiceIds`              | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service) the travel agency contract belongs to. |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
+| `TravelAgencyContractIds` | array of string | required, max 1000 items | Unique identifiers of the Travel agency contract to delete. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service) the travel agency contract belongs to. |
 
 ### Response
 
