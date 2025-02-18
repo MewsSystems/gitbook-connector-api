@@ -659,12 +659,12 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | optional | Reservation data for QR code generation. |
 
-## Get reservations channel manager details
+## Get reservations&#x27; channel manager details
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Gets requested rate codes for the reservation. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns additional channel manager-related details for provided reservations. Currently returns only requested rate codes of the reservations. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -703,9 +703,9 @@ Gets requested rate codes for the reservation. Note this operation supports [Por
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ChannelManagerDetails` | array of [Reservations channel Manager details](reservations.md#reservations-channel-manager-details) | required | List of reservations channel manager details. |
+| `ChannelManagerDetails` | array of [Reservations' channel manager details](reservations.md#reservations-channel-manager-details) | required | List of reservations' channel manager details. |
 
-#### Reservations channel Manager details
+#### Reservations&#x27; channel manager details
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
