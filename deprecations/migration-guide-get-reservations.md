@@ -42,7 +42,7 @@ The major differences are as follows:
 
 ## Request parameters
 
-The following table maps request parameters from Get all reservations (ver 2017-04-12) to the equivalent request parameters in Get all reservations (ver 2023-06-06).
+The following table maps request parameters from [Get all reservations] to the equivalent request parameters in [Get all reservations (ver 2023-06-06)].
 
 | Original property | New property | Notes |
 | :-- | :-- | :-- |
@@ -169,7 +169,7 @@ First request to [Get all reservations (ver 2023-06-06)]:
 
 Returns the following response with two reservations:
 
-```json
+```jsonc
 {
   "Reservations": [
     {
@@ -280,7 +280,7 @@ The following table maps the response properties from the original [Reservation 
 
 ## Known issues
 
-The [Add reservation] and [Update reservation] operations work with older versions of request and response properties corresponding to [Get all reservations (ver 2017-04-12)]. An updated versions of these operations will be published in H2 2025.
+The [Add reservation] and [Update reservation] operations work with older versions of request and response properties corresponding to [Reservation (ver 2017-04-12)] entity. An updated versions of these operations will be published in H2/2025.
 
 ## Feedback and troubleshooting
 
