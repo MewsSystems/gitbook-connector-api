@@ -4,15 +4,15 @@ This guide is intended to assist API users to migrate away from the obsolete API
 
 ## Contents
 
-* [Get all reservations (ver 2023-06-06)](#get-all-reservations-ver-2023-06-06)
-* [Migration steps](#migration-steps)
-* [Request parameters](#request-parameters)
-* [Time filters](#time-filters)
-* [Extents removal](#extents-removal)
-* [Replacement operations for extents](#replacement-operations-for-extents)
-* [Response properties](#response-properties)
-* [Known issues](#known-issues)
-* [Feedback and troubleshooting](#feedback-and-troubleshooting)
+- [Get all reservations (ver 2023-06-06)](#get-all-reservations-ver-2023-06-06)
+- [Migration steps](#migration-steps)
+- [Request parameters](#request-parameters)
+- [Time filters](#time-filters)
+- [Extents removal](#extents-removal)
+- [Replacement operations for extents](#replacement-operations-for-extents)
+- [Response properties](#response-properties)
+- [Known issues](#known-issues)
+- [Feedback and troubleshooting](#feedback-and-troubleshooting)
 
 ## Get all reservations (ver 2023-06-06)
 
@@ -44,7 +44,7 @@ The major differences are as follows:
 
 The following table maps request parameters from Get all reservations (ver 2017-04-12) to the equivalent request parameters in Get all reservations (ver 2023-06-06).
 
-| Original property	| New property | Notes |
+| Original property | New property | Notes |
 | :-- | :-- | :-- |
 | `ServiceIds` | `ServiceIds` | No longer `required`. |
 | `GroupIds` | `ReservationGroupIds` | - |
@@ -69,9 +69,10 @@ For example, instead of `"TimeFilter":"Colliding"` use `CollidingUtc` request pr
 
 Original request to [Get all reservations]:
 
-```
+```txt
 [PlatformAddress]/api/connector/v1/reservations/getAll
 ```
+
 ```json
 {
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -85,9 +86,10 @@ Original request to [Get all reservations]:
 
 Migrated request to [Get all reservations (ver 2023-06-06)]:
 
-```
+```txt
 [PlatformAddress]/api/connector/v1/reservations/getAll/2023-06-06
 ```
+
 ```json
 {
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -120,10 +122,10 @@ The new [Get all reservations (ver 2023-06-06)] operation doesn’t support exte
 
 The following example request to [Get all reservations] uses extents to retrieve Reservations, Customers, and Resources in a single request:
 
-```
+```txt
 [PlatformAddress]/api/connector/v1/reservations/getAll
-
 ```
+
 ```json
 {
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
@@ -139,14 +141,16 @@ The following example request to [Get all reservations] uses extents to retrieve
   },
 }
 ```
+
 With [Get all reservations (ver 2023-06-06)] the request needs to be broken down into 3 separate requests:
+
 1. [Get all reservations (ver 2023-06-06)] to retrieve reservations including AccountId and AssignedResourceIds properties of individual reservations.
 2. [Get all customers] to retrieve customers' details using the `CustomerIds` filter with `AccountId` values retrieved in the first step (where `AccountType` is `"Customer"`).
 3. [Get all resources] to retrieve resources' details using the `ResourceIds` filter with `AssignedResourceIds` values retrieved in the first step. Alternatively, [Get all resources] can be regularly requested without filters and cached, since resources' details don’t change frequently.
 
 First request to [Get all reservations (ver 2023-06-06)]:
 
-```
+```txt
 [PlatformAddress]/api/connector/v1/reservations/getAll/2023-06-06
 ```
 
@@ -189,7 +193,7 @@ Returns the following response with two reservations:
 
 Second request to [Get all customers](../operations/customers.md#get-all-customers) passes value of `AccountId` to `CustomerIds` filter only from the first reservation as `AccountType` is `"Customer"`:
 
-```
+```txt
 [PlatformAddress]/api/connector/v1/customers/getAll
 ```
 
@@ -207,7 +211,7 @@ Second request to [Get all customers](../operations/customers.md#get-all-custome
 
 Third request to [Get all resources](../operations/resources.md#get-all-resources) uses values from `AssignedResourceId` in `ResourceIds` filter from both reservations:
 
-```
+```txt
 [PlatformAddress]/api/connector/v1/resources/getAll
 ```
 
@@ -264,7 +268,7 @@ The following table maps the response properties from the original [Reservation 
 | `RequestedCategoryId` | `RequestedResourceCategoryId` | - |
 | `CompanyId` | `PartnerCompanyId` | - |
 | `CancellationReason` | `CancellationReason` | Optional, previously incorrectly marked as required. |
-| `OwnerId` | `AccountId`	| - |
+| `OwnerId` | `AccountId` | - |
 | `Options` | `Options` | Uses Service order options. |
 | `AssignedSpaceId` | `AssignedResourceId` | Previously deprecated. |
 | `AssignedSpaceLocked` | `AssignedResourceLocked` | Previously deprecated. |
@@ -278,7 +282,7 @@ The following table maps the response properties from the original [Reservation 
 
 The [Add reservation] and [Update reservation] operations work with older versions of request and response properties corresponding to [Get all reservations (ver 2017-04-12)]. An updated versions of these operations will be published in H2 2025.
 
-## Feedback & troubleshooting
+## Feedback and troubleshooting
 
 > **TODO** Here will be a link to partner survey and page on how to contact partner success.
 
