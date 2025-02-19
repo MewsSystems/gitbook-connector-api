@@ -1,6 +1,6 @@
 # Changelog
 
-## 12th February 2025
+## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
