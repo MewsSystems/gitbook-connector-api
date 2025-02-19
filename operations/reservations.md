@@ -709,7 +709,7 @@ Returns additional channel manager-related details for provided reservations. Cu
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ReservationId` | string | required | Unique identifier of the `Reservations`. |
+| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `RequestedRateCode` | string | required | Rate code requested by the channel manager for this reservation. |
 
 ## ~~Get all reservation items~~
