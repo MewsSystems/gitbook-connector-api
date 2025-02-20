@@ -1,5 +1,9 @@
 # Changelog
 
+## 21st February 2025
+* [Update customer](../operations/customers.md#update-customer):
+  * Mark `Title` and `Sex` as optional in [Update customer](../operations/customers.md#update-customer) request parameters.
+
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
