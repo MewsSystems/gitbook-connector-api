@@ -664,7 +664,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns additional channel manager-related details for provided reservations. Currently returns only requested rate codes of the reservations. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns channel manager-related details for the specified reservations. Currently returns only requested rate codes of the reservations. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
