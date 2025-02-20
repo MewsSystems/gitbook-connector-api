@@ -659,7 +659,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | optional | Reservation data for QR code generation. |
 
-## Get channel manager details
+## Get reservations channel manager details
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
