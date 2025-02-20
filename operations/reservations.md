@@ -705,7 +705,7 @@ Returns additional channel manager-related details for provided reservations. Cu
 | :-- | :-- | :-- | :-- |
 | `ChannelManagerDetails` | array of [Reservations' channel manager details](reservations.md#reservations-channel-manager-details) | required | List of reservations' channel manager details. |
 
-#### Reservations&#x27; channel manager details
+#### Reservation channel manager details
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
