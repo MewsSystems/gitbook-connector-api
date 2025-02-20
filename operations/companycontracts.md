@@ -315,7 +315,7 @@ Updates one or more company contracts.
 
 ## Delete company contracts
 
-Deletes one or more company contracts.
+Deletes one or more company contracts. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -326,6 +326,7 @@ Deletes one or more company contracts.
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "TravelAgencyContractIds": [
         "0078f370-3787-43dc-a615-af150066bb88",
         "652d4a22-ac33-42b7-abe7-af1f00820023"
@@ -343,6 +344,7 @@ Deletes one or more company contracts.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | required | Unique identifier of the [Enterprise](enterprises.md#enterprise). |
 | `TravelAgencyContractIds` | array of string | required, max 1000 items | Unique identifiers of the Travel agency contract to delete. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the [Service](services.md#service) the travel agency contract belongs to. |
 
