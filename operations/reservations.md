@@ -703,7 +703,7 @@ Returns additional channel manager-related details for provided reservations. Cu
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ChannelManagerDetails` | array of [Reservations' channel manager details](reservations.md#reservations-channel-manager-details) | required | List of reservations' channel manager details. |
+| `ChannelManagerDetails` | array of [Reservation channel manager details](reservations.md#reservation-channel-manager-details) | required | List of reservation channel manager details. |
 
 #### Reservation channel manager details
 
