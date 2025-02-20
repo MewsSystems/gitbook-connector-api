@@ -1,6 +1,6 @@
 # Changelog
 
-## 21st February 2025
+## 20th February 2025
 * [Update customer](../operations/customers.md#update-customer):
   * Mark `Title` and `Sex` as optional in [Update customer](../operations/customers.md#update-customer) request parameters.
 
