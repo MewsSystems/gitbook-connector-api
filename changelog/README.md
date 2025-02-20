@@ -1,11 +1,11 @@
 # Changelog
 
 ## 20th February 2025
-* [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
-  * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
+* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
 
 ## 19th February 2025
-* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
+* [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
+  * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
 ## 11th February 2025
 * Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
