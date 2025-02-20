@@ -178,6 +178,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all source assignments](sourceassignments.md#get-all-source-assignments) | Returns all sources associated with a reservation group |
 | [Get all sources](sources.md#get-all-sources) | Returns all possible reservation sources |
 | [Get all reservation groups](reservationgroups.md#get-all-reservation-groups) | Returns all reservation groups, filtered by unique identifiers and other filters |
+| [Get reservations channel manager details](reservations.md#get-reservations-channel-manager-details) | **Restricted!** Gets requested rate codes for the reservation |
 
 ## Routing rules
 
