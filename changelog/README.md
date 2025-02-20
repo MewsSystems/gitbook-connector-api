@@ -1,5 +1,8 @@
 # Changelog
 
+## 21st February 2025
+* Added [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Documentation-only. No change to API.
+
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).

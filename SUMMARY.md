@@ -113,6 +113,7 @@
 * [Your integration journey](your-journey/README.md)
   * [Certification](your-journey/certification.md)
 * [Deprecations](deprecations/README.md)
+  * [Migration guide: Get all reservations](deprecations/migration-guide-get-reservations.md)
 * [Changelog](changelog/README.md)
   * [Changelog 2024](changelog/changelog2024.md)
   * [Changelog 2023](changelog/changelog2023.md)
