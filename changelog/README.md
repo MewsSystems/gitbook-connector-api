@@ -10,7 +10,6 @@
 ## 11th February 2025
 * Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
 
-
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
   * Introduced backward-compatible [Hybrid identifier](../operations/_objects.md#hybrid-identifier) string for request parameters `ServiceId`, `RateGroupId` and `BaseRateId`.
