@@ -1,6 +1,6 @@
 # Migration Guide: Get all reservations
 
-This guide is intended to assist API users to migrate away from the obsolete API Operation [Get all reservations] which is long deprecated and will be permanently discontinued.
+This guide is intended to assist API users to migrate away from the obsolete API Operation [Get all reservations (ver 2017-04-12)] which is long deprecated and will be permanently discontinued.
 
 ## Contents
 
@@ -16,7 +16,7 @@ This guide is intended to assist API users to migrate away from the obsolete API
 
 ## Get all reservations (ver 2023-06-06)
 
-API Operation [Get all reservations] is replaced by [Get all reservations (ver 2023-06-06)]. The original operation became increasingly complex and combination of extents along with backward compatibility requirements resulted in unpredictable performance and frequent timeouts. The new operation performs the same basic function to fetch reservations from Mews, however there are substantial differences that you need to be aware of.
+API Operation [Get all reservations (ver 2017-04-12)] is replaced by [Get all reservations (ver 2023-06-06)]. The original operation became increasingly complex and combination of extents along with backward compatibility requirements resulted in unpredictable performance and frequent timeouts. The new operation performs the same basic function to fetch reservations from Mews, however there are substantial differences that you need to be aware of.
 The major differences are as follows:
 
 - The new operation doesn't support extents
@@ -42,7 +42,7 @@ The major differences are as follows:
 
 ## Request parameters
 
-The following table maps request parameters from [Get all reservations] to the equivalent request parameters in [Get all reservations (ver 2023-06-06)].
+The following table maps request parameters from [Get all reservations (ver 2017-04-12)] to the equivalent request parameters in [Get all reservations (ver 2023-06-06)].
 
 | Original property | New property | Notes |
 | :-- | :-- | :-- |
@@ -67,7 +67,7 @@ The following table maps request parameters from [Get all reservations] to the e
 The combination of the request properties `TimeFilter`, `StartUtc` and `EndUtc` has been replaced by individual Time interval properties.
 For example, instead of `"TimeFilter":"Colliding"` use `CollidingUtc` request property.
 
-Original request to [Get all reservations]:
+Original request to [Get all reservations (ver 2017-04-12)]:
 
 ```txt
 [PlatformAddress]/api/connector/v1/reservations/getAll
@@ -120,7 +120,7 @@ The new [Get all reservations (ver 2023-06-06)] operation doesn’t support exte
 
 ### Extents migration example
 
-The following example request to [Get all reservations] uses extents to retrieve Reservations, Customers, and Resources in a single request:
+The following example request to [Get all reservations (ver 2017-04-12)] uses extents to retrieve Reservations, Customers, and Resources in a single request:
 
 ```txt
 [PlatformAddress]/api/connector/v1/reservations/getAll
@@ -286,7 +286,7 @@ The [Add reservation] and [Update reservation] operations work with older versio
 
 > **TODO** Here will be a link to partner survey and page on how to contact partner success.
 
-[Get all reservations]: ../operations/reservations.md#get-all-reservations
+[Get all reservations (ver 2017-04-12)]: ../operations/reservations.md#get-all-reservations-ver-2017-04-12
 [Get all reservations (ver 2023-06-06)]: ../operations/reservations.md#get-all-reservations-ver-2023-06-06
 [Time filters]: #time-filters
 [Get all reservation groups]: ../operations/reservationgroups.md#get-all-reservation-groups
