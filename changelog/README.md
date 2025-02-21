@@ -1,5 +1,9 @@
 # Changelog
 
+## 21st February 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ActualEndUtc` filtering parameter.
+
 ## 20th February 2025
 * Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
 
