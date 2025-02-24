@@ -13,7 +13,7 @@ tags:
   - businesssegments
   - cancellationpolicies
   - cashiers
-  # - cashiertransactions
+  - cashiertransactions
   # - commands
   - companies
   # - companionships
