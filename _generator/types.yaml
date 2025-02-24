@@ -1669,3 +1669,30 @@ types:
   financialdocumentpdftemplatetypeenum:
     file: bills.md
     anchor: bill-pdf-template-type
+  cashiertransactionresult:
+    file: cashiertransactions.md
+    anchor: cashiertransactionresult
+  cashiertransaction:
+    file: cashiertransactions.md
+    anchor: cashier-transaction
+  cashiertransactionparameters:
+    file: cashiertransactions.md
+    anchor: cashiertransactionparameters
+  cancelorderitemparameters:
+    file: orderitems.md
+    anchor: cancelorderitemparameters
+  taxexemptionreasontypeenum:
+    file: orderitems.md
+    anchor: tax-exemption-reason-type
+  disablecreditcardparameters:
+    file: payments.md
+    anchor: disablecreditcardparameters
+  reservationschannelmanagerdetailsresult:
+    file: reservations.md
+    anchor: reservations-channel-manager-details-result
+  channelmanagerdetails:
+    file: reservations.md
+    anchor: reservations-channel-manager-details
+  reservationschannelmanagerdetailsfilterparameters:
+    file: reservations.md
+    anchor: reservations-channel-manager-details-filter-parameters
