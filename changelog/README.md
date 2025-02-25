@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th February 2025
+* [Update customer](../operations/customers.md#update-customer):
+  * Mark `Title` and `Sex` as optional in [Update customer](../operations/customers.md#update-customer) request parameters.
+
 ## 21st February 2025
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
   * Extended request object with `ActualEndUtc` filtering parameter.
