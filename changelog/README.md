@@ -1,8 +1,11 @@
 # Changelog
 
+## 21st February 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ActualEndUtc` filtering parameter.
+
 ## 20th February 2025
-* [Update customer](../operations/customers.md#update-customer):
-  * Mark `Title` and `Sex` as optional in [Update customer](../operations/customers.md#update-customer) request parameters.
+* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
 
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
@@ -10,7 +13,6 @@
 
 ## 11th February 2025
 * Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
-
 
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
