@@ -4,7 +4,6 @@
 * [Update customer](../operations/customers.md#update-customer):
   * Corrected `Title` and `Sex` in request parameters to be optional. Documentation only, no changes to API functionality.
 
-
 ## 21st February 2025
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
   * Extended request object with `ActualEndUtc` filtering parameter.
