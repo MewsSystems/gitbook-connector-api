@@ -24,7 +24,7 @@ tags:
   # - creditcards
   - currencies
   - customers
-  # - departments
+  - departments
   - devices
   - enterprises
   - exchangerates
