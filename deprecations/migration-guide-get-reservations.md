@@ -284,7 +284,9 @@ The [Add reservation] and [Update reservation] operations work with older versio
 
 ## Feedback and troubleshooting
 
-> **TODO** Here will be a link to partner survey and page on how to contact partner success.
+If you are blocked in the migration for any reason (e.g. missing a certain parameter or functionality), please let us know about it in this [short survey](https://mews.typeform.com/to/izhRLSFg). 
+
+If you would like to consult our Technical Partnerships team about your migration plans, you can contact them at partnersuccess@mews.com 
 
 [Get all reservations (ver 2017-04-12)]: ../operations/reservations.md#get-all-reservations-ver-2017-04-12
 [Get all reservations (ver 2023-06-06)]: ../operations/reservations.md#get-all-reservations-ver-2023-06-06
