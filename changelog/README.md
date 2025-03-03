@@ -1,6 +1,6 @@
 # Changelog
 
-## 28th February 2025
+## 3rd March 2025
 * [Get all order items](../operations/orderitems.md#get-all-order-items):
   * Extended request object with `AccountIds` filtering parameter.
 
