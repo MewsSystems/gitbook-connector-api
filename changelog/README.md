@@ -1,8 +1,24 @@
 # Changelog
 
-## 12th February 2025
+## 27th February 2025
+* [Update customer](../operations/customers.md#update-customer):
+  * Corrected `Title` and `Sex` in request parameters to be optional. Documentation only, no changes to API functionality.
+
+## 26th February 2025
+* [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments)
+  * Extended response object with `FirstTimeUnitReleaseUtc`
+
+## 21st February 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ActualEndUtc` filtering parameter.
+
+## 20th February 2025
+* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
+
+## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
+
 ## 11th February 2025
 * Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
 

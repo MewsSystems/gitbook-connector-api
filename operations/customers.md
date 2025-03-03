@@ -622,12 +622,12 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using `PortfolioAccessTokens`, ignored otherwise. |
 | `CustomerId` | string | required | Unique identifier of the `Customer` to be updated. |
-| `Title` | [Title](customers.md#title) | required | New title. |
+| `Title` | [Title](customers.md#title) | optional | New title. |
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |
 | `SecondLastName` | string | optional | New second last name. |
 | `NationalityCode` | string | optional | New nationality code as ISO 3166-1 code of the `Country`. |
-| `Sex` | [Sex](customers.md#sex) | required | Sex of the customer. |
+| `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `BirthDate` | string | optional | New birth date in ISO 8601 format. |
 | `BirthPlace` | string | optional | New birth place. |
 | `Occupation` | string | optional | Occupation of the customer. |
