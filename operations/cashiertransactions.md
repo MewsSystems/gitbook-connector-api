@@ -3,8 +3,7 @@
 
 ## Get all cashier transactions
 
-Returns all cashier transactions created within the specified interval.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns all cashier transactions. At least one of the filter parameters `CashierTransactionIds` or `CreatedUtc` must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -38,11 +37,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `CashierTransactionIds` | array of string | required, max 1000 items | Unique identifiers of the Cashier transactions. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | required, max length 3 months | Interval in which Cashier transaction was created. |
+| `CashierTransactionIds` | array of string | optional, max 1000 items | Unique identifiers of the Cashier transactions. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which Cashier transaction was created. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
-| ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
-| ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
 
 ### Response
 
@@ -69,7 +66,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CashierTransactions` | array of [Cashier transaction](cashiertransactions.md#cashier-transaction) | required | Cashier transactions created in the interval. |
+| `CashierTransactions` | array of [Cashier transaction](cashiertransactions.md#cashier-transaction) | required | Array of `CashierTransaction`. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Cashier transaction
@@ -82,5 +79,5 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `PaymentId` | string | optional | Unique identifier of the corresponding payment [Payment item](accountingitems.md#payment-item). |
 | `CreatedUtc` | string | required | Creation date and time of the transaction. |
 | `Number` | string | required | Number of the transaction. |
-| `Notes` | string | required | Additional notes of the transaction. |
-| `Amount` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | required | Total price of the reservation. |
+| `Notes` | string | optional | Additional notes of the transaction. |
+| `Amount` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | required | Total price of the transaction |
