@@ -1,6 +1,6 @@
 # Changelog
 
-## 28th February 2025
+## 3rd March 2025
 * [Add company](../operations/companies.md#add-company):
   * Updated `Identifier` description in request parameters. Documentation only, no changes to API functionality.
 * [Update company](../operations/companies.md#update-company):
