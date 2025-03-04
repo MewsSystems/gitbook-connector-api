@@ -1,5 +1,9 @@
 # Changelog
 
+## 4th March 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended request object with `AccountIds` filtering parameter.
+
 ## 3rd March 2025
 * [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
   * Incorrectly named filtering parameter `UpdatedUtc` changed to `CreatedUtc`.
