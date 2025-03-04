@@ -77,6 +77,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `OrderItemIds` | array of string | optional, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
+| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which the order items belong to. Required if no other filter is provided. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the service orders ([product service orders](productserviceorders.md#product-service-order) or [reservations](reservations.md#reservation-ver-2023-06-06)). Required if no other filter is provided. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |

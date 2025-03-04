@@ -1,11 +1,8 @@
 # Changelog
 
-## 3rd March 2025
-* [Add company](../operations/companies.md#add-company):
-  * Updated `Identifier` description in request parameters. Documentation only, no changes to API functionality.
-* [Update company](../operations/companies.md#update-company):
-  * Updated `Identifier` description in request parameters. Documentation only, no changes to API functionality.
-* Updated `Identifier` description in `Company` object. Documentation only, no changes to API functionality.
+## 4th March 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended request object with `AccountIds` filtering parameter.
 
 ## 27th February 2025
 * [Update customer](../operations/customers.md#update-customer):
