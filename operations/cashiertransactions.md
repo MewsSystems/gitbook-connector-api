@@ -66,7 +66,7 @@ Returns all cashier transactions. At least one of the filter parameters `Cashier
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CashierTransactions` | array of [Cashier transaction](cashiertransactions.md#cashier-transaction) | required | Array of `CashierTransaction`. |
+| `CashierTransactions` | array of [Cashier transaction](cashiertransactions.md#cashier-transaction) | required | The collection of cashier transactions. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Cashier transaction
