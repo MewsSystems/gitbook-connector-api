@@ -6,7 +6,7 @@
 
 ## 3rd March 2025
 * [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
-  * Incorrectly named filtering parameter `UpdatedUtc` changed to `CreatedUtc`.
+  * Incorrectly named filtering parameter `UpdatedUtc` changed to `CreatedUtc`. Documentation only, no changes to API functionality.
 
 ## 27th February 2025
 * [Update customer](../operations/customers.md#update-customer):
