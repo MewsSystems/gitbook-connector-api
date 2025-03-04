@@ -1,5 +1,9 @@
 # Changelog
 
+## 4th March 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended request object with `AccountIds` filtering parameter.
+
 ## 27th February 2025
 * [Update customer](../operations/customers.md#update-customer):
   * Corrected `Title` and `Sex` in request parameters to be optional. Documentation only, no changes to API functionality.
