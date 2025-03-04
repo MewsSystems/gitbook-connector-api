@@ -218,7 +218,7 @@ Adds a new company. Note this operation supports [Portfolio Access Tokens](../co
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `Identifier` | string | optional | Identifier of the company (e.g. legal identifier). |
+| `Identifier` | string | optional | Fiscal or legal identifier of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `Notes` | string | optional | Notes of the company. |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
@@ -362,7 +362,7 @@ New address details.
 | `BillingCode` | string | optional | Billing code of the company. |
 | `Contact` | string | optional | Other contact details, such as telephone, email or similar. |
 | `ContactPerson` | string | optional | Contact person of the company. |
-| `Identifier` | string | optional | Other identifier of the company, e.g. legal identifier. |
+| `Identifier` | string | optional | Fiscal or legal identifier of the company. |
 | `Iata` | string | optional | Iata of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Notes` | string | optional | Additional notes. |
@@ -494,7 +494,7 @@ Updates information of the company. Note this operation supports [Portfolio Acce
 | `BillingCode` | [String update value](_objects.md#string-update-value) | optional | Billing code of the company (or `null` if the billing code should not be updated). |
 | `Contact` | [String update value](_objects.md#string-update-value) | optional | Other contact details, such as telephone, email or similar (or `null` if the contact should not be updated). |
 | `ContactPerson` | [String update value](_objects.md#string-update-value) | optional | Contact person of the company (or `null` if the contact person should not be updated). |
-| `Identifier` | [String update value](_objects.md#string-update-value) | optional | Identifier of the company, e.g. legal identifier (or `null` if the identifier should not be updated). |
+| `Identifier` | [String update value](_objects.md#string-update-value) | optional | Fiscal or legal identifier of the company (or `null` if the identifier should not be updated). |
 | `Iata` | [String update value](_objects.md#string-update-value) | optional | Iata of the company (or `null` if the Iata should not be updated). |
 | `Notes` | [String update value](_objects.md#string-update-value) | optional | Notes of the company (or `null` if the notes should not be updated). |
 | `TaxIdentifier` | [String update value](_objects.md#string-update-value) | optional | Tax identification number of the company (or `null` if the tax identifier should not be updated). |
