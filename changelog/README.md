@@ -4,6 +4,14 @@
 * [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
   * Incorrectly named filtering parameter `UpdatedUtc` changed to `CreatedUtc`.
 
+## 27th February 2025
+* [Update customer](../operations/customers.md#update-customer):
+  * Corrected `Title` and `Sex` in request parameters to be optional. Documentation only, no changes to API functionality.
+
+## 26th February 2025
+* [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments)
+  * Extended response object with `FirstTimeUnitReleaseUtc`
+
 ## 25th February 2025
 * [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
   * Extended request object with `ActualEndUtc` filtering parameter.
