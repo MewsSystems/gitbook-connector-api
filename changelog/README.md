@@ -7,6 +7,7 @@
 ## 3rd March 2025
 * [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
   * Incorrectly named filtering parameter `UpdatedUtc` changed to `CreatedUtc`. Documentation only, no changes to API functionality.
+  * Extended request object with `ActualEndUtc` filtering parameter.
 
 ## 27th February 2025
 * [Update customer](../operations/customers.md#update-customer):
@@ -15,10 +16,6 @@
 ## 26th February 2025
 * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments)
   * Extended response object with `FirstTimeUnitReleaseUtc`
-
-## 25th February 2025
-* [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
-  * Extended request object with `ActualEndUtc` filtering parameter.
 
 ## 21st February 2025
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
