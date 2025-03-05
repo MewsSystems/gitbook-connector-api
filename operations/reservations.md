@@ -94,7 +94,8 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the reservations are active. This is defined for a `Reservation` as the period between the reservation's scheduled start time `ScheduledStartUtc` and its scheduled end time `EndUtc`. Reservation is selected if any part of its interval intersects with the interval specified in `CollidingUtc |
 | `ScheduledStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled start time. Cannot be used with `ActualStartUtc`. |
 | `ActualStartUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their actual start (check-in) time. Cannot be used with `ScheduledStartUtc`. Note that the filter applies only to started or processed reservations. |
-| `ScheduledEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled end time. |
+| `ActualEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their actual end (check-out) time. Cannot be used with `ScheduledEndUtc`. |
+| `ScheduledEndUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval filtering Reservations by their scheduled end time. Cannot be used with `ActualEndUtc`. |
 | `States` | array of [Service order state](reservations.md#service-order-state) | optional | A list of service order states to filter by. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
@@ -658,6 +659,59 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | :-- | :-- | :-- | :-- |
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | optional | Reservation data for QR code generation. |
+
+## Get reservations channel manager details
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Returns channel manager-related details for the specified reservations. Currently returns only requested rate codes of the reservations. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/getChannelManagerDetails`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ReservationIds": [
+    "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ReservationIds` | array of string | required, max 100 items | Unique identifiers of the `Reservations`. |
+
+### Response
+
+```javascript
+{
+  "ChannelManagerDetails": [
+    {
+      "ReservationId": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
+      "RequestedRateCode": "TKyFHQwLtEBfs1akKan1a2Ea4"
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ChannelManagerDetails` | array of [Reservation channel manager details](reservations.md#reservation-channel-manager-details) | required | List of reservation channel manager details. |
+
+#### Reservation channel manager details
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ReservationId` | string | required | Unique identifier of the `Reservation`. |
+| `RequestedRateCode` | string | required | Rate code requested by the channel manager for this reservation. |
 
 ## ~~Get all reservation items~~
 

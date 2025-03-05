@@ -1,7 +1,28 @@
 # Changelog
 
-## 21st February 2025
+## 5th March 2025
 * Added [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Documentation-only. No change to API.
+
+## 4th March 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended request object with `AccountIds` filtering parameter.
+* [Get all cashier transactions)](../operations/cashiertransactions.md#get-all-cashier-transactions):
+  * Incorrectly named filtering parameter `UpdatedUtc` changed to `CreatedUtc`. Documentation only, no changes to API functionality.
+
+## 27th February 2025
+* [Update customer](../operations/customers.md#update-customer):
+  * Corrected `Title` and `Sex` in request parameters to be optional. Documentation only, no changes to API functionality.
+
+## 26th February 2025
+* [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments)
+  * Extended response object with `FirstTimeUnitReleaseUtc`
+
+## 21st February 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ActualEndUtc` filtering parameter.
+
+## 20th February 2025
+* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
 
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
@@ -9,7 +30,6 @@
 
 ## 11th February 2025
 * Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
-
 
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
