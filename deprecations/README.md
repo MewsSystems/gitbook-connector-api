@@ -13,6 +13,10 @@ The table columns have the following meanings:
 * __Deprecated__ - The date at which the deprecation notice was given (see the [Changelog](../changelog/README.md))
 * __Discontinued__ - The date at which it is planned to discontinue the feature completely; a value of '-' indicates no date has been set
 
+## Migration guides
+
+* [Migration guide: Get all reservations](migration-guide-get-reservations.md)
+
 ## Deprecated operations
 
 | Feature | Comments | Deprecated | Discontinued |
@@ -21,7 +25,7 @@ The table columns have the following meanings:
 | [Add restrictions](../operations/restrictions.md#add-restrictions) | Replaced by [Set restrictions](../operations/restrictions.md#set-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
 | [Delete restrictions](../operations/restrictions.md#delete-restrictions) | Replaced by  [Clear restrictions](../operations/restrictions.md#clear-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
 | [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2017-04-12)<br>(ver 2017-04-12) | Replaced by [Get all reservations \(ver 2023-06-06\)](../operations/reservations.md#get-all-reservations-ver-2023-06-06) | 23 Jun 2023 | 10 May 2025 |
-| [Get all reservation items](../operations/reservations.md#get-all-reservation-items) | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items) | 23 Jun 2023 | 10 May 2025 |
+| [Get all reservation items](../operations/reservations.md#get-all-reservation-items) | Replaced by [Get all order items](../operations/orderitems.md#get-all-order-items); see [Migration guide: Get all reservations](migration-guide-get-reservations.md) | 23 Jun 2023 | 10 May 2025 |
 | [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items) | Replaced by [Get all payments](../operations/payments.md#get-all-payments) and [Get all order items](../operations/orderitems.md#get-all-order-items) | 19 Apr 2023 | 10 Jan 2026 |
 | [Merge customers](../operations/customers.md#merge-customers) | Replaced by [Merge accounts](../operations/accounts.md#merge-accounts) | 01 Dec 2022 | 10 May 2025 |
 | `Get all companies by name` | Replaced by [Get all companies](../operations/companies.md#get-all-companies) | 01 Jan 2020 | - |
