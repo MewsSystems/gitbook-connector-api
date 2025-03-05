@@ -260,7 +260,7 @@ The following table maps the response properties from the original [Reservation 
 | Original property | New property | Notes |
 | :-- | :-- | :-- |
 | `ChannelManagerGroupNumber` | n/a | No longer supported. |
-| `ChannelManager` | n/a | `TO DO` |
+| `ChannelManager` | n/a | Replacement will be introduced in Q2/2025. |
 | `Origin` | `Origin` | Operations-specific values moved to `CommanderOrigin` (see Commander origin). |
 | `Purpose` | `Purpose` | No longer required. |
 | `StartUtc` | `ScheduledStartUtc`<br>`ActualStartUtc` | Early check-ins changed `StartUtc` value. Check-in time and scheduled start time are now provided in separate properties. |
@@ -284,9 +284,9 @@ The [Add reservation] and [Update reservation] operations work with older versio
 
 ## Feedback and troubleshooting
 
-If you are blocked in the migration for any reason (e.g. missing a certain parameter or functionality), please let us know about it in this [short survey](https://mews.typeform.com/to/izhRLSFg). 
+If you are blocked in the migration for any reason (e.g. missing a certain parameter or functionality), please let us know about it in this [short survey](https://mews.typeform.com/to/izhRLSFg).
 
-If you would like to consult our Technical Partnerships team about your migration plans, you can contact them at partnersuccess@mews.com 
+If you would like to consult our Technical Partnerships team about your migration plans, you can contact them at <partnersuccess@mews.com>.
 
 [Get all reservations (ver 2017-04-12)]: ../operations/reservations.md#get-all-reservations-ver-2017-04-12
 [Get all reservations (ver 2023-06-06)]: ../operations/reservations.md#get-all-reservations-ver-2023-06-06
