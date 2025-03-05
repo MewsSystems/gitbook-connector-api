@@ -16,7 +16,7 @@ This guide is intended to assist API users to migrate away from the obsolete API
 
 ## Get all reservations (ver 2023-06-06)
 
-API Operation [Get all reservations (ver 2017-04-12)] is replaced by [Get all reservations (ver 2023-06-06)]. The original operation became increasingly complex and combination of extents along with backward compatibility requirements resulted in unpredictable performance and frequent timeouts. The new operation performs the same basic function to fetch reservations from Mews, however there are substantial differences that you need to be aware of.
+API Operation [Get all reservations (ver 2017-04-12)] is replaced by [Get all reservations (ver 2023-06-06)]. The original operation became increasingly complex and the combination of extents along with backward compatibility requirements resulted in unpredictable performance and frequent timeouts. The new operation performs the same basic function to fetch reservations from Mews, however there are substantial differences that you need to be aware of.
 The major differences are as follows:
 
 - The new operation doesn't support extents
@@ -54,7 +54,7 @@ The following table maps request parameters from [Get all reservations (ver 2017
 | `RateIds` | n/a | Currently not supported. |
 | `BusinessSegmentIds` | n/a | Currently not supported. |
 | `ChannelNumbers` | n/a | Currently not supported. |
-| `Numbers` | `Numbers` | - |
+| `Numbers` | `Numbers` | No change. |
 | `StartUtc` | See [Time filters] | - |
 | `EndUtc` | See [Time filters] | - |
 | `TimeFilter` | See [Time filters] | - |
