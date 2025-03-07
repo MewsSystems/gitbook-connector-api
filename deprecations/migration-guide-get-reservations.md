@@ -2,6 +2,18 @@
 
 This guide is intended to assist API users to migrate away from the obsolete API Operation [Get all reservations (ver 2017-04-12)] which is long deprecated and will be permanently discontinued.
 
+> **Ensuring functional parity**
+> 
+> We've made efforts to ensure parity of functionality between the old and the new endpoint. However, it is possible we have not captured all of them. If you know of any functionality missing on the new endpoint that keeps you reliant on the old endpoint, please share your use case in this [short survey](https://mews.typeform.com/to/izhRLSFg).
+>
+> Additionally, if you would like to consult our Technical Partnerships team about your migration plans, you can contact them at <partnersuccess@mews.com>.
+
+> **Let us know about your timeline**
+> 
+> Do you know your migration timeline? Stuck on the original reservations endpoint due to missing functionality? Let us know on this [short survey](https://mews.typeform.com/to/izhRLSFg) so we can address it!
+>
+> Additionally, if you would like to consult our Technical Partnerships team about your migration plans, you can contact them at <partnersuccess@mews.com>.
+
 ## Contents
 
 - [Get all reservations (ver 2023-06-06)](#get-all-reservations-ver-2023-06-06)
@@ -281,12 +293,6 @@ The following table maps the response properties from the original [Reservation 
 ## Known issues
 
 The [Add reservation] and [Update reservation] operations work with older versions of request and response properties corresponding to [Reservation (ver 2017-04-12)] entity. An updated versions of these operations will be published in H2/2025.
-
-## Feedback and troubleshooting
-
-If you are blocked in the migration for any reason (e.g. missing a certain parameter or functionality), please let us know about it in this [short survey](https://mews.typeform.com/to/izhRLSFg).
-
-If you would like to consult our Technical Partnerships team about your migration plans, you can contact them at <partnersuccess@mews.com>.
 
 [Get all reservations (ver 2017-04-12)]: ../operations/reservations.md#get-all-reservations-ver-2017-04-12
 [Get all reservations (ver 2023-06-06)]: ../operations/reservations.md#get-all-reservations-ver-2023-06-06
