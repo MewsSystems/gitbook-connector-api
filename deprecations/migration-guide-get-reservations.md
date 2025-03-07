@@ -144,7 +144,7 @@ The following example request to [Get all reservations (ver 2017-04-12)] uses ex
 
 With [Get all reservations (ver 2023-06-06)] the request needs to be broken down into 3 separate requests:
 
-1. [Get all reservations (ver 2023-06-06)] to retrieve reservations including AccountId and AssignedResourceIds properties of individual reservations.
+1. [Get all reservations (ver 2023-06-06)] to retrieve reservations including `AccountId` and `AssignedResourceIds` properties of individual reservations.
 2. [Get all customers] to retrieve customers' details using the `CustomerIds` filter with `AccountId` values retrieved in the first step (where `AccountType` is `"Customer"`).
 3. [Get all resources] to retrieve resources' details using the `ResourceIds` filter with `AssignedResourceIds` values retrieved in the first step. Alternatively, [Get all resources] can be regularly requested without filters and cached, since resources' details don’t change frequently.
 
