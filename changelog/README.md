@@ -1,5 +1,8 @@
 # Changelog
 
+## 11th March 2025
+* Added [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Documentation-only. No change to API.
+
 ## 4th March 2025
 * [Get all order items](../operations/orderitems.md#get-all-order-items):
   * Extended request object with `AccountIds` filtering parameter.
