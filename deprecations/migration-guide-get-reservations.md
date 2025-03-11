@@ -2,17 +2,14 @@
 
 This guide is intended to assist API users to migrate away from the obsolete API Operation [Get all reservations (ver 2017-04-12)] which is long deprecated and will be permanently discontinued.
 
-> **Ensuring functional parity**
-> 
-> We've made efforts to ensure parity of functionality between the old and the new endpoint. However, it is possible we have not captured all of them. If you know of any functionality missing on the new endpoint that keeps you reliant on the old endpoint, please share your use case in this [short survey](https://mews.typeform.com/to/izhRLSFg).
+> ### Help us improve the migration experience
 >
-> Additionally, if you would like to consult our Technical Partnerships team about your migration plans, you can contact them at <partnersuccess@mews.com>.
-
-> **Let us know about your timeline**
-> 
-> Do you know your migration timeline? Stuck on the original reservations endpoint due to missing functionality? Let us know on this [short survey](https://mews.typeform.com/to/izhRLSFg) so we can address it!
+> We’re committed to ensuring a smooth transition from the old 2017 version of 'Get all reservations' to the newer 2023 version. To better support you, we’d love to hear about your migration plans and any potential blockers you may be facing.
 >
-> Additionally, if you would like to consult our Technical Partnerships team about your migration plans, you can contact them at <partnersuccess@mews.com>.
+> * **Migration timeline** – When do you plan to complete your migration?
+> * **Feature parity** – Is there any missing functionality preventing your transition?
+>
+> After consulting the details in this Migration Guide, please take a moment to fill out this [short survey](https://mews.typeform.com/to/izhRLSFg) and share your feedback. If you need further assistance or would like to discuss your migration plans, please contact our Technical Partnerships team at <partnersuccess@mews.com>.
 
 ## Contents
 
