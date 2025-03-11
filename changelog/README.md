@@ -1,6 +1,6 @@
 # Changelog
 
-## 5th March 2025
+## 11th March 2025
 * Added [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Documentation-only. No change to API.
 
 ## 4th March 2025
