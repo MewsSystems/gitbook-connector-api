@@ -21,10 +21,8 @@ This guide is intended to assist API users to migrate away from the obsolete API
 - [Request parameters](#request-parameters)
 - [Time filters](#time-filters)
 - [Extents removal](#extents-removal)
-- [Replacement operations for extents](#replacement-operations-for-extents)
 - [Response properties](#response-properties)
 - [Known issues](#known-issues)
-- [Feedback and troubleshooting](#feedback-and-troubleshooting)
 
 ## Get all reservations (ver 2023-06-06)
 
