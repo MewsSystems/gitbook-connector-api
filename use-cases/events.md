@@ -63,11 +63,16 @@ One of the expected functions of an Events integration is to push product order 
 Note that in order to use [Product order parameters](../operations/orders.md#product-order-parameters), the property must first set up products under an Additional Service. Then, you will need to retrieve the products by calling [Get all products](../operations/products.md#get-all-products).
 To ensure correct reporting, all revenue items posted into Mews using [Item parameters](../operations/orders.md#item-parameters) must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property can be retrieved using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
+> ### Linking orders to reservations
+> When using [Add order](../operations/orders.md#add-order), specify parameter `linkedReservationId` in order to link the order to a guest reservation.
+> This will greatly assist the property when using billing automation.
+
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to add a product order item to a customer profile | [Add order](../operations/orders.md#add-order) |
 | How to get the list of available products | [Get all products](../operations/products.md#get-all-products) |
 | How to get accounting categories | [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) |
+| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `linkedReservationId`) |
 
 ### Recording external payments
 

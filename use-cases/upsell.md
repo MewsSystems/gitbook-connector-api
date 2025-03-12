@@ -38,11 +38,16 @@ If the product is related to a Stay/Accommodation service, e.g. breakfast, an ex
 
 If the product is created under a non-Stay/Accommodation service, it will only be posted once and does not have to be attached to a reservation. Examples include a bottle of champagne, a one-hour massage, or a pool bar cocktail. Unlike with a traditional PMS, where charges are posted to a room, in Mews all charges are posted directly to the guest profile. All guests, both active and checked out, can be retrieved using [Get all customers](../operations/customers.md#get-all-customers). This operation offers numerous filters, including guest email and guest names. To retrieve only guests still checked in at the property, use [Search customers](../operations/customers.md#search-customers). The unique identifier of the chosen guest or customer is then used to add the product to the correct profile using [Add order](../operations/orders.md#add-order). If the product being posted already exists in Mews, then use [Product order parameters](../operations/orders.md#product-order-parameters). If the product does not exist in Mews then use [Item parameters](../operations/orders.md#item-parameters).
 
+> ### Linking orders to reservations
+> When using [Add order](../operations/orders.md#add-order), specify parameter `linkedReservationId` in order to link the order to a guest reservation.
+> This will greatly assist the property when using billing automation.
+
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to get checked in and checked out guests | [Get all customers](../operations/customers.md#get-all-customers) |
 | How to get only checked in guests | [Search customers](../operations/customers.md#search-customers) |
 | How to add a product order to a guest profile | [Add order](../operations/orders.md#add-order) |
+| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `linkedReservationId`) |
 
 ### Accounting categories and staff reminders
 

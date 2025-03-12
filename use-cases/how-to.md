@@ -142,6 +142,7 @@ This page summarises all of our 'how to' use cases, together with the main use c
 | How to add a product order item to a customer profile | [Add order](../operations/orders.md#add-order) | [Events](events.md) |
 | How to add a product order to a guest profile | [Add order](../operations/orders.md#add-order) | [Upsell](upsell.md) |
 | How to post a charge to a customer profile | [Add order](../operations/orders.md#add-order) | [Point of sale](point-of-sale.md) |
+| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `linkedReservationId`) | [Events](events.md), [Kiosk](kiosk.md), [Guest technology](guest-technology.md), [Upsell](upsell.md), [Point of sale](point-of-sale.md) |
 
 ## Availability Blocks
 
