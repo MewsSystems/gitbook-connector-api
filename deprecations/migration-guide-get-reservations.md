@@ -29,7 +29,7 @@ The major differences are as follows:
 - The new operation doesn't support extents
 - The new operation requires [pagination](../guidelines/pagination.md)
 - The new operation supports filtering by more time intervals
-- The new operation supports [Portfolio Access Tokens](../guidelines/multi-property.md)
+- The new operation supports [Portfolio Access Tokens](../concepts/multi-property.md)
 
 ### What do these changes mean for you?
 
