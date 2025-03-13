@@ -127,8 +127,7 @@ If using [Item parameters](../operations/orders.md#item-parameters), it is highl
 The list of accounting categories configured at a property is obtained using [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
 
 > ### Linking orders to reservations
-> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation.
-> This will greatly assist the property when using billing automation.
+> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
 
 | <div style="width:350px">'How to' use case</div> | <div style="width:350px">API Operations</div> |
 | :-- | :-- |

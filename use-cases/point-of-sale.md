@@ -73,8 +73,7 @@ You can post charges to customer profiles with the classification of `PaymasterA
 Once the customer profile to be charged is identified, the items can be posted onto their bill using the [Add order](../operations/orders.md#add-order) operation. The order needs to be sent with its full name, e.g. "Caesar salad" or "Beer", and not just “Item". The `AccountingCategoryId` will need to be used per item to allow for correct reporting for accounting systems. You can make use of `Notes` to record the associated ticket number from the POS system.
 
 > ### Linking orders to reservations
-> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation.
-> This will greatly assist the property when using billing automation.
+> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |

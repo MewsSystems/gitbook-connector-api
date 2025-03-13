@@ -64,8 +64,7 @@ Note that in order to use [Product order parameters](../operations/orders.md#pro
 To ensure correct reporting, all revenue items posted into Mews using [Item parameters](../operations/orders.md#item-parameters) must be associated with their correct accounting category by sending the unique identifier of the accounting category in the request. Information about all the categories configured at each property can be retrieved using [Get all accounting categories](../operations/finance.md#get-all-accounting-categories). 
 
 > ### Linking orders to reservations
-> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation.
-> This will greatly assist the property when using billing automation.
+> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
