@@ -25,12 +25,12 @@ Guest technology integrations typically require information on changes to [reser
 ## Charging checked-in customers
 
 Once the unique identifier of the customer to be charged is obtained, the items can be posted onto their billing tab using the [Add order](../operations/orders.md#add-order) operation.
-When using [Add order](../operations/orders.md#add-order), specify parameter `linkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
+When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
 
 | <div style="width:350px">'How to' use case</div> | API Operations |
 | :-- | :-- |
 | How to post an order item to a guest profile | [Add order](../operations/orders.md#add-order) |
-| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `linkedReservationId`) |
+| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `LinkedReservationId`) |
 
 ## Testing your integration
 

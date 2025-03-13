@@ -1,6 +1,6 @@
 # Changelog
 
-## 12th March 2025
+## 13th March 2025
 * Added guidance on linking customer orders to reservations. Documentation-only, no change to API. This affects the following pages:
   * [Orders](../operations/orders.md)
   * [Events](../use-cases/events.md)

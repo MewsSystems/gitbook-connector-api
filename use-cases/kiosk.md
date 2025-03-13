@@ -127,7 +127,7 @@ If using [Item parameters](../operations/orders.md#item-parameters), it is highl
 The list of accounting categories configured at a property is obtained using [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories).
 
 > ### Linking orders to reservations
-> When using [Add order](../operations/orders.md#add-order), specify parameter `linkedReservationId` in order to link the order to a guest reservation.
+> When using [Add order](../operations/orders.md#add-order), specify parameter `LinkedReservationId` in order to link the order to a guest reservation.
 > This will greatly assist the property when using billing automation.
 
 | <div style="width:350px">'How to' use case</div> | <div style="width:350px">API Operations</div> |
@@ -138,7 +138,7 @@ The list of accounting categories configured at a property is obtained using [Ge
 | How to add a product to a reservation | [Add reservation product](../operations/reservations.md#add-reservation-product) |
 | How to modify the date or time of a reservation | [Update reservation interval](../operations/reservations.md#update-reservation-interval) |
 | How to post an order for a guest | [Add order](../operations/orders.md#add-order) |
-| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `linkedReservationId`) |
+| How to link an order to a reservation | [Add order](../operations/orders.md#add-order) (use `LinkedReservationId`) |
 | How to get the list of accounting categories | [Get all accounting categories](../operations/accountingcategories.md#get-all-accounting-categories) |
 
 ## Walk-in bookings

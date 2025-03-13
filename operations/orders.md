@@ -6,7 +6,7 @@ Creates a new order, with the specified products and items. If the product being
 Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 > ### Linking orders to reservations
-> Specify parameter `linkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
+> Specify parameter `LinkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
 
 ### Request
 
