@@ -1,8 +1,8 @@
 # Changelog
 
 ## 13th March 2025
-* [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
-  * Extended response object with `ChannelManagerName`, `ChannelNumber`, `ChannelManagerNumber` and `CreatedUtc`
+* [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details):
+  * Extended response object with `ChannelManagerName`, `ChannelNumber`, `ChannelManagerNumber` and `CreatedUtc`.
 
 ## 11th March 2025
 * Added [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Documentation-only. No change to API.
