@@ -696,7 +696,11 @@ Returns channel manager-related details for the specified reservations. Currentl
   "ChannelManagerDetails": [
     {
       "ReservationId": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
-      "RequestedRateCode": "TKyFHQwLtEBfs1akKan1a2Ea4"
+      "RequestedRateCode": "TKyFHQwLtEBfs1akKan1a2Ea4",
+      "ChannelManagerName": "",
+      "ChannelNumber": "TW48ZP",
+      "ChannelManagerNumber": "",
+      "CreatedUtc": "2025-02-20T13:00:00Z"
     }
   ]
 }
@@ -712,6 +716,10 @@ Returns channel manager-related details for the specified reservations. Currentl
 | :-- | :-- | :-- | :-- |
 | `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `RequestedRateCode` | string | required | Rate code requested by the channel manager for this reservation. |
+| `ChannelManagerName` | string | optional | Name of the Channel Manager associated with this reservation. |
+| `ChannelNumber` | string | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number). |
+| `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
+| `CreatedUtc` | string | optional | The timestamp when the Channel Manager reservation was created. |
 
 ## ~~Get all reservation items~~
 
