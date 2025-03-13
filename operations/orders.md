@@ -2,7 +2,11 @@
 
 ## Add order
 
-Creates a new order, with the specified products and items. If the time of consumption is specified, it must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Creates a new order, with the specified products and items. If the product being posted already exists in Mews, then use [Product order parameters](#product-order-parameters). If the product does *not* exist in Mews, then use [Item parameters](#item-parameters). If the time of consumption is specified, this must be either in the future or within the Editable History Interval for the enterprise. Compared to a stay service order (i.e. a reservation), which is consumed over certain span of time, a product service order is consumed at a single point in time.
+Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+
+> ### Linking orders to reservations
+> Specify parameter `LinkedReservationId` in order to link the order to a guest reservation. This will greatly assist the property when using billing automation.
 
 ### Request
 

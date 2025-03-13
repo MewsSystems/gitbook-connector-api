@@ -1,5 +1,15 @@
 # Changelog
 
+## 13th March 2025
+* Added guidance on linking customer orders to reservations. Documentation-only, no change to API. This affects the following pages:
+  * [Orders](../operations/orders.md)
+  * [Events](../use-cases/events.md)
+  * [Kiosk](../use-cases/kiosk.md)
+  * [Guest technology](../use-cases/guest-technology.md)
+  * [Upsell](../use-cases/upsell.md)
+  * [Point of sale](../use-cases/point-of-sale.md)
+  * ['How to' use cases](../use-cases/how-to.md)
+
 ## 11th March 2025
 * Added [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Documentation-only. No change to API.
 
