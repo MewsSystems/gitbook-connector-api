@@ -727,7 +727,7 @@ Returns channel manager-related details for the specified reservations. Note thi
 | `ChannelManagerName` | string | optional | Name of the Channel Manager associated with this reservation. |
 | `ChannelNumber` | string | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number). |
 | `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
-| `CreatedUtc` | string | optional | The timestamp when the Channel Manager reservation was created. |
+| `CreatedUtc` | string | required | The timestamp when the Channel Manager reservation was created. |
 
 ## ~~Get all reservation items~~
 

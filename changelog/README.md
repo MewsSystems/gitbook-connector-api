@@ -1,6 +1,6 @@
 # Changelog
 
-## 18th March 2025
+## 20th March 2025
 * [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details):
   * Extended response object with `ChannelManagerName`, `ChannelNumber`, `ChannelManagerNumber` and `CreatedUtc`.
 
