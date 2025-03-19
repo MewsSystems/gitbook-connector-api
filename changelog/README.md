@@ -1,5 +1,9 @@
 # Changelog
 
+## 20th March 2025
+* [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details):
+  * Extended response object with `ChannelManagerName`, `ChannelNumber`, `ChannelManagerNumber` and `CreatedUtc`.
+
 ## 13th March 2025
 * Added guidance on linking customer orders to reservations. Documentation-only, no change to API. This affects the following pages:
   * [Orders](../operations/orders.md)
