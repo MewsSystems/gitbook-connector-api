@@ -39,7 +39,7 @@
   * Extended request object with `ActualEndUtc` filtering parameter.
 
 ## 20th February 2025
-* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
+* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservation-channel-manager-details).
 
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
