@@ -1,7 +1,10 @@
 # Changelog
 
+## 21st March 2025
+* Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
+
 ## 20th March 2025
-* [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details):
+* [Get reservations channel manager details](../operations/reservations.md#get-reservation-channel-manager-details):
   * Extended response object with `ChannelManagerName`, `ChannelNumber`, `ChannelManagerNumber` and `CreatedUtc`.
 
 ## 13th March 2025
@@ -36,7 +39,7 @@
   * Extended request object with `ActualEndUtc` filtering parameter.
 
 ## 20th February 2025
-* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservations-channel-manager-details).
+* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservation-channel-manager-details).
 
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):

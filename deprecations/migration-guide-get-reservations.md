@@ -267,7 +267,7 @@ The following table maps the response properties from the original [Reservation 
 | Original property | New property | Notes |
 | :-- | :-- | :-- |
 | `ChannelManagerGroupNumber` | n/a | No longer supported. |
-| `ChannelManager` | n/a | Replacement will be introduced in Q2/2025. |
+| `ChannelManager` | n/a | Replaced by [Get reservations channel manager details](../operations/reservations.md#get-reservation-channel-manager-details). |
 | `Origin` | `Origin` | Operations-specific values moved to `CommanderOrigin` (see Commander origin). |
 | `Purpose` | `Purpose` | No longer required. |
 | `StartUtc` | `ScheduledStartUtc`<br>`ActualStartUtc` | Early check-ins changed `StartUtc` value. Check-in time and scheduled start time are now provided in separate properties. |
