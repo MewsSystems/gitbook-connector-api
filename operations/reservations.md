@@ -660,12 +660,12 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ReservationId` | string | required | Unique identifier of the reservation. |
 | `Data` | string | optional | Reservation data for QR code generation. |
 
-## Get reservations channel manager details
+## Get reservation channel manager details
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns channel manager-related details for the specified reservations. Currently returns only requested rate codes of the reservations. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns channel manager-related details for the specified reservations. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -695,8 +695,20 @@ Returns channel manager-related details for the specified reservations. Currentl
 {
   "ChannelManagerDetails": [
     {
+      "ReservationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "RequestedRateCode": "XyZ123AbC789",
+      "ChannelManagerName": "HotelConnect",
+      "ChannelNumber": "HC1234",
+      "ChannelManagerNumber": "9E5F7BC3B6F0102",
+      "CreatedUtc": "2025-03-10T15:30:00Z"
+    },
+    {
       "ReservationId": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
-      "RequestedRateCode": "TKyFHQwLtEBfs1akKan1a2Ea4"
+      "RequestedRateCode": "LmN456OpQ012",
+      "ChannelManagerName": "GlobalRes",
+      "ChannelNumber": "GR5678",
+      "ChannelManagerNumber": "461190401CD25FE",
+      "CreatedUtc": "2025-03-11T09:45:00Z"
     }
   ]
 }
@@ -712,6 +724,10 @@ Returns channel manager-related details for the specified reservations. Currentl
 | :-- | :-- | :-- | :-- |
 | `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `RequestedRateCode` | string | required | Rate code requested by the channel manager for this reservation. |
+| `ChannelManagerName` | string | optional | Name of the Channel Manager associated with this reservation. |
+| `ChannelNumber` | string | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number). |
+| `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
+| `CreatedUtc` | string | required | The timestamp when the Channel Manager reservation was created. |
 
 ## ~~Get all reservation items~~
 
