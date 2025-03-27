@@ -16,6 +16,8 @@
   * Extended [Order item type](../operations/orderitems.md#order-item-type) with `AllowanceDiscount`, `AllowanceBreakage`, and `AllowanceContraBreakage`.
 * Added new restricted operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
 * Added new restricted operation [Disable gateway credit card](../operations/creditcards.md#disable-gateway-credit-card).
+* [Get all bills](../operations/bills.md#get-all-bills)
+  * Extended [Bill company data](../operations/bills.md#bill-company-data) with the following properties: `DUNS`, `Telephone`, `TaxIdentifier`, `InvoicingEmail`, and `Department`.
 
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
