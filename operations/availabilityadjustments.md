@@ -15,10 +15,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
   "AvailabilityAdjustmentIds": [
     "e19297af-373e-4701-b4ea-afae0129bded",
     "7413724a-6c48-46d4-ab3a-afae01280999"
@@ -31,8 +27,12 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "Active",
     "Deleted"
   ],
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -55,23 +55,35 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   "AvailabilityAdjustments": [
     {
       "Id": "e19297af-373e-4701-b4ea-afae0129bded",
-      "AvailabilityBlockId": "12806ae8-9c15-44c7-9a44-afae01289928",
-      "ResourceCategoryId": "e6a2457d-f82c-4597-90f9-afa900d0d17d",
-      "FirstTimeUnitStartUtc": "2023-02-21T23:00:00Z",
-      "LastTimeUnitStartUtc": "2023-02-21T23:00:00Z",
-      "UnitCount": -3,
+      "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "StartUtc": null,
+      "EndUtc": null,
+      "FirstTimeUnitStartUtc": "2021-10-14T00:00:00Z",
+      "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
+      "UnitCount": 6,
       "ActivityState": "Active",
-      "UpdatedUtc": "2023-02-28T23:00:00Z"
+      "ReleaseOverrideUtc": "2021-10-13T00:00:00Z",
+      "UpdatedUtc": "2021-10-21T13:32:32Z",
+      "IsActive": false,
+      "PaxCounts": null,
+      "FirstTimeUnitReleaseUtc": "2021-10-13T00:00:00Z"
     },
     {
       "Id": "7413724a-6c48-46d4-ab3a-afae01280999",
       "AvailabilityBlockId": null,
-      "ResourceCategoryId": "e6a2457d-f82c-4597-90f9-afa900d0d17d",
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "StartUtc": null,
+      "EndUtc": null,
       "FirstTimeUnitStartUtc": "2023-02-19T23:00:00Z",
       "LastTimeUnitStartUtc": "2023-02-23T23:00:00Z",
       "UnitCount": 5,
       "ActivityState": "Deleted",
-      "UpdatedUtc": "2023-02-28T23:00:00Z"
+      "ReleaseOverrideUtc": null,
+      "UpdatedUtc": "2023-02-28T23:00:00Z",
+      "IsActive": false,
+      "PaxCounts": null,
+      "FirstTimeUnitReleaseUtc": null
     }
   ],
   "Cursor": "7413724a-6c48-46d4-ab3a-afae01280999"
