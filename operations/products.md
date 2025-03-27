@@ -179,6 +179,8 @@ Returns all products offered together with the specified services. Note this ope
 | `ImageIds` | array of string | optional | Unique identifier of the product image. |
 | `Ordering` | integer | required | Order value for presentation purposes. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the product from external system. |
+| `TaxExemptionReason` | [Tax exemption reason type](orderitems.md#tax-exemption-reason-type) | optional | Specifies the reason a product is exempt from tax. |
+| `TaxExemptionLegalReference` | string | optional | Legal reference that states why this product is exempt from tax. |
 | `CreatedUtc` | string | required | Creation date and time of the product in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the product in UTC timezone in ISO 8601 format. |
 | `ConsumptionMoment` | [Product consumption moment](products.md#product-consumption-moment) | required | Consumption moment of the product. |

@@ -558,10 +558,10 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -749,10 +749,10 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
-| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
-| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`DriversLicense`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Address`~~ | ~~[Address](configuration.md#address)~~ | ~~optional~~ | **Deprecated!** Use `AddressId` instead.|
 | ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~[Activity State](customers.md#activity-state) of customer record, i.e. whether active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
@@ -786,7 +786,7 @@ Note this operation supports [Portfolio Access Tokens](../guidelines/multi-prope
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `CustomerId` | string | required | Unique identifier of the [Customer](customers.md#customer). |
 | `Name` | string | required | Name of the file. |
 | `Type` | string | required | MIME type of the file (e.g. `application/pdf`). |
@@ -911,7 +911,7 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Customers` | array of [Customer search result](customers.md#customer-search-result) | required | The customer search results. |
-| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](https://github.com/MewsSystems/gitbook-connector-api/pull/identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
+| ~~`Documents`~~ | ~~array of [Identity document](customers.md#identity-document)~~ | ~~optional~~ | ~~The identity documents of customers.~~ **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 
 #### Customer search result
 

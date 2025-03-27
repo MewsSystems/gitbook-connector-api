@@ -204,13 +204,12 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
 | :-- | :-- | :-- | :-- |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](#credit-card). |
 
-## Disable credit card
+## Disable gateway credit card
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
 Disable an existing credit card in the system. Only gateway credit cards can be disabled. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
-
 ### Request
 
 `[PlatformAddress]/api/connector/v1/creditCards/disable`

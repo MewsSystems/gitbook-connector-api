@@ -132,7 +132,12 @@ Extent of data to be returned. E.g. it is possible to specify that together with
           "BillingCode": "Billing code value",
           "Name": "Acme, Inc.",
           "FiscalIdentifier": "Fiscal identifier",
-          "AdditionalTaxIdentifier": "Additional tax identifier"
+          "AdditionalTaxIdentifier": "Additional tax identifier",
+          "DUNS": null,
+          "Telephone": null,
+          "TaxIdentifier": null,
+          "InvoicingEmail": null,
+          "Department": null
         }
       },
       "CompanyDetails": null,
@@ -157,7 +162,12 @@ Extent of data to be returned. E.g. it is possible to specify that together with
             "BillingCode": "Billing code value",
             "Name": "Acme, Inc.",
             "FiscalIdentifier": "Fiscal identifier",
-            "AdditionalTaxIdentifier": "Additional tax identifier"
+            "AdditionalTaxIdentifier": "Additional tax identifier",
+            "DUNS": null,
+            "Telephone": null,
+            "TaxIdentifier": null,
+            "InvoicingEmail": null,
+            "Department": null
           }
         }
       ],
@@ -435,7 +445,12 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
           "BillingCode": "Billing code value",
           "Name": "Acme, Inc.",
           "FiscalIdentifier": "Fiscal identifier",
-          "AdditionalTaxIdentifier": "Additional tax identifier"
+          "AdditionalTaxIdentifier": "Additional tax identifier",
+          "DUNS": null,
+          "Telephone": null,
+          "TaxIdentifier": null,
+          "InvoicingEmail": null,
+          "Department": null
         }
       },
       "CompanyDetails": null,
@@ -460,7 +475,12 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
             "BillingCode": "Billing code value",
             "Name": "Acme, Inc.",
             "FiscalIdentifier": "Fiscal identifier",
-            "AdditionalTaxIdentifier": "Additional tax identifier"
+            "AdditionalTaxIdentifier": "Additional tax identifier",
+            "DUNS": null,
+            "Telephone": null,
+            "TaxIdentifier": null,
+            "InvoicingEmail": null,
+            "Department": null
           }
         }
       ],
@@ -567,6 +587,11 @@ Options of the bill.
 | `Name` | string | required | Name of the company. |
 | `FiscalIdentifier` | string | optional | Fiscal identifier of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
+| `DUNS` | string | optional | DUNS of the company. |
+| `Telephone` | string | optional | Company telephone number. |
+| `TaxIdentifier` | string | optional | Tax identifier of the company. |
+| `InvoicingEmail` | string | optional | Invoicing email of the company. |
+| `Department` | string | optional | Department of the company. |
 
 #### Bill customer data
 
