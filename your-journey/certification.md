@@ -7,7 +7,7 @@ In the spirit of self-service, Mews does not provide a dedicated technical conta
 ## Access to a sandbox demo environment
 
 Mews provides a sandbox demo environment that is available to the general public. You are free to experiment with our API using the [demo environment](../guidelines/environments.md#demo-environments) credentials at any time in your integration partner journey with Mews. Furthermore, you can also use the demo environment to understand how a user interacts with Mews and where the data exchanged between your solution and Mews would appear in the Mews system.
-If you are considering building an integration, make sure you or your colleague has already completed the [Marketplace registration form](https://www.mews.com/en/mews-marketplace-form) to be registered in our integration partners database. 
+If you are considering building an integration, make sure you or your colleague has already completed the [Marketplace registration form](https://www.mews.com/en/partners/new-partnerships) to be registered in our integration partners database. 
 
 ## Developing your integration
 
