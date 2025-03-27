@@ -101,7 +101,7 @@ types:
     file: accountnotes.md
     anchor: account-note-update-classifications
   unit:
-    file: vouchers.md
+    file: _objects.md
     anchor: unit
   multipleaccountnotedeleteparameters:
     file: accountnotes.md
@@ -1689,19 +1689,10 @@ types:
     anchor: disablecreditcardparameters
   reservationschannelmanagerdetailsresult:
     file: reservations.md
-    anchor: reservation-channel-manager-details-result
+    anchor: reservations-channel-manager-details-result
   channelmanagerdetails:
     file: reservations.md
-    anchor: reservation-channel-manager-details
+    anchor: reservations-channel-manager-details
   reservationschannelmanagerdetailsfilterparameters:
     file: reservations.md
-    anchor: reservation-channel-manager-details-filter-parameters
-  departmentresult:
-    file: departments.md
-    anchor: departmentresult
-  department:
-    file: departments.md
-    anchor: department
-  departmentfilterparameters:
-    file: departments.md
-    anchor: departmentfilterparameters
+    anchor: reservations-channel-manager-details-filter-parameters
