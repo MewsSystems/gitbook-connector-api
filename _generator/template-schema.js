@@ -59,9 +59,6 @@ function createEnumTemplateSchema(schema) {
   }
 
   const showDescription = schema['x-showDescription'] ?? false;
-  if (showDescription) {
-    console.log('showDescription', schema);
-  }
   let description = schema.description;
   if (showDescription && description) {
     // Note that this relies on fact that our descriptions use \r\n\ while the filter adds \n\n.

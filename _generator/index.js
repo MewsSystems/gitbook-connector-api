@@ -17,10 +17,10 @@ import { loadDiscoveredTypes, saveDiscoveredTypes } from './types-resolver.js';
 
 const config = loadConfig();
 
-const oas = new OASNormalize(config.oasPath, { enablePaths: true });
-/** @type {OASDocument} */
-const definition = await oas.validate();
-const oasWrapper = new Oas(definition);
+const oasNormalizer = new OASNormalize(config.oasPath);
+await oasNormalizer.validate();
+const oasDefinition = await oasNormalizer.convert();
+const oasWrapper = new Oas(oasDefinition);
 await oasWrapper.dereference();
 
 /**
