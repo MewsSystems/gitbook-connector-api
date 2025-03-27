@@ -3,7 +3,7 @@
 
 ## Get all order items
 
-Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, `ServiceIds`, `BillIds`, `CreatedUtc`, `UpdatedUtc`, `ClosedUtc` filters must be specified in the request. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -77,7 +77,7 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `OrderItemIds` | array of string | optional, max 1000 items | Unique identifiers of the [Order items](orderitems.md#order-item). Required if no other filter is provided. |
-| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which the order items belong to. Required if no other filter is provided. |
+| `AccountIds` | array of string | optional, max 100 items | Unique identifiers of specific `Accounts` to which order items are belongs to. Required if no other filter is provided. |
 | `ServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the service orders ([product service orders](productserviceorders.md#product-service-order) or [reservations](reservations.md#reservation-ver-2023-06-06)). Required if no other filter is provided. |
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). Required if no other filter is provided. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the [Bills](bills.md#bill) to which order item is assigned. Required if no other filter is provided. |
@@ -320,6 +320,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 | `Type` | [Order item type](orderitems.md#order-item-type) | required | Order item type, e.g. whether product order or space order. |
 | `Options` | [Order item options](orderitems.md#order-item-options) | required | Options of the order item. |
 | `Data` | [Order item data](orderitems.md#order-item-data) | optional | Additional order item data. |
+| `TaxExemptionReason` | [Tax exemption reason type](orderitems.md#tax-exemption-reason-type) | optional | Specifies the reason an order item is exempt from tax. |
+| `TaxExemptionLegalReference` | string | optional | Legal reference that states why this order item is exempt from tax. |
 
 #### Revenue type
 
@@ -353,6 +355,9 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `ResourceUpgradeFee`
 * `InvoiceFee`
 * `MulticurrencyFee`
+* `AllowanceDiscount`
+* `AllowanceBreakage`
+* `AllowanceContraBreakage`
 
 #### Order item options
 Options of the order item.
@@ -389,9 +394,20 @@ Additional order item data.
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
 
-## Cancel order items
+#### Tax exemption reason type
 
-Cancels all order items with specified identifiers. Note this operation supports [Portfolio Access Tokens](../guidelines/multi-property.md).
+* `IT_N1` - N1 - Escluse ex art.15
+* `IT_N2_2` - N2.2 - Non soggette – altri casi
+* `IT_N3_5` - N3.5 - Non imponibili – a seguito di dichiarazioni d’intento
+* `IT_N4` - N4 - Esenti
+* `IT_N5` - N5 - Regime del margine / IVA non esposta in fattura
+
+## undefined
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Cancels all order items with specified identifiers. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -415,7 +431,7 @@ Cancels all order items with specified identifiers. Note this operation supports
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `OrderItemIds` | array of string | required, max 10 items | Unique identifiers of the `OrderItems` to cancel. |
 
 ### Response
