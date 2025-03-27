@@ -9,7 +9,8 @@
   * Extended [Rate](../operations/rates.md#rate) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
 * [Set rates](../operations/rates.md#set-rates) (restricted operation):
   * Removed `AccountingCategoryId`, `BusinessSegmentId`, `ShortNames`, and `ExternalNames` from request object.
-
+* [Get all products](../operations/products.md#get-all-products):
+  * Extended [Product](../operations/products.md#product) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
 
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
