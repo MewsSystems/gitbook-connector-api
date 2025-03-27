@@ -1,5 +1,9 @@
 # Changelog
 
+## 28th March 2025
+* [Get all service order notes](../operations/serviceordernotes.md#get-all-service-order-notes):
+  * Extended request object with `Types` filtering parameter and support for `"SpecialRequest"` service order note type.
+
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
 
