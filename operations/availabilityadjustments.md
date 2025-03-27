@@ -109,7 +109,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `UpdatedUtc` | string | required | Last update date and time of the adjustment in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the availability adjustment is still active. |
 | `PaxCounts` | array of [PaxCount](services.md#paxcount) | optional, max 5 items | Collection of predicted occupancy of availability adjustments. Relates to how many adjustments are assigned to each count of guests. |
-| `FirstTimeUnitReleaseUtc` | string | required | Exact moment the first time unit of the availability adjustment is released based on `ReleaseOverrideUtc` or the `ReleaseStrategy` of the associated availability block, or the `OperationalEditableHistoryInterval` of the associated enterprise if not set, or `null` if `AvailabilityBlockId` is `null`. |
+| `FirstTimeUnitReleaseUtc` | string | optional | Exact moment the first time unit of the availability adjustment is released based on `ReleaseOverrideUtc` or the `ReleaseStrategy` of the associated availability block, or the `OperationalEditableHistoryInterval` of the associated enterprise if not set, or `null` if `AvailabilityBlockId` is `null`. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start of the interval in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End of the interval in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 | ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Shows whether the availability adjustment is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
