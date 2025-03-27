@@ -5,6 +5,11 @@
   * Extended request object with `Types` filtering parameter and support for `"SpecialRequest"` service order note type.
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
   * Extended request object with `ChannelNumbers` filtering parameter.
+* [Get all rates](../operations/rates.md#get-all-rates):
+  * Extended [Rate](../operations/rates.md#rate) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
+* [Set rates](../operations/rates.md#set-rates) (restricted operation):
+  * Removed `AccountingCategoryId`, `BusinessSegmentId`, `ShortNames`, and `ExternalNames` from request object.
+
 
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
