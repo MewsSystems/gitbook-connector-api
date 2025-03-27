@@ -60,7 +60,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "FirstTimeUnitStartUtc": "2023-02-21T23:00:00Z",
       "LastTimeUnitStartUtc": "2023-02-21T23:00:00Z",
       "UnitCount": -3,
-      "FirstTimeUnitReleaseUtc": "2023-02-20T23:00:00Z",
       "ActivityState": "Active",
       "UpdatedUtc": "2023-02-28T23:00:00Z"
     },
@@ -95,10 +94,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `LastTimeUnitStartUtc` | string | required | End of the time interval, expressed as the timestamp for the start of the last [time unit](services.md#time-unit), in UTC timezone ISO 8601 format. |
 | `UnitCount` | integer | required | Adjustment value applied on the interval. |
 | `ReleaseOverrideUtc` | string | optional | Exact moment the availability adjustment is released if set; overrides the release strategy of the associated availability block. |
-| `FirstTimeUnitReleaseUtc` | string | optional | Exact moment the first time unit of the availability adjustment is released based on `ReleaseOverrideUtc` or the `ReleaseStrategy` of the associated availability block, or the `OperationalEditableHistoryInterval` of the associated enterprise if not set, or `null` if `AvailabilityBlockId` is `null`. |
 | `UpdatedUtc` | string | required | Last update date and time of the adjustment in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the availability adjustment is still active. |
 | `PaxCounts` | array of [PaxCount](services.md#paxcount) | optional, max 5 items | Collection of predicted occupancy of availability adjustments. Relates to how many adjustments are assigned to each count of guests. |
+| `FirstTimeUnitReleaseUtc` | string | required | Exact moment the first time unit of the availability adjustment is released based on `ReleaseOverrideUtc` or the `ReleaseStrategy` of the associated availability block, or the `OperationalEditableHistoryInterval` of the associated enterprise if not set, or `null` if `AvailabilityBlockId` is `null`. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start of the interval in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End of the interval in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 | ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Shows whether the availability adjustment is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
