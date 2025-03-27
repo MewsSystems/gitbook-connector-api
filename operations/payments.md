@@ -424,7 +424,7 @@ Adds a new external payment to a bill of the specified customer. An external pay
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `AccountId` | string | required | Unique identifier of the [Customer](customers.md#customer) or [Company](companies.md#company). Company billing may not be enabled for your integration. |
 | `BillId` | string | optional | Unique identifier of an open bill of the customer where to assign the payment. |
 | `AccountingCategoryId` | string | optional | Unique identifier of an [Accounting category](accountingcategories.md#accounting-category) to be assigned to the external payment. |
@@ -644,7 +644,7 @@ Refunds a specified payment on a specified account. A reason must be provided. O
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `PaymentId` | string | required | Unique identifier of specific [Payment](payments.md#payment). |
 | `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the payment belongs to. |
 | `Reason` | string | required | Refund reason. |
