@@ -1696,3 +1696,78 @@ types:
   reservationschannelmanagerdetailsfilterparameters:
     file: reservations.md
     anchor: reservations-channel-manager-details-filter-parameters
+  devicecommandresult:
+    file: commands.md
+    anchor: devicecommandresult
+  devicecommand:
+    file: commands.md
+    anchor: command
+  devicecommandstate:
+    file: commands.md
+    anchor: command-state
+  devicecommandcreator:
+    file: commands.md
+    anchor: user
+  paymentterminalcommanddata:
+    file: commands.md
+    anchor: payment-terminal-command-data
+  paymentterminalcommandaccountdata:
+    file: commands.md
+    anchor: account-data-for-payment-terminal-command
+  paymentterminalcommandcustomerdata:
+    file: commands.md
+    anchor: customer-data-for-payment-terminal-command
+  paymentterminalcommandcompanydata:
+    file: commands.md
+    anchor: company-data-for-payment-terminal-command
+  printercommanddata:
+    file: commands.md
+    anchor: printer-command-data
+  keycuttercommanddata:
+    file: commands.md
+    anchor: key-cutter-command-data
+  fiscalmachinecommanddata:
+    file: commands.md
+    anchor: fiscal-machine-command-data
+  billfiscalmachinedata:
+    file: commands.md
+    anchor: fiscal-machine-data
+  billfiscalmachinedatadiscriminatorenum:
+    file: commands.md
+    anchor: fiscal-machine-data-discriminator
+  italianfiscalmachinedata:
+    file: commands.md
+    anchor: fiscal-machine-data-for-italian-fiscal-machine
+  billfiscalmachinepayloaddata:
+    file: commands.md
+    anchor: fiscal-machine-payload
+  fiscalmachinepayloaddatadiscriminatorenum:
+    file: commands.md
+    anchor: fiscal-machine-payload-discriminator
+  passportscannercommanddata:
+    file: commands.md
+    anchor: passport-scanner-command-data
+  devicecommandfilterparameters:
+    file: commands.md
+    anchor: devicecommandfilterparameters
+  getallactivecommandsparameters:
+    file: commands.md
+    anchor: getallactivecommandsparameters
+  devicecommandaddresult:
+    file: commands.md
+    anchor: devicecommandaddresult
+  printercommandparameters:
+    file: commands.md
+    anchor: printercommandparameters
+  keycuttercommandparameters:
+    file: commands.md
+    anchor: keycuttercommandparameters
+  paymentterminalcommandparameters:
+    file: commands.md
+    anchor: paymentterminalcommandparameters
+  paymentterminalcommandtype:
+    file: commands.md
+    anchor: payment-type
+  devicecommandupdateparameters:
+    file: commands.md
+    anchor: devicecommandupdateparameters

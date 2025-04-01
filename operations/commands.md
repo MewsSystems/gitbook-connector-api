@@ -169,15 +169,40 @@ Returns all commands by their identifiers.
 | `FiscalMachineData` | string | optional | Custom JSON data. |
 | `Bill` | [Bill](bills.md#bill) | required | The issued bill that should be fiscalized. |
 | `TaxIdentifier` | string | optional | Tax identifier to be used for fiscalization. |
-| `BillFiscalMachineData` | [Coproduct](commands.md#coproduct) | optional |  |
-| `PayloadData` | [Coproduct](commands.md#coproduct) | optional |  |
+| `BillFiscalMachineData` | [Fiscal machine data](commands.md#fiscal-machine-data) | optional | Fiscal machine data; currently only `ItalianFiscalMachineData` is supported. |
+| `PayloadData` | [Fiscal machine payload](commands.md#fiscal-machine-payload) | optional | Fiscal machine payload data; currently only `ItalianFiscalMachinePayloadData` is supported. |
 
-#### Coproduct
+#### Fiscal machine data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | string | required | Determines type of value. |
-| `Value` | object | required | Structure of object depends on `Discriminator`. |
+| `Discriminator` | [Fiscal machine data discriminator](commands.md#fiscal-machine-data-discriminator) | required | Discriminator of the object. |
+| `Value` | [Fiscal machine data for Italian fiscal machine](commands.md#fiscal-machine-data-for-italian-fiscal-machine) | required | Structure of the object depends on `Discriminator` (currently only `ItalianFiscalMachineData` is supported). |
+
+#### Fiscal machine data discriminator
+
+* `ItalianFiscalMachineData`
+
+#### Fiscal machine data for Italian fiscal machine
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `IsRefund` | boolean | required | Indicates if the transaction is a refund. |
+| `RebatedReceiptNumber` | string | optional | Number of the rebated receipt. |
+| `RebatedReceiptSequence` | string | optional | Sequence of the rebated receipt. |
+| `RebatedReceiptDateTimeUtc` | string | optional | Date and time of the rebated receipt in UTC. |
+| `PrinterSerialNumber` | string | optional | Serial number of the printer. |
+
+#### Fiscal machine payload
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Fiscal machine payload discriminator](commands.md#fiscal-machine-payload-discriminator) | required | Discriminator of the object. |
+| `Value` | string | required | Base64-encoded data of the file to be printed. |
+
+#### Fiscal machine payload discriminator
+
+* `ItalianFiscalMachine`
 
 #### Passport scanner command data
 
