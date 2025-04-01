@@ -70,7 +70,7 @@ Returns all commands by their identifiers.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the command. |
-| `State` | [Command state](commands.md#command-state) | required |  |
+| `State` | [Command state](commands.md#command-state) | required | State of the command. Corresponds to `CommandState`. |
 | `CreatedUtc` | string | required | Creation date and time of the command. |
 | `Creator` | [User](commands.md#user) | optional | Creator of the command. |
 | `Device` | [Device](devices.md#device) | required | Device that the command should be executed on. |
@@ -349,7 +349,7 @@ The operation instructs a specified terminal device to take a payment from a spe
 | `Client` | string | required | Name and version of the client application. |
 | `TerminalId` | string | required | Unique identifier of the payment terminal. |
 | `CustomerId` | string | required | Unique identifier of the `Customer`. |
-| `Type` | [Payment type](commands.md#payment-type) | required |  |
+| `Type` | [Payment type](commands.md#payment-type) | required | The type of payment, e.g. `Preauthorization`. |
 | `Amount` | [Currency value (ver 2018-06-07)](_objects.md#currency-value-ver-2018-06-07) | required | Amount of the payment. |
 | `BillId` | string | optional | Unique identifier of the `Bill`. |
 | `PaymentRequestId` | string | optional | Unique identifier of the `PaymentRequest`. |
@@ -438,7 +438,7 @@ Updates state of a command.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `CommandId` | string | required | Identifier of the `Command` to be updated. |
-| `State` | [Command state](commands.md#command-state) | required |  |
+| `State` | [Command state](commands.md#command-state) | required | New state of the command. |
 | `Progress` | number | optional | Progress of the command processing. Only used if the `State` is `Processing`, otherwise ignored. |
 | `Notes` | string | optional | Notes about command execution. Only used if the `State` is `Processed`, `Cancelled` or `Error`, otherwise ignored. |
 
