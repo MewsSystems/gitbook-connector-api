@@ -14,8 +14,8 @@
 * [Get all order items](../operations/orderitems.md#get-all-order-items):
   * Extended [Order item](../operations/orderitems.md#order-item) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
   * Extended [Order item type](../operations/orderitems.md#order-item-type) with `AllowanceDiscount`, `AllowanceBreakage`, and `AllowanceContraBreakage`.
-* Added new restricted operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
-* Added new restricted operation [Disable gateway credit card](../operations/creditcards.md#disable-gateway-credit-card).
+* [Cancel order items](../operations/orderitems.md#cancel-order-items):
+  * New operation added (restricted).
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended [Bill company data](../operations/bills.md#bill-company-data) response object with the following properties: `DUNS`, `Telephone`, `TaxIdentifier`, `InvoicingEmail`, and `Department`.
 * [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments):
@@ -67,7 +67,7 @@
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
 ## 11th February 2025
-* Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
+* Added new restricted operation [Disable gateway credit card](../operations/creditcards.md#disable-gateway-credit-card).
 
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
