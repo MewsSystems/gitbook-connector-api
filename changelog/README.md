@@ -1,5 +1,8 @@
 # Changelog
 
+## 3rd April 2025
+* Aligned [Commands API operations](../operations/commands.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
+
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
 
