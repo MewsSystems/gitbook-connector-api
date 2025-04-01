@@ -127,7 +127,7 @@ This section describes all operations supported by the API, organised here by th
 | [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 | [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
-| [Cancel order items](orderitems.md#cancel-order-items) | Cancels specified order items |
+| [Cancel order items](orderitems.md#cancel-order-items) | **Restricted!** Cancels specified order items |
 | [Refund payment](payments.md#refund-payment) | Refunds a specified payment |
 | [Disable credit card](creditcards.md#disable-credit-card) | **Restricted!** Disable credit card |
 
