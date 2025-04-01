@@ -1,5 +1,10 @@
 # Changelog
 
+## 1st April 2025
+* Updated [Guidelines: Response codes](../guidelines/responses.md#response-codes):
+  * Documented 404 response code. Documentation-only, no change to API.
+  * Renamed 500 response code to 5xx. Documentation-only, no change to API.
+
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
 
