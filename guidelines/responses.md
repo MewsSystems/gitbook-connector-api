@@ -26,7 +26,7 @@ In case of success, the HTTP status code is normally 200 and the content contain
   * The request cannot be completed because the data has changed. To get around this error, try refreshing the data on the client and resubmitting the request.
 * **429 Too Many Requests**
   * Error caused by too many requests sent in a given amount of time. Response contains `Retry-After` header indicating how long the user agent should wait before making a follow-up request. For more information, see [Request limits](requests.md#request-limits).
-* **5xx Internal Server Error**
+* **500 Internal Server Error** and other **5xx** response codes
   * Unexpected error on the Mews side. This may be due to a software fault. If such a situation occurs, the error will be logged and the development team notified.
 
 ## Error response details
