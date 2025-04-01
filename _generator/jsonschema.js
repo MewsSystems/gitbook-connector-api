@@ -16,13 +16,14 @@ export function isEnum(schema) {
 }
 
 function pickSingularComposedSchema(schema) {
-  const composedSchema = schema.anyOf || schema.oneOf || schema.allOf;
+  const composedSchema = pickComposedSchema(schema);
   if (composedSchema?.length === 1) {
-    return [composedSchema[0], null];
-  } else if (composedSchema?.length > 1) {
-    return [null, composedSchema];
+    return composedSchema[0];
   }
-  return [null, null];
+}
+
+function pickComposedSchema(schema) {
+  return schema.anyOf || schema.oneOf || schema.allOf;
 }
 
 /**
@@ -31,8 +32,7 @@ function pickSingularComposedSchema(schema) {
  * @returns {string}
  */
 export function propertyType(schema) {
-  const [singularSchema, nonSingularSchema] =
-    pickSingularComposedSchema(schema);
+  const singularSchema = pickSingularComposedSchema(schema);
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
@@ -56,8 +56,9 @@ export function propertyType(schema) {
     return schema.type;
   }
   // FIXME: This works for CommandData but won't scale
-  if (nonSingularSchema) {
-    return nonSingularSchema[0].type;
+  const composedSchema = pickComposedSchema(schema);
+  if (composedSchema) {
+    return composedSchema[0].type;
   }
 
   log.warn('Could not infer schema type', schema);
