@@ -1702,7 +1702,7 @@ types:
   devicecommand:
     file: commands.md
     anchor: command
-  devicecommandstate:
+  devicecommandstateenum:
     file: commands.md
     anchor: command-state
   devicecommandcreator:
@@ -1765,15 +1765,9 @@ types:
   paymentterminalcommandparameters:
     file: commands.md
     anchor: paymentterminalcommandparameters
-  paymentterminalcommandtype:
+  paymentterminalcommandtypeenum:
     file: commands.md
     anchor: payment-type
   devicecommandupdateparameters:
     file: commands.md
     anchor: devicecommandupdateparameters
-  devicecommandstateenum:
-    file: commands.md
-    anchor: command-state
-  paymentterminalcommandtypeenum:
-    file: commands.md
-    anchor: payment-type
