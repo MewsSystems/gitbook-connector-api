@@ -1,5 +1,8 @@
 # Changelog
 
+## 1st April 2025
+* All newly introduced operations from this date onward will require the address to exactly match the format specified in the documentation (e.g. case sensitive, trailing slash at the end, ...). If the address does not match, the server will respond with a `404 Not Found` error.
+
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
 
