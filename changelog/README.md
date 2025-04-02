@@ -18,8 +18,6 @@
   * New operation added (restricted).
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended [Bill company data](../operations/bills.md#bill-company-data) response object with the following properties: `DUNS`, `Telephone`, `TaxIdentifier`, `InvoicingEmail`, and `Department`.
-* [Get all availability adjustments](../operations/availabilityadjustments.md#get-all-availability-adjustments):
-  * Extended [Availability adjustment](../operations/availabilityadjustments.md#availability-adjustment) response object with `FirstTimeUnitReleaseUtc` property.
 
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
