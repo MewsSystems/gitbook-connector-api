@@ -1,4 +1,4 @@
-import { getSchemaId } from './utils.js';
+import { getSchemaId, hasProperties, log } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -25,9 +25,14 @@ export function collectSchemas(schema, path, accumulator) {
   schema['x-schema-paths'] ??= [];
   schema['x-schema-paths'].push(path);
 
-  if (schemaId) {
+  const include = hasProperties(schema);
+  if (schemaId && include) {
     accumulator.add(schemaId, schema);
     nestedPath.push(schemaId);
+  }
+
+  if (schemaId && !include) {
+    log.warn('Skipping schema without properties:', schemaId);
   }
 
   if (schema.type === 'object' || schema.properties?.discriminator) {

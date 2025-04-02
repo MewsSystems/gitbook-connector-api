@@ -4,7 +4,7 @@
  */
 
 import { resolvePropertyType } from './types-resolver.js';
-import { getSchemaAnchor, firstLine } from './utils.js';
+import { getSchemaAnchor, firstLine, log } from './utils.js';
 
 /**
  * @param {SchemaObject} schema
@@ -16,11 +16,14 @@ export function isEnum(schema) {
 }
 
 function pickSingularComposedSchema(schema) {
-  const composedSchema = schema.anyOf || schema.oneOf || schema.allOf;
+  const composedSchema = pickComposedSchema(schema);
   if (composedSchema?.length === 1) {
     return composedSchema[0];
   }
-  return null;
+}
+
+function pickComposedSchema(schema) {
+  return schema.anyOf || schema.oneOf || schema.allOf;
 }
 
 /**
@@ -48,7 +51,18 @@ export function propertyType(schema) {
     const nestedType = propertyType(schema.items);
     return `array of ${nestedType}`;
   }
-  return schema.type;
+
+  if (schema.type) {
+    return schema.type;
+  }
+  // FIXME: This works for CommandData but won't scale
+  const composedSchema = pickComposedSchema(schema);
+  if (composedSchema) {
+    return composedSchema[0].type;
+  }
+
+  log.warn('Could not infer schema type', schema);
+  return 'any';
 }
 
 /**
