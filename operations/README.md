@@ -116,6 +116,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all credit cards](creditcards.md#get-all-credit-cards) | Returns all credit cards, possibly filtered by identifiers, customers or other filters |
 | [Charge credit card](creditcards.md#charge-credit-card) | Creates payment for specified customer credit card and charges the credit card via a gateway |
 | [Add tokenized credit card](creditcards.md#add-tokenized-credit-card) | Adds a new tokenized credit card to the specified customer |
+| [Disable gateway credit card](creditcards.md#disable-gateway-credit-card) | **Restricted!** Disables a credit card from being used for payments |
 | [Get all preauthorizations<br/>by customers](preauthorizations.md#get-all-preauthorizations-by-customers) | Returns all preauthorizations of specified customers |
 | [Add credit card payment](payments.md#add-credit-card-payment) | Adds a new credit card payment to a bill of the specified customer |
 | [Add external payment](payments.md#add-external-payment) | Adds a new external payment to a bill of the specified customer |
@@ -126,8 +127,8 @@ This section describes all operations supported by the API, organised here by th
 | [Cancel payment requests](paymentrequests.md#cancel-payment-requests) | Cancels specified pending payment requests |
 | [Add outlet bills](outletbills.md#add-outlet-bills) | Adds new outlet bills with their items |
 | [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
+| [Cancel order items](orderitems.md#cancel-order-items) | **Restricted!** Cancels specified order items |
 | [Refund payment](payments.md#refund-payment) | Refunds a specified payment |
-| [Disable credit card](creditcards.md#disable-credit-card) | **Restricted!** Disable credit card |
 
 ## Loyalty
 

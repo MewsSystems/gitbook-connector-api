@@ -3,6 +3,30 @@
 ## 3rd April 2025
 * Aligned [Commands API operations](../operations/commands.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
 
+## 2nd April 2025
+* Newly introduced operations from this date onward require the address to match the format specified in the documentation (e.g. correct casing, no trailing slash at the end). If the address does not match, the server will respond with a `404 Not Found` error.
+* [Get all service order notes](../operations/serviceordernotes.md#get-all-service-order-notes):
+  * Extended request object with `Types` filtering parameter and support for `SpecialRequest` service order note type.
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `ChannelNumbers` filtering parameter.
+* [Get all rates](../operations/rates.md#get-all-rates):
+  * Extended [Rate](../operations/rates.md#rate) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
+* [Set rates](../operations/rates.md#set-rates) (restricted operation):
+  * Removed `AccountingCategoryId`, `BusinessSegmentId`, `ShortNames`, and `ExternalNames` from [Set rate parameters](../operations/rates.md#set-rate-parameters) request object.
+* [Get all products](../operations/products.md#get-all-products):
+  * Extended [Product](../operations/products.md#product) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended [Order item](../operations/orderitems.md#order-item) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
+  * Extended [Order item type](../operations/orderitems.md#order-item-type) with `AllowanceDiscount`, `AllowanceBreakage`, and `AllowanceContraBreakage`.
+* [Cancel order items](../operations/orderitems.md#cancel-order-items):
+  * New operation added (restricted).
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * Extended [Bill company data](../operations/bills.md#bill-company-data) response object with the following properties: `DUNS`, `Telephone`, `TaxIdentifier`, `InvoicingEmail`, and `Department`.
+
+## 1st April 2025
+* Updated [Guidelines: Response codes](../guidelines/responses.md#response-codes):
+  * Documented 404 and 5xx response codes. Documentation-only, no change to API.  
+
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
 
@@ -49,7 +73,7 @@
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
 ## 11th February 2025
-* Added new restricted operation [Disable credit card](../operations/creditcards.md#disable-credit-card).
+* Added new restricted operation [Disable gateway credit card](../operations/creditcards.md#disable-gateway-credit-card).
 
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):

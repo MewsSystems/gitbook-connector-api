@@ -40,6 +40,7 @@ Returns all notes associated with the given service orders. Service orders can b
 | `ServiceOrderIds` | array of string | required, max 1000 items | Unique identifiers of `Service order`. Reservation IDs or Order IDs can be used as service order identifiers. |
 | `ServiceOrderNoteIds` | array of string | optional, max 1000 items | Unique identifiers of `Service order note`. Use this property if you want to fetch specific service order notes. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Timestamp in UTC timezone ISO 8601 format when the service order note was updated. |
+| `Types` | array of [Service order note type](serviceordernotes.md#service-order-note-type) | optional | Type of the service order note. Defaults to `["General", "ChannelManager"]`. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
@@ -137,6 +138,7 @@ Adds one or more notes with a provided text to a specific service order. Service
 
 * `General`
 * `ChannelManager`
+* `SpecialRequest`
 
 ## Update service order notes
 

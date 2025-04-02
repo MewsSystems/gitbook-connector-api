@@ -136,6 +136,8 @@ Extent of data to be returned.
 | `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Description` | [Localized text](_objects.md#localized-text) | optional | All translations of the description of the rate. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
+| `TaxExemptionReason` | [Tax exemption reason type](orderitems.md#tax-exemption-reason-type) | optional | Specifies the reason a rate is exempt from tax. |
+| `TaxExemptionLegalReference` | string | optional | Legal reference that states why this rate is exempt from tax. |
 | ~~`Name`~~ | ~~string~~ | ~~optional~~ | ~~Name of the rate (in the default language).~~ **Deprecated!** Use `Names` instead|
 
 #### Rate type
@@ -455,7 +457,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| `Pricing` | [Add rate pricing data parameters](rates.md#add-rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
 #### Rate Add Type
 
@@ -467,14 +469,14 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 * `BaseRatePricing`
 * `DependentRatePricing`
 
-#### Add rate pricing data parameters
+#### Rate pricing data parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Add base rate pricing parameters](rates.md#add-base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
 | `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
 
-#### Add base rate pricing parameters
+#### Base rate pricing parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -598,19 +600,11 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "RateGroupId": "d7adfddc-c2dc-4798-ace2-28de7b25408f",
       "IsEnabled": true,
       "Type": "Public",
-      "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
       "Names": {
         "en-US": "Base rate"
       },
-      "ShortNames": {
-        "en-US": "BR"
-      },
-      "ExternalNames": {
-        "en-US": "External base rate"
-      },
       "Descriptions": {
-        "en-US": "Base rate description."
+        "en-US": "Base rate with all fields specified using GUID identifiers."
       },
       "PricingType": "BaseRatePricing",
       "Pricing": {
@@ -618,7 +612,9 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
           "Amount": {
             "Currency": "EUR",
             "NetValue": 100
-          }
+          },
+          "NegativeOccupancyAdjustment": 0,
+          "ExtraOccupancyAdjustment": 0
         }
       }
     },
@@ -628,26 +624,18 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "RateGroupId": "eid:RG10",
       "IsEnabled": false,
       "Type": "Private",
-      "AccountingCategoryId": "07781f3c-94b6-4b31-9175-03786a84cd50",
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
       "Names": {
         "en-US": "Dependent rate"
       },
-      "ShortNames": {
-        "en-US": "DR"
-      },
-      "ExternalNames": {
-        "en-US": "External dependent rate"
-      },
       "Descriptions": {
-        "en-US": "Dependent rate description."
+        "en-US": "Dependent rate with all field specified using eid identifiers."
       },
       "PricingType": "DependentRatePricing",
       "Pricing": {
         "DependentRatePricing": {
           "BaseRateId": "00392166-3869-4174-b491-cf0162524a38",
-          "RelativeAdjustment": 0.25,
-          "AbsoluteAdjustment": 10
+          "RelativeAdjustment": 0,
+          "AbsoluteAdjustment": 0
         }
       }
     }
@@ -661,7 +649,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `Rates` | array of [Set rate parameters](rates.md#set-rate-parameters) | required, max 100 items | Rates to be added or updated. |
 
 #### Set rate parameters
@@ -671,30 +659,13 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 | `Id` | string | optional | Unique identifier of the rate. If it matches an existing rate, that rate will be updated. If no match is found, an error will be returned. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Unique identifier of the rate in the external system. If `Id` is not provided and `ExternalIdentifier` matches an existing rate, the corresponding rate will be updated. If no match is found, a new rate will be created. |
 | `ServiceId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the service. Ignored in case of updating an existing rate. |
-| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the rate group under which rate is assigned. Ignored in case of updating an existing rate. |
-| `IsEnabled` | boolean | optional | Whether the rate is available to customers. `false` will be used as a default when not provided. |
-| `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the accounting category the rate belongs to. |
-| `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
+| `RateGroupId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | optional | Unique identifier of the rate group under which rate is assigned. Empty value means that rate is added to a default group or the current group is kept for update, respectively. |
+| `IsEnabled` | boolean | optional | Whether the rate is available to customers. `true` will be used as a default if not provided. |
+| `Type` | [Rate Add Type](rates.md#rate-add-type) | required | Type of the rate. `Private` will be used as a default if not provided. |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
-| `ShortNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the short name of the rate. |
-| `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Rate pricing type. Must match existing pricing type in case of update. |
-| `Pricing` | [Set rate pricing parameters](rates.md#set-rate-pricing-parameters) | optional | Contains additional data about pricing of the rate. |
-
-#### Set rate pricing parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Set base rate pricing parameters](rates.md#set-base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
-| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Used when `PricingType` is `DependentRatePricing`. Required for new rates. |
-
-#### Set base rate pricing parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Amount` | [Amount parameters](_objects.md#amount-parameters) | optional | Price of the product that overrides the price defined in Mews. |
+| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
 ### Response
 
@@ -724,7 +695,9 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "Description": {
         "en-US": "Base rate description."
       },
-      "ExternalIdentifier": null
+      "ExternalIdentifier": null,
+      "TaxExemptionReason": null,
+      "TaxExemptionLegalReference": null
     },
     {
       "Id": "8eb1f163-bce7-49ca-a62c-c9261951c85f",
@@ -749,7 +722,9 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "Description": {
         "en-US": "Dependent rate description."
       },
-      "ExternalIdentifier": "55698"
+      "ExternalIdentifier": "55698",
+      "TaxExemptionReason": null,
+      "TaxExemptionLegalReference": null
     }
   ]
 }
@@ -785,7 +760,7 @@ Deletes specified rates. This operation supports [Portfolio Access Tokens](../co
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../guidelines/multi-property.md), ignored otherwise. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `RateIds` | array [Hybrid identifier](_objects.md#hybrid-identifier) | required, max 10 items | Unique identifiers of the rates to be deleted. |
 
 ### Response

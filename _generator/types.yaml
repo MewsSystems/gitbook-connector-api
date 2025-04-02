@@ -1689,10 +1689,10 @@ types:
     anchor: disablecreditcardparameters
   reservationschannelmanagerdetailsresult:
     file: reservations.md
-    anchor: reservations-channel-manager-details-result
+    anchor: reservation-channel-manager-details-result
   channelmanagerdetails:
     file: reservations.md
-    anchor: reservations-channel-manager-details
+    anchor: reservation-channel-manager-details
   reservationschannelmanagerdetailsfilterparameters:
     file: reservations.md
     anchor: reservations-channel-manager-details-filter-parameters
@@ -1771,3 +1771,12 @@ types:
   devicecommandupdateparameters:
     file: commands.md
     anchor: devicecommandupdateparameters
+  departmentresult:
+    file: departments.md
+    anchor: departmentresult
+  department:
+    file: departments.md
+    anchor: department
+  departmentfilterparameters:
+    file: departments.md
+    anchor: departmentfilterparameters
