@@ -56,6 +56,20 @@ export function getSchemaId(schema) {
 
 /**
  * @param {SchemaObject} schema
+ * @returns {boolean}
+ */
+export function hasProperties(schema) {
+  if (schema.type === 'object' || schema.properties?.discriminator) {
+    return schema.properties && Object.keys(schema.properties).length > 0;
+  }
+  if (schema.type === 'array') {
+    return schema.items?.length > 0;
+  }
+  return true;
+}
+
+/**
+ * @param {SchemaObject} schema
  * @returns {string}
  */
 export function getSchemaTitle(schema) {
@@ -66,3 +80,10 @@ export function getSchemaTitle(schema) {
     schema['x-readme-ref-name']
   );
 }
+
+export const log = {
+  info: (...args) => console.error(...args),
+  warn: (message, ...args) => console.warn(`⚠️ ${message}`, ...args),
+  error: (message, ...args) => console.error(`❗ ${message}`, ...args),
+  success: (message) => console.log('✅ ', message),
+};

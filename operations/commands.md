@@ -1,18 +1,21 @@
 # Commands
 
-## Get all commands
+## Get all commands by ids
 
-Returns all commands the are still active from the client application point of view. That means commands that are in either `Pending` or `Received` state.
+Returns all commands by their identifiers.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/commands/getAllActive`
+`[PlatformAddress]/api/connector/v1/commands/getAllByIds`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
+    "CommandIds": [
+        "aa20961f-6d9e-4b35-ad25-071213530aec"
+    ]
 }
 ```
 
@@ -21,6 +24,7 @@ Returns all commands the are still active from the client application point of v
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `CommandIds` | array of string | required, max 1000 items | Unique identifiers of [Commands](#command) to be returned. |
 
 ### Response
 
@@ -168,22 +172,20 @@ Returns all commands the are still active from the client application point of v
 | `KeyCount` | number | required | Count of keys to cut. |
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
 
-## Get all commands by ids
 
-Returns all commands by their identifiers.
+## Get all commands
+
+Returns all commands the are still active from the client application point of view. That means commands that are in either `Pending` or `Received` state.
 
 ### Request
 
-`[PlatformAddress]/api/connector/v1/commands/getAllByIds`
+`[PlatformAddress]/api/connector/v1/commands/getAllActive`
 
 ```javascript
 {
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "CommandIds": [
-        "aa20961f-6d9e-4b35-ad25-071213530aec"
-    ]
 }
 ```
 
@@ -192,11 +194,42 @@ Returns all commands by their identifiers.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CommandIds` | array of string | required, max 1000 items | Unique identifiers of [Commands](#command) to be returned. |
 
 ### Response
 
-Same structure as in [Get all commands](#get-all-commands) operation.
+```javascript
+{
+    "Commands": [
+        {
+            "Id": "aa20961f-6d9e-4b35-ad25-071213530aec",
+            "State": "Pending",
+            "CreatedUtc": "2015-09-02T19:25:44Z",
+            "Creator": {
+                "FirstName": "Sample",
+                "LastName": "User",
+                "ImageUrl": "..."
+            },
+            "Device": {
+                "Id": "63efb573-fc58-4065-b687-9bdd51568529",
+                "Name": "Test Printer",
+                "Type": "Printer"
+            },
+            "Data": {
+                "CopyCount": 1,
+                "FileType": "application/pdf",
+                "FileData": "...",
+                "PrinterName": "Printer",
+                "PrinterDriverName": "",
+                "PrinterPortName": ""
+            }
+        }
+    ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Commands` | array of [Command](#command) | required | The active commands. |
 
 ## Add printer command
 

@@ -1,6 +1,7 @@
 # Changelog
 
-## 28th March 2025
+## 2nd April 2025
+* Newly introduced operations from this date onward require the address to match the format specified in the documentation (e.g. correct casing, no trailing slash at the end). If the address does not match, the server will respond with a `404 Not Found` error.
 * [Get all service order notes](../operations/serviceordernotes.md#get-all-service-order-notes):
   * Extended request object with `Types` filtering parameter and support for `SpecialRequest` service order note type.
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
@@ -18,6 +19,10 @@
   * New operation added (restricted).
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended [Bill company data](../operations/bills.md#bill-company-data) response object with the following properties: `DUNS`, `Telephone`, `TaxIdentifier`, `InvoicingEmail`, and `Department`.
+
+## 1st April 2025
+* Updated [Guidelines: Response codes](../guidelines/responses.md#response-codes):
+  * Documented 404 and 5xx response codes. Documentation-only, no change to API.  
 
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
