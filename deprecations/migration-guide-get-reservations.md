@@ -60,7 +60,7 @@ The following table maps request parameters from [Get all reservations (ver 2017
 | `AssignedResourceIds` | `AssignedResourceIds` | No change. |
 | `RateIds` | n/a | Currently not supported. |
 | `BusinessSegmentIds` | n/a | Currently not supported. |
-| `ChannelNumbers` | n/a | Currently not supported. |
+| `ChannelNumbers` | `ChannelNumbers` | Reduced to maximum of 100 items. |
 | `Numbers` | `Numbers` | No change. |
 | `StartUtc` | See [Time filters] | - |
 | `EndUtc` | See [Time filters] | - |
