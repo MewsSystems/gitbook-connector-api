@@ -10,7 +10,7 @@ The API accepts only `HTTP POST` requests with `Content-Type` set to `applicatio
 * **Resource** - Resource or domain entity which is the target of the action, always pluralized \(e.g. bills, reservations\)
 * **Action** - Name of the action to be performed on the resource \(e.g. getAll, add, delete\)
 
-The operation address **must match the format specified in the documentation**. It is case-sensitive and cannot include a trailing slash or any additional characters. If the address does not match, the server will respond with `404 Not Found` error.
+> **Exact address**: The operation address **must match the specified format exactly**. It is case-sensitive and must not include a trailing slash or any additional characters. If the address does not match the expected format, the server will return a `404 Not Found` error.
 
 ## Body
 
