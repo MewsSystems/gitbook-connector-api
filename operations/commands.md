@@ -70,11 +70,11 @@ Returns all commands by their identifiers.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the command. |
-| `State` | [Command state](commands.md#command-state) | required | State of the command. Corresponds to `CommandState`. |
+| `State` | [Command state](commands.md#command-state) | required | State of the command. |
 | `CreatedUtc` | string | required | Creation date and time of the command. |
 | `Creator` | [User](commands.md#user) | optional | Creator of the command. |
 | `Device` | [Device](devices.md#device) | required | Device that the command should be executed on. |
-| `Data` | object | required | Structure of the object depends on `DeviceType`. |
+| `Data` | object | required | Structure of the object depends on [Device type](devices.md#device-type). |
 
 #### Command state
 
@@ -297,7 +297,7 @@ Adds a new printer command representing printing of the specified document on a 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `PrinterId` | string | required | Uniqque identifier of the Printer [Device](devices.md#device) where to print the document. |
+| `PrinterId` | string | required | Unique identifier of the `Printer` `Device` where to print the document. |
 | `Data` | string | required | Base64 encoded data of PDF document to print. |
 | `CopyCount` | integer | required | Count of copies to be printed. |
 
@@ -320,7 +320,7 @@ Adds a new printer command representing printing of the specified document on a 
 > See [Mews Payment Terminals](../use-cases/mews-terminals.md).
 
 Adds a new Mews Payment Terminal command for taking a customer payment.
-The operation instructs a specified terminal device to take a payment from a specified customer for a specified amount.;
+The operation instructs a specified terminal device to take a payment from a specified customer for a specified amount.
 
 ### Request
 
