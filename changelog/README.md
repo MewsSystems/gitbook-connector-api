@@ -1,8 +1,11 @@
 # Changelog
 
-## 1st April 2025
+## 2nd April 2025
 * Newly introduced operations from this date onward require the address to match the format specified in the documentation (e.g. correct casing, no trailing slash at the end). If the address does not match, the server will respond with a `404 Not Found` error.
 
+## 1st April 2025
+* Updated [Guidelines: Response codes](../guidelines/responses.md#response-codes):
+  * Documented 404 and 5xx response codes. Documentation-only, no change to API.  
 
 ## 21st March 2025
 * Updated [Migration guide: Get all reservations](../deprecations/migration-guide-get-reservations.md). Specified  replacement for `ChannelManager`. Documentation-only. No change to API.
