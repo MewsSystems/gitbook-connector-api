@@ -28,10 +28,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "EndUtc": "2023-10-31T00:00:00Z"
     },
     "ActivityStates": [
-        "All",
         "Active",
         "Deleted",
-        "None"
     ],
     "EnterpriseIds": [
         "3fa85f64-5717-4562-b3fc-2c963f66afa6",
