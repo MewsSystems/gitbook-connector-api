@@ -1705,3 +1705,93 @@ types:
   departmentfilterparameters:
     file: departments.md
     anchor: departmentfilterparameters
+  billingautomationresult:
+    file: billingautomations.md
+    anchor: billingautomationresult
+  billingautomation:
+    file: billingautomations.md
+    anchor: billing-automation
+  companywithbillingautomationrelation:
+    file: billingautomations.md
+    anchor: companywithbillingautomationrelation
+  companyrelationsparameters:
+    file: billingautomations.md
+    anchor: companyrelationsparameters
+  billingautomationprepaymentenum:
+    file: billingautomations.md
+    anchor: billing-automation-prepayment-type
+  billingautomationassignmenttargettypeenum:
+    file: billingautomations.md
+    anchor: billing-automation-assignment-target-type
+  billingautomationtriggertypeenum:
+    file: billingautomations.md
+    anchor: billing-automation-trigger-type
+  billingautomationbillaggregationtypeenum:
+    file: billingautomations.md
+    anchor: billing-automation-bill-aggregation-type
+  billingautomationorderitemconsumptionperiodtypeenum:
+    file: billingautomations.md
+    anchor: billing-automation-order-item-consumption-period-type
+  billingautomationassignment:
+    file: billingautomations.md
+    anchor: billing-automation-assignment
+  billingautomationitemtypesparameters:
+    file: billingautomations.md
+    anchor: billing-automation-item-types-parameters
+  billingautomationaccountingcategoryassignment:
+    file: billingautomations.md
+    anchor: billing-automation-accounting-category-assignment
+  accountingcategoryrouteditemtypes:
+    file: billingautomations.md
+    anchor: accounting-category-routed-item-types
+  billingautomationfilterparameters:
+    file: billingautomations.md
+    anchor: billing-automation-filter-parameters
+  billingautomationmodificationresult:
+    file: billingautomations.md
+    anchor: billingautomationmodificationresult
+  multiplebillingautomationaddparameters:
+    file: billingautomations.md
+    anchor: multiplebillingautomationaddparameters
+  billingautomationaddparameters:
+    file: billingautomations.md
+    anchor: billingautomationaddparameters
+  billingautomationassignmentaddparameters:
+    file: billingautomations.md
+    anchor: billingautomationassignmentaddparameters
+  multiplebillingautomationupdateparameters:
+    file: billingautomations.md
+    anchor: multiplebillingautomationupdateparameters
+  billingautomationupdateparameters:
+    file: billingautomations.md
+    anchor: billingautomationupdateparameters
+  companywithbillingautomationrelationienumerableupdatevalue:
+    file: billingautomations.md
+    anchor: companywithbillingautomationrelationienumerableupdatevalue
+  billingautomationprepaymentupdatevalue:
+    file: billingautomations.md
+    anchor: billingautomationprepaymentupdatevalue
+  billingautomationassignmenttargettypeupdatevalue:
+    file: billingautomations.md
+    anchor: billingautomationassignmenttargettypeupdatevalue
+  billingautomationbillaggregationtypeupdatevalue:
+    file: billingautomations.md
+    anchor: billingautomationbillaggregationtypeupdatevalue
+  billingautomationorderitemconsumptionperiodtypeupdatevalue:
+    file: billingautomations.md
+    anchor: billingautomationorderitemconsumptionperiodtypeupdatevalue
+  billingautomationassignmentsupdateparameters:
+    file: billingautomations.md
+    anchor: billingautomationassignmentsupdateparameters
+  billingautomationassignmentupdateparameters:
+    file: billingautomations.md
+    anchor: billingautomationassignmentupdateparameters
+  billingautomationitemtypesupdateparameters:
+    file: billingautomations.md
+    anchor: billing-automation-item-types-parameters-options
+  billingautomationaccountingcategoryassignmentienumerableupdatevalue:
+    file: billingautomations.md
+    anchor: billingautomationaccountingcategoryassignmentienumerableupdatevalue
+  billingautomationdeleteparameters:
+    file: billingautomations.md
+    anchor: billing-automation-delete-parameters
