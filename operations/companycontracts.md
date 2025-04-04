@@ -14,9 +14,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "Client": "Sample Client 1.0.0",
-    "EnterpriseIds": [
-        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    "CompanyContractIds": [
+        "3396f6f3-6733-443b-92e0-b2a0009a05a7"
     ],
     "CompanyIds": [
         "bfd5667b-533f-424f-860d-af150065f4d6"
@@ -28,6 +27,14 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         "StartUtc": "2023-10-01T00:00:00Z",
         "EndUtc": "2023-10-31T00:00:00Z"
     },
+    "ActivityStates": [
+        "Active",
+        "Deleted"
+    ],
+    "EnterpriseIds": [
+        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+    ],
     "Limitation": { "Count": 10 }
 }
 ```
@@ -38,10 +45,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service) where the Travel agency contract belong to. |
-| `CompanyIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) assigned with Travel agency contracts. |
 | `CompanyContractIds` | array of string | optional, max 1000 items | Unique identifier of the Travel agency contract to fetch. |
+| `CompanyIds` | array of string | optional, max 1000 items | Unique identifiers of [Companies](companies.md#company) assigned with Travel agency contracts. |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of [Services](services.md#service) where the Travel agency contract belong to. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which [Travel agency contract](#travel-agency-contract) was updated. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
 ### Response
