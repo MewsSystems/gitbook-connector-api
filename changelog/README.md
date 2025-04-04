@@ -1,6 +1,6 @@
 # Changelog
 
-# 3rd April 2025
+# 4th April 2025
 * Extended [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts) request with `ActivityStates` filtering parameter.
 
 ## 2nd April 2025
