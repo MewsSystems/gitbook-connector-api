@@ -1,7 +1,11 @@
 # Changelog
 
-## 3rd April 2025
+## 8th April 2025
 * Aligned [Commands API operations](../operations/commands.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
+
+## 4th April 2025
+* [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts):
+  * Extended request object with `ActivityStates` filtering parameter.
 
 ## 2nd April 2025
 * Newly introduced operations from this date onward require the address to match the format specified in the documentation (e.g. correct casing, no trailing slash at the end). If the address does not match, the server will respond with a `404 Not Found` error.
