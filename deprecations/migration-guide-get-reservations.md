@@ -66,7 +66,7 @@ The following table maps request parameters from [Get all reservations (ver 2017
 | `EndUtc` | See [Time filters] | - |
 | `TimeFilter` | See [Time filters] | - |
 | `Currency` | n/a | Currently not supported. |
-| `States` | `States` | No change. |
+| `States` | `States` | Uses [Service order state] instead of [Service order state (ver 2017-04-12)]: `Enquired` has been renamed to `Inquired`. |
 | `Limitation` | `Limitation` | Required for all requests. |
 
 ## Time filters
@@ -119,7 +119,7 @@ The following table maps the original `TimeFilter` value to the equivalent prope
 | `Start` | `ScheduledStartUtc` | Clarified behavior of filtering by the scheduled time of reservation. |
 | `End` | `ScheduledEndUtc` | - |
 | `Overlapping` | n/a | Dropped due to low usage, use `CollidingUtc` instead. |
-| `Canceled` | n/a | Dropped due to low usage. Can be emulated with the combination of `UpdatedUtc` and States set to [“Canceled"] filters. |
+| `Canceled` | n/a | Dropped due to low usage. Can be emulated with the combination of `UpdatedUtc` and `States` set to `[“Canceled"]` filters. |
 
 ## Extents removal
 
@@ -268,7 +268,8 @@ The following table maps the response properties from the original [Reservation 
 | :-- | :-- | :-- |
 | `ChannelManagerGroupNumber` | n/a | No longer supported. |
 | `ChannelManager` | n/a | Replaced by [Get reservations channel manager details](../operations/reservations.md#get-reservation-channel-manager-details). |
-| `Origin` | `Origin` | Operations-specific values moved to `CommanderOrigin` (see Commander origin). |
+| `State` | `State` | Uses [Service order state] instead of [Service order state (ver 2017-04-12)]: `Enquired` has been renamed to `Inquired`. |
+| `Origin` | `Origin` | Operations-specific values moved to `CommanderOrigin` (see [Commander origin]). |
 | `Purpose` | `Purpose` | No longer required. |
 | `StartUtc` | `ScheduledStartUtc`<br>`ActualStartUtc` | Early check-ins changed `StartUtc` value. Check-in time and scheduled start time are now provided in separate properties. |
 | `EndUtc` | `ScheduledEndUtc`<br>`ActualEndUtc` | Check-outs changed EndUtc value. Check-out time and scheduled end time are now provided in separate properties. |
@@ -311,3 +312,6 @@ The [Add reservation] and [Update reservation] operations work with older versio
 [Reservation (ver 2023-06-06)]: ../operations/reservations.md#reservation-ver-2023-06-06
 [Add reservation]: ../operations/reservations.md#add-reservation
 [Update reservation]: ../operations/reservations.md#update-reservation
+[Service order state]: ../operations/reservations.md#service-order-state
+[Service order state (ver 2017-04-12)]: ../operations/reservations.md#service-order-state-ver-2017-04-12
+[Commander origin]: ../operations/reservations.md#commander-origin

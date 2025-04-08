@@ -1695,7 +1695,7 @@ types:
     anchor: reservation-channel-manager-details
   reservationschannelmanagerdetailsfilterparameters:
     file: reservations.md
-    anchor: reservations-channel-manager-details-filter-parameters
+    anchor: reservation-channel-manager-details-filter-parameters
   devicecommandresult:
     file: commands.md
     anchor: devicecommandresult
