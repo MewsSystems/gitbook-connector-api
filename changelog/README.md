@@ -1,6 +1,9 @@
 # Changelog
 
-# 4th April 2025
+## 8th April 2025
+* Aligned [Commands API operations](../operations/commands.md) with OpenAPI Specification, adding previously undocumented properties and fixing examples. Documentation-only.
+
+## 4th April 2025
 * [Get all company contracts](../operations/companycontracts.md#get-all-company-contracts):
   * Extended request object with `ActivityStates` filtering parameter.
 
