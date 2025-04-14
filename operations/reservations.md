@@ -1567,7 +1567,7 @@ This operation supports [Portfolio Access Tokens](../concepts/multi-property.md)
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `ChannelNumber` | string | optional |  |
-| `State` | [Service order state](reservations.md#service-order-state) | required | State of the newly created reservation (either `Optional`, `Enquired` or `Confirmed`). If not specified, `Confirmed` is used. |
+| `State` | [Service order state](reservations.md#service-order-state) | required | State of the newly created reservation (either `Optional`, `Inquired` or `Confirmed`). If not specified, `Confirmed` is used. |
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
