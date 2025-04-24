@@ -1,6 +1,6 @@
 # Changelog
 
-## 22nd April 2025
+## 24th April 2025
 * Refreshed the [Getting started](../getting-started/README.md) page. Documentation-only, no change to API.  
 
 ## 8th April 2025
