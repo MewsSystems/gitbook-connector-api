@@ -15,7 +15,7 @@ Before making your first request, make sure you're familiar with the following:
   - `Client`: A short string naming your application.
 
 - **Mews environments**<br>
-  Mews provides two primary environments:
+  Mews provides two environments:
   - [Demo environment](../guidelines/environments.md#demo-environment) – for development and testing.
     - Net pricing and Gross pricing variants simulate different tax regimes used by properties in different jurisdictions.
   - [Production environment](../guidelines/environments.md#production-environment) – used by live properties after certification.
