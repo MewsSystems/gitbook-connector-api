@@ -98,6 +98,8 @@ If successful, the API will return property details:
 - Check the [response code](../guidelines/responses.md#response-codes) and [details](../guidelines/responses.md#error-response-details) to diagnose issues.
 - Always validate required fields and timezones in your request payloads.
 
+> **Best practices**: For additional tips on how to get the most out of your integration, see our [best practices](../guidelines/best-practices.md).
+
 ## Next steps
 
 Now that you've made a successful call, here’s where to go next:
