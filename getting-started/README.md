@@ -12,7 +12,7 @@ Before making your first request, make sure you're familiar with the following:
   Every API request requires:
   - `ClientToken`: Identifies your application. Issued by Mews.
   - `AccessToken`: Identifies the enterprise or property you're connecting to. Issued by the property.
-  - `Client`: A short string naming your application (used for logging/debugging).
+  - `Client`: A short string naming your application.
 
 - **Mews environments**<br>
   Mews provides two primary environments:
