@@ -61,7 +61,7 @@ https://api.mews-demo.com/api/connector/v1/configuration/get
 ```
 
 - **Expected response**  
-If successful, the API will return HTTP status code `200` along with property details in the message body:
+If successful, the API will return HTTP status code `200 - OK` along with property details in the message body:
 ```json
 {
   "NowUtc": "2021-05-05T11:39:29Z",
