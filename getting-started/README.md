@@ -91,7 +91,7 @@ If successful, the API will return HTTP status code `200` along with property de
 - Some operations (like [Get all reservations](../operations/reservations.md#get-all-reservations-2023-06-06)) use [pagination](../guidelines/pagination.md) to handle large result sets.
 
 ### Rate limits
-- Shared demo credentials may return `429` errors if multiple developers are testing the same property.
+- Shared demo credentials may return `429 - Too many requests` response code if multiple developers are testing the same property.
 - Use a different demo property if limits are reached.
 
 ### Error handling
