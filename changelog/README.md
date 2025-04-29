@@ -1,7 +1,7 @@
 # Changelog
 
 ## 2nd May 2025
-* Re-formatted all 2025 and 2024 changelogs to follow current format, for easier search. Documentation-only, no change to API. 
+* Re-formatted 2025 and 2024 changelog entries to follow current format, for easier search. Documentation-only, no change to API. 
 
 ## 24th April 2025
 * Refreshed the [Getting started](../getting-started/README.md) page. Documentation-only, no change to API.  
