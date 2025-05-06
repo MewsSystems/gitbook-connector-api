@@ -1843,18 +1843,23 @@ types:
   companywithbillingautomationrelationienumerableupdatevalue:
     file: billingautomations.md
     anchor: companywithbillingautomationrelationienumerableupdatevalue
+    titleOverride: Company with billing automation relations update value
   billingautomationprepaymentupdatevalue:
     file: billingautomations.md
     anchor: billingautomationprepaymentupdatevalue
+    titleOverride: Billing automation prepayment update value
   billingautomationassignmenttargettypeupdatevalue:
     file: billingautomations.md
     anchor: billingautomationassignmenttargettypeupdatevalue
+    titleOverride: Billing automation assignment target type update value
   billingautomationbillaggregationtypeupdatevalue:
     file: billingautomations.md
     anchor: billingautomationbillaggregationtypeupdatevalue
+    titleOverride: Billing automation bill aggregation type update value
   billingautomationorderitemconsumptionperiodtypeupdatevalue:
     file: billingautomations.md
     anchor: billingautomationorderitemconsumptionperiodtypeupdatevalue
+    titleOverride: Billing automation order item consumption period type update value
   billingautomationassignmentsupdateparameters:
     file: billingautomations.md
     anchor: billing-automation-assignments-update-parameters
@@ -1867,6 +1872,7 @@ types:
   billingautomationaccountingcategoryassignmentienumerableupdatevalue:
     file: billingautomations.md
     anchor: billingautomationaccountingcategoryassignmentienumerableupdatevalue
+    titleOverride: billing automation accounting category assignment update value
   billingautomationdeleteparameters:
     file: billingautomations.md
     anchor: billing-automation-delete-parameters
