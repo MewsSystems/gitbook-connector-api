@@ -69,3 +69,5 @@ The time interval for a specified restriction does not need to correspond to an 
 ## Scope of restrictions
 
 Only restrictions created through the API are affected by these operations, _not_ restrictions created by the user within **Mews Operations**. Similarly, if a user creates a restriction in **Mews Operations**, this will _not_ affect restrictions created through the API. User restrictions and API restrictions are independent.
+
+> **Important**: We assume that only one third-party integration manages restrictions for a given enterprise or property. All restrictions set up in an enterprise are created either by the enterprise itself through the __Mews Operation__ user interface, or uniquely by a single integration through the API. These two sources can be identified using the `Origin` field in requests and responses to [Get all reservations](../operations/reservations.md#get-all-reservations-ver-2023-06-06).
