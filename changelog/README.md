@@ -1,5 +1,8 @@
 # Changelog
 
+## 9th May 2025
+* Clarified [Scope of restrictions](../concepts/restrictions.md#scope-of-restrictions). Documentation-only, no change to API.  
+
 ## 24th April 2025
 * Refreshed the [Getting started](../getting-started/README.md) page. Documentation-only, no change to API.  
 
