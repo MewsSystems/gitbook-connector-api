@@ -337,6 +337,26 @@ Updates one or more existing billing automations.
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `BillingAutomationUpdates` | array of [Billing automation update parameters](billingautomations.md#billing-automation-update-parameters) | required, max 100 items | Parameters of the new billing automations to be updated. |
 
+#### Billing automation update parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
+| `Name` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Name of the billing automation (or null should it not be updated). |
+| `Description` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Description of the billing automation (or null should it not be updated). |
+| `Companies` | [CompanyWithBillingAutomationRelationIEnumerableUpdateValue](billingautomations.md#companywithbillingautomationrelationienumerableupdatevalue) | optional, max length 1000 characters | List of companies with relations representing whether the company should be taken into account as travel agency or company in the reservation. Can only be empty if the `AssignmentTargetType` is `CompanyAsDetails` or `NoCompany`. (or null should it not be updated). |
+| `Prepayment` | [Billing automation prepayment update value](_objects.md#string-update-value) | optional | Type of prepayment (or null should it not be updated). |
+| `AssignmentTargetType` | [Billing automation assignment target type update value](_objects.md#string-update-value) | optional | Type of assignment of company to the bill. If value is `NoCompany` then `BillAggregationType` must be `AggregateByCustomer`. (or null should it not be updated). |
+| `BillAggregationType` | [Billing automation bill aggregation type update value](_objects.md#string-update-value) | optional | Billing automation aggregation target type. If value is not `AggregateByCustomer` then `AssignmentTargetType` must be `CompanyAsOwner`. (or null should it not be updated). |
+| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type update value](_objects.md#string-update-value) | optional | Type of billing automation's order item consumption period. Required if the billing automation `TriggerType` is recurring (or null should it not be updated). |
+| `ProcessingStartOffset` | [String update value](_objects.md#string-update-value) | optional, max length 20 characters | Processing start offset. Required if the billing automation `TriggerType` is recurring (or null should it not be updated). |
+
+#### CompanyWithBillingAutomationRelationIEnumerableUpdateValue
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of [Company with billing automation relation](billingautomations.md#company-with-billing-automation-relation) | optional |  |
+
 ### Response
 
 ```javascript
@@ -371,55 +391,7 @@ Updates one or more existing billing automations.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `BillingAutomationUpdates` | array of [Billing automation update parameters](billingautomations.md#billing-automation-update-parameters) | required, max 100 items | Parameters of the new billing automations to be updated. |
-
-#### Billing automation update parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
-| `Name` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Name of the billing automation (or null should it not be updated). |
-| `Description` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Description of the billing automation (or null should it not be updated). |
-| `Companies` | [CompanyWithBillingAutomationRelationIEnumerableUpdateValue](billingautomations.md#companywithbillingautomationrelationienumerableupdatevalue) | optional, max length 1000 characters | List of companies with relations representing whether the company should be taken into account as travel agency or company in the reservation. Can only be empty if the `AssignmentTargetType` is `CompanyAsDetails` or `NoCompany`. (or null should it not be updated). |
-| `Prepayment` | [BillingAutomationPrepaymentUpdateValue](billingautomations.md#billingautomationprepaymentupdatevalue) | optional | Type of prepayment (or null should it not be updated). |
-| `AssignmentTargetType` | [BillingAutomationAssignmentTargetTypeUpdateValue](billingautomations.md#billingautomationassignmenttargettypeupdatevalue) | optional | Type of assignment of company to the bill. If value is `NoCompany` then `BillAggregationType` must be `AggregateByCustomer`. (or null should it not be updated). |
-| `BillAggregationType` | [BillingAutomationBillAggregationTypeUpdateValue](billingautomations.md#billingautomationbillaggregationtypeupdatevalue) | optional | Billing automation aggregation target type. If value is not `AggregateByCustomer` then `AssignmentTargetType` must be `CompanyAsOwner`. (or null should it not be updated). |
-| `OrderItemConsumptionPeriod` | [BillingAutomationOrderItemConsumptionPeriodTypeUpdateValue](billingautomations.md#billingautomationorderitemconsumptionperiodtypeupdatevalue) | optional | Type of billing automation's order item consumption period. Required if the billing automation `TriggerType` is recurring (or null should it not be updated). |
-| `ProcessingStartOffset` | [String update value](_objects.md#string-update-value) | optional, max length 20 characters | Processing start offset. Required if the billing automation `TriggerType` is recurring (or null should it not be updated). |
-
-#### CompanyWithBillingAutomationRelationIEnumerableUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | array of [Company with billing automation relation](billingautomations.md#company-with-billing-automation-relation) | optional |  |
-
-#### BillingAutomationPrepaymentUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | [Billing automation prepayment type](billingautomations.md#billing-automation-prepayment-type) | required |  |
-
-#### BillingAutomationAssignmentTargetTypeUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | [Billing automation assignment target type](billingautomations.md#billing-automation-assignment-target-type) | required |  |
-
-#### BillingAutomationBillAggregationTypeUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | [Billing automation bill aggregation type](billingautomations.md#billing-automation-bill-aggregation-type) | required |  |
-
-#### BillingAutomationOrderItemConsumptionPeriodTypeUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | [Billing automation order item consumption period type](billingautomations.md#billing-automation-order-item-consumption-period-type) | required |  |
+| `BillingAutomations` | array of [Billing automation](billingautomations.md#billing-automation) | optional | Billing automations affected by the operation. |
 
 ## Update billing automations assignments
 
@@ -482,6 +454,34 @@ Add, update or remove billing automation assignments of a specific billing autom
 | `AssignmentsToUpdate` | array of [Billing automation assignment update parameters](billingautomations.md#billing-automation-assignment-update-parameters) | optional, max 20 items | List of parameters updating existing assignments (or null should it not be updated). |
 | `AssignmentIdsToRemove` | array of string | optional, max 100 items | List of unique identifiers of assignments, which should be removed (or null should it not be updated). |
 
+#### Billing automation assignment update parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillingAutomationAssignmentId` | string | required | Unique identifier of the billing automation assignment. |
+| `RoutedItemTypes` | [Billing automation item types parameters options](billingautomations.md#billing-automation-item-types-parameters-options) | optional | Type of items that are going to be routed (or `null` should it not be updated). |
+| `RateIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Rates` that will be applied as billing automation condition (or `null` should it not be updated). |
+| `ProductCategoryIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Product Categories` that will be applied as billing automation condition (or `null` should it not be updated). |
+| `ProductIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Products` that will be applied as billing automation condition (or `null` should it not be updated). |
+| `AccountingCategories` | [BillingAutomationAccountingCategoryAssignmentIEnumerableUpdateValue](billingautomations.md#billingautomationaccountingcategoryassignmentienumerableupdatevalue) | optional, max length 100 characters | List of `Accounting Categories` with their `ItemTypes` that will be applied as billing automation condition (or `null` should it not be updated). |
+
+#### Billing automation item types parameters options
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `SpaceOrder` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `AllProducts` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `Deposits` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `AdditionalExpenses` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `AllCustomItems` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+
+#### BillingAutomationAccountingCategoryAssignmentIEnumerableUpdateValue
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional |  |
+
 ### Response
 
 ```javascript
@@ -516,42 +516,7 @@ Add, update or remove billing automation assignments of a specific billing autom
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
-| `AssignmentsToAdd` | array of [Billing automation assignment add parameters](billingautomations.md#billing-automation-assignment-add-parameters) | optional, max 20 items | List of parameters adding new assignments (or null should it not be updated). |
-| `AssignmentsToUpdate` | array of [Billing automation assignment update parameters](billingautomations.md#billing-automation-assignment-update-parameters) | optional, max 20 items | List of parameters updating existing assignments (or null should it not be updated). |
-| `AssignmentIdsToRemove` | array of string | optional, max 100 items | List of unique identifiers of assignments, which should be removed (or null should it not be updated). |
-
-#### Billing automation assignment update parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BillingAutomationAssignmentId` | string | required | Unique identifier of the billing automation assignment. |
-| `RoutedItemTypes` | [Billing automation item types parameters options](billingautomations.md#billing-automation-item-types-parameters-options) | optional | Type of items that are going to be routed (or `null` should it not be updated). |
-| `RateIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Rates` that will be applied as billing automation condition (or `null` should it not be updated). |
-| `ProductCategoryIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Product Categories` that will be applied as billing automation condition (or `null` should it not be updated). |
-| `ProductIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Products` that will be applied as billing automation condition (or `null` should it not be updated). |
-| `AccountingCategories` | [BillingAutomationAccountingCategoryAssignmentIEnumerableUpdateValue](billingautomations.md#billingautomationaccountingcategoryassignmentienumerableupdatevalue) | optional, max length 100 characters | List of `Accounting Categories` with their `ItemTypes` that will be applied as billing automation condition (or `null` should it not be updated). |
-
-#### Billing automation item types parameters options
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `SpaceOrder` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AllProducts` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `Deposits` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AdditionalExpenses` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AllCustomItems` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-
-#### BillingAutomationAccountingCategoryAssignmentIEnumerableUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional |  |
+| `BillingAutomations` | array of [Billing automation](billingautomations.md#billing-automation) | optional | Billing automations affected by the operation. |
 
 ## Delete billing automations
 

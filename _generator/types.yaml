@@ -1845,20 +1845,20 @@ types:
     anchor: companywithbillingautomationrelationienumerableupdatevalue
     titleOverride: Company with billing automation relations update value
   billingautomationprepaymentupdatevalue:
-    file: billingautomations.md
-    anchor: billingautomationprepaymentupdatevalue
+    file: _objects.md
+    anchor: string-update-value
     titleOverride: Billing automation prepayment update value
   billingautomationassignmenttargettypeupdatevalue:
-    file: billingautomations.md
-    anchor: billingautomationassignmenttargettypeupdatevalue
+    file: _objects.md
+    anchor: string-update-value
     titleOverride: Billing automation assignment target type update value
   billingautomationbillaggregationtypeupdatevalue:
-    file: billingautomations.md
-    anchor: billingautomationbillaggregationtypeupdatevalue
+    file: _objects.md
+    anchor: string-update-value
     titleOverride: Billing automation bill aggregation type update value
   billingautomationorderitemconsumptionperiodtypeupdatevalue:
-    file: billingautomations.md
-    anchor: billingautomationorderitemconsumptionperiodtypeupdatevalue
+    file: _objects.md
+    anchor: string-update-value
     titleOverride: Billing automation order item consumption period type update value
   billingautomationassignmentsupdateparameters:
     file: billingautomations.md
