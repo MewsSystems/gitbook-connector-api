@@ -1,6 +1,6 @@
 # Changelog
 
-## 2nd May 2025
+## 12th May 2025
 * Re-formatted 2025 and 2024 changelog entries to follow current format, for easier search. Documentation-only, no change to API. 
 
 ## 24th April 2025
