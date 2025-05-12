@@ -1,6 +1,7 @@
 # Changelog
 
-## 9th May 2025
+## 12th May 2025
+* Re-formatted 2025 and 2024 changelog entries to follow current format, for easier search. Documentation-only, no change to API. 
 * Clarified [Scope of restrictions](../concepts/restrictions.md#scope-of-restrictions). Documentation-only, no change to API.  
 
 ## 24th April 2025
@@ -29,7 +30,7 @@
   * Extended [Order item](../operations/orderitems.md#order-item) response object with `TaxExemptionReason` and `TaxExemptionLegalReference` properties.
   * Extended [Order item type](../operations/orderitems.md#order-item-type) with `AllowanceDiscount`, `AllowanceBreakage`, and `AllowanceContraBreakage`.
 * [Cancel order items](../operations/orderitems.md#cancel-order-items):
-  * New operation added (restricted).
+  * Added new operation (restricted).
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended [Bill company data](../operations/bills.md#bill-company-data) response object with the following properties: `DUNS`, `Telephone`, `TaxIdentifier`, `InvoicingEmail`, and `Department`.
 
@@ -76,14 +77,16 @@
   * Extended request object with `ActualEndUtc` filtering parameter.
 
 ## 20th February 2025
-* Added new restricted operation [Get reservations channel manager details](../operations/reservations.md#get-reservation-channel-manager-details).
+* [Get reservation channel manager details](../operations/reservations.md#get-reservation-channel-manager-details):
+  * Added new operation (restricted).
 
 ## 19th February 2025
 * [Delete company contracts](../operations/companycontracts.md#delete-company-contracts):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
 ## 11th February 2025
-* Added new restricted operation [Disable gateway credit card](../operations/creditcards.md#disable-gateway-credit-card).
+* [Disable gateway credit card](../operations/creditcards.md#disable-gateway-credit-card):
+  * Added new operation (restricted).
 
 ## 3rd February 2025
 * [Add rates](../operations/rates.md#add-rates):
@@ -142,20 +145,23 @@
   * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
 * [Update availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
   * Extended [Availability block](../operations/availabilityblocks.md#availability-block) response object with `PickupDistribution` property.
-* Added new operation [Cancel order items](../operations/orderitems.md#cancel-order-items).
+* [Cancel order items](../operations/orderitems.md#cancel-order-items):
+  * Added new operation (restricted).
 
 ## 9th January 2025
 * Postponed the discontinuation of the following operations to 10th May 2025:
   * [Get all reservations (ver 2017-04-12)](../operations/reservations.md#get-all-reservations-ver-2017-04-12)
   * [Get all reservation items](../operations/reservations.md#get-all-reservation-items)
   * [Merge customers](../operations/customers.md#merge-customers)
-* Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md).
+* Added missing documentation for webhook event `PaymentUpdated` in [General Webhooks](../events/wh-general.md). Documentation-only.
 
 ## 7th January 2025
-* Extended [Get all reservations (ver 2023-06-06)](../operations/reservations.md) request with `AvailabilityBlockIds` request filtering parameter.
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md):
+  * Extended request with `AvailabilityBlockIds` request filtering parameter.
 
 ## 6th January 2025
-* Added new operation [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20).
+* [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20):
+  * Added new operation (restricted).
 
 ## 3rd January 2025
 * Added new page [Authentication](../guidelines/authentication.md). Documentation-only. No change to API.
