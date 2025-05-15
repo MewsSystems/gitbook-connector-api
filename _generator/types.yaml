@@ -1842,8 +1842,7 @@ types:
     anchor: billing-automation-update-parameters
   companywithbillingautomationrelationienumerableupdatevalue:
     file: billingautomations.md
-    anchor: companywithbillingautomationrelationienumerableupdatevalue
-    titleOverride: Company with billing automation relations update value
+    anchor: company-with-billing-automation-relation-array-update-value
   billingautomationprepaymentupdatevalue:
     file: _objects.md
     anchor: string-update-value
@@ -1868,11 +1867,10 @@ types:
     anchor: billing-automation-assignment-update-parameters
   billingautomationitemtypesupdateparameters:
     file: billingautomations.md
-    anchor: billing-automation-item-types-parameters-options
+    anchor: billing-automation-item-types-update-parameters
   billingautomationaccountingcategoryassignmentienumerableupdatevalue:
     file: billingautomations.md
-    anchor: billingautomationaccountingcategoryassignmentienumerableupdatevalue
-    titleOverride: billing automation accounting category assignment update value
+    anchor: billing-automation-accounting-category-assignment-array-update-value
   billingautomationdeleteparameters:
     file: billingautomations.md
     anchor: billing-automation-delete-parameters

@@ -68,7 +68,39 @@ Returns all billing automations. Note this operation uses [Pagination](../guidel
       "CreatedUtc": "2017-01-31T10:58:06Z",
       "ProcessingStartOffset": null,
       "OrderItemConsumptionPeriod": null,
-      "Assignments": null
+      "Assignments": [
+        {
+          "Id": "d6b550e9-9c4b-42dd-9daa-555312b030e6",
+          "BillingAutomationId": "ecd64eec-4423-4c65-b844-814b9199856d",
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+          "RoutedItemTypes": {
+            "SpaceOrder": true,
+            "CityTax": true,
+            "AllProducts": true,
+            "Deposits": true,
+            "AdditionalExpenses": false,
+            "AllCustomItems": false
+          },
+          "RateIds": [
+            "ab3682ba-4493-4eb0-bcdc-8d000f5bad65"
+          ],
+          "ProductCategoryIds": [
+            "599c477e-b826-4444-8ded-4fa7276ef0c1"
+          ],
+          "ProductIds": [
+            "f0184ec2-9f02-4026-9b70-0b2bed2adde7"
+          ],
+          "AccountingCategoryAssignments": [
+            {
+              "AccountingCategoryId": "2e0f5930-605e-4a23-9994-a7701a56b576",
+              "ItemTypes": {
+                "Products": true,
+                "CustomItems": false
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "Cursor": "54ec08b6-e6fc-48e9-b8ae-02943e0ac693"
@@ -94,8 +126,8 @@ Returns all billing automations. Note this operation uses [Pagination](../guidel
 | `TriggerType` | [Billing automation trigger type](billingautomations.md#billing-automation-trigger-type) | required | Trigger type of billing automation. |
 | `BillAggregationType` | [Billing automation bill aggregation type](billingautomations.md#billing-automation-bill-aggregation-type) | required | Type of bill aggregation. |
 | `CreatedUtc` | string | required | Creation date and time of the billing automation in UTC timezone in ISO 8601 format. |
-| `ProcessingStartOffset` | string | optional | Processing start offset. Has value only if the billing automation `TriggerType` is recurring. |
-| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type](billingautomations.md#billing-automation-order-item-consumption-period-type) | optional | Type of billing automation's order item consumption period. Has value only if the billing automation `TriggerType` is recurring. |
+| `ProcessingStartOffset` | string | optional | Processing start offset. Applicable only if the billing automation `TriggerType` is set to recurring. |
+| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type](billingautomations.md#billing-automation-order-item-consumption-period-type) | optional | Specifies the type of order item consumption period for the billing automation. This value is applicable only when the `TriggerType` is set to recurring. |
 | `Assignments` | array of [Billing automation assignment](billingautomations.md#billing-automation-assignment) | optional, max 20 items | List of billing automation assignments. |
 
 #### Company with billing automation relation
@@ -150,12 +182,12 @@ Returns all billing automations. Note this operation uses [Pagination](../guidel
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the billing automation assignment. |
 | `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
-| `ServiceId` | string | required | Unique identifier of related service. |
+| `ServiceId` | string | required | Unique identifier of the related service. |
 | `RoutedItemTypes` | [Billing automation item types parameters](billingautomations.md#billing-automation-item-types-parameters) | required | Type of items that are going to be routed. |
 | `RateIds` | array of string | optional, max 100 items | Unique identifiers of `Rates` used in billing automation conditions. |
 | `ProductCategoryIds` | array of string | optional, max 100 items | Unique identifiers of `Product Categories` used in billing automation conditions. |
 | `ProductIds` | array of string | optional, max 100 items | Unique identifiers of `Products` used in billing automation conditions. |
-| `AccountingCategoryAssignments` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional, max 100 items | List of accounting category ids used in billing automation conditions. |
+| `AccountingCategoryAssignments` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional, max 100 items | List of accounting category assignments used in billing automation conditions. |
 
 #### Billing automation item types parameters
 
@@ -179,8 +211,8 @@ Returns all billing automations. Note this operation uses [Pagination](../guidel
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Products` | boolean | required | Indicates whether products falling under given accounting category are being routed. |
-| `CustomItems` | boolean | required | Indicates whether custom items falling under given accounting category are being routed. |
+| `Products` | boolean | required | Specifies whether products under the given accounting category are routed. |
+| `CustomItems` | boolean | required | Specifies whether custom items under the given accounting category are routed. |
 
 ## Add billing automations
 
@@ -214,7 +246,23 @@ Adds billing automations.
       "Prepayment": "All",
       "AssignmentTargetType": "CompanyAsOwner",
       "TriggerType": "Continuous",
-      "BillAggregationType": "AggregateAll"
+      "BillAggregationType": "AggregateAll",
+      "Assignments": [
+        {
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+          "RoutedItemTypes": {
+            "SpaceOrder": true,
+            "CityTax": true,
+            "AllProducts": false,
+            "Deposits": true,
+            "AdditionalExpenses": true,
+            "AllCustomItems": false
+          },
+          "ProductIds": [
+            "507d93e6-9fb5-4734-a6d1-977afc4dfdff"
+          ]
+        }
+      ]
     }
   ]
 }
@@ -234,20 +282,20 @@ Adds billing automations.
 | :-- | :-- | :-- | :-- |
 | `Name` | string | required, max length 255 characters | Name of the billing automation. |
 | `Description` | string | optional, max length 1000 characters | Description of the billing automation. |
-| `CompaniesWithRelations` | array of [Company with billing automation relation](billingautomations.md#company-with-billing-automation-relation) | optional, max 1000 items | List of companies with relations representing whether the company should be taken into account as travel agency or company in the reservation. Can only be empty if the `AssignmentTargetType` is `CompanyAsDetails` or `NoCompany`. |
+| `CompaniesWithRelations` | array of [Company with billing automation relation](billingautomations.md#company-with-billing-automation-relation) | optional, max 1000 items | List of companies with relations indicating whether the company is considered a travel agency or a company in the reservation. Can only be empty if `AssignmentTargetType` is `CompanyAsDetails` or `NoCompany`. |
 | `Prepayment` | [Billing automation prepayment type](billingautomations.md#billing-automation-prepayment-type) | required | Type of prepayment. |
-| `AssignmentTargetType` | [Billing automation assignment target type](billingautomations.md#billing-automation-assignment-target-type) | required | Type of assignment of company to the bill. If value is `NoCompany` then `BillAggregationType` must be `AggregateByCustomer`. |
+| `AssignmentTargetType` | [Billing automation assignment target type](billingautomations.md#billing-automation-assignment-target-type) | required | Specifies the type of company assignment to the bill. If set to `NoCompany`, the `BillAggregationType` must be `AggregateByCustomer`. |
 | `TriggerType` | [Billing automation trigger type](billingautomations.md#billing-automation-trigger-type) | required | Trigger type of billing automation. |
-| `BillAggregationType` | [Billing automation bill aggregation type](billingautomations.md#billing-automation-bill-aggregation-type) | required | Type of bill aggregation. If value is not `AggregateByCustomer` then `AssignmentTargetType` must be `CompanyAsOwner`. |
-| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type](billingautomations.md#billing-automation-order-item-consumption-period-type) | optional | Type of billing automation's order item consumption period. Required if the billing automation `TriggerType` is recurring. |
-| `ProcessingStartOffset` | string | optional, max length 20 characters | Processing start offset. Required if the billing automation `TriggerType` is recurring. |
+| `BillAggregationType` | [Billing automation bill aggregation type](billingautomations.md#billing-automation-bill-aggregation-type) | required | Specifies the type of bill aggregation. If the value is not `AggregateByCustomer`, the `AssignmentTargetType` must be `CompanyAsOwner`. |
+| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type](billingautomations.md#billing-automation-order-item-consumption-period-type) | optional | Specifies the order item consumption period type for the billing automation. This is required if the `TriggerType` is set to recurring. |
+| `ProcessingStartOffset` | string | optional, max length 20 characters | Specifies the processing start offset. This is required if the billing automation `TriggerType` is set to recurring. |
 | `Assignments` | array of [Billing automation assignment add parameters](billingautomations.md#billing-automation-assignment-add-parameters) | required, max 20 items | List of billing automation assignments. |
 
 #### Billing automation assignment add parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ServiceId` | string | required | Unique identifier of related service. |
+| `ServiceId` | string | required | Unique identifier of the related service. |
 | `RoutedItemTypes` | [Billing automation item types parameters](billingautomations.md#billing-automation-item-types-parameters) | required | Type of items that are going to be routed. |
 | `RateIds` | array of string | optional, max 100 items | Unique identifiers of `Rates` that will be applied as billing automation condition. |
 | `ProductCategoryIds` | array of string | optional, max 100 items | Unique identifiers of `Product Categories` that will be applied as billing automation condition. |
@@ -280,7 +328,39 @@ Adds billing automations.
       "CreatedUtc": "2017-01-31T10:58:06Z",
       "ProcessingStartOffset": null,
       "OrderItemConsumptionPeriod": null,
-      "Assignments": null
+      "Assignments": [
+        {
+          "Id": "d6b550e9-9c4b-42dd-9daa-555312b030e6",
+          "BillingAutomationId": "ecd64eec-4423-4c65-b844-814b9199856d",
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+          "RoutedItemTypes": {
+            "SpaceOrder": true,
+            "CityTax": true,
+            "AllProducts": true,
+            "Deposits": true,
+            "AdditionalExpenses": false,
+            "AllCustomItems": false
+          },
+          "RateIds": [
+            "ab3682ba-4493-4eb0-bcdc-8d000f5bad65"
+          ],
+          "ProductCategoryIds": [
+            "599c477e-b826-4444-8ded-4fa7276ef0c1"
+          ],
+          "ProductIds": [
+            "f0184ec2-9f02-4026-9b70-0b2bed2adde7"
+          ],
+          "AccountingCategoryAssignments": [
+            {
+              "AccountingCategoryId": "2e0f5930-605e-4a23-9994-a7701a56b576",
+              "ItemTypes": {
+                "Products": true,
+                "CustomItems": false
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
@@ -335,7 +415,7 @@ Updates one or more existing billing automations.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `BillingAutomationUpdates` | array of [Billing automation update parameters](billingautomations.md#billing-automation-update-parameters) | required, max 100 items | Parameters of the new billing automations to be updated. |
+| `BillingAutomationUpdates` | array of [Billing automation update parameters](billingautomations.md#billing-automation-update-parameters) | required, max 100 items | Details of the billing automations to be updated. |
 
 #### Billing automation update parameters
 
@@ -344,14 +424,14 @@ Updates one or more existing billing automations.
 | `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
 | `Name` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Name of the billing automation (or null should it not be updated). |
 | `Description` | [String update value](_objects.md#string-update-value) | optional, max length 1000 characters | Description of the billing automation (or null should it not be updated). |
-| `Companies` | [CompanyWithBillingAutomationRelationIEnumerableUpdateValue](billingautomations.md#companywithbillingautomationrelationienumerableupdatevalue) | optional, max length 1000 characters | List of companies with relations representing whether the company should be taken into account as travel agency or company in the reservation. Can only be empty if the `AssignmentTargetType` is `CompanyAsDetails` or `NoCompany`. (or null should it not be updated). |
+| `Companies` | [Company with billing automation relation array update value](billingautomations.md#company-with-billing-automation-relation-array-update-value) | optional, max length 1000 characters | List of companies with relations indicating whether the company should be considered as a travel agency or a company in the reservation. This list can only be empty if the `AssignmentTargetType` is `CompanyAsDetails` or `NoCompany`. (or null if not updated). |
 | `Prepayment` | [Billing automation prepayment update value](_objects.md#string-update-value) | optional | Type of prepayment (or null should it not be updated). |
-| `AssignmentTargetType` | [Billing automation assignment target type update value](_objects.md#string-update-value) | optional | Type of assignment of company to the bill. If value is `NoCompany` then `BillAggregationType` must be `AggregateByCustomer`. (or null should it not be updated). |
-| `BillAggregationType` | [Billing automation bill aggregation type update value](_objects.md#string-update-value) | optional | Billing automation aggregation target type. If value is not `AggregateByCustomer` then `AssignmentTargetType` must be `CompanyAsOwner`. (or null should it not be updated). |
-| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type update value](_objects.md#string-update-value) | optional | Type of billing automation's order item consumption period. Required if the billing automation `TriggerType` is recurring (or null should it not be updated). |
+| `AssignmentTargetType` | [Billing automation assignment target type update value](_objects.md#string-update-value) | optional | Specifies the type of company assignment to the bill. If set to `NoCompany`, the `BillAggregationType` must be `AggregateByCustomer`. (null if not updated). |
+| `BillAggregationType` | [Billing automation bill aggregation type update value](_objects.md#string-update-value) | optional | Defines the aggregation target type for billing automation. If not `AggregateByCustomer`, the `AssignmentTargetType` must be `CompanyAsOwner`. (null if not updated). |
+| `OrderItemConsumptionPeriod` | [Billing automation order item consumption period type update value](_objects.md#string-update-value) | optional | Specifies the order item consumption period type for the billing automation. Required if the `TriggerType` is recurring. (null if not updated). |
 | `ProcessingStartOffset` | [String update value](_objects.md#string-update-value) | optional, max length 20 characters | Processing start offset. Required if the billing automation `TriggerType` is recurring (or null should it not be updated). |
 
-#### CompanyWithBillingAutomationRelationIEnumerableUpdateValue
+#### Company with billing automation relation array update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -383,7 +463,39 @@ Updates one or more existing billing automations.
       "CreatedUtc": "2017-01-31T10:58:06Z",
       "ProcessingStartOffset": null,
       "OrderItemConsumptionPeriod": null,
-      "Assignments": null
+      "Assignments": [
+        {
+          "Id": "d6b550e9-9c4b-42dd-9daa-555312b030e6",
+          "BillingAutomationId": "ecd64eec-4423-4c65-b844-814b9199856d",
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+          "RoutedItemTypes": {
+            "SpaceOrder": true,
+            "CityTax": true,
+            "AllProducts": true,
+            "Deposits": true,
+            "AdditionalExpenses": false,
+            "AllCustomItems": false
+          },
+          "RateIds": [
+            "ab3682ba-4493-4eb0-bcdc-8d000f5bad65"
+          ],
+          "ProductCategoryIds": [
+            "599c477e-b826-4444-8ded-4fa7276ef0c1"
+          ],
+          "ProductIds": [
+            "f0184ec2-9f02-4026-9b70-0b2bed2adde7"
+          ],
+          "AccountingCategoryAssignments": [
+            {
+              "AccountingCategoryId": "2e0f5930-605e-4a23-9994-a7701a56b576",
+              "ItemTypes": {
+                "Products": true,
+                "CustomItems": false
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
@@ -450,37 +562,9 @@ Add, update or remove billing automation assignments of a specific billing autom
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
-| `AssignmentsToAdd` | array of [Billing automation assignment add parameters](billingautomations.md#billing-automation-assignment-add-parameters) | optional, max 20 items | List of parameters adding new assignments (or null should it not be updated). |
-| `AssignmentsToUpdate` | array of [Billing automation assignment update parameters](billingautomations.md#billing-automation-assignment-update-parameters) | optional, max 20 items | List of parameters updating existing assignments (or null should it not be updated). |
-| `AssignmentIdsToRemove` | array of string | optional, max 100 items | List of unique identifiers of assignments, which should be removed (or null should it not be updated). |
-
-#### Billing automation assignment update parameters
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `BillingAutomationAssignmentId` | string | required | Unique identifier of the billing automation assignment. |
-| `RoutedItemTypes` | [Billing automation item types parameters options](billingautomations.md#billing-automation-item-types-parameters-options) | optional | Type of items that are going to be routed (or `null` should it not be updated). |
-| `RateIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Rates` that will be applied as billing automation condition (or `null` should it not be updated). |
-| `ProductCategoryIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Product Categories` that will be applied as billing automation condition (or `null` should it not be updated). |
-| `ProductIds` | [GuidIEnumerableUpdateValue](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Products` that will be applied as billing automation condition (or `null` should it not be updated). |
-| `AccountingCategories` | [BillingAutomationAccountingCategoryAssignmentIEnumerableUpdateValue](billingautomations.md#billingautomationaccountingcategoryassignmentienumerableupdatevalue) | optional, max length 100 characters | List of `Accounting Categories` with their `ItemTypes` that will be applied as billing automation condition (or `null` should it not be updated). |
-
-#### Billing automation item types parameters options
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `SpaceOrder` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AllProducts` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `Deposits` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AdditionalExpenses` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AllCustomItems` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-
-#### BillingAutomationAccountingCategoryAssignmentIEnumerableUpdateValue
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional |  |
+| `AssignmentsToAdd` | array of [Billing automation assignment add parameters](billingautomations.md#billing-automation-assignment-add-parameters) | optional, max 20 items | Parameters for adding new assignments (or null if not being updated). |
+| `AssignmentsToUpdate` | array of [Billing automation assignment update parameters](billingautomations.md#billing-automation-assignment-update-parameters) | optional, max 20 items | List of parameters for updating existing assignments (or null if not being updated). |
+| `AssignmentIdsToRemove` | array of string | optional, max 100 items | List of unique identifiers for assignments to be removed (or null if not being updated). |
 
 ### Response
 
@@ -508,7 +592,39 @@ Add, update or remove billing automation assignments of a specific billing autom
       "CreatedUtc": "2017-01-31T10:58:06Z",
       "ProcessingStartOffset": null,
       "OrderItemConsumptionPeriod": null,
-      "Assignments": null
+      "Assignments": [
+        {
+          "Id": "d6b550e9-9c4b-42dd-9daa-555312b030e6",
+          "BillingAutomationId": "ecd64eec-4423-4c65-b844-814b9199856d",
+          "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+          "RoutedItemTypes": {
+            "SpaceOrder": true,
+            "CityTax": true,
+            "AllProducts": true,
+            "Deposits": true,
+            "AdditionalExpenses": false,
+            "AllCustomItems": false
+          },
+          "RateIds": [
+            "ab3682ba-4493-4eb0-bcdc-8d000f5bad65"
+          ],
+          "ProductCategoryIds": [
+            "599c477e-b826-4444-8ded-4fa7276ef0c1"
+          ],
+          "ProductIds": [
+            "f0184ec2-9f02-4026-9b70-0b2bed2adde7"
+          ],
+          "AccountingCategoryAssignments": [
+            {
+              "AccountingCategoryId": "2e0f5930-605e-4a23-9994-a7701a56b576",
+              "ItemTypes": {
+                "Products": true,
+                "CustomItems": false
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
@@ -516,7 +632,42 @@ Add, update or remove billing automation assignments of a specific billing autom
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BillingAutomations` | array of [Billing automation](billingautomations.md#billing-automation) | optional | Billing automations affected by the operation. |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `BillingAutomationId` | string | required | Unique identifier of the billing automation. |
+| `AssignmentsToAdd` | array of [Billing automation assignment add parameters](billingautomations.md#billing-automation-assignment-add-parameters) | optional, max 20 items | Parameters for adding new assignments (or null if not being updated). |
+| `AssignmentsToUpdate` | array of [Billing automation assignment update parameters](billingautomations.md#billing-automation-assignment-update-parameters) | optional, max 20 items | List of parameters for updating existing assignments (or null if not being updated). |
+| `AssignmentIdsToRemove` | array of string | optional, max 100 items | List of unique identifiers for assignments to be removed (or null if not being updated). |
+
+#### Billing automation assignment update parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BillingAutomationAssignmentId` | string | required | Unique identifier of the billing automation assignment. |
+| `RoutedItemTypes` | [Billing automation item types update parameters](billingautomations.md#billing-automation-item-types-update-parameters) | optional | Type of items that are going to be routed (or `null` should it not be updated). |
+| `RateIds` | [Guid array update value](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Rates` that will be applied as billing automation condition (or `null` should it not be updated). |
+| `ProductCategoryIds` | [Guid array update value](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Product Categories` that will be applied as billing automation condition (or `null` should it not be updated). |
+| `ProductIds` | [Guid array update value](_object.md#array-of-strings-update-value) | optional, max length 100 characters | Unique identifiers of `Products` that will be applied as billing automation condition (or `null` should it not be updated). |
+| `AccountingCategories` | [Billing automation accounting category assignment array update value](billingautomations.md#billing-automation-accounting-category-assignment-array-update-value) | optional, max length 100 characters | List of `Accounting Categories` with their `ItemTypes` that will be applied as billing automation condition (or `null` should it not be updated). |
+
+#### Billing automation item types update parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `SpaceOrder` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `AllProducts` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `Deposits` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `AdditionalExpenses` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `AllCustomItems` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+
+#### Billing automation accounting category assignment array update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional |  |
 
 ## Delete billing automations
 
