@@ -1,5 +1,13 @@
 # Changelog
 
+## 15th May 2025
+* Added new operations for Billing Automations:
+  * [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations)
+  * [Add billing automations](../operations/billingautomations.md#add-billing-automations)
+  * [Update billing automations](../operations/billingautomations.md#update-billing-automations)
+  * [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments)
+  * [Delete billing automations](../operations/billingautomations.md#delete-billing-automations)
+
 ## 12th May 2025
 * Re-formatted 2025 and 2024 changelog entries to follow current format, for easier search. Documentation-only, no change to API. 
 * Clarified [Scope of restrictions](../concepts/restrictions.md#scope-of-restrictions). Documentation-only, no change to API.  
