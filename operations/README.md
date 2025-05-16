@@ -18,6 +18,17 @@ This section describes all operations supported by the API, organised here by th
 | [Update account notes](accountnotes.md#update-account-notes) | Updates existing account notes |
 | [Delete account notes](accountnotes.md#delete-account-notes) | Deletes selected account notes |
 
+## Billing Automations
+
+| <div style="width:200px">Operation</div> | Description |
+| :-- | :-- |
+| [Get all billing automations](billingautomations.md#get-all-billing-automations) | Returns all billing automations of the enterprise |
+| [Add billing automations](billingautomations.md#add-billing-automations) | Adds new billing automations |
+| [Update billing automations](billingautomations.md#update-billing-automations) | Updates selected billing automations |
+| [Update billing automation assignments](billingautomations.md#update-billing-automation-assignments) | Updates assignments for selected billing automations |
+| [Delete billing automations](billingautomations.md#delete-billing-automations) | Deletes selected billing automations |
+
+
 ## Configuration
 
 | <div style="width:200px">Operation</div> | Description |
