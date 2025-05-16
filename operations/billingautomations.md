@@ -159,7 +159,7 @@ Returns all billing automations. Note this operation uses [Pagination](../guidel
 
 * `Continuous` - Billing automation is continuously triggered by reservation actions, such as creation, updates, and rebates.
 * `Recurring` - Billing automation is executed monthly.
-* `Legacy` - Legacy
+* `Legacy` - Billing automation is executed on reservation creation only. Items added later are not transfered to any bill.
 
 #### Billing automation bill aggregation type
 
@@ -435,7 +435,7 @@ Updates one or more existing billing automations.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Value` | array of [Company with billing automation relation](billingautomations.md#company-with-billing-automation-relation) | optional |  |
+| `Value` | array of [Company with billing automation relation](billingautomations.md#company-with-billing-automation-relation) | optional | Value which is to be updated. |
 
 ### Response
 
@@ -656,18 +656,18 @@ Add, update or remove billing automation assignments of a specific billing autom
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `SpaceOrder` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AllProducts` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `Deposits` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AdditionalExpenses` | [Bool update value](_objects.md#bool-update-value) | optional |  |
-| `AllCustomItems` | [Bool update value](_objects.md#bool-update-value) | optional |  |
+| `SpaceOrder` | [Bool update value](_objects.md#bool-update-value) | optional | Space order (or `null` should it not be updated). |
+| `CityTax` | [Bool update value](_objects.md#bool-update-value) | optional | City tax (or `null` should it not be updated). |
+| `AllProducts` | [Bool update value](_objects.md#bool-update-value) | optional | Products (or `null` should it not be updated). |
+| `Deposits` | [Bool update value](_objects.md#bool-update-value) | optional | Deposits(or `null` should it not be updated). |
+| `AdditionalExpenses` | [Bool update value](_objects.md#bool-update-value) | optional | Additional expenses (or `null` should it not be updated). |
+| `AllCustomItems` | [Bool update value](_objects.md#bool-update-value) | optional | Custom items (or `null` should it not be updated). |
 
 #### Billing automation accounting category assignment array update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional |  |
+| `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional | Value which is to be updated. |
 
 ## Delete billing automations
 
