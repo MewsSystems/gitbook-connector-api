@@ -129,6 +129,7 @@ Extent of data to be returned.
 | `IsActive` | boolean | required | Indicates if this rate is active. |
 | `IsEnabled` | boolean | required | Indicates if this rate is currently available to customers. |
 | `IsPublic` | boolean | required | Indicates if this rate is publicly available. |
+| `IsDefault` | boolean | required | Indicates if this rate is the default rate for the service. Assigned automatically to the first rate of a service. |
 | `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
 | `ShortName` | string | optional | Short name of the rate (in the default language). |
@@ -682,6 +683,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "IsActive": true,
       "IsEnabled": true,
       "IsPublic": true,
+      "IsDefault": false,
       "Type": "Public",
       "Name": null,
       "Names": {
@@ -709,6 +711,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
       "IsActive": true,
       "IsEnabled": false,
       "IsPublic": false,
+      "IsDefault": false,
       "Type": "Private",
       "Name": null,
       "Names": {

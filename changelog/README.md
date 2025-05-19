@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th May 2025
+* [Get all rates](../operations/rates.md#get-all-rates):
+  * Extended [Rate](../operations/rates.md#rate) response object with `IsDefault` property.
+
 ## 12th May 2025
 * Re-formatted 2025 and 2024 changelog entries to follow current format, for easier search. Documentation-only, no change to API. 
 * Clarified [Scope of restrictions](../concepts/restrictions.md#scope-of-restrictions). Documentation-only, no change to API.  
