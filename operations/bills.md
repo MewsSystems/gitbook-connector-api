@@ -118,26 +118,26 @@ Extent of data to be returned. E.g. it is possible to specify that together with
         "Value": {
           "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
           "Address": {
-            "Line1": "Joe Doe street",
-            "Line2": "Very long ave",
-            "City": "Townston",
-            "PostalCode": "154 00",
-            "SubdivisionCode": "AU-NSW",
-            "CountryCode": "AU"
+            "Line1": "I.P. Pavlova 5",
+            "Line2": null,
+            "City": "Prague",
+            "PostalCode": "12000",
+            "SubdivisionCode": "CZ-PR",
+            "CountryCode": "CZ"
           },
           "LegalIdentifiers": {
-            "TaxIdentifier": "CZ8810310963",
+            "TaxIdentifier": "CZ24227781",
             "CityOfRegistration": "Prague"
           },
           "BillingCode": "Billing code value",
           "Name": "Acme, Inc.",
           "FiscalIdentifier": "Fiscal identifier",
           "AdditionalTaxIdentifier": "Additional tax identifier",
-          "DUNS": null,
-          "Telephone": null,
-          "TaxIdentifier": null,
-          "InvoicingEmail": null,
-          "Department": null
+          "DUNS": "150483782",
+          "Telephone": "+420123456789",
+          "TaxIdentifier": "CZ24227781",
+          "InvoicingEmail": "billing@acme.example",
+          "Department": "Billing"
         }
       },
       "CompanyDetails": null,
@@ -148,26 +148,26 @@ Extent of data to be returned. E.g. it is possible to specify that together with
           "BillCompanyData": {
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "Address": {
-              "Line1": "Joe Doe street",
-              "Line2": "Very long ave",
-              "City": "Townston",
-              "PostalCode": "154 00",
-              "SubdivisionCode": "AU-NSW",
-              "CountryCode": "AU"
+              "Line1": "I.P. Pavlova 5",
+              "Line2": null,
+              "City": "Prague",
+              "PostalCode": "12000",
+              "SubdivisionCode": "CZ-PR",
+              "CountryCode": "CZ"
             },
             "LegalIdentifiers": {
-              "TaxIdentifier": "CZ8810310963",
+              "TaxIdentifier": "CZ24227781",
               "CityOfRegistration": "Prague"
             },
             "BillingCode": "Billing code value",
             "Name": "Acme, Inc.",
             "FiscalIdentifier": "Fiscal identifier",
             "AdditionalTaxIdentifier": "Additional tax identifier",
-            "DUNS": null,
-            "Telephone": null,
-            "TaxIdentifier": null,
-            "InvoicingEmail": null,
-            "Department": null
+            "DUNS": "150483782",
+            "Telephone": "+420123456789",
+            "TaxIdentifier": "CZ24227781",
+            "InvoicingEmail": "billing@acme.example",
+            "Department": "Billing"
           }
         }
       ],
@@ -431,26 +431,26 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
         "Value": {
           "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
           "Address": {
-            "Line1": "Joe Doe street",
-            "Line2": "Very long ave",
-            "City": "Townston",
-            "PostalCode": "154 00",
-            "SubdivisionCode": "AU-NSW",
-            "CountryCode": "AU"
+            "Line1": "I.P. Pavlova 5",
+            "Line2": null,
+            "City": "Prague",
+            "PostalCode": "12000",
+            "SubdivisionCode": "CZ-PR",
+            "CountryCode": "CZ"
           },
           "LegalIdentifiers": {
-            "TaxIdentifier": "CZ8810310963",
+            "TaxIdentifier": "CZ24227781",
             "CityOfRegistration": "Prague"
           },
           "BillingCode": "Billing code value",
           "Name": "Acme, Inc.",
           "FiscalIdentifier": "Fiscal identifier",
           "AdditionalTaxIdentifier": "Additional tax identifier",
-          "DUNS": null,
-          "Telephone": null,
-          "TaxIdentifier": null,
-          "InvoicingEmail": null,
-          "Department": null
+          "DUNS": "150483782",
+          "Telephone": "+420123456789",
+          "TaxIdentifier": "CZ24227781",
+          "InvoicingEmail": "billing@acme.example",
+          "Department": "Billing"
         }
       },
       "CompanyDetails": null,
@@ -461,26 +461,26 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
           "BillCompanyData": {
             "Id": "26afba60-06c3-455b-92db-0e3983be0b1d",
             "Address": {
-              "Line1": "Joe Doe street",
-              "Line2": "Very long ave",
-              "City": "Townston",
-              "PostalCode": "154 00",
-              "SubdivisionCode": "AU-NSW",
-              "CountryCode": "AU"
+              "Line1": "I.P. Pavlova 5",
+              "Line2": null,
+              "City": "Prague",
+              "PostalCode": "12000",
+              "SubdivisionCode": "CZ-PR",
+              "CountryCode": "CZ"
             },
             "LegalIdentifiers": {
-              "TaxIdentifier": "CZ8810310963",
+              "TaxIdentifier": "CZ24227781",
               "CityOfRegistration": "Prague"
             },
             "BillingCode": "Billing code value",
             "Name": "Acme, Inc.",
             "FiscalIdentifier": "Fiscal identifier",
             "AdditionalTaxIdentifier": "Additional tax identifier",
-            "DUNS": null,
-            "Telephone": null,
-            "TaxIdentifier": null,
-            "InvoicingEmail": null,
-            "Department": null
+            "DUNS": "150483782",
+            "Telephone": "+420123456789",
+            "TaxIdentifier": "CZ24227781",
+            "InvoicingEmail": "billing@acme.example",
+            "Department": "Billing"
           }
         }
       ],
@@ -587,7 +587,7 @@ Options of the bill.
 | `Name` | string | required | Name of the company. |
 | `FiscalIdentifier` | string | optional | Fiscal identifier of the company. |
 | `AdditionalTaxIdentifier` | string | optional | Additional tax identifier of the company. |
-| `DUNS` | string | optional | DUNS of the company. |
+| `DUNS` | string | optional | DUNS (Data Universal Numbering System) number of the company. |
 | `Telephone` | string | optional | Company telephone number. |
 | `TaxIdentifier` | string | optional | Tax identifier of the company. |
 | `InvoicingEmail` | string | optional | Invoicing email of the company. |
