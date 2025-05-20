@@ -22,11 +22,11 @@ This section describes all operations supported by the API, organised here by th
 
 | <div style="width:200px">Operation</div> | Description |
 | :-- | :-- |
-| [Get all billing automations](billingautomations.md#get-all-billing-automations) | Returns all billing automations of the enterprise |
-| [Add billing automations](billingautomations.md#add-billing-automations) | Adds new billing automations |
-| [Update billing automations](billingautomations.md#update-billing-automations) | Updates selected billing automations |
-| [Update billing automation assignments](billingautomations.md#update-billing-automation-assignments) | Updates assignments for selected billing automations |
-| [Delete billing automations](billingautomations.md#delete-billing-automations) | Deletes selected billing automations |
+| [Get all billing automations](billingautomations.md#get-all-billing-automations) | **Restricted!** Returns all billing automations of the enterprise |
+| [Add billing automations](billingautomations.md#add-billing-automations) | **Restricted!** Adds new billing automations |
+| [Update billing automations](billingautomations.md#update-billing-automations) | **Restricted!** Updates selected billing automations |
+| [Update billing automation assignments](billingautomations.md#update-billing-automation-assignments) | **Restricted!** Updates assignments for selected billing automations |
+| [Delete billing automations](billingautomations.md#delete-billing-automations) | **Restricted!** Deletes selected billing automations |
 
 
 ## Configuration
