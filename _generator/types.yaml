@@ -1874,3 +1874,21 @@ types:
   billingautomationdeleteparameters:
     file: billingautomations.md
     anchor: billing-automation-delete-parameters
+  producttypeenum:
+    file: orderitems.md
+    anchor: product-type
+  orderitemallowancediscountdata:
+    file: orderitems.md
+    anchor: allowance-discount-data
+  orderitemallowancebreakagedata:
+    file: orderitems.md
+    anchor: allowance-breakage-data
+  orderitemallowancecontrabreakagedata:
+    file: orderitems.md
+    anchor: allowance-breakage-contra-revenue-data
+  orderitemallowancelossdata:
+    file: orderitems.md
+    anchor: allowance-loss-data
+  orderitemallowancecontralossdata:
+    file: orderitems.md
+    anchor: allowance-loss-contra-revenue-data

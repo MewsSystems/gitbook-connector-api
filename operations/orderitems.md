@@ -358,6 +358,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `AllowanceDiscount`
 * `AllowanceBreakage`
 * `AllowanceContraBreakage`
+* `AllowanceLoss`
+* `AllowanceContraLoss`
 
 #### Order item options
 Options of the order item.
@@ -374,11 +376,21 @@ Additional order item data.
 | `Discriminator` | [Order item data discriminator](orderitems.md#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
 | `Rebate` | [Rebate data](orderitems.md#rebate-data) | optional | Contains additional data in the case of rebate item. |
 | `Product` | [Product data](orderitems.md#product-data) | optional | Contains additional data in the case of product item. |
+| `AllowanceDiscount` | [Allowance Discount Data](orderitems.md#allowance-discount-data) | optional | Contains additional data in the case of allowance discount. |
+| `AllowanceBreakage` | [Allowance Breakage Data](orderitems.md#allowance-breakage-data) | optional | Contains additional data in the case of allowance breakage (profit). |
+| `AllowanceContraBreakage` | [Allowance Breakage Contra Revenue Data](orderitems.md#allowance-breakage-contra-revenue-data) | optional | Contains additional data in the case of allowance breakage contra revenue. |
+| `AllowanceLoss` | [Allowance Loss Data](orderitems.md#allowance-loss-data) | optional | Contains additional data in the case of allowance loss. |
+| `AllowanceContraLoss` | [Allowance Loss Contra Revenue Data](orderitems.md#allowance-loss-contra-revenue-data) | optional | Contains additional data in the case of allowance breakage contra revenue. |
 
 #### Order item data discriminator
 
-* `Rebate`
-* `Product`
+* `Rebate` - Rebate.
+* `Product` - Product.
+* `AllowanceDiscount` - Allowance discount.
+* `AllowanceBreakage` - Profit of the allowance product.
+* `AllowanceBreakageContraRevenue` - Accounting balance for profit of the allowance product.
+* `AllowanceLoss` - Loss of the allowance product.
+* `AllowanceLossContraRevenue` - Accounting balance for loss of the allowance product.
 
 #### Rebate data
 
@@ -393,6 +405,53 @@ Additional order item data.
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
+| `ProductType` | [Product type](orderitems.md#product-type) | required | Type of Product, e.g. whether allowance or product. |
+
+#### Product type
+
+* `Product`
+* `Allowance`
+
+#### Allowance Discount Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
+| `DiscountedOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been discounted by current item. |
+| `DiscountedProductId` | string | optional | Unique identifier of the [Product](products.md#product) which has been been discounted by current item. |
+
+#### Allowance Breakage Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
+| `ContraBreakageOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which balances current item. |
+
+#### Allowance Breakage Contra Revenue Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
+| `BreakageOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been balanced by current item. |
+
+#### Allowance Loss Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
+| `ContraLossOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which balances current item. |
+
+#### Allowance Loss Contra Revenue Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
+| `LossOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been balanced by current item. |
 
 #### Tax exemption reason type
 

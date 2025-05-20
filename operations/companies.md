@@ -515,7 +515,7 @@ Credit rating to define creditworthiness of the company.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Basic` | [CreditRatingBasicUpdateValue](_objects.md#string-update-value) | optional | Credit status of a company (or `null` if the credit status should not be updated). |
+| `Basic` | [Credit rating basic update value](_objects.md#string-update-value) | optional | Credit status of a company (or `null` if the credit status should not be updated). |
 
 ### Response
 
