@@ -1,5 +1,9 @@
 # Changelog
 
+## 26th May 2025
+* [Get all orderitems](../operations/orderitems.md#get-all-order-items):
+    * Extended [Order item data](../operations/orderitems#order-item-data) response object with `allowances` order items data.
+
 ## 22nd May 2025
 * [Get all customers](../operations/customers.md#get-all-customers):  
 * [Search customers](../operations/customers.md#search-customers):
