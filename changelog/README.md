@@ -1,5 +1,15 @@
 # Changelog
 
+## 21st May 2025
+* [Get all customers](../operations/customers.md#get-all-customers):
+  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+* [Search customers](../operations/customers.md#search-customers):
+  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+* [Add customer](../operations/customers.md#add-customer):
+  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+* [Update customer](../operations/customers.md#update-customer):
+  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+
 ## 19th May 2025
 * [Get all rates](../operations/rates.md#get-all-rates):
   * Extended [Rate](../operations/rates.md#rate) response object with `IsDefault` property.
