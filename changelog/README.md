@@ -1,14 +1,19 @@
 # Changelog
 
-## 21st May 2025
-* [Get all customers](../operations/customers.md#get-all-customers):
-  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+## 22nd May 2025
+* [Get all customers](../operations/customers.md#get-all-customers):  
 * [Search customers](../operations/customers.md#search-customers):
-  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
 * [Add customer](../operations/customers.md#add-customer):
-  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
 * [Update customer](../operations/customers.md#update-customer):
   * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+
+## 20th May 2025
+* [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations):
+* [Add billing automations](../operations/billingautomations.md#add-billing-automations):
+* [Update billing automations](../operations/billingautomations.md#update-billing-automations):
+* [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments):
+* [Delete billing automations](../operations/billingautomations.md#delete-billing-automations):
+  * Added new operations (restricted).
 
 ## 19th May 2025
 * [Get all rates](../operations/rates.md#get-all-rates):
