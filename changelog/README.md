@@ -1,5 +1,13 @@
 # Changelog
 
+## 20th May 2025
+* [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations):
+* [Add billing automations](../operations/billingautomations.md#add-billing-automations):
+* [Update billing automations](../operations/billingautomations.md#update-billing-automations):
+* [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments):
+* [Delete billing automations](../operations/billingautomations.md#delete-billing-automations):
+  * Added new operations (restricted).
+
 ## 19th May 2025
 * [Get all rates](../operations/rates.md#get-all-rates):
   * Extended [Rate](../operations/rates.md#rate) response object with `IsDefault` property.
