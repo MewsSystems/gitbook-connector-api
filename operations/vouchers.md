@@ -359,7 +359,7 @@ Updates information about the specified vouchers. Note this operation supports [
 | :-- | :-- | :-- | :-- |
 | `VoucherId` | string | required | Unique identifier of the Voucher. |
 | `Name` | [String update value](_objects.md#string-update-value) | optional, max length 128 characters | Internal name of the voucher (or `null` if the name should not be updated). |
-| `Type` | [VoucherTypeUpdateValue](_objects.md#string-update-value) | optional | Type of the voucher e.g. 'Public', 'PartnerCompany' or 'TravelAgency' (or `null` if the type should not be updated). |
+| `Type` | [Voucher Type update value](_objects.md#string-update-value) | optional | Type of the voucher e.g. 'Public', 'PartnerCompany' or 'TravelAgency' (or `null` if the type should not be updated). |
 | `CompanyId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of Company (Company or Travel Agency) the voucher is related to. This is required for Type of `PartnerCompany` or `TravelAgency`. Use `null` if Company should not be updated. |
 | `AssignedRateIds` | [Assigned rate ids](vouchers.md#assigned-rate-ids) | optional | Unique identifiers of Rates (or `null` should it not be updated). |
 | `OccupiableIntervalStartUtc` | [String update value](_objects.md#string-update-value) | optional | Start of the interval in which the voucher can be applied (or `null` if the start time should not be updated). |
