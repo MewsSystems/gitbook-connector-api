@@ -417,41 +417,31 @@ Additional order item data.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
 | `DiscountedOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been discounted by current item. |
-| `DiscountedProductId` | string | optional | Unique identifier of the [Product](products.md#product) which has been been discounted by current item. |
 
 #### Allowance Breakage Data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
-| `ContraBreakageOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which balances current item. |
 
 #### Allowance Breakage Contra Revenue Data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
-| `BreakageOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been balanced by current item. |
 
 #### Allowance Loss Data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
-| `ContraLossOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which balances current item. |
 
 #### Allowance Loss Contra Revenue Data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-| `AllowanceProductId` | string | required | Unique identifier of the allowance [Product](products.md#product) which credit been been consumed by current item. |
-| `LossOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been balanced by current item. |
 
 #### Tax exemption reason type
 
