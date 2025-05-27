@@ -1,5 +1,13 @@
 # Changelog
 
+## 27th May 2025
+* [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
+  * Added `PurchaseOrderNumber` request parameter.
+* [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
+  * Added `PurchaseOrderNumber` request parameter.
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended response object with `PurchaseOrderNumber` property.
+
 ## 22nd May 2025
 * [Get all customers](../operations/customers.md#get-all-customers):  
 * [Search customers](../operations/customers.md#search-customers):
