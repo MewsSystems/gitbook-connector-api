@@ -33,7 +33,7 @@ tags:
   - identitydocuments
   - images
   # - languages
-  # - loyaltymemberships
+  - loyaltymemberships
   # - loyaltyprograms
   # - loyaltytiers
   # - messages
