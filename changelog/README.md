@@ -1,5 +1,9 @@
 # Changelog
 
+## 27th May 2025
+* [Get all products](../operations/products.md#get-all-products):
+  * Extended [product classifications](../operations/products.md#product-classifications) with `Fee`.
+
 ## 22nd May 2025
 * [Get all customers](../operations/customers.md#get-all-customers):  
 * [Search customers](../operations/customers.md#search-customers):
