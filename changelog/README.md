@@ -3,6 +3,29 @@
 ## 28th May 2025
 * [Certification](../your-journey/certification.md) page re-written to reference the new Partner Portal, and for improved clarity. Documentation-only, no change to API.  
 
+## 27th May 2025
+* [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
+  * Added `PurchaseOrderNumber` request parameter.
+* [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
+  * Added `PurchaseOrderNumber` request parameter.
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended response object with `PurchaseOrderNumber` property.
+
+## 22nd May 2025
+* [Get all customers](../operations/customers.md#get-all-customers):  
+* [Search customers](../operations/customers.md#search-customers):
+* [Add customer](../operations/customers.md#add-customer):
+* [Update customer](../operations/customers.md#update-customer):
+  * Extended [Customer](../operations/customers.md#customer) response object with `CreatorProfileId` and `UpdaterProfileId` properties.
+
+## 20th May 2025
+* [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations):
+* [Add billing automations](../operations/billingautomations.md#add-billing-automations):
+* [Update billing automations](../operations/billingautomations.md#update-billing-automations):
+* [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments):
+* [Delete billing automations](../operations/billingautomations.md#delete-billing-automations):
+  * Added new operations (restricted).
+
 ## 19th May 2025
 * [Get all rates](../operations/rates.md#get-all-rates):
   * Extended [Rate](../operations/rates.md#rate) response object with `IsDefault` property.

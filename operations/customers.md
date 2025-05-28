@@ -150,7 +150,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "IsActive": true,
       "PreferredSpaceFeatures": [
         "OceanView"
-      ]
+      ],
+      "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+      "UpdaterProfileId": "122fc063-ec6e-4198-b8db-6b168a59ffae"
     }
   ],
   "Documents": null,
@@ -203,6 +205,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the customer. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who last updated the customer. |
 | ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
@@ -517,7 +521,9 @@ Adds a new customer to the system and returns details of the added customer. If 
   "IsActive": true,
   "PreferredSpaceFeatures": [
     "LowerBed"
-  ]
+  ],
+  "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+  "UpdaterProfileId": "122fc063-ec6e-4198-b8db-6b168a59ffae"
 }
 ```
 
@@ -558,6 +564,8 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the customer. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who last updated the customer. |
 | ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
@@ -708,7 +716,9 @@ Updates personal information of a customer. Note that if any of the fields is le
   "IsActive": true,
   "PreferredSpaceFeatures": [
     "LowerBed"
-  ]
+  ],
+  "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+  "UpdaterProfileId": "122fc063-ec6e-4198-b8db-6b168a59ffae"
 }
 ```
 
@@ -749,6 +759,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
 | `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
+| `CreatorProfileId` | string | required | Unique identifier of the user who created the customer. |
+| `UpdaterProfileId` | string | required | Unique identifier of the user who last updated the customer. |
 | ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`IdentityCard`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
 | ~~`Visa`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
@@ -899,7 +911,9 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
         "IsActive": true,
         "PreferredSpaceFeatures": [
           "OceanView"
-        ]
+        ],
+        "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+        "UpdaterProfileId": "122fc063-ec6e-4198-b8db-6b168a59ffae"
       },
       "Reservation": null
     }
