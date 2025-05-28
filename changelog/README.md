@@ -1,5 +1,12 @@
 # Changelog
 
+## 28th May 2025
+
+* [Get All Loyalty Memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
+* [Add Loyalty Memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+* [Update Loyalty Memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+* [Delete Loyalty Membership](../operations/loyaltymemberships.md#delete-loyalty-memberships)
+
 ## 22nd May 2025
 * [Get all customers](../operations/customers.md#get-all-customers):  
 * [Search customers](../operations/customers.md#search-customers):
