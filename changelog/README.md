@@ -1,6 +1,6 @@
 # Changelog
 
-## 23rd May 2025
+## 28th May 2025
 * [Certification](../your-journey/certification.md) page re-written to reference the new Partner Portal, and for improved clarity. Documentation-only, no change to API.  
 
 ## 19th May 2025
