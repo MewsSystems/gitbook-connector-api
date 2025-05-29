@@ -1888,13 +1888,13 @@ types:
     anchor: loyalty-membership-filter-parameters
   multipleloyaltymembershipaddparameters:
     file: loyaltymemberships.md
-    anchor: multiple-loyalty-membership-add-parameters
+    anchor: multipleloyaltymembershipaddparameters
   loyaltymembershipaddparameters:
     file: loyaltymemberships.md
-    anchor: loyalty-membership-add-parameters
+    anchor: loyalty-membership-parameters
   multipleloyaltymembershipupdateparameters:
     file: loyaltymemberships.md
-    anchor: multiple-loyalty-membership-update-parameters
+    anchor: multipleloyaltymembershipupdateparameters
   loyaltymembershipupdateparameters:
     file: loyaltymemberships.md
     anchor: loyalty-membership-update-parameters

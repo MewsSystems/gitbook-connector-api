@@ -73,14 +73,6 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
 | `ProviderMembershipIds` | array of string | optional, max 1000 items | List of unique loyalty membership identifiers assigned and managed by the external loyalty provider's system. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
 
-#### Loyalty membership state
-
-* `New`
-* `Pending`
-* `Enrolled`
-* `Canceled`
-* `Declined`
-
 ### Response
 
 ```javascript
@@ -109,7 +101,7 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `LoyaltyMemberships` | array of [Loyalty membership](loyaltymemberships.md#loyalty-membership) | required | Loyalty memberships. |
+| `LoyaltyMemberships` | array of [Loyalty membership](loyaltymemberships.md#loyalty-membership) | required | The loyalty memberships of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Loyalty membership
@@ -175,16 +167,16 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `LoyaltyMemberships` | array of [Loyalty membership add parameters](loyaltymemberships.md#loyalty-membership-add-parameters) | required, max 1000 items | Loyalty memberships to be added. |
+| `LoyaltyMemberships` | array of [Loyalty membership parameters](loyaltymemberships.md#loyalty-membership-parameters) | required, max 1000 items | Loyalty memberships to be added. |
 
-#### Loyalty membership add parameters
+#### Loyalty membership parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AccountId` | string | required | Unique identifier of the customer account. |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership for the account. |
-| `State` | [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | required | State of the loyalty membership. |
+| `State` | [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | optional | State of the loyalty membership. |
 | `Code` | string | optional, max length 255 characters | Loyalty membership code, such as an identification number printed on a loyalty card visible to the customer. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
@@ -219,7 +211,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `LoyaltyMemberships` | array of [Loyalty membership](loyaltymemberships.md#loyalty-membership) | required | Loyalty memberships. |
+| `LoyaltyMemberships` | array of [Loyalty membership](loyaltymemberships.md#loyalty-membership) | required | The loyalty memberships of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 ## Update loyalty memberships
@@ -324,7 +316,7 @@ Updates information about the specified loyalty memberships. Note this operation
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `LoyaltyMemberships` | array of [Loyalty membership](loyaltymemberships.md#loyalty-membership) | required | Loyalty memberships. |
+| `LoyaltyMemberships` | array of [Loyalty membership](loyaltymemberships.md#loyalty-membership) | required | The loyalty memberships of the enterprise. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 ## Delete loyalty memberships
