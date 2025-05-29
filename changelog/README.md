@@ -1,5 +1,8 @@
 # Changelog
 
+## 28th May 2025
+* [Certification](../your-journey/certification.md) page re-written to reference the new Partner Portal, and for improved clarity. Documentation-only, no change to API.  
+
 ## 27th May 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
   * Added `PurchaseOrderNumber` request parameter.
