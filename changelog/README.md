@@ -2,6 +2,7 @@
 
 ## 28th May 2025
 * [Get All Loyalty Memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
+  * Extended request and response with `ProviderMembershipId` property.
 * [Add Loyalty Memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
 * [Update Loyalty Memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
 * [Delete Loyalty Membership](../operations/loyaltymemberships.md#delete-loyalty-memberships)
