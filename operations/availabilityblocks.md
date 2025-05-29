@@ -120,7 +120,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "IsActive": false,
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
-      "ReleaseStrategy": "FixedRelease"
+      "ReleaseStrategy": "FixedRelease",
+      "PurchaseOrderNumber": "XX-123"
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -216,6 +217,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
 | `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
+| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 
 #### Availability block state
 
@@ -310,6 +312,7 @@ Adds availability blocks which are used to group related `Availability updates`.
 | `Notes` | string | optional | Additional notes of the block. |
 | `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
+| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 
 ### Response
 
@@ -537,6 +540,7 @@ Updates information about the specified `Availability block`. Note this operatio
 | `ReleasedUtc` | [String update value](_objects.md#string-update-value) | optional | The moment when the block and its availability is released, in UTC timezone ISO 8601 format. Required if `ReleaseStrategy` is set to `FixedRelease`, or used when `ReleaseStrategy` update is unspecified. |
 | `ReleaseStrategy` | [Release strategy update value](availabilityblocks.md#release-strategy-update-value) | optional | The strategy for automatic release of the availability block (or `null` if not updated). |
 | `QuoteId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the Mews Events quote associated with the availability block (or `null` if not updated). |
+| `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 
 #### Currency value (ver 2018-06-07) update value
 
