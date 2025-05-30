@@ -176,7 +176,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 | `AccountId` | string | required | Unique identifier of the customer account. |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership for the account. |
-| `State` | [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | optional | State of the loyalty membership. |
+| `State` | [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | optional | State of the loyalty membership. The default is `Enrolled`. |
 | `Code` | string | optional, max length 255 characters | Loyalty membership code, such as an identification number printed on a loyalty card visible to the customer. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
