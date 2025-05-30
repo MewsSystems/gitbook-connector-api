@@ -8,7 +8,6 @@
   * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
 * [Update Loyalty Memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
   * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
-* [Delete Loyalty Membership](../operations/loyaltymemberships.md#delete-loyalty-memberships)
 
 ## 27th May 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
