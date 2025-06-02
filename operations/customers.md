@@ -385,12 +385,12 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Title` | [Title](customers.md#title) | required | Title prefix of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title prefix of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the `Country`. |
-| `Sex` | [Sex](customers.md#sex) | required | Sex of the customer. |
+| `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Occupation` | string | optional | Occupation of the customer. |
