@@ -1,5 +1,9 @@
 # Changelog
 
+## 2nd June 2025
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
+
 ## 28th May 2025
 * [Get All Loyalty Memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
   * Extended request with `ProviderMembershipId` property.
