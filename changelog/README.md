@@ -1,5 +1,11 @@
 # Changelog
 
+## 4th June 2025
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object [Enterprise](configuration.md#enterprise) with `HoldingKey`and `ChainName`properties.
+* [Get all enterprises](../operations/enterprises.md#get-all-enterprises):
+  * Extended response object [Enterprise](enterprises.md#enterprise) with `HoldingKey`and `ChainName`properties.
+  
 ## 2nd June 2025
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
