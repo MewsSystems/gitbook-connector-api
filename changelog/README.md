@@ -5,13 +5,13 @@
   * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
 
 ## 28th May 2025
-* [Get All Loyalty Memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
+* [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships):
   * Extended request with `ProviderMembershipId` property.
   * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
-* [Add Loyalty Memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+* [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships):
   * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
   * Fixed documentation for the `State` property in the [request parameters](../operations/loyaltymemberships.md#loyalty-membership-parameters): changed contract from **required** to **optional** and clarified the default value. Documentation-only, no change to API.
-* [Update Loyalty Memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+* [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships):
   * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
 
 ## 27th May 2025
