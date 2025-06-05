@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th June 2025
+* [Get all orderitems](../operations/orderitems.md#get-all-order-items):
+    * Extended [Order item data](../operations/orderitems#order-item-data) response object with `allowances` order items data.
+
 ## 2nd June 2025
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
