@@ -605,6 +605,7 @@ Options of the bill.
 | `FirstName` | string | optional | First name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `TitlePrefix` | [Title](customers.md#title) | optional | Title prefix of the customer. |
+| `TaxIdentifier` | string | optional | Tax identifier of the customer. |
 
 #### Bill owner data
 Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill.

@@ -1,8 +1,30 @@
 # Changelog
 
-## 27th May 2025
+## 5th May 2025
 * [Get all products](../operations/products.md#get-all-products):
   * Extended [product classifications](../operations/products.md#product-classifications) with `Fee`.
+
+## 2nd June 2025
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
+
+## 28th May 2025
+* [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships):
+  * Extended request with `ProviderMembershipId` property.
+  * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
+* [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships):
+  * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
+  * Fixed documentation for the `State` property in the [request parameters](../operations/loyaltymemberships.md#loyalty-membership-parameters): changed contract from **required** to **optional** and clarified the default value. Documentation-only, no change to API.
+* [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships):
+  * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
+
+## 27th May 2025
+* [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
+  * Added `PurchaseOrderNumber` request parameter.
+* [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
+  * Added `PurchaseOrderNumber` request parameter.
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+  * Extended response object with `PurchaseOrderNumber` property.
 
 ## 22nd May 2025
 * [Get all customers](../operations/customers.md#get-all-customers):  

@@ -33,7 +33,7 @@ The contact details in this case is an accessible URL, provided by you.
 In summary, API Operations are hosted on the Mews side of the integration and they follow the on-demand request model, whereas Webhooks are hosted on the partner side of the integration, and they follow the event model.
 Of course a Webhook is still a web API using request-response because that is how HTTP works, but in this case Mews is doing the requesting; and rather than making the request to get information, Mews is making the request to provide you with information based on some event that occurred in the Mews system.
 
-* For the details of individual Webhooks, the events that generate them and the structure of the data that's sent, see [Webhooks](../webhooks/README.md).
+* For the details of individual Webhooks, the events that generate them and the structure of the data that's sent, see [General Webhooks](wh-general.md) and [Integration Webhooks](wh-integration.md).
 
 ### When are Webhooks generated?
 
@@ -54,6 +54,6 @@ If you really need low latency messages, i.e. real time messages, WebSockets may
 However, there are also disadvantages with using a form of communication that the web wasn't really designed for.
 As a result, Mews provides limited WebSocket support, and it should be considered a special case for rare use cases.
 
-* For details of our WebSockets support, including the list of events and the structure of the data that's sent, see [WebSockets](../websockets/README.md).
+* For details of our WebSockets support, including the list of events and the structure of the data that's sent, see [WebSockets](websockets.md).
 
 ![](../.gitbook/assets/websockets.png)

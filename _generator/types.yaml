@@ -1874,3 +1874,36 @@ types:
   billingautomationdeleteparameters:
     file: billingautomations.md
     anchor: billing-automation-delete-parameters
+  loyaltymembershipresult:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-result
+  loyaltymembership:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership
+  loyaltymembershipstate:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-state
+  loyaltymembershipfilterparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-filter-parameters
+  multipleloyaltymembershipaddparameters:
+    file: loyaltymemberships.md
+    anchor: multipleloyaltymembershipaddparameters
+  loyaltymembershipaddparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-parameters
+  multipleloyaltymembershipupdateparameters:
+    file: loyaltymemberships.md
+    anchor: multipleloyaltymembershipupdateparameters
+  loyaltymembershipupdateparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-update-parameters
+  loyaltymembershipdeleteparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-delete-parameters
+  loyaltymembershipstateenum:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-state
+  loyaltymembershipstateupdatevalue:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-state-update-value
