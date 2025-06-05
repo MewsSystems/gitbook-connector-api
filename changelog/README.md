@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th May 2025
+* [Get all products](../operations/products.md#get-all-products):
+  * Extended [product classifications](../operations/products.md#product-classifications) with `Fee`.
+
 ## 2nd June 2025
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
