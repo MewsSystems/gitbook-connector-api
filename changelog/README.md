@@ -6,7 +6,7 @@
 * [Get all enterprises](../operations/enterprises.md#get-all-enterprises):
   * Extended response object [Enterprise](enterprises.md#enterprise) with `HoldingKey`and `ChainName`properties.
   
-## 5th May 2025
+## 5th June 2025
 * [Get all products](../operations/products.md#get-all-products):
   * Extended [product classifications](../operations/products.md#product-classifications) with `Fee`.
 
