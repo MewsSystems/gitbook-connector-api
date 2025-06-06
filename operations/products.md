@@ -81,7 +81,8 @@ Returns all products offered together with the specified services. Note this ope
         "Food": false,
         "Beverage": false,
         "Wellness": false,
-        "CityTax": false
+        "CityTax": false,
+        "Fee": false
       },
       "Price": {
         "GrossValue": 25,
@@ -133,7 +134,8 @@ Returns all products offered together with the specified services. Note this ope
         "Food": false,
         "Beverage": false,
         "Wellness": false,
-        "CityTax": false
+        "CityTax": false,
+        "Fee": false
       },
       "Price": {
         "GrossValue": 25,
@@ -224,6 +226,7 @@ Returns all products offered together with the specified services. Note this ope
 | `Beverage` | boolean | required | Product is classified as beverage. |
 | `Wellness` | boolean | required | Product is classified as wellness. |
 | `CityTax` | boolean | required | Product is classified as city tax. |
+| `Fee` | boolean | required | Product is classified as fee. |
 
 #### Product pricing
 
