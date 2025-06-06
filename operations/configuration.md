@@ -67,7 +67,9 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "IsPortfolio": false,
     "Id": "851df8c8-90f2-4c4a-8e01-a4fc46b25178",
     "ExternalIdentifier": null,
+    "HoldingKey": "CA123",
     "ChainId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
+    "ChainName": "Connector API Chain",
     "CreatedUtc": "2015-07-07T13:33:17Z",
     "UpdatedUtc": "2015-07-07T13:33:17Z",
     "Name": "Connector API Hotel",
@@ -151,7 +153,9 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
+| `HoldingKey` | string | optional, max length 255 characters | Identifies an enterprise in the external system of a holding company. The holding company may administer multiple portfolios. |
 | `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
+| `ChainName` | string | required | Name of the chain to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |

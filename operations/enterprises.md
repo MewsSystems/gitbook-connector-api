@@ -56,7 +56,9 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "LinkedUtc": "2023-06-01T00:00:00Z",
       "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ExternalIdentifier": "Enterprise2023",
+      "HoldingKey": "CA123",
       "ChainId": "2f6be44e-9881-4b12-aefe-afce011a9d67",
+      "ChainName": "Connector API Chain",
       "CreatedUtc": "2022-03-23T17:12:06Z",
       "UpdatedUtc": "2022-03-23T17:12:06Z",
       "Name": "Sample Portfolio Hotel",
@@ -111,7 +113,9 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the enterprise. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
+| `HoldingKey` | string | optional, max length 255 characters | Identifies an enterprise in the external system of a holding company. The holding company may administer multiple portfolios. |
 | `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
+| `ChainName` | string | required | Name of the chain to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
