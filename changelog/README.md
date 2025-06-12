@@ -1,5 +1,15 @@
 # Changelog
 
+## 13th June 2025
+* [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents):
+  * **Change in behavior**: The identity document `Number` property is an empty string when the number is not collected in certain regions, such as The Netherlands.
+* [Add identity documents](../operations/identitydocuments.md#add-identity-documents):
+  * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, use an empty string for the `Number` property.
+* [Update identity documents](../operations/identitydocuments.md#update-identity-documents):
+* [Add customer](../operations/customers.md#add-customer):
+* [Update customer](../operations/customers.md#update-customer):
+  * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, do not use the optional `Number` property.
+
 ## 6th June 2025
 * [Get configuration](../operations/configuration.md#get-configuration):
   * Extended response object [Enterprise](configuration.md#enterprise) with `HoldingKey`and `ChainName`properties.

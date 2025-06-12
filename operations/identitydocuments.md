@@ -84,7 +84,7 @@ Returns all identity documents for the specified customers, with additional filt
 | `Id` | string | required | Unique identifier of the document. |
 | `CustomerId` | string | required | Identifier of the `Customer`. |
 | `Type` | [Document type](reservations.md#document-type) | required | Type of the document. |
-| `Number` | string | required | Number of the document (e.g. passport number). |
+| `Number` | string | required | Number of the document (e.g. passport number). The value is an empty string when the number is not collected in certain regions, such as The Netherlands. |
 | `ExpirationDate` | string | optional | Expiration date in ISO 8601 format. |
 | `IssuanceDate` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
@@ -134,7 +134,7 @@ Adds identity documents. This operation supports [Portfolio Access Tokens](../co
 | :-- | :-- | :-- | :-- |
 | `CustomerId` | string | required | Identifier of the `Customer`. |
 | `Type` | [Document type](reservations.md#document-type) | required | Type of the document. |
-| `Number` | string | required | Number of the document (e.g. passport number). |
+| `Number` | string | required | Number of the document (e.g. passport number). If the number is not collected in certain regions, such as The Netherlands, use an empty string. In all other cases, a value should be supplied. |
 | `ExpirationDate` | string | optional | Expiration date in ISO 8601 format. |
 | `IssuanceDate` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`). |
