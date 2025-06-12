@@ -9,6 +9,8 @@
 * [Add customer](../operations/customers.md#add-customer):
 * [Update customer](../operations/customers.md#update-customer):
   * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, do not use the optional `Number` property.
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object with `IsIdentityDocumentNumberRequired` properties.
 
 ## 6th June 2025
 * [Get configuration](../operations/configuration.md#get-configuration):
