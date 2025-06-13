@@ -136,7 +136,8 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "CreatedUtc": "2023-10-01T11:48:57Z",
     "UpdatedUtc": "2023-10-28T11:48:57Z"
   },
-  "PaymentCardStorage": null
+  "PaymentCardStorage": null,
+  "IsIdentityDocumentNumberRequired": true
 }
 ```
 
@@ -146,6 +147,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Enterprise` | [Enterprise](configuration.md#enterprise) | required | The enterprise (e.g. hotel, hostel) associated with the access token. |
 | `Service` | [Service](services.md#service) | optional | The reservable service (e.g. accommodation, parking) associated with the access token of the service scoped integration. |
 | `PaymentCardStorage` | [Payment card storage](configuration.md#payment-card-storage) | optional | Contains information about payment card storage. |
+| `IsIdentityDocumentNumberRequired` | boolean | required | Whether the identity documents for this enterprise include the value of identity document number as required by the legal environment. When `false`, the number is not required, and an empty string can be used in write operations. In read operations, an empty string is returned when an empty string was provided for the number. |
 
 #### Enterprise
 
@@ -155,7 +157,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
 | `HoldingKey` | string | optional, max length 255 characters | Identifies an enterprise in the external system of a holding company. The holding company may administer multiple portfolios. |
 | `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
-| `ChainName` | string | required | Name of the chain to which the enterprise belongs. |
+| `ChainName` | string | required | Name of the `Chain` to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
