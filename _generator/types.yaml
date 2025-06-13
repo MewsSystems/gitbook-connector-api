@@ -1656,13 +1656,13 @@ types:
     anchor: release-strategy-update-value
   rateaddpricingdataparameters:
     file: rates.md
-    anchor: add-rate-pricing-data-parameters
+    anchor: rate-add-pricing-data-parameters
   addbaseratepricingparameters:
     file: rates.md
     anchor: add-base-rate-pricing-parameters
   ratesetpricingdataparameters:
     file: rates.md
-    anchor: set-rate-pricing-parameters
+    anchor: rate-set-pricing-data-parameters
   setbaseratepricingparameters:
     file: rates.md
     anchor: set-base-rate-pricing-parameters
@@ -1907,3 +1907,6 @@ types:
   loyaltymembershipstateupdatevalue:
     file: loyaltymemberships.md
     anchor: loyalty-membership-state-update-value
+  baseratepricingwithoutadjustmentsparameters:
+    file: rates.md
+    anchor: base-rate-pricing-parameters

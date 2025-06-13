@@ -458,7 +458,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate add pricing data parameters](rates.md#rate-add-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
 #### Rate Add Type
 
@@ -470,7 +470,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 * `BaseRatePricing`
 * `DependentRatePricing`
 
-#### Rate pricing data parameters
+#### Rate add pricing data parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -613,9 +613,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
           "Amount": {
             "Currency": "EUR",
             "NetValue": 100
-          },
-          "NegativeOccupancyAdjustment": 0,
-          "ExtraOccupancyAdjustment": 0
+          }
         }
       }
     },
@@ -666,7 +664,20 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Rate pricing type. Must match existing pricing type in case of update. |
-| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate set pricing data parameters](rates.md#rate-set-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+
+#### Rate set pricing data parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
+
+#### Base rate pricing parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | required | Price of the product that overrides the price defined in Mews. |
 
 ### Response
 
