@@ -28,6 +28,12 @@ Returns all reservations within scope of the Access Token, filtered according to
   "AccountIds": [
     "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
   ],
+  "PartnerCompanyIds": [
+    "c021013e-4930-4592-8e32-91b0b1fc9663"
+  ],
+  "TravelAgencyIds": [
+    "a793d381-65a2-4fa6-9514-00c4c5bfe607"
+  ],
   "Numbers": [
     "50",
     "51",
@@ -120,8 +126,8 @@ Returns all reservations within scope of the Access Token, filtered according to
       "Origin": "Connector",
       "CommanderOrigin": null,
       "OriginDetails": null,
-      "CreatedUtc": "2023-04-23T14:00:00Z",
-      "UpdatedUtc": "2023-04-23T14:00:00Z",
+      "CreatedUtc": "2023-03-23T16:00:00Z",
+      "UpdatedUtc": "2023-04-22T17:00:00Z",
       "CancelledUtc": null,
       "VoucherId": null,
       "BusinessSegmentId": null,
@@ -137,18 +143,18 @@ Returns all reservations within scope of the Access Token, filtered according to
       "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
       "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "PartnerCompanyId": null,
-      "TravelAgencyId": null,
+      "PartnerCompanyId": "c021013e-4930-4592-8e32-91b0b1fc9663",
+      "TravelAgencyId": "a793d381-65a2-4fa6-9514-00c4c5bfe607",
       "AssignedResourceLocked": false,
       "ChannelNumber": "TW48ZP",
       "ChannelManagerNumber": "",
       "CancellationReason": null,
       "ReleasedUtc": null,
       "StartUtc": "2023-04-23T14:00:00Z",
-      "EndUtc": "2023-04-23T14:00:00Z",
+      "EndUtc": "2023-04-25T12:00:00Z",
       "ScheduledStartUtc": "2023-04-23T14:00:00Z",
       "ActualStartUtc": null,
-      "ScheduledEndUtc": null,
+      "ScheduledEndUtc": "2023-04-25T12:00:00Z",
       "ActualEndUtc": null,
       "Purpose": "Leisure",
       "QrCodeData": null,
