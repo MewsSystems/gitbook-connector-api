@@ -1,5 +1,9 @@
 # Changelog
 
+## 16th June 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `PartnerCompanyIds` and `TravelAgencyIds` filtering parameters.
+
 ## 13th June 2025
 * [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents):
   * **Change in behavior**: The identity document `Number` property is an empty string when the number is not collected in certain regions, such as The Netherlands.
