@@ -86,6 +86,8 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (currently only [Customers](customers.md#customer), in the future also [Companies](companies.md#company)) the reservation is associated with. |
+| `PartnerCompanyIds` | array of string | optional, max 100 items | Unique identifiers of the `Companies` on behalf of which the reservations were made. |
+| `TravelAgencyIds` | array of string | optional, max 100 items | Identifier of the Travel Agencies (`Company`) that mediated the reservations. |
 | `Numbers` | array of string | optional, max 1000 items | Reservation confirmation numbers. |
 | `ChannelNumbers` | array of string | optional, max 100 items | Numbers or references used by a Channel (OTA, GDS, CRS, etc.) in case the reservation group originates there, e.g. Booking.com confirmation numbers. |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Resources](resources.md#resource) assigned to the reservations. |
