@@ -72,6 +72,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "AssignedResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
             "CreatedUtc": "2016-03-29T22:02:34Z",
             "EndUtc": "2016-01-01T16:00:00Z",
+            "DeletedUtc": "",
             "Id": "5ab9d519-2485-4d77-85c4-2a619cbdc4e7",
             "IsActive": true,
             "StartUtc": "2016-01-01T10:00:00Z",
@@ -84,8 +85,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "AssignedResourceId": "f7c4b4f5-ac83-4977-a41a-63d27cc6e3e9",
             "CreatedUtc": "2016-03-29T15:14:06Z",
             "EndUtc": "2016-01-01T16:00:00Z",
+            "DeletedUtc": "2016-02-01T16:00:00Z",
             "Id": "4d98ad40-a726-409e-8bf3-2c12ff3c0331",
-            "IsActive": true,
+            "IsActive": false,
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "OutOfOrder",
             "UpdatedUtc": "2016-03-29T15:14:06Z",
@@ -112,6 +114,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EndUtc` | string | required | End of the block in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | optional | Date and time when the block was deleted (for inactive ones) in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the resource block. |
 | `Notes` | string | optional | Note describing the resource block. |
 
