@@ -561,7 +561,7 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the `Rate`. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
-| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price adjustments for specific time intervals. |
+| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 50 items | Price adjustments for specific time intervals. |
 
 #### Rate price update
 
