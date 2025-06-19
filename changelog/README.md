@@ -1,7 +1,7 @@
 # Changelog
 
 ## 19th June 2025
-* [Update rate capacity offset pricing](rates.md#update-rate-capacity-offsets):
+* [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing):
   * Added new operation for updating rate capacity offset pricing.
 
 ## 16th June 2025
