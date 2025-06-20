@@ -77,6 +77,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "InternalUse",
             "UpdatedUtc": "2016-03-29T22:02:34Z",
+            "DeletedUtc": "",
             "Name": "Resource block 1",
             "Notes": "Note"
         },

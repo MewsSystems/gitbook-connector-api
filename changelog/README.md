@@ -1,6 +1,6 @@
 # Changelog
 
-## 17th June 2025
+## 19th June 2025
 * [Get all resource blocks](../operations/resourceblocks.md#resource-block):
   * Extended response object to include `DeletedUtc` field.
 
