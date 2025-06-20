@@ -71,20 +71,20 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
         {
             "AssignedResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
             "CreatedUtc": "2016-03-29T22:02:34Z",
-            "EndUtc": "2016-01-01T16:00:00Z",            
+            "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "5ab9d519-2485-4d77-85c4-2a619cbdc4e7",
             "IsActive": true,
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "InternalUse",
             "UpdatedUtc": "2016-03-29T22:02:34Z",
-            "DeletedUtc": "",
+            "DeletedUtc": null,
             "Name": "Resource block 1",
             "Notes": "Note"
         },
         {
             "AssignedResourceId": "f7c4b4f5-ac83-4977-a41a-63d27cc6e3e9",
             "CreatedUtc": "2016-03-29T15:14:06Z",
-            "EndUtc": "2016-01-01T16:00:00Z",            
+            "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "4d98ad40-a726-409e-8bf3-2c12ff3c0331",
             "IsActive": false,
             "StartUtc": "2016-01-01T10:00:00Z",
