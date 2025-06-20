@@ -561,7 +561,7 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the `Rate`. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
-| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price adjustments for specific time intervals. |
+| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 50 items | Price adjustments for specific time intervals. |
 
 #### Rate price update
 
@@ -571,6 +571,66 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `Value` | number | optional | New value of the rate on the interval. If not specified, removes all adjustments within the interval. |
 | `FirstTimeUnitStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. |
 | `LastTimeUnitStartUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last [time unit](../concepts/time-units.md), in UTC timezone ISO 8601 format. The maximum size of time interval depends on the service's time unit: 367 hours if hours, 367 days if days, or 24 months if months. |
+
+### Response
+
+```javascript
+{}
+```
+
+## Update rate capacity offset pricing
+
+Updates capacity offset based pricing for specified rates. This operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/rates/updateCapacityOffset`
+
+```javascript
+{
+  "CapacityOffsetUpdates": [
+    {
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+      "NegativeOccupancyAdjustment": {
+        "Value": 10
+      },
+      "ExtraOccupancyAdjustment": {
+        "Value": 20
+      }
+    },
+    {
+      "RateId": "b7e6a1c2-4f3a-4e2b-9c1d-2a5e7b8c9d0f",
+      "ExtraOccupancyAdjustment": {
+        "Value": 15
+      }
+    }
+  ]
+}
+```
+
+Parameters for updating rate capacity offsets in an enterprise.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `CapacityOffsetUpdates` | array of [RateCapacityOffsetUpdateParameters](rates.md#ratecapacityoffsetupdateparameters) | required, max 1000 items | A list of rate capacity offset updates to apply. |
+
+#### RateCapacityOffsetUpdateParameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RateId` | string | required | The unique identifier of the `Rate` to update. |
+| `NegativeOccupancyAdjustment` | [Decimal update value](rates.md#decimal-update-value) | optional | Amount added to the price when occupancy is less than the Space Category Capacity. Use a negative value to provide a discount for under-occupancy. Set to 'null' if not updated. |
+| `ExtraOccupancyAdjustment` | [Decimal update value](rates.md#decimal-update-value) | optional | Amount added to the price when the Space Category Capacity is exceeded. |
+
+#### Decimal update value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Value` | number | required | Value which is to be updated. |
 
 ### Response
 

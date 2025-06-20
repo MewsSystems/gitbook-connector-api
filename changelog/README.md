@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th June 2025
+* [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing):
+  * Added new operation for updating rate capacity offset pricing.
+
 ## 16th June 2025
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
   * Extended request object with `PartnerCompanyIds` and `TravelAgencyIds` filtering parameters.

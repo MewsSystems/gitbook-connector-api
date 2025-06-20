@@ -1907,3 +1907,12 @@ types:
   loyaltymembershipstateupdatevalue:
     file: loyaltymemberships.md
     anchor: loyalty-membership-state-update-value
+  multipleratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: multipleratecapacityoffsetupdateparameters
+  ratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: ratecapacityoffsetupdateparameters
+  decimalupdatevalue:
+    file: _objects.md
+    anchor: decimal-update-value
