@@ -1,5 +1,9 @@
 # Changelog
 
+## 20th June 2025
+* [Get all resource blocks](../operations/resourceblocks.md#resource-block):
+  * Extended response object to include `DeletedUtc` field.
+
 ## 19th June 2025
 * [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing):
   * Added new operation for updating rate capacity offset pricing.
