@@ -708,7 +708,8 @@ Returns channel manager-related details for the specified reservations. Note thi
       "RequestedRateCode": "XyZ123AbC789",
       "ChannelManagerName": "HotelConnect",
       "ChannelNumber": "HC1234",
-      "ChannelManagerNumber": "9E5F7BC3B6F0102",
+      "ChannelManagerGroupNumber": "9E5F7BC3B6F0102",
+      "ChannelManagerNumber": "1",
       "CreatedUtc": "2025-03-10T15:30:00Z"
     },
     {
@@ -716,7 +717,8 @@ Returns channel manager-related details for the specified reservations. Note thi
       "RequestedRateCode": "LmN456OpQ012",
       "ChannelManagerName": "GlobalRes",
       "ChannelNumber": "GR5678",
-      "ChannelManagerNumber": "461190401CD25FE",
+      "ChannelManagerGroupNumber": "461190401CD25FE",
+      "ChannelManagerNumber": "1",
       "CreatedUtc": "2025-03-11T09:45:00Z"
     }
   ]
@@ -735,6 +737,7 @@ Returns channel manager-related details for the specified reservations. Note thi
 | `RequestedRateCode` | string | required | Rate code requested by the channel manager for this reservation. |
 | `ChannelManagerName` | string | optional | Name of the Channel Manager associated with this reservation. |
 | `ChannelNumber` | string | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number). |
+| `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel Manager. |
 | `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
 | `CreatedUtc` | string | required | The timestamp when the Channel Manager reservation was created. |
 
