@@ -3,6 +3,8 @@
 ## 20th June 2025
 * [Get all resource blocks](../operations/resourceblocks.md#resource-block):
   * Extended response object to include `DeletedUtc` field.
+* [Get reservation channel manager details](../operations/reservations.md#get-reservation-channel-manager-details):
+  * Extended response object [Reservation channel manager details](../operations/reservations.md#reservation-channel-manager-details) with `ChannelManagerGroupNumber`.
 
 ## 19th June 2025
 * [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing):
