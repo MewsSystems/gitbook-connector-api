@@ -230,6 +230,7 @@ This section describes all operations supported by the API, organised here by th
 | [Add rates](rates.md#add-rates) | Adds new rates to the enterprise |
 | [Set rates](rates.md#set-rates) | **Restricted!** Adds new or updates existing rates |
 | [Delete rates](rates.md#delete-rates) | Deletes specified rates |
+| [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing) | Updates capacity offset based pricing for specified rates |
 | [Get rate pricing](rates.md#get-rate-pricing) | Returns prices of a rate in the specified interval |
 | [Update rate price](rates.md#update-rate-price) | Updates price of a rate in the specified intervals |
 | [Get all rate groups](rategroups.md#get-all-rate-groups) | Returns all rate groups filtered by rate groups or other filters |

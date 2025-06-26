@@ -1907,21 +1907,12 @@ types:
   loyaltymembershipstateupdatevalue:
     file: loyaltymemberships.md
     anchor: loyalty-membership-state-update-value
-  producttypeenum:
-    file: orderitems.md
-    anchor: product-type
-  orderitemallowancediscountdata:
-    file: orderitems.md
-    anchor: allowance-discount-data
-  orderitemallowancebreakagedata:
-    file: orderitems.md
-    anchor: allowance-breakage-data
-  orderitemallowancecontrabreakagedata:
-    file: orderitems.md
-    anchor: allowance-contra-breakage-data
-  orderitemallowancelossdata:
-    file: orderitems.md
-    anchor: allowance-loss-data
-  orderitemallowancecontralossdata:
-    file: orderitems.md
-    anchor: allowance-contra-loss-data
+  multipleratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: multipleratecapacityoffsetupdateparameters
+  ratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: ratecapacityoffsetupdateparameters
+  decimalupdatevalue:
+    file: _objects.md
+    anchor: decimal-update-value

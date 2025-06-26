@@ -1,8 +1,44 @@
 # Changelog
 
-## 5th June 2025
+## 27th June 2025
 * [Get all orderitems](../operations/orderitems.md#get-all-order-items):
     * Extended [Order item data](../operations/orderitems#order-item-data) response object with `allowances` order items data.
+
+## 20th June 2025
+* [Get all resource blocks](../operations/resourceblocks.md#resource-block):
+  * Extended response object to include `DeletedUtc` field.
+* [Get reservation channel manager details](../operations/reservations.md#get-reservation-channel-manager-details):
+  * Extended response object [Reservation channel manager details](../operations/reservations.md#reservation-channel-manager-details) with `ChannelManagerGroupNumber`.
+
+## 19th June 2025
+* [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing):
+  * Added new operation for updating rate capacity offset pricing.
+
+## 16th June 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `PartnerCompanyIds` and `TravelAgencyIds` filtering parameters.
+
+## 13th June 2025
+* [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents):
+  * **Change in behavior**: The identity document `Number` property is an empty string when the number is not collected in certain regions, such as The Netherlands.
+* [Add identity documents](../operations/identitydocuments.md#add-identity-documents):
+  * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, use an empty string for the `Number` property.
+* [Update identity documents](../operations/identitydocuments.md#update-identity-documents):
+* [Add customer](../operations/customers.md#add-customer):
+* [Update customer](../operations/customers.md#update-customer):
+  * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, do not use the optional `Number` property.
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object with `IsIdentityDocumentNumberRequired` property.
+
+## 6th June 2025
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object [Enterprise](configuration.md#enterprise) with `HoldingKey`and `ChainName`properties.
+* [Get all enterprises](../operations/enterprises.md#get-all-enterprises):
+  * Extended response object [Enterprise](enterprises.md#enterprise) with `HoldingKey`and `ChainName`properties.
+  
+## 5th June 2025
+* [Get all products](../operations/products.md#get-all-products):
+  * Extended [product classifications](../operations/products.md#product-classifications) with `Fee`.
 
 ## 2nd June 2025
 * [Get all bills](../operations/bills.md#get-all-bills):

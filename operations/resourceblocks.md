@@ -77,6 +77,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "InternalUse",
             "UpdatedUtc": "2016-03-29T22:02:34Z",
+            "DeletedUtc": null,
             "Name": "Resource block 1",
             "Notes": "Note"
         },
@@ -85,10 +86,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
             "CreatedUtc": "2016-03-29T15:14:06Z",
             "EndUtc": "2016-01-01T16:00:00Z",
             "Id": "4d98ad40-a726-409e-8bf3-2c12ff3c0331",
-            "IsActive": true,
+            "IsActive": false,
             "StartUtc": "2016-01-01T10:00:00Z",
             "Type": "OutOfOrder",
             "UpdatedUtc": "2016-03-29T15:14:06Z",
+            "DeletedUtc": "2016-02-01T16:00:00Z",
             "Name": "Resource block 2",
             "Notes": null
         }
@@ -112,6 +114,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EndUtc` | string | required | End of the block in UTC timezone in ISO 8601 format. |
 | `CreatedUtc` | string | required | Creation date and time of the block in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the block in UTC timezone in ISO 8601 format. |
+| `DeletedUtc` | string | optional | Date and time when the block was deleted (for inactive ones) in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the resource block. |
 | `Notes` | string | optional | Note describing the resource block. |
 

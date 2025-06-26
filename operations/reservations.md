@@ -28,6 +28,12 @@ Returns all reservations within scope of the Access Token, filtered according to
   "AccountIds": [
     "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
   ],
+  "PartnerCompanyIds": [
+    "c021013e-4930-4592-8e32-91b0b1fc9663"
+  ],
+  "TravelAgencyIds": [
+    "a793d381-65a2-4fa6-9514-00c4c5bfe607"
+  ],
   "Numbers": [
     "50",
     "51",
@@ -86,6 +92,8 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Services](services.md#service). If not provided, all bookable services are used. |
 | `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of [Reservation groups](reservations.md#reservation-group). |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of accounts (currently only [Customers](customers.md#customer), in the future also [Companies](companies.md#company)) the reservation is associated with. |
+| `PartnerCompanyIds` | array of string | optional, max 100 items | Unique identifiers of the `Companies` on behalf of which the reservations were made. |
+| `TravelAgencyIds` | array of string | optional, max 100 items | Identifier of the Travel Agencies (`Company`) that mediated the reservations. |
 | `Numbers` | array of string | optional, max 1000 items | Reservation confirmation numbers. |
 | `ChannelNumbers` | array of string | optional, max 100 items | Numbers or references used by a Channel (OTA, GDS, CRS, etc.) in case the reservation group originates there, e.g. Booking.com confirmation numbers. |
 | `AssignedResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the [Resources](resources.md#resource) assigned to the reservations. |
@@ -118,8 +126,8 @@ Returns all reservations within scope of the Access Token, filtered according to
       "Origin": "Connector",
       "CommanderOrigin": null,
       "OriginDetails": null,
-      "CreatedUtc": "2023-04-23T14:00:00Z",
-      "UpdatedUtc": "2023-04-23T14:00:00Z",
+      "CreatedUtc": "2023-03-23T16:00:00Z",
+      "UpdatedUtc": "2023-04-22T17:00:00Z",
       "CancelledUtc": null,
       "VoucherId": null,
       "BusinessSegmentId": null,
@@ -135,18 +143,18 @@ Returns all reservations within scope of the Access Token, filtered according to
       "RequestedResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
       "AssignedResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
       "AvailabilityBlockId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "PartnerCompanyId": null,
-      "TravelAgencyId": null,
+      "PartnerCompanyId": "c021013e-4930-4592-8e32-91b0b1fc9663",
+      "TravelAgencyId": "a793d381-65a2-4fa6-9514-00c4c5bfe607",
       "AssignedResourceLocked": false,
       "ChannelNumber": "TW48ZP",
       "ChannelManagerNumber": "",
       "CancellationReason": null,
       "ReleasedUtc": null,
       "StartUtc": "2023-04-23T14:00:00Z",
-      "EndUtc": "2023-04-23T14:00:00Z",
+      "EndUtc": "2023-04-25T12:00:00Z",
       "ScheduledStartUtc": "2023-04-23T14:00:00Z",
       "ActualStartUtc": null,
-      "ScheduledEndUtc": null,
+      "ScheduledEndUtc": "2023-04-25T12:00:00Z",
       "ActualEndUtc": null,
       "Purpose": "Leisure",
       "QrCodeData": null,
@@ -700,7 +708,8 @@ Returns channel manager-related details for the specified reservations. Note thi
       "RequestedRateCode": "XyZ123AbC789",
       "ChannelManagerName": "HotelConnect",
       "ChannelNumber": "HC1234",
-      "ChannelManagerNumber": "9E5F7BC3B6F0102",
+      "ChannelManagerGroupNumber": "9E5F7BC3B6F0102",
+      "ChannelManagerNumber": "1",
       "CreatedUtc": "2025-03-10T15:30:00Z"
     },
     {
@@ -708,7 +717,8 @@ Returns channel manager-related details for the specified reservations. Note thi
       "RequestedRateCode": "LmN456OpQ012",
       "ChannelManagerName": "GlobalRes",
       "ChannelNumber": "GR5678",
-      "ChannelManagerNumber": "461190401CD25FE",
+      "ChannelManagerGroupNumber": "461190401CD25FE",
+      "ChannelManagerNumber": "1",
       "CreatedUtc": "2025-03-11T09:45:00Z"
     }
   ]
@@ -727,6 +737,7 @@ Returns channel manager-related details for the specified reservations. Note thi
 | `RequestedRateCode` | string | required | Rate code requested by the channel manager for this reservation. |
 | `ChannelManagerName` | string | optional | Name of the Channel Manager associated with this reservation. |
 | `ChannelNumber` | string | optional | Number of the reservation within the Channel (i.e. OTA, GDS, CRS, etc) in case the reservation group originates there (e.g. Booking.com confirmation number). |
+| `ChannelManagerGroupNumber` | string | optional | Number of the reservation group within a Channel Manager. |
 | `ChannelManagerNumber` | string | optional | Unique number of the reservation within the reservation group. |
 | `CreatedUtc` | string | required | The timestamp when the Channel Manager reservation was created. |
 
