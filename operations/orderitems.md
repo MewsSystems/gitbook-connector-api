@@ -358,6 +358,8 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `AllowanceDiscount`
 * `AllowanceBreakage`
 * `AllowanceContraBreakage`
+* `AllowanceLoss`
+* `AllowanceContraLoss`
 
 #### Order item options
 Options of the order item.
@@ -374,11 +376,15 @@ Additional order item data.
 | `Discriminator` | [Order item data discriminator](orderitems.md#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
 | `Rebate` | [Rebate data](orderitems.md#rebate-data) | optional | Contains additional data in the case of rebate item. |
 | `Product` | [Product data](orderitems.md#product-data) | optional | Contains additional data in the case of product item. |
+| `AllowanceDiscount` | [Allowance Discount Data](orderitems.md#allowance-discount-data) | optional | Contains additional data in the case of allowance discount item. |
+| `AllowanceProfits` | [Allowance Profits Data](orderitems.md#allowance-profits-data) | optional | Contains additional data in the case of allowance profits item. |
 
 #### Order item data discriminator
 
-* `Rebate`
-* `Product`
+* `Rebate` - Rebate.
+* `Product` - Product.
+* `AllowanceDiscount` - Allowance discount.
+* `AllowanceProfits` - Allowance profits.
 
 #### Rebate data
 
@@ -393,6 +399,33 @@ Additional order item data.
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
+| `ProductType` | [Product type](orderitems.md#product-type) | required | Type of Product, e.g. whether allowance or product. |
+
+#### Product type
+
+* `Product`
+* `Allowance`
+
+#### Allowance Discount Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `DiscountedOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been discounted by current item. |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+
+#### Allowance Profits Data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProfitType` | [Allowance profit type](orderitems.md#allowance-profit-type) | required | Type of allowance profit. |
+
+#### Allowance profit type
+
+* `AllowanceBreakage` - Profit of the allowance product.
+* `AllowanceContraBreakage` - Accounting balance for profit of the allowance product.
+* `AllowanceLoss` - Loss of the allowance product.
+* `AllowanceContraLoss` - Accounting balance for loss of the allowance product.
 
 #### Tax exemption reason type
 
