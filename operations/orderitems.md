@@ -377,20 +377,14 @@ Additional order item data.
 | `Rebate` | [Rebate data](orderitems.md#rebate-data) | optional | Contains additional data in the case of rebate item. |
 | `Product` | [Product data](orderitems.md#product-data) | optional | Contains additional data in the case of product item. |
 | `AllowanceDiscount` | [Allowance Discount Data](orderitems.md#allowance-discount-data) | optional | Contains additional data in the case of allowance discount item. |
-| `AllowanceBreakage` | [Allowance Breakage Data](orderitems.md#allowance-breakage-data) | optional | Contains additional data in the case of allowance breakage (profit) item. |
-| `AllowanceContraBreakage` | [Allowance Contra Breakage Data](orderitems.md#allowance-contra-breakage-data) | optional | Contains additional data in the case of allowance contra breakage item. Balances allowance breakage item. |
-| `AllowanceLoss` | [Allowance Loss Data](orderitems.md#allowance-loss-data) | optional | Contains additional data in the case of allowance loss item. |
-| `AllowanceContraLoss` | [Allowance Contra Loss Data](orderitems.md#allowance-contra-loss-data) | optional | Contains additional data in the case of allowance contra breakage item. |
+| `AllowanceProfits` | [Allowance Profits Data](orderitems.md#allowance-profits-data) | optional | Contains additional data in the case of allowance profits item. |
 
 #### Order item data discriminator
 
 * `Rebate` - Rebate.
 * `Product` - Product.
 * `AllowanceDiscount` - Allowance discount.
-* `AllowanceBreakage` - Profit of the allowance product.
-* `AllowanceContraBreakage` - Accounting balance for profit of the allowance product.
-* `AllowanceLoss` - Loss of the allowance product.
-* `AllowanceContraLoss` - Accounting balance for loss of the allowance product.
+* `AllowanceProfits` - Allowance profits.
 
 #### Rebate data
 
@@ -416,32 +410,22 @@ Additional order item data.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
 | `DiscountedOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been discounted by current item. |
+| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
 
-#### Allowance Breakage Data
+#### Allowance Profits Data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+| `AllowanceProfitType` | [Allowance profit type](orderitems.md#allowance-profit-type) | required | Type of allowance profit. |
 
-#### Allowance Contra Breakage Data
+#### Allowance profit type
 
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-
-#### Allowance Loss Data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
-
-#### Allowance Contra Loss Data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
+* `AllowanceBreakage` - Profit of the allowance product.
+* `AllowanceContraBreakage` - Accounting balance for profit of the allowance product.
+* `AllowanceLoss` - Loss of the allowance product.
+* `AllowanceContraLoss` - Accounting balance for loss of the allowance product.
 
 #### Tax exemption reason type
 
