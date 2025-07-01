@@ -92,7 +92,7 @@ Returns all loyalty tiers of the chain or chains, filtered by loyalty program id
 | `Name` | string | required, max length 50 characters | Name of the loyalty tier. |
 | `Code` | string | required, max length 50 characters | Code of the loyalty tier. |
 | `Ordering` | integer | required | Ordering of the loyalty tier. |
-| `ChainId` | string | required | Unique identifier of the Chain of that LoyaltyTier. |
+| `ChainId` | string | required | Unique identifier of the chain. |
 
 ## Add loyalty tiers
 
