@@ -358,8 +358,6 @@ Returns all order items. At least one of the `OrderItemIds`, `ServiceOrderIds`, 
 * `AllowanceDiscount`
 * `AllowanceBreakage`
 * `AllowanceContraBreakage`
-* `AllowanceLoss`
-* `AllowanceContraLoss`
 
 #### Order item options
 Options of the order item.
