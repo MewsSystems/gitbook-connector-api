@@ -399,7 +399,7 @@ Additional order item data.
 | :-- | :-- | :-- | :-- |
 | `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
 | `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
-| `ProductType` | [Product type](orderitems.md#product-type) | required | Type of Product, e.g. whether allowance or product. |
+| `ProductType` | [Product type](orderitems.md#product-type) | optional | Type of Product, e.g. whether allowance or product. |
 
 #### Product type
 
