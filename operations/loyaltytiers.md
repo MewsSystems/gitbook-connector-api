@@ -15,16 +15,15 @@ Returns all loyalty tiers of the chain or chains, filtered by loyalty program id
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
   "ChainIds": [
-    "1df21f06-0cfc-4960-9c58-a3bf1261663e",
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "5fcd1933-22f2-40b9-84da-7db04cbecec2"
   ],
   "LoyaltyProgramIds": [
-    "3ed9e2f3-4bba-4df6-8d41-ab1b009b6425",
-    "8a98965a-7c03-48a1-a28c-ab1b009b53c8"
+    "f701dafb-5765-4cf4-b1dd-1f602a740ae5"
   ],
   "LoyaltyTierIds": [
-    "a6738390-c241-45b7-8e46-14f47207abe5",
-    "435d4d5f-d14f-48dc-a47e-0481fc28ead0"
+    "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
+    "3cad97ef-5257-4ced-8599-8e6bbd33331f"
   ],
   "ActivityStates": [
     "Active"
@@ -34,8 +33,7 @@ Returns all loyalty tiers of the chain or chains, filtered by loyalty program id
     "EndUtc": "2022-10-17T00:00:00Z"
   },
   "Limitation": {
-    "Count": 100,
-    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7"
+    "Count": 100
   }
 }
 ```
@@ -58,23 +56,21 @@ Returns all loyalty tiers of the chain or chains, filtered by loyalty program id
 {
   "LoyaltyTiers": [
     {
-      "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-      "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
+      "Id": "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
+      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Platinum",
       "Code": "P1",
-      "Ordering": 1,
-      "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e"
+      "Ordering": 1
     },
     {
-      "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
-      "LoyaltyProgramId": "80180337-7d71-4901-992e-2e45e3dfdf15",
+      "Id": "3cad97ef-5257-4ced-8599-8e6bbd33331f",
+      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Silver",
       "Code": "S1",
-      "Ordering": 3,
-      "ChainId": "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+      "Ordering": 2
     }
   ],
-  "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+  "Cursor": "3cad97ef-5257-4ced-8599-8e6bbd33331f"
 }
 ```
 
@@ -92,7 +88,6 @@ Returns all loyalty tiers of the chain or chains, filtered by loyalty program id
 | `Name` | string | required, max length 50 characters | Name of the loyalty tier. |
 | `Code` | string | required, max length 50 characters | Code of the loyalty tier. |
 | `Ordering` | integer | required | Ordering of the loyalty tier. |
-| `ChainId` | string | required | Unique identifier of the chain. |
 
 ## Add loyalty tiers
 
@@ -109,13 +104,13 @@ Adds loyalty tiers to a loyalty program of the enterprise chain. Note this opera
   "Client": "Sample Client 1.0.0",
   "LoyaltyTiers": [
     {
-      "LoyaltyProgramId": "8ddea57b-6a5c-4eec-8c4c-24467dce118e",
+      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Platinum",
       "Code": "P1",
       "Ordering": 1
     }
   ],
-  "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e"
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -125,16 +120,16 @@ Adds loyalty tiers to a loyalty program of the enterprise chain. Note this opera
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `LoyaltyTiers` | array of [Loyalty tier parameters](loyaltytiers.md#loyalty-tier-parameters) | required, max 1000 items | Loyalty tiers to be added. |
+| `LoyaltyTiers` | array of [Loyalty tier add parameters](loyaltytiers.md#loyalty-tier-add-parameters) | required, max 1000 items | Loyalty tiers to be added. |
 
-#### Loyalty tier parameters
+#### Loyalty tier add parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program the tier belongs to. |
 | `Name` | string | required, max length 50 characters | Name of the loyalty tier. |
 | `Code` | string | required, max length 50 characters | Code of the loyalty tier. |
-| `Ordering` | integer | required | Ordering of the loyalty program. |
+| `Ordering` | integer | required | Ordering of the loyalty tier. |
 
 ### Response
 
@@ -142,23 +137,21 @@ Adds loyalty tiers to a loyalty program of the enterprise chain. Note this opera
 {
   "LoyaltyTiers": [
     {
-      "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-      "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
+      "Id": "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
+      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Platinum",
       "Code": "P1",
-      "Ordering": 1,
-      "ChainId": "1df21f06-0cfc-4960-9c58-a3bf1261663e"
+      "Ordering": 1
     },
     {
-      "Id": "da34b396-41f7-47f6-8847-aecf00a3f19e",
-      "LoyaltyProgramId": "80180337-7d71-4901-992e-2e45e3dfdf15",
+      "Id": "3cad97ef-5257-4ced-8599-8e6bbd33331f",
+      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Silver",
       "Code": "S1",
-      "Ordering": 3,
-      "ChainId": "5fcd1933-22f2-40b9-84da-7db04cbecec2"
+      "Ordering": 2
     }
   ],
-  "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+  "Cursor": "3cad97ef-5257-4ced-8599-8e6bbd33331f"
 }
 ```
 
@@ -182,7 +175,7 @@ Updates information about the specified loyalty tiers.
   "Client": "Sample Client 1.0.0",
   "LoyaltyTierUpdates": [
     {
-      "LoyaltyTierId": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
+      "LoyaltyTierId": "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
       "Name": {
         "Value": "Platinum"
       },
@@ -219,15 +212,14 @@ Updates information about the specified loyalty tiers.
 {
   "LoyaltyTiers": [
     {
-      "Id": "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-      "LoyaltyProgramId": "8a98965a-7c03-48a1-a28c-ab1b009b53c8",
+      "Id": "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
+      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Platinum",
       "Code": "P1",
-      "Ordering": 2,
-      "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+      "Ordering": 0
     }
   ],
-  "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+  "Cursor": "69eedfd2-6f25-42fc-b3c8-39df70f85e37"
 }
 ```
 
@@ -250,8 +242,8 @@ Deletes loyalty tiers.
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
   "LoyaltyTierIds": [
-    "a58ff7cb-77e3-495a-bd61-aecf00a3f19d",
-    "da34b396-41f7-47f6-8847-aecf00a3f19e"
+    "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
+    "3cad97ef-5257-4ced-8599-8e6bbd33331f"
   ]
 }
 ```

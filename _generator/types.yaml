@@ -1930,7 +1930,7 @@ types:
     anchor: multipleloyaltytieraddparameters
   loyaltytieraddparameters:
     file: loyaltytiers.md
-    anchor: loyalty-tier-parameters
+    anchor: loyalty-tier-add-parameters
   multipleloyaltytierupdateparameters:
     file: loyaltytiers.md
     anchor: multipleloyaltytierupdateparameters
