@@ -376,8 +376,8 @@ Additional order item data.
 | `Discriminator` | [Order item data discriminator](orderitems.md#order-item-data-discriminator) | required | Discriminator pointing to the fields within this object that contains additional data. |
 | `Rebate` | [Rebate data](orderitems.md#rebate-data) | optional | Contains additional data in the case of rebate item. |
 | `Product` | [Product data](orderitems.md#product-data) | optional | Contains additional data in the case of product item. |
-| `AllowanceDiscount` | [Allowance Discount Data](orderitems.md#allowance-discount-data) | optional | Contains additional data in the case of allowance discount item. |
-| `AllowanceProfits` | [Allowance Profits Data](orderitems.md#allowance-profits-data) | optional | Contains additional data in the case of allowance profits item. |
+| `AllowanceDiscount` | [Allowance discount data](orderitems.md#allowance-discount-data) | optional | Contains additional data in the case of allowance discount item. |
+| `AllowanceProfits` | [Allowance profits data](orderitems.md#allowance-profits-data) | optional | Contains additional data in the case of allowance profits item. |
 
 #### Order item data discriminator
 
@@ -406,14 +406,14 @@ Additional order item data.
 * `Product`
 * `Allowance`
 
-#### Allowance Discount Data
+#### Allowance discount data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `DiscountedOrderItemId` | string | required | Unique identifier of [Order item](orderitems.md#order-item) which has been discounted by current item. |
 | `AllowanceProductOrderItemId` | string | required | Unique identifier of the allowance product [Order item](orderitems.md#order-item) which credit has been consumed by current item. |
 
-#### Allowance Profits Data
+#### Allowance profits data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

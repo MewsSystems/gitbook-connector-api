@@ -1,6 +1,6 @@
 # Changelog
 
-## 27th June 2025
+## 1st July 2025
 * [Get all orderitems](../operations/orderitems.md#get-all-order-items):
     * Extended [Order item data](../operations/orderitems#order-item-data) response object with `allowances` order items data.
 
