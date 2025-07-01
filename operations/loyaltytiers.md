@@ -142,23 +142,14 @@ Adds loyalty tiers to a loyalty program of the enterprise chain. Note this opera
       "Name": "Platinum",
       "Code": "P1",
       "Ordering": 1
-    },
-    {
-      "Id": "3cad97ef-5257-4ced-8599-8e6bbd33331f",
-      "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
-      "Name": "Silver",
-      "Code": "S1",
-      "Ordering": 2
     }
-  ],
-  "Cursor": "3cad97ef-5257-4ced-8599-8e6bbd33331f"
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyTiers` | array of [Loyalty tier](loyaltytiers.md#loyalty-tier) | required, max 1000 items | The loyalty tiers of the loyalty program within the chain. |
-| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 ## Update loyalty tiers
 
@@ -183,7 +174,7 @@ Updates information about the specified loyalty tiers.
         "Value": "P1"
       },
       "Ordering": {
-        "Value": 2
+        "Value": 1
       }
     }
   ]
@@ -216,17 +207,15 @@ Updates information about the specified loyalty tiers.
       "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "Name": "Platinum",
       "Code": "P1",
-      "Ordering": 0
+      "Ordering": 1
     }
-  ],
-  "Cursor": "69eedfd2-6f25-42fc-b3c8-39df70f85e37"
+  ]
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `LoyaltyTiers` | array of [Loyalty tier](loyaltytiers.md#loyalty-tier) | required, max 1000 items | The loyalty tiers of the loyalty program within the chain. |
-| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 ## Delete loyalty tiers
 
