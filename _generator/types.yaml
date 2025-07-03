@@ -1946,3 +1946,15 @@ types:
   loyaltytierwriteresult:
     file: loyaltytiers.md
     anchor: loyaltytierwriteresult
+  producttypeenum:
+    file: orderitems.md
+    anchor: product-type
+  orderitemallowancediscountdata:
+    file: orderitems.md
+    anchor: allowance-discount-data
+  orderitemallowanceprofitsdata:
+    file: orderitems.md
+    anchor: allowance-profits-data
+  allowanceprofittypeenum:
+    file: orderitems.md
+    anchor: allowance-profit-type
