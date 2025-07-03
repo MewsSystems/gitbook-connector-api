@@ -1,5 +1,8 @@
 # Changelog
 
+## 3rd July 2025
+* Extended [Error response details](../guidelines/responses.md#error-response-details) with `RequestId`.
+
 ## 20th June 2025
 * [Get all resource blocks](../operations/resourceblocks.md#resource-block):
   * Extended response object to include `DeletedUtc` field.

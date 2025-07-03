@@ -36,6 +36,5 @@ In case of any error, the returned JSON object describes the error and has the f
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Message` | string | required | Description of the error. |
+| `RequestId` | string | optional | Unique identifier of the request. You can provide this unique identifier when communicating with [partnersuccess@mews.com](mailto:partnersuccess@mews.com) for quick identification of the request.|
 | `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
-
-Some errors may also contain additional information relevant to the error on top of these two properties. This depends on the operation. 
