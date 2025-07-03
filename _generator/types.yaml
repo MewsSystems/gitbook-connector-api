@@ -1916,3 +1916,15 @@ types:
   decimalupdatevalue:
     file: _objects.md
     anchor: decimal-update-value
+  producttypeenum:
+    file: orderitems.md
+    anchor: product-type
+  orderitemallowancediscountdata:
+    file: orderitems.md
+    anchor: allowance-discount-data
+  orderitemallowanceprofitsdata:
+    file: orderitems.md
+    anchor: allowance-profits-data
+  allowanceprofittypeenum:
+    file: orderitems.md
+    anchor: allowance-profit-type

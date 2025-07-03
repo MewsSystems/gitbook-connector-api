@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st July 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+    * Extended [Order item data](../operations/orderitems#order-item-data) response object with `AllowanceDiscount` and `AllowanceProfits` fields.
+
 ## 20th June 2025
 * [Get all resource blocks](../operations/resourceblocks.md#resource-block):
   * Extended response object to include `DeletedUtc` field.
