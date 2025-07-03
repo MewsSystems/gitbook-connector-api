@@ -7,6 +7,7 @@ The API responds with `Content-Type` set to `application/json`, and with JSON co
 ## Response codes
 
 In case of success, the HTTP status code is normally 200 and the content contains the result according to the nature of the request. The client may opt-in to instead receive HTTP status code 204 in certain circumstances, see [Request minimal response](requests.md#request-minimal-response). In case of error, there are multiple HTTP status codes for different types of errors.
+Every response contains `Request-Id` header with unique identifation of the request, that can be used in communication with [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
 
 * **200 OK**
   * Success response. The content contains the result according to the nature of the request.
@@ -36,6 +37,5 @@ In case of any error, the returned JSON object describes the error and has the f
 | Property | Type | Contract | Description |
 | --- | --- | --- | --- |
 | `Message` | string | required | Description of the error. |
+| `RequestId` | string | optional | Unique identifier of the request. You can provide this unique identifier when communicating with [partnersuccess@mews.com](mailto:partnersuccess@mews.com) for quick identification of the request.|
 | `Details` | string | optional | Additional details about the error \(request, headers, server stack trace, inner exceptions etc.\). Only available on development environment. |
-
-Some errors may also contain additional information relevant to the error on top of these two properties. This depends on the operation. 
