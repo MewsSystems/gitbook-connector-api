@@ -1,14 +1,12 @@
 # Changelog
 
-<<<<<<< HEAD
-## 3rd July 2025
+## 8th July 2025
 * Updated [Response codes](../guidelines/responses.md#response-codes) with `Request-Id` header, which is now present with each request.
 * Extended [Error response details](../guidelines/responses.md#error-response-details) with `RequestId`.
-=======
+
 ## 1st July 2025
 * [Get all order items](../operations/orderitems.md#get-all-order-items):
     * Extended [Order item data](../operations/orderitems#order-item-data) response object with `AllowanceDiscount` and `AllowanceProfits` fields.
->>>>>>> master
 
 ## 20th June 2025
 * [Get all resource blocks](../operations/resourceblocks.md#resource-block):
