@@ -130,7 +130,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         operation.getResponseByStatusCode(200).content['application/json'];
       const responseExample = response.example || {};
       const responseSchemas = collectSchemas(
-        response,
+        response.schema,
         [operationId, 'response'],
         resolver.createSectionSchemasAccumulator()
       );
