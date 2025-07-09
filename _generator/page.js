@@ -5,6 +5,7 @@ import fs from 'node:fs/promises';
 
 import { propertyContract, propertyType } from './jsonschema.js';
 import { collectSchemas } from './collect-schemas.js';
+import { collectJsonSchema } from './collect-jsonschema.js';
 import { createTemplateSchema } from './template-schema.js';
 import { getPageResolver } from './types-resolver.js';
 import { compareSchemas } from './sorting/schemaSort.js';
@@ -129,18 +130,35 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         operation.getResponseByStatusCode(200).content['application/json'];
       const responseExample = response.example || {};
       const responseSchemas = collectSchemas(
-        response.schema,
+        response,
         [operationId, 'response'],
         resolver.createSectionSchemasAccumulator()
       );
 
       const request = operation.getRequestBody('application/json');
       const requestExample = request.example || {};
-      const requestSchemas = collectSchemas(
-        request.schema,
-        [operationId, 'request'],
-        resolver.createSectionSchemasAccumulator()
-      );
+
+      let requestSchemas = resolver.createSectionSchemasAccumulator();
+      if (request.schema.oneOf?.length > 1) {
+        const requestSchemaWrapper = operation.getParametersAsJSONSchema({
+          retainDeprecatedProperties: true,
+        });
+        const bodySchemaWrapper = requestSchemaWrapper.find(
+          (s) => s.type === 'body'
+        );
+        collectJsonSchema(
+          bodySchemaWrapper.schema,
+          [operationId, 'request'],
+          requestSchemas
+        );
+      } else {
+        collectSchemas(
+          request.schema,
+          [operationId, 'request'],
+          requestSchemas,
+          true
+        );
+      }
 
       const deprecatedMessage = operation.schema['x-deprecatedMessage'] ?? '';
       const description = operation.getDescription();
