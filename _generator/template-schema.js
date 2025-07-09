@@ -120,6 +120,7 @@ export function createTemplateSchema(schema) {
     deprecatedMessage,
     enum: schema.enum,
     deprecated: schema.deprecated ?? false,
+    oneOfRoot: schema['x-oneOfRoot'] ?? false,
     properties,
     ...baseObject,
   };

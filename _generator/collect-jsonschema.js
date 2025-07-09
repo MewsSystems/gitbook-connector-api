@@ -27,11 +27,12 @@ export function collectJsonSchema(jsonSchema, path, accumulator) {
   jsonSchema['x-schema-paths'].push(path);
 
   if (jsonSchema.oneOf?.length > 1) {
-    adjustOneOfRootSchema(jsonSchema);
+    jsonSchema['x-oneOfRoot'] = true;
     const surrogateSchemaId = path.join('-');
     accumulator.add(surrogateSchemaId, jsonSchema);
   }
-  const composedSchemas = pickComposedSchema(jsonSchema);
+  const composedSchemas =
+    jsonSchema.anyOf || jsonSchema.oneOf || jsonSchema.allOf;
   for (const item of composedSchemas) {
     collectSchemas(item, nestedPath, accumulator);
   }
