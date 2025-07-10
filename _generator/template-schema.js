@@ -4,7 +4,7 @@ import {
   propertyDescription,
   propertyType,
 } from './jsonschema.js';
-import { getSchemaId, capitalize } from './utils.js';
+import { getSchemaId, capitalize, log } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
 
 /**
@@ -112,6 +112,13 @@ export function createTemplateSchema(schema) {
   }
   const description = schema.description?.trim() ?? '';
   const deprecatedMessage = schema.deprecatedMessage ?? '';
+
+  let title = schema.title;
+  if (!title) {
+    log.error(`Schema "${schemaId}" is missing title`, schema);
+    title = schemaId;
+  }
+
   const templateSchema = {
     path: [...path],
     id: schemaId,
