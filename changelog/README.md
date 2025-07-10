@@ -1,5 +1,9 @@
 # Changelog
 
+## 11th July 2025
+* [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands):
+  * Added new operation (restricted).
+
 ## 10th July 2025
 * Updated [Response codes](../guidelines/responses.md#response-codes) with `Request-Id` header, which is now present with each request.
 * Extended [Error response details](../guidelines/responses.md#error-response-details) with `RequestId`.
