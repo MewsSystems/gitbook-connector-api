@@ -1,6 +1,6 @@
 # Changelog
 
-## 8th July 2025
+## 10th July 2025
 * Updated [Response codes](../guidelines/responses.md#response-codes) with `Request-Id` header, which is now present with each request.
 * Extended [Error response details](../guidelines/responses.md#error-response-details) with `RequestId`.
 
