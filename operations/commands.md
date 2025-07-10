@@ -1,6 +1,136 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Commands
 
+## Get all fiscal machine commands
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Returns fiscal machine commands. The commands can be filtered either by unique command identifiers, or by `Device` unique identifiers and command states. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/fiscalMachineCommands/getAll`
+
+```javascript
+{}
+```
+
+The operation supports the following mutually exclusive parameters.
+
+#### Get all commands by unique identifiers
+Filter commands by their unique identifiers.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CommandIds` | array of string | required, max 1000 items |  |
+| `EnterpriseIds` | array,null | required, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+
+#### Get all commands by device identifiers and states
+Filter commands by the unique identifiers of `Device` and states, with optional filtering by their update interval.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `DeviceIds` | array of string | required, max 100 items |  |
+| `States` | array of [Command state](commands.md#command-state) | required |  |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | required, max length 3 months |  |
+| `EnterpriseIds` | array,null | required, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+
+### Response
+
+```javascript
+{}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Commands` | array of [Fiscal machine command data (ver. 2025-06-23)](commands.md#fiscal-machine-command-data-ver-2025-06-23) | optional |  |
+| `Cursor` | string | optional |  |
+
+#### Fiscal machine command data (ver. 2025-06-23)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the command. |
+| `State` | [Command state](commands.md#command-state) | required | State of the command. |
+| `CreatedUtc` | string | required | Creation date and time of the command. |
+| `Creator` | [Profile data](_objects.md#profile-data) | optional | Creator of the command. |
+| `FiscalMachineId` | string | required | Identifier of the fiscal machine. |
+| `ApiUrl` | string | required | URL of the fiscal machine API. |
+| `FiscalMachineData` | string | required | Custom JSON data. |
+| `TaxIdentifier` | string | optional | Tax identifier to be used for fiscalization. |
+| `Device` | [Device](devices.md#device) | required | Device that the command should be executed on. |
+| `Bill` | [Bill (ver 2025-06-23)](commands.md#bill-ver-2025-06-23) | required | The issued bill that should be fiscalized. |
+| `CommandData` | [FiscalMachineAdditionalData](commands.md#fiscalmachineadditionaldata) | optional | Additional data of the fiscal machine. |
+
+#### Bill (ver 2025-06-23)
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the bill. |
+| `Name` | string | optional | Name of the bill. |
+| `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
+| `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. |
+| `AssociatedAccountIds` | array of string | optional | Unique identifiers of the `Customers` or `Companies` that are associated to the bill. |
+| `CounterId` | string | optional | Unique identifier of the bill `Counter`. |
+| `State` | [Bill state](bills.md#bill-state) | required | Whether the bill is `Open` or `Closed`. |
+| `Type` | [Bill type](bills.md#bill-type) | required | After a bill is closed, the Bill Type is set to `Receipt` or `Invoice`. `Receipt` indicates that the bill has been fully paid and the balance is zero. `Invoice` indicates that the bill has not yet been fully paid but an invoice has been issued. Prior to closing, Bill Type should not be used. |
+| `Number` | string | optional | Number of the bill. |
+| `VariableSymbol` | string | optional | Variable symbol of the bill. |
+| `CreatedUtc` | string | required | Date and time of the bill creation in UTC timezone in ISO 8601 format. |
+| `UpdatedUtc` | string | required | Date and time when the bill was last updated, in UTC timezone in ISO 8601 format. |
+| `IssuedUtc` | string | optional | Date and time of the bill issuance in UTC timezone in ISO 8601 format. |
+| `TaxedUtc` | string | optional | Taxation date of the bill in UTC timezone in ISO 8601 format. |
+| `PaidUtc` | string | optional | Date when the bill was paid in UTC timezone in ISO 8601 format. |
+| `DueUtc` | string | optional | Bill due date and time in UTC timezone in ISO 8601 format. |
+| `LastReminderDateUtc` | string | optional | Date and time when an email reminder to pay an invoice was last sent, in UTC timezone in ISO 8601 format. |
+| `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
+| `Notes` | string | optional | Additional notes. |
+| `Options` | [Bill options](bills.md#bill-options) | optional | Options of the bill. |
+| `Owner` | [Associated account bill data](bills.md#associated-account-bill-data) | optional | Additional information about owner of the bill. Can be a `Customer` or `Company`. Persisted at the time of closing of the bill. |
+| `AssociatedAccountsData` | array of [Associated account bill data](bills.md#associated-account-bill-data) | optional | Additional information about the associated account of the bill. Can be a `Customer` or `Company`. Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
+| `EnterpriseData` | [Bill enterprise data](bills.md#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
+| `CorrectionState` | [Bill correction state](bills.md#bill-correction-state) | required | Whether the bill is a regular bill or a corrective bill. |
+| `CorrectionType` | [Bill correction type](bills.md#bill-correction-type) | optional | Type of correction. |
+| `CorrectedBillId` | string | optional | The ID of the bill that the corrective bill corrects. If the corrected bill was deleted, this field is `null`. |
+
+#### FiscalMachineAdditionalData
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | [Fiscal machine data discriminator](commands.md#fiscal-machine-data-discriminator) | optional | Type of additional data for Italian fiscal machine. |
+| `ItalianFiscalMachineData` | [Italian fiscal machine data](commands.md#italian-fiscal-machine-data) | optional | Fiscal machine data for Italian fiscal machine. |
+| `ItalianFiscalMachinePayload` | [Italian fiscal machine payload.](commands.md#italian-fiscal-machine-payload) | optional | Fiscal machine payload for Italian fiscal machine. |
+
+#### Fiscal machine data discriminator
+
+* `ItalianFiscalMachineData`
+* `ItalianFiscalMachinePayload`
+
+#### Italian fiscal machine data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `IsRefund` | boolean | required | Indicates if the transaction is a refund. |
+| `RebatedReceiptNumber` | string | optional | Number of the rebated receipt. |
+| `RebatedReceiptSequence` | string | optional | Sequence of the rebated receipt. |
+| `RebatedReceiptDateTimeUtc` | string | optional | Date and time of the rebated receipt in UTC. |
+| `PrinterSerialNumber` | string | optional | Serial number of the printer. |
+
+#### Italian fiscal machine payload.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Payload` | string | required | Base64-encoded data of the file to be printed. |
+
 ## Get all commands by ids
 
 Returns all commands by their identifiers.
