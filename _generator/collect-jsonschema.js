@@ -38,8 +38,3 @@ export function collectJsonSchema(jsonSchema, path, accumulator) {
   }
   return accumulator;
 }
-
-function adjustOneOfRootSchema(schema) {
-  schema.description =
-    'The following schemas are mutually exclusive. Only one of them can be used at a time.';
-}
