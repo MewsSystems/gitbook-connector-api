@@ -6,7 +6,7 @@
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Returns fiscal machine commands. The commands can be filtered either by unique command identifiers, or by `Device` unique identifiers and command states. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+Returns fiscal machine commands. The commands can be filtered either by unique command identifiers or by `Device` unique identifiers and command states. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -39,7 +39,7 @@ Returns fiscal machine commands. The commands can be filtered either by unique c
 }
 ```
 
-The operation supports the following mutually exclusive parameters.
+This operation accepts one of the following mutually exclusive parameter sets.
 
 #### Get all commands by unique identifiers
 Filter commands by their unique identifiers.
