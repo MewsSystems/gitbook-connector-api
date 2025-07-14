@@ -1,6 +1,6 @@
 # Changelog
 
-## 11th July 2025
+## 14th July 2025
 * [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands):
   * Added new operation (restricted).
 
