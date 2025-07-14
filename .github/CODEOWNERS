@@ -1,9 +1,1 @@
-/additional-functions/  @MewsSystems/tech-be-connectivity-content-owners
-/changelog/             @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
-/deprecacation/         @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
-/getting-started/       @MewsSystems/tech-be-connectivity-content-owners
-/guidelines/            @MewsSystems/tech-be-connectivity-content-owners
-/operations/            @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
-/use-cases/             @MewsSystems/tech-be-connectivity-content-owners
-/webhooks/              @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
-/websockets/            @MewsSystems/tech-be-connectivity-content-owners @MewsSystems/tech-be-connectivity-contract-owners
+* @MewsSystems/tech-be-connectivity-contract-owners
