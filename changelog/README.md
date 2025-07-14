@@ -3,6 +3,9 @@
 ## 14th July 2025
 * [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands):
   * Added new operation (restricted).
+* [Get all payments](../operations/payments.md#get-all-payments):
+* [Add external payment](../operations/payments.md#add-external-payment):
+  * **Deprecated** the following external payment types for new integration partners: `CreditCard`, `IDeal`, `PayPal`, `OnlinePayment`, `MasterCard`, `Visa`, `Amex`, `Discover`, `DinersClub`, `Jcb`, and `UnionPay`.
 
 ## 10th July 2025
 * Updated [Response codes](../guidelines/responses.md#response-codes) with `Request-Id` header, which is now present with each request.
