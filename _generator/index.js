@@ -17,7 +17,7 @@ import { loadDiscoveredTypes, saveDiscoveredTypes } from './types-resolver.js';
 
 const config = loadConfig();
 
-const oasNormalizer = new OASNormalize(config.oasPath);
+const oasNormalizer = new OASNormalize(config.oasPath, { enablePaths: true });
 await oasNormalizer.validate();
 const oasDefinition = await oasNormalizer.convert();
 const oasWrapper = new Oas(oasDefinition);

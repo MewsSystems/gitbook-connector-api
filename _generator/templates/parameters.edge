@@ -2,6 +2,9 @@
 #### {{ schema.title }}{{-- {#{{ schemaId }}} --}}
 @end
 {{{ schema.description }}}
+@if(schema.oneOfRoot)
+This operation accepts one of the following mutually exclusive parameter sets.
+@end
 
 @if(schema.properties)
 | Property | Type | Contract | Description |

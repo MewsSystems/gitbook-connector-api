@@ -7,6 +7,7 @@ export type TemplateSchema = {
   deprecated: boolean;
   deprecatedMessage: string;
   properties?: TemplateProperty[];
+  oneOfRoot?: boolean;
 };
 
 export type TemplateOperation = {

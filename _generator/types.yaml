@@ -1958,3 +1958,33 @@ types:
   allowanceprofittypeenum:
     file: orderitems.md
     anchor: allowance-profit-type
+  fiscalMachineCommands_getAll-request:
+    file: commands.md
+    anchor: get-all-commands-filter-parameters
+  commandsgetallfilterbycommandidparameters:
+    file: commands.md
+    anchor: get-all-commands-by-unique-identifiers
+  commandsgetallfilterbystatesparameters:
+    file: commands.md
+    anchor: get-all-commands-by-device-identifiers-and-states
+  fiscalmachinecommanddatav20250623result:
+    file: commands.md
+    anchor: fiscalmachinecommanddatav20250623result
+  fiscalmachinecommanddatav20250623:
+    file: commands.md
+    anchor: fiscal-machine-command-data-ver-2025-06-23
+  billv20250623:
+    file: commands.md
+    anchor: bill-ver-2025-06-23
+  fiscalmachineadditionaldata:
+    file: commands.md
+    anchor: fiscalmachineadditionaldata
+  fiscalmachinedatadiscriminatorenum:
+    file: commands.md
+    anchor: fiscal-machine-data-discriminator
+  italianfiscalmachinedatav20250623:
+    file: commands.md
+    anchor: italian-fiscal-machine-data
+  italianfiscalmachinepayloadv20250623:
+    file: commands.md
+    anchor: italian-fiscal-machine-payload
