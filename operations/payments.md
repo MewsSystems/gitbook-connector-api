@@ -356,26 +356,26 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `BankCharges` - Bank charges
 * `CrossSettlement` - Cross settlement
 * `Cash` - Cash
-* `CreditCard` - Credit card – **Deprecated**, only for existing partners
+* `CreditCard` - Credit card – deprecated, only for existing partners
 * `Prepayment` - Prepayment
 * `Cheque` - Cheque
 * `Bancontact` - Bancontact
-* `IDeal` - iDeal – **Deprecated**, only for existing partners
-* `PayPal` - PayPal – **Deprecated**, only for existing partners
+* `IDeal` - iDeal – deprecated, only for existing partners
+* `PayPal` - PayPal – deprecated, only for existing partners
 * `GiftCard` - Gift card
 * `LoyaltyPoints` - Loyalty points
 * `ChequeVacances` - Chèque-Vacances
-* `OnlinePayment` - Online payment – **Deprecated**, only for existing partners
+* `OnlinePayment` - Online payment – deprecated, only for existing partners
 * `CardCheck` - Card check
 * `PaymentHubRedirection` - Payment hub redirection
 * `Voucher` - Voucher
-* `MasterCard` - MasterCard – **Deprecated**, only for existing partners
-* `Visa` - Visa – **Deprecated**, only for existing partners
-* `Amex` - American Express – **Deprecated**, only for existing partners
-* `Discover` - Discover – **Deprecated**, only for existing partners
-* `DinersClub` - Diners Club – **Deprecated**, only for existing partners
-* `Jcb` - JCB – **Deprecated**, only for existing partners
-* `UnionPay` - UnionPay – **Deprecated**, only for existing partners
+* `MasterCard` - MasterCard – deprecated, only for existing partners
+* `Visa` - Visa – deprecated, only for existing partners
+* `Amex` - American Express – deprecated, only for existing partners
+* `Discover` - Discover – deprecated, only for existing partners
+* `DinersClub` - Diners Club – deprecated, only for existing partners
+* `Jcb` - JCB – deprecated, only for existing partners
+* `UnionPay` - UnionPay – deprecated, only for existing partners
 * `Twint` - TWINT
 * `Reka` - Reka
 * `LoyaltyCard` - Loyalty card
