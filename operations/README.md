@@ -66,6 +66,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all devices](devices.md#get-all-devices) | Returns all devices in the enterprise |
 | [Get all commands](commands.md#get-all-commands) | Returns all commands the are still active from the client application point of view |
 | [Get all commands by ids](commands.md#get-all-commands-by-ids) | Returns all commands by their identifiers |
+| [Get all fiscal machine commands](commands.md#get-all-fiscal-machine-commands) | **Restricted!** Returns fiscal machine commands by their identifiers or state. |
 | [Add printer command](commands.md#add-printer-command) | Adds a new printer command representing printing of the specified document on a printer |
 | [Add key cutter command](commands.md#add-key-cutter-command) | Adds a new key cutter command representing cutting of a key for the specified reservation |
 | [Add payment command](commands.md#add-payment-command) | **Restricted!** Adds a new Mews Payment Terminal command |
