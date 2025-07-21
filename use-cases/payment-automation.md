@@ -1,6 +1,6 @@
 # Payment automation
 
-This section describes how to use automated payments processing. We also provide links to information on Mews PCI compliance, including current certification. For connecting to Mews Payment Terminals to take payments from customers, please refer to [Mews Payment Terminals](../use-cases//mews-terminals.md).
+This section describes how to use automated payments processing. We also provide links to information on Mews PCI compliance, including current certification. For connecting to Mews Payment Terminals to take payments from customers, please refer to [Mews Payment Terminals](../use-cases/mews-terminals.md).
 
 > ### PCI Compliance
 > * [Mews PCI compliance](https://help.mews.com/s/article/pci-compliance?language=en_US)
