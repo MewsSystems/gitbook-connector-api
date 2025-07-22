@@ -627,41 +627,6 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 * `Visa`
 * `DriversLicense`
 
-#### Customer classification
-
-* `None`
-* `PaymasterAccount`
-* `Blacklist`
-* `Media`
-* `LoyaltyProgram`
-* `PreviousComplaint`
-* `Returning`
-* `Staff`
-* `FriendOrFamily`
-* `TopManagement`
-* `Important`
-* `VeryImportant`
-* `Problematic`
-* `Cashlist`
-* `DisabledPerson`
-* `Military`
-* `Airline`
-* `HealthCompliant`
-* `InRoom`
-* `WaitingForRoom`
-* `Student`
-
-#### Customer option
-
-* `None`
-* `SendMarketingEmails`
-* `Invoiceable`
-* `BillAddressObjection`
-* `SendMarketingPostalMail`
-* `SendPartnerMarketingEmails`
-* `SendPartnerMarketingPostalMail`
-* `WithdrawCardConsent`
-
 #### Reservation QR code data
 
 | Property | Type | Contract | Description |
@@ -1198,7 +1163,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `CreditCardId` | [String update value](_objects.md#string-update-value) | optional | Identifier of `CreditCard` belonging to `Customer` who owns the reservation.  (or `null` if the credit card should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. (or `null` if the unit amounts should not be updated). |
 | `BookerId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the `Customer` on whose behalf the reservation was made. (or `null` if the booker should not be updated). |
-| `AssignedResourceLocked` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned `Resource`. Unlocking and assigning reservation to new `Resource` can be done in one call. |
+| `AssignedResourceLocked` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned `Resource`. Unlocking and assigning reservation to new `Resource` cannot be done in a single call. First unlock the resource with `AssignedResourceLocked` set to `false`, then assign the reservation to a new `Resource` with `AssignedResourceId` set to the new resource ID. (`null` if the lock should not be updated) |
 | `AvailabilityBlockId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the `AvailabilityBlock` the reservation is assigned to. |
 | `Options` | [Reservations options parameters update values](reservations.md#reservations-options-parameters-update-values) | optional | Options of the reservations. |
 | `ReservationUpdates` | array of [Reservation updates](reservations.md#reservation-updates) | required, max 1000 items | Array of properties to be updated in each reservation specified. |
@@ -1250,7 +1215,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `CreditCardId` | [String update value](_objects.md#string-update-value) | optional | Identifier of `CreditCard` belonging to `Customer` who owns the reservation.  (or `null` if the credit card should not be updated). |
 | `TimeUnitPrices` | [Time unit amount update value](reservations.md#time-unit-amount-update-value) | optional | Prices for time units of the reservation. E.g. prices for the first or second night. (or `null` if the unit amounts should not be updated). |
 | `BookerId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the `Customer` on whose behalf the reservation was made. (or `null` if the booker should not be updated). |
-| `AssignedResourceLocked` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned `Resource`. Unlocking and assigning reservation to new `Resource` can be done in one call. |
+| `AssignedResourceLocked` | [Bool update value](_objects.md#bool-update-value) | optional | Whether the reservation should be locked to the assigned `Resource`. Unlocking and assigning reservation to new `Resource` cannot be done in a single call. First unlock the resource with `AssignedResourceLocked` set to `false`, then assign the reservation to a new `Resource` with `AssignedResourceId` set to the new resource ID. (`null` if the lock should not be updated) |
 | `AvailabilityBlockId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the `AvailabilityBlock` the reservation is assigned to. |
 | `Options` | [Reservations options parameters update values](reservations.md#reservations-options-parameters-update-values) | optional | Options of the reservations. |
 
