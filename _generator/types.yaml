@@ -1656,13 +1656,13 @@ types:
     anchor: release-strategy-update-value
   rateaddpricingdataparameters:
     file: rates.md
-    anchor: add-rate-pricing-data-parameters
+    anchor: rate-add-pricing-data-parameters
   addbaseratepricingparameters:
     file: rates.md
     anchor: add-base-rate-pricing-parameters
   ratesetpricingdataparameters:
     file: rates.md
-    anchor: set-rate-pricing-parameters
+    anchor: rate-set-pricing-data-parameters
   setbaseratepricingparameters:
     file: rates.md
     anchor: set-base-rate-pricing-parameters
@@ -1874,3 +1874,117 @@ types:
   billingautomationdeleteparameters:
     file: billingautomations.md
     anchor: billing-automation-delete-parameters
+  loyaltymembershipresult:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-result
+  loyaltymembership:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership
+  loyaltymembershipstate:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-state
+  loyaltymembershipfilterparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-filter-parameters
+  multipleloyaltymembershipaddparameters:
+    file: loyaltymemberships.md
+    anchor: multipleloyaltymembershipaddparameters
+  loyaltymembershipaddparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-parameters
+  multipleloyaltymembershipupdateparameters:
+    file: loyaltymemberships.md
+    anchor: multipleloyaltymembershipupdateparameters
+  loyaltymembershipupdateparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-update-parameters
+  loyaltymembershipdeleteparameters:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-delete-parameters
+  loyaltymembershipstateenum:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-state
+  loyaltymembershipstateupdatevalue:
+    file: loyaltymemberships.md
+    anchor: loyalty-membership-state-update-value
+  multipleratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: multipleratecapacityoffsetupdateparameters
+  ratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: ratecapacityoffsetupdateparameters
+  decimalupdatevalue:
+    file: _objects.md
+    anchor: decimal-update-value
+  loyaltytierresult:
+    file: loyaltytiers.md
+    anchor: loyaltytierresult
+  loyaltytier:
+    file: loyaltytiers.md
+    anchor: loyalty-tier
+  loyaltytierfilterparameters:
+    file: loyaltytiers.md
+    anchor: loyaltytierfilterparameters
+  multipleloyaltytieraddparameters:
+    file: loyaltytiers.md
+    anchor: multipleloyaltytieraddparameters
+  loyaltytieraddparameters:
+    file: loyaltytiers.md
+    anchor: loyalty-tier-add-parameters
+  multipleloyaltytierupdateparameters:
+    file: loyaltytiers.md
+    anchor: multipleloyaltytierupdateparameters
+  loyaltytierupdateparameters:
+    file: loyaltytiers.md
+    anchor: loyalty-tier-update-parameters
+  loyaltytierdeleteparameters:
+    file: loyaltytiers.md
+    anchor: loyaltytierdeleteparameters
+  baseratepricingwithoutadjustmentsparameters:
+    file: rates.md
+    anchor: base-rate-pricing-parameters
+  loyaltytierwriteresult:
+    file: loyaltytiers.md
+    anchor: loyaltytierwriteresult
+  producttypeenum:
+    file: orderitems.md
+    anchor: product-type
+  orderitemallowancediscountdata:
+    file: orderitems.md
+    anchor: allowance-discount-data
+  orderitemallowanceprofitsdata:
+    file: orderitems.md
+    anchor: allowance-profits-data
+  allowanceprofittypeenum:
+    file: orderitems.md
+    anchor: allowance-profit-type
+  fiscalMachineCommands_getAll-request:
+    file: commands.md
+    anchor: get-all-commands-filter-parameters
+  commandsgetallfilterbycommandidparameters:
+    file: commands.md
+    anchor: get-all-commands-by-unique-identifiers
+  commandsgetallfilterbystatesparameters:
+    file: commands.md
+    anchor: get-all-commands-by-device-identifiers-and-states
+  fiscalmachinecommanddatav20250623result:
+    file: commands.md
+    anchor: fiscalmachinecommanddatav20250623result
+  fiscalmachinecommanddatav20250623:
+    file: commands.md
+    anchor: fiscal-machine-command-data-ver-2025-06-23
+  billv20250623:
+    file: commands.md
+    anchor: bill-ver-2025-06-23
+  fiscalmachineadditionaldata:
+    file: commands.md
+    anchor: fiscalmachineadditionaldata
+  fiscalmachinedatadiscriminatorenum:
+    file: commands.md
+    anchor: fiscal-machine-data-discriminator
+  italianfiscalmachinedatav20250623:
+    file: commands.md
+    anchor: italian-fiscal-machine-data
+  italianfiscalmachinepayloadv20250623:
+    file: commands.md
+    anchor: italian-fiscal-machine-payload

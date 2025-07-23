@@ -33,9 +33,9 @@ tags:
   - identitydocuments
   - images
   # - languages
-  # - loyaltymemberships
+  - loyaltymemberships
   # - loyaltyprograms
-  # - loyaltytiers
+  - loyaltytiers
   # - messages
   # - messagethreads
   - orderitems

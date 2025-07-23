@@ -12,6 +12,12 @@ import { getSchemaId, hasProperties, log } from './utils.js';
  * @typedef { import('./types-resolver.js').SchemasAccumulator } SchemasAccumulator
  */
 
+const knownSchemaWithoutProperties = new Set([
+  'unit',
+  'hybrididentifier',
+  'localizedstrings',
+]);
+
 /**
  * Traverse schema, collect all nested schemas
  * @param {SchemaObject} schema
@@ -31,7 +37,7 @@ export function collectSchemas(schema, path, accumulator) {
     nestedPath.push(schemaId);
   }
 
-  if (schemaId && !include) {
+  if (schemaId && !include && !knownSchemaWithoutProperties.has(schemaId)) {
     log.warn('Skipping schema without properties:', schemaId);
   }
 

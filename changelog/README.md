@@ -1,7 +1,72 @@
 # Changelog
 
+## 24th July 2025
+* [Certification](../your-journey/certification.md) page re-written to reference the new Partner Portal, and for improved clarity. Documentation-only, no change to API. 
+
+## 14th July 2025
+* [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands):
+  * Added new operation (restricted).
+* [Get all payments](../operations/payments.md#get-all-payments):
+* [Add external payment](../operations/payments.md#add-external-payment):
+  * **Deprecated** the following external payment types for new integration partners: `CreditCard`, `IDeal`, `PayPal`, `OnlinePayment`, `MasterCard`, `Visa`, `Amex`, `Discover`, `DinersClub`, `Jcb`, and `UnionPay`.
+
+## 10th July 2025
+* Updated [Response codes](../guidelines/responses.md#response-codes) with `Request-Id` header, which is now present with each request.
+* Extended [Error response details](../guidelines/responses.md#error-response-details) with `RequestId`.
+
+## 1st July 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+    * Extended [Order item data](../operations/orderitems#order-item-data) response object with `AllowanceDiscount` and `AllowanceProfits` fields.
+
+## 20th June 2025
+* [Get all resource blocks](../operations/resourceblocks.md#resource-block):
+  * Extended response object to include `DeletedUtc` field.
+* [Get reservation channel manager details](../operations/reservations.md#get-reservation-channel-manager-details):
+  * Extended response object [Reservation channel manager details](../operations/reservations.md#reservation-channel-manager-details) with `ChannelManagerGroupNumber`.
+
+## 19th June 2025
+* [Update rate capacity offset pricing](rates.md#update-rate-capacity-offset-pricing):
+  * Added new operation for updating rate capacity offset pricing.
+
+## 16th June 2025
+* [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
+  * Extended request object with `PartnerCompanyIds` and `TravelAgencyIds` filtering parameters.
+
+## 13th June 2025
+* [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents):
+  * **Change in behavior**: The identity document `Number` property is an empty string when the number is not collected in certain regions, such as The Netherlands.
+* [Add identity documents](../operations/identitydocuments.md#add-identity-documents):
+  * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, use an empty string for the `Number` property.
+* [Update identity documents](../operations/identitydocuments.md#update-identity-documents):
+* [Add customer](../operations/customers.md#add-customer):
+* [Update customer](../operations/customers.md#update-customer):
+  * **Change in behavior**: If identity document number is not collected in certain regions, such as The Netherlands, do not use the optional `Number` property.
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object with `IsIdentityDocumentNumberRequired` property.
+
+## 6th June 2025
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object [Enterprise](configuration.md#enterprise) with `HoldingKey`and `ChainName`properties.
+* [Get all enterprises](../operations/enterprises.md#get-all-enterprises):
+  * Extended response object [Enterprise](enterprises.md#enterprise) with `HoldingKey`and `ChainName`properties.
+  
+## 5th June 2025
+* [Get all products](../operations/products.md#get-all-products):
+  * Extended [product classifications](../operations/products.md#product-classifications) with `Fee`.
+
+## 2nd June 2025
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * Extended response object [Bill customer data](../operations/bills.md#bill-customer-data) with `TaxIdentifier` property.
+
 ## 28th May 2025
-* [Certification](../your-journey/certification.md) page re-written to reference the new Partner Portal, and for improved clarity. Documentation-only, no change to API.  
+* [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships):
+  * Extended request with `ProviderMembershipId` property.
+  * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
+* [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships):
+  * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
+  * Fixed documentation for the `State` property in the [request parameters](../operations/loyaltymemberships.md#loyalty-membership-parameters): changed contract from **required** to **optional** and clarified the default value. Documentation-only, no change to API.
+* [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships):
+  * Extended response object [Loyalty membership](../operations/loyaltymemberships.md#loyalty-membership) with `ProviderMembershipId` property.
 
 ## 27th May 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):

@@ -22,7 +22,7 @@ function pickSingularComposedSchema(schema) {
   }
 }
 
-function pickComposedSchema(schema) {
+export function pickComposedSchema(schema) {
   return schema.anyOf || schema.oneOf || schema.allOf;
 }
 

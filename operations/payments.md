@@ -356,26 +356,26 @@ Returns all payments in the system, filtered by various parameters. At least one
 * `BankCharges` - Bank charges
 * `CrossSettlement` - Cross settlement
 * `Cash` - Cash
-* `CreditCard` - Credit card
+* `CreditCard` - Credit card – deprecated, only for existing partners
 * `Prepayment` - Prepayment
 * `Cheque` - Cheque
 * `Bancontact` - Bancontact
-* `IDeal` - iDeal
-* `PayPal` - PayPal
+* `IDeal` - iDeal – deprecated, only for existing partners
+* `PayPal` - PayPal – deprecated, only for existing partners
 * `GiftCard` - Gift card
 * `LoyaltyPoints` - Loyalty points
 * `ChequeVacances` - Chèque-Vacances
-* `OnlinePayment` - Online payment
+* `OnlinePayment` - Online payment – deprecated, only for existing partners
 * `CardCheck` - Card check
 * `PaymentHubRedirection` - Payment hub redirection
 * `Voucher` - Voucher
-* `MasterCard` - MasterCard
-* `Visa` - Visa
-* `Amex` - American Express
-* `Discover` - Discover
-* `DinersClub` - Diners Club
-* `Jcb` - JCB
-* `UnionPay` - UnionPay
+* `MasterCard` - MasterCard – deprecated, only for existing partners
+* `Visa` - Visa – deprecated, only for existing partners
+* `Amex` - American Express – deprecated, only for existing partners
+* `Discover` - Discover – deprecated, only for existing partners
+* `DinersClub` - Diners Club – deprecated, only for existing partners
+* `Jcb` - JCB – deprecated, only for existing partners
+* `UnionPay` - UnionPay – deprecated, only for existing partners
 * `Twint` - TWINT
 * `Reka` - Reka
 * `LoyaltyCard` - Loyalty card
