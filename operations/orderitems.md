@@ -432,6 +432,8 @@ Additional order item data.
 * `IT_N3_5` - N3.5 - Non imponibili – a seguito di dichiarazioni d’intento
 * `IT_N4` - N4 - Esenti
 * `IT_N5` - N5 - Regime del margine / IVA non esposta in fattura
+* `PL_ZW` - ZW - Zwolniony
+* `PL_NP` - NP - Nie podlega
 
 ## Cancel order items
 

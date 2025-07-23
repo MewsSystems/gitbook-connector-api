@@ -81,8 +81,7 @@ Returns all products offered together with the specified services. Note this ope
         "Food": false,
         "Beverage": false,
         "Wellness": false,
-        "CityTax": false,
-        "Fee": false
+        "CityTax": false
       },
       "Price": {
         "GrossValue": 25,
@@ -134,8 +133,7 @@ Returns all products offered together with the specified services. Note this ope
         "Food": false,
         "Beverage": false,
         "Wellness": false,
-        "CityTax": false,
-        "Fee": false
+        "CityTax": false
       },
       "Price": {
         "GrossValue": 25,

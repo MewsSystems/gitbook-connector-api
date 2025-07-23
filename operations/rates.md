@@ -458,7 +458,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Discriminator in which field inside `Pricing` contains additional data. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
-| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate add pricing data parameters](rates.md#rate-add-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
 
 #### Rate Add Type
 
@@ -470,7 +470,7 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 * `BaseRatePricing`
 * `DependentRatePricing`
 
-#### Rate pricing data parameters
+#### Rate add pricing data parameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -561,7 +561,7 @@ Note that prices are defined daily, so when the server receives the UTC interval
 | `Client` | string | required | Name and version of the client application. |
 | `RateId` | string [Hybrid identifier](_objects.md#hybrid-identifier) | required | Unique identifier of the `Rate`. |
 | `ProductId` | string | optional | Unique identifier of the `Product`. |
-| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 50 items | Price adjustments for specific time intervals. |
+| `PriceUpdates` | array of [Rate price update](rates.md#rate-price-update) | required, max 1000 items | Price adjustments for specific time intervals. |
 
 #### Rate price update
 
@@ -616,21 +616,15 @@ Parameters for updating rate capacity offsets in an enterprise.
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `CapacityOffsetUpdates` | array of [RateCapacityOffsetUpdateParameters](rates.md#ratecapacityoffsetupdateparameters) | required, max 1000 items | A list of rate capacity offset updates to apply. |
+| `CapacityOffsetUpdates` | array of [RateCapacityOffsetUpdateParameters](rates.md#ratecapacityoffsetupdateparameters) | required, max 50 items | A list of rate capacity offset updates to apply. |
 
 #### RateCapacityOffsetUpdateParameters
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `RateId` | string | required | The unique identifier of the `Rate` to update. |
-| `NegativeOccupancyAdjustment` | [Decimal update value](rates.md#decimal-update-value) | optional | Amount added to the price when occupancy is less than the Space Category Capacity. Use a negative value to provide a discount for under-occupancy. Set to 'null' if not updated. |
-| `ExtraOccupancyAdjustment` | [Decimal update value](rates.md#decimal-update-value) | optional | Amount added to the price when the Space Category Capacity is exceeded. |
-
-#### Decimal update value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Value` | number | required | Value which is to be updated. |
+| `NegativeOccupancyAdjustment` | [Decimal update value](_objects.md#decimal-update-value) | optional | Amount added to the price when occupancy is less than the Space Category Capacity. Use a negative value to provide a discount for under-occupancy. Set to 'null' if not updated. |
+| `ExtraOccupancyAdjustment` | [Decimal update value](_objects.md#decimal-update-value) | optional | Amount added to the price when the Space Category Capacity is exceeded. |
 
 ### Response
 
@@ -673,9 +667,7 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
           "Amount": {
             "Currency": "EUR",
             "NetValue": 100
-          },
-          "NegativeOccupancyAdjustment": 0,
-          "ExtraOccupancyAdjustment": 0
+          }
         }
       }
     },
@@ -726,7 +718,20 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 | `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name of the rate. |
 | `Descriptions` | [Localized text](_objects.md#localized-text) | optional | All translations of the description. |
 | `PricingType` | [Rate pricing discriminator](rates.md#rate-pricing-discriminator) | required | Rate pricing type. Must match existing pricing type in case of update. |
-| `Pricing` | [Rate pricing data parameters](rates.md#rate-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+| `Pricing` | [Rate set pricing data parameters](rates.md#rate-set-pricing-data-parameters) | optional | Contains additional data about pricing of the rate. |
+
+#### Rate set pricing data parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
+| `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
+
+#### Base rate pricing parameters
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | required | Price of the product that overrides the price defined in Mews. |
 
 ### Response
 
