@@ -13,6 +13,8 @@
 * [Update customer](../operations/customers.md#update-customer):
 * [Add customer](../operations/customers.md#add-customer):
   * Extended [Customer option](../operations/customers.md#customer-option) with `IdPhotosConsent` and `GuestPhotoConsent`.
+* [Set rates](../operations/rates.md#set-rates) (restricted operation):
+  * Removed `NegativeOccupancyAdjustment` and `ExtraOccupancyAdjustment` from `BaseRatePricing` of the request object [Rate set pricing data parameters](../operations/rates.md#rate-set-pricing-data-parameters).
 
 ## 14th July 2025
 * [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands):
