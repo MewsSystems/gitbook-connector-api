@@ -197,8 +197,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `AddressId` | string | optional | Unique identifier of the `Address` of the customer. |
-| `Classifications` | array of [Customer classification](reservations.md#customer-classification) | required | Classifications of the customer. |
-| `Options` | array of [Customer option](reservations.md#customer-option) | required | Options of the customer. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
@@ -241,6 +241,43 @@ Note that the value should not be used as-is, but localized. For example, the va
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
 | `IssuingCity` | string | optional | City where the document was issued. |
 | `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish hotels. |
+
+#### Customer classification
+
+* `None`
+* `PaymasterAccount`
+* `Blacklist`
+* `Media`
+* `LoyaltyProgram`
+* `PreviousComplaint`
+* `Returning`
+* `Staff`
+* `FriendOrFamily`
+* `TopManagement`
+* `Important`
+* `VeryImportant`
+* `Problematic`
+* `Cashlist`
+* `DisabledPerson`
+* `Military`
+* `Airline`
+* `HealthCompliant`
+* `InRoom`
+* `WaitingForRoom`
+* `Student`
+
+#### Customer option
+
+* `None`
+* `SendMarketingEmails`
+* `Invoiceable`
+* `BillAddressObjection`
+* `SendMarketingPostalMail`
+* `SendPartnerMarketingEmails`
+* `SendPartnerMarketingPostalMail`
+* `WithdrawCardConsent`
+* `GuestPhotoConsent`
+* `IdPhotosConsent`
 
 ## ~~Get customers open items~~
 
@@ -461,6 +498,8 @@ Adds a new customer to the system and returns details of the added customer. If 
 * `SendPartnerMarketingEmails`
 * `SendPartnerMarketingPostalMail`
 * `WithdrawCardConsent`
+* `GuestPhotoConsent` - Whether to ask for consent to take a guest photo.
+* `IdPhotosConsent` - Whether to ask for consent to take identity document photos.
 
 ### Response
 
@@ -556,8 +595,8 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `AddressId` | string | optional | Unique identifier of the `Address` of the customer. |
-| `Classifications` | array of [Customer classification](reservations.md#customer-classification) | required | Classifications of the customer. |
-| `Options` | array of [Customer option](reservations.md#customer-option) | required | Options of the customer. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
@@ -751,8 +790,8 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `CreatedUtc` | string | required | Creation date and time of the customer in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the customer in UTC timezone in ISO 8601 format. |
 | `AddressId` | string | optional | Unique identifier of the `Address` of the customer. |
-| `Classifications` | array of [Customer classification](reservations.md#customer-classification) | required | Classifications of the customer. |
-| `Options` | array of [Customer option](reservations.md#customer-option) | required | Options of the customer. |
+| `Classifications` | array of [Customer classification](customers.md#customer-classification) | required | Classifications of the customer. |
+| `Options` | array of [Customer option](customers.md#customer-option) | required | Options of the customer. |
 | `ItalianDestinationCode` | string | optional | Value of Italian destination code. |
 | `ItalianFiscalCode` | string | optional | Value of Italian fiscal code. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |

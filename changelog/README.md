@@ -1,5 +1,13 @@
 # Changelog
 
+## 23rd July 2025
+* [Update reservations](../operations/reservations.md#update-reservations)
+  * Fixed the description of `AssignedResourceLocked` parameter in [Reservation updates](../operations/reservations.md#reservation-updates) request object. Documentation-only, no change to API functionality.
+* [Get all customers](../operations/customers.md#get-all-customers)
+* [Update customer](../operations/customers.md#update-customer):
+* [Add customer](../operations/customers.md#add-customer):
+  * Extended [Customer option](../operations/customers.md#customer-option) with `IdPhotosConsent` and `GuestPhotoConsent`.
+
 ## 14th July 2025
 * [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands):
   * Added new operation (restricted).
