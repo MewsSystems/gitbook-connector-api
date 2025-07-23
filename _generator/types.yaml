@@ -1865,3 +1865,108 @@ types:
   italianfiscalmachinepayloadv20250623:
     file: commands.md
     anchor: italian-fiscal-machine-payload
+  multipleratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: multipleratecapacityoffsetupdateparameters
+  ratecapacityoffsetupdateparameters:
+    file: rates.md
+    anchor: ratecapacityoffsetupdateparameters
+  rateresult:
+    file: rates.md
+    anchor: rate-result
+  rate:
+    file: rates.md
+    anchor: rate
+  ratetypeenum:
+    file: rates.md
+    anchor: rate-type
+  rategroupold:
+    file: rates.md
+    anchor: rate-group-ver-2017-04-12
+  raterestrictionresult:
+    file: rates.md
+    anchor: rate-restriction-result
+  daterestriction:
+    file: rates.md
+    anchor: date-restriction
+  earlinessrestriction:
+    file: rates.md
+    anchor: earliness-restriction
+  lengthrestriction:
+    file: rates.md
+    anchor: length-restriction
+  ratefilterparameters:
+    file: rates.md
+    anchor: rate-filter-parameters
+  rateextent:
+    file: rates.md
+    anchor: rate-extent
+  rateaddresult:
+    file: rates.md
+    anchor: rate-add-result
+  rateaddparameters:
+    file: rates.md
+    anchor: rate-add-parameters
+  rateadddata:
+    file: rates.md
+    anchor: rate-parameters
+  rateaddtypeenum:
+    file: rates.md
+    anchor: rate-add-type
+  ratepricingdiscriminatorenum:
+    file: rates.md
+    anchor: rate-pricing-discriminator
+  rateaddpricingdataparameters:
+    file: rates.md
+    anchor: rate-add-pricing-data-parameters
+  baseratepricingparameterswithoccupancyadjustments:
+    file: rates.md
+    anchor: base-rate-pricing-parameters-with-occupancy-adjustments
+  dependentratepricingparameters:
+    file: rates.md
+    anchor: dependent-rate-pricing-parameters
+  ratesetresult:
+    file: rates.md
+    anchor: rate-set-result
+  ratesetparameters:
+    file: rates.md
+    anchor: set-rates-parameters
+  ratesetdata:
+    file: rates.md
+    anchor: set-rate-parameters
+  ratesetpricingdataparameters:
+    file: rates.md
+    anchor: rate-set-pricing-data-parameters
+  baseratepricingwithoutadjustmentsparameters:
+    file: rates.md
+    anchor: base-rate-pricing-parameters-without-occupancy-adjustments
+  ratedeleteparameters:
+    file: rates.md
+    anchor: ratedeleteparameters
+  ratepricing:
+    file: rates.md
+    anchor: rate-pricing
+  categorypricing:
+    file: rates.md
+    anchor: resource-category-pricing
+  categoryadjustment:
+    file: rates.md
+    anchor: resource-category-adjustment
+  agecategoryadjustment:
+    file: rates.md
+    anchor: age-category-adjustment
+  agecategoryadjustmenttypeenum:
+    file: rates.md
+    anchor: age-category-adjustment-type
+  ratepricingfilterparameters:
+    file: rates.md
+    anchor: rate-pricing-filter-parameters
+  ratepriceupdateparameters:
+    file: rates.md
+    anchor: rate-price-update-parameters
+  ratepriceupdate:
+    file: rates.md
+    anchor: rate-price-update
+  rateforextent:
+    file: reservations.md
+    anchor: rate-for-extent
