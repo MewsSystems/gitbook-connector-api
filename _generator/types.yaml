@@ -361,15 +361,6 @@ types:
   businesssegment:
     file: businesssegments.md
     anchor: business-segment
-  rate:
-    file: rates.md
-    anchor: rate
-  ratetype:
-    file: rates.md
-    anchor: rate-type
-  rategroupold:
-    file: rates.md
-    anchor: rate-group-ver-2017-04-12
   accountingitem:
     file: accountingitems.md
     anchor: accounting-item
@@ -931,75 +922,6 @@ types:
   accountingcategoryclassificationenum:
     file: accountingcategories.md
     anchor: accounting-category-classification
-  rateresult:
-    file: rates.md
-    anchor: rate-result
-  raterestrictionresult:
-    file: rates.md
-    anchor: rate-restriction-result
-  daterestriction:
-    file: rates.md
-    anchor: date-restriction
-  earlinessrestriction:
-    file: rates.md
-    anchor: earliness-restriction
-  lengthrestriction:
-    file: rates.md
-    anchor: length-restriction
-  ratefilterparameters:
-    file: rates.md
-    anchor: rate-filter-parameters
-  rateextent:
-    file: rates.md
-    anchor: rate-extent
-  rateaddresult:
-    file: rates.md
-    anchor: rate-add-result
-  rateaddparameters:
-    file: rates.md
-    anchor: rate-add-parameters
-  rateadddata:
-    file: rates.md
-    anchor: rate-parameters
-  rateaddtypeenum:
-    file: rates.md
-    anchor: rate-add-type
-  ratepricingdiscriminator:
-    file: rates.md
-    anchor: rate-pricing-discriminator
-  ratepricingdataparameters:
-    file: rates.md
-    anchor: rate-pricing-data-parameters
-  baseratepricingparameters:
-    file: rates.md
-    anchor: base-rate-pricing-parameters
-  dependentratepricingparameters:
-    file: rates.md
-    anchor: dependent-rate-pricing-parameters
-  ratepricing:
-    file: rates.md
-    anchor: rate-pricing
-  categorypricing:
-    file: rates.md
-    anchor: resource-category-pricing
-  categoryadjustment:
-    file: rates.md
-    anchor: resource-category-adjustment
-  agecategoryadjustment:
-    file: rates.md
-    anchor: age-category-adjustment
-  agecategoryadjustmenttypeenum:
-    file: rates.md
-    anchor: age-category-adjustment-type
-  ratepricingparameters:
-    file: rates.md
-    anchor: rate-pricing-parameters
-  ratepriceupdateparameters:
-    file: rates.md
-    anchor: rate-price-update-parameters
-  ratepriceupdate:
-    file: rates.md
-    anchor: rate-price-update
   productpricingresult:
     file: products.md
     anchor: product-pricing-result
@@ -1261,12 +1183,6 @@ types:
   externalpaymenttypeenum:
     file: payments.md
     anchor: external-payment-type
-  ratetypeenum:
-    file: rates.md
-    anchor: rate-type
-  ratepricingdiscriminatorenum:
-    file: rates.md
-    anchor: rate-pricing-discriminator
   sexenum:
     file: customers.md
     anchor: sex
@@ -1279,9 +1195,6 @@ types:
   customeroptionsenum:
     file: customers.md
     anchor: customer-option
-  rateforextent:
-    file: rates.md
-    anchor: rate-for-extent
   addaccountfileresult:
     file: accounts.md
     anchor: addaccountfileresult
@@ -1405,9 +1318,6 @@ types:
   productpriceupdate:
     file: products.md
     anchor: product-price-update
-  ratedeleteparameters:
-    file: rates.md
-    anchor: ratedeleteparameters
   paymentresult:
     file: payments.md
     anchor: paymentresult
@@ -1504,18 +1414,6 @@ types:
   idealdata:
     file: payments.md
     anchor: ideal-data
-  ratesetresult:
-    file: rates.md
-    anchor: rate-set-result
-  ratesetparameters:
-    file: rates.md
-    anchor: set-rates-parameters
-  ratesetdata:
-    file: rates.md
-    anchor: set-rate-parameters
-  ratepricingfilterparameters:
-    file: rates.md
-    anchor: rate-pricing-filter-parameters
   identitydocumentresult:
     file: identitydocuments.md
     anchor: identitydocumentresult
@@ -1654,18 +1552,6 @@ types:
   releasestrategyupdatevalue:
     file: availabilityblocks.md
     anchor: release-strategy-update-value
-  rateaddpricingdataparameters:
-    file: rates.md
-    anchor: rate-add-pricing-data-parameters
-  addbaseratepricingparameters:
-    file: rates.md
-    anchor: add-base-rate-pricing-parameters
-  ratesetpricingdataparameters:
-    file: rates.md
-    anchor: rate-set-pricing-data-parameters
-  setbaseratepricingparameters:
-    file: rates.md
-    anchor: set-base-rate-pricing-parameters
   financialdocumentpdftemplatetypeenum:
     file: bills.md
     anchor: bill-pdf-template-type
@@ -1907,12 +1793,6 @@ types:
   loyaltymembershipstateupdatevalue:
     file: loyaltymemberships.md
     anchor: loyalty-membership-state-update-value
-  multipleratecapacityoffsetupdateparameters:
-    file: rates.md
-    anchor: multipleratecapacityoffsetupdateparameters
-  ratecapacityoffsetupdateparameters:
-    file: rates.md
-    anchor: ratecapacityoffsetupdateparameters
   decimalupdatevalue:
     file: _objects.md
     anchor: decimal-update-value
@@ -1940,9 +1820,6 @@ types:
   loyaltytierdeleteparameters:
     file: loyaltytiers.md
     anchor: loyaltytierdeleteparameters
-  baseratepricingwithoutadjustmentsparameters:
-    file: rates.md
-    anchor: base-rate-pricing-parameters
   loyaltytierwriteresult:
     file: loyaltytiers.md
     anchor: loyaltytierwriteresult
