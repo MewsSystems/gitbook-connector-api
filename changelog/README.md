@@ -1,6 +1,12 @@
 # Changelog
 
 ## 23rd July 2025
+* [Get all bills](../operations/bills.md#get-all-bills):
+* [Add bill](../operations/bills.md#add-bill):
+* [Update bills](../operations/bills.md#update-bills):
+  * Extended [Bill](../operations/bills.md#bill) response object with `AccountType` property.
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `PL_ZW` and `PL_NP` for Polish tax exemptions.
 * [Update reservations](../operations/reservations.md#update-reservations)
   * Fixed the description of `AssignedResourceLocked` parameter in [Reservation updates](../operations/reservations.md#reservation-updates) request object. Documentation-only, no change to API functionality.
 * [Get all customers](../operations/customers.md#get-all-customers)

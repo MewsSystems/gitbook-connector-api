@@ -163,6 +163,7 @@ If there is already an export with status `Pending` or `Processing` for the spec
 * `AvailabilityAdjustment`
 * `AvailabilityBlock`
 * `ResourceBlock`
+* `LedgerEntry` - Beta testing - subject to change
 
 #### Export file entry
 

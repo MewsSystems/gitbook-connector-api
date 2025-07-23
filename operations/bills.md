@@ -82,6 +82,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
       "Name": "Accommodation Charges",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "AccountId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+      "AccountType": "Company",
       "CustomerId": null,
       "CompanyId": null,
       "AssociatedAccountIds": [
@@ -395,6 +396,7 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
       "Name": "Accommodation Charges",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "AccountId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+      "AccountType": "Company",
       "CustomerId": null,
       "CompanyId": null,
       "AssociatedAccountIds": [
@@ -512,6 +514,7 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
 | `Name` | string | optional | Name of the bill. |
 | `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
 | `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the [type of account](accounts.md#account-type), i.e. `Customer` or `Company`. |
 | `AssociatedAccountIds` | array of string | optional | Unique identifiers of the `Customers` or `Companies` that are associated to the bill. |
 | `CounterId` | string | optional | Unique identifier of the bill `Counter`. |
 | `State` | [Bill state](bills.md#bill-state) | required | Whether the bill is `Open` or `Closed`. |

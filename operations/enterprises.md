@@ -115,7 +115,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the enterprise from external system. |
 | `HoldingKey` | string | optional, max length 255 characters | Identifies an enterprise in the external system of a holding company. The holding company may administer multiple portfolios. |
 | `ChainId` | string | required | Unique identifier of the chain to which the enterprise belongs. |
-| `ChainName` | string | required | Name of the chain to which the enterprise belongs. |
+| `ChainName` | string | required | Name of the `Chain` to which the enterprise belongs. |
 | `CreatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Creation date and time of the enterprise in UTC timezone in ISO 8601 format. |
 | `Name` | string | required | Name of the enterprise. |
