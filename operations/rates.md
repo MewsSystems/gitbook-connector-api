@@ -474,10 +474,10 @@ Adds rates to the enterprise. Note this operation supports [Portfolio Access Tok
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
+| `BaseRatePricing` | [Base rate pricing parameters (with occupancy adjustments)](rates.md#base-rate-pricing-parameters-with-occupancy-adjustments) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
 | `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
 
-#### Base rate pricing parameters
+#### Base rate pricing parameters (with occupancy adjustments)
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -724,10 +724,10 @@ Adds new Rates or updates existing ones if they are matched by `Id` or `External
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `BaseRatePricing` | [Base rate pricing parameters](rates.md#base-rate-pricing-parameters) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
+| `BaseRatePricing` | [Base rate pricing parameters (without occupancy adjustments)](rates.md#base-rate-pricing-parameters-without-occupancy-adjustments) | optional | Additional data for rates with base rate pricing. Used when `PricingType` is `BaseRatePricing`. Defaults are applied if not specified: amount is set to 10000 in default Enterprise's currency and with its default accommodation tax rate code. |
 | `DependentRatePricing` | [Dependent rate pricing parameters](rates.md#dependent-rate-pricing-parameters) | optional | Additional data for rate with dependent rate pricing. Required when `PricingType` is `DependentRatePricing`. |
 
-#### Base rate pricing parameters
+#### Base rate pricing parameters (without occupancy adjustments)
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

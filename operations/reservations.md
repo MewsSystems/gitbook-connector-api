@@ -501,7 +501,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate for extent](reservations.md#rate-for-extent) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
@@ -626,6 +626,29 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 * `Passport`
 * `Visa`
 * `DriversLicense`
+
+#### Rate for extent
+`Rate` entity, without some of the details, e.g. pricing.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the rate. |
+| `GroupId` | string | required | Unique identifier of `Rate Group` where the rate belongs. |
+| `ServiceId` | string | required | Unique identifier of the `Service`. |
+| `BaseRateId` | string | optional | Unique identifier of the base `Rate`. |
+| `IsBaseRate` | boolean | required | Whether the rate is a base rate. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the `Business Segment`. |
+| `IsActive` | boolean | required | Whether the rate is still active. |
+| `IsEnabled` | boolean | required | Whether the rate is currently available to customers. |
+| `IsPublic` | boolean | required | Whether the rate is publicly available. |
+| `Type` | [Rate type](rates.md#rate-type) | required | Type of the rate. |
+| `Names` | [Localized text](_objects.md#localized-text) | required | All translations of the name. |
+| `ShortName` | string | optional | Short name of the rate (in the default language). |
+| `UpdatedUtc` | string | required | Interval in which the rates were updated. |
+| `ExternalNames` | [Localized text](_objects.md#localized-text) | optional | All translations of the external name of the rate. |
+| `Description` | [Localized text](_objects.md#localized-text) | optional | All translations of the description of the rate. |
+| `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the rate from external system. |
+| ~~`Name`~~ | ~~string~~ | ~~optional~~ | ~~Name of the rate (in the default language).~~ **Deprecated!** Use `Names` instead|
 
 #### Reservation QR code data
 
@@ -1324,7 +1347,7 @@ Updates information about the specified reservations. Note that if any of the fi
 | `ResourceCategories` | array of [Resource category](resources.md#resource-category) | optional | Resource categories of the resources. |
 | `ResourceCategoryAssignments` | array of [Resource category assignment](resourcecategories.md#resource-category-assignment) | optional | Assignments of the resources to categories. |
 | `BusinessSegments` | array of [Business segment](businesssegments.md#business-segment) | optional | Business segments of the reservations. |
-| `Rates` | array of [Rate for extent](rates.md#rate-for-extent) | optional | Rates of the reservations. |
+| `Rates` | array of [Rate for extent](reservations.md#rate-for-extent) | optional | Rates of the reservations. |
 | `RateGroups` | array of [Rate group (ver 2017-04-12)](rates.md#rate-group-ver-2017-04-12) | optional | Rate groups of the reservation rates. |
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | optional | Accounting items that are part of the reservations. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | optional | Revenue items of the reservations. |
