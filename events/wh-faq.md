@@ -41,7 +41,7 @@ The token should be kept secret and not shared with anyone except Mews.
 
 ## How should the server respond to a Webhook request?
 
-The server must respond with an HTTP status code indicating a success (e.g. `200 OK`,  `202 Accepted`, or `204 No Content`). The server can respond with a redirection status code which doesn't change the request method (e.g. `307 Temporary Redirect` or `308 Permanent Redirect`) and the event message will be sent to the new location.
+The server must respond with an HTTP status code indicating a success (e.g. `200 OK`, `202 Accepted`, or `204 No Content`). The server can respond with a redirection status code which doesn't change the request method (e.g. `307 Temporary Redirect` or `308 Permanent Redirect`) and the event message will be sent to the new location.
 
 If the server cannot process the request, it should respond with an appropriate error status code (i.e. `4xx` or `5xx` status codes). When the server responds with an error status code, the event message delivery will be retried, see [Do you attempt to resend failed Webhook messages?](#do-you-attempt-to-resend-failed-webhook-messages).
 

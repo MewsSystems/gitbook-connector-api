@@ -4,7 +4,7 @@
 * [Add reservations](../operations/reservations.md#add-reservations):
 * [Price reservations](../operations/reservations.md#price-reservations):
   * Fixed the description of `State` parameter in [Reservation parameters](../operations/reservations.md#reservation-parameters) request object. Documentation-only, no change to API functionality.
-* Improved documentation around async processing and retries of Webhooks in [Webhooks FAQ](../events/wh-faq.md#asynchronous-processing) and [Important considerations for General Webhooks](../events/wh-general.md#important-considerations). Documentation-only. No change to API.
+* Improved documentation around async processing and retries of Webhooks in [Webhooks FAQ](../events/wh-faq.md#do-you-attempt-to-resend-failed-webhook-messages) and [Important considerations for General Webhooks](../events/wh-general.md#important-considerations). Documentation-only. No change to API.
 
 ## 23rd July 2025
 * [Get all bills](../operations/bills.md#get-all-bills):
