@@ -1566,7 +1566,7 @@ This operation supports [Portfolio Access Tokens](../concepts/multi-property.md)
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `ChannelNumber` | string | optional |  |
-| `State` | [Service order state](reservations.md#service-order-state) | required | State of the newly created reservation (either `Optional`, `Inquired` or `Confirmed`). If not specified, `Confirmed` is used. |
+| `State` | [Service order state (ver 2017-04-12)](reservations.md#service-order-state-ver-2017-04-12) | required | State of the newly created reservation (either `Optional`, `Enquired` or `Confirmed`). If not specified, `Confirmed` is used. |
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |
@@ -1587,16 +1587,6 @@ This operation supports [Portfolio Access Tokens](../concepts/multi-property.md)
 | `AvailabilityBlockId` | string | optional | Unique identifier of the `AvailabilityBlock` the reservation is assigned to. |
 | ~~`AdultCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** Use `PersonCounts` instead.|
 | ~~`ChildCount`~~ | ~~integer~~ | ~~required~~ | **Deprecated!** Use `PersonCounts` instead.|
-
-#### Service order state
-
-* `Inquired` - Confirmed neither by the customer nor enterprise.
-* `Confirmed` - Confirmed by both parties, before check-in.
-* `Started` - Checked in.
-* `Processed` - Checked out.
-* `Canceled` - Canceled.
-* `Optional` - Confirmed by enterprise but not by the guest (the enterprise is holding resource for the guest).
-* `Requested` - Confirmed by the customer but not by the enterprise (waitlist).
 
 #### Time unit amount parameters
 

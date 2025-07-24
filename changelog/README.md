@@ -1,5 +1,10 @@
 # Changelog
 
+## 24th July 2025
+* [Add reservations](../operations/reservations.md#add-reservations):
+* [Price reservations](../operations/reservations.md#price-reservations):
+  * Fixed the description of `State` parameter in [Reservation parameters](../operations/reservations.md#reservation-parameters) request object. Documentation-only, no change to API functionality.
+
 ## 23rd July 2025
 * [Get all bills](../operations/bills.md#get-all-bills):
 * [Add bill](../operations/bills.md#add-bill):
