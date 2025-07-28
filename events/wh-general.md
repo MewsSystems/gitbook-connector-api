@@ -50,8 +50,15 @@ In the context of General Webhooks, the terms Added and Updated describe differe
 
 ### Important considerations
 
+### Asynchronous processing
+
+When processing Webhook messages, it is crucial for the server to respond quickly to the Webhook request, otherwise the request may time out and will be retried (see [Do you attempt to resend failed Webhook messages?](wh-faq.md#do-you-attempt-to-resend-failed-webhook-messages)). If you need to perform additional operations, such as making external API calls, make sure to process incoming webhook messages asynchronously. You can, for example, store the incoming Webhook message in a queue and respond to the Webhook request immediately.
+
+### `CustomerAdded` and `CustomerUpdated` events
+
 When you subscribe to events for entities like Customers, a newly created entity generates both a `CustomerAdded` event and a `CustomerUpdated` event.
 These events will have the same `CustomerId` and will often appear within the same Webhook message.
+
 To avoid redundant API calls, ensure that you process each entity only once. For example, when you receive both a `CustomerAdded` and a `CustomerUpdated` event for the same `CustomerId`, call [Get all customers](../operations/customers.md#get-all-customers) only once to retrieve the entity details.
 
 ## Request body

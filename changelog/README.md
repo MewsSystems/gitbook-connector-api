@@ -1,5 +1,8 @@
 # Changelog
 
+## 28th July 2025
+* Improved documentation around async processing and retries of Webhooks in [Webhooks FAQ](../events/wh-faq.md#do-you-attempt-to-resend-failed-webhook-messages) and [Important considerations for General Webhooks](../events/wh-general.md#important-considerations). Documentation-only. No change to API.
+
 ## 24th July 2025
 * [Add reservations](../operations/reservations.md#add-reservations):
 * [Price reservations](../operations/reservations.md#price-reservations):
