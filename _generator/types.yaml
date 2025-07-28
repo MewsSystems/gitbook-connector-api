@@ -1970,3 +1970,15 @@ types:
   rateforextent:
     file: reservations.md
     anchor: rate-for-extent
+  counterresult:
+    file: counters.md
+    anchor: counterresult
+  counter:
+    file: counters.md
+    anchor: counter
+  enterprisescopecounterdiscriminator:
+    file: counters.md
+    anchor: counter-type-discriminator
+  counterfilterparameters:
+    file: counters.md
+    anchor: counterfilterparameters
