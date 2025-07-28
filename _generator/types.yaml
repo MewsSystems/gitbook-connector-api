@@ -2000,3 +2000,15 @@ types:
   languagetextparameters:
     file: languages.md
     anchor: languagetextparameters
+  productcategoryresult:
+    file: productcategories.md
+    anchor: productcategoryresult
+  productcategory:
+    file: productcategories.md
+    anchor: product-category
+  parentproductcategory:
+    file: productcategories.md
+    anchor: parent-product-category
+  productcategoryfilterparameters:
+    file: productcategories.md
+    anchor: productcategoryfilterparameters
