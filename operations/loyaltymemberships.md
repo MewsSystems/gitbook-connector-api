@@ -277,6 +277,7 @@ Updates information about the specified loyalty memberships. Note this operation
 | `State` | [Loyalty membership state update value](loyaltymemberships.md#loyalty-membership-state-update-value) | optional | State of the loyalty membership, (or `null` if the state should not be updated). |
 | `IsPrimary` | [Bool update value](_objects.md#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account (or `null` if the value should not be updated). |
 | `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. (or `null` if the code should not be updated). |
+| `ProviderMembershipId` | [String update value](_objects.md#string-update-value) | optional | LoyaltyMembershipId of the loyalty membership. (or `null` if the value should not be updated). |
 | `Points` | [Number update value](_objects.md#number-update-value) | optional | The loyalty points the account has in the loyalty membership (or `null` if the points should not be updated). |
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format (or `null` if the date should not be updated). |
 | `Url` | [String update value](_objects.md#string-update-value) | optional | URL of the loyalty membership (or `null` if the URL should not be updated). |
