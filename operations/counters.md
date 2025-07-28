@@ -108,7 +108,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Counters` | array of [Counter](counters.md#counter) | required | All types of counters. |
-| `Cursor` | string | optional | Unique identifier of the last returned counter in `Counter`. This can be used in Limitation in a subsequent request to fetch the next batch of counters. |
+| `Cursor` | string | optional | Unique identifier of the last returned counter in `Counters`. This can be used in Limitation in a subsequent request to fetch the next batch of counters. |
 | ~~`BillCounters`~~ | ~~array of [Counter](counters.md#counter)~~ | ~~required~~ | ~~The counters used to count closed `Bills`.~~ **Deprecated!** Use `Counters` instead.|
 | ~~`ProformaCounters`~~ | ~~array of [Counter](counters.md#counter)~~ | ~~required~~ | ~~The counters used to count Pro Forma invoices for `Bills`.~~ **Deprecated!** Use `Counters` instead.|
 | ~~`BillPreviewCounters`~~ | ~~array of [Counter](counters.md#counter)~~ | ~~required~~ | ~~The counters used to count bill previews for `Bills`.~~ **Deprecated!** Use `Counters` instead.|
