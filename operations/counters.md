@@ -123,8 +123,8 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseId` | string | required | Unique identifier of the enterprise to which the counter belongs. |
 | `Name` | string | required | Name of the counter. |
 | `IsDefault` | boolean | required | Whether the counter is used by default. |
-| `Value` | integer | required | Current value the counter. |
-| `Format` | string | required | Format the counter is displayed in. |
+| `Value` | integer | required | Current value of the counter. |
+| `Format` | string | required | Display format of the counter. |
 | `Type` | [Counter type discriminator](counters.md#counter-type-discriminator) | required |  |
 | `CreatedUtc` | string | required | Creation date and time of the counter in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the counter in UTC timezone in ISO 8601 format. |
