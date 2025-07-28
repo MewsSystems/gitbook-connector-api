@@ -32,7 +32,7 @@ tags:
   - exports
   - identitydocuments
   - images
-  # - languages
+  - languages
   - loyaltymemberships
   # - loyaltyprograms
   - loyaltytiers
