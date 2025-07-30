@@ -6,6 +6,8 @@
   * Extended [Counter type discriminator](../operations/counters.md#counter-type-discriminator) with `AccountingCounter`.
 * [Get all product categories](../operations/productcategories.md#get-all-product-categories):
   * Aligned with OpenAPI Specification. Documentation-only. No change to API.
+* [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships):
+  * Extended request object with `ProviderMembershipId` parameter.
 
 ## 28th July 2025
 * Improved documentation around async processing and retries of Webhooks in [Webhooks FAQ](../events/wh-faq.md#do-you-attempt-to-resend-failed-webhook-messages) and [Important considerations for General Webhooks](../events/wh-general.md#important-considerations). Documentation-only. No change to API.
