@@ -1,6 +1,6 @@
 # Changelog
 
-## 29th July 2025
+## 30th July 2025
 * [Get all counters](../operations/counters.md#get-all-counters):
   * Extended [Counter](../operations/counters.md#counter) response object with `EnterpriseId` property.
   * Extended [Counter type discriminator](../operations/counters.md#counter-type-discriminator) with `AccountingCounter`.
