@@ -1,5 +1,10 @@
 # Changelog
 
+## 30th July 2025
+* [Get all counters](../operations/counters.md#get-all-counters):
+  * Extended [Counter](../operations/counters.md#counter) response object with `EnterpriseId` property.
+  * Extended [Counter type discriminator](../operations/counters.md#counter-type-discriminator) with `AccountingCounter`.
+
 ## 28th July 2025
 * Improved documentation around async processing and retries of Webhooks in [Webhooks FAQ](../events/wh-faq.md#do-you-attempt-to-resend-failed-webhook-messages) and [Important considerations for General Webhooks](../events/wh-general.md#important-considerations). Documentation-only. No change to API.
 
