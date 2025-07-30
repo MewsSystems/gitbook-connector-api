@@ -43,7 +43,7 @@ Returns all categories of products. Note this operation uses [Pagination](../gui
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ProductCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of `ProductCategory`. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of `Service` to which the resource categories belong. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of `Service` to which the product categories belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the product categories were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
