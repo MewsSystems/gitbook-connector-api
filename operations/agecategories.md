@@ -46,7 +46,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `AgeCategoryIds` | array of string | optional, max 1000 items | Unique identifiers of [Age categories](agecategories.md#age-category). |
-| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of `Services` associated with the age categories. If not provided, defaults to all bookable services. |
+| `ServiceIds` | array of string | optional, max 1000 items | Unique identifiers of `Service` associated with the age categories. If not provided, defaults to all bookable services. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the age category was updated. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |

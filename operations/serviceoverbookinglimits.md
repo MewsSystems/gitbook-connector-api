@@ -52,7 +52,7 @@ Returns all service overbooking limits. Note this operation uses [Pagination](..
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of `Services` associated with the service overbooking limits. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of `Service` associated with the service overbooking limits. |
 | `ServiceOverbookingLimitIds` | array of string | optional, max 1000 items | Unique identifiers of the service overbooking limits. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the service overbooking limit is active. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the service overbooking limits were updated. |
