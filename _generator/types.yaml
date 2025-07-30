@@ -60,6 +60,9 @@ types:
   localizedstrings:
     file: _objects.md
     anchor: localized-text
+  dictionary:
+    file: _objects.md
+    anchor: dictionary
   hybrididentifier:
     file: _objects.md
     anchor: hybrid-identifier
@@ -122,7 +125,7 @@ types:
     file: countries.md
     anchor: country-group
   parameters:
-    file: devices.md
+    file: languages.md
     anchor: parameters
   currencyresult:
     file: currencies.md
@@ -1982,3 +1985,18 @@ types:
   counterfilterparameters:
     file: counters.md
     anchor: counterfilterparameters
+  languageresult:
+    file: languages.md
+    anchor: languageresult
+  language:
+    file: languages.md
+    anchor: language
+  languagetextresult:
+    file: languages.md
+    anchor: languagetextresult
+  languagetexts:
+    file: languages.md
+    anchor: language-texts
+  languagetextparameters:
+    file: languages.md
+    anchor: languagetextparameters
