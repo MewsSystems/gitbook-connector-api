@@ -125,7 +125,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `IsDefault` | boolean | required | Whether the counter is used by default. |
 | `Value` | integer | required | Current value of the counter. |
 | `Format` | string | required | Display format of the counter. |
-| `Type` | [Counter type discriminator](counters.md#counter-type-discriminator) | required |  |
+| `Type` | [Counter type discriminator](counters.md#counter-type-discriminator) | required | Type of the counter. |
 | `CreatedUtc` | string | required | Creation date and time of the counter in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the counter in UTC timezone in ISO 8601 format. |
 
