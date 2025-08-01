@@ -26,7 +26,7 @@ Returns all preauthorizations of specified customers.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required, max 1000 items | Unique identifier of the `Customer`. |
+| `CustomerIds` | array of string | required, max 1000 items | Unique identifiers of `Customer`. |
 
 ### Response
 
