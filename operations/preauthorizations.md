@@ -15,7 +15,8 @@ Returns all preauthorizations of specified customers.
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
   "CustomerIds": [
-    "e98995b0-140a-4208-bbeb-b77f2c43d6ee"
+    "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+    "bccdafd1-3e44-439d-861f-341526b597a9"
   ]
 }
 ```
@@ -33,34 +34,62 @@ Returns all preauthorizations of specified customers.
 {
   "Preauthorizations": [
     {
+      "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
+      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
       "Amount": {
         "Currency": "EUR",
-        "NetValue": null,
+        "NetValue": 8.4,
         "GrossValue": 10,
-        "TaxValues": []
+        "TaxValues": [
+          {
+            "Code": "VAT",
+            "Value": 1.6
+          }
+        ],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": "VAT",
+              "NetValue": 8.4,
+              "TaxValue": 1.6
+            }
+          ]
+        }
       },
+      "State": "Cancelled",
+      "ReservationId": null,
       "Code": null,
-      "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88",
-      "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
-      "Id": "2d93962f-067f-45a6-b7c4-bc4b9d899456",
-      "IsActive": false,
-      "State": "Cancelled"
+      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+      "IsActive": false
     },
     {
+      "Id": "ad44411a-1efc-46b6-b903-ec5fa7842000",
+      "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
       "Amount": {
         "Currency": "EUR",
-        "NetValue": null,
+        "NetValue": 18.49,
         "GrossValue": 22,
-        "TaxValues": []
+        "TaxValues": [
+          {
+            "Code": "VAT",
+            "Value": 3.51
+          }
+        ],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": "VAT",
+              "NetValue": 18.49,
+              "TaxValue": 3.51
+            }
+          ]
+        }
       },
-      "Code": null,
-      "CreditCardId": "41fa39ab-4b12-4816-95a3-d06cdbbdcb69",
-      "CustomerId": "20725048-b6ec-40f0-9d0a-7e5273d8b861",
-      "Id": "ad44411a-1efc-46b6-b903-ec5fa7842000",
-      "IsActive": true,
-      "ReceiptIdentifier": null,
-      "SequenceCode": null,
-      "State": "Charged"
+      "State": "Charged",
+      "ReservationId": "0f515589-99b4-423d-b83a-b237009f0509",
+      "Code": "PAY-2024-001",
+      "CustomerId": "bccdafd1-3e44-439d-861f-341526b597a9",
+      "IsActive": true
     }
   ]
 }
