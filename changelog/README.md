@@ -1,5 +1,11 @@
 # Changelog
 
+## 1st August 2025
+* Added Membership number field that is replacing the Code field to the following loyalty membership operations:
+  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
+  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+
 ## 30th July 2025
 * [Get all counters](../operations/counters.md#get-all-counters):
   * Extended [Counter](../operations/counters.md#counter) response object with `EnterpriseId` property.
