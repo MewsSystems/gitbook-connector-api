@@ -3,6 +3,7 @@
 ## 4th August 2025
 * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers):
   * Aligned with OpenAPI Specification, adding previously undocumented properties and fixing examples.
+  * Extended [Prauthorization](preauthorizations.md#preauthorization) response object with `CustomerId` and `IsActive` properties.
   * Extended [Preauthorization state](preauthorizations.md#preauthorization-state) with `Pending` and `Failed`.
 
 ## 1st August 2025
