@@ -304,7 +304,7 @@ Note that the value should not be used as-is, but localized. For example, the va
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `CustomerIds` | array of string | required, max 1000 items | Unique identifiers of the [Customers](customers.md#customer). |
+| `CustomerIds` | array of string | required, max 1000 items | Unique identifier of the `Customer`. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 
 ### Response
