@@ -67,7 +67,7 @@ tags:
   - serviceoverbookinglimits
   - sources
   - tasks
-  # - taxations
+  - taxations
   - taxenvironments
   - vouchercodes
   - vouchers
