@@ -1,5 +1,10 @@
 # Changelog
 
+## 4th August 2025
+* [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers):
+  * Aligned with OpenAPI Specification, adding previously undocumented properties and fixing examples.
+  * Extended [Preauthorization state](preauthorizations.md#preauthorization-state) with `Pending` and `Failed`.
+
 ## 1st August 2025
 * [Add outlet bills](../operations/outletbills.md#add-outlet-bills):
   * Aligned with OpenAPI Specification, adding previously undocumented properties.
