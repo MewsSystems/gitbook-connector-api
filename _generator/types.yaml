@@ -2024,3 +2024,15 @@ types:
   multiplecustomerparameters:
     file: preauthorizations.md
     anchor: multiplecustomerparameters
+  addoutletbillsresult:
+    file: outletbills.md
+    anchor: addoutletbillsresult
+  addoutletbillsparameters:
+    file: outletbills.md
+    anchor: addoutletbillsparameters
+  outletbillparameters:
+    file: outletbills.md
+    anchor: outlet-bill-parameters
+  outletitemparameters:
+    file: outletbills.md
+    anchor: outlet-item-parameters

@@ -40,7 +40,7 @@ tags:
   # - messagethreads
   - orderitems
   # - orders
-  # - outletbills
+  - outletbills
   - outletitems
   # - outlets
   # - paymentrequests
