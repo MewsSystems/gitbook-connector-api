@@ -1,5 +1,10 @@
 # Changelog
 
+## 1st August 2025
+* [Add outlet bills](../operations/outletbills.md#add-outlet-bills):
+  * Aligned with OpenAPI Specification, adding previously undocumented properties.
+  * Extended [Outlet bill parameters](../operations/outletbills.md#outlet-bill-parameters) request object with `AccountId` and `Notes` parameters.
+
 ## 30th July 2025
 * [Get all counters](../operations/counters.md#get-all-counters):
   * Extended [Counter](../operations/counters.md#counter) response object with `EnterpriseId` property.
