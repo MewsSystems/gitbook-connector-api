@@ -1,10 +1,15 @@
 # Changelog
 
+## 4th August 2025
+* [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers):
+  * Aligned with OpenAPI Specification, adding previously undocumented properties and fixing examples.
+  * Extended [Prauthorization](preauthorizations.md#preauthorization) response object with `CustomerId` and `IsActive` properties.
+  * Extended [Preauthorization state](preauthorizations.md#preauthorization-state) with `Pending` and `Failed`.
+
 ## 1st August 2025
-* Added Membership number field that is replacing the Code field to the following loyalty membership operations:
-  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
-  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
-  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+* [Add outlet bills](../operations/outletbills.md#add-outlet-bills):
+  * Aligned with OpenAPI Specification, adding previously undocumented properties.
+  * Extended [Outlet bill parameters](../operations/outletbills.md#outlet-bill-parameters) request object with `AccountId` and `Notes` parameters.
 
 ## 30th July 2025
 * [Get all counters](../operations/counters.md#get-all-counters):
