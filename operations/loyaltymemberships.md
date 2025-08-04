@@ -44,9 +44,6 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
   "ActivityStates": [
     "Active"
   ],
-  "Codes": [
-    "MBR-2025-AX49ZT73"
-  ],
   "MembershipNumbers": [
     "MBR-2025-AX49ZT73"
   ],
@@ -90,7 +87,7 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
       "State": "New",
       "IsPrimary": true,
       "ProviderMembershipId": "PRV-MBR-9842XKLT",
-      "Code": "MBR-2025-AX49ZT73",
+      "Code": null,
       "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-11-04T13:00:00Z",
@@ -156,7 +153,6 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
       "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "IsPrimary": true,
       "State": "Enrolled",
-      "Code": "MBR-2025-AX49ZT73",
       "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-12-24T00:00:00Z",
@@ -204,7 +200,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
       "State": "New",
       "IsPrimary": true,
       "ProviderMembershipId": "PRV-MBR-9842XKLT",
-      "Code": "MBR-2025-AX49ZT73",
+      "Code": null,
       "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-11-04T13:00:00Z",
@@ -247,9 +243,6 @@ Updates information about the specified loyalty memberships. Note this operation
       },
       "IsPrimary": {
         "Value": true
-      },
-      "Code": {
-        "Value": "MBR-2025-AX49ZT73"
       },
       "MembershipNumber": {
         "Value": "MBR-2025-AX49ZT73"
@@ -315,7 +308,7 @@ Updates information about the specified loyalty memberships. Note this operation
       "State": "New",
       "IsPrimary": true,
       "ProviderMembershipId": "PRV-MBR-9842XKLT",
-      "Code": "MBR-2025-AX49ZT73",
+      "Code": null,
       "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-11-04T13:00:00Z",
