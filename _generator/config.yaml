@@ -68,6 +68,6 @@ tags:
   - sources
   - tasks
   # - taxations
-  # - taxenvironments
+  - taxenvironments
   - vouchercodes
   - vouchers

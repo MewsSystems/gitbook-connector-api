@@ -125,7 +125,7 @@ types:
     file: countries.md
     anchor: country-group
   parameters:
-    file: languages.md
+    file: taxenvironments.md
     anchor: parameters
   currencyresult:
     file: currencies.md
@@ -2036,3 +2036,9 @@ types:
   outletitemparameters:
     file: outletbills.md
     anchor: outlet-item-parameters
+  taxenvironmentresult:
+    file: taxenvironments.md
+    anchor: taxenvironmentresult
+  taxenvironment:
+    file: taxenvironments.md
+    anchor: tax-environment
