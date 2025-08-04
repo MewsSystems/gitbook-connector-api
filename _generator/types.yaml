@@ -15,6 +15,10 @@ types:
     file: _objects.md
     anchor: time-interval
     titleOverride: Time interval
+  datetimeintervalutc:
+    file: _objects.md
+    anchor: time-interval
+    titleOverride: Time interval
   activitystates:
     file: _objects.md
     anchor: activity-state
@@ -125,7 +129,7 @@ types:
     file: countries.md
     anchor: country-group
   parameters:
-    file: taxenvironments.md
+    file: taxations.md
     anchor: parameters
   currencyresult:
     file: currencies.md
@@ -2042,3 +2046,27 @@ types:
   taxenvironment:
     file: taxenvironments.md
     anchor: tax-environment
+  taxationresult:
+    file: taxations.md
+    anchor: taxationresult
+  taxation:
+    file: taxations.md
+    anchor: taxation
+  taxrate:
+    file: taxations.md
+    anchor: tax-rate
+  taxratestrategycoproductoftaxratestrategydiscriminator:
+    file: taxations.md
+    anchor: tax-rate-strategy
+  taxratestrategydiscriminator:
+    file: taxations.md
+    anchor: tax-rate-strategy-discriminator
+  relativetaxratestrategy:
+    file: taxations.md
+    anchor: relative-tax-rate-strategy-data
+  flattaxratestrategy:
+    file: taxations.md
+    anchor: flat-tax-rate-strategy-data
+  dependenttaxratestrategy:
+    file: taxations.md
+    anchor: dependent-tax-rate-strategy-data
