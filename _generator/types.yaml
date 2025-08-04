@@ -2012,6 +2012,18 @@ types:
   productcategoryfilterparameters:
     file: productcategories.md
     anchor: productcategoryfilterparameters
+  preauthorizationresult:
+    file: preauthorizations.md
+    anchor: preauthorizationresult
+  preauthorization:
+    file: preauthorizations.md
+    anchor: preauthorization
+  preauthorizationstate:
+    file: preauthorizations.md
+    anchor: preauthorization-state
+  multiplecustomerparameters:
+    file: preauthorizations.md
+    anchor: multiplecustomerparameters
   addoutletbillsresult:
     file: outletbills.md
     anchor: addoutletbillsresult

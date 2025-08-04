@@ -45,7 +45,7 @@ tags:
   # - outlets
   # - paymentrequests
   - payments
-  # - preauthorizations
+  - preauthorizations
   - productcategories
   - products
   # - productserviceorders
