@@ -40,12 +40,12 @@ tags:
   # - messagethreads
   - orderitems
   # - orders
-  # - outletbills
+  - outletbills
   - outletitems
   # - outlets
   # - paymentrequests
   - payments
-  # - preauthorizations
+  - preauthorizations
   - productcategories
   - products
   # - productserviceorders
@@ -67,7 +67,7 @@ tags:
   - serviceoverbookinglimits
   - sources
   - tasks
-  # - taxations
-  # - taxenvironments
+  - taxations
+  - taxenvironments
   - vouchercodes
   - vouchers
