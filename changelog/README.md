@@ -1,6 +1,8 @@
 # Changelog
 
 ## 5th August 2025
+* [Get all exports](../operations/exports.md#get-all-exports):
+  * Export file URLs now expire after 10 minutes and are regenerated with each request.
 * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships):
   * **Deprecated:** `Codes` in request object.
   * Extended request object with `MembershipNumbers` that is replacing the `Codes` property. 
