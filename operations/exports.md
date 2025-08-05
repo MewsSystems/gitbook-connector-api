@@ -141,7 +141,7 @@ If there is already an export with status `Pending` or `Processing` for the spec
 | `Id` | string | required | Unique identifier of the export. |
 | `Status` | [Export status](exports.md#export-status) | required | Current status of the export. |
 | `EntityType` | [Exported entity type](exports.md#exported-entity-type) | required | Type of exported entities |
-| `Files` | array of [Export file entry](exports.md#export-file-entry) | required | Files with exported data. Empty if no files are available. |
+| `Files` | array of [Export file entry](exports.md#export-file-entry) | required | Files with exported data. Empty if no files are available or the export is expired. |
 | `ExpiresUtc` | string | optional | Expiration date and time of the export in UTC timezone in ISO 8601 format. After this time the Exported files may no longer be available for download. |
 
 #### Export status
@@ -169,5 +169,5 @@ If there is already an export with status `Pending` or `Processing` for the spec
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Url` | string | required | URL of the exported file for download in JSON Lines format. |
+| `Url` | string | required | Download URL for the exported file in JSON Lines format. The link remains valid for 10 minutes after it is returned. |
 | `SizeInBytes` | integer | required | Total size of the exported file in bytes. |
