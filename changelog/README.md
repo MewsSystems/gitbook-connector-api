@@ -1,5 +1,11 @@
 # Changelog
 
+## 5st August 2025
+* Added Membership number field that is replacing the Code field to the following loyalty membership operations:
+  * [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships)
+  * [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+  * [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+
 ## 4th August 2025
 * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers):
   * Aligned with OpenAPI Specification, adding previously undocumented properties and fixing examples.
