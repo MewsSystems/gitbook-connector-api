@@ -1,5 +1,9 @@
 # Changelog
 
+## 5th August 2025
+* [Get all exports](../operations/exports.md#get-all-exports):
+  * Export file URLs now expire after 10 minutes and are regenerated with each request.
+
 ## 4th August 2025
 * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers):
   * Aligned with OpenAPI Specification, adding previously undocumented properties and fixing examples.
