@@ -3,6 +3,21 @@
 ## 5th August 2025
 * [Get all exports](../operations/exports.md#get-all-exports):
   * Export file URLs now expire after 10 minutes and are regenerated with each request.
+* [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships):
+  * **Deprecated:** `Codes` in request object.
+  * Extended request object with `MembershipNumbers` that is replacing the `Codes` property. 
+  * **Deprecated:** `Code` in response object [Loyalty Membership](../operations/loyaltymemberships.md#loyalty-membership).
+  * Extended repsponse object [Loyalty Membership](../operations/loyaltymemberships.md#loyalty-membership) with `MembershipNumber` property that is replacing the `Codes` property. 
+* [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships)
+  * **Deprecated:** `Code` in [Loyalty membership parameters](../operations/loyaltymemberships.md#loyalty-membership-parameters) request object.
+  * Extended [Loyalty membership parameters](../operations/loyaltymemberships.md#loyalty-membership-parameters) request object with `MembershipNumber` that is replacing the `Codes` property. 
+  * **Deprecated:** `Code` in response object [Loyalty Membership](../operations/loyaltymemberships.md#loyalty-membership).
+  * Extended repsponse object [Loyalty Membership](../operations/loyaltymemberships.md#loyalty-membership) with `MembershipNumber` property that is replacing the `Codes` property. 
+* [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships)
+  * **Deprecated:** `Code` in [Loyalty membership update parameters](../operations/loyaltymemberships.md#loyalty-membership-update-parameters) request object.
+  * Extended [Loyalty membership update parameters](../operations/loyaltymemberships.md#loyalty-membership-update-parameters) request object with `MembershipNumber` that is replacing the `Codes` property. 
+  * **Deprecated:** `Code` in response object [Loyalty Membership](../operations/loyaltymemberships.md#loyalty-membership).
+  * Extended repsponse object [Loyalty Membership](../operations/loyaltymemberships.md#loyalty-membership) with `MembershipNumber` property that is replacing the `Codes` property. 
 
 ## 4th August 2025
 * [Get all preauthorizations by customers](../operations/preauthorizations.md#get-all-preauthorizations-by-customers):

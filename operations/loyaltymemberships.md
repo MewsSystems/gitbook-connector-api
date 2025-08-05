@@ -44,7 +44,7 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
   "ActivityStates": [
     "Active"
   ],
-  "Codes": [
+  "MembershipNumbers": [
     "MBR-2025-AX49ZT73"
   ],
   "ProviderMembershipIds": [
@@ -69,9 +69,10 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
 | `LoyaltyProgramIds` | array of string | optional, max 1000 items | Unique identifiers of [Loyalty programs](loyaltyprograms.md#loyalty-program). |
 | `MembershipStates` | array of [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | optional | States of the loyalty memberships. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
-| `Codes` | array of string | optional, max 1000 items | List of loyalty membership codes, such as identification numbers printed on loyalty cards visible to the customer. |
+| `MembershipNumbers` | array of string | optional, max 1000 items | Customer-facing membership numbers, e.g., printed on a loyalty card. |
 | `ProviderMembershipIds` | array of string | optional, max 1000 items | List of unique loyalty membership identifiers assigned and managed by the external loyalty provider's system. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned. |
+| ~~`Codes`~~ | ~~array of string~~ | ~~optional, max 1000 items~~ | ~~List of loyalty membership codes, such as identification numbers printed on loyalty cards visible to the customer.~~ **Deprecated!** Use `MembershipNumbers` instead.|
 
 ### Response
 
@@ -87,6 +88,7 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
       "IsPrimary": true,
       "ProviderMembershipId": "PRV-MBR-9842XKLT",
       "Code": "MBR-2025-AX49ZT73",
+      "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-11-04T13:00:00Z",
       "Url": "https://rewards.example.com/member/PRV-MBR-9842XKLT",
@@ -115,13 +117,14 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
 | `State` | [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | required | State of the loyalty membership. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership. |
 | `ProviderMembershipId` | string | optional | Unique identifier for the loyalty membership in the loyalty provider's system. |
-| `Code` | string | optional | Code of the loyalty membership. |
+| `MembershipNumber` | string | optional | Customer-facing membership numbers, e.g., printed on a loyalty card. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | Url of the loyalty membership. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. |
 | `CreatorProfile` | [Profile data](_objects.md#profile-data) | required | The profile data of the user who created or last updated the record. |
 | `UpdaterProfile` | [Profile data](_objects.md#profile-data) | required | The profile data of the user who created or last updated the record. |
+| ~~`Code`~~ | ~~string~~ | ~~optional~~ | ~~Code of the loyalty membership.~~ **Deprecated!** Use `MembershipNumber` instead.|
 
 #### Loyalty membership state
 
@@ -150,7 +153,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
       "LoyaltyProgramId": "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
       "IsPrimary": true,
       "State": "Enrolled",
-      "Code": "MBR-2025-AX49ZT73",
+      "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-12-24T00:00:00Z",
       "Url": "https://rewards.example.com/member/PRV-MBR-9842XKLT",
@@ -177,11 +180,12 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `IsPrimary` | boolean | required | Defines the primary loyalty membership for the account. |
 | `State` | [Loyalty membership state](loyaltymemberships.md#loyalty-membership-state) | optional | State of the loyalty membership. The default is `Enrolled`. |
-| `Code` | string | optional, max length 255 characters | Loyalty membership code, such as an identification number printed on a loyalty card visible to the customer. |
+| `MembershipNumber` | string | optional, max length 255 characters | Customer-facing membership numbers, e.g., printed on a loyalty card. |
 | `Points` | integer | optional | The loyalty points for the account in that membership. |
 | `ExpirationDate` | string | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format. |
 | `Url` | string | optional | URL of the loyalty membership in external loyalty system. |
 | `LoyaltyTierId` | string | optional | Unique identifier of the loyalty tier. |
+| ~~`Code`~~ | ~~string~~ | ~~optional, max length 255 characters~~ | ~~Loyalty membership code, such as an identification number printed on a loyalty card visible to the customer.~~ **Deprecated!** Use `MembershipNumber` instead.|
 
 ### Response
 
@@ -197,6 +201,7 @@ Adds loyalty memberships to the enterprise. Note this operation supports [Portfo
       "IsPrimary": true,
       "ProviderMembershipId": "PRV-MBR-9842XKLT",
       "Code": "MBR-2025-AX49ZT73",
+      "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-11-04T13:00:00Z",
       "Url": "https://rewards.example.com/member/PRV-MBR-9842XKLT",
@@ -239,7 +244,7 @@ Updates information about the specified loyalty memberships. Note this operation
       "IsPrimary": {
         "Value": true
       },
-      "Code": {
+      "MembershipNumber": {
         "Value": "MBR-2025-AX49ZT73"
       },
       "Points": {
@@ -276,12 +281,13 @@ Updates information about the specified loyalty memberships. Note this operation
 | `LoyaltyProgramId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty program (or `null` if the program should not be updated). |
 | `State` | [Loyalty membership state update value](loyaltymemberships.md#loyalty-membership-state-update-value) | optional | State of the loyalty membership, (or `null` if the state should not be updated). |
 | `IsPrimary` | [Bool update value](_objects.md#bool-update-value) | optional | Boolean value defining the primary loyalty membership for the account (or `null` if the value should not be updated). |
-| `Code` | [String update value](_objects.md#string-update-value) | optional | Code of the loyalty membership. (or `null` if the code should not be updated). |
+| `MembershipNumber` | [String update value](_objects.md#string-update-value) | optional, max length 255 characters | Customer-facing membership numbers, e.g., printed on a loyalty card. |
 | `ProviderMembershipId` | [String update value](_objects.md#string-update-value) | optional, max length 100 characters | Loyalty membership identifier assigned by the external loyalty provider's system (or `null` if the value should not be updated). |
 | `Points` | [Number update value](_objects.md#number-update-value) | optional | The loyalty points the account has in the loyalty membership (or `null` if the points should not be updated). |
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date of the loyalty membership in UTC timezone in ISO 8601 format (or `null` if the date should not be updated). |
 | `Url` | [String update value](_objects.md#string-update-value) | optional | URL of the loyalty membership (or `null` if the URL should not be updated). |
 | `LoyaltyTierId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the loyalty tier (or `null` if the tier should not be updated). |
+| ~~`Code`~~ | ~~[String update value](_objects.md#string-update-value)~~ | ~~optional~~ | ~~Code of the loyalty membership. (or `null` if the code should not be updated).~~ **Deprecated!** Use `MembershipNumber` instead.|
 
 #### Loyalty membership state update value
 
@@ -303,6 +309,7 @@ Updates information about the specified loyalty memberships. Note this operation
       "IsPrimary": true,
       "ProviderMembershipId": "PRV-MBR-9842XKLT",
       "Code": "MBR-2025-AX49ZT73",
+      "MembershipNumber": "MBR-2025-AX49ZT73",
       "Points": 22,
       "ExpirationDate": "2029-11-04T13:00:00Z",
       "Url": "https://rewards.example.com/member/PRV-MBR-9842XKLT",
