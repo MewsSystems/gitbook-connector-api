@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th August 2025
+* [Get all payments](../operations/payments.md#get-all-payments)
+  * Extended [Payment](../operations/payments.md#payment) response object with `PaymentOrigin` property.
+
 ## 5th August 2025
 * [Get all exports](../operations/exports.md#get-all-exports):
   * Export file URLs now expire after 10 minutes and are regenerated with each request.
