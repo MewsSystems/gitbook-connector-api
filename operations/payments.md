@@ -164,7 +164,7 @@ Returns all payments in the system, filtered by various parameters. At least one
         "External": null,
         "Ghost": null
       },
-      "Origin": "Terminal"
+      "PaymentOrigin": "Terminal"
     },
     {
       "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
@@ -218,7 +218,7 @@ Returns all payments in the system, filtered by various parameters. At least one
       "Type": "CashPayment",
       "Kind": "Payment",
       "Data": null,
-      "Origin": "PointOfSales"
+      "PaymentOrigin": "PointOfSales"
     }
   ],
   "Cursor": "be922eb7-bc5f-4877-b847-1120c0c2acd2"
@@ -257,7 +257,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Type` | [Payment type](payments.md#payment-type) | required | Payment type, e.g. whether credit card or cash. |
 | `Kind` | [Payment kind](payments.md#payment-kind) | optional | Payment kind, e.g. whether payment or refund. Value provided only for payments processed by Mews Payments. |
 | `Data` | [Payment data](payments.md#payment-data) | optional | Additional payment data. |
-| `Origin` | [Payment origin](payments.md#payment-origin) | optional | Payment origin indicating how the payment was initiated. |
+| `PaymentOrigin` | [Payment origin](payments.md#payment-origin) | optional | Payment origin indicating how the payment was initiated. |
 
 #### Payment state
 
