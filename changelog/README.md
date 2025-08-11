@@ -1,5 +1,8 @@
 # Changelog
 
+## 12th August 2025
+* Added new Webhook event `IntegrationApiKeyCreated` in [Integration Webhooks](../events/wh-integration.md).
+
 ## 5th August 2025
 * [Get all exports](../operations/exports.md#get-all-exports):
   * Export file URLs now expire after 10 minutes and are regenerated with each request.
