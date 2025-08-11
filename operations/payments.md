@@ -163,7 +163,8 @@ Returns all payments in the system, filtered by various parameters. At least one
         "Invoice": null,
         "External": null,
         "Ghost": null
-      }
+      },
+      "Origin": "Terminal"
     },
     {
       "Id": "be922eb7-bc5f-4877-b847-1120c0c2acd2",
@@ -216,7 +217,8 @@ Returns all payments in the system, filtered by various parameters. At least one
       "Identifier": "",
       "Type": "CashPayment",
       "Kind": "Payment",
-      "Data": null
+      "Data": null,
+      "Origin": "PointOfSales"
     }
   ],
   "Cursor": "be922eb7-bc5f-4877-b847-1120c0c2acd2"
@@ -255,6 +257,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Type` | [Payment type](payments.md#payment-type) | required | Payment type, e.g. whether credit card or cash. |
 | `Kind` | [Payment kind](payments.md#payment-kind) | optional | Payment kind, e.g. whether payment or refund. Value provided only for payments processed by Mews Payments. |
 | `Data` | [Payment data](payments.md#payment-data) | optional | Additional payment data. |
+| `Origin` | [Payment origin](payments.md#payment-origin) | optional | Payment origin indicating how the payment was initiated. |
 
 #### Payment state
 
@@ -391,6 +394,23 @@ Returns all payments in the system, filtered by various parameters. At least one
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `OriginalPaymentId` | string | required | Unique identifier of the original payment. |
+
+#### Payment origin
+
+* `Other` - Fallback value unmapped in the current version of the API.
+* `System`
+* `Operations`
+* `AutomaticPayment`
+* `PaymentRequest`
+* `BookingEngine`
+* `Api` - Connector API.
+* `Terminal`
+* `ChannelManager`
+* `OnlineCheckout`
+* `BillBalancing`
+* `OnlineCheckin`
+* `PointOfSales`
+* `PaymentToInvoiceLinking`
 
 ## Add external payment
 
