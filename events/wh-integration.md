@@ -13,6 +13,7 @@ Unlike [General Webhooks](wh-general.md), each event generates an individual Web
 | Integration | `IntegrationCanceled` | Event triggered when a integration is canceled |
 | Integration | `IntegrationReinstated` | Event triggered when a integration is reinstated |
 | Integration | `IntegrationDeleted` | Event triggered when a integration is deleted |
+| Integration | `IntegrationApiKeyCreated` | Event triggered when an integration API key (`AccessToken`) is regenerated |
 
 > ### Terminology
 > An *Integration* refers to the unique connection between an *Enterprise* or *Property* (i.e. Mews customer) and an API client (i.e. Mews partner), corresponding to a unique *Access Token*.
@@ -20,7 +21,7 @@ Unlike [General Webhooks](wh-general.md), each event generates an individual Web
 
 ## Request body
 
-```javascript
+```json
 {
     "Action": "IntegrationCreated",
     "Data": {
@@ -42,7 +43,6 @@ Unlike [General Webhooks](wh-general.md), each event generates an individual Web
         }
     }
 }
-
 ```
 
 | Property | Type | Contract | Description |
@@ -58,6 +58,7 @@ Unlike [General Webhooks](wh-general.md), each event generates an individual Web
 * `IntegrationCanceled` - Triggered when an integration is canceled. `Data` is [Integration canceled data](#integration-canceled-data).
 * `IntegrationReinstated` - Triggered when an integration is reinstated. `Data` is [Integration reinstated data](#integration-reinstated-data).
 * `IntegrationDeleted` - Triggered when an integration is deleted. `Data` is [Integration deleted data](#integration-deleted-data).
+* `IntegrationApiKeyCreated` – Triggered when an integration API key (`AccessToken`) is regenerated. `Data` is [Integration API key created data](#integration-api-key-created-data).
 
 ### Webhook data
 
@@ -133,3 +134,10 @@ The structure of the Data object depends on [Webhook action](#webhook-action).
 | :-- | :-- | :-- | :-- |
 | `DeletedUtc` | string | required | Deletion date and time of the integration in UTC timezone in ISO 8601 format. |
 | `Integration` | [Integration](#integration) | required | Integration data. |
+
+### Integration API key created data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Integration` | [Integration](#integration) | required | Integration data. |
+| `ApiKey` | string | required | The newly created API key. |

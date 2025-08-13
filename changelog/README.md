@@ -1,5 +1,8 @@
 # Changelog
 
+## 13th August 2025
+* Added new Webhook event `IntegrationApiKeyCreated` in [Integration Webhooks](../events/wh-integration.md).
+
 ## 12th August 2025
 * [Get all payments](../operations/payments.md#get-all-payments)
   * Extended [Payment](../operations/payments.md#payment) response object with `PaymentOrigin` property.
