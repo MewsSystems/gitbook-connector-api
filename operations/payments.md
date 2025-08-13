@@ -237,7 +237,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Id` | string | required | Unique identifier of the payment. |
 | `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
 | `AccountId` | string | required | Unique identifier of the account (for example `Customer`) the payment belongs to. |
-| `AccountType` | [Account type](accounts.md#account-type) | optional | A discriminator specifying the account type, e.g. `Customer` or `Company`. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, e.g. `Customer` or `Company` |
 | `BillId` | string | optional | Unique identifier of the `Bill` the payment is assigned to. |
 | `ReservationId` | string | optional | Unique identifier of the `Reservation` the payment belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the `AccountingCategory` the payment belongs to. |

@@ -622,7 +622,7 @@ Additional information about owner of the bill. Can be a [Customer](customers.md
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | optional | Determines type of value. |
+| `Discriminator` | [Bill associated account data discriminator](bills.md#bill-associated-account-data-discriminator) | required | Determines type of value. |
 | `BillCustomerData` | [Bill customer data](bills.md#bill-customer-data) | optional | Associated account bill data for customer. |
 | `BillCompanyData` | [Bill company data](bills.md#bill-company-data) | optional | Associated account bill data for company. |
 

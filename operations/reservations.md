@@ -186,7 +186,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Id` | string | required | Unique identifier of the reservation. |
 | `ServiceId` | string | required | Unique identifier of the `Service` that reservation is made against. |
 | `AccountId` | string | required | Unique identifier of the Customer or Company who owns the reservation, i.e. the main guest linked to the reservation. |
-| `AccountType` | [Account type](accounts.md#account-type) | required |  |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, e.g. `Customer` or `Company` |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the reservation. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the reservation. |
 | `BookerId` | string | optional | Unique identifier of the booker who made the reservation on behalf of the reservation owner, in the special case where the booker is also a registered customer in Mews. |

@@ -86,7 +86,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Id` | string | required | Unique identifier of the address. |
 | `AccountId` | string | required | Unique identifier of a [Company](companies.md#company) or a [Customer](customers.md#customer) within the enterprise. |
 | `ChainId` | string | optional | Unique identifier of the chain. |
-| `AccountType` | [Account type](accounts.md#account-type) | optional | A discriminator specifying the [type of account](accounts.md#account-type), e.g. customer or company. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, e.g. `Customer` or `Company` |
 | `Line1` | string | optional, max length 1023 characters | First line of the address. |
 | `Line2` | string | optional, max length 255 characters | Second line of the address. |
 | `City` | string | optional, max length 255 characters | The city. |
