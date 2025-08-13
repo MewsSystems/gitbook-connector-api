@@ -71,7 +71,7 @@ export function propertyType(schema) {
  */
 export function propertyContract(schema) {
   let result = [];
-  let nullable = schema.nullable;
+  const nullable = schema.nullable;
   if (schema.anyOf?.length === 1) {
     schema = schema.anyOf[0];
   }
