@@ -71,11 +71,12 @@ export function propertyType(schema) {
  */
 export function propertyContract(schema) {
   let result = [];
+  let nullable = schema.nullable;
   if (schema.anyOf?.length === 1) {
     schema = schema.anyOf[0];
   }
 
-  if (schema.nullable) {
+  if (nullable || schema.nullable) {
     result.push('optional');
   } else {
     result.push('required');

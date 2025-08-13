@@ -58,7 +58,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](companies.md#company). |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted records will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | optional | Limitation on the quantity of data returned. |
-| ~~`TimeFilter`~~ | ~~[Company Time Filter](companies.md#company-time-filter)~~ | ~~required~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
+| ~~`TimeFilter`~~ | ~~[Company Time Filter](companies.md#company-time-filter)~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
 

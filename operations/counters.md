@@ -37,7 +37,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `CounterIds` | array of string | optional, max 1000 items | Unique identifiers of the counters. If not specified, the operation returns all counters. |
-| `Type` | [Counter type discriminator](counters.md#counter-type-discriminator) | required | Type of the counter. If not specified, the operation returns all types. |
+| `Type` | [Counter type discriminator](counters.md#counter-type-discriminator) | optional | Type of the counter. If not specified, the operation returns all types. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which `Counter` was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 

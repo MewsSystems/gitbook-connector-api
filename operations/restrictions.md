@@ -61,7 +61,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `RateIds` | array of string | optional, max 1000 items | Unique identifiers of `Rate`. Returns all restrictions that affect the given rates, i.e. ones without any `Restriction Conditions`, ones assigned directly to specified rates, ones assigned to `Rate group` of specified rates, or ones inherited from base rates.`. |
 | `ExactRateIds` | array of string | optional, max 1000 items | Unique identifiers of `Rate`. Returns only those restrictions which have matching `ExactRateId` set in `Restriction Condition`. |
 | `BaseRateIds` | array of string | optional, max 1000 items | Unique identifiers of `Rate`. Returns only those restrictions which have matching `BaseRateId` set in `Restriction Condition`. |
-| `Origin` | [Restriction origin](restrictions.md#restriction-origin) | required | Restriction origin. Returns only those restrictions which have matching Origin or all if not specified. |
+| `Origin` | [Restriction origin](restrictions.md#restriction-origin) | optional | Restriction origin. Returns only those restrictions which have matching Origin or all if not specified. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the `Service` from which the restrictions are requested. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 | ~~`TimeFilter`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** |
