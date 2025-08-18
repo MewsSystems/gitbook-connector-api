@@ -186,7 +186,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Id` | string | required | Unique identifier of the reservation. |
 | `ServiceId` | string | required | Unique identifier of the `Service` that reservation is made against. |
 | `AccountId` | string | required | Unique identifier of the Customer or Company who owns the reservation, i.e. the main guest linked to the reservation. |
-| `AccountType` | [Account type](accounts.md#account-type) | required |  |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, e.g. `Customer` or `Company` |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the reservation. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who updated the reservation. |
 | `BookerId` | string | optional | Unique identifier of the booker who made the reservation on behalf of the reservation owner, in the special case where the booker is also a registered customer in Mews. |
@@ -355,7 +355,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 | `Numbers` | array of string | optional, max 1000 items | Confirmation numbers of [Reservations](reservations.md#reservation-ver-2017-04-12). |
 | `StartUtc` | string | optional | Start of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the TimeFilter or States search parameter. |
 | `EndUtc` | string | optional | End of the interval in UTC timezone in ISO 8601 format. Required when used in conjunction with the TimeFilter or States search parameter. |
-| `TimeFilter` | [Reservation time filter](reservations.md#reservation-time-filter) | required | Time filter of the interval. If not specified, reservations Colliding with the interval are returned. |
+| `TimeFilter` | [Reservation time filter](reservations.md#reservation-time-filter) | optional | Time filter of the interval. If not specified, reservations Colliding with the interval are returned. |
 | `Currency` | string | optional | ISO-4217 code of the [Currency](currencies.md#currency) the item costs should be converted to. |
 | `States` | array of [Service order state (ver 2017-04-12)](reservations.md#service-order-state-ver-2017-04-12) | optional | States the reservations should be in. If not specified, reservations in Confirmed, Started or Processed states or reservations specified by ReservationIds regardless of state are returned. |
 | `Extent` | [Reservation extent](reservations.md#reservation-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the reservations, customers, groups and rates should be also returned. |
@@ -526,7 +526,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `State` | [Service order state (ver 2017-04-12)](reservations.md#service-order-state-ver-2017-04-12) | required |  |
 | `Origin` | [Reservation origin (ver 2017-04-12)](reservations.md#reservation-origin-ver-2017-04-12) | required |  |
 | `OriginDetails` | string | optional | Details about the reservation origin. |
-| `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | required | Purpose of the reservation. |
+| `Purpose` | [Reservation purpose](reservations.md#reservation-purpose) | optional | Purpose of the reservation. |
 | `CreatedUtc` | string | required | Creation date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the reservation in UTC timezone in ISO 8601 format. |
 | `CancelledUtc` | string | optional | Cancellation date and time in UTC timezone in ISO 8601 format. |
@@ -543,7 +543,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 | `RateId` | string | required | Identifier of the reservation Rate. |
 | `VoucherId` | string | optional | Unique identifier of the Voucher that has been used to create reservation. |
 | `CreditCardId` | string | optional | Unique identifier of the Credit card. |
-| `CancellationReason` | [CancellationReason](reservations.md#cancellationreason) | required | Cancellation reason of the reservation. |
+| `CancellationReason` | [CancellationReason](reservations.md#cancellationreason) | optional | Cancellation reason of the reservation. |
 | `PersonCounts` | array of [Age category parameters](reservations.md#age-category-parameters) | required | Number of people per age category the reservation was booked for. |
 | `OwnerId` | string | required | Unique identifier of the Customer or Company who owns the reservation. |
 | `BookerId` | string | optional | Unique identifier of the Customer on whose behalf the reservation was made. |
@@ -1566,7 +1566,7 @@ This operation supports [Portfolio Access Tokens](../concepts/multi-property.md)
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the reservation within the transaction. |
 | `ChannelNumber` | string | optional |  |
-| `State` | [Service order state (ver 2017-04-12)](reservations.md#service-order-state-ver-2017-04-12) | required | State of the newly created reservation (either `Optional`, `Enquired` or `Confirmed`). If not specified, `Confirmed` is used. |
+| `State` | [Service order state (ver 2017-04-12)](reservations.md#service-order-state-ver-2017-04-12) | optional | State of the newly created reservation (either `Optional`, `Enquired` or `Confirmed`). If not specified, `Confirmed` is used. |
 | `StartUtc` | string | required | Reservation start in UTC timezone in ISO 8601 format. |
 | `EndUtc` | string | required | Reservation end in UTC timezone in ISO 8601 format. |
 | `ReleasedUtc` | string | optional | Release date and time of an unconfirmed reservation in UTC timezone in ISO 8601 format. |

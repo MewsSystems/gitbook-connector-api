@@ -1,5 +1,8 @@
 # Changelog
 
+## 18th August 2025
+* Fixed contract requirements for various enums per OpenAPI Specification. Documentation-only, no change to API.
+
 ## 13th August 2025
 * Added new Webhook event `IntegrationApiKeyCreated` in [Integration Webhooks](../events/wh-integration.md).
 

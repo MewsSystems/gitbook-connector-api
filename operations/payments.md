@@ -237,7 +237,7 @@ Returns all payments in the system, filtered by various parameters. At least one
 | `Id` | string | required | Unique identifier of the payment. |
 | `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
 | `AccountId` | string | required | Unique identifier of the account (for example `Customer`) the payment belongs to. |
-| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, e.g. `Customer` or `Company`. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, e.g. `Customer` or `Company` |
 | `BillId` | string | optional | Unique identifier of the `Bill` the payment is assigned to. |
 | `ReservationId` | string | optional | Unique identifier of the `Reservation` the payment belongs to. |
 | `AccountingCategoryId` | string | optional | Unique identifier of the `AccountingCategory` the payment belongs to. |
@@ -566,7 +566,7 @@ Adds a new alternative payment to a specified customer.
 | `Amount` | [Amount parameters](_objects.md#amount-parameters) | required | Price of the product that overrides the price defined in Mews. |
 | `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
 | `Data` | [Alternative payment method data](payments.md#alternative-payment-method-data) | required | Data specific to particular alternative payment method. |
-| ~~`Method`~~ | ~~[Alternative payment methods](payments.md#alternative-payment-methods)~~ | ~~required~~ | ~~Payment method to use for the alternative payment.~~ **Deprecated!** Use `Data` instead.|
+| ~~`Method`~~ | ~~[Alternative payment methods](payments.md#alternative-payment-methods)~~ | ~~optional~~ | ~~Payment method to use for the alternative payment.~~ **Deprecated!** Use `Data` instead.|
 | ~~`RedirectUrl`~~ | ~~string~~ | ~~optional~~ | ~~URL where the customer will be redirected after completing their payment.~~ **Deprecated!** Pass redirect URL to relevant method in `Data` instead.|
 
 #### Alternative payment methods

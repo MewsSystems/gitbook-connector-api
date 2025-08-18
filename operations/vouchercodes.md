@@ -167,14 +167,14 @@ Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this o
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the voucher code. |
-| `VoucherId` | string | required | Unique identifier of [Voucher](vouchercodes.md#voucher) the code belongs to. |
+| `VoucherId` | string | required | Unique identifier of `Voucher` the code belongs to. |
 | `Value` | string | optional | Value of voucher code used by customers. |
 | `ValidityStartUtc` | string | optional | If specified, marks the beginning of interval in which the code can be used. |
 | `ValidityEndUtc` | string | optional | If specified, marks the end of interval in which the code can be used. |
 | `CreatedUtc` | string | optional | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | optional | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the voucher code is still active. |
-| ~~`ActivityState`~~ | ~~string~~ | ~~optional~~ | ~~Whether voucher code is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
+| ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher code is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
 ## Delete voucher codes
 

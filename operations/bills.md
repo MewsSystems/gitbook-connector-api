@@ -60,7 +60,7 @@ Returns all bills, optionally filtered by customers, identifiers and other filte
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Bill` was updated. |
 | `BillIds` | array of string | optional, max 1000 items | Unique identifiers of the `Bills`. Required if no other filter is provided. |
 | `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of the `Customers`. |
-| `State` | [Bill state](bills.md#bill-state) | required | State the bills should be in. If not specified, `Open` and `Closed` bills are returned. |
+| `State` | [Bill state](bills.md#bill-state) | optional | State the bills should be in. If not specified, `Open` and `Closed` bills are returned. |
 | `CorrectionState` | array of [Bill correction state](bills.md#bill-correction-state) | optional | Whether to return regular bills, corrective bills, or both. If `BillIds` are specified, defaults to both, otherwise defaults to `Bill`. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 | ~~`Extent`~~ | ~~[Bill extent](bills.md#bill-extent)~~ | ~~optional~~ | ~~Extent of data to be returned. E.g. it is possible to specify that together with the bills, payments and revenue items should be also returned.~~ **Deprecated!** Use `orderItems/getAll` and `payments/getAll` with `BillIds` filter instead.|

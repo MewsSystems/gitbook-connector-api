@@ -385,10 +385,6 @@ Adds a new customer to the system and returns details of the added customer. If 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "OverwriteExisting": false,
-  "ItalianDestinationCode": "7654321",
-  "ItalianFiscalCode": "ZGNZLR17U72P554F",
   "Title": "Miss",
   "FirstName": "Thea",
   "LastName": "Carbone",
@@ -413,7 +409,11 @@ Adds a new customer to the system and returns details of the added customer. If 
   ],
   "Options": [
     "SendMarketingEmails"
-  ]
+  ],
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "OverwriteExisting": false,
+  "ItalianDestinationCode": "7654321",
+  "ItalianFiscalCode": "ZGNZLR17U72P554F"
 }
 ```
 
@@ -422,12 +422,12 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `Title` | [Title](customers.md#title) | required | Title prefix of the customer. |
+| `Title` | [Title](customers.md#title) | optional | Title prefix of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the `Country`. |
-| `Sex` | [Sex](customers.md#sex) | required | Sex of the customer. |
+| `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Occupation` | string | optional | Occupation of the customer. |

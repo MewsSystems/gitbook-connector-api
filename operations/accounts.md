@@ -370,7 +370,7 @@ Updates one or more existing accounts in the system. Note this operation support
 | `InvoiceDueInterval` | [String update value](_objects.md#string-update-value) | optional | Invoice due interval (or `null` if the invoice due interval should not be updated). |
 | `Classifications` | [Company update classifications](accounts.md#company-update-classifications) | optional | Classifications of the company. |
 | `Options` | [Company update options](companies.md#company-update-options) | optional | Options of the company. |
-| `CreditRatingBasic` | [Credit rating basic](accounts.md#credit-rating-basic) | required | Basic credit rating (or `null` if the basic credit rating should not be updated). |
+| `CreditRatingBasic` | [Credit rating basic](accounts.md#credit-rating-basic) | optional | Basic credit rating (or `null` if the basic credit rating should not be updated). |
 | `Department` | [String update value](_objects.md#string-update-value) | optional | Department (or `null` if the department should not be updated). |
 | `DunsNumber` | [String update value](_objects.md#string-update-value) | optional | Duns number (or `null` if the duns number should not be updated). |
 | `ReferenceId` | [String update value](_objects.md#string-update-value) | optional | Reference identifier (or `null` if the reference identifier should not be updated). |
