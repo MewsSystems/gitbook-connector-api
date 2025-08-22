@@ -1,5 +1,12 @@
 # Changelog
 
+## 22nd August 2025
+* [Add export](../operations/exports.md#add-export):
+  * Extended request object with `Filters` and `Scope` parameters.
+* [Add export](../operations/exports.md#add-export):
+* [Get all exports](../operations/exports.md#get-all-exports):
+  * Extended [Export](../operations/exports.md#export) response object with `Filters` and `Scope` properties.
+
 ## 18th August 2025
 * Fixed contract requirements for various enums per OpenAPI Specification. Documentation-only, no change to API.
 
