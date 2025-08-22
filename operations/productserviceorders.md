@@ -15,19 +15,27 @@ Returns all product service orders associated with the given enterprise. This op
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
   "ProductServiceOrderIds": [
-    "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+    "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b"
   ],
   "ServiceIds": [
     "ae8da28c-e8a4-4141-9df0-8c998976c691",
     "6b02d015-47ac-4c41-8e9f-5b4db61d4284"
   ],
+  "LinkedReservationIds": [
+    "0f515589-99b4-423d-b83a-b237009f0509",
+    "b7a3f5cb-1e69-4a5f-a069-10f461996d7f"
+  ],
   "UpdatedUtc": {
     "StartUtc": "2023-04-01T00:00:00Z",
     "EndUtc": "2023-05-05T00:00:00Z"
   },
+  "States": [
+    "Confirmed",
+    "Started"
+  ],
   "Limitation": {
-    "Cursor": "819e3435-7d5e-441f-bc68-76d89c69b8f5",
-    "Count": 10
+    "Count": 10,
+    "Cursor": "819e3435-7d5e-441f-bc68-76d89c69b8f5"
   }
 }
 ```
@@ -52,13 +60,13 @@ Returns all product service orders associated with the given enterprise. This op
 {
   "ProductServiceOrders": [
     {
-      "Id": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
+      "Id": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b",
       "ServiceId": "ae8da28c-e8a4-4141-9df0-8c998976c691",
-      "AccountId": "94843f6f-3be3-481b-a1c7-06458774c3df",
+      "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
       "AccountType": "Customer",
       "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
-      "UpdaterProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
-      "BookerId": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72",
+      "UpdaterProfileId": "122fc063-ec6e-4198-b8db-6b168a59ffae",
+      "BookerId": "bccdafd1-3e44-439d-861f-341526b597a9",
       "Number": "52",
       "State": "Confirmed",
       "Origin": "Connector",
@@ -69,6 +77,7 @@ Returns all product service orders associated with the given enterprise. This op
       "CancelledUtc": null,
       "VoucherId": null,
       "BusinessSegmentId": null,
+      "LinkedReservationId": "0f515589-99b4-423d-b83a-b237009f0509",
       "Options": {
         "OwnerCheckedIn": true,
         "AllCompanionsCheckedIn": true,
@@ -77,7 +86,7 @@ Returns all product service orders associated with the given enterprise. This op
       }
     }
   ],
-  "Cursor": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
+  "Cursor": "9e6d4492-315b-4089-b9d6-5b1bd2eddc1b"
 }
 ```
 
