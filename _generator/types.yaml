@@ -2091,3 +2091,12 @@ types:
   exportscopeparameters:
     file: exports.md
     anchor: export-scope-parameters
+  productserviceorderresult:
+    file: productserviceorders.md
+    anchor: productserviceorderresult
+  serviceorder:
+    file: productserviceorders.md
+    anchor: product-service-order
+  productserviceorderfilterparameters:
+    file: productserviceorders.md
+    anchor: productserviceorderfilterparameters
