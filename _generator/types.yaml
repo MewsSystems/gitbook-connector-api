@@ -2073,3 +2073,12 @@ types:
   paymentoriginenum:
     file: payments.md
     anchor: payment-origin
+  reservationgroupresult:
+    file: reservationgroups.md
+    anchor: reservationgroupresult
+  reservationgroup:
+    file: reservationgroups.md
+    anchor: reservation-group
+  reservationgroupfilterparameters:
+    file: reservationgroups.md
+    anchor: reservationgroupfilterparameters
