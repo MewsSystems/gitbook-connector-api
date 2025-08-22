@@ -48,7 +48,7 @@ tags:
   - preauthorizations
   - productcategories
   - products
-  # - productserviceorders
+  - productserviceorders
   - rategroups
   - rates
   # - reservationgroups
