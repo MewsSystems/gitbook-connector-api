@@ -859,7 +859,7 @@ types:
     anchor: exportresult
   exportfilterparameters:
     file: exports.md
-    anchor: exportfilterparameters
+    anchor: export-filter-parameters
   taskresult:
     file: tasks.md
     anchor: taskresult
@@ -2073,3 +2073,21 @@ types:
   paymentoriginenum:
     file: payments.md
     anchor: payment-origin
+  exportstatusenum:
+    file: exports.md
+    anchor: export-status
+  exportentitytypeenum:
+    file: exports.md
+    anchor: exported-entity-type
+  exportscope:
+    file: exports.md
+    anchor: export-scope
+  exportdatafilters:
+    file: exports.md
+    anchor: export-data-filters
+  exportscopeselector:
+    file: exports.md
+    anchor: exportscopeselector
+  exportscopeparameters:
+    file: exports.md
+    anchor: export-scope-parameters
