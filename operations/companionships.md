@@ -47,16 +47,15 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `CompanionshipIds` | array of string | optional, max 1000 items | Unique identifiers of Companionship. |
+| `CompanionshipIds` | array of string | optional, max 1000 items | Unique identifiers of `Companionship`. |
 | `Extent` | [Companionship extent](companionships.md#companionship-extent) | required | Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned. |
 | `ReservationIds` | array of string | optional, max 1000 items | Unique identifiers of reservations. |
-| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of Customer. |
-| `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of ReservationGroup. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the Companionship was updated. |
+| `CustomerIds` | array of string | optional, max 1000 items | Unique identifiers of `Customer`. |
+| `ReservationGroupIds` | array of string | optional, max 1000 items | Unique identifiers of `ReservationGroup`. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Companionship` was updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Companionship extent
-Extent of data to be returned. E.g. it is possible to specify that together with the companionships, customers, reservations, and reservation groups should be also returned.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
