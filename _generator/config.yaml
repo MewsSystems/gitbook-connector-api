@@ -51,7 +51,7 @@ tags:
   # - productserviceorders
   - rategroups
   - rates
-  # - reservationgroups
+  - reservationgroups
   - reservations
   # - resourceaccesstokens
   # - resourceblocks
