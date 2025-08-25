@@ -45,7 +45,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `AvailabilityAdjustmentIds` | array of string | optional, max 1000 items | Unique identifiers of the requested [Availability adjustments](availabilityadjustments.md#availability-adjustment). |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the availability adjustments were updated. |
-| `ActivityStates` | array of [Activity State](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, only active records will be returned. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, only active records will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
@@ -112,4 +112,4 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `FirstTimeUnitReleaseUtc` | string | optional | Exact moment the first time unit of the availability adjustment is released based on `ReleaseOverrideUtc` or the `ReleaseStrategy` of the associated availability block, or the `OperationalEditableHistoryInterval` of the associated enterprise if not set, or `null` if `AvailabilityBlockId` is `null`. |
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | ~~Start of the interval in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | ~~End of the interval in UTC timezone in ISO 8601 format.~~ **Deprecated!** |
-| ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Shows whether the availability adjustment is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
+| ~~`ActivityState`~~ | ~~[Activity state](_objects.md#activity-state)~~ | ~~required~~ | ~~Shows whether the availability adjustment is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|

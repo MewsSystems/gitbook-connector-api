@@ -56,7 +56,7 @@ Returns all service overbooking limits. Note this operation uses [Pagination](..
 | `ServiceOverbookingLimitIds` | array of string | optional, max 1000 items | Unique identifiers of the service overbooking limits. |
 | `CollidingUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the service overbooking limit is active. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the service overbooking limits were updated. |
-| `ActivityStates` | array of [Activity State](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, only active records will be returned. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, only active records will be returned. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response

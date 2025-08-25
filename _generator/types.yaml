@@ -2100,3 +2100,21 @@ types:
   exportscopeparameters:
     file: exports.md
     anchor: export-scope-parameters
+  resourcefeatureassignmentresult:
+    file: resourcefeatures.md
+    anchor: resourcefeatureassignmentresult
+  resourcefeatureassignment:
+    file: resourcefeatures.md
+    anchor: resource-feature-assignment
+  resourcefeatureassignmentfilterparameters:
+    file: resourcefeatures.md
+    anchor: resourcefeatureassignmentfilterparameters
+  resourcefeatureresult:
+    file: resourcefeatures.md
+    anchor: resourcefeatureresult
+  resourcefeature:
+    file: resourcefeatures.md
+    anchor: resource-feature
+  resourcefeaturefilterparameters:
+    file: resourcefeatures.md
+    anchor: resourcefeaturefilterparameters

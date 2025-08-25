@@ -174,7 +174,7 @@ Adds voucher codes to the specified [Vouchers](vouchers.md#voucher). Note this o
 | `CreatedUtc` | string | optional | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | optional | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `IsActive` | boolean | required | Whether the voucher code is still active. |
-| ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher code is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
+| ~~`ActivityState`~~ | ~~[Activity state](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher code is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
 ## Delete voucher codes
 

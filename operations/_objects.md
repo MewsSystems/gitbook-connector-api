@@ -230,7 +230,7 @@ Usage of this value is **deprecated**. Where possible, use the properties exposi
 | `Currency` | string | required |  |
 | `Value` | number | required |  |
 
-#### Resource Feature Classification
+#### Resource feature classification
 
 * `SeaView`
 * `RiverView`

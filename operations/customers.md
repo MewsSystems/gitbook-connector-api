@@ -204,7 +204,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
-| `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
+| `PreferredSpaceFeatures` | array of [Resource feature classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the customer. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who last updated the customer. |
 | ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
@@ -602,7 +602,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
-| `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
+| `PreferredSpaceFeatures` | array of [Resource feature classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the customer. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who last updated the customer. |
 | ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
@@ -797,7 +797,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the customer is associated with. |
 | `MergeTargetId` | string | optional | Unique identifier of the account ([Customer](customers.md#customer)) to which this customer is linked. |
 | `IsActive` | boolean | required | Whether the customer record is still active. |
-| `PreferredSpaceFeatures` | array of [Resource Feature Classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
+| `PreferredSpaceFeatures` | array of [Resource feature classification](_objects.md#resource-feature-classification) | required | A list of room preferences, such as view type, bed type, and amenities. |
 | `CreatorProfileId` | string | required | Unique identifier of the user who created the customer. |
 | `UpdaterProfileId` | string | required | Unique identifier of the user who last updated the customer. |
 | ~~`Passport`~~ | ~~[Identity document](customers.md#identity-document)~~ | ~~optional~~ | **Deprecated!** Use [Get all identity documents](identitydocuments.md#get-all-identity-documents) to fetch identity documents.|
