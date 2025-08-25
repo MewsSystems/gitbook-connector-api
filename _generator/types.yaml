@@ -2100,3 +2100,15 @@ types:
   exportscopeparameters:
     file: exports.md
     anchor: export-scope-parameters
+  companionshipresult:
+    file: companionships.md
+    anchor: companionshipresult
+  companionship:
+    file: companionships.md
+    anchor: companionship
+  companionshipfilterparameters:
+    file: companionships.md
+    anchor: companionshipfilterparameters
+  companionshipextent:
+    file: companionships.md
+    anchor: companionship-extent
