@@ -581,9 +581,6 @@ types:
   availabilityadjustmentparameters:
     file: availabilityadjustments.md
     anchor: availabilityadjustmentparameters
-  resourcefeatureclassification:
-    file: _objects.md
-    anchor: resource-feature-classification
   activitystateenum:
     file: _objects.md
     anchor: activity-state
@@ -2100,6 +2097,9 @@ types:
   exportscopeparameters:
     file: exports.md
     anchor: export-scope-parameters
+  resourcefeatureclassification:
+    file: resourcefeatures.md
+    anchor: resource-feature-classification
   resourcefeatureassignmentresult:
     file: resourcefeatures.md
     anchor: resourcefeatureassignmentresult
