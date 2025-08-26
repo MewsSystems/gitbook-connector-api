@@ -2118,6 +2118,15 @@ types:
   resourcefeaturefilterparameters:
     file: resourcefeatures.md
     anchor: resourcefeaturefilterparameters
+  productserviceorderresult:
+    file: productserviceorders.md
+    anchor: productserviceorderresult
+  serviceorder:
+    file: productserviceorders.md
+    anchor: product-service-order
+  productserviceorderfilterparameters:
+    file: productserviceorders.md
+    anchor: productserviceorderfilterparameters
   companionshipresult:
     file: companionships.md
     anchor: companionshipresult
