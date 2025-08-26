@@ -82,6 +82,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
     "EditableHistoryInterval": "P0M7DT0H0M0S",
     "AccountingEditableHistoryInterval": "P0M7DT0H0M0S",
     "OperationalEditableHistoryInterval": "P0M5DT0H0M0S",
+    "BusinessDayClosingOffset": null,
     "WebsiteUrl": "https://en.wikipedia.org/wiki/St._Vitus_Cathedral",
     "Email": "charging-api@mews.li",
     "Phone": "00000 123 456 789",
@@ -169,6 +170,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default `Language`. |
 | `AccountingEditableHistoryInterval` | string | required | Editable history interval for accounting data in ISO 8601 duration format. |
 | `OperationalEditableHistoryInterval` | string | required | Editable history interval for operational data in ISO 8601 duration format. |
+| `BusinessDayClosingOffset` | string | optional | The offset value for the business day closing time, in ISO 8601 duration format. |
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |

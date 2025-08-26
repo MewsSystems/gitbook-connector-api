@@ -71,6 +71,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
       "EditableHistoryInterval": null,
       "AccountingEditableHistoryInterval": "P0M7DT0H0M0S",
       "OperationalEditableHistoryInterval": "P0M5DT0H0M0S",
+      "BusinessDayClosingOffset": null,
       "WebsiteUrl": "https://www.sample-portfolio-hotel-10004.com/",
       "Email": "email@sample-portfolio-hotel.com",
       "Phone": "(555) 555-1234",
@@ -127,6 +128,7 @@ Returns all enterprises within scope of the `Access Token`, optionally filtered 
 | `DefaultLanguageCode` | string | required | Language-culture codes of the enterprise default `Language`. |
 | `AccountingEditableHistoryInterval` | string | required | Editable history interval for accounting data in ISO 8601 duration format. |
 | `OperationalEditableHistoryInterval` | string | required | Editable history interval for operational data in ISO 8601 duration format. |
+| `BusinessDayClosingOffset` | string | optional | The offset value for the business day closing time, in ISO 8601 duration format. |
 | `WebsiteUrl` | string | optional | URL of the enterprise website. |
 | `Email` | string | optional | Email address of the enterprise. |
 | `Phone` | string | optional | Phone number of the enterprise. |
