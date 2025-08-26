@@ -2073,6 +2073,15 @@ types:
   paymentoriginenum:
     file: payments.md
     anchor: payment-origin
+  reservationgroupresult:
+    file: reservationgroups.md
+    anchor: reservationgroupresult
+  reservationgroup:
+    file: reservationgroups.md
+    anchor: reservation-group
+  reservationgroupfilterparameters:
+    file: reservationgroups.md
+    anchor: reservationgroupfilterparameters
   exportstatusenum:
     file: exports.md
     anchor: export-status
@@ -2100,3 +2109,15 @@ types:
   productserviceorderfilterparameters:
     file: productserviceorders.md
     anchor: productserviceorderfilterparameters
+  companionshipresult:
+    file: companionships.md
+    anchor: companionshipresult
+  companionship:
+    file: companionships.md
+    anchor: companionship
+  companionshipfilterparameters:
+    file: companionships.md
+    anchor: companionshipfilterparameters
+  companionshipextent:
+    file: companionships.md
+    anchor: companionship-extent

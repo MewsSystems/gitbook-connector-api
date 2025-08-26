@@ -17,7 +17,7 @@ tags:
   - cashiertransactions
   - commands
   - companies
-  # - companionships
+  - companionships
   # - companycontracts
   - configuration
   - counters
@@ -51,7 +51,7 @@ tags:
   - productserviceorders
   - rategroups
   - rates
-  # - reservationgroups
+  - reservationgroups
   - reservations
   # - resourceaccesstokens
   # - resourceblocks

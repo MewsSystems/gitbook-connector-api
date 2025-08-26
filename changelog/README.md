@@ -1,5 +1,9 @@
 # Changelog
 
+## 26th August 2025
+* [Get all companionships](../operations/companionships.md#get-all-companionships)
+  * Clarified the filter requirements for request parameters. Documentation-only. No change to API.
+
 ## 22nd August 2025
 * [Add export](../operations/exports.md#add-export):
   * Extended request object with `Filters` and `Scope` parameters.
