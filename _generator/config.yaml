@@ -22,7 +22,7 @@ tags:
   - configuration
   - counters
   - countries
-  # - creditcards
+  - creditcards
   - currencies
   - customers
   - departments
