@@ -136,54 +136,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `Nets`
 * `Bancontact`
 
-## Charge credit card
-
-Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be `Gateway`.
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/creditCards/charge`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
-  "Amount": {
-    "GrossValue": 5,
-    "Currency": "EUR"
-  },
-  "AccountingCategoryId": null,
-  "Notes": null,
-  "ReceiptIdentifier": null
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `CreditCardId` | string | required | Unique identifier of the `CreditCard`. |
-| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the `AccountingCategory`. |
-| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
-| `Amount` | [Amount parameters](_objects.md#amount-parameters) | required | Amount of the credit card payment. |
-| `Notes` | string | optional | Additional payment notes. |
-
-### Response
-
-```javascript
-{
-  "PaymentId": "98753f51-5b8b-4e8f-a3af-5b8476865983"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `PaymentId` | string | required | Unique identifier of the `Payment` item. |
-
 ## Add tokenized credit card
 
 Adds a new tokenized credit card to the specified customer. To be able to use this operation special permission has to be granted during certification.
@@ -266,3 +218,52 @@ Disable an existing credit card in the system. Only gateway credit cards can be 
 ```javascript
 {}
 ```
+
+
+## Charge credit card
+
+Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be `Gateway`.
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/creditCards/charge`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "CreditCardId": "866d3f51-5b8b-4e8f-a3af-5b84768c522d",
+  "Amount": {
+    "GrossValue": 5,
+    "Currency": "EUR"
+  },
+  "AccountingCategoryId": null,
+  "Notes": null,
+  "ReceiptIdentifier": null
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `CreditCardId` | string | required | Unique identifier of the `CreditCard`. |
+| `ReceiptIdentifier` | string | optional | Identifier of the payment receipt. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the `AccountingCategory`. |
+| `ReservationId` | string | optional | Unique identifier of the reservation the payment belongs to. |
+| `Amount` | [Amount parameters](_objects.md#amount-parameters) | required | Amount of the credit card payment. |
+| `Notes` | string | optional | Additional payment notes. |
+
+### Response
+
+```javascript
+{
+  "PaymentId": "98753f51-5b8b-4e8f-a3af-5b8476865983"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of the `Payment` item. |
