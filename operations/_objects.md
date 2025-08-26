@@ -230,30 +230,7 @@ Usage of this value is **deprecated**. Where possible, use the properties exposi
 | `Currency` | string | required |  |
 | `Value` | number | required |  |
 
-#### Resource Feature Classification
-
-* `SeaView`
-* `RiverView`
-* `OceanView`
-* `TwinBeds`
-* `DoubleBed`
-* `RollawayBed`
-* `UpperBed`
-* `LowerBed`
-* `Balcony`
-* `AccessibleBathroom`
-* `AccessibleRoom`
-* `ElevatorAccess`
-* `HighFloor`
-* `Kitchenette`
-* `AirConditioning`
-* `PrivateJacuzzi`
-* `PrivateSauna`
-* `EnsuiteRoom`
-* `PrivateBathroom`
-* `SharedBathroom`
-
-#### Activity State
+#### Activity state
 
 * `Deleted`
 * `Active`

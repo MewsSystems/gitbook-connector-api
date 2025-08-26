@@ -56,7 +56,7 @@ tags:
   # - resourceaccesstokens
   # - resourceblocks
   - resourcecategories
-  # - resourcefeatures
+  - resourcefeatures
   # - resources
   - restrictions
   # - routingrules

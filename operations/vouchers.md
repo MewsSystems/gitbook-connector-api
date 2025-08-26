@@ -158,7 +158,7 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | `OccupiableIntervalEndUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format (or null if the end time should not be updated). |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the voucher from external system. |
 | `IsActive` | boolean | required | Whether the voucher is still active. |
-| ~~`ActivityState`~~ | ~~[Activity State](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
+| ~~`ActivityState`~~ | ~~[Activity state](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
 
 #### Voucher Type
 
