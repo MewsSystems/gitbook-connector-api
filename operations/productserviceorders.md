@@ -47,7 +47,7 @@ Returns all product service orders associated with the given enterprise. This op
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ProductServiceOrderIds` | array of string | optional, max 1000 items | Unique identifiers of the Product service order. |
-| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the Services. |
+| `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of the `Service`. |
 | `AccountIds` | array of string | optional, max 1000 items | Unique identifiers of the Customer or Company who owns the product service order. |
 | `LinkedReservationIds` | array of string | optional, max 1000 items | Unique identifiers of linked Reservations. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the Product service orders were updated. |
@@ -92,7 +92,7 @@ Returns all product service orders associated with the given enterprise. This op
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `ProductServiceOrders` | array of [Product service order](productserviceorders.md#product-service-order) | required | The product service order of the enterprise. |
+| `ProductServiceOrders` | array of [Product service order](productserviceorders.md#product-service-order) | required | The collection of product service orders. |
 | `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Product service order
