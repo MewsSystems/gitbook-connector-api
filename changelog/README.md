@@ -1,5 +1,10 @@
 # Changelog
 
+## 27th August 2025
+* [Get configuration](../operations/configuration.md#get-configuration):
+* [Get all enterprises](../operations/enterprises.md#get-all-enterprises):
+  * Extended [Enterprise](../operations/enterprises.md#enterprise) response object with `BusinessDayClosingOffset` property.
+
 ## 26th August 2025
 * [Get all companionships](../operations/companionships.md#get-all-companionships)
   * Clarified the filter requirements for request parameters. Documentation-only. No change to API.
