@@ -127,7 +127,7 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ResourceFeatureIds` | array of string | optional, max 1000 items | Unique identifiers of `ResourceFeature`. |
 | `ServiceIds` | array of string | required, max 1000 items | Unique identifiers of `Service` to which the resource features belong. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Range of `UpdatedUtc` in UTC used to filter the results. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Last update date and time of the resource feature in UTC timezone in ISO 8601 format. |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
@@ -157,7 +157,7 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `ResourceFeatures` | array of [Resource feature](resourcefeatures.md#resource-feature) | required, max 1000 items | Resource features. |
-| `Cursor` | string | optional | Pagination Cursor to request the next page of results. |
+| `Cursor` | string | optional | Unique identifier of the item one newer in time order than the items to be returned. If Cursor is not specified, i.e. null, then the latest or most recent items will be returned. |
 
 #### Resource feature
 
@@ -174,7 +174,6 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 | `UpdatedUtc` | string | required | Last update date and time of the resource feature in UTC timezone in ISO 8601 format. |
 
 #### Resource feature classification
-
 
 * `SeaView`
 * `RiverView`
@@ -196,4 +195,3 @@ Returns all resource features. This operation uses [Pagination](../guidelines/pa
 * `EnsuiteRoom`
 * `PrivateBathroom`
 * `SharedBathroom`
-
