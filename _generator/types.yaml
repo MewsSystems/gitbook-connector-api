@@ -1575,7 +1575,7 @@ types:
     file: orderitems.md
     anchor: tax-exemption-reason-type
   disablecreditcardparameters:
-    file: payments.md
+    file: creditcards.md
     anchor: disablecreditcardparameters
   reservationschannelmanagerdetailsresult:
     file: reservations.md
@@ -2139,3 +2139,36 @@ types:
   companionshipextent:
     file: companionships.md
     anchor: companionship-extent
+  creditcardresult:
+    file: creditcards.md
+    anchor: creditcardresult
+  creditcard:
+    file: creditcards.md
+    anchor: credit-card
+  creditcardstate:
+    file: creditcards.md
+    anchor: credit-card-state
+  creditcardkind:
+    file: creditcards.md
+    anchor: credit-card-kind
+  creditcardformat:
+    file: creditcards.md
+    anchor: credit-card-format
+  creditcardtype:
+    file: creditcards.md
+    anchor: credit-card-type
+  creditcardfilterparameters:
+    file: creditcards.md
+    anchor: creditcardfilterparameters
+  tokenizedcreditcardparameters:
+    file: creditcards.md
+    anchor: tokenizedcreditcardparameters
+  creditcarddata:
+    file: creditcards.md
+    anchor: credit-card-data
+  chargecreditcardresult:
+    file: creditcards.md
+    anchor: chargecreditcardresult
+  chargecreditcardparameters:
+    file: creditcards.md
+    anchor: creditcard-payment-data

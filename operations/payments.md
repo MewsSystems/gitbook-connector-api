@@ -531,7 +531,7 @@ The bill can then be closed manually by a Mews user, or automatically via API wi
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `CreditCardId` | string | required | Unique identifier of the [Credit card](creditcards.md#credit-card). |
+| `CreditCardId` | string | required | Unique identifier of the `CreditCard`. |
 
 ## Add alternative payment
 
