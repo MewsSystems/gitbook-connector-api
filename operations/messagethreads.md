@@ -1,3 +1,4 @@
+<!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Message threads
 
 ## Get all message threads
@@ -10,21 +11,21 @@ Get all message threads that you have created, filtered by time interval and/or 
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "EnterpriseIds": [
-        "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-    ],
-    "CreatedUtc":{
-        "StartUtc": "2022-03-03T00:00:00Z",
-        "EndUtc": "2022-03-14T00:00:00Z"
-    },
-    "Limitation":{
-        "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-        "Count": 10
-    }
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
+  "CreatedUtc": {
+    "StartUtc": "2022-03-03T00:00:00Z",
+    "EndUtc": "2022-03-14T00:00:00Z"
+  },
+  "Limitation": {
+    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+    "Count": 10
+  }
 }
 ```
 
@@ -33,33 +34,33 @@ Get all message threads that you have created, filtered by time interval and/or 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the [Enterprises](enterprises.md#enterprise). If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of [Message threads](#message-thread). Required if no other filter is provided. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was created. Required if no other filter is provided. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the [Message thread](#message-thread) was updated. Required if no other filter is provided. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of message thread data returned (using cursor pagination). |
+| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `MessageThreadIds` | array of string | optional, max 1000 items | Unique identifiers of `MessageThread`. Required if no other filter is provided. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `MessageThread` was created. Required if no other filter is provided. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `MessageThread` was updated. Required if no other filter is provided. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
 
 ```javascript
 {
-    "MessageThreads": [
-        {
-            "Id": "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
-            "OriginalSender": "John Doe",
-            "Subject": "Example subject",
-            "CreatedUtc": "2022-03-07T16:09:45Z",
-            "UpdatedUtc": "2022-03-07T16:09:45Z"
-        }
-    ],
-    "Cursor": "7f9325f6-ef44-4911-89a8-ae51010a5aa4"
+  "MessageThreads": [
+    {
+      "Id": "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
+      "OriginalSender": "John Doe",
+      "Subject": "Example subject",
+      "CreatedUtc": "2022-03-07T16:09:45Z",
+      "UpdatedUtc": "2022-03-07T16:09:45Z"
+    }
+  ],
+  "Cursor": "7f9325f6-ef44-4911-89a8-ae51010a5aa4"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `MessageThreads` | array of [Message threads](#message-thread) | required | The filtered message threads. |
-| `Cursor` | string | optional | Unique identifier of the last and hence oldest message thread returned. This can be used in [Limitation](../guidelines/pagination.md#limitation) in a subsequent request to fetch the next batch of older message threads. |
+| `MessageThreads` | array of [Message thread](messagethreads.md#message-thread) | required | The filtered message threads. |
+| `Cursor` | string | optional | Unique identifier of the last and hence oldest message thread returned. This can be used in `Limitation` in a subsequent request to fetch the next batch of older message threads. |
 
 #### Message thread
 
@@ -70,10 +71,11 @@ Get all message threads that you have created, filtered by time interval and/or 
 | `Subject` | string | required | Subject of the message thread. |
 | `CreatedUtc` | string | required | Creation date and time of the message thread in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the message thread in UTC timezone in ISO 8601 format. |
+| `IsResolved` | boolean | required | Whether the message thread is resolved. |
 
 ## Add message thread
 
-Creates a new [Message thread](#message-thread) on behalf of the specified customer, i.e. the sender of the original message in the message thread.
+Creates a new [Message thread](messagethreads.md#message-thread) on behalf of the specified customer, i.e. the sender of the original message in the message thread.
 
 ### Request
 
@@ -81,11 +83,11 @@ Creates a new [Message thread](#message-thread) on behalf of the specified custo
 
 ```javascript
 {
-    "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-    "Client": "Sample Client 1.0.0",
-    "OriginalSender": "John Doe",
-    "Subject": "Example subject"
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "OriginalSender": "John Doe",
+  "Subject": "Example subject"
 }
 ```
 
@@ -101,19 +103,19 @@ Creates a new [Message thread](#message-thread) on behalf of the specified custo
 
 ```javascript
 {
-    "MessageThreads": [
-        {
-            "Id": "8d02142f-31cf-4115-90bf-ae5200c7a1ba",
-            "OriginalSender": "John Doe",
-            "Subject": "Example subject",
-            "CreatedUtc": "2022-03-08T12:06:50Z",
-            "UpdatedUtc": "2022-03-08T12:06:50Z",
-            "IsResolved": false
-        }
-    ]
+  "MessageThreads": [
+    {
+      "Id": "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
+      "OriginalSender": "John Doe",
+      "Subject": "Example subject",
+      "CreatedUtc": "2022-03-08T12:06:50Z",
+      "UpdatedUtc": "2022-03-08T12:06:50Z",
+      "IsResolved": false
+    }
+  ]
 }
-``` 
+```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `MessageThreads` | array of [Message threads](#message-thread) | required | The created message threads. |
+| `MessageThreads` | array of [Message thread](messagethreads.md#message-thread) | required | The created message threads. |

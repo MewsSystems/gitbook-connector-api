@@ -219,7 +219,6 @@ Disable an existing credit card in the system. Only gateway credit cards can be 
 {}
 ```
 
-
 ## Charge credit card
 
 Creates payment for specified customer credit card and charges the credit card via a gateway. Note that the kind of the card has to be `Gateway`.

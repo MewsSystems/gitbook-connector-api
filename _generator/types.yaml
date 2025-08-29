@@ -2172,3 +2172,18 @@ types:
   chargecreditcardparameters:
     file: creditcards.md
     anchor: creditcard-payment-data
+  messagethreadresult:
+    file: messagethreads.md
+    anchor: messagethreadresult
+  messagethread:
+    file: messagethreads.md
+    anchor: message-thread
+  messagethreadfilterparameters:
+    file: messagethreads.md
+    anchor: messagethreadfilterparameters
+  messagethreadaddparameters:
+    file: messagethreads.md
+    anchor: messagethreadaddparameters
+  messagethreadaddresult:
+    file: messagethreads.md
+    anchor: messagethreadaddresult

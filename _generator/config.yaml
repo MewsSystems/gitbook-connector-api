@@ -37,7 +37,7 @@ tags:
   # - loyaltyprograms
   - loyaltytiers
   # - messages
-  # - messagethreads
+  - messagethreads
   - orderitems
   # - orders
   - outletbills
