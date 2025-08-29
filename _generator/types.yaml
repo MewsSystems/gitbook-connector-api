@@ -2187,3 +2187,30 @@ types:
   messagethreadaddresult:
     file: messagethreads.md
     anchor: messagethreadaddresult
+  messageresult:
+    file: messages.md
+    anchor: messageresult
+  message:
+    file: messages.md
+    anchor: message
+  sendercoproduct:
+    file: messages.md
+    anchor: sender
+  senderdiscriminatorenum:
+    file: messages.md
+    anchor: sender-discriminator
+  messagefilterparameters:
+    file: messages.md
+    anchor: messagefilterparameters
+  addedmessageresult:
+    file: messages.md
+    anchor: addedmessageresult
+  addedmessage:
+    file: messages.md
+    anchor: added-message
+  multiplemessageaddparameters:
+    file: messages.md
+    anchor: multiplemessageaddparameters
+  messageaddparameters:
+    file: messages.md
+    anchor: message-parameters
