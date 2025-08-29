@@ -14,20 +14,20 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
   "MessageThreadIds": [
-    "c1478ff9-80b7-4ea2-94fc-ae4e009e1463"
+    "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
+    "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
   ],
   "CreatedUtc": {
     "StartUtc": "2022-03-03T00:00:00Z",
     "EndUtc": "2022-03-14T00:00:00Z"
   },
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Cursor": "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -49,15 +49,16 @@ Get all messages belonging to the specified [Message threads](messagethreads.md#
   "Messages": [
     {
       "Id": "4bfe4675-98a9-4428-9ea9-ae5300dbaa93",
-      "MessageThreadId": "8d02142f-31cf-4115-90bf-ae5200c7a1ba",
+      "MessageThreadId": "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
       "Text": "Text of the message",
       "Sender": {
-        "Discriminator": "Application"
+        "Discriminator": "Application",
+        "Value": null
       },
       "CreatedUtc": "2022-03-09T13:19:46Z"
     }
   ],
-  "Cursor": "8d02142f-31cf-4115-90bf-ae5200c7a1ba"
+  "Cursor": "7f9325f6-ef44-4911-89a8-ae51010a5aa4"
 }
 ```
 
@@ -103,8 +104,8 @@ Add the specified messages to the specified [Message threads](messagethreads.md#
   "Client": "Sample Client 1.0.0",
   "Messages": [
     {
+      "MessageThreadId": "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
       "Text": "Text of the message",
-      "MessageThreadId": "8d02142f-31cf-4115-90bf-ae5200c7a1ba",
       "Identifier": "Message 1"
     }
   ]
@@ -122,7 +123,7 @@ Add the specified messages to the specified [Message threads](messagethreads.md#
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `MessageThreadId` | string | required | Unique identifier of the Message thread to which the message should be added. |
+| `MessageThreadId` | string | required | Unique identifier of the `MessageThread` to which the message should be added. |
 | `Text` | string | required | Text of the message. |
 | `Identifier` | string | optional | Identifier of the message to be created. |
 
@@ -132,13 +133,16 @@ Add the specified messages to the specified [Message threads](messagethreads.md#
 {
   "Messages": [
     {
-      "Identifier": "string",
+      "Identifier": "Message 1",
       "Message": {
-        "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "MessageThreadId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "Text": "string",
-        "Sender": "Application",
-        "CreatedUtc": "2024-04-11T08:54:47.193Z"
+        "Id": "4bfe4675-98a9-4428-9ea9-ae5300dbaa93",
+        "MessageThreadId": "7f9325f6-ef44-4911-89a8-ae51010a5aa4",
+        "Text": "Text of the message",
+        "Sender": {
+          "Discriminator": "Application",
+          "Value": null
+        },
+        "CreatedUtc": "2022-03-09T13:19:46Z"
       }
     }
   ]
@@ -154,4 +158,4 @@ Add the specified messages to the specified [Message threads](messagethreads.md#
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Identifier` | string | optional | Identifier of the created message. |
-| `Message` | [Message](messages.md#message) | required | Message that was added to the Message thread. |
+| `Message` | [Message](messages.md#message) | required | Message that was added to the `MessageThread`. |
