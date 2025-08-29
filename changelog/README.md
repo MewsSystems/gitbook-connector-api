@@ -1,5 +1,9 @@
 # Changelog
 
+## 29th August 2025
+* [Get all message threads](../operations/messagethreads.md#get-all-message-threads)
+  * Extended [Message thread](../operations/messagethreads.md#message-thread) response object with `IsResolved` property.
+
 ## 27th August 2025
 * [Get configuration](../operations/configuration.md#get-configuration):
 * [Get all enterprises](../operations/enterprises.md#get-all-enterprises):
