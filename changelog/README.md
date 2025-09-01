@@ -1,5 +1,10 @@
 # Changelog
 
+## 1st September 2025
+* [Get all messages](../operations/messages.md#get-all-messages):
+* [Add messages](../operations/messages.md#add-messages):
+  * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
+
 ## 29th August 2025
 * [Get all message threads](../operations/messagethreads.md#get-all-message-threads)
   * Extended [Message thread](../operations/messagethreads.md#message-thread) response object with `IsResolved` property.

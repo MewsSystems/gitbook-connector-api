@@ -36,7 +36,7 @@ tags:
   - loyaltymemberships
   # - loyaltyprograms
   - loyaltytiers
-  # - messages
+  - messages
   - messagethreads
   - orderitems
   # - orders
