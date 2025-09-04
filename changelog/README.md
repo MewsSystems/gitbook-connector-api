@@ -1,5 +1,9 @@
 # Changelog
 
+## 4th September 2025
+* [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments):
+    * Extended [Resource category image assignment](../operations/resourcecategories.md#resource-category-image-assignment) response object with `Ordering` property.
+
 ## 1st September 2025
 * [Get all messages](../operations/messages.md#get-all-messages):
 * [Add messages](../operations/messages.md#add-messages):
