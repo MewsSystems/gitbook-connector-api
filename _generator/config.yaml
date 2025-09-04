@@ -39,7 +39,7 @@ tags:
   - messages
   - messagethreads
   - orderitems
-  # - orders
+  - orders
   - outletbills
   - outletitems
   # - outlets

@@ -2214,3 +2214,15 @@ types:
   messageaddparameters:
     file: messages.md
     anchor: message-parameters
+  orderadditionresult:
+    file: orders.md
+    anchor: orderadditionresult
+  orderadditionparameters:
+    file: orders.md
+    anchor: orderadditionparameters
+  orderadditionoptions:
+    file: orders.md
+    anchor: order-addition-options
+  orderitemadditiondata:
+    file: orders.md
+    anchor: item-parameters
