@@ -213,17 +213,13 @@ Returns all resource category image assignments. This operation uses [Pagination
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
-  "ResourceCategoryIds": [
-    "5c0804f9-d03a-4b13-a57d-b00300781a41",
-    "47d6b462-35ec-467e-a565-b00300781a41"
-  ],
   "ResourceCategoryImageAssignmentIds": [
     "edb5f556-7afb-4650-8d4e-8c0a6fff784d",
     "9d18f5fb-cce5-4e70-9561-f7804262344b"
+  ],
+  "ResourceCategoryIds": [
+    "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+    "47d6b462-35ec-467e-a565-b00300781a41"
   ],
   "UpdatedUtc": {
     "StartUtc": "2023-11-01T00:00:00Z",
@@ -232,8 +228,12 @@ Returns all resource category image assignments. This operation uses [Pagination
   "ActivityStates": [
     "Active"
   ],
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -257,22 +257,24 @@ Returns all resource category image assignments. This operation uses [Pagination
   "ResourceCategoryImageAssignments": [
     {
       "Id": "edb5f556-7afb-4650-8d4e-8c0a6fff784d",
-      "CategoryId": "5c0804f9-d03a-4b13-a57d-b00300781a41",
-      "ImageId": "e910d008-fded-4af5-a84f-c00f92e3947d",
       "IsActive": true,
+      "CategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "ImageId": "e910d008-fded-4af5-a84f-c00f92e3947d",
       "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z"
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "Ordering": 0
     },
     {
       "Id": "9d18f5fb-cce5-4e70-9561-f7804262344b",
+      "IsActive": true,
       "CategoryId": "47d6b462-35ec-467e-a565-b00300781a41",
       "ImageId": "11056cdb-2045-49e0-821f-2b93905ff522",
-      "IsActive": true,
       "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z"
+      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "Ordering": 0
     }
   ],
-  "Cursor": "28704948-77df-4bb4-8f39-f8380dc8a914"
+  "Cursor": "9d18f5fb-cce5-4e70-9561-f7804262344b"
 }
 ```
 
@@ -291,3 +293,4 @@ Returns all resource category image assignments. This operation uses [Pagination
 | `ImageId` | string | required | Unique identifier of the image assigned to the Resource category. |
 | `CreatedUtc` | string | required | Creation date and time of the assignment in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the assignment in UTC timezone in ISO 8601 format. |
+| `Ordering` | integer | required | Ordering of the image in the resource category. |
