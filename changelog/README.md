@@ -1,6 +1,6 @@
 # Changelog
 
-## 3rd September 2025
+## 4th September 2025
 * [Add order](../operations/orders.md#add-order)
   * Extended request object with `BusinessSegmentId` and `Options` properties.
   * Extended [Product order parameters](../operations/orders.md#product-order-parameters) and [Item parameters](../operations/orders.md#item-parameters) with `ExternalIdentifier` property.
@@ -374,3 +374,4 @@
 | [Changelog 2018](changelog2018.md) |
 | [Changelog 2017](changelog2017.md) |
 | [Changelog 2016](changelog2016.md) |
+
