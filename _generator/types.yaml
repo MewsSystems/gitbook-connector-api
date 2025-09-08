@@ -2226,3 +2226,51 @@ types:
   orderitemadditiondata:
     file: orders.md
     anchor: item-parameters
+  loyaltyprogramresult:
+    file: loyaltyprograms.md
+    anchor: loyaltyprogramresult
+  loyaltyprogram:
+    file: loyaltyprograms.md
+    anchor: loyalty-program
+  loyaltyprogramtype:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-type
+  loyaltyprogramsubscription:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-subscription
+  loyaltyprogramfilterparameters:
+    file: loyaltyprograms.md
+    anchor: loyaltyprogramfilterparameters
+  loyaltyprogramadditionresult:
+    file: loyaltyprograms.md
+    anchor: loyaltyprogramadditionresult
+  multipleloyaltyprogramaddparameters:
+    file: loyaltyprograms.md
+    anchor: multipleloyaltyprogramaddparameters
+  loyaltyprogramaddparameters:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-parameters
+  loyaltyprogramupdateresult:
+    file: loyaltyprograms.md
+    anchor: loyaltyprogramupdateresult
+  multipleloyaltyprogramupdateparameters:
+    file: loyaltyprograms.md
+    anchor: multipleloyaltyprogramupdateparameters
+  loyaltyprogramupdateparameters:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-update-parameters
+  loyaltyprogramtypeupdatevalue:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-type-update-value
+  loyaltyprogramtypeenum:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-type
+  loyaltyprogramsubscriptionupdatevalue:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-subscription-update-value
+  loyaltyprogramsubscriptionenum:
+    file: loyaltyprograms.md
+    anchor: loyalty-program-subscription
+  loyaltyprogramdeleteparameters:
+    file: loyaltyprograms.md
+    anchor: loyaltyprogramdeleteparameters
