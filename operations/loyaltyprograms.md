@@ -218,8 +218,8 @@ Updates information about the specified loyalty programs. Note this operation su
 | :-- | :-- | :-- | :-- |
 | `LoyaltyProgramId` | string | required | Unique identifier of the loyalty program. |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | Name of the loyalty program (or `null` if the name should not be updated). |
-| `Type` | [Loyalty program type update value](loyaltyprograms.md#loyalty-program-type-update-value) | optional | Type of the loyalty program, (or `null` if the type should not be updated). |
-| `Subscription` | [Loyalty program subscription update value](loyaltyprograms.md#loyalty-program-subscription-update-value) | optional | Subscription of the loyalty program, (or `null` if the subscription should not be updated). |
+| `Type` | [Loyalty program type update value](loyaltyprograms.md#loyalty-program-type-update-value) | optional | Type of the loyalty program (or `null` if the type should not be updated). |
+| `Subscription` | [Loyalty program subscription update value](loyaltyprograms.md#loyalty-program-subscription-update-value) | optional | Subscription of the loyalty program (or `null` if the subscription should not be updated). |
 
 #### Loyalty program type update value
 
@@ -227,23 +227,11 @@ Updates information about the specified loyalty programs. Note this operation su
 | :-- | :-- | :-- | :-- |
 | `Value` | [Loyalty program type](loyaltyprograms.md#loyalty-program-type) | required | Value which is to be updated. |
 
-#### Loyalty program type
-
-* `Hotel`
-* `ExternalPartner`
-* `SoftBrand`
-* `Unknown`
-
 #### Loyalty program subscription update value
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Value` | [Loyalty program subscription](loyaltyprograms.md#loyalty-program-subscription) | required | Value which is to be updated. |
-
-#### Loyalty program subscription
-
-* `Free`
-* `Paid`
 
 ### Response
 
