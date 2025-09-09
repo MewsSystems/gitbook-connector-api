@@ -1,11 +1,20 @@
 # Changelog
 
+## 9th September 2025
+* [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs):
+  * Extended request object with `Codes` filtering parameter.
+* [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs):
+* [Add loyalty programs](../operations/loyaltyprograms.md#add-loyalty-programs):
+* [Update loyalty programs](../operations/loyaltyprograms.md#update-loyalty-programs):
+  * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
+  * Extended [Loyalty program type](../operations/loyaltyprograms.md#loyalty-program-type) with `Unknown` type.
+
 ## 4th September 2025
 * [Add order](../operations/orders.md#add-order)
   * Extended request object with `BusinessSegmentId` and `Options` properties.
   * Extended [Product order parameters](../operations/orders.md#product-order-parameters) and [Item parameters](../operations/orders.md#item-parameters) with `ExternalIdentifier` property.
 * [Get all resource category image assignments](../operations/resourcecategories.md#get-all-resource-category-image-assignments):
-    * Extended [Resource category image assignment](../operations/resourcecategories.md#resource-category-image-assignment) response object with `Ordering` property.
+  * Extended [Resource category image assignment](../operations/resourcecategories.md#resource-category-image-assignment) response object with `Ordering` property.
 
 ## 1st September 2025
 * [Get all messages](../operations/messages.md#get-all-messages):

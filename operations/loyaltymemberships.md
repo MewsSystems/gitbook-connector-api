@@ -35,7 +35,8 @@ Returns all loyalty memberships of the enterprise, optionally filtered by specif
     "bccdafd1-3e44-439d-861f-341526b597a9"
   ],
   "LoyaltyProgramIds": [
-    "f701dafb-5765-4cf4-b1dd-1f602a740ae5"
+    "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
+    "da34b396-41f7-47f6-8847-aecf00a3f19e"
   ],
   "MembershipStates": [
     "Pending",

@@ -19,7 +19,8 @@ Returns all loyalty tiers of the chain or chains, filtered by loyalty program id
     "5fcd1933-22f2-40b9-84da-7db04cbecec2"
   ],
   "LoyaltyProgramIds": [
-    "f701dafb-5765-4cf4-b1dd-1f602a740ae5"
+    "f701dafb-5765-4cf4-b1dd-1f602a740ae5",
+    "da34b396-41f7-47f6-8847-aecf00a3f19e"
   ],
   "LoyaltyTierIds": [
     "69eedfd2-6f25-42fc-b3c8-39df70f85e37",
