@@ -253,7 +253,7 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Discriminator` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required | Determines type of value. |
+| `Discriminator` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required | The result of operation. |
 | `Value` | object | required | Structure of object depends on `Discriminator`. |
 
 #### Bill PDF result discriminator
