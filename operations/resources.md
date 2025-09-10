@@ -15,22 +15,16 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
   "ResourceIds": [
-    "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-    "c32386aa-1cd2-414a-a823-489325842fbe"
+    "20e00c32-d561-4008-8609-82d8aa525714",
+    "1ec29188-01ca-4294-9983-fac59f85a448",
+    "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
   ],
-  "CreatedUtc": {
-    "StartUtc": "2022-10-15T00:00:00Z",
-    "EndUtc": "2022-10-20T00:00:00Z"
-  },
-  "UpdatedUtc": {
-    "StartUtc": "2022-10-15T00:00:00Z",
-    "EndUtc": "2022-10-20T00:00:00Z"
-  },
+  "Names": [
+    "101",
+    "102",
+    "Suite 1"
+  ],
   "Extent": {
     "Resources": true,
     "ResourceCategories": false,
@@ -40,8 +34,20 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "ResourceFeatureAssignments": false,
     "Inactive": false
   },
+  "CreatedUtc": {
+    "StartUtc": "2023-01-01T00:00:00Z",
+    "EndUtc": "2023-12-31T23:59:59Z"
+  },
+  "UpdatedUtc": {
+    "StartUtc": "2023-06-01T00:00:00Z",
+    "EndUtc": "2023-06-30T23:59:59Z"
+  },
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -77,126 +83,87 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 {
   "Resources": [
     {
-      "Id": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "Id": "20e00c32-d561-4008-8609-82d8aa525714",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "IsActive": true,
-      "Name": "101",
       "ParentResourceId": null,
-      "State": "Dirty",
-      "Descriptions": {},
+      "Name": "101",
+      "State": "Clean",
+      "Descriptions": {
+        "en-US": "Standard room with city view"
+      },
+      "CreatedUtc": "2023-01-15T10:30:00Z",
+      "UpdatedUtc": "2023-06-15T14:20:00Z",
       "Data": {
         "Discriminator": "Space",
         "Value": {
-          "FloorNumber": "3",
-          "LocationNotes": "A1"
+          "FloorNumber": "1",
+          "LocationNotes": "Building A, near elevator"
         }
       },
-      "CreatedUtc": "2016-03-29T15:14:06Z",
-      "UpdatedUtc": "2016-03-29T15:14:06Z"
+      "ExternalNames": {
+        "en-US": "Room 101"
+      },
+      "Directions": {
+        "en-US": "Take elevator to first floor, turn right"
+      }
     },
     {
-      "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
-      "EnterpriseId": "4d0201db-36f5-428b-8d11-4f0a65e960cc",
+      "Id": "1ec29188-01ca-4294-9983-fac59f85a448",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "IsActive": true,
-      "Name": "102",
-      "ParentResourceId": null,
+      "ParentResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
+      "Name": "101A",
       "State": "Inspected",
       "Descriptions": {
-        "en-US": "Resource description"
+        "en-US": "Bed in room 101"
       },
+      "CreatedUtc": "2023-01-15T10:35:00Z",
+      "UpdatedUtc": "2023-06-15T14:25:00Z",
+      "Data": {
+        "Discriminator": "Object",
+        "Value": {}
+      },
+      "ExternalNames": {
+        "en-US": "Bed A"
+      },
+      "Directions": {
+        "en-US": "Located in room 101"
+      }
+    },
+    {
+      "Id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "IsActive": true,
+      "ParentResourceId": null,
+      "Name": "Suite 1",
+      "State": "Dirty",
+      "Descriptions": {
+        "en-US": "Luxury suite with ocean view"
+      },
+      "CreatedUtc": "2023-02-01T09:00:00Z",
+      "UpdatedUtc": "2023-06-20T16:45:00Z",
       "Data": {
         "Discriminator": "Space",
         "Value": {
-          "FloorNumber": "3",
-          "LocationNotes": "B2"
+          "FloorNumber": "5",
+          "LocationNotes": "Penthouse level, private elevator access"
         }
       },
-      "CreatedUtc": "2016-03-29T15:14:06Z",
-      "UpdatedUtc": "2016-03-29T15:14:06Z"
-    }
-  ],
-  "ResourceCategories": [
-    {
-      "Id": "aaed6e21-1c1f-4644-9872-e53f96a21bf9"
-    },
-    {
-      "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f"
-    },
-    {
-      "IsActive": true
-    },
-    {
-      "Names": {
-        "en-US": "Best Room"
-      }
-    },
-    {
-      "ShortNames": {
-        "en-US": "BR"
-      }
-    },
-    {
-      "Descriptions": {}
-    },
-    {
-      "Ordering": 0
-    },
-    {
-      "Capacity": 2
-    },
-    {
-      "ExtraCapacity": 0
-    },
-    {
-      "ExternalIdentifier": "RT001-BestRoom"
-    }
-  ],
-  "ResourceCategoryAssignments": [
-    {
-      "Id": "032298ad-b1b8-4936-9420-415a2152304a",
-      "IsActive": true,
-      "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
-      "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
-      "CreatedUtc": "2016-03-29T15:14:06Z",
-      "UpdatedUtc": "2016-03-29T15:14:06Z"
-    }
-  ],
-  "ResourceCategoryImageAssignments": [
-    {
-      "Id": "f3475243-5962-4fb5-bdfd-958f9c65520e",
-      "IsActive": true,
-      "CategoryId": "aaed6e21-1c1f-4644-9872-e53f96a21bf9",
-      "ImageId": "8cd435e0-f024-44a0-84fd-abe300b8ae1c",
-      "CreatedUtc": "2016-03-29T15:14:06Z",
-      "UpdatedUtc": "2016-03-29T15:14:06Z"
-    }
-  ],
-  "ResourceFeatures": [
-    {
-      "Id": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
-      "ServiceId": "24e2ead5-65a8-4ed9-8286-abdb00f08a1f",
-      "IsActive": true,
-      "Classification": "AccessibleBathroom",
-      "Names": {
-        "en-US": "Accessible Bathroom"
+      "ExternalNames": {
+        "en-US": "Presidential Suite"
       },
-      "ShortNames": {
-        "en-US": "AccessBath"
-      },
-      "Descriptions": {}
+      "Directions": {
+        "en-US": "Private elevator to penthouse level"
+      }
     }
   ],
-  "ResourceFeatureAssignments": [
-    {
-      "Id": "ca2b5bf9-24f5-4faa-95ef-b65d38598b08",
-      "IsActive": true,
-      "ResourceId": "18019693-c66f-4be8-a893-c3d89fd291cc",
-      "FeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
-      "CreatedUtc": "2016-03-29T15:14:06Z",
-      "UpdatedUtc": "2016-03-29T15:14:06Z"
-    }
-  ],
-  "Cursor": "c32386aa-1cd2-414a-a823-489325842fbe"
+  "ResourceCategories": null,
+  "ResourceCategoryAssignments": null,
+  "ResourceCategoryImageAssignments": null,
+  "ResourceFeatures": null,
+  "ResourceFeatureAssignments": null,
+  "Cursor": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
 }
 ```
 
@@ -319,27 +286,47 @@ Updates details of the resources.
   "Client": "Sample Client 1.0.0",
   "ResourceUpdates": [
     {
-      "ResourceId": "5ee074b1-6c86-48e8-915f-c7aa4702086f",
+      "ResourceId": "20e00c32-d561-4008-8609-82d8aa525714",
       "Name": {
-        "Value": "0101"
+        "Value": "101 Updated"
       },
-      "ParentResourceId": null,
       "Data": {
         "Discriminator": "Space",
         "Value": {
           "FloorNumber": {
-            "Value": "1"
+            "Value": "2"
           },
           "LocationNotes": {
-            "Value": "A1"
+            "Value": "Updated location notes"
           }
         }
       },
       "State": {
-        "Value": "Clean"
+        "Value": "Inspected"
       },
       "StateReason": {
-        "Value": "Sample reason"
+        "Value": "Room inspection completed"
+      }
+    },
+    {
+      "ResourceId": "1ec29188-01ca-4294-9983-fac59f85a448",
+      "Name": {
+        "Value": "102"
+      },
+      "ParentResourceId": {
+        "Value": "20e00c32-d561-4008-8609-82d8aa525714"
+      },
+      "State": {
+        "Value": "Clean"
+      }
+    },
+    {
+      "ResourceId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "State": {
+        "Value": "OutOfService"
+      },
+      "StateReason": {
+        "Value": "Maintenance required"
       }
     }
   ]
