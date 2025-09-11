@@ -1,5 +1,9 @@
 # Changelog
 
+## 12th September 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `DE_NATO` for German tax exemptions.
+
 ## 11th September 2025
 * [Get resources' occupancy state](../operations/resources.md#get-resources-occupancy-state):
   * Added new operation (restricted).
