@@ -1,6 +1,8 @@
 # Changelog
 
 ## 11th September 2025
+* [Get resources' occupancy state](../operations/resources.md#get-resources-occupancy-state):
+  * Added new operation (restricted).
 * [Get all resources](../operations/resources.md#get-all-resources):
 * [Update resources](../operations/resources.md#update-resources):
   * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
