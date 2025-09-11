@@ -1,5 +1,15 @@
 # Changelog
 
+## 11th September 2025
+* [Get all resources](../operations/resources.md#get-all-resources):
+* [Update resources](../operations/resources.md#update-resources):
+  * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
+* [Get all resources](../operations/resources.md#get-all-resources):
+  * Extended request object with `Names` filtering parameter.
+  * Extended [Resource](../operations/resources.md#resource) response object with `Descriptions`, `ExternalNames`, and `Directions` properties.
+* [Get all resource categories](../operations/resourcecategories.md#get-all-resource-categories):
+  * Extended [Resource category](../operations/resources.md#resource-category) response object with `EnterpriseId`, `ServiceId`, `Classification`, and `AccountingCategoryId` properties.
+
 ## 9th September 2025
 * [Get all loyalty programs](../operations/loyaltyprograms.md#get-all-loyalty-programs):
   * Extended request object with `Codes` filtering parameter.
