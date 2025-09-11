@@ -2301,3 +2301,18 @@ types:
   spacedataupdateparameters:
     file: resources.md
     anchor: space-resource-data-update
+  resourcesoccupancystateresult:
+    file: resources.md
+    anchor: resourcesoccupancystateresult
+  resourcecategoryoccupancystate:
+    file: resources.md
+    anchor: resource-category-occupancy-state
+  resourceoccupancystate:
+    file: resources.md
+    anchor: resource-occupancy-state
+  occupancystateenum:
+    file: resources.md
+    anchor: occupancy-state
+  resourcesoccupancystatefilterparameters:
+    file: resources.md
+    anchor: resourcesoccupancystatefilterparameters
