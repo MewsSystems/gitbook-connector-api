@@ -344,21 +344,6 @@ types:
   productconsumptionmoment:
     file: products.md
     anchor: productconsumptionmoment
-  resource:
-    file: resources.md
-    anchor: resource
-  resourcedatacoproductofspacedataobjectdatapersondata:
-    file: resources.md
-    anchor: resource-data
-  spacedata:
-    file: resources.md
-    anchor: space-resource-data
-  resourcecategory:
-    file: resources.md
-    anchor: resource-category
-  resourcecategorytype:
-    file: resources.md
-    anchor: resource-category-type
   resourceclassification:
     file: resourcefeatures.md
     anchor: resource-feature-classification
@@ -2274,3 +2259,45 @@ types:
   loyaltyprogramdeleteparameters:
     file: loyaltyprograms.md
     anchor: loyaltyprogramdeleteparameters
+  resource:
+    file: resources.md
+    anchor: resource
+  resourcestate:
+    file: resources.md
+    anchor: resource-state
+  resourcedatacoproductofresourcedatadiscriminator:
+    file: resources.md
+    anchor: resource-data
+  resourcedatadiscriminator:
+    file: resources.md
+    anchor: resource-data-discriminator
+  spacedata:
+    file: resources.md
+    anchor: space-resource-data
+  resourcecategory:
+    file: resources.md
+    anchor: resource-category
+  resourcecategorytype:
+    file: resources.md
+    anchor: resource-category-type
+  resourceresult:
+    file: resources.md
+    anchor: resourceresult
+  resourcefilterparameters:
+    file: resources.md
+    anchor: resourcefilterparameters
+  resourceextent:
+    file: resources.md
+    anchor: resource-extent
+  multipleresourceupdateparameters:
+    file: resources.md
+    anchor: multipleresourceupdateparameters
+  resourceupdateparameters:
+    file: resources.md
+    anchor: resource-update
+  resourceupdateparametersdatacoproductofresourcedatadiscriminator:
+    file: resources.md
+    anchor: resource-data-update
+  spacedataupdateparameters:
+    file: resources.md
+    anchor: space-resource-data-update

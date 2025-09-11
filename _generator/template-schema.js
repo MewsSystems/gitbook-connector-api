@@ -82,7 +82,7 @@ function fixupCoproductTemplateSchema(templateSchema) {
     (p) => p.name.toLowerCase() === 'discriminator'
   );
   if (discriminator) {
-    discriminator.description = 'Determines type of value.';
+    discriminator.description ||= 'Determines type of value.';
   }
 
   let value = templateSchema.properties.find(
@@ -90,7 +90,7 @@ function fixupCoproductTemplateSchema(templateSchema) {
   );
   if (value) {
     value.type = 'object';
-    value.description = 'Structure of object depends on `Discriminator`.';
+    value.description ||= 'Structure of object depends on `Discriminator`.';
   }
 }
 

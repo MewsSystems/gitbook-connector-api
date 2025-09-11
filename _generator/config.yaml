@@ -57,7 +57,7 @@ tags:
   # - resourceblocks
   - resourcecategories
   - resourcefeatures
-  # - resources
+  - resources
   - restrictions
   # - routingrules
   # - rules
