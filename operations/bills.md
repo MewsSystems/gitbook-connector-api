@@ -247,7 +247,7 @@ Creates a PDF version of the specified bill. In case it's not possible to return
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `BillId` | string | required | Unique identifier of the printed bill. |
-| `Result` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required |  |
+| `Result` | [Bill PDF result discriminator](bills.md#bill-pdf-result-discriminator) | required | The result of operation. |
 
 #### Bill PDF result discriminator
 
@@ -531,7 +531,7 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order from the buyer. |
 | `Notes` | string | optional | Additional notes. |
 | `Options` | [Bill options](bills.md#bill-options) | optional | Options of the bill. |
-| `OwnerData` | [Bill owner data](bills.md#bill-owner-data) | required | Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill. |
+| `OwnerData` | [Bill owner data](bills.md#bill-owner-data) | optional | Additional information about owner of the bill. Can be a `Customer` or `Company`. Persisted at the time of closing of the bill. |
 | `AssociatedAccountData` | array of [Associated account bill data](bills.md#associated-account-bill-data) | optional | Additional information about the associated account of the bill. Can be a `Customer` or `Company`. Persisted at the time of closing of the bill. Currently only one account can be associated with a bill, but this may be extended in future. |
 | `EnterpriseData` | [Bill enterprise data](bills.md#bill-enterprise-data) | optional | Additional information about the enterprise issuing the bill, including bank account details. Persisted at the time of closing of the bill. |
 | `CorrectionState` | [Bill correction state](bills.md#bill-correction-state) | required | Whether the bill is a regular bill or a corrective bill. |
@@ -543,7 +543,7 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
 | ~~`Payments`~~ | ~~array of [Accounting item](accountingitems.md#accounting-item)~~ | ~~optional~~ | **Deprecated!** Use `payments/getAll` with `BillId` instead.|
 | ~~`OrderItems`~~ | ~~array of [Order item](accountingitems.md#order-item)~~ | ~~optional~~ | ~~The order items (consumed items such as nights or products) on the bill.~~ **Deprecated!** Use `orderItems/getAll` with `BillId` instead.|
 | ~~`PaymentItems`~~ | ~~array of [Payment item](accountingitems.md#payment-item)~~ | ~~optional~~ | ~~The payment items (such as cash, credit card payments or invoices) on the bill.~~ **Deprecated!** |
-| ~~`AssigneeData`~~ | ~~[Bill assignee data](bills.md#bill-assignee-data)~~ | ~~required~~ | **Deprecated!** Use `OwnerData` instead.|
+| ~~`AssigneeData`~~ | ~~[Bill assignee data](bills.md#bill-assignee-data)~~ | ~~optional~~ | **Deprecated!** Use `OwnerData` instead.|
 | ~~`CompanyDetails`~~ | ~~[Bill company data](bills.md#bill-company-data)~~ | ~~optional~~ | ~~Additional information about the company assigned to the bill. Not the same as the owner. Persisted at the time of closing of the bill.~~ **Deprecated!** Use `AssociatedAccountData` instead.|
 
 #### Bill state
@@ -611,7 +611,6 @@ Options of the bill.
 | `TaxIdentifier` | string | optional | Tax identifier of the customer. |
 
 #### Bill owner data
-Additional information about owner of the bill. Can be a [Customer](customers.md#customer) or [Company](companies.md#company). Persisted at the time of closing of the bill.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
