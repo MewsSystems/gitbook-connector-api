@@ -434,6 +434,7 @@ Additional order item data.
 * `IT_N5` - N5 - Regime del margine / IVA non esposta in fattura
 * `PL_ZW` - ZW - Zwolniony
 * `PL_NP` - NP - Nie podlega
+* `DE_NATO` - NATO-ZAbk - Umsatzsteuerbefreiung gemäß Artikel 67(3) NATO-Zusatzabkommen
 
 ## Cancel order items
 
