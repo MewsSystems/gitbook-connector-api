@@ -1,5 +1,8 @@
 # Changelog
 
+## 12th September 2025
+* Fixed contract requirements for coproducts per OpenAPI Specification, notably `OwnerData` and `AssigneeData` in [Bill](../operations/bills.md#bill). Documentation-only, no change to API.
+
 ## 11th September 2025
 * [Get resources' occupancy state](../operations/resources.md#get-resources-occupancy-state):
   * Added new operation (restricted).
