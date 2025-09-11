@@ -58,11 +58,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
-| `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the requested `Resource`. |
-| `Names` | array of string | optional, max 1000 items | Names of the requested `Resource`. |
+| `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of the requested resources. |
+| `Names` | array of string | optional, max 1000 items | Names of the requested resources. |
 | `Extent` | [Resource extent](resources.md#resource-extent) | required | Extent of data to be returned. |
-| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Resource` were created. |
-| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Resource` were updated. |
+| `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resources were created. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the resources were updated. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Resource extent
@@ -71,11 +71,11 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Resources` | boolean | optional | Whether the response should contain resources. |
 | `Inactive` | boolean | optional | Whether the response should contain inactive entities. |
-| ~~`ResourceCategories`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Use `resourceCategories/getAll`|
-| ~~`ResourceCategoryAssignments`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to categories.~~ **Deprecated!** Use `resourceCategoryAssignments/getAll`|
-| ~~`ResourceCategoryImageAssignments`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain assignments of the images to categories.~~ **Deprecated!** Use `resourceCategoryImageAssignments/getAll`|
-| ~~`ResourceFeatures`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain resource features.~~ **Deprecated!** Use `resourceFeatures/getAll`|
-| ~~`ResourceFeatureAssignments`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to features.~~ **Deprecated!** Use `resourceFeatureAssignments/getAll`|
+| ~~`ResourceCategories`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain categories.~~ **Deprecated!** Use [Get all resource categories](resourcecategories.md#get-all-resource-categories)|
+| ~~`ResourceCategoryAssignments`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to categories.~~ **Deprecated!** Use [Get all resource category assignments](resourcecategories.md#get-all-resource-category-assignments)|
+| ~~`ResourceCategoryImageAssignments`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain assignments of the images to categories.~~ **Deprecated!** Use [Get all resource category image assignments](resourcecategories.md#get-all-resource-category-image-assignments)|
+| ~~`ResourceFeatures`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain resource features.~~ **Deprecated!** Use [Get all resource features](resourcefeatures.md#get-all-resource-features)|
+| ~~`ResourceFeatureAssignments`~~ | ~~boolean~~ | ~~optional~~ | ~~Whether the response should contain assignments of the resources to features.~~ **Deprecated!** Use [Get all resource feature assignments](resourcefeatures.md#get-all-resource-feature-assignments)|
 
 ### Response
 
