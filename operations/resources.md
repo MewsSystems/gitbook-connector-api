@@ -271,6 +271,98 @@ Additional data of the resource.
 * `Amphitheater`
 * `PrivateSpaces`
 
+## Get resources&#x27; occupancy state
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Returns the occupancy state of the specified resources. This operation returns the occupancy state for the current day. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/resources/getOccupancyState`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "ResourceCategoryIds": [
+    "773d5e42-de1e-43a0-9ce6-f940faf2303f"
+  ],
+  "ResourceStates": [
+    "Clean",
+    "Inspected"
+  ],
+  "OccupancyStates": [
+    "Vacant",
+    "Reserved"
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `ResourceCategoryIds` | array of string | required, max 5 items | Unique identifiers of the `ResourceCategory`. |
+| `ResourceStates` | array of [Resource state](resources.md#resource-state) | optional | States of the `Resource` |
+| `OccupancyStates` | array of [Occupancy state](resources.md#occupancy-state) | optional | Occupancy states of the `Resource`. |
+
+### Response
+
+```javascript
+{
+  "ResourceCategoryOccupancyStates": [
+    {
+      "ResourceCategoryId": "773d5e42-de1e-43a0-9ce6-f940faf2303f",
+      "ResourceOccupancyStates": [
+        {
+          "ResourceId": "f3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
+          "ResourceState": "Inspected",
+          "OccupancyState": "Reserved"
+        },
+        {
+          "ResourceId": "c32386aa-1cd2-414a-a823-489325842fbe",
+          "ResourceState": "Inspected",
+          "OccupancyState": "Vacant"
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ResourceCategoryOccupancyStates` | array of [Resource category occupancy state](resources.md#resource-category-occupancy-state) | required | The resource categories. |
+
+#### Resource category occupancy state
+The list of `ResourceOccupancyState`s grouped by resource category.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ResourceCategoryId` | string | required | Unique identifier of the 'Resource category'. |
+| `ResourceOccupancyStates` | array of [Resource occupancy state](resources.md#resource-occupancy-state) | required | The resource occupancy states. |
+
+#### Resource occupancy state
+The occupancy state of a `Resource`.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ResourceId` | string | required | Unique identifier of the resource. |
+| `ResourceState` | [Resource state](resources.md#resource-state) | required | Resource state of the resource. |
+| `OccupancyState` | [Occupancy state](resources.md#occupancy-state) | required | State of the resource. |
+
+#### Occupancy state
+
+* `Vacant`
+* `ReservedLocked`
+* `Reserved`
+* `InternalUse`
+* `OutOfOrder`
+
 ## Update resources
 
 Updates details of the resources.

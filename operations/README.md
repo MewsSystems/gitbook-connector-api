@@ -89,6 +89,7 @@ This section describes all operations supported by the API, organised here by th
 | [Get all counters](counters.md#get-all-counters) | Returns all counters of an enterprise associated with the connector integration |
 | [Get all outlets](outlets.md#get-all-outlets) | Returns all outlets of an enterprise associated with the connector integration |
 | [Get all resources](resources.md#get-all-resources) | Returns all resources of an enterprise associated with the connector integration |
+| [Get resources' occupancy state](resources.md#get-resources-occupancy-state) | Returns occupancy state of the specified resources in the given time interval |
 | [Update resources](resources.md#update-resources) | Updates details of the resources |
 | [Get all resource blocks](resourceblocks.md#get-all-resource-blocks) | Returns all resource blocks \(out of order blocks or internal use blocks\) |
 | [Add resource block](resourceblocks.md#add-resource-block) | Adds a new resource block to the specified resource for a defined period of time |
