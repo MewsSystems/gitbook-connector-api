@@ -78,18 +78,21 @@ function createEnumTemplateSchema(schema) {
  * @param {TemplateSchema} templateSchema
  */
 function fixupCoproductTemplateSchema(templateSchema) {
-  let discriminator = templateSchema.properties.find(
+  // The same description is shown in the property table, so we clear it out in coproduct's section.
+  templateSchema.description = '';
+
+  const discriminator = templateSchema.properties.find(
     (p) => p.name.toLowerCase() === 'discriminator'
   );
   if (discriminator) {
     discriminator.description ||= 'Determines type of value.';
   }
 
-  let value = templateSchema.properties.find(
+  const value = templateSchema.properties.find(
     (p) => p.name.toLowerCase() === 'value'
   );
   if (value) {
-    value.type = 'object';
+    value.type ||= 'object';
     value.description ||= 'Structure of object depends on `Discriminator`.';
   }
 }
