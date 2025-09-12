@@ -31,6 +31,14 @@ types:
     file: _objects.md
     anchor: bool-update-value
     titleOverride: Bool update value
+  booleannullableupdatevalue:
+    file: _objects.md
+    anchor: bool-update-value
+    titleOverride: Bool update value
+  decimalnullableupdatevalue:
+    file: _objects.md
+    anchor: number-update-value
+    titleOverride: Number update value
   amount:
     file: _objects.md
     anchor: amount
@@ -2316,3 +2324,39 @@ types:
   resourcesoccupancystatefilterparameters:
     file: resources.md
     anchor: resourcesoccupancystatefilterparameters
+  contractresult:
+    file: companycontracts.md
+    anchor: contractresult
+  travelagencycontract:
+    file: companycontracts.md
+    anchor: travel-agency-contract
+  travelagencycontractoptions:
+    file: companycontracts.md
+    anchor: travel-agency-contract-options
+  companycontractfilterparameters:
+    file: companycontracts.md
+    anchor: companycontractfilterparameters
+  contractadditionresult:
+    file: companycontracts.md
+    anchor: contractadditionresult
+  multiplecompanycontractaddparameters:
+    file: companycontracts.md
+    anchor: multiplecompanycontractaddparameters
+  travelagencycontractaddparameters:
+    file: companycontracts.md
+    anchor: travel-agency-contract-parameters
+  contractupdateresult:
+    file: companycontracts.md
+    anchor: contractupdateresult
+  multiplecompanycontractupdateparameters:
+    file: companycontracts.md
+    anchor: multiplecompanycontractupdateparameters
+  travelagencycontractupdateparameters:
+    file: companycontracts.md
+    anchor: travel-agency-contract-update-parameters
+  travelagencycontractoptionsparameters:
+    file: companycontracts.md
+    anchor: travel-agency-contract-update-options
+  multiplecompanycontractdeleteparameters:
+    file: companycontracts.md
+    anchor: multiplecompanycontractdeleteparameters
