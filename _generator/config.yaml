@@ -53,7 +53,7 @@ tags:
   - rates
   - reservationgroups
   - reservations
-  # - resourceaccesstokens
+  - resourceaccesstokens
   # - resourceblocks
   - resourcecategories
   - resourcefeatures
