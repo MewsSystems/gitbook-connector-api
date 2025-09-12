@@ -1,6 +1,8 @@
 # Changelog
 
 ## 12th September 2025
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `DE_NATO` for German tax exemptions.
 * Fixed contract requirements for coproducts per OpenAPI Specification, notably `OwnerData` and `AssigneeData` in [Bill](../operations/bills.md#bill). Documentation-only, no change to API.
 
 ## 11th September 2025
