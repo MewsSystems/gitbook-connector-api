@@ -203,7 +203,6 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 * `OutOfOrder`
 
 #### Resource data
-Additional data of the resource.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -439,7 +438,7 @@ Updates details of the resources.
 | `ResourceId` | string | required | Unique identifier of the `Resource` which is updated. |
 | `Name` | [String update value](_objects.md#string-update-value) | optional | New name of the resource (e.g. room number). |
 | `ParentResourceId` | [String update value](_objects.md#string-update-value) | optional | Identifier of the new parent `Resource`. |
-| `Data` | [Resource data update](resources.md#resource-data-update) | required |  |
+| `Data` | [Resource data update](resources.md#resource-data-update) | optional | New additional data of the resource. |
 | `State` | [String update value](_objects.md#string-update-value) | optional | New `ResourceState` except `OutOfOrder`. |
 | `StateReason` | [String update value](_objects.md#string-update-value) | optional | New reason for the state of the resource. |
 
