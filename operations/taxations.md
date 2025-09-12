@@ -114,7 +114,6 @@ Definition of single tax rate.
 | `Strategy` | [Tax rate strategy](taxations.md#tax-rate-strategy) | required | Tax strategy type, e.g. relative, flat or dependent. |
 
 #### Tax rate strategy
-Tax strategy type, e.g. relative, flat or dependent.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
