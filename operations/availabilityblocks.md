@@ -154,7 +154,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "IsActive": false,
       "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
       "AvailabilityBlockNumber": "479",
-      "ReleaseStrategy": "RollingRelease"
+      "ReleaseStrategy": "RollingRelease",
+      "PurchaseOrderNumber": null
     }
   ],
   "ServiceOrders": null,
@@ -169,10 +170,11 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
       "UnitCount": 6,
       "ActivityState": "Active",
-      "ReleaseOverrideUtc": null,
+      "ReleaseOverrideUtc": "2021-10-13T00:00:00Z",
       "UpdatedUtc": "2021-10-21T13:32:32Z",
       "IsActive": false,
-      "PaxCounts": null
+      "PaxCounts": null,
+      "FirstTimeUnitReleaseUtc": "2021-10-13T00:00:00Z"
     }
   ],
   "Rates": null,
@@ -186,7 +188,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `Adjustments` | array of [Availability adjustment](availabilityadjustments.md#availability-adjustment) | optional | Availability adjustments of availability blocks. |
 | `Cursor` | string | optional | Unique identifier of the last returned availability block. This can be used in Limitation in a subsequent request to fetch the next batch of availability block. |
 | ~~`ServiceOrders`~~ | ~~array of [Reservation (ver 2017-04-12)](reservations.md#reservation-ver-2017-04-12)~~ | ~~optional~~ | ~~Service orders (for example reservations) linked to availability blocks.~~ **Deprecated!** Use [Get all reservations (ver 2023-06-06)](reservations.md#get-all-reservations-ver-2023-06-06) instead.|
-| ~~`Rates`~~ | ~~array of [Rate for extent](rates.md#rate-for-extent)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use [Get all rates](rates.md#get-all-rates) instead.|
+| ~~`Rates`~~ | ~~array of [Rate for extent](reservations.md#rate-for-extent)~~ | ~~optional~~ | ~~`Rates` assigned to the block.~~ **Deprecated!** Use [Get all rates](rates.md#get-all-rates) instead.|
 
 #### Availability block
 
@@ -313,6 +315,7 @@ Adds availability blocks which are used to group related `Availability updates`.
 | `State` | [Availability block state](availabilityblocks.md#availability-block-state) | required | State of the availability block. |
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
 
 ### Response
 
@@ -350,7 +353,8 @@ Adds availability blocks which are used to group related `Availability updates`.
       "IsActive": false,
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
-      "ReleaseStrategy": "FixedRelease"
+      "ReleaseStrategy": "FixedRelease",
+      "PurchaseOrderNumber": "XX-123"
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -383,7 +387,8 @@ Adds availability blocks which are used to group related `Availability updates`.
       "IsActive": false,
       "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
       "AvailabilityBlockNumber": "479",
-      "ReleaseStrategy": "RollingRelease"
+      "ReleaseStrategy": "RollingRelease",
+      "PurchaseOrderNumber": null
     }
   ],
   "ServiceOrders": null,
@@ -398,10 +403,11 @@ Adds availability blocks which are used to group related `Availability updates`.
       "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
       "UnitCount": 6,
       "ActivityState": "Active",
-      "ReleaseOverrideUtc": null,
+      "ReleaseOverrideUtc": "2021-10-13T00:00:00Z",
       "UpdatedUtc": "2021-10-21T13:32:32Z",
       "IsActive": false,
-      "PaxCounts": null
+      "PaxCounts": null,
+      "FirstTimeUnitReleaseUtc": "2021-10-13T00:00:00Z"
     }
   ],
   "Rates": null,
@@ -459,7 +465,8 @@ Updates information about the specified `Availability block`. Note this operatio
       "ReleasedUtc": {
         "Value": "2021-07-01T00:00:00Z"
       },
-      "QuoteId": {}
+      "QuoteId": {},
+      "BusinessSegmentId": {}
     },
     {
       "AvailabilityBlockId": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -504,7 +511,8 @@ Updates information about the specified `Availability block`. Note this operatio
       },
       "QuoteId": {
         "Value": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c"
-      }
+      },
+      "BusinessSegmentId": {}
     }
   ]
 }
@@ -541,6 +549,7 @@ Updates information about the specified `Availability block`. Note this operatio
 | `ReleaseStrategy` | [Release strategy update value](availabilityblocks.md#release-strategy-update-value) | optional | The strategy for automatic release of the availability block (or `null` if not updated). |
 | `QuoteId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the Mews Events quote associated with the availability block (or `null` if not updated). |
 | `PurchaseOrderNumber` | [String update value](_objects.md#string-update-value) | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
+| `BusinessSegmentId` | [String update value](_objects.md#string-update-value) | optional | Unique identifier of the Business segment. |
 
 #### Currency value (ver 2018-06-07) update value
 
@@ -590,7 +599,8 @@ Updates information about the specified `Availability block`. Note this operatio
       "IsActive": false,
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
-      "ReleaseStrategy": "FixedRelease"
+      "ReleaseStrategy": "FixedRelease",
+      "PurchaseOrderNumber": "XX-123"
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -623,7 +633,8 @@ Updates information about the specified `Availability block`. Note this operatio
       "IsActive": false,
       "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
       "AvailabilityBlockNumber": "479",
-      "ReleaseStrategy": "RollingRelease"
+      "ReleaseStrategy": "RollingRelease",
+      "PurchaseOrderNumber": null
     }
   ],
   "ServiceOrders": null,
@@ -638,10 +649,11 @@ Updates information about the specified `Availability block`. Note this operatio
       "LastTimeUnitStartUtc": "2021-10-17T00:00:00Z",
       "UnitCount": 6,
       "ActivityState": "Active",
-      "ReleaseOverrideUtc": null,
+      "ReleaseOverrideUtc": "2021-10-13T00:00:00Z",
       "UpdatedUtc": "2021-10-21T13:32:32Z",
       "IsActive": false,
-      "PaxCounts": null
+      "PaxCounts": null,
+      "FirstTimeUnitReleaseUtc": "2021-10-13T00:00:00Z"
     }
   ],
   "Rates": null,
