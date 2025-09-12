@@ -1,5 +1,11 @@
 # Changelog
 
+## 12th September 2025
+* [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
+  * Extended [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) request object with `BusinessSegmentId` parameter.
+* [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
+  * Extended [Availability block update parameters](../operations/availabilityblocks.md#availability-block-update-parameters) request object with `BusinessSegmentId` parameter.
+
 ## 11th September 2025
 * [Get resources' occupancy state](../operations/resources.md#get-resources-occupancy-state):
   * Added new operation (restricted).
