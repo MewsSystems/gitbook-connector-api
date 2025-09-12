@@ -144,7 +144,6 @@ Options of the service.
 | `DuringCheckOut` | boolean | required | Whether it can be promoted during check-out. |
 
 #### Service data
-Additional information about the specific service.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
