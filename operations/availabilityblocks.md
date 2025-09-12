@@ -49,7 +49,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
     "Confirmed"
   ],
   "ActivityStates": [
-    "Active"
+    "Active","Deleted"
   ],
   "Limitation": {
     "Count": 100
