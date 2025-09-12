@@ -2316,3 +2316,27 @@ types:
   resourcesoccupancystatefilterparameters:
     file: resources.md
     anchor: resourcesoccupancystatefilterparameters
+  resourceaccesstokenresult:
+    file: resourceaccesstokens.md
+    anchor: resourceaccesstokenresult
+  resourceaccesstokenfilterparameters:
+    file: resourceaccesstokens.md
+    anchor: resourceaccesstokenfilterparameters
+  resourceaccesstokenadditionresult:
+    file: resourceaccesstokens.md
+    anchor: resourceaccesstokenadditionresult
+  multipleresourceaccesstokenparameters:
+    file: resourceaccesstokens.md
+    anchor: multipleresourceaccesstokenparameters
+  resourceaccesstokenupdateresult:
+    file: resourceaccesstokens.md
+    anchor: resourceaccesstokenupdateresult
+  multipleresourceaccesstokenupdateparameters:
+    file: resourceaccesstokens.md
+    anchor: multipleresourceaccesstokenupdateparameters
+  resourceaccesstokenupdateparameters:
+    file: resourceaccesstokens.md
+    anchor: resource-access-token-update
+  resourceaccesstokendeleteparameters:
+    file: resourceaccesstokens.md
+    anchor: resourceaccesstokendeleteparameters
