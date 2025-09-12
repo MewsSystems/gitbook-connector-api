@@ -101,7 +101,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CompanionshipId` | string | optional | Unique identifier of `Companionship`. |
 | `ResourceId` | string | optional | Unique identifier of `Resource`. |
 | `Type` | [Resource access token type](resourceaccesstokens.md#resource-access-token-type) | required | Type of stored value. |
-| `Value` | string | required | Value of the resource access token |
+| `Value` | string | required | Value of the resource access token. |
 | `SerialNumber` | string | optional | Serial number of the resource access token. |
 | `ValidityStartUtc` | string | required | Marks the start of interval in which the resource access token can be used. |
 | `ValidityEndUtc` | string | required | Marks the end of interval in which the resource access token can be used. |
