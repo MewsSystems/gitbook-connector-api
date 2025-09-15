@@ -2384,3 +2384,30 @@ types:
   resourceaccesstokendeleteparameters:
     file: resourceaccesstokens.md
     anchor: resourceaccesstokendeleteparameters
+  resourceblockresult:
+    file: resourceblocks.md
+    anchor: resourceblockresult
+  resourceblock:
+    file: resourceblocks.md
+    anchor: resource-block
+  resourceblocktype:
+    file: resourceblocks.md
+    anchor: resource-block-type
+  resourceblockparameters:
+    file: resourceblocks.md
+    anchor: resource-block-parameters
+  resourceblockextent:
+    file: resourceblocks.md
+    anchor: resource-block-extent
+  resourceblockadditionresult:
+    file: resourceblocks.md
+    anchor: resourceblockadditionresult
+  multipleresourceblockaddparameters:
+    file: resourceblocks.md
+    anchor: multipleresourceblockaddparameters
+  resourceblockaddparameters:
+    file: resourceblocks.md
+    anchor: resource-block-parameters
+  resourceblockdeleteparameters:
+    file: resourceblocks.md
+    anchor: resourceblockdeleteparameters

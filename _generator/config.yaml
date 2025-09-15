@@ -54,7 +54,7 @@ tags:
   - reservationgroups
   - reservations
   - resourceaccesstokens
-  # - resourceblocks
+  - resourceblocks
   - resourcecategories
   - resourcefeatures
   - resources

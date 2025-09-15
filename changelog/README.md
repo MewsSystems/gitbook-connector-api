@@ -1,6 +1,13 @@
 # Changelog
 
 ## 15th September 2025
+* [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks):
+  * **Deprecated:** `Extent` parameter in request object.
+  * Extended request object with `ActivityStates` filtering parameter which replaces `Extent` parameter.
+* [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks):
+* [Add resource blocks](../operations/resourceblocks.md#add-resource-blocks):
+* [Update resource blocks](../operations/resourceblocks.md#update-resource-blocks):
+  * Extended [Resource block](../operations/resourceblocks.md#resource-block) response object with `EnterpriseId` property.
 * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
 * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
