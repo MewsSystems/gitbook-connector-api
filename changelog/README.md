@@ -1,5 +1,11 @@
 # Changelog
 
+## 15th September 2025
+* [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
+* [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
+* [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
+  * Extended [Availability Block](../operations/availabilityblocks.md#availability-block) response object with `BusinessSegmentId` parameter.
+
 ## 12th September 2025
 * [Get all order items](../operations/orderitems.md#get-all-order-items):
   * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `DE_NATO` for German tax exemptions.
