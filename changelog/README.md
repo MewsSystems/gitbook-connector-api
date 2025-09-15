@@ -1,5 +1,14 @@
 # Changelog
 
+## 15th September 2025
+* [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks):
+  * **Deprecated:** `Extent` parameter in request object.
+  * Extended request object with `ActivityStates` filtering parameter which replaces `Extent` parameter.
+* [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks):
+* [Add resource blocks](../operations/resourceblocks.md#add-resource-blocks):
+* [Update resource blocks](../operations/resourceblocks.md#update-resource-blocks):
+  * Extended [Resource block](../operations/resourceblocks.md#resource-block) response object with `EnterpriseId` property.
+
 ## 12th September 2025
 * [Get all order items](../operations/orderitems.md#get-all-order-items):
   * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `DE_NATO` for German tax exemptions.

@@ -45,6 +45,7 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| `Extent` in [Get all services](../operations/services.md#get-all-services) | Replaced by `ActivityStates` parameter. | 15 Sep 2025 | |
 | `Code` in [Get all loyalty memberships](../operations/loyaltymemberships.md#get-all-loyalty-memberships), [Add loyalty memberships](../operations/loyaltymemberships.md#add-loyalty-memberships), [Update loyalty memberships](../operations/loyaltymemberships.md#update-loyalty-memberships) request and response objects. | Replaced by `MembershipNumber` | 05 Aug 2025 | |
 | `CustomerId`, `FullName` <br> in [Payment terminal command data](../operations/commands.md#payment-terminal-command-data) | Replaced by `AccountId` and [AccountData](../operations/commands.md#account-data-for-payment-terminal-command) | 23 Jan 2025 | 10 Jan 2027 |
 | `Documents` <br>in [Get all customers](../operations/customers.md#get-all-customers) and [Search customers](../operations/customers.md#search-customers) response | Use [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents) instead | 9th Jan 2025 | 10 Jan 2026 |
