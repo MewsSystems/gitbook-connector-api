@@ -214,160 +214,6 @@ Returns all accounting items of the enterprise that were consumed \(posted\) or 
 | `PaymentItems` | array of [Payment item](#payment-item) | optional | The payment items (such as cash, credit card payments or invoices). |
 | `CreditCardTransactions` | array of [Credit card transaction](#credit-card-transaction) | optional | The credit card payment transactions. |
 
-#### Order item
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the item. |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
-| `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation-ver-2023-06-06) which is a special type of order\) the item belongs to. |
-| `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
-| `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
-| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
-| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
-| `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
-| `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
-| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
-| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
-| `AccountingState` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
-| `Data` | object [Order item data](#order-item-data) | required | Additional data specific to particular order item. |
-
-#### Payment item
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Id` | string | required | Unique identifier of the item. |
-| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
-| `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
-| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
-| `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
-| `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
-| ~~`AmountDefault`~~ | ~~[Amount value](#amount-value)~~ | ~~required~~ | ~~Item's amount in property's default currency, negative amount represents either rebate or a payment.~~ **Deprecated!** |
-| `Notes` | string | optional | Additional notes. |
-| `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
-| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
-| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
-| `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the item. |
-| `State` | string [Payment item state](#payment-item-state) | required | Payment state of the item. |
-| `Data` | object [Payment item data](#payment-item-data) | required | Additional data specific to particular payment item. |
-
-#### Credit card transaction
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
-| `SettlementId` | string | optional | Identifier of the settlement. |
-| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
-| `Fee` | [Amount](#amount-value) | optional | Transaction fee - this includes an estimate of bank charges. |
-| `AdjustedFee` | [Amount](#amount-value) | optional | Transaction fee (adjusted) - this is the final confirmed transaction fee, including confirmed bank charges. |
-| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
-| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
-
-#### Amount Value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `NetValue` | number | optional | Net value in case the item is taxed. |
-| `GrossValue` | number | optional | Gross value including all taxes. |
-| `TaxValues` | array of [Tax value](#tax-value) | optional | The tax values applied. |
-
-For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](configuration.md#enterprise) or [Currency](currencies.md#currency) precision. But in some cases, precision can be higher.
-
-#### Tax value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Code` | number | required | Code corresponding to tax type. |
-| `Value` | number | required | Amount of tax applied. |
-
-#### Revenue type
-
-* `Service`
-* `Product`
-* `Additional`
-
-#### Order item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Order item data discriminator](#order-item-data-discriminator) | required | Type of the order item (e.g. `ProductOrder`). |
-| `Value` | object | optional | Based on order item discriminator, e.g. [Product order item data](#product-order-item-data) or `null` for types without any additional data.  |
-
-#### Order item data discriminator
-
-  * `CancellationFee` - no additional data.
-  * `Rebate` - [Rebate order item data](#rebate-order-item-data).
-  * `Deposit` - no additional data.
-  * `ExchangeRateDifference` - no additional data.
-  * `CustomItem` - no additional data.
-  * `Surcharge` - no additional data.
-  * `SurchargeDiscount` - no additional data.
-  * `ProductOrder` - [Product order item data](#product-order-item-data).
-  * `Other` - no additional data.
-
-#### Product order item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
-| `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
-
-#### Rebate order item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `RebatedItemId` | string | required | Unique identifier of [Order item](orders.md#order-item) which has been rebated by current item. |
-
-#### Payment item state
-
-  * `Charged`
-  * `Canceled`
-  * `Pending`
-  * `Failed`
-  * `Verifying`
-
-#### Payment item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Discriminator` | string [Payment item data discriminator](#payment-item-data-discriminator) | required | Type of the payment item (e.g. `CreditCard`). |
-| `Value` | object | optional | Based on order item discriminator, e.g. [Credit card payment item data](#credit-card-payment-item-data) or `null` for types without any additional data.  |
-
-#### Payment item data discriminator
-
-  * `CreditCard` - [Credit card payment item data](#credit-card-payment-item-data).
-  * `Invoice` - [Invoice payment item data](#invoice-payment-item-data).
-  * `Cash` - no additional data.
-  * `Unspecified` - no additional data.
-  * `BadDebts` - no additional data.
-  * `WireTransfer` - no additional data.
-  * `ExchangeRateDifference` - no additional data.
-  * `ExchangeRoundingDifference` - no additional data.
-  * `BankCharges` - no additional data.
-  * `Cheque` - no additional data.
-  * `Other` - no additional data.
-
-#### Credit card payment item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `CreditCardId` | string | required | Unique identifier of the [Credit card](creditcards.md#credit-card). |
-
-#### Invoice payment item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](bills.md#bill). |
-
-#### Currency value
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
-| `Value` | number | optional | Amount in the currency. |
-
 ## Update accounting items
 
 Updates specified accounting items. You can use this operation to assign an accounting item to a different account or bill. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
@@ -461,3 +307,157 @@ Updates specified accounting items. You can use this operation to assign an acco
 | :-- | :-- | :-- | :-- |
 | `OrderItems` | array of [Order item](#order-item) | optional | Updated order items (consumed items such as nights or products). |
 | `PaymentItems` | array of [Payment item](#payment-item) | optional | Updated payment items (such as cash, credit card payments or invoices). |
+
+#### Order item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the item. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
+| `OrderId` | string | required | Unique identifier of the order \(or [Reservation](reservations.md#reservation-ver-2023-06-06) which is a special type of order\) the item belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
+| `UnitCount` | integer | required | Unit count of item, i.e. the number of sub-items or units, if applicable. |
+| `UnitAmount` | [Amount value](#amount-value) | required | Unit amount of item, i.e. the amount of each individual sub-item or unit, if applicable. |
+| `Amount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. |
+| `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
+| `RevenueType` | string [Revenue type](#revenue-type) | required | Revenue type of the item. |
+| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
+| `AccountingState` | string [Accounting state](#accounting-item-state) | required | Accounting state of the item. |
+| `Data` | object [Order item data](#order-item-data) | required | Additional data specific to particular order item. |
+
+#### Order item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Order item data discriminator](#order-item-data-discriminator) | required | Type of the order item (e.g. `ProductOrder`). |
+| `Value` | object | optional | Based on order item discriminator, e.g. [Product order item data](#product-order-item-data) or `null` for types without any additional data.  |
+
+#### Order item data discriminator
+
+    * `CancellationFee` - no additional data.
+    * `Rebate` - [Rebate order item data](#rebate-order-item-data).
+    * `Deposit` - no additional data.
+    * `ExchangeRateDifference` - no additional data.
+    * `CustomItem` - no additional data.
+    * `Surcharge` - no additional data.
+    * `SurchargeDiscount` - no additional data.
+    * `ProductOrder` - [Product order item data](#product-order-item-data).
+    * `Other` - no additional data.
+
+#### Product order item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
+| `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
+
+#### Rebate order item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RebatedItemId` | string | required | Unique identifier of [Order item](orders.md#order-item) which has been rebated by current item. |
+
+#### Payment item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Id` | string | required | Unique identifier of the item. |
+| `AccountId` | string | required | Unique identifier of the account (for example [Customer](customers.md#customer)) the item belongs to. |
+| `BillId` | string | optional | Unique identifier of the [Bill](bills.md#bill) the item is assigned to. |
+| `AccountingCategoryId` | string | optional | Unique identifier of the [Accounting category](accountingcategories.md#accounting-category) the item belongs to. |
+| `Amount` | [Amount value](#amount-value) | required | Item's amount, negative amount represents either rebate or a payment. |
+| `OriginalAmount` | [Amount value](#amount-value) | required | Amount of item; note a negative amount represents a rebate or payment. Contains the earliest known value in conversion chain. |
+| ~~`AmountDefault`~~ | ~~[Amount value](#amount-value)~~ | ~~required~~ | ~~Item's amount in property's default currency, negative amount represents either rebate or a payment.~~ **Deprecated!** |
+| `Notes` | string | optional | Additional notes. |
+| `SettlementId` | string | optional | Identifier of the settled payment from the external system (ApplePay/GooglePay). | 
+| `ConsumedUtc` | string | required | Date and time of the item consumption in UTC timezone in ISO 8601 format. |
+| `ClosedUtc` | string | optional | Date and time of the item bill closure in UTC timezone in ISO 8601 format. |
+| `AccountingState` | string [Accounting item state](#accounting-item-state) | required | Accounting state of the item. |
+| `State` | string [Payment item state](#payment-item-state) | required | Payment state of the item. |
+| `Data` | object [Payment item data](#payment-item-data) | required | Additional data specific to particular payment item. |
+
+#### Payment item state
+
+    * `Charged`
+    * `Canceled`
+    * `Pending`
+    * `Failed`
+    * `Verifying`
+
+#### Payment item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Discriminator` | string [Payment item data discriminator](#payment-item-data-discriminator) | required | Type of the payment item (e.g. `CreditCard`). |
+| `Value` | object | optional | Based on order item discriminator, e.g. [Credit card payment item data](#credit-card-payment-item-data) or `null` for types without any additional data.  |
+
+#### Payment item data discriminator
+
+    * `CreditCard` - [Credit card payment item data](#credit-card-payment-item-data).
+    * `Invoice` - [Invoice payment item data](#invoice-payment-item-data).
+    * `Cash` - no additional data.
+    * `Unspecified` - no additional data.
+    * `BadDebts` - no additional data.
+    * `WireTransfer` - no additional data.
+    * `ExchangeRateDifference` - no additional data.
+    * `ExchangeRoundingDifference` - no additional data.
+    * `BankCharges` - no additional data.
+    * `Cheque` - no additional data.
+    * `Other` - no additional data.
+
+#### Credit card payment item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `CreditCardId` | string | required | Unique identifier of the [Credit card](creditcards.md#credit-card). |
+
+#### Invoice payment item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](bills.md#bill). |
+
+#### Credit card transaction
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `PaymentId` | string | required | Unique identifier of the [Payment item](#payment-item). |
+| `SettlementId` | string | optional | Identifier of the settlement. |
+| `SettledUtc` | string | optional | Settlement date and time in UTC timezone in ISO 8601 format. |
+| `Fee` | [Amount](#amount-value) | optional | Transaction fee - this includes an estimate of bank charges. |
+| `AdjustedFee` | [Amount](#amount-value) | optional | Transaction fee (adjusted) - this is the final confirmed transaction fee, including confirmed bank charges. |
+| `ChargedAmount` | [Amount](#amount-value) | required | Charged amount of the transaction. |
+| `SettledAmount` | [Amount](#amount-value) | optional | Settled amount of the transaction. |
+
+#### Amount Value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `NetValue` | number | optional | Net value in case the item is taxed. |
+| `GrossValue` | number | optional | Gross value including all taxes. |
+| `TaxValues` | array of [Tax value](#tax-value) | optional | The tax values applied. |
+
+For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](configuration.md#enterprise) or [Currency](currencies.md#currency) precision. But in some cases, precision can be higher.
+
+#### Tax value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Code` | number | required | Code corresponding to tax type. |
+| `Value` | number | required | Amount of tax applied. |
+
+#### Revenue type
+
+* `Service`
+* `Product`
+* `Additional`
+
+#### Currency value
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Currency` | string | required | ISO-4217 code of the [Currency](currencies.md#currency). |
+| `Value` | number | optional | Amount in the currency. |
