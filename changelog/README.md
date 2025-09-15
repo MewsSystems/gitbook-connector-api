@@ -2,9 +2,7 @@
 
 ## 15th September 2025
 * [Get all availability blocks](../operations/availabilityblocks.md#get-all-availability-blocks):
-  * Extended [Availability Block](../operations/availabilityblocks.md#availability-block) response object with `BusinessSegmentId` parameter.
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
-  * Extended [Availability Block](../operations/availabilityblocks.md#availability-block) response object with `BusinessSegmentId` parameter.
 * [Update availability blocks](../operations/availabilityblocks.md#update-availability-blocks):
   * Extended [Availability Block](../operations/availabilityblocks.md#availability-block) response object with `BusinessSegmentId` parameter.
 
