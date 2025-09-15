@@ -121,7 +121,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
       "ReleaseStrategy": "FixedRelease",
-      "PurchaseOrderNumber": "XX-123"
+      "PurchaseOrderNumber": "XX-123",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -155,7 +156,8 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
       "AvailabilityBlockNumber": "479",
       "ReleaseStrategy": "RollingRelease",
-      "PurchaseOrderNumber": null
+      "PurchaseOrderNumber": null,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
     }
   ],
   "ServiceOrders": null,
@@ -220,6 +222,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `AvailabilityBlockNumber` | string | required | Unique number for a specific availability block within the Mews system. |
 | `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
+| `BusinessSegmentId` | string | optional | Unique identifier of the associated `Business segment`. |
 
 #### Availability block state
 
@@ -354,7 +357,8 @@ Adds availability blocks which are used to group related `Availability updates`.
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
       "ReleaseStrategy": "FixedRelease",
-      "PurchaseOrderNumber": "XX-123"
+      "PurchaseOrderNumber": "XX-123",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -388,7 +392,8 @@ Adds availability blocks which are used to group related `Availability updates`.
       "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
       "AvailabilityBlockNumber": "479",
       "ReleaseStrategy": "RollingRelease",
-      "PurchaseOrderNumber": null
+      "PurchaseOrderNumber": null,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
     }
   ],
   "ServiceOrders": null,
@@ -600,7 +605,8 @@ Updates information about the specified `Availability block`. Note this operatio
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
       "ReleaseStrategy": "FixedRelease",
-      "PurchaseOrderNumber": "XX-123"
+      "PurchaseOrderNumber": "XX-123",
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -634,7 +640,8 @@ Updates information about the specified `Availability block`. Note this operatio
       "QuoteId": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c",
       "AvailabilityBlockNumber": "479",
       "ReleaseStrategy": "RollingRelease",
-      "PurchaseOrderNumber": null
+      "PurchaseOrderNumber": null,
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
     }
   ],
   "ServiceOrders": null,
