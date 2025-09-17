@@ -319,6 +319,7 @@ Adds availability blocks which are used to group related `Availability updates`.
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
+| `PickupDistribution` | [Pickup distribution](availabilityblocks.md#pickup-distribution) | optional | Pickup distribution. Defaults to `AllInOneGroup` if not specified. |
 
 ### Response
 
