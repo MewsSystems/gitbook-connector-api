@@ -336,28 +336,15 @@ Updates specified accounting items. You can use this operation to assign an acco
 
 #### Order item data discriminator
 
-    * `CancellationFee` - no additional data.
-    * `Rebate` - [Rebate order item data](#rebate-order-item-data).
-    * `Deposit` - no additional data.
-    * `ExchangeRateDifference` - no additional data.
-    * `CustomItem` - no additional data.
-    * `Surcharge` - no additional data.
-    * `SurchargeDiscount` - no additional data.
-    * `ProductOrder` - [Product order item data](#product-order-item-data).
-    * `Other` - no additional data.
-
-#### Product order item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
-| `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
-
-#### Rebate order item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `RebatedItemId` | string | required | Unique identifier of [Order item](orders.md#order-item) which has been rebated by current item. |
+  * `CancellationFee` - no additional data.
+  * `Rebate` - [Rebate order item data](#rebate-order-item-data).
+  * `Deposit` - no additional data.
+  * `ExchangeRateDifference` - no additional data.
+  * `CustomItem` - no additional data.
+  * `Surcharge` - no additional data.
+  * `SurchargeDiscount` - no additional data.
+  * `ProductOrder` - [Product order item data](#product-order-item-data).
+  * `Other` - no additional data.
 
 #### Payment item
 
@@ -378,13 +365,6 @@ Updates specified accounting items. You can use this operation to assign an acco
 | `State` | string [Payment item state](#payment-item-state) | required | Payment state of the item. |
 | `Data` | object [Payment item data](#payment-item-data) | required | Additional data specific to particular payment item. |
 
-#### Payment item state
-
-    * `Charged`
-    * `Canceled`
-    * `Pending`
-    * `Failed`
-    * `Verifying`
 
 #### Payment item data
 
@@ -395,29 +375,23 @@ Updates specified accounting items. You can use this operation to assign an acco
 
 #### Payment item data discriminator
 
-    * `CreditCard` - [Credit card payment item data](#credit-card-payment-item-data).
-    * `Invoice` - [Invoice payment item data](#invoice-payment-item-data).
-    * `Cash` - no additional data.
-    * `Unspecified` - no additional data.
-    * `BadDebts` - no additional data.
-    * `WireTransfer` - no additional data.
-    * `ExchangeRateDifference` - no additional data.
-    * `ExchangeRoundingDifference` - no additional data.
-    * `BankCharges` - no additional data.
-    * `Cheque` - no additional data.
-    * `Other` - no additional data.
+  * `CreditCard` - [Credit card payment item data](#credit-card-payment-item-data).
+  * `Invoice` - [Invoice payment item data](#invoice-payment-item-data).
+  * `Cash` - no additional data.
+  * `Unspecified` - no additional data.
+  * `BadDebts` - no additional data.
+  * `WireTransfer` - no additional data.
+  * `ExchangeRateDifference` - no additional data.
+  * `ExchangeRoundingDifference` - no additional data.
+  * `BankCharges` - no additional data.
+  * `Cheque` - no additional data.
+  * `Other` - no additional data.
 
 #### Credit card payment item data
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CreditCardId` | string | required | Unique identifier of the [Credit card](creditcards.md#credit-card). |
-
-#### Invoice payment item data
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](bills.md#bill). |
 
 #### Credit card transaction
 
@@ -454,6 +428,33 @@ For most amounts, precision of values depends on `TaxPrecision` of [Enterprise](
 * `Service`
 * `Product`
 * `Additional`
+
+#### Product order item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ProductId` | string | required | Unique identifier of the [Product](products.md#product). |
+| `AgeCategoryId` | string | optional | Unique identifier of the [Age Category](agecategories.md#age-category). |
+
+#### Rebate order item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `RebatedItemId` | string | required | Unique identifier of [Order item](orders.md#order-item) which has been rebated by current item. |
+
+#### Payment item state
+
+  * `Charged`
+  * `Canceled`
+  * `Pending`
+  * `Failed`
+  * `Verifying`
+
+#### Invoice payment item data
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `InvoiceId` | string | required | Unique identifier of the invoice [Bill](bills.md#bill). |
 
 #### Currency value
 
