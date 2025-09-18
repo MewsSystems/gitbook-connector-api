@@ -43,7 +43,7 @@ tags:
   - outletbills
   - outletitems
   # - outlets
-  # - paymentrequests
+  - paymentrequests
   - payments
   - preauthorizations
   - productcategories
