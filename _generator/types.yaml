@@ -372,7 +372,7 @@ types:
     anchor: order-item-data
   orderitemtypeold:
     file: accountingitems.md
-    anchor: order-item-type
+    anchor: order-item-data-discriminator
   rebateorderitemdata:
     file: accountingitems.md
     anchor: rebate-order-item-data
@@ -2411,3 +2411,21 @@ types:
   resourceblockdeleteparameters:
     file: resourceblocks.md
     anchor: resourceblockdeleteparameters
+  accountingitemupdateresult:
+    file: accountingitems.md
+    anchor: accountingitemupdateresult
+  multipleaccountingitemsupdateparameters:
+    file: accountingitems.md
+    anchor: multipleaccountingitemsupdateparameters
+  accountingitemupdateparameters:
+    file: accountingitems.md
+    anchor: accounting-item-update
+  accountingitemresult:
+    file: accountingitems.md
+    anchor: accountingitemresult
+  accountingitemparameters:
+    file: accountingitems.md
+    anchor: accountingitemparameters
+  accountingitemextent:
+    file: accountingitems.md
+    anchor: accounting-item-extent
