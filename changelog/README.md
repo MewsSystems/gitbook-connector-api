@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th September 2025
+* [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card):
+  * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
+
 ## 17th September 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
   * Extended [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) request object with `PickupDistribution` parameter.
