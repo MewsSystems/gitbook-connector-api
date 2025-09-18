@@ -1,5 +1,9 @@
 # Changelog
 
+## 19th September 2025
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * Extended [Bill parameters](../operations/bills.md#bill-parameters) request object with `Type` and `IssuedUtc` parameter.
+
 ## 17th September 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
   * Extended [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) request object with `PickupDistribution` parameter.
