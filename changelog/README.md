@@ -1,5 +1,10 @@
 # Changelog
 
+## 19th September 2025
+* [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items):
+* [Update accounting items](../operations/accountingitems.md#update-accounting-items):
+  * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
+
 ## 15th September 2025
 * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks):
   * **Deprecated:** `Extent` parameter in request object.
