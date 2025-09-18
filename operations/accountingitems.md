@@ -77,34 +77,89 @@
 {
   "OrderItems": [
     {
-      "Id": "6c2897de-620a-4f48-af1e-ada8004202bd",
-      "AccountId": "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
-      "OrderId": "f9090129-fb49-46d2-9dc5-ad9d015d43b9",
-      "BillId": "9e3791dc-95c7-439a-aa8a-ada8007de0ca",
+      "Id": "cb643cb7-8b6e-48a6-b67e-ad4c0041f550",
+      "AccountId": "77673c9d-0e31-4e90-9228-ad4b00a9fcdc",
+      "OrderId": "1103b431-998a-4b78-84de-ad4b00a9fd99",
+      "BillId": null,
       "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
-      "Amount": {
-        "Currency": "GBP",
-        "NetValue": 95.24,
-        "GrossValue": 100,
+      "UnitCount": 15,
+      "UnitAmount": {
+        "Currency": "EUR",
+        "NetValue": 8.4,
+        "GrossValue": 10,
         "TaxValues": [
           {
-            "Code": "UK-2020-R",
-            "Value": 4.76
+            "Code": "DE-2020-1-I",
+            "Value": 1.6
           }
         ],
         "Breakdown": {
           "Items": [
             {
-              "TaxRateCode": "UK-2020-R",
-              "NetValue": 95.24,
-              "TaxValue": 4.76
+              "TaxRateCode": "DE-2020-1-I",
+              "NetValue": 8.4,
+              "TaxValue": 1.6
+            }
+          ]
+        }
+      },
+      "Amount": {
+        "Value": 150,
+        "Net": 126.05,
+        "Tax": 23.95,
+        "TaxRate": 19,
+        "Currency": "EUR",
+        "NetValue": 126.05,
+        "GrossValue": 150,
+        "TaxValues": [
+          {
+            "Code": "DE-2020-1-I",
+            "Value": 23.95
+          }
+        ],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": "DE-2020-1-I",
+              "NetValue": 126.05,
+              "TaxValue": 23.95
+            }
+          ]
+        }
+      },
+      "OriginalAmount": {
+        "Value": 150,
+        "Net": 126.05,
+        "Tax": 23.95,
+        "TaxRate": 19,
+        "Currency": "EUR",
+        "NetValue": 126.05,
+        "GrossValue": 150,
+        "TaxValues": [
+          {
+            "Code": "DE-2020-1-I",
+            "Value": 23.95
+          }
+        ],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": "DE-2020-1-I",
+              "NetValue": 126.05,
+              "TaxValue": 23.95
             }
           ]
         }
       },
       "RevenueType": "Additional",
-      "ConsumedUtc": "2021-09-19T04:00:20Z",
+      "CreatorProfileId": "3cd637ef-4728-47f9-8fb1-afb900c9cdcf",
+      "UpdaterProfileId": "122fc063-ec6e-4198-b8db-6b168a59ffae",
+      "CreatedUtc": "2021-06-19T00:00:00Z",
+      "UpdatedUtc": "2021-06-19T00:00:00Z",
+      "ConsumedUtc": "2021-06-19T04:00:08Z",
+      "CanceledUtc": null,
       "ClosedUtc": null,
+      "StartUtc": null,
       "AccountingState": "Open",
       "Data": {
         "Discriminator": "CancellationFee",
@@ -112,7 +167,67 @@
       }
     }
   ],
-  "PaymentItems": []
+  "PaymentItems": [
+    {
+      "Id": "44ca12b8-f009-455e-be91-ad4c013fcbc5",
+      "AccountId": "5da55e5c-18e5-48d8-9a0e-ac0600704c5c",
+      "BillId": null,
+      "AccountingCategoryId": "b89345c1-2814-4750-808d-aa7900ee464a",
+      "Amount": {
+        "Value": 850,
+        "Net": 850,
+        "Tax": 0,
+        "TaxRate": 0,
+        "Currency": "GBP",
+        "NetValue": 850,
+        "GrossValue": 850,
+        "TaxValues": [],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": null,
+              "NetValue": 850,
+              "TaxValue": 0
+            }
+          ]
+        }
+      },
+      "OriginalAmount": {
+        "Value": 850,
+        "Net": 850,
+        "Tax": 0,
+        "TaxRate": 0,
+        "Currency": "GBP",
+        "NetValue": 850,
+        "GrossValue": 850,
+        "TaxValues": [],
+        "Breakdown": {
+          "Items": [
+            {
+              "TaxRateCode": null,
+              "NetValue": 850,
+              "TaxValue": 0
+            }
+          ]
+        }
+      },
+      "AmountDefault": null,
+      "Notes": "NORMAL0140",
+      "SettlementId": "po_1Lun9w4JpyDC38oQJQz7hAcx",
+      "ConsumedUtc": "2021-06-19T19:24:20Z",
+      "ClosedUtc": null,
+      "AccountingState": "Open",
+      "State": "Charged",
+      "Identifier": null,
+      "Data": {
+        "Discriminator": "Invoice",
+        "Value": {
+          "InvoiceId": "3c818013-d9de-47e9-bb2c-ad4c013f9ad3"
+        }
+      }
+    }
+  ],
+  "CreditCardTransactions": null
 }
 ```
 
@@ -172,89 +287,34 @@ Updates specified accounting items. You can use this operation to assign an acco
 {
   "OrderItems": [
     {
-      "Id": "cb643cb7-8b6e-48a6-b67e-ad4c0041f550",
-      "AccountId": "77673c9d-0e31-4e90-9228-ad4b00a9fcdc",
-      "OrderId": "1103b431-998a-4b78-84de-ad4b00a9fd99",
-      "BillId": null,
+      "Id": "6c2897de-620a-4f48-af1e-ada8004202bd",
+      "AccountId": "182a56ee-037d-4da5-b6f8-ada8006e7d5c",
+      "OrderId": "f9090129-fb49-46d2-9dc5-ad9d015d43b9",
+      "BillId": "9e3791dc-95c7-439a-aa8a-ada8007de0ca",
       "AccountingCategoryId": "d250149e-a29d-4c70-b607-a1759faf7320",
-      "UnitCount": 15,
-      "UnitAmount": {
-        "Currency": "EUR",
-        "NetValue": 8.4,
-        "GrossValue": 10,
-        "TaxValues": [
-          {
-            "Code": "DE-2020-1-I",
-            "Value": 1.6
-          }
-        ],
-        "Breakdown": {
-          "Items": [
-            {
-              "TaxRateCode": "DE-2020-1-I",
-              "NetValue": 8.4,
-              "TaxValue": 1.6
-            }
-          ]
-        }
-      },
       "Amount": {
-        "Value": null,
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null,
-        "Currency": "EUR",
-        "NetValue": 126.05,
-        "GrossValue": 150,
+        "Currency": "GBP",
+        "NetValue": 95.24,
+        "GrossValue": 100,
         "TaxValues": [
           {
-            "Code": "DE-2020-1-I",
-            "Value": 23.95
+            "Code": "UK-2020-R",
+            "Value": 4.76
           }
         ],
         "Breakdown": {
           "Items": [
             {
-              "TaxRateCode": "DE-2020-1-I",
-              "NetValue": 126.05,
-              "TaxValue": 23.95
-            }
-          ]
-        }
-      },
-      "OriginalAmount": {
-        "Value": null,
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null,
-        "Currency": "EUR",
-        "NetValue": 126.05,
-        "GrossValue": 150,
-        "TaxValues": [
-          {
-            "Code": "DE-2020-1-I",
-            "Value": 23.95
-          }
-        ],
-        "Breakdown": {
-          "Items": [
-            {
-              "TaxRateCode": "DE-2020-1-I",
-              "NetValue": 126.05,
-              "TaxValue": 23.95
+              "TaxRateCode": "UK-2020-R",
+              "NetValue": 95.24,
+              "TaxValue": 4.76
             }
           ]
         }
       },
       "RevenueType": "Additional",
-      "CreatorProfileId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "UpdaterProfileId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "CreatedUtc": "2021-06-19T04:00:08Z",
-      "UpdatedUtc": "2021-06-19T04:00:08Z",
-      "ConsumedUtc": "2021-06-19T04:00:08Z",
-      "CanceledUtc": null,
+      "ConsumedUtc": "2021-09-19T04:00:20Z",
       "ClosedUtc": null,
-      "StartUtc": null,
       "AccountingState": "Open",
       "Data": {
         "Discriminator": "CancellationFee",
@@ -262,67 +322,7 @@ Updates specified accounting items. You can use this operation to assign an acco
       }
     }
   ],
-  "PaymentItems": [
-    {
-      "Id": "44ca12b8-f009-455e-be91-ad4c013fcbc5",
-      "AccountId": "5da55e5c-18e5-48d8-9a0e-ac0600704c5c",
-      "BillId": null,
-      "AccountingCategoryId": "b89345c1-2814-4750-808d-aa7900ee464a",
-      "Amount": {
-        "Value": null,
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null,
-        "Currency": "GBP",
-        "NetValue": 850,
-        "GrossValue": 850,
-        "TaxValues": [],
-        "Breakdown": {
-          "Items": [
-            {
-              "TaxRateCode": null,
-              "NetValue": 850,
-              "TaxValue": 0
-            }
-          ]
-        }
-      },
-      "OriginalAmount": {
-        "Value": null,
-        "Net": null,
-        "Tax": null,
-        "TaxRate": null,
-        "Currency": "GBP",
-        "NetValue": 850,
-        "GrossValue": 850,
-        "TaxValues": [],
-        "Breakdown": {
-          "Items": [
-            {
-              "TaxRateCode": null,
-              "NetValue": 850,
-              "TaxValue": 0
-            }
-          ]
-        }
-      },
-      "AmountDefault": null,
-      "Notes": "NORMAL0140",
-      "SettlementId": "po_1Lun9w4JpyDC38oQJQz7hAcx",
-      "ConsumedUtc": "2021-06-19T19:24:20Z",
-      "ClosedUtc": null,
-      "AccountingState": "Open",
-      "State": "Charged",
-      "Identifier": null,
-      "Data": {
-        "Discriminator": "Invoice",
-        "Value": {
-          "InvoiceId": "3c818013-d9de-47e9-bb2c-ad4c013f9ad3",
-          "Type": "Receivable"
-        }
-      }
-    }
-  ]
+  "PaymentItems": []
 }
 ```
 
