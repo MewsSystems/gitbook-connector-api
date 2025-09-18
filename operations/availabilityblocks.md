@@ -72,7 +72,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks`are released. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of `Availability blocks` from external systems. |
 | `States` | array of [Availability block state](availabilityblocks.md#availability-block-state) | optional | States the availability blocks should be in. |
-| `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Availability block extent
@@ -319,6 +319,7 @@ Adds availability blocks which are used to group related `Availability updates`.
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
+| `PickupDistribution` | [Pickup distribution](availabilityblocks.md#pickup-distribution) | optional | Pickup distribution. Defaults to `AllInOneGroup` if not specified. |
 
 ### Response
 
