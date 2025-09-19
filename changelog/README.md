@@ -5,6 +5,10 @@
 * [Update accounting items](../operations/accountingitems.md#update-accounting-items):
   * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
 
+## 17th September 2025
+* [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
+  * Extended [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) request object with `PickupDistribution` parameter.
+
 ## 15th September 2025
 * [Get all resource blocks](../operations/resourceblocks.md#get-all-resource-blocks):
   * **Deprecated:** `Extent` parameter in request object.
