@@ -42,7 +42,7 @@ tags:
   - orders
   - outletbills
   - outletitems
-  # - outlets
+  - outlets
   - paymentrequests
   - payments
   - preauthorizations

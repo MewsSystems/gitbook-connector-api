@@ -2462,3 +2462,12 @@ types:
   accountingitemextent:
     file: accountingitems.md
     anchor: accounting-item-extent
+  outletresult:
+    file: outlets.md
+    anchor: outletresult
+  outlet:
+    file: outlets.md
+    anchor: outlet
+  outletfilterparameters:
+    file: outlets.md
+    anchor: outletfilterparameters
