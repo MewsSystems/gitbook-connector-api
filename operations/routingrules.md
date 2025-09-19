@@ -15,24 +15,24 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  "CompanyIds": [
+    "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+    "956aa0f0-a090-42c8-bee2-991972d32f80"
   ],
   "RoutingRuleIds": [
     "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
     "d98c9611-0006-4691-a835-af2e00b170c4"
   ],
-  "CompanyIds": [
-    "cd441e1a-6f19-4960-887a-af2a00d5d5f8",
-    "ddc23f8d-131d-44d6-b150-af2a00d5d5f8"
-  ],
   "UpdatedUtc": {
     "StartUtc": "2023-10-01T00:00:00Z",
     "EndUtc": "2023-10-31T00:00:00Z"
   },
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -55,32 +55,38 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   "RoutingRules": [
     {
       "Id": "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
-      "CompanyId": "35f493d1-6cf7-4132-982a-a5540549c322",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "CompanyRelation": "PartnerCompany",
-      "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
-      "Applicability": "Always",
+      "Applicability": "PrepaidOnly",
       "RouteType": "AllStayItems",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "SelectedStayItems": null,
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z"
     },
     {
       "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
-      "CompanyId": "73a1fc8e-11c5-4019-b296-9234b651fc68",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CompanyId": "c021013e-4930-4592-8e32-91b0b1fc9663",
       "CompanyRelation": "TravelAgency",
-      "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
       "Applicability": "Always",
       "RouteType": "SelectedStayItems",
-      "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "SelectedStayItems": {
-        "Nights": false,
+        "Nights": true,
         "CityTax": true,
         "ProductCategoryIds": [
-          "004fa262-7b08-4853-b544-af2a00d5cf1f"
+          "004fa262-7b08-4853-b544-af2a00d5cf1f",
+          "8f0dc6ef-1fd4-44e4-b353-af2c00b24caf",
+          "d4c1b435-0ed1-4d98-9833-af2c00b28518"
         ]
-      }
+      },
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z"
     }
-  ]
+  ],
+  "Cursor": "d98c9611-0006-4691-a835-af2e00b170c4"
 }
 ```
 
@@ -142,18 +148,19 @@ Adds a new routing rules.
   "Client": "Sample Client 1.0.0",
   "RoutingRules": [
     {
-      "CompanyId": "cd441e1a-6f19-4960-887a-af2a00d5d5f8",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "CompanyRelation": "PartnerCompany",
-      "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
       "Applicability": "PrepaidOnly",
       "RouteType": "AllStayItems"
     },
     {
-      "CompanyId": "ddc23f8d-131d-44d6-b150-af2a00d5d5f8",
+      "CompanyId": "c021013e-4930-4592-8e32-91b0b1fc9663",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "CompanyRelation": "TravelAgency",
-      "ServiceId": "0907a1b4-ef7a-4aa8-b8a1-af2a00d5ca22",
       "Applicability": "Always",
       "RouteType": "SelectedStayItems",
+      "AssignmentTargetType": "CompanyAsDetails",
       "SelectedStayItems": {
         "Nights": true,
         "CityTax": true,
@@ -207,30 +214,35 @@ Adds a new routing rules.
   "RoutingRules": [
     {
       "Id": "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
-      "CompanyId": "35f493d1-6cf7-4132-982a-a5540549c322",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "CompanyRelation": "PartnerCompany",
-      "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
-      "Applicability": "Always",
+      "Applicability": "PrepaidOnly",
       "RouteType": "AllStayItems",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "SelectedStayItems": null,
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z"
     },
     {
       "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
-      "CompanyId": "73a1fc8e-11c5-4019-b296-9234b651fc68",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CompanyId": "c021013e-4930-4592-8e32-91b0b1fc9663",
       "CompanyRelation": "TravelAgency",
-      "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
       "Applicability": "Always",
       "RouteType": "SelectedStayItems",
-      "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "SelectedStayItems": {
-        "Nights": false,
+        "Nights": true,
         "CityTax": true,
         "ProductCategoryIds": [
-          "004fa262-7b08-4853-b544-af2a00d5cf1f"
+          "004fa262-7b08-4853-b544-af2a00d5cf1f",
+          "8f0dc6ef-1fd4-44e4-b353-af2c00b24caf",
+          "d4c1b435-0ed1-4d98-9833-af2c00b28518"
         ]
-      }
+      },
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z"
     }
   ]
 }
@@ -257,13 +269,13 @@ Updates routing rules.
     {
       "RoutingRuleId": "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
       "CompanyId": {
-        "Value": "35f493d1-6cf7-4132-982a-a5540549c322"
+        "Value": "c021013e-4930-4592-8e32-91b0b1fc9663"
+      },
+      "ServiceId": {
+        "Value": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
       },
       "CompanyRelation": {
         "Value": "PartnerCompany"
-      },
-      "ServiceId": {
-        "Value": "708b3509-69ad-4a92-841b-d81f103edcee"
       },
       "Applicability": {
         "Value": "Always"
@@ -275,19 +287,22 @@ Updates routing rules.
     {
       "RoutingRuleId": "d98c9611-0006-4691-a835-af2e00b170c4",
       "CompanyId": {
-        "Value": "73a1fc8e-11c5-4019-b296-9234b651fc68"
+        "Value": "a793d381-65a2-4fa6-9514-00c4c5bfe607"
+      },
+      "ServiceId": {
+        "Value": "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
       },
       "CompanyRelation": {
         "Value": "TravelAgency"
-      },
-      "ServiceId": {
-        "Value": "708b3509-69ad-4a92-841b-d81f103edcee"
       },
       "Applicability": {
         "Value": "Always"
       },
       "RouteType": {
         "Value": "SelectedStayItems"
+      },
+      "AssignmentTargetType": {
+        "Value": "CompanyAsDetails"
       },
       "SelectedStayItems": {
         "Nights": {
@@ -342,30 +357,35 @@ Updates routing rules.
   "RoutingRules": [
     {
       "Id": "ff785b22-5422-4d1d-87f4-af2e00b3dfda",
-      "CompanyId": "35f493d1-6cf7-4132-982a-a5540549c322",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "CompanyRelation": "PartnerCompany",
-      "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
-      "Applicability": "Always",
+      "Applicability": "PrepaidOnly",
       "RouteType": "AllStayItems",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "SelectedStayItems": null,
       "CreatedUtc": "2023-10-01T11:48:57Z",
       "UpdatedUtc": "2023-10-28T11:48:57Z"
     },
     {
       "Id": "d98c9611-0006-4691-a835-af2e00b170c4",
-      "CompanyId": "73a1fc8e-11c5-4019-b296-9234b651fc68",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CompanyId": "c021013e-4930-4592-8e32-91b0b1fc9663",
       "CompanyRelation": "TravelAgency",
-      "ServiceId": "708b3509-69ad-4a92-841b-d81f103edcee",
       "Applicability": "Always",
       "RouteType": "SelectedStayItems",
-      "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "SelectedStayItems": {
-        "Nights": false,
+        "Nights": true,
         "CityTax": true,
         "ProductCategoryIds": [
-          "004fa262-7b08-4853-b544-af2a00d5cf1f"
+          "004fa262-7b08-4853-b544-af2a00d5cf1f",
+          "8f0dc6ef-1fd4-44e4-b353-af2c00b24caf",
+          "d4c1b435-0ed1-4d98-9833-af2c00b28518"
         ]
-      }
+      },
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z"
     }
   ]
 }
