@@ -15,15 +15,15 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
   "PaymentRequestIds": [
-    "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
+    "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+    "6282d17b-a068-4a9f-83d3-afae00c39bfb"
   ],
   "AccountIds": [
-    "8466DFDD-0964-4002-8719-AFA900D0F1BA"
+    "fadd5bb6-b428-45d5-94f8-fd0d89fece6d"
+  ],
+  "ReservationIds": [
+    "0f515589-99b4-423d-b83a-b237009f0509"
   ],
   "UpdatedUtc": {
     "StartUtc": "2020-01-05T00:00:00Z",
@@ -33,8 +33,12 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     "Pending",
     "Expired"
   ],
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
+  ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -60,21 +64,21 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
     {
       "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-      "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
       "ReservationGroupId": null,
+      "ReservationId": "0f515589-99b4-423d-b83a-b237009f0509",
       "State": "Pending",
       "Amount": {
         "Currency": "EUR",
-        "NetValue": 10,
-        "GrossValue": 10,
+        "NetValue": 10.04,
+        "GrossValue": 10.4,
         "TaxValues": [],
         "Breakdown": {
           "Items": [
             {
               "TaxRateCode": null,
-              "NetValue": 10,
+              "NetValue": 10.05,
               "TaxValue": 0
             }
           ]
@@ -84,7 +88,9 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
       "Reason": "PaymentCardDeclined",
       "ExpirationUtc": "2023-02-23T23:00:00Z",
       "Description": "Payment required.",
-      "Notes": null
+      "Notes": null,
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z"
     }
   ],
   "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
@@ -151,21 +157,22 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "PaymentRequests": [
     {
-      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
+      "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
       "Amount": {
         "Currency": "EUR",
-        "Value": 10
+        "Value": 10.4
       },
       "Type": "Payment",
       "Reason": "PaymentCardMissing",
-      "ExpirationUtc": "2023-02-20T12:00:00.000Z",
+      "ExpirationUtc": "2023-02-20T12:00:00Z",
       "Description": "Payment required",
-      "Notes": "Internal notes."
+      "Notes": "Internal notes.",
+      "ReservationId": "0f515589-99b4-423d-b83a-b237009f0509"
     }
-  ]
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -196,36 +203,37 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
 {
   "PaymentRequests": [
     {
-      "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+      "Id": "6282d17b-a068-4a9f-83d3-afae00c39bfb",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-      "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
       "ReservationGroupId": null,
+      "ReservationId": "0f515589-99b4-423d-b83a-b237009f0509",
       "State": "Pending",
       "Amount": {
         "Currency": "EUR",
-        "NetValue": 10,
-        "GrossValue": 10,
+        "NetValue": 10.04,
+        "GrossValue": 10.4,
         "TaxValues": [],
         "Breakdown": {
           "Items": [
             {
               "TaxRateCode": null,
-              "NetValue": 10,
+              "NetValue": 10.05,
               "TaxValue": 0
             }
           ]
         }
       },
       "Type": "Payment",
-      "Reason": "PaymentCardDeclined",
-      "ExpirationUtc": "2023-02-23T23:00:00Z",
-      "Description": "Payment required.",
-      "Notes": null
+      "Reason": "PaymentCardMissing",
+      "ExpirationUtc": "2023-02-20T12:00:00Z",
+      "Description": "Payment required",
+      "Notes": "Internal notes.",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z"
     }
-  ],
-  "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
+  ]
 }
 ```
 
@@ -265,36 +273,37 @@ Cancels specified payment requests. Only payment requests which are in `Pending`
 {
   "PaymentRequests": [
     {
-      "Id": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35",
+      "Id": "6282d17b-a068-4a9f-83d3-afae00c39bfb",
       "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      "AccountId": "8466dfdd-0964-4002-8719-afa900d0f1ba",
-      "CreatedUtc": "2023-10-01T11:48:57Z",
-      "UpdatedUtc": "2023-10-28T11:48:57Z",
+      "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+      "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
       "ReservationGroupId": null,
-      "State": "Pending",
+      "ReservationId": "0f515589-99b4-423d-b83a-b237009f0509",
+      "State": "Canceled",
       "Amount": {
         "Currency": "EUR",
-        "NetValue": 10,
-        "GrossValue": 10,
+        "NetValue": 10.04,
+        "GrossValue": 10.4,
         "TaxValues": [],
         "Breakdown": {
           "Items": [
             {
               "TaxRateCode": null,
-              "NetValue": 10,
+              "NetValue": 10.05,
               "TaxValue": 0
             }
           ]
         }
       },
       "Type": "Payment",
-      "Reason": "PaymentCardDeclined",
-      "ExpirationUtc": "2023-02-23T23:00:00Z",
-      "Description": "Payment required.",
-      "Notes": null
+      "Reason": "PaymentCardMissing",
+      "ExpirationUtc": "2023-02-20T12:00:00Z",
+      "Description": "Payment required",
+      "Notes": "Internal notes.",
+      "CreatedUtc": "2023-10-01T11:48:57Z",
+      "UpdatedUtc": "2023-10-28T11:48:57Z"
     }
-  ],
-  "Cursor": "bcc76295-4e47-4cf1-a7cb-afae00bd1c35"
+  ]
 }
 ```
 
