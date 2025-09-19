@@ -2411,3 +2411,36 @@ types:
   resourceblockdeleteparameters:
     file: resourceblocks.md
     anchor: resourceblockdeleteparameters
+  paymentrequestresult:
+    file: paymentrequests.md
+    anchor: payment-request-result
+  paymentrequest:
+    file: paymentrequests.md
+    anchor: payment-request
+  paymentrequeststate:
+    file: paymentrequests.md
+    anchor: payment-request-state
+  paymentrequesttype:
+    file: paymentrequests.md
+    anchor: payment-request-type
+  paymentrequestreason:
+    file: paymentrequests.md
+    anchor: payment-request-reason
+  paymentrequestfilterparameters:
+    file: paymentrequests.md
+    anchor: paymentrequestfilterparameters
+  paymentrequestadditionresult:
+    file: paymentrequests.md
+    anchor: payment-request-addition-result
+  multiplepaymentrequestaddparameters:
+    file: paymentrequests.md
+    anchor: multiple-payment-request-add-parameters
+  paymentrequestaddparameters:
+    file: paymentrequests.md
+    anchor: payment-request-parameters
+  paymentrequestcancellationresult:
+    file: paymentrequests.md
+    anchor: payment-request-cancellation-result
+  multiplepaymentrequestcancelparameters:
+    file: paymentrequests.md
+    anchor: multiple-payment-request-cancel-parameters
