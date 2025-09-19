@@ -372,7 +372,7 @@ Updates specified accounting items. You can use this operation to assign an acco
 * `CustomItem` - No additional data.
 * `Surcharge` - No additional data.
 * `SurchargeDiscount` - No additional data.
-* `SpaceOrder`
+* `SpaceOrder` - No additional data.
 * `ProductOrder` - [Product order item data](accountingitems.md#product-order-item-data)
 * `Other` - No additional data.
 * `TaxCorrection` - No additional data.
