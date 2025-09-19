@@ -1,5 +1,9 @@
 # Changelog
 
+## 22th September 2025
+* [Get all rules](../operations/rules.md#get-all-rules):
+  * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
+
 ## 19th September 2025
 * [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items):
 * [Update accounting items](../operations/accountingitems.md#update-accounting-items):
