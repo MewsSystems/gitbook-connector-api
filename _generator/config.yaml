@@ -2,7 +2,7 @@ source: https://api.mews.com/swagger/connector/swagger.yaml
 output: ../operations
 tags:
   - accountingcategories
-  # - accountingitems
+  - accountingitems
   - accountnotes
   - accounts
   - addresses
@@ -43,7 +43,7 @@ tags:
   - outletbills
   - outletitems
   # - outlets
-  # - paymentrequests
+  - paymentrequests
   - payments
   - preauthorizations
   - productcategories

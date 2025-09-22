@@ -72,7 +72,7 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReleasedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months | Interval in which the `Availability blocks`are released. |
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of `Availability blocks` from external systems. |
 | `States` | array of [Availability block state](availabilityblocks.md#availability-block-state) | optional | States the availability blocks should be in. |
-| `ActivityStates` | array of string | optional | Whether to return only active, only deleted or both records. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 #### Availability block extent
