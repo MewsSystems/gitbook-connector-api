@@ -1,6 +1,6 @@
 # Changelog
 
-## 19th September 2025
+## 22nd September 2025
 * [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
