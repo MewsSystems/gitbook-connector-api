@@ -330,7 +330,7 @@ Updates information about the specified loyalty memberships. Note this operation
 
 ## Delete loyalty memberships
 
-Deletes loyalty memberships.
+Deletes loyalty memberships. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -344,7 +344,8 @@ Deletes loyalty memberships.
   "LoyaltyMembershipIds": [
     "905a4489-0960-4ac9-96ec-793f47365c92",
     "ac48674e-58a2-43d6-a02b-9ead0b213b17"
-  ]
+  ],
+  "ChainId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -353,6 +354,7 @@ Deletes loyalty memberships.
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `ChainId` | string | optional | Unique identifier of the chain. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `LoyaltyMembershipIds` | array of string | required, max 1000 items | Unique identifier of the loyalty memberships to be deleted. |
 
 ### Response

@@ -1,6 +1,8 @@
 # Changelog
 
 ## 22th September 2025
+* [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
+  * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 * [Get all rules](../operations/rules.md#get-all-rules):
   * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
 
@@ -432,4 +434,3 @@
 | [Changelog 2018](changelog2018.md) |
 | [Changelog 2017](changelog2017.md) |
 | [Changelog 2016](changelog2016.md) |
-
