@@ -1,5 +1,9 @@
 # Changelog
 
+## 22nd September 2025
+* [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
+  * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
+
 ## 19th September 2025
 * [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items):
 * [Update accounting items](../operations/accountingitems.md#update-accounting-items):
@@ -428,4 +432,3 @@
 | [Changelog 2018](changelog2018.md) |
 | [Changelog 2017](changelog2017.md) |
 | [Changelog 2016](changelog2016.md) |
-
