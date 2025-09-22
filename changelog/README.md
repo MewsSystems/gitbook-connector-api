@@ -4,6 +4,11 @@
 * [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
+## 19th September 2025
+* [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items):
+* [Update accounting items](../operations/accountingitems.md#update-accounting-items):
+  * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
+
 ## 17th September 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
   * Extended [Availability block parameters](../operations/availabilityblocks.md#availability-block-parameters) request object with `PickupDistribution` parameter.
@@ -427,4 +432,3 @@
 | [Changelog 2018](changelog2018.md) |
 | [Changelog 2017](changelog2017.md) |
 | [Changelog 2016](changelog2016.md) |
-

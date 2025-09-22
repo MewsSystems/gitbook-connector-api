@@ -372,7 +372,7 @@ types:
     anchor: order-item-data
   orderitemtypeold:
     file: accountingitems.md
-    anchor: order-item-type
+    anchor: order-item-data-discriminator
   rebateorderitemdata:
     file: accountingitems.md
     anchor: rebate-order-item-data
@@ -2411,3 +2411,54 @@ types:
   resourceblockdeleteparameters:
     file: resourceblocks.md
     anchor: resourceblockdeleteparameters
+  paymentrequestresult:
+    file: paymentrequests.md
+    anchor: payment-request-result
+  paymentrequest:
+    file: paymentrequests.md
+    anchor: payment-request
+  paymentrequeststate:
+    file: paymentrequests.md
+    anchor: payment-request-state
+  paymentrequesttype:
+    file: paymentrequests.md
+    anchor: payment-request-type
+  paymentrequestreason:
+    file: paymentrequests.md
+    anchor: payment-request-reason
+  paymentrequestfilterparameters:
+    file: paymentrequests.md
+    anchor: paymentrequestfilterparameters
+  paymentrequestadditionresult:
+    file: paymentrequests.md
+    anchor: payment-request-addition-result
+  multiplepaymentrequestaddparameters:
+    file: paymentrequests.md
+    anchor: multiple-payment-request-add-parameters
+  paymentrequestaddparameters:
+    file: paymentrequests.md
+    anchor: payment-request-parameters
+  paymentrequestcancellationresult:
+    file: paymentrequests.md
+    anchor: payment-request-cancellation-result
+  multiplepaymentrequestcancelparameters:
+    file: paymentrequests.md
+    anchor: multiple-payment-request-cancel-parameters
+  accountingitemupdateresult:
+    file: accountingitems.md
+    anchor: accountingitemupdateresult
+  multipleaccountingitemsupdateparameters:
+    file: accountingitems.md
+    anchor: multipleaccountingitemsupdateparameters
+  accountingitemupdateparameters:
+    file: accountingitems.md
+    anchor: accounting-item-update
+  accountingitemresult:
+    file: accountingitems.md
+    anchor: accountingitemresult
+  accountingitemparameters:
+    file: accountingitems.md
+    anchor: accountingitemparameters
+  accountingitemextent:
+    file: accountingitems.md
+    anchor: accounting-item-extent
