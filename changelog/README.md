@@ -1,5 +1,9 @@
 # Changelog
 
+## 23rd September 2025
+* [Get all rules](../operations/rules.md#get-all-rules):
+  * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
+
 ## 22nd September 2025
 * [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
 * [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card):

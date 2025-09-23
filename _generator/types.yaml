@@ -2462,6 +2462,51 @@ types:
   accountingitemextent:
     file: accountingitems.md
     anchor: accounting-item-extent
+  outletresult:
+    file: outlets.md
+    anchor: outletresult
+  outlet:
+    file: outlets.md
+    anchor: outlet
+  outletfilterparameters:
+    file: outlets.md
+    anchor: outletfilterparameters
+  ruleresult:
+    file: rules.md
+    anchor: ruleresult
+  rule:
+    file: rules.md
+    anchor: rule
+  ruleconditions:
+    file: rules.md
+    anchor: rule-conditions
+  rulecondition:
+    file: rules.md
+    anchor: rule-condition
+  ruleconditiontype:
+    file: rules.md
+    anchor: condition-type
+  ruleaction:
+    file: rules.md
+    anchor: rule-action
+  ruleactiondatacoproductofruleactiondiscriminator:
+    file: rules.md
+    anchor: rule-action-data
+  ruleactiondiscriminator:
+    file: rules.md
+    anchor: rule-action-discriminator
+  ruleactionproductdata:
+    file: rules.md
+    anchor: rule-action-product-data
+  ruleactiontype:
+    file: rules.md
+    anchor: product-action-type
+  rulefilterparameters:
+    file: rules.md
+    anchor: rulefilterparameters
+  ruleextent:
+    file: rules.md
+    anchor: rule-extent
   routingruleresult:
     file: routingrules.md
     anchor: routingruleresult
