@@ -2,6 +2,7 @@
 
 ## 22nd September 2025
 * [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
+* [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
 
 ## 19th September 2025
