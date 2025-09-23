@@ -1,6 +1,8 @@
 # Changelog
 
 ## 24th September 2025
+* [Create a payment plan](../operations/paymentplans.md#create-a-payment-plan)
+  * Added new operation (restricted).
 * [Get all services](../operations/services.md#get-all-services):
   * Extended request object with `ServiceType` filtering parameter.
 
