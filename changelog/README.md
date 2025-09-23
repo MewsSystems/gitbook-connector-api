@@ -1,5 +1,9 @@
 # Changelog
 
+## 24th September 2025
+* [Get all services](../operations/services.md#get-all-services):
+  * Extended request object with `ServiceType` filtering parameter.
+
 ## 23rd September 2025
 * [Get all rules](../operations/rules.md#get-all-rules):
   * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
