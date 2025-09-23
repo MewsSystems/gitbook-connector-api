@@ -59,7 +59,7 @@ tags:
   - resourcefeatures
   - resources
   - restrictions
-  # - routingrules
+  - routingrules
   - rules
   - serviceordernotes
   - services
