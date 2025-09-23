@@ -138,7 +138,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 
 ## Add tokenized credit card
 
-Adds a new tokenized credit card to the specified customer. To be able to use this operation special permission has to be granted during certification.
+Adds a new tokenized credit card to the specified customer. To be able to use this operation special permission has to be granted during certification. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
@@ -149,11 +149,11 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "CustomerId": "e98995b0-140a-4208-bbeb-b77f2c43d6ee",
+  "CustomerId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
   "CreditCardData": {
-    "StorageData": "190510170631533875",
     "Expiration": "2025-10"
-  }
+  },
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -162,6 +162,7 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `CustomerId` | string | required | Unique identifier of the `Customer`. |
 | `CreditCardData` | [Credit card data](creditcards.md#credit-card-data) | required | Credit card details provided by PCI provider. |
 
@@ -176,48 +177,13 @@ Adds a new tokenized credit card to the specified customer. To be able to use th
 
 ```javascript
 {
-  "CreditCardId": "ee2209ce-71c6-4e3a-978f-aac700c82c7b"
+  "CreditCardId": "e417dfe8-c813-4938-837b-36081199ce88"
 }
 ```
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `CreditCardId` | string | required | Unique identifier of the `CreditCard`. |
-
-## Disable gateway credit card
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
-
-Disable an existing credit card in the system. Only gateway credit cards can be disabled. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
-
-### Request
-
-`[PlatformAddress]/api/connector/v1/creditCards/disable`
-
-```javascript
-{
-  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
-  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
-  "Client": "Sample Client 1.0.0",
-  "CreditCardId": "f5c6b7a8-9d4f-4e2a-8a3b-2f3b8b9e6a1f",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-}
-```
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `ClientToken` | string | required | Token identifying the client application. |
-| `AccessToken` | string | required | Access token of the client application. |
-| `Client` | string | required | Name and version of the client application. |
-| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
-| `CreditCardId` | string | required | Unique identifier of the `CreditCard` to disable. |
-
-### Response
-
-```javascript
-{}
-```
 
 ## Charge credit card
 
@@ -266,3 +232,38 @@ Creates payment for specified customer credit card and charges the credit card v
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `PaymentId` | string | required | Unique identifier of the `Payment` item. |
+
+## Disable gateway credit card
+
+> ### Restricted!
+> This operation is currently in beta-test and as such it is subject to change.
+
+Disable an existing credit card in the system. Only gateway credit cards can be disabled. Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/creditCards/disable`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "CreditCardId": "f5c6b7a8-9d4f-4e2a-8a3b-2f3b8b9e6a1f",
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
+| `CreditCardId` | string | required | Unique identifier of the `CreditCard` to disable. |
+
+### Response
+
+```javascript
+{}
+```
