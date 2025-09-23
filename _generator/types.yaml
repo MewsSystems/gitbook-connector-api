@@ -2561,3 +2561,6 @@ types:
   tokenizedcreditcardaddparameters:
     file: creditcards.md
     anchor: tokenizedcreditcardaddparameters
+  servicedatadiscriminatorenum:
+    file: services.md
+    anchor: service-data-discriminator
