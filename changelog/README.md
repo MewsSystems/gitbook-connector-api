@@ -1,11 +1,13 @@
 # Changelog
 
-## 22th September 2025
+## 23rd September 2025
+* [Get all rules](../operations/rules.md#get-all-rules):
+  * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
+
+## 22nd September 2025
 * [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
 * [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card):
   * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
-* [Get all rules](../operations/rules.md#get-all-rules):
-  * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
 
 ## 19th September 2025
 * [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items):
