@@ -2462,6 +2462,57 @@ types:
   accountingitemextent:
     file: accountingitems.md
     anchor: accounting-item-extent
+  routingruleresult:
+    file: routingrules.md
+    anchor: routingruleresult
+  routingrule:
+    file: routingrules.md
+    anchor: routing-rule
+  routingrulecompanyrelation:
+    file: routingrules.md
+    anchor: company-relation
+  routingruleapplicability:
+    file: routingrules.md
+    anchor: applicability
+  routingruleroutetype:
+    file: routingrules.md
+    anchor: route-type
+  routingrulestayitems:
+    file: routingrules.md
+    anchor: selected-stay-items
+  routingrulefilterparameters:
+    file: routingrules.md
+    anchor: routingrulefilterparameters
+  routingruleadditionresult:
+    file: routingrules.md
+    anchor: routingruleadditionresult
+  multipleroutingruleaddparameters:
+    file: routingrules.md
+    anchor: multipleroutingruleaddparameters
+  routingruleaddparameter:
+    file: routingrules.md
+    anchor: routing-rule-parameters
+  routingruleassignmenttargettype:
+    file: routingrules.md
+    anchor: assignment-target-type
+  routingrulestayitemsaddparameters:
+    file: routingrules.md
+    anchor: selected-stay-items-parameters
+  routingruleupdateresult:
+    file: routingrules.md
+    anchor: routingruleupdateresult
+  multipleroutingruleupdateparameters:
+    file: routingrules.md
+    anchor: multipleroutingruleupdateparameters
+  routingruleupdateparameters:
+    file: routingrules.md
+    anchor: routing-rule-update-parameters
+  routingrulestayitemsupdateparameters:
+    file: routingrules.md
+    anchor: selected-stay-items-update-parameters
+  routingruledeleteparameters:
+    file: routingrules.md
+    anchor: routingruledeleteparameters
   tokenizedcreditcardaddparameters:
     file: creditcards.md
     anchor: tokenizedcreditcardaddparameters
