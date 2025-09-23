@@ -2564,3 +2564,18 @@ types:
   servicedatadiscriminatorenum:
     file: services.md
     anchor: service-data-discriminator
+  paymentplanaddresult:
+    file: paymentplans.md
+    anchor: paymentplanaddresult
+  paymentplanaddparameters:
+    file: paymentplans.md
+    anchor: paymentplanaddparameters
+  paymentplanpaymentrequest:
+    file: paymentplans.md
+    anchor: payment-plan-payment-request
+  paymentmethodsenum:
+    file: paymentplans.md
+    anchor: available-payment-plan-payment-methods
+  paymentplanpaymentrequesttypeenum:
+    file: paymentplans.md
+    anchor: payment-plan-payment-request-type
