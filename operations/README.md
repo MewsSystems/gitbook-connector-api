@@ -142,7 +142,8 @@ This section describes all operations supported by the API, organised here by th
 | [Get all order items](orderitems.md#get-all-order-items) | Returns all order items |
 | [Cancel order items](orderitems.md#cancel-order-items) | **Restricted!** Cancels specified order items |
 | [Refund payment](payments.md#refund-payment) | Refunds a specified payment |
-| [Add payment plan](paymentplans.md#add-payment-plan) | **Restricted!** Adds a payment plan connected to a `Reservation`. Used for recurring payments. |
+| [Add payment plan](paymentplans.md#add-payment-plan) | **Restricted!** Adds a payment plan connected to a `Reservation`; used for recurring payments |
+| [Get all ledger balances](ledgerbalances.md#get-all-ledger-balances) | Returns balances of specified ledgers for each day |
 
 ## Loyalty
 
