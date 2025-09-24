@@ -1,6 +1,8 @@
 # Changelog
 
 ## 24th September 2025
+* [Add payment plan](../operations/paymentplans.md#add-payment-plan):
+  * Added new operation (restricted).
 * [Get all services](../operations/services.md#get-all-services):
   * Extended request object with `ServiceType` filtering parameter.
 * [Get all bills](../operations/bills.md#get-all-bills):
