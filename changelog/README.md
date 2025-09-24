@@ -3,6 +3,8 @@
 ## 24th September 2025
 * [Get all services](../operations/services.md#get-all-services):
   * Extended request object with `ServiceType` filtering parameter.
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * Extended [Bill parameters](../operations/bills.md#bill-parameters) request object with `Type` and `IssuedUtc` parameter.
 
 ## 23rd September 2025
 * [Get all rules](../operations/rules.md#get-all-rules):
