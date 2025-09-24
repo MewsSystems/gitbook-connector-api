@@ -1,8 +1,24 @@
 # Changelog
-
-## 19th September 2025
+    
+## 24th September 2025
+* [Get all services](../operations/services.md#get-all-services):
+  * Extended request object with `ServiceType` filtering parameter.
 * [Get all bills](../operations/bills.md#get-all-bills):
   * Extended [Bill parameters](../operations/bills.md#bill-parameters) request object with `Type` and `IssuedUtc` parameter.
+
+## 23rd September 2025
+* [Get all rules](../operations/rules.md#get-all-rules):
+  * Fixed description per OpenAPI Specification. Documentation-only, no change to API.
+
+## 22nd September 2025
+* [Delete loyalty memberships](../operations/loyaltymemberships.md#delete-loyalty-memberships):
+* [Add tokenized credit card](../operations/creditcards.md#add-tokenized-credit-card):
+  * Included support for [Portfolio Access Tokens](../guidelines/authentication.md#portfolio-access-tokens).
+
+## 19th September 2025
+* [Get all accounting items](../operations/accountingitems.md#get-all-accounting-items):
+* [Update accounting items](../operations/accountingitems.md#update-accounting-items):
+  * Fixed description and examples per OpenAPI Specification. Documentation-only, no change to API.
 
 ## 17th September 2025
 * [Add availability blocks](../operations/availabilityblocks.md#add-availability-blocks):
@@ -427,4 +443,3 @@
 | [Changelog 2018](changelog2018.md) |
 | [Changelog 2017](changelog2017.md) |
 | [Changelog 2016](changelog2016.md) |
-

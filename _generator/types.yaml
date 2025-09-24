@@ -372,7 +372,7 @@ types:
     anchor: order-item-data
   orderitemtypeold:
     file: accountingitems.md
-    anchor: order-item-type
+    anchor: order-item-data-discriminator
   rebateorderitemdata:
     file: accountingitems.md
     anchor: rebate-order-item-data
@@ -1370,7 +1370,7 @@ types:
     file: payments.md
     anchor: paymentrefundparameters
   addcreditcardresult:
-    file: payments.md
+    file: creditcards.md
     anchor: addcreditcardresult
   creditcardpaymentparameters:
     file: payments.md
@@ -2411,3 +2411,156 @@ types:
   resourceblockdeleteparameters:
     file: resourceblocks.md
     anchor: resourceblockdeleteparameters
+  paymentrequestresult:
+    file: paymentrequests.md
+    anchor: payment-request-result
+  paymentrequest:
+    file: paymentrequests.md
+    anchor: payment-request
+  paymentrequeststate:
+    file: paymentrequests.md
+    anchor: payment-request-state
+  paymentrequesttype:
+    file: paymentrequests.md
+    anchor: payment-request-type
+  paymentrequestreason:
+    file: paymentrequests.md
+    anchor: payment-request-reason
+  paymentrequestfilterparameters:
+    file: paymentrequests.md
+    anchor: paymentrequestfilterparameters
+  paymentrequestadditionresult:
+    file: paymentrequests.md
+    anchor: payment-request-addition-result
+  multiplepaymentrequestaddparameters:
+    file: paymentrequests.md
+    anchor: multiple-payment-request-add-parameters
+  paymentrequestaddparameters:
+    file: paymentrequests.md
+    anchor: payment-request-parameters
+  paymentrequestcancellationresult:
+    file: paymentrequests.md
+    anchor: payment-request-cancellation-result
+  multiplepaymentrequestcancelparameters:
+    file: paymentrequests.md
+    anchor: multiple-payment-request-cancel-parameters
+  accountingitemupdateresult:
+    file: accountingitems.md
+    anchor: accountingitemupdateresult
+  multipleaccountingitemsupdateparameters:
+    file: accountingitems.md
+    anchor: multipleaccountingitemsupdateparameters
+  accountingitemupdateparameters:
+    file: accountingitems.md
+    anchor: accounting-item-update
+  accountingitemresult:
+    file: accountingitems.md
+    anchor: accountingitemresult
+  accountingitemparameters:
+    file: accountingitems.md
+    anchor: accountingitemparameters
+  accountingitemextent:
+    file: accountingitems.md
+    anchor: accounting-item-extent
+  outletresult:
+    file: outlets.md
+    anchor: outletresult
+  outlet:
+    file: outlets.md
+    anchor: outlet
+  outletfilterparameters:
+    file: outlets.md
+    anchor: outletfilterparameters
+  ruleresult:
+    file: rules.md
+    anchor: ruleresult
+  rule:
+    file: rules.md
+    anchor: rule
+  ruleconditions:
+    file: rules.md
+    anchor: rule-conditions
+  rulecondition:
+    file: rules.md
+    anchor: rule-condition
+  ruleconditiontype:
+    file: rules.md
+    anchor: condition-type
+  ruleaction:
+    file: rules.md
+    anchor: rule-action
+  ruleactiondatacoproductofruleactiondiscriminator:
+    file: rules.md
+    anchor: rule-action-data
+  ruleactiondiscriminator:
+    file: rules.md
+    anchor: rule-action-discriminator
+  ruleactionproductdata:
+    file: rules.md
+    anchor: rule-action-product-data
+  ruleactiontype:
+    file: rules.md
+    anchor: product-action-type
+  rulefilterparameters:
+    file: rules.md
+    anchor: rulefilterparameters
+  ruleextent:
+    file: rules.md
+    anchor: rule-extent
+  routingruleresult:
+    file: routingrules.md
+    anchor: routingruleresult
+  routingrule:
+    file: routingrules.md
+    anchor: routing-rule
+  routingrulecompanyrelation:
+    file: routingrules.md
+    anchor: company-relation
+  routingruleapplicability:
+    file: routingrules.md
+    anchor: applicability
+  routingruleroutetype:
+    file: routingrules.md
+    anchor: route-type
+  routingrulestayitems:
+    file: routingrules.md
+    anchor: selected-stay-items
+  routingrulefilterparameters:
+    file: routingrules.md
+    anchor: routingrulefilterparameters
+  routingruleadditionresult:
+    file: routingrules.md
+    anchor: routingruleadditionresult
+  multipleroutingruleaddparameters:
+    file: routingrules.md
+    anchor: multipleroutingruleaddparameters
+  routingruleaddparameter:
+    file: routingrules.md
+    anchor: routing-rule-parameters
+  routingruleassignmenttargettype:
+    file: routingrules.md
+    anchor: assignment-target-type
+  routingrulestayitemsaddparameters:
+    file: routingrules.md
+    anchor: selected-stay-items-parameters
+  routingruleupdateresult:
+    file: routingrules.md
+    anchor: routingruleupdateresult
+  multipleroutingruleupdateparameters:
+    file: routingrules.md
+    anchor: multipleroutingruleupdateparameters
+  routingruleupdateparameters:
+    file: routingrules.md
+    anchor: routing-rule-update-parameters
+  routingrulestayitemsupdateparameters:
+    file: routingrules.md
+    anchor: selected-stay-items-update-parameters
+  routingruledeleteparameters:
+    file: routingrules.md
+    anchor: routingruledeleteparameters
+  tokenizedcreditcardaddparameters:
+    file: creditcards.md
+    anchor: tokenizedcreditcardaddparameters
+  servicedatadiscriminatorenum:
+    file: services.md
+    anchor: service-data-discriminator
