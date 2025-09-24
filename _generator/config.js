@@ -45,9 +45,5 @@ export function loadConfig() {
     );
     throw new Error('Missing required arguments');
   }
-  // TODO: This check can be removed after initial migration; if no tags are provided, generator will pick up all tags by default
-  if (config.tags.length === 0) {
-    throw new Error('No tags specified');
-  }
   return config;
 }
