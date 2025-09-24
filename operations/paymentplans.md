@@ -1,12 +1,13 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Payment plans
 
-## Create a payment plan
+## Add payment plan
 
 > ### Restricted!
 > This operation is currently in beta-test and as such it is subject to change.
 
-Adds a payment plan with `Name` connected to a `Reservation` and returns the payment request URL associated with the created payment plan. The fulfillment of the payment request will initiate the payment plan.
+Adds a payment plan connected to a `Reservation` and returns the payment request URL associated with the created payment plan. The fulfillment of the payment request will initiate the payment plan.
+Note this operation supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
 
