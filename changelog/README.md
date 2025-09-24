@@ -1,5 +1,9 @@
 # Changelog
 
+## 25th September 2025
+* [Get all ledger balances](../operations/ledgerbalances.md#get-all-ledger-balances):
+  * Added new operation.
+
 ## 24th September 2025
 * [Add payment plan](../operations/paymentplans.md#add-payment-plan):
   * Added new operation (restricted).
