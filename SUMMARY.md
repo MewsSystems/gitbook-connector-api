@@ -67,6 +67,7 @@
   * [Identity documents](operations/identitydocuments.md)
   * [Images](operations/images.md)
   * [Languages](operations/languages.md)
+  * [Ledger balances](operations/ledgerbalances.md)
   * [Loyalty memberships](operations/loyaltymemberships.md)
   * [Loyalty programs](operations/loyaltyprograms.md)
   * [Loyalty tiers](operations/loyaltytiers.md)

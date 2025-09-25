@@ -79,6 +79,10 @@ types:
     file: _objects.md
     anchor: hybrid-identifier
     titleOverride: Hybrid identifier
+  datefilterinterval:
+    file: _objects.md
+    anchor: date-interval
+    titleOverride: Date interval
   accountnoteresult:
     file: accountnotes.md
     anchor: accountnoteresult
@@ -2579,3 +2583,15 @@ types:
   paymentplanpaymentrequesttypeenum:
     file: paymentplans.md
     anchor: payment-plan-payment-request-type
+  ledgerbalanceresult:
+    file: ledgerbalances.md
+    anchor: ledgerbalanceresult
+  ledgerbalance:
+    file: ledgerbalances.md
+    anchor: ledger-balance
+  accountingledgertypeenum:
+    file: ledgerbalances.md
+    anchor: accounting-ledger-type
+  ledgerbalanceparameters:
+    file: ledgerbalances.md
+    anchor: ledgerbalanceparameters
