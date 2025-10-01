@@ -1374,7 +1374,7 @@ types:
     file: payments.md
     anchor: paymentrefundparameters
   addcreditcardresult:
-    file: creditcards.md
+    file: payments.md
     anchor: addcreditcardresult
   creditcardpaymentparameters:
     file: payments.md
@@ -2417,7 +2417,7 @@ types:
     anchor: resourceblockdeleteparameters
   paymentrequestresult:
     file: paymentrequests.md
-    anchor: payment-request-result
+    anchor: paymentrequestresult
   paymentrequest:
     file: paymentrequests.md
     anchor: payment-request
@@ -2435,19 +2435,19 @@ types:
     anchor: paymentrequestfilterparameters
   paymentrequestadditionresult:
     file: paymentrequests.md
-    anchor: payment-request-addition-result
+    anchor: paymentrequestadditionresult
   multiplepaymentrequestaddparameters:
     file: paymentrequests.md
-    anchor: multiple-payment-request-add-parameters
+    anchor: multiplepaymentrequestaddparameters
   paymentrequestaddparameters:
     file: paymentrequests.md
     anchor: payment-request-parameters
   paymentrequestcancellationresult:
     file: paymentrequests.md
-    anchor: payment-request-cancellation-result
+    anchor: paymentrequestcancellationresult
   multiplepaymentrequestcancelparameters:
     file: paymentrequests.md
-    anchor: multiple-payment-request-cancel-parameters
+    anchor: multiplepaymentrequestcancelparameters
   accountingitemupdateresult:
     file: accountingitems.md
     anchor: accountingitemupdateresult
@@ -2595,3 +2595,6 @@ types:
   ledgerbalanceparameters:
     file: ledgerbalances.md
     anchor: ledgerbalanceparameters
+  accountingconfigurationoptionenum:
+    file: configuration.md
+    anchor: accounting-configuration-option

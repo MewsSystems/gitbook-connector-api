@@ -62,6 +62,10 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
         "Invoice",
         "Cash",
         "GiftCard"
+      ],
+      "Options": [
+        "ReceivableTrackingEnabled",
+        "GroupTaxesOnBill"
       ]
     },
     "IsPortfolio": false,
@@ -226,6 +230,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `Bic` | string | optional, max length 11 characters | Business Identification Code. |
 | `SurchargeConfiguration` | [Surcharging fees configuration](configuration.md#surcharging-fees-configuration) | required | Configuration for surcharging fees. |
 | `EnabledExternalPaymentTypes` | array of [External payment type](payments.md#external-payment-type) | required | External payment types that are enabled for the enterprise and can be used in `payments/addExternal`. |
+| `Options` | array of [Accounting configuration option](configuration.md#accounting-configuration-option) | required | Accounting configuration options. |
 
 #### Surcharging fees configuration
 
@@ -234,6 +239,17 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 | `SurchargeFees` | [Dictionary of numbers](_objects.md#dictionary-of-numbers) | required | Dictionary keys are `CreditCardType` and values are surcharging fees as a percentage. |
 | `SurchargeServiceId` | string | optional | Unique identifier of the surcharging `Service`. |
 | `SurchargeTaxCode` | string | optional | Surcharging fee `TaxCode`. |
+
+#### Accounting configuration option
+
+* `OptionalCreditCardPaymentDetails` - Optional credit card payment details
+* `ReceivableTrackingEnabled` - Receivable tracking enabled
+* `SeparateDepositsOnBill` - Separate deposits on bill
+* `AllowModifyingClosedBills` - Allow modifying closed bills
+* `RequireAccountingCategorySetup` - Require accounting category setup
+* `GroupTaxesOnBill` - Group taxes on bill
+* `DisplayEmployeeNameOnBill` - Display employee name on bill
+* `TaxDeclarationOnDeposit` - Tax declaration on deposit
 
 #### Payment card storage
 
