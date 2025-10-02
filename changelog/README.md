@@ -1,5 +1,9 @@
 # Changelog
 
+## 1st October 2025
+* [Get configuration](../operations/configuration.md#get-configuration):
+  * Extended response object with accounting configuration options.
+
 ## 25th September 2025
 * [Get all ledger balances](../operations/ledgerbalances.md#get-all-ledger-balances):
   * Added new operation.
