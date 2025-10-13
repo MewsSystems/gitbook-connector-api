@@ -1,5 +1,9 @@
 # Changelog
 
+## 13th October 2025
+* [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments):
+  * Clarified behavior of `ActivityStates` filtering property. Documentation-only, no change to API.
+
 ## 1st October 2025
 * [Get configuration](../operations/configuration.md#get-configuration):
   * Extended response object with accounting configuration options.

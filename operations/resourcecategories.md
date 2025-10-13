@@ -154,7 +154,7 @@ Returns all resource category assignments. This operation uses [Pagination](../g
 | `ResourceCategoryAssignmentIds` | array of string | optional, max 1000 items | Unique identifiers of [Resource category assignment](resourcecategories.md#resource-category-assignment). |
 | `ResourceCategoryIds` | array of string | required, max 1000 items | Unique identifiers of [Resource categories](resourcecategories.md#resource-category) to which the resource category assignment belong. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional | Interval in which the resource category assignments were updated. |
-| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. |
+| `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted or both records. The `ActivityState` filter applies only to record’s own status. The `IsActive` response property also considers the parent’s status, so some returned records may have `IsActive = false` if their parent is deleted. |
 | `ResourceIds` | array of string | optional, max 1000 items | Unique identifiers of resources to which the resource category assignments belong. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
