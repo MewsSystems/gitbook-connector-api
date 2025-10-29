@@ -97,6 +97,7 @@ Filter commands by the unique identifiers of `Device` and states, with optional 
         "Name": "Hotel Invoice #1001",
         "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+        "AccountType": "Customer",
         "AssociatedAccountIds": null,
         "CounterId": null,
         "State": "Closed",
@@ -157,6 +158,7 @@ Filter commands by the unique identifiers of `Device` and states, with optional 
         "Name": "Restaurant Bill #2001",
         "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "AccountId": "fadd5bb6-b428-45d5-94f8-fd0d89fece6d",
+        "AccountType": "Customer",
         "AssociatedAccountIds": null,
         "CounterId": null,
         "State": "Closed",
@@ -222,6 +224,7 @@ Filter commands by the unique identifiers of `Device` and states, with optional 
 | `Name` | string | optional | Name of the bill. |
 | `EnterpriseId` | string | required | Unique identifier of the `Enterprise`. |
 | `AccountId` | string | required | Unique identifier of the account (`Customer` or `Company`) the bill is issued to. |
+| `AccountType` | [Account type](accounts.md#account-type) | required | A discriminator specifying the account type, i.e. `Customer` or `Company`. |
 | `AssociatedAccountIds` | array of string | optional | Unique identifiers of the `Customers` or `Companies` that are associated to the bill. |
 | `CounterId` | string | optional | Unique identifier of the bill `Counter`. |
 | `State` | [Bill state](bills.md#bill-state) | required | Whether the bill is `Open` or `Closed`. |
