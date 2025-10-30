@@ -2598,3 +2598,9 @@ types:
   accountingconfigurationoptionenum:
     file: configuration.md
     anchor: accounting-configuration-option
+  billstateenum:
+    file: bills.md
+    anchor: bill-state
+  billtypeenum:
+    file: bills.md
+    anchor: bill-type

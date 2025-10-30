@@ -427,6 +427,7 @@ Additional order item data.
 
 #### Tax exemption reason type
 
+* `Unknown` - Unknown tax exemption reason
 * `IT_N1` - N1 - Escluse ex art.15
 * `IT_N2_2` - N2.2 - Non soggette – altri casi
 * `IT_N3_5` - N3.5 - Non imponibili – a seguito di dichiarazioni d’intento
