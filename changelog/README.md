@@ -1,5 +1,13 @@
 # Changelog
 
+## 30th October 2025
+* [Get all bills](../operations/bills.md#get-all-bills):
+  * **Deprecated:** `ClosedUtc` parameter in request object. Use `IssuedUtc` instead.
+* [Get all fiscal machine commands](../operations/commands.md#get-all-fiscal-machine-commands)
+  * Extended [Bill parameters](../operations/commands.md#bill-ver-2025-06-23) in response object with `AccountType` property.
+* [Get all order items](../operations/orderitems.md#get-all-order-items):
+  * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `Unknown` for unknown tax exemption reasons.
+
 ## 13th October 2025
 * [Get all resource category assignments](../operations/resourcecategories.md#get-all-resource-category-assignments):
   * Clarified behavior of `ActivityStates` filtering property. Documentation-only, no change to API.
