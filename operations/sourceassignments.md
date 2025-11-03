@@ -37,7 +37,7 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | optional, max 100 items | Unique identifiers of `Reservation`. |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 1 month | Interval of source assignment last update date and time. |
-| `EnterpriseIds` | array of string | optional, max 1 item | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
+| `EnterpriseIds` | array of string | optional, max 1 item | Unique identifiers of the Enterprises. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
