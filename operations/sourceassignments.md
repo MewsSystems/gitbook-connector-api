@@ -24,6 +24,9 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
     "StartUtc": "2025-11-01T00:00:00Z",
     "EndUtc": "2025-11-30T00:00:00Z"
   },
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  ],
   "Limitation": {
     "Count": 100
   }
