@@ -1,5 +1,11 @@
 # Changelog
 
+## 3rd November 2025
+* [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20):
+  * **Breaking:** `EnterpriseIds` property changed from **optional** to **required** and max 1 item for Portfolio Access Token.
+  * Extended request object with `UpdatedUtc` filtering parameter.
+  * Extended [Source assignments (ver 2024-09-20)](../operations/sourceassignments.md#source-assignments-ver-2024-09-20) response object with `UpdatedUtc` property.
+
 ## 30th October 2025
 * [Get all bills](../operations/bills.md#get-all-bills):
   * **Deprecated:** `ClosedUtc` parameter in request object. Use `IssuedUtc` instead.
