@@ -20,8 +20,15 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
   "ReservationIds": [
     "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
   ],
+  "UpdatedUtc": {
+    "StartUtc": "2025-11-01T00:00:00Z",
+    "EndUtc": "2025-11-30T00:00:00Z"
+  },
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -31,8 +38,9 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `EnterpriseIds` | array of string | optional, max 1000 items | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `ReservationIds` | array of string | optional, max 100 items | Unique identifiers of `Reservation`. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 1 month | Interval of source assignment last update date and time. |
+| `EnterpriseIds` | array of string | optional, max 1 item | Unique identifiers of the Enterprises. Required when using Portfolio Access Tokens, ignored otherwise. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
 ### Response
@@ -44,13 +52,15 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
       "Id": "c5e11f73-7e85-4a3c-9fe1-872014a10b43",
       "ReservationId": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
       "SourceId": "22e42a59-b321-43f8-a5d1-af1f00e1bb8b",
-      "IsPrimary": true
+      "IsPrimary": true,
+      "UpdatedUtc": "2025-11-05T11:00:00Z"
     },
     {
       "Id": "5411ffd5-72c6-4ab3-b179-708bcac73d08",
       "ReservationId": "9b59b50d-bd32-4ce5-add8-09ea0e1300e7",
       "SourceId": "bbe29c21-401a-4746-b97d-af1f00e1bb8b",
-      "IsPrimary": false
+      "IsPrimary": false,
+      "UpdatedUtc": "2025-11-11T05:00:00Z"
     }
   ],
   "Cursor": "5411ffd5-72c6-4ab3-b179-708bcac73d08"
@@ -70,6 +80,7 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
 | `ReservationId` | string | required | Unique identifier of the `Reservation`. |
 | `SourceId` | string | required | Unique identifier of the `Source`. |
 | `IsPrimary` | boolean | required | Specifies whether the source is primary for the `Reservation`. |
+| `UpdatedUtc` | string | required | Date and time of the source assignment last update in UTC timezone in ISO 8601 format. |
 
 ## Get all source assignments
 
