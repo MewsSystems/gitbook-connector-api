@@ -20,6 +20,10 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
   "ReservationIds": [
     "9b59b50d-bd32-4ce5-add8-09ea0e1300e7"
   ],
+  "UpdatedUtc": {
+    "StartUtc": "2025-11-01T00:00:00Z",
+    "EndUtc": "2025-11-30T00:00:00Z"
+  },
   "Limitation": {
     "Count": 100
   }
@@ -32,6 +36,7 @@ Returns all Sources assigned to Reservations. Each reservation can have multiple
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
 | `ReservationIds` | array of string | optional, max 100 items | Unique identifiers of `Reservation`. |
+| `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 1 month | Interval of source assignment last update date and time. |
 | `EnterpriseIds` | array of string | optional, max 1 item | Unique identifiers of the Enterprises. If not specified, the operation returns data for all enterprises within scope of the Access Token. |
 | `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 
