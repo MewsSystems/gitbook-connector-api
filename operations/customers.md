@@ -427,6 +427,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | `LastName` | string | required | Last name of the customer. |
 | `SecondLastName` | string | optional | Second last name of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 code of the `Country`. |
+| `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
@@ -674,6 +675,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `LastName` | string | optional | New last name. |
 | `SecondLastName` | string | optional | New second last name. |
 | `NationalityCode` | string | optional | New nationality code as ISO 3166-1 code of the `Country`. |
+| `PreferredLanguageCode` | string | optional | Language and culture code of the customer's preferred language, according to their profile. For example: `en-GB`, `fr-CA`. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `BirthDate` | string | optional | New birth date in ISO 8601 format. |
 | `BirthPlace` | string | optional | New birth place. |

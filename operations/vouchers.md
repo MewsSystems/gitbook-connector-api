@@ -321,7 +321,7 @@ Updates information about the specified vouchers. Note this operation supports [
     {
       "VoucherId": "f4a9942c-2616-4074-b1f4-4b959515e933",
       "Name": {
-        "Value": "Weekend Voucher"
+        "Value": "Sample company voucher"
       },
       "Type": {
         "Value": "PartnerCompany"
