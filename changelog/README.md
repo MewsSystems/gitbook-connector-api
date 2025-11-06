@@ -1,5 +1,12 @@
 # Changelog
 
+## 6th November 2025
+
+* [Get all vouchers](../operations/vouchers.md#get-all-vouchers):
+* [Add vouchers](../operations/vouchers.md#add-vouchers):
+* [Update vouchers](../operations/vouchers.md#update-vouchers):
+  * Extended [Voucher](../operations/vouchers.md#voucher) response object with `EnterpriseId` property.
+
 ## 3rd November 2025
 * [Get all source assignments (ver 2024-09-20)](../operations/sourceassignments.md#get-all-source-assignments-ver-2024-09-20) (restricted operation):
   * **Breaking:** `EnterpriseIds` property changed from **optional** to **required** and max 1 item when using Portfolio Access Token.
