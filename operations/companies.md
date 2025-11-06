@@ -367,6 +367,7 @@ New address details.
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Notes` | string | optional | Additional notes. |
 | `Number` | integer | required | Unique number of the company. |
+| `DebtorNumber` | integer | required | Auto-generated unique identifier of the company (from 1 to 2,147,483,647). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
 | `CreatedUtc` | string | optional | Date of [Company](companies.md#company) creation date and time. |
