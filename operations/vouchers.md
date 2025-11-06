@@ -14,18 +14,25 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseIds": [
-    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
-  ],
+  "Extent": {
+    "Vouchers": true,
+    "VoucherCodes": true,
+    "VoucherAssignments": true,
+    "Companies": false,
+    "Rates": false
+  },
   "ServiceIds": [
-    "bd26d8db-86da-4f96-9efc-e5a4654a4a94"
+    "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+    "8c1bd738-a505-4b29-aa71-9ecc2982b843"
   ],
   "VoucherIds": [
     "fe568bbd-1ecb-4bb2-bf77-96c3698de20d"
   ],
   "VoucherCodeValues": [
     "TEST-VOUCHER-CODE"
+  ],
+  "ActivityStates": [
+    "Active"
   ],
   "UpdatedUtc": {
     "StartUtc": "2023-10-10T00:00:00Z",
@@ -35,18 +42,12 @@ Returns all rate vouchers filtered by [Service](services.md#service), voucher co
     "Voucher-001",
     "Voucher-002"
   ],
-  "Extent": {
-    "Vouchers": true,
-    "VoucherCodes": true,
-    "VoucherAssignments": true,
-    "Companies": false,
-    "Rates": false
-  },
-  "ActivityStates": [
-    "Active"
+  "EnterpriseIds": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "4d0201db-36f5-428b-8d11-4f0a65e960cc"
   ],
   "Limitation": {
-    "Count": 10
+    "Count": 100
   }
 }
 ```
@@ -85,46 +86,53 @@ Extent of data to be returned. Whether only specific voucher info should be retu
   "Vouchers": [
     {
       "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
-      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-      "Type": "Public",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "Name": "Weekend Voucher",
       "CreatedUtc": "2018-11-29T08:17:05Z",
       "UpdatedUtc": "2020-10-30T13:38:49Z",
+      "Type": "Public",
       "ActivityState": "Active",
-      "CompanyId": "3506994b-3c0b-49ba-9f57-ac4700641440",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "TravelAgencyId": null,
-      "ExternalIdentifier": "VCHR-278"
+      "OccupiableIntervalStartUtc": null,
+      "OccupiableIntervalEndUtc": null,
+      "ExternalIdentifier": "VCHR-278",
+      "IsActive": true
     }
   ],
   "VoucherCodes": [
     {
+      "Id": "11111111-1111-1111-1111-111111111111",
       "VoucherId": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
       "Value": "TEST-VOUCHER-CODE",
       "ValidityStartUtc": null,
       "ValidityEndUtc": null,
       "CreatedUtc": "2020-10-30T13:37:16Z",
       "UpdatedUtc": "2020-10-30T13:37:16Z",
-      "ActivityState": "Active"
+      "ActivityState": "Active",
+      "IsActive": true
     },
     {
+      "Id": "22222222-2222-2222-2222-222222222222",
       "VoucherId": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
       "Value": "05400269B23A59C649E4",
       "ValidityStartUtc": "2020-10-09T22:00:00Z",
       "ValidityEndUtc": "2020-10-09T22:00:00Z",
       "CreatedUtc": "2020-10-09T15:08:14Z",
       "UpdatedUtc": "2020-10-09T15:08:14Z",
-      "ActivityState": "Active"
+      "ActivityState": "Active",
+      "IsActive": true
     }
   ],
   "VoucherAssignments": [
     {
       "VoucherId": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
-      "RateId": "6639eaa9-bbe0-46c0-94a2-aa5d00a2353c"
+      "RateId": "ed4b660b-19d0-434b-9360-a4de2ea42eda"
     },
     {
       "VoucherId": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
-      "RateId": "61133a42-41d2-4e46-b5b0-ab1701268b75"
+      "RateId": "b7e6a1c2-4f3a-4e2b-9c1d-2a5e7b8c9d0f"
     }
   ],
   "Rates": null,
@@ -148,14 +156,15 @@ Extent of data to be returned. Whether only specific voucher info should be retu
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of voucher. |
 | `ServiceId` | string | required | Unique identifier of [Service](services.md#service) the voucher belongs to. |
+| `EnterpriseId` | string | required | Unique identifier of the enterprise to which the voucher belongs. |
 | `Name` | string | required, max length 128 characters | Internal name of the voucher. |
 | `CreatedUtc` | string | required | Creation date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `UpdatedUtc` | string | required | Last update date and time of the voucher in UTC timezone in ISO 8601 format. |
 | `Type` | [Voucher Type](vouchers.md#voucher-type) | required | Type of the voucher. |
 | `CompanyId` | string | optional | Unique identifier of [Company](companies.md#company) the voucher is related to. |
 | `TravelAgencyId` | string | optional | Unique identifier of [Company](companies.md#company) with [Travel agency contract](companycontracts.md#travel-agency-contract) the voucher is related to. |
-| `OccupiableIntervalStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format (or null if the start time should not be updated). |
-| `OccupiableIntervalEndUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format (or null if the end time should not be updated). |
+| `OccupiableIntervalStartUtc` | string | optional | Start of the time interval, expressed as the timestamp for the start of the first time unit, in UTC timezone ISO 8601 format. |
+| `OccupiableIntervalEndUtc` | string | optional | End of the time interval, expressed as the timestamp for the start of the last time unit, in UTC timezone ISO 8601 format. |
 | `ExternalIdentifier` | string | optional, max length 255 characters | Identifier of the voucher from external system. |
 | `IsActive` | boolean | required | Whether the voucher is still active. |
 | ~~`ActivityState`~~ | ~~[Activity state](_objects.md#activity-state)~~ | ~~required~~ | ~~Whether voucher is active or deleted.~~ **Deprecated!** Use `IsActive` instead.|
@@ -186,35 +195,31 @@ Adds the specified vouchers to the specified [Services](services.md#service). No
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "VoucherParameters": [
     {
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "Name": "Weekend Voucher",
       "Type": "Public",
-      "CompanyId": null,
       "AssignedRateIds": [
-        "181f8cdd-04ee-4bf5-ba3e-44c108eca3cb",
-        "8bebeddc-9137-432d-810c-1b998a90ac9a"
-      ],
-      "OccupiableIntervalStartUtc": null,
-      "OccupiableIntervalEndUtc": null,
-      "ExternalIdentifier": null
+        "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+        "b7e6a1c2-4f3a-4e2b-9c1d-2a5e7b8c9d0f"
+      ]
     },
     {
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
       "Name": "Sample company voucher",
       "Type": "PartnerCompany",
-      "CompanyId": "3506994b-3c0b-49ba-9f57-ac4700641440",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "AssignedRateIds": [
-        "181f8cdd-04ee-4bf5-ba3e-44c108eca3cb",
-        "8bebeddc-9137-432d-810c-1b998a90ac9a"
+        "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+        "b7e6a1c2-4f3a-4e2b-9c1d-2a5e7b8c9d0f"
       ],
       "OccupiableIntervalStartUtc": "2023-12-31T22:00:00Z",
       "OccupiableIntervalEndUtc": "2024-01-01T22:00:00Z",
       "ExternalIdentifier": "VCHR-278"
     }
-  ]
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -247,30 +252,34 @@ Adds the specified vouchers to the specified [Services](services.md#service). No
     {
       "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "Name": "Weekend Voucher",
-      "CreatedUtc": "2023-12-01T08:17:05Z",
-      "UpdatedUtc": "2023-12-02T13:38:49Z",
+      "CreatedUtc": "2018-11-29T08:17:05Z",
+      "UpdatedUtc": "2020-10-30T13:38:49Z",
       "Type": "Public",
       "ActivityState": "Active",
-      "CompanyId": null,
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "TravelAgencyId": null,
       "OccupiableIntervalStartUtc": null,
       "OccupiableIntervalEndUtc": null,
-      "ExternalIdentifier": null
+      "ExternalIdentifier": "VCHR-278",
+      "IsActive": true
     },
     {
       "Id": "f4a9942c-2616-4074-b1f4-4b959515e933",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "Name": "Sample company voucher",
       "CreatedUtc": "2023-12-01T08:17:05Z",
       "UpdatedUtc": "2023-12-02T13:38:49Z",
       "Type": "PartnerCompany",
       "ActivityState": "Active",
-      "CompanyId": "3506994b-3c0b-49ba-9f57-ac4700641440",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "TravelAgencyId": null,
       "OccupiableIntervalStartUtc": "2023-12-31T22:00:00Z",
       "OccupiableIntervalEndUtc": "2024-01-01T22:00:00Z",
-      "ExternalIdentifier": "VCHR-278"
+      "ExternalIdentifier": "VCHR-278",
+      "IsActive": true
     }
   ]
 }
@@ -293,7 +302,6 @@ Updates information about the specified vouchers. Note this operation supports [
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "VoucherUpdates": [
     {
       "VoucherId": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
@@ -303,16 +311,12 @@ Updates information about the specified vouchers. Note this operation supports [
       "Type": {
         "Value": "Public"
       },
-      "CompanyId": null,
       "AssignedRateIds": {
         "Value": [
-          "181f8cdd-04ee-4bf5-ba3e-44c108eca3cb",
-          "8bebeddc-9137-432d-810c-1b998a90ac9a"
+          "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+          "b7e6a1c2-4f3a-4e2b-9c1d-2a5e7b8c9d0f"
         ]
-      },
-      "OccupiableIntervalStartUtc": null,
-      "OccupiableIntervalEndUtc": null,
-      "ExternalIdentifier": null
+      }
     },
     {
       "VoucherId": "f4a9942c-2616-4074-b1f4-4b959515e933",
@@ -323,12 +327,12 @@ Updates information about the specified vouchers. Note this operation supports [
         "Value": "PartnerCompany"
       },
       "CompanyId": {
-        "Value": "3506994b-3c0b-49ba-9f57-ac4700641440"
+        "Value": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f"
       },
       "AssignedRateIds": {
         "Value": [
-          "181f8cdd-04ee-4bf5-ba3e-44c108eca3cb",
-          "8bebeddc-9137-432d-810c-1b998a90ac9a"
+          "ed4b660b-19d0-434b-9360-a4de2ea42eda",
+          "b7e6a1c2-4f3a-4e2b-9c1d-2a5e7b8c9d0f"
         ]
       },
       "OccupiableIntervalStartUtc": {
@@ -341,7 +345,8 @@ Updates information about the specified vouchers. Note this operation supports [
         "Value": "VCHR-278"
       }
     }
-  ]
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
@@ -381,30 +386,34 @@ Has same structure as [Array of strings update value](_objects.md#array-of-strin
     {
       "Id": "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "Name": "Weekend Voucher",
-      "CreatedUtc": "2023-12-01T08:17:05Z",
-      "UpdatedUtc": "2023-12-02T13:38:49Z",
+      "CreatedUtc": "2018-11-29T08:17:05Z",
+      "UpdatedUtc": "2020-10-30T13:38:49Z",
       "Type": "Public",
       "ActivityState": "Active",
-      "CompanyId": null,
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "TravelAgencyId": null,
       "OccupiableIntervalStartUtc": null,
       "OccupiableIntervalEndUtc": null,
-      "ExternalIdentifier": null
+      "ExternalIdentifier": "VCHR-278",
+      "IsActive": true
     },
     {
       "Id": "f4a9942c-2616-4074-b1f4-4b959515e933",
       "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
+      "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "Name": "Sample company voucher",
       "CreatedUtc": "2023-12-01T08:17:05Z",
       "UpdatedUtc": "2023-12-02T13:38:49Z",
       "Type": "PartnerCompany",
       "ActivityState": "Active",
-      "CompanyId": "3506994b-3c0b-49ba-9f57-ac4700641440",
+      "CompanyId": "c6f5c82d-621a-4c8a-903b-1b0a9a23b71f",
       "TravelAgencyId": null,
       "OccupiableIntervalStartUtc": "2023-12-31T22:00:00Z",
       "OccupiableIntervalEndUtc": "2024-01-01T22:00:00Z",
-      "ExternalIdentifier": "VCHR-278"
+      "ExternalIdentifier": "VCHR-278",
+      "IsActive": true
     }
   ]
 }
@@ -427,11 +436,11 @@ Delete specified vouchers. Note this operation supports [Portfolio Access Tokens
   "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
   "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
   "Client": "Sample Client 1.0.0",
-  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "VoucherIds": [
     "fe568bbd-1ecb-4bb2-bf77-96c3698de20d",
     "f4a9942c-2616-4074-b1f4-4b959515e933"
-  ]
+  ],
+  "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
 
