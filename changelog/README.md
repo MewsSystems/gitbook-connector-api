@@ -1,5 +1,11 @@
 # Changelog
 
+## 7th November 2025
+
+* [Add customer](../operations/customers.md#add-customer):
+* [Update customer](../operations/customers.md#update-customer):
+  * Extended request object with `PreferredLanguageCode` parameter.
+
 ## 6th November 2025
 
 * [Get all vouchers](../operations/vouchers.md#get-all-vouchers):
