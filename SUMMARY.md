@@ -95,7 +95,7 @@
   * [Resource categories](operations/resourcecategories.md)
   * [Resource features](operations/resourcefeatures.md)
   * [Restrictions](operations/restrictions.md)
-  * [Routing rules](operations/routingrules.md)
+  * [~~Routing rules~~](operations/routingrules.md)
   * [Rules](operations/rules.md)
   * [Service order notes](operations/serviceordernotes.md)
   * [Service overbooking limits](operations/serviceoverbookinglimits.md)

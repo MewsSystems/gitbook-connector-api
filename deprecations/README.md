@@ -21,6 +21,10 @@ The table columns have the following meanings:
 
 | Feature | Comments | Deprecated | Discontinued |
 | :-- | :-- | :-- | :-- |
+| [Get all routing rules](../operations/routingrules.md#get-all-routing-rules) | Replaced by [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations) | 11 Nov 2025 | 10 Jan 2027 |
+| [Add routing rules](../operations/routingrules.md#add-routing-rules) | Replaced by [Add billing automations](../operations/billingautomations.md#add-billing-automations) | 11 Nov 2025 | 10 Jan 2027 |
+| [Update routing rules](../operations/routingrules.md#update-routing-rules) | Replaced by [Update billing automations](../operations/billingautomations.md#update-billing-automations) and [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments) | 11 Nov 2025 | 10 Jan 2027 |
+| [Delete routing rules](../operations/routingrules.md#delete-routing-rules) | Replaced by [Delete billing automations](../operations/billingautomations.md#delete-billing-automations) | 11 Nov 2025 | 10 Jan 2027 |
 | [Get customers open items](../operations/customers.md#get-customers-open-items) | Replaced by [Get all payments](payments.md#get-all-payments) and [Get all order items](orderitems.md#get-all-order-items) | 15 Nov 2024 | - |
 | [Add restrictions](../operations/restrictions.md#add-restrictions) | Replaced by [Set restrictions](../operations/restrictions.md#set-restrictions) | 21 Jun 2024 | 10 Jan 2026 |
 | [Delete restrictions](../operations/restrictions.md#delete-restrictions) | Replaced by  [Clear restrictions](../operations/restrictions.md#clear-restrictions) | 21 Jun 2024 | 10 Jan 2026 |

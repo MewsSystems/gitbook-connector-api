@@ -1,5 +1,22 @@
 # Changelog
 
+## 11th November 2025
+
+* [Get all routing rules](../operations/routingrules.md#get-all-routing-rules):
+  * **Deprecated** operation. Use [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations) instead.
+* [Add routing rules](../operations/routingrules.md#add-routing-rules):
+  * **Deprecated** operation. Use [Add billing automations](../operations/billingautomations.md#add-billing-automations) instead.
+* [Update routing rules](../operations/routingrules.md#update-routing-rules):
+  * **Deprecated** operation. Use [Update billing automations](../operations/billingautomations.md#update-billing-automations) and [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments) instead.
+* [Delete routing rules](../operations/routingrules.md#delete-routing-rules):
+  * **Deprecated** operation. Use [Delete billing automations](../operations/billingautomations.md#delete-billing-automations) instead.
+* [Get all billing automations](../operations/billingautomations.md#get-all-billing-automations):
+* [Add billing automations](../operations/billingautomations.md#add-billing-automations):
+* [Update billing automations](../operations/billingautomations.md#update-billing-automations):
+* [Update billing automation assignments](../operations/billingautomations.md#update-billing-automation-assignments):
+* [Delete billing automations](../operations/billingautomations.md#delete-billing-automations):
+  * Removed restricted status.
+
 ## 7th November 2025
 
 * [Add customer](../operations/customers.md#add-customer):
