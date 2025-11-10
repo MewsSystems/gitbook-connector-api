@@ -4,7 +4,7 @@
 ## ~~Get all routing rules~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use billingAutomations/getAll instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Get all billing automations](billingautomations.md#get-all-billing-automations).
 
 ### Request
 
@@ -136,7 +136,7 @@
 ## ~~Add routing rules~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use billingAutomations/add instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Add billing automations](billingautomations.md#add-billing-automations).
 
 ### Request
 
@@ -256,7 +256,7 @@
 ## ~~Update routing rules~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use billingAutomations/update and billingAutomations/updateAssignments instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Update billing automations](billingautomations.md#update-billing-automations) and [Update billing automations assignments](billingautomations.md#update-billing-automations-assignments).
 
 ### Request
 
@@ -400,7 +400,7 @@
 ## ~~Delete routing rules~~
 
 > ### Deprecated!
-> This operation is [deprecated](../deprecations/README.md). Use billingAutomations/delete instead.
+> This operation is [deprecated](../deprecations/README.md). Use [Delete billing automations](billingautomations.md#delete-billing-automations).
 
 ### Request
 
