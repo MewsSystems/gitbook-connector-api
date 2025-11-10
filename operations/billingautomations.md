@@ -3,9 +3,6 @@
 
 ## Get all billing automations
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
-
 Returns all billing automations. Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
 
 ### Request
@@ -216,9 +213,6 @@ Returns all billing automations. Note this operation uses [Pagination](../guidel
 
 ## Add billing automations
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
-
 Adds billing automations.
 
 ### Request
@@ -372,9 +366,6 @@ Adds billing automations.
 
 ## Update billing automations
 
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
-
 Updates one or more existing billing automations.
 
 ### Request
@@ -506,9 +497,6 @@ Updates one or more existing billing automations.
 | `BillingAutomations` | array of [Billing automation](billingautomations.md#billing-automation) | optional | Billing automations affected by the operation. |
 
 ## Update billing automations assignments
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
 
 Add, update or remove billing automation assignments of a specific billing automation.
 
@@ -670,9 +658,6 @@ Add, update or remove billing automation assignments of a specific billing autom
 | `Value` | array of [Billing automation accounting category assignment](billingautomations.md#billing-automation-accounting-category-assignment) | optional | Value which is to be updated. |
 
 ## Delete billing automations
-
-> ### Restricted!
-> This operation is currently in beta-test and as such it is subject to change.
 
 Deletes specified billing automations.
 
