@@ -1,10 +1,10 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Routing rules
 
-## Get all routing rules
+## ~~Get all routing rules~~
 
-Returns all routing rules.
-Note this operation uses [Pagination](../guidelines/pagination.md) and supports [Portfolio Access Tokens](../concepts/multi-property.md).
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). Use [Get all billing automations](billingautomations.md#get-all-billing-automations).
 
 ### Request
 
@@ -133,9 +133,10 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `CityTax` | boolean | required | Whether the routing rule applies to city tax. |
 | `ProductCategoryIds` | array of string | optional | Product categories to which the routing rule applies to. |
 
-## Add routing rules
+## ~~Add routing rules~~
 
-Adds a new routing rules.
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). Use [Add billing automations](billingautomations.md#add-billing-automations).
 
 ### Request
 
@@ -252,9 +253,10 @@ Adds a new routing rules.
 | :-- | :-- | :-- | :-- |
 | `RoutingRules` | array of [Routing rule](routingrules.md#routing-rule) | required, max 1000 items | Added routing rules. |
 
-## Update routing rules
+## ~~Update routing rules~~
 
-Updates routing rules.
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). Use [Update billing automations](billingautomations.md#update-billing-automations) and [Update billing automations assignments](billingautomations.md#update-billing-automations-assignments).
 
 ### Request
 
@@ -395,9 +397,10 @@ Updates routing rules.
 | :-- | :-- | :-- | :-- |
 | `RoutingRules` | array of [Routing rule](routingrules.md#routing-rule) | required, max 1000 items | Updated routing rules. |
 
-## Delete routing rules
+## ~~Delete routing rules~~
 
-Deletes routing rules.
+> ### Deprecated!
+> This operation is [deprecated](../deprecations/README.md). Use [Delete billing automations](billingautomations.md#delete-billing-automations).
 
 ### Request
 
