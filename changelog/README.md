@@ -4,7 +4,7 @@
 * Updated rate limits per environments in [Environments](../guidelines/environments.md#request-limits). Documentation-only, no change to API:
   * 200 requests per `AccessToken` within 30 seconds for Production environment.
   * 200 requests per `AccessToken` within 30 seconds for Demo environment.
-  * Removed rate limiting per `AccessToken` per endpoint. 
+  * Removed rate limiting per endpoint per `AccessToken`. 
 
 ## 11th November 2025
 
