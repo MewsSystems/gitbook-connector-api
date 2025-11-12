@@ -74,10 +74,9 @@ The credentials below will connect with a demo enterprise configured for Net pri
 
 ### Request limits
 
-* 500 requests per `AccessToken` within 15 minutes
-* 250 requests per endpoint per `AccessToken` within 15 minutes
+* 200 requests per `AccessToken` within 30 seconds
 
-> **Pagination**: All requests utilizing [Pagination](pagination.md) have their limits increased by 10 times.
+> **IMPORTANT** Number of requests and time window can be changed without prior notice. Your application must be prepared to handle `429 Too Many Requests` responses. See [Request limits](../guidelines/requests.md#request-limits) for more information.
 
 ## Production environment
 
@@ -98,10 +97,9 @@ The credentials below will connect with a demo enterprise configured for Net pri
 
 ### Request limits
 
-* 3000 requests per `AccessToken` within 15 minutes
-* 1500 requests per endpoint per `AccessToken` within 15 minutes
+* 200 requests per `AccessToken` within 30 seconds
 
-> **Pagination**: All requests utilizing [Pagination](pagination.md) have their limits increased by 10 times.
+> **IMPORTANT** Number of requests and time window can be changed without prior notice. Your application must be prepared to handle `429 Too Many Requests` responses. See [Request limits](../guidelines/requests.md#request-limits) for more information.
 
 ## Taxations
 
