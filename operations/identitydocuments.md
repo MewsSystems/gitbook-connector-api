@@ -53,6 +53,7 @@ Returns all identity documents for the specified customers, with additional filt
       "ExpirationDate": "2040-10-24T00:00:00Z",
       "IssuanceDate": "2024-10-24T00:00:00Z",
       "IssuingCountryCode": "CZ",
+      "IssuingCountrySubdivisionCode": null,
       "IssuingCity": "Prague",
       "IdentityDocumentSupportNumber": "S-123456"
     },
@@ -64,6 +65,7 @@ Returns all identity documents for the specified customers, with additional filt
       "ExpirationDate": "2040-11-20T00:00:00Z",
       "IssuanceDate": "2024-11-20T00:00:00Z",
       "IssuingCountryCode": "CZ",
+      "IssuingCountrySubdivisionCode": null,
       "IssuingCity": "Brno",
       "IdentityDocumentSupportNumber": "B-321"
     }
@@ -88,6 +90,7 @@ Returns all identity documents for the specified customers, with additional filt
 | `ExpirationDate` | string | optional | Expiration date in ISO 8601 format. |
 | `IssuanceDate` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`. |
+| `IssuingCountrySubdivisionCode` | string | optional | Identifier of the country subdivision where the document was issued (province, state or region). |
 | `IssuingCity` | string | optional | City where the document was issued. |
 | `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish hotels. |
 
@@ -138,6 +141,7 @@ Adds identity documents. This operation supports [Portfolio Access Tokens](../co
 | `ExpirationDate` | string | optional | Expiration date in ISO 8601 format. |
 | `IssuanceDate` | string | optional | Date of issuance in ISO 8601 format. |
 | `IssuingCountryCode` | string | optional | ISO 3166-1 code of the `Country`). |
+| `IssuingCountrySubdivisionCode` | string | optional | Identifier of the country subdivision where the document was issued (province, state or region). |
 | `IssuingCity` | string | optional | City where the document was issued. |
 | `IdentityDocumentSupportNumber` | string | optional | Identity document support number. Only required for Spanish identity cards in Spanish hotels. |
 
@@ -154,6 +158,7 @@ Adds identity documents. This operation supports [Portfolio Access Tokens](../co
       "ExpirationDate": "2040-10-24T00:00:00Z",
       "IssuanceDate": "2024-10-24T00:00:00Z",
       "IssuingCountryCode": "CZ",
+      "IssuingCountrySubdivisionCode": null,
       "IssuingCity": "Prague",
       "IdentityDocumentSupportNumber": "S-123456"
     }
@@ -221,11 +226,12 @@ Updates specified identity documents. This operation supports [Portfolio Access 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the document. |
-| `Type` | [Identity document type update value](identitydocuments.md#identity-document-type-update-value) | optional | Type of the document (or `null` if the number should not be updated). |
+| `Type` | [Identity document type update value](identitydocuments.md#identity-document-type-update-value) | optional | Type of the document (or `null` if the type should not be updated). |
 | `Number` | [String update value](_objects.md#string-update-value) | optional | Number of the document (e.g. passport number or `null` if the number should not be updated). |
 | `ExpirationDate` | [String update value](_objects.md#string-update-value) | optional | Expiration date in ISO 8601 format (or `null` if the expiration date should not be updated). |
 | `IssuanceDate` | [String update value](_objects.md#string-update-value) | optional | Date of issuance in ISO 8601 format (or `null` if the issuance date should not be updated). |
 | `IssuingCountryCode` | [String update value](_objects.md#string-update-value) | optional | ISO 3166-1 code of the `Country` (or `null` if the issuing country code should not be updated). |
+| `IssuingCountrySubdivisionCode` | [String update value](_objects.md#string-update-value) | optional | Identifier of the country subdivision where the document was issued (province, state or region) (or `null` if the value should not be updated). |
 | `IssuingCity` | [String update value](_objects.md#string-update-value) | optional | City where the document was issued (or `null` if the issuing city should not be updated). |
 | `IdentityDocumentSupportNumber` | [String update value](_objects.md#string-update-value) | optional | Identity document support number. Only required for Spanish identity cards in Spanish hotels. |
 
@@ -234,7 +240,7 @@ Has same structure as [String update value](_objects.md#string-update-value).
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Value` | [Document type](reservations.md#document-type) | required | Type of the document (or `null` if the number should not be updated). |
+| `Value` | [Document type](reservations.md#document-type) | required | Type of the document (or `null` if the type should not be updated). |
 
 ### Response
 
@@ -249,6 +255,7 @@ Has same structure as [String update value](_objects.md#string-update-value).
       "ExpirationDate": "2040-10-24T00:00:00Z",
       "IssuanceDate": "2024-10-24T00:00:00Z",
       "IssuingCountryCode": "CZ",
+      "IssuingCountrySubdivisionCode": null,
       "IssuingCity": "Prague",
       "IdentityDocumentSupportNumber": "S-123456"
     }

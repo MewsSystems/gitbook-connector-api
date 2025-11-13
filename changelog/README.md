@@ -4,6 +4,11 @@
 
 * Updated rate limits documentation in [Environments](../guidelines/environments.md#request-limits).
 * Removed rate limiting per endpoint per `AccessToken`.
+* [Get all identity documents](../operations/identitydocuments.md#get-all-identity-documents):
+  * Extended [Identity document](../operations/identitydocuments.md#identity-document-ver-2024-10-25) response object with `IssuingCountrySubdivisionCode` property.
+* [Add identity documents](../operations/identitydocuments.md#add-identity-documents):
+* [Update identity documents](../operations/identitydocuments.md#update-identity-documents):
+  * Extended request object with `IssuingCountrySubdivisionCode` parameter.
 
 ## 11th November 2025
 
