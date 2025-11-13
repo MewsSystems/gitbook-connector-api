@@ -49,7 +49,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ClientToken` | string | required | Token identifying the client application. |
 | `AccessToken` | string | required | Access token of the client application. |
 | `Client` | string | required | Name and version of the client application. |
-| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of the chain. If not specified, the operation returns data for all chains within scope of the Access Token. |
+| `ChainIds` | array of string | optional, max 1000 items | Unique identifiers of `Chain`. If not specified, the operation returns data for all chains within scope of the Access Token. |
 | `MotherCompanyIds` | array of string | optional, max 1000 items | Unique identifiers of mother `Company`. |
 | `CreatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
 | `UpdatedUtc` | [Time interval](_objects.md#time-interval) | optional, max length 3 months |  |
@@ -57,7 +57,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | `ExternalIdentifiers` | array of string | optional, max 1000 items | Identifiers of [Company](companies.md#company) from external system. |
 | `Names` | array of string | optional, max 1000 items | Names of [Companies](companies.md#company). |
 | `ActivityStates` | array of [Activity state](_objects.md#activity-state) | optional | Whether to return only active, only deleted, or both types of record. If not specified, both active and deleted records will be returned. |
-| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | optional | Limitation on the quantity of data returned. |
+| `Limitation` | [Limitation](../guidelines/pagination.md#limitation) | required | Limitation on the quantity of data returned and optional Cursor for the starting point of data. |
 | ~~`TimeFilter`~~ | ~~[Company Time Filter](companies.md#company-time-filter)~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
 | ~~`StartUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
 | ~~`EndUtc`~~ | ~~string~~ | ~~optional~~ | **Deprecated!** Use CreatedUtc or UpdatedUtc instead.|
