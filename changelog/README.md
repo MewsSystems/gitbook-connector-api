@@ -1,6 +1,6 @@
 # Changelog
 
-## 12th November 2025
+## 13th November 2025
 
 * Updated rate limits documentation in [Environments](../guidelines/environments.md#request-limits).
 * Removed rate limiting per endpoint per `AccessToken`.
