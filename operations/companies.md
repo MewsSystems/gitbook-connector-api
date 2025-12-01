@@ -366,7 +366,7 @@ New address details.
 | `Iata` | string | optional | Iata of the company. |
 | `IsActive` | boolean | required | Whether the company is still active. |
 | `Notes` | string | optional | Additional notes. |
-| `Number` | integer | required | Unique number of the company. |
+| `Number` | integer | required | Unique number of the company (max 19 digits). |
 | `TaxIdentifier` | string | optional | Tax identification number of the company. |
 | `Telephone` | string | optional | Contact telephone number. |
 | `CreatedUtc` | string | optional | Date of [Company](companies.md#company) creation date and time. |
