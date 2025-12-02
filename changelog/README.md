@@ -1,5 +1,10 @@
 # Changelog
 
+## 2nd December 2025
+
+* Clarified range of the `Number` property in [Customer](../operations/customers.md#customer). Documentation-only, no change to API.
+* Clarified range of the `Number` property in [Company](../operations/companies.md#company). Documentation-only, no change to API.
+
 ## 13th November 2025
 
 * Updated rate limits documentation in [Environments](../guidelines/environments.md#request-limits).
