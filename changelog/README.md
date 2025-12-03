@@ -2,8 +2,16 @@
 
 ## 2nd December 2025
 
-* Clarified range of the `Number` property in [Customer](../operations/customers.md#customer). Documentation-only, no change to API.
-* Clarified range of the `Number` property in [Company](../operations/companies.md#company). Documentation-only, no change to API.
+
+
+* [Get all customers](../operations/customers.md#get-all-customers):
+* [Update customer](../operations/customers.md#update-customer):
+* [Add customer](../operations/customers.md#add-customer):
+  * Clarified range of the `Number` response property in [Customer](../operations/customers.md#customer). Documentation-only, no change to API.
+* [Get all companies](../operations/companies.md#get-all-companies):
+* [Update company](../operations/companies.md#update-company):
+* [Add company](../operations/companies.md#add-company):
+  * Clarified range of the `Number` response property in [Company](../operations/companies.md#company). Documentation-only, no change to API.
 
 ## 13th November 2025
 
@@ -238,7 +246,7 @@
   * Extended [Tax exemption reason type](../operations/orderitems.md#tax-exemption-reason-type) with `PL_ZW` and `PL_NP` for Polish tax exemptions.
 * [Update reservations](../operations/reservations.md#update-reservations)
   * Fixed the description of `AssignedResourceLocked` parameter in [Reservation updates](../operations/reservations.md#reservation-updates) request object. Documentation-only, no change to API functionality.
-* [Get all customers](../operations/customers.md#get-all-customers)
+* [Get all customers](../operations/customers.md#get-all-customers):
 * [Update customer](../operations/customers.md#update-customer):
 * [Add customer](../operations/customers.md#add-customer):
   * Extended [Customer option](../operations/customers.md#customer-option) with `IdPhotosConsent` and `GuestPhotoConsent`.
