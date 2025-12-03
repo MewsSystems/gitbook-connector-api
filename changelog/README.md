@@ -2,8 +2,6 @@
 
 ## 2nd December 2025
 
-
-
 * [Get all customers](../operations/customers.md#get-all-customers):
 * [Update customer](../operations/customers.md#update-customer):
 * [Add customer](../operations/customers.md#add-customer):
