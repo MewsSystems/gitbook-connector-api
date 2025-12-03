@@ -172,7 +172,7 @@ Note this operation uses [Pagination](../guidelines/pagination.md) and supports 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the customer. |
 | `ChainId` | string | required | Unique identifier of the chain. |
-| `Number` | string | required | Number of the customer. |
+| `Number` | string | required, max length 19 characters | Unique number of the customer (max 19 digits). |
 | `Title` | [Title](customers.md#title) | optional | Title of the customer. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
@@ -573,7 +573,7 @@ Adds a new customer to the system and returns details of the added customer. If 
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the customer. |
 | `ChainId` | string | required | Unique identifier of the chain. |
-| `Number` | string | required | Number of the customer. |
+| `Number` | string | required, max length 19 characters | Unique number of the customer (max 19 digits). |
 | `Title` | [Title](customers.md#title) | optional | Title of the customer. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
@@ -769,7 +769,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | :-- | :-- | :-- | :-- |
 | `Id` | string | required | Unique identifier of the customer. |
 | `ChainId` | string | required | Unique identifier of the chain. |
-| `Number` | string | required | Number of the customer. |
+| `Number` | string | required, max length 19 characters | Unique number of the customer (max 19 digits). |
 | `Title` | [Title](customers.md#title) | optional | Title of the customer. |
 | `Sex` | [Sex](customers.md#sex) | optional | Sex of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
