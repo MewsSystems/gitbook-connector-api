@@ -825,6 +825,106 @@ Returns channel manager-related details for the specified reservations. Note thi
 | `Items` | array of [Accounting item](accountingitems.md#accounting-item) | required | Accounting items associated with the reservation. |
 | `OrderItems` | array of [Order item](accountingitems.md#order-item) | required | Order items associated with the reservation. |
 
+## Get Guest Portal Links
+
+Gets one or more guest portal links for specific reservations and customers.  
+These links can be used to grant guests direct access to their online check-in, key management, or other portal functionalities.  
+
+> ### Restricted!
+>
+> This feature is currently under beta test and is subject to change. If you would like to take advantage of the feature, contact us via [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
+
+### Request
+
+`[PlatformAddress]/api/connector/v1/reservations/generateGuestPortalLinks`
+
+```javascript
+{
+  "ClientToken": "E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D",
+  "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+  "Client": "Sample Client 1.0.0",
+  "GuestPortalLinks": [
+    {
+      "ReservationId": "0f2da2c6-8b28-7172-a2c3-b35200dc4419",
+      "CustomerId": "da978316-5665-7b9d-9e2b-b35200dc29c0",
+      "GuestPortalLinkTypes": ["Keys"]
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ClientToken` | string | required | Token identifying the client application. |
+| `AccessToken` | string | required | Access token of the client application. |
+| `Client` | string | required | Name and version of the client application. |
+| `GuestPortalLinks` | array of [Guest portal link request](#guest-portal-link-request) | required | List of reservations and customers for which guest portal links will be generated. |
+
+#### Guest portal link request
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ReservationId` | string | required | Unique identifier of the reservation for which the link should be generated. |
+| `CustomerId` | string | required | Unique identifier of the customer receiving the link. |
+| `GuestPortalLinkTypes` | array of [Guest portal link type](#guest-portal-link-type) | required | Specifies which types of guest portal links should be generated. |
+
+#### Guest portal link type
+
+* `HomePage` — Generates a guest portal link for digital key access.
+* `CheckIn` — Generates a guest portal link for digital key access.
+* `Keys` — Generates a guest portal link for digital key access.  
+* `CheckOut` — Generates a guest portal link for digital key access.
+* Other link types may be supported in the future.
+
+---
+
+### Response
+
+```javascript
+{
+  "GuestPortalLinks": [
+    {
+      "ReservationId": "0f2da2c6-8b28-4202-a2c3-b35200dc4419",
+      "CustomerId": "da978316-5665-4a5c-9e2b-b35200dc29c0",
+      "GuestPortalUrls": [
+        {
+          "Url": "https://api.mews-demo.com/User/SignIn/F28B7E9C3A0D45F6B1C8D2E9F473A0C2-98E1F5D7B6C3A49E1D2F8C0B5E4A7369?utm_campaign=keysExternalLink&utm_medium=api&utm_source=connector-api&language=en-US&enterpriseId=3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "GuestPortalLinkType": "Keys",
+          "ExpiresUtc": "2025-10-06T13:23:37Z"
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `GuestPortalLinks` | array of [Guest portal link result](#guest-portal-link-result) | required | Generated links for each specified reservation and customer. |
+
+#### Guest portal link result
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `ReservationId` | string | required | Unique identifier of the reservation the link is associated with. |
+| `CustomerId` | string | required | Unique identifier of the customer the link is associated with. |
+| `GuestPortalUrls` | array of [Guest portal URL](#guest-portal-url) | required | Array of generated URLs for the guest portal features. |
+
+#### Guest portal URL
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `Url` | string | required | The generated guest portal URL. |
+| `GuestPortalLinkType` | [Guest portal link type](#guest-portal-link-type) | required | Type of the generated link (e.g., `Keys`). |
+| `ExpiresUtc` | string | required | Expiration date and time of the link in UTC timezone, in ISO 8601 format. |
+
+---
+
+### Example Usage
+
+This operation allows generating links to share directly with guests via email, SMS, or kiosk interfaces.  
+For example, a hotel can generate a `Keys` link immediately after check-in to allow guests to add their room key to their mobile wallet.
+
 ## Add reservations
 
 Adds the specified reservations as a single group. If `GroupId` is specified, adds the reservations to an already existing group. Note that all reservations linked to an availability block must belong to the same reservation group.
