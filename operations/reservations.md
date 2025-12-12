@@ -870,10 +870,10 @@ These links can be used to grant guests direct access to their online check-in, 
 
 #### Guest portal link type
 
-* `HomePage` — Generates a guest portal link for digital key access.
-* `CheckIn` — Generates a guest portal link for digital key access.
-* `Keys` — Generates a guest portal link for digital key access.  
-* `CheckOut` — Generates a guest portal link for digital key access.
+* `HomePage` — Generates a guest portal link for that takes the guest to the Mews Guest Portal HomePage where they can view their reservations.
+* `CheckIn` — Generates a guest portal link so guests can complete their online check-in.
+* `Keys` — Generates a guest portal link for digital key access.
+* `CheckOut` — Generates a guest portal link so guests can complete their online check-out.
 * Other link types may be supported in the future.
 
 ---
@@ -917,13 +917,6 @@ These links can be used to grant guests direct access to their online check-in, 
 | `Url` | string | required | The generated guest portal URL. |
 | `GuestPortalLinkType` | [Guest portal link type](#guest-portal-link-type) | required | Type of the generated link (e.g., `Keys`). |
 | `ExpiresUtc` | string | required | Expiration date and time of the link in UTC timezone, in ISO 8601 format. |
-
----
-
-### Example Usage
-
-This operation allows generating links to share directly with guests via email, SMS, or kiosk interfaces.  
-For example, a hotel can generate a `Keys` link immediately after check-in to allow guests to add their room key to their mobile wallet.
 
 ## Add reservations
 
