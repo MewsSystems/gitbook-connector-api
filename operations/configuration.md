@@ -250,6 +250,7 @@ Returns the enterprise configuration. For single-enterprise Access Tokens, this 
 * `GroupTaxesOnBill` - Group taxes on bill
 * `DisplayEmployeeNameOnBill` - Display employee name on bill
 * `TaxDeclarationOnDeposit` - Tax declaration on deposit
+* `SplitVatByClassificationOnBill` - Split VAT by classification on bill
 
 #### Payment card storage
 

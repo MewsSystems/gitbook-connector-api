@@ -122,7 +122,10 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "AvailabilityBlockNumber": "478",
       "ReleaseStrategy": "FixedRelease",
       "PurchaseOrderNumber": "XX-123",
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "CanceledUtc": null,
+      "CancellationReason": null,
+      "CancellationReasonDetail": null
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -157,7 +160,10 @@ Returns all availability blocks filtered by services, unique identifiers and oth
       "AvailabilityBlockNumber": "479",
       "ReleaseStrategy": "RollingRelease",
       "PurchaseOrderNumber": null,
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "CanceledUtc": null,
+      "CancellationReason": null,
+      "CancellationReasonDetail": null
     }
   ],
   "ServiceOrders": null,
@@ -223,6 +229,9 @@ Returns all availability blocks filtered by services, unique identifiers and oth
 | `ReleaseStrategy` | [Release strategy](availabilityblocks.md#release-strategy) | required | The strategy for automatic release of the availability block. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the associated `Business segment`. |
+| `CanceledUtc` | string | optional | Date and time of the block cancellation in UTC timezone in ISO 8601 format. |
+| `CancellationReason` | [Reservation cancellation reason](reservations.md#reservation-cancellation-reason) | optional | Cancellation reason of the availability block. |
+| `CancellationReasonDetail` | string | optional | Additional details of availability block cancellation. |
 
 #### Availability block state
 
@@ -319,7 +328,7 @@ Adds availability blocks which are used to group related `Availability updates`.
 | `QuoteId` | string | optional | Unique identifier of the Mews Events quote associated with the availability block. |
 | `PurchaseOrderNumber` | string | optional | Unique number of the purchase order. This number is propagated to any newly picked up `Reservation` within the block. |
 | `BusinessSegmentId` | string | optional | Unique identifier of the business segment. |
-| `PickupDistribution` | [Pickup distribution](availabilityblocks.md#pickup-distribution) | optional | Pickup distribution. Defaults to `AllInOneGroup` if not specified. |
+| `PickupDistribution` | [Pickup distribution](availabilityblocks.md#pickup-distribution) | optional | Specifies how reservations within the block are distributed for pickup. Defaults to `AllInOneGroup` if not provided. This value cannot be updated after creation. |
 
 ### Response
 
@@ -359,7 +368,10 @@ Adds availability blocks which are used to group related `Availability updates`.
       "AvailabilityBlockNumber": "478",
       "ReleaseStrategy": "FixedRelease",
       "PurchaseOrderNumber": "XX-123",
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "CanceledUtc": null,
+      "CancellationReason": null,
+      "CancellationReasonDetail": null
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -394,7 +406,10 @@ Adds availability blocks which are used to group related `Availability updates`.
       "AvailabilityBlockNumber": "479",
       "ReleaseStrategy": "RollingRelease",
       "PurchaseOrderNumber": null,
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "CanceledUtc": null,
+      "CancellationReason": null,
+      "CancellationReasonDetail": null
     }
   ],
   "ServiceOrders": null,
@@ -448,19 +463,19 @@ Updates information about the specified `Availability block`. Note this operatio
         "Value": "2021-07-15T00:00:00Z"
       },
       "ExternalIdentifier": {
-        "Value": "Block-0001"
+        "Value": "Block-1002"
       },
       "State": {
         "Value": "Confirmed"
       },
       "ReservationPurpose": {
-        "Value": "Leisure"
+        "Value": "Business"
       },
       "BookerId": {
         "Value": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72"
       },
       "Notes": {
-        "Value": "Have a nice stay"
+        "Value": "Welcome to Washington"
       },
       "Budget": {
         "Value": {
@@ -469,56 +484,24 @@ Updates information about the specified `Availability block`. Note this operatio
         }
       },
       "ReleasedUtc": {
-        "Value": "2021-07-01T00:00:00Z"
+        "Value": "2021-07-04T00:00:00Z"
       },
       "QuoteId": {},
-      "BusinessSegmentId": {}
+      "BusinessSegmentId": {
+        "Value": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      }
     },
     {
       "AvailabilityBlockId": "c32386aa-1cd2-414a-a823-489325842fbe",
-      "Name": {
-        "Value": "Rolling release block"
-      },
-      "FirstTimeUnitStartUtc": {
-        "Value": "2022-07-05T00:00:00Z"
-      },
-      "LastTimeUnitStartUtc": {
-        "Value": "2022-07-15T00:00:00Z"
-      },
-      "ExternalIdentifier": {
-        "Value": "Block-0002"
-      },
       "State": {
-        "Value": "Confirmed"
+        "Value": "Canceled"
       },
-      "ReservationPurpose": {
-        "Value": "Leisure"
+      "CancellationReason": {
+        "Value": "ForceMajeure"
       },
-      "BookerId": {
-        "Value": "ebd507c5-6bfd-4ca9-96aa-ffed6fa94f72"
-      },
-      "Notes": {
-        "Value": "Have a nice stay"
-      },
-      "Budget": {
-        "Value": {
-          "Currency": "USD",
-          "Value": 48
-        }
-      },
-      "RollingReleaseOffset": {
-        "Value": "P-3DT4H"
-      },
-      "ReleasedUtc": {
-        "Value": "2021-07-01T00:00:00Z"
-      },
-      "ReleaseStrategy": {
-        "Value": "RollingRelease"
-      },
-      "QuoteId": {
-        "Value": "67eaf3c8-81e0-4ffb-b5f2-2b61803feb9c"
-      },
-      "BusinessSegmentId": {}
+      "CancellationReasonDetail": {
+        "Value": "Event was canceled due to rain."
+      }
     }
   ]
 }
@@ -591,23 +574,26 @@ Updates information about the specified `Availability block`. Note this operatio
         "TaxRate": null
       },
       "State": "Confirmed",
-      "ReservationPurpose": "Leisure",
+      "ReservationPurpose": "Business",
       "CreatedUtc": "2020-11-04T13:00:00Z",
-      "UpdatedUtc": "2020-11-04T13:00:00Z",
-      "FirstTimeUnitStartUtc": "2020-11-04T13:00:00Z",
-      "LastTimeUnitStartUtc": "2020-11-04T13:00:00Z",
-      "ReleasedUtc": "2020-11-04T13:00:00Z",
+      "UpdatedUtc": "2020-11-05T16:11:38Z",
+      "FirstTimeUnitStartUtc": "2021-07-05T00:00:00Z",
+      "LastTimeUnitStartUtc": "2021-07-15T00:00:00Z",
+      "ReleasedUtc": "2021-07-04T00:00:00Z",
       "RollingReleaseOffset": null,
-      "ExternalIdentifier": "Block-0001",
-      "Name": "Wedding group",
-      "Notes": "Have a nice stay",
+      "ExternalIdentifier": "Block-1002",
+      "Name": "Mr. Smith's block",
+      "Notes": "Welcome to Washington",
       "PickupDistribution": "AllInOneGroup",
       "IsActive": false,
       "QuoteId": null,
       "AvailabilityBlockNumber": "478",
       "ReleaseStrategy": "FixedRelease",
       "PurchaseOrderNumber": "XX-123",
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "CanceledUtc": null,
+      "CancellationReason": null,
+      "CancellationReasonDetail": null
     },
     {
       "Id": "c32386aa-1cd2-414a-a823-489325842fbe",
@@ -625,7 +611,7 @@ Updates information about the specified `Availability block`. Note this operatio
         "Tax": null,
         "TaxRate": null
       },
-      "State": "Confirmed",
+      "State": "Canceled",
       "ReservationPurpose": "Leisure",
       "CreatedUtc": "2022-10-11T13:32:32Z",
       "UpdatedUtc": "2022-10-11T13:32:32Z",
@@ -642,7 +628,10 @@ Updates information about the specified `Availability block`. Note this operatio
       "AvailabilityBlockNumber": "479",
       "ReleaseStrategy": "RollingRelease",
       "PurchaseOrderNumber": null,
-      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed"
+      "BusinessSegmentId": "dc9188f6-fb61-412c-b3fd-af32dab082ed",
+      "CanceledUtc": "2022-10-12T15:12:49Z",
+      "CancellationReason": "ForceMajeure",
+      "CancellationReasonDetail": "Event was canceled due to rain."
     }
   ],
   "ServiceOrders": null,
