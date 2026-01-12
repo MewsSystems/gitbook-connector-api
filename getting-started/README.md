@@ -37,7 +37,7 @@ To begin testing:
 2. **Note the tokens** for that property:
    - `ClientToken`
    - `AccessToken`
-3. **(Optional)** Log in to [Mews Operations](https://app.mews-demo.com) using the provided email and password to explore the UI and sample data.
+3. **(Optional)** [Request a dedicated Demo Property](../guidelines/environments.md#mews-operations-credentials) in __Mews Operations__  to explore the UI and sample data.
 
 You’ll use these credentials to make authenticated API requests.
 
