@@ -26,11 +26,13 @@ These addresses should be used for testing and development of client application
 
 ### Mews system credentials
 
-These login credentials can be used to access __Mews Operations__ (for both Gross and Net Pricing Environments):
+These login credentials to connect to __Mews Operations__ will be automatically sent after the user creation in the Demo Property (for both Gross and Net Pricing Environments), see the process below:
 
+* Fill in the **Become a Mews Partner Form** - `https://www.mews.com/en/partners/new-partnerships`
+* An automated email will be sent to your email address to reset your password to log in into the Demo Property
+* Reset the password
+* Now, you can successfully log in into the Demo Property
 * **Mews Web Application Address** - `https://app.mews-demo.com`
-* **Email** - connector-api-demo@mews.com
-* **Password** - connector-API-2024
 
 ### API tokens (Gross Pricing Environment)
 
