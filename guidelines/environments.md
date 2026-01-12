@@ -24,16 +24,6 @@ These addresses should be used for testing and development of client application
 * **PlatformAddress** - `https://api.mews-demo.com`
 * **WebSocketAddress** - `wss://ws.mews-demo.com`
 
-### Mews system credentials
-
-These login credentials to connect to __Mews Operations__ will be automatically sent after the user creation in the Demo Property (for both Gross and Net Pricing Environments), see the process below:
-
-* Fill in the **Become a Mews Partner Form** - `https://www.mews.com/en/partners/new-partnerships`
-* An automated email will be sent to your email address to reset your password to log in into the Demo Property
-* Reset the password
-* Now, you can successfully log in into the Demo Property
-* **Mews Web Application Address** - `https://app.mews-demo.com`
-
 ### API tokens (Gross Pricing Environment)
 
 The credentials below will connect with a demo enterprise configured for Gross pricing. This demo enterprise is based in the `United Kingdom` legal and tax environment. It accepts `GBP`, `EUR` and `USD` currencies (any of them may be used). Refer to [Taxations](#taxations) for proper usage of the relevant [Tax rate](../operations/taxations.md#tax-rate) codes. Use any of the four sets of tokens.
@@ -73,6 +63,15 @@ The credentials below will connect with a demo enterprise configured for Net pri
 **Integration: `Connector API Test Client 4`**
 * **ClientToken** - `07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA`
 * **AccessToken** - `BFD4298010F54B069F3DAD20015D53EA-D5561FADFBA4EFC8EA4C179C6BC461F`
+
+### Mews Operations credentials
+
+Partners can request access to __Mews Operations__ for a dedicated Demo Property upon request:
+
+1. Fill in the [Become a Mews Partner Form](https://www.mews.com/en/partners/new-partnerships)
+2. An automated email will be sent to your email address to reset your password to log in into the Demo Property
+3. Reset the password
+4. Now, you can successfully log in into the Demo Property through [demo environment of Mews Operations](https://app.mews-demo.com).
 
 ### Request limits
 
