@@ -172,6 +172,7 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
       "ReservationId": "0f515589-99b4-423d-b83a-b237009f0509"
     }
   ],
+  "SendPaymentRequestEmails": true,
   "EnterpriseId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
@@ -183,6 +184,7 @@ Creates a payment request to the specified [Customer](customers.md#customer). No
 | `Client` | string | required | Name and version of the client application. |
 | `EnterpriseId` | string | optional | Unique identifier of the enterprise. Required when using [Portfolio Access Tokens](../concepts/multi-property.md), ignored otherwise. |
 | `PaymentRequests` | array of [Payment request parameters](paymentrequests.md#payment-request-parameters) | required, max 1000 items | Payment requests to be added. |
+| `SendPaymentRequestEmails` | boolean | optional | Specifies whether a payment request email is sent to the customer. Defaults to `true`. |
 
 #### Payment request parameters
 
