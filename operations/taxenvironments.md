@@ -31,30 +31,45 @@ Returns all tax environments supported by the API.
     {
       "Code": "AT-2020",
       "CountryCode": "AUT",
-      "TaxationCodes": [
-        "AT-2020",
-        "AT-2020-Extra"
-      ],
       "ValidityStartUtc": "2020-06-30T22:00:00Z",
-      "ValidityEndUtc": null
+      "ValidityEndUtc": null,
+      "TaxationCodes": [
+        "AT-2020"
+      ]
     },
     {
-      "Code": "AT-2016",
-      "CountryCode": "AUT",
+      "Code": "AW-2023",
+      "CountryCode": "ABW",
+      "ValidityStartUtc": "2023-01-01T04:00:00Z",
+      "ValidityEndUtc": null,
       "TaxationCodes": [
-        "AT-2016"
-      ],
-      "ValidityStartUtc": "2016-05-01T00:00:00Z",
-      "ValidityEndUtc": "2020-06-30T22:00:00Z"
+        "AW-2023",
+        "AW-TOURIST-2023",
+        "AW-RESIDENCE"
+      ]
     },
     {
-      "Code": "AT",
-      "CountryCode": "AUT",
+      "Code": "CA-QC-TR-2023",
+      "CountryCode": "CAN",
+      "ValidityStartUtc": "2023-10-19T19:00:00Z",
+      "ValidityEndUtc": null,
       "TaxationCodes": [
-        "AT"
-      ],
+        "CA-TR-2023",
+        "CA-QC-2023",
+        "CA-QC-LODGING-2023",
+        "CA-QC-LO-FLAT"
+      ]
+    },
+    {
+      "Code": "PH-MA-CUSTOM",
+      "CountryCode": "PHL",
       "ValidityStartUtc": null,
-      "ValidityEndUtc": "2016-05-01T00:00:00Z"
+      "ValidityEndUtc": null,
+      "TaxationCodes": [
+        "PH",
+        "PH-MA-CUSTOM",
+        "PH-MA-SERVICE"
+      ]
     }
   ]
 }
