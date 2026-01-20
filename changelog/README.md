@@ -1,6 +1,6 @@
 # Changelog
 
-## 19th January 2026
+## 20th January 2026
 * [Add payment requests](../operations/paymentrequests.md#add-payment-requests):
   * Extended request object with `SendPaymentRequestEmails` parameter.
 * [Get all reservations (ver 2023-06-06)](../operations/reservations.md#get-all-reservations-ver-2023-06-06):
