@@ -47,12 +47,29 @@ Returns all taxations supported in tax environments.
       "Code": "AT",
       "Name": "VAT",
       "LocalName": "MWST"
+    },
+    {
+      "Code": "AW",
+      "Name": "TAX",
+      "LocalName": "TAX"
+    },
+    {
+      "Code": "CA-QC-2023",
+      "Name": "TVQ/QST",
+      "LocalName": "TVQ/QST"
+    },
+    {
+      "Code": "PH-MA-CUSTOM",
+      "Name": "Makati local tax",
+      "LocalName": "Makati local tax"
     }
   ],
   "TaxRates": [
     {
       "Code": "AT-2020-21%",
       "TaxationCode": "AT",
+      "Value": 0.21,
+      "ValidityInvervalsUtc": null,
       "Strategy": {
         "Discriminator": "Relative",
         "Value": {
@@ -62,25 +79,80 @@ Returns all taxations supported in tax environments.
     },
     {
       "Code": "AT-2020-Extra-10%",
-      "TaxationCode": "AT-2020-Extra-10%",
+      "TaxationCode": "AT-2020-Extra",
+      "Value": 0.1,
+      "ValidityInvervalsUtc": null,
       "Strategy": {
         "Discriminator": "Dependent",
         "Value": {
+          "Value": 0.1,
           "BaseTaxationCodes": [
             "AT-2020"
-          ],
-          "Value": 0.1
+          ]
         }
       }
     },
     {
       "Code": "AT-5-EUR",
       "TaxationCode": "AT",
+      "Value": 5,
+      "ValidityInvervalsUtc": null,
       "Strategy": {
         "Discriminator": "Flat",
         "Value": {
-          "Value": 5,
-          "CurrencyCode": "EUR"
+          "CurrencyCode": "EUR",
+          "Value": 5
+        }
+      }
+    },
+    {
+      "Code": "AW-S",
+      "TaxationCode": "AW",
+      "Value": 0.2062,
+      "ValidityInvervalsUtc": [
+        {
+          "StartUtc": null,
+          "EndUtc": "2021-01-14T00:00:00Z"
+        }
+      ],
+      "Strategy": {
+        "Discriminator": "Relative",
+        "Value": {
+          "Value": 0.2062
+        }
+      }
+    },
+    {
+      "Code": "CA-QC-2023-9.975%",
+      "TaxationCode": "CA-QC-2023",
+      "Value": 0,
+      "ValidityInvervalsUtc": [
+        {
+          "StartUtc": "2023-10-19T19:00:00Z",
+          "EndUtc": null
+        }
+      ],
+      "Strategy": {
+        "Discriminator": "Dependent",
+        "Value": {
+          "Value": 0.09975,
+          "BaseTaxationCodes": [
+            "CA-QC-MT-LO",
+            "CA-QC-LODGING-2023",
+            "CA-QC-LO-FLAT"
+          ]
+        }
+      }
+    },
+    {
+      "Code": "PH-MA-CUSTOM-0.75%",
+      "TaxationCode": "PH-MA-CUSTOM",
+      "Value": 0.0075,
+      "ValidityInvervalsUtc": null,
+      "Strategy": {
+        "Discriminator": "Relative",
+        "Value": {
+          "Value": 0.0075
         }
       }
     }

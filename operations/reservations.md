@@ -252,6 +252,7 @@ Returns all reservations within scope of the Access Token, filtered according to
 * `Website`
 * `Message`
 * `CallCenter`
+* `RoomingList`
 
 #### Service Order Options
 
@@ -580,6 +581,7 @@ Extent of data to be returned. E.g. it is possible to specify that together with
 * `CommanderWebsite` - From Mews Operations, via website.
 * `CommanderMessage` - From Mews Operations, via message person.
 * `CommanderCallCenter` - From Mews Operations, via call center.
+* `CommanderRoomingList` - From Mews Operations, via rooming list.
 
 #### Reservation purpose
 
