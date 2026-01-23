@@ -4,6 +4,28 @@ These are JSON object definitions and other JSON entities shared by operations a
 
 ### Time interval
 
+When a time interval is used for **filtering** (for example in parameters such as `CreatedUtc.StartUtc` / `CreatedUtc.EndUtc`), the following rules apply:
+
+- **Start equals End (equality mode)**  
+  If `StartUtc` and `EndUtc` are exactly the same timestamp, the filter is treated as an equality check for that precise moment in time:
+  
+  ```
+  CreatedUtc == StartUtc
+  ```
+  
+  This does not represent an interval; only records with `CreatedUtc` equal to that exact instant are returned.
+
+- **Start differs from End (interval mode)**  
+  If `StartUtc` and `EndUtc` are different, the filter is evaluated as a half-open interval:
+  
+  ```
+  StartUtc <= CreatedUtc < EndUtc
+  ```
+  
+  In other words, the start is inclusive and the end is exclusive.
+
+> **Note:** When designing integrations (especially accounting or incremental syncs), make sure your time ranges take this inclusive Start / exclusive End behavior into account so that no records at the boundaries are unintentionally omitted.
+
 ```javascript
 {
     "StartUtc": "2020-01-05T00:00:00Z",
