@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository was merged into [open-api-docs](https://github.com/MewsSystems/open-api-docs) repository.
+
 # Mews Connector API
 
 Welcome to the __Mews Connector API__! This is a general-purpose API that enables partners of Mews to access data and services in __Mews Operations__.
